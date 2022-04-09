@@ -12,6 +12,7 @@
 struct mu_result {
   const char *file;
   uint16_t line;
+  const char *condition;
   const char *message;
 };
 
@@ -21,14 +22,14 @@ struct mu_result {
 #define mu_assert(message, test) \
   do { \
     if (!(test)) { \
-      struct mu_result result = {__FILE__, __LINE__, message}; \
+      struct mu_result result = {__FILE__, __LINE__, #test, message}; \
       return result; \
     } \
   } while (0)
 
 #define mu_pass() \
   do { \
-    struct mu_result result = { NULL, 0, NULL }; \
+    struct mu_result result = { NULL, 0, NULL, NULL }; \
     return result; \
   } while (0)
 
@@ -43,8 +44,8 @@ struct mu_result {
   do { \
     struct mu_result result = suite(); \
     if (result.file != 0) { \
-      printf("%s:%d: ERROR: %s\n", \
-          result.file, result.line, result.message); \
+      printf("%s:%d: ERROR: [%s] is false: %s\n", \
+          result.file, result.line, result.condition, result.message); \
     } else { \
       printf("ALL TESTS PASSED\n"); \
     } \
