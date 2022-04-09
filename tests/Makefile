@@ -7,5 +7,8 @@ epoch_converters_test.out: epoch_converters_test.o ../src/acetimec.a
 
 epoch_converters_test.o: epoch_converters_test.c minunit.h
 
+runtests:
+	./epoch_converters_test.out
+
 clean:
 	rm -f *.o $(TARGETS)
