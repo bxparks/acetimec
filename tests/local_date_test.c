@@ -1,18 +1,17 @@
-#include <stdio.h>
 #include "minunit.h"
 #include <acetimec.h>
 
-static char *test_is_leap_year()
+mu_test(test_is_leap_year)
 {
   mu_assert("Year 2000 should be leap year", atc_is_leap_year(2000));
   mu_assert("Year 2004 should be leap year", atc_is_leap_year(2004));
   mu_assert("Year 2100 should not be leap year", !atc_is_leap_year(2100));
-  return 0;
+  mu_pass();
 }
 
 // Do a round-trip atc_to_epoch_days()/atc_from_epoch_days() conversion for
 // every day from 1873-01-01 to 2127-12-31, inclusive.
-static char *test_to_and_from_epoch_days()
+mu_test(test_to_and_from_epoch_days)
 {
   int32_t epoch_days = -46385; // 1873-01-01
   for (int16_t year = 2000 - 127; year <= 2000 + 127; year++) {
@@ -39,17 +38,17 @@ static char *test_to_and_from_epoch_days()
       }
     }
   }
-  return 0;
+  mu_pass();
 }
 
 //---------------------------------------------------------------------------
 
 int tests_run = 0;
 
-static char *all_tests() {
+mu_test(all_tests) {
   mu_run_test(test_is_leap_year);
   mu_run_test(test_to_and_from_epoch_days);
-  return 0;
+  mu_pass();
 }
 
 int main(int argc, char **argv)
@@ -57,13 +56,5 @@ int main(int argc, char **argv)
   (void) argc;
   (void) argv;
 
-  char *result = all_tests();
-  if (result != 0) {
-    printf("ERROR: %s\n", result);
-  } else {
-    printf("ALL TESTS PASSED\n");
-  }
-  printf("Tests run: %d\n", tests_run);
-
-  return result != 0;
+  mu_run_suite(all_tests);
 }

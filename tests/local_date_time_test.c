@@ -1,8 +1,7 @@
-#include <stdio.h>
 #include "minunit.h"
 #include <acetimec.h>
 
-static char *test_to_epoch_seconds()
+mu_test(test_to_epoch_seconds)
 {
   int32_t seconds = atc_to_epoch_seconds(1931, 12, 13, 20, 45, 53);
   mu_assert("Incorrect epoch seconds", seconds == INT32_MIN + 1);
@@ -22,10 +21,10 @@ static char *test_to_epoch_seconds()
   seconds = atc_to_epoch_seconds(2038, 1, 19, 3, 14, 7);
   mu_assert("Incorrect epoch seconds", seconds == 1200798847);
 
-  return 0;
+  mu_pass();
 }
 
-static char *test_from_epoch_seconds_2000()
+mu_test(test_from_epoch_seconds_2000)
 {
   int16_t year;
   uint8_t month;
@@ -49,10 +48,10 @@ static char *test_from_epoch_seconds_2000()
   mu_assert("Incorrect minute", minute == 0);
   mu_assert("Incorrect second", second == 0);
 
-  return 0;
+  mu_pass();
 }
 
-static char *test_from_epoch_seconds_2029()
+mu_test(test_from_epoch_seconds_2029)
 {
   int16_t year;
   uint8_t month;
@@ -76,10 +75,10 @@ static char *test_from_epoch_seconds_2029()
   mu_assert("Incorrect minute", minute == 59);
   mu_assert("Incorrect second", second == 59);
 
-  return 0;
+  mu_pass();
 }
 
-static char *test_from_epoch_seconds_2068()
+mu_test(test_from_epoch_seconds_2068)
 {
   int16_t year;
   uint8_t month;
@@ -103,19 +102,20 @@ static char *test_from_epoch_seconds_2068()
   mu_assert("Incorrect minute", minute == 14);
   mu_assert("Incorrect second", second == 6);
 
-  return 0;
+  mu_pass();
 }
 
 //---------------------------------------------------------------------------
 
 int tests_run = 0;
 
-static char *all_tests() {
+mu_test(all_tests)
+{
   mu_run_test(test_to_epoch_seconds);
   mu_run_test(test_from_epoch_seconds_2000);
   mu_run_test(test_from_epoch_seconds_2029);
   mu_run_test(test_from_epoch_seconds_2068);
-  return 0;
+  mu_pass();
 }
 
 int main(int argc, char **argv)
@@ -123,13 +123,5 @@ int main(int argc, char **argv)
   (void) argc;
   (void) argv;
 
-  char *result = all_tests();
-  if (result != 0) {
-    printf("ERROR: %s\n", result);
-  } else {
-    printf("ALL TESTS PASSED\n");
-  }
-  printf("Tests run: %d\n", tests_run);
-
-  return result != 0;
+  mu_run_suite(all_tests);
 }
