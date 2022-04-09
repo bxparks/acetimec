@@ -47,9 +47,9 @@ static char *test_to_and_from_epoch_days()
 int tests_run = 0;
 
 static char *all_tests() {
-		mu_run_test(test_is_leap_year);
-		mu_run_test(test_to_and_from_epoch_days);
-		return 0;
+  mu_run_test(test_is_leap_year);
+  mu_run_test(test_to_and_from_epoch_days);
+  return 0;
 }
 
 int main(int argc, char **argv)
