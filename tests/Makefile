@@ -15,8 +15,11 @@ local_date_test.o: local_date_test.c minunit.h
 local_date_time_test.o: local_date_time_test.c minunit.h
 
 runtests:
-	./local_date_test.out
-	./local_date_time_test.out
+	set -e; \
+	for i in $(TARGETS); do \
+		echo '==== Running' $$i; \
+		./$$i; \
+	done
 
 clean:
 	rm -f *.o $(TARGETS)
