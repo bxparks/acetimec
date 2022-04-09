@@ -1,4 +1,4 @@
-CFLAGS := -Wall -Wextra -pedantic -std=c99 -I ../src
+CFLAGS := -Wall -Wextra -Werror -ansi -pedantic -std=c11 -I ../src
 
 TARGETS := epoch_converters_test.out
 

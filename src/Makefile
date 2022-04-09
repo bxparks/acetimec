@@ -1,4 +1,4 @@
-CFLAGS := -Wall -Wextra -pedantic -std=c99
+CFLAGS := -Wall -Wextra -Werror -ansi -pedantic -std=c11
 
 OBJS := ace_time_c/date_utils.o ace_time_c/epoch_converter_hinnant2.o
 
