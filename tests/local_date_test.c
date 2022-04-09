@@ -2,10 +2,6 @@
 #include "minunit.h"
 #include <acetimec.h>
 
-//---------------------------------------------------------------------------
-// date_utils.h
-//---------------------------------------------------------------------------
-
 static char *test_is_leap_year()
 {
   mu_assert("Year 2000 should be leap year", atc_is_leap_year(2000));
@@ -14,51 +10,9 @@ static char *test_is_leap_year()
   return 0;
 }
 
-//---------------------------------------------------------------------------
-// epoch_converter_julian.h
-//---------------------------------------------------------------------------
-
 // Do a round-trip atc_to_epoch_days()/atc_from_epoch_days() conversion for
 // every day from 1873-01-01 to 2127-12-31, inclusive.
-#if 0
-static char *test_epoch_julian_converter_all_days()
-{
-  int32_t epoch_days = -46385; // 1873-01-01
-  for (int16_t year = 2000 - 127; year <= 2000 + 127; year++) {
-    int8_t year_tiny = year - 2000;
-    for (uint8_t month = 1; month <= 12; month++) {
-      uint8_t days_in_month = LocalDate::days_in_month(year, month);
-      for (uint8_t day = 1; day <= days_in_month; day++) {
-        // Test atc_to_epoch_days()
-        int32_t obs_epoch_days = atc_to_epoch_days_julian(
-            year_tiny, month, day);
-        mu_assert(epoch_days, obs_epoch_days);
-
-        // Test fromEopchDays()
-        int8_t obs_year_tiny;
-        uint8_t obs_month;
-        uint8_t obs_day;
-        atc_from_epoch_days_julian(
-            epoch_days, &obs_year_tiny, &obs_month, &obs_day);
-        mu_assert(year_tiny, obs_year_tiny);
-        mu_assert(month, obs_month);
-        mu_assert(day, obs_day);
-
-        // next epoch day
-        epoch_days++;
-      }
-    }
-  }
-}
-#endif
-
-//---------------------------------------------------------------------------
-// epoch_converter_hinnant2.h
-//---------------------------------------------------------------------------
-
-// Do a round-trip atc_to_epoch_days()/atc_from_epoch_days() conversion for
-// every day from 1873-01-01 to 2127-12-31, inclusive.
-static char *test_epoch_converter_hinnant2_all_days()
+static char *test_to_and_from_epoch_days()
 {
   int32_t epoch_days = -46385; // 1873-01-01
   for (int16_t year = 2000 - 127; year <= 2000 + 127; year++) {
@@ -92,9 +46,9 @@ static char *test_epoch_converter_hinnant2_all_days()
 
 int tests_run = 0;
 
-static char * all_tests() {
+static char *all_tests() {
 		mu_run_test(test_is_leap_year);
-		mu_run_test(test_epoch_converter_hinnant2_all_days);
+		mu_run_test(test_to_and_from_epoch_days);
 		return 0;
 }
 

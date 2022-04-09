@@ -1,7 +1,11 @@
+/*
+ * MIT License
+ * Copyright (c) 2022 Brian T. Park
+ */
+
 #ifndef ACE_TIME_C_H
 #define ACE_TIME_C_H
 
-#include "ace_time_c/date_utils.h"
-#include "ace_time_c/epoch_converter_hinnant2.h"
+#include "ace_time_c/local_date.h"
 
 #endif

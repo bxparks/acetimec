@@ -3,10 +3,34 @@
  * Copyright (c) 2022 Brian T. Park
  */
 
-#ifndef ACE_TIME_C_EPOCH_CONVERTER_HINNANT2_H
-#define ACE_TIME_C_EPOCH_CONVERTER_HINNANT2_H
-
 #include <stdint.h>
+#include "local_date.h"
+
+static const uint8_t atc_days_in_month[12] = {
+  31 /*Jan=31*/,
+  28 /*Feb=28*/,
+  31 /*Mar=31*/,
+  30 /*Apr=30*/,
+  31 /*May=31*/,
+  30 /*Jun=30*/,
+  31 /*Jul=31*/,
+  31 /*Aug=31*/,
+  30 /*Sep=30*/,
+  31 /*Oct=31*/,
+  30 /*Nov=30*/,
+  31 /*Dec=31*/,
+};
+
+bool atc_is_leap_year(uint16_t year)
+{
+  return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
+}
+
+uint8_t atc_days_in_year_month(int16_t year, uint8_t month)
+{
+  uint8_t days = atc_days_in_month[month - 1];
+  return (month == 2 && atc_is_leap_year(year)) ? days + 1 : days;
+}
 
 /**
  * Return the number days before the given month_prime.
@@ -19,6 +43,8 @@ static uint16_t atc_to_days_until_month_prime(uint8_t month_prime)
   return (245 * month_prime + 2) / 8 + (month_prime == 1 ? 1 : 0);
 }
 
+// This algorithm corresponds to
+// AceTime/src/ace_time/internal/EpochConverterHinnant2.h.
 int32_t atc_to_epoch_days(int8_t year_tiny, uint8_t month, uint8_t day)
 {
   int8_t year_prime_tiny = year_tiny - ((month <= 2) ? 1 : 0);
@@ -35,6 +61,8 @@ int32_t atc_to_epoch_days(int8_t year_tiny, uint8_t month, uint8_t day)
   return day_of_ace_time_epoch_prime + 60;
 }
 
+// This algorithm corresponds to
+// AceTime/src/ace_time/internal/EpochConverterHinnant2.h.
 void atc_from_epoch_days(
     int32_t epoch_days,
     int8_t *year_tiny,
@@ -58,5 +86,3 @@ void atc_from_epoch_days(
   *month = (month_prime < 10) ? month_prime + 3 : month_prime - 9;
   *year_tiny = year_prime_tiny + ((*month <= 2) ? 1 : 0);
 }
-
-#endif
