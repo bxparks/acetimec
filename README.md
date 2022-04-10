@@ -1,6 +1,6 @@
 # AceTime for C
 
-[![MinUnit Tests](https://github.com/bxparks/AceTimeC/actions/workflows/minunit_tests.yml/badge.svg)](https://github.com/bxparks/AceTimeC/actions/workflows/minunit_tests.yml)
+[![MinUnit Tests](https://github.com/bxparks/AceTimeC/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/bxparks/AceTimeC/actions/workflows/unit_tests.yml)
 
 Time zone library for the C language, based on algorithms and techniques
 from [AceTime](https://github.com/bxparks/AceTime).
