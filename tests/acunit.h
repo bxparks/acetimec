@@ -6,27 +6,36 @@
  * purpose, with the understanding that it comes with NO WARRANTY."
  */
 
-#include <stdint.h>
 #include <stdio.h>
 
+/** Number of unit tests run. */
+extern int acu_tests_run;
+
+/** Number of unit tests failed. */
+extern int acu_tests_failed;
+
+/** Define a test function that returns 0 on failure, 1 on success.. */
+#define acu_test(name) int name(void)
+
 /**
- * Return value of each test function. If an assertion fails, this struct
- * contains the file name, line number, and a string representation of the
- * condition expression that was asserted.
- *
+ * Print assertion failure message.
  * It looks like the `__LINE__` is guaranteed to fit inside a `long` in C11
  * (https://stackoverflow.com/questions/5075928).
  */
-struct acu_result {
-  const char *file;
-  long line;
-  const char *condition;
-  const char *message;
-};
-
-/** Define a test function that returns a 'struct acu_result'. */
-#define acu_test(name) \
-  struct acu_result name()
+extern inline void acu_assertion(
+  const char *file,
+  long line,
+  const char *condition,
+  const char *message)
+{
+  printf("%s:%ld: Assertion failed: [%s] is false", file, line, condition);
+  acu_tests_failed++;
+  if (message) {
+    printf(": %s\n", message);
+  } else {
+    printf("\n");
+  }
+}
 
 /**
  * Implement the 1-argument acu_assert() macro. If we try to use a CPP trick to
@@ -38,8 +47,8 @@ struct acu_result {
 #define acu_assert(condition) \
   do { \
     if (!(condition)) { \
-      struct acu_result result = {__FILE__, __LINE__, #condition, NULL}; \
-      return result; \
+      acu_assertion(__FILE__, __LINE__, #condition, NULL); \
+      return 0; \
     } \
   } while (0)
 
@@ -47,17 +56,13 @@ struct acu_result {
 #define acu_assert_msg(condition, message) \
   do { \
     if (!(condition)) { \
-      struct acu_result result = {__FILE__, __LINE__, #condition, message}; \
-      return result; \
+      acu_assertion(__FILE__, __LINE__, #condition, message); \
+      return 0; \
     } \
   } while (0)
 
 /** Return from the test function with a success code. */
-#define acu_pass() \
-  do { \
-    struct acu_result result = { NULL, 0, NULL, NULL }; \
-    return result; \
-  } while (0)
+#define acu_pass() return 1
 
 /**
  * Run the given 'test' function. If an assertion fails, print the diagnostic
@@ -65,21 +70,9 @@ struct acu_result {
  */
 #define acu_run_test(test) \
   do { \
-    struct acu_result result = test(); \
+    int passed = test(); \
     acu_tests_run++; \
-    if (result.file) { \
-      printf("%s:%ld: Assertion failed: [%s] is false", \
-          result.file, (unsigned long) result.line, result.condition); \
-      acu_tests_failed++; \
-      if (result.message) { \
-        printf(": %s\n", result.message); \
-      } else { \
-        printf("\n"); \
-      } \
-      printf("FAILED: %s\n", #test); \
-    } else { \
-      printf("PASSED: %s\n", #test); \
-    } \
+    printf("%s: %s\n", (passed ? "PASSED" : "FAILED"), #test); \
   } while (0)
 
 /** Print out the test summary. */
@@ -93,9 +86,3 @@ struct acu_result {
     } \
     return acu_tests_failed != 0; \
   } while (0)
-
-/** Number of unit tests run. */
-extern int acu_tests_run;
-
-/** Number of failed unit tests. */
-extern int acu_tests_failed;
