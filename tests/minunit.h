@@ -19,14 +19,30 @@ struct mu_result {
 #define mu_test(name) \
   struct mu_result name()
 
-#define mu_assert(message, test) \
+/* Implement the 1-argument mu_assert() macro. If we try to use a CPP trick
+ * to overload mu_assert() to take 1 or 2 arguments, we get a GCC error message
+ * saying that 'ISO C99 requires at least one argument for the "..." in a
+ * variadic macro'. So we have to use a separate mu_assert_msg() for the 2
+ * parameter version.
+ */
+#define mu_assert(condition) \
   do { \
-    if (!(test)) { \
-      struct mu_result result = {__FILE__, __LINE__, #test, message}; \
+    if (!(condition)) { \
+      struct mu_result result = {__FILE__, __LINE__, #condition, NULL}; \
       return result; \
     } \
   } while (0)
 
+/* Implement the 2-argument mu_assert() macro with a message. */
+#define mu_assert_msg(condition, message) \
+  do { \
+    if (!(condition)) { \
+      struct mu_result result = {__FILE__, __LINE__, #condition, message}; \
+      return result; \
+    } \
+  } while (0)
+
+/* Return from the test function with a success code. */
 #define mu_pass() \
   do { \
     struct mu_result result = { NULL, 0, NULL, NULL }; \
@@ -43,13 +59,19 @@ struct mu_result {
 #define mu_run_suite(suite) \
   do { \
     struct mu_result result = suite(); \
-    if (result.file != 0) { \
-      printf("%s:%d: ERROR: [%s] is false: %s\n", \
-          result.file, result.line, result.condition, result.message); \
+    if (result.file) { \
+      printf("%s:%d: Assertion failed: [%s] is false", \
+          result.file, result.line, result.condition); \
+      if (result.message) { \
+        printf(": %s\n", result.message); \
+      } else { \
+        printf("\n"); \
+      } \
+      printf("FAILED"); \
     } else { \
-      printf("ALL TESTS PASSED\n"); \
+      printf("ALL PASSED"); \
     } \
-    printf("Tests run: %d\n", tests_run); \
+    printf(": Processed %d tests\n", tests_run); \
     return result.file != 0; \
   } while (0)
 
