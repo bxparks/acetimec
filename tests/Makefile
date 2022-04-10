@@ -10,9 +10,9 @@ local_date_test.out: local_date_test.o ../src/acetimec.a
 local_date_time_test.out: local_date_time_test.o ../src/acetimec.a
 	$(CC) -o $@ $^
 
-local_date_test.o: local_date_test.c minunit.h
+local_date_test.o: local_date_test.c acunit.h
 
-local_date_time_test.o: local_date_time_test.c minunit.h
+local_date_time_test.o: local_date_time_test.c acunit.h
 
 runtests:
 	set -e; \
