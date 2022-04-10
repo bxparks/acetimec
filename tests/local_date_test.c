@@ -44,17 +44,14 @@ mu_test(test_to_and_from_epoch_days)
 //---------------------------------------------------------------------------
 
 int tests_run = 0;
-
-mu_test(all_tests) {
-  mu_run_test(test_is_leap_year);
-  mu_run_test(test_to_and_from_epoch_days);
-  mu_pass();
-}
+int tests_failed = 0;
 
 int main(int argc, char **argv)
 {
   (void) argc;
   (void) argv;
 
-  mu_run_suite(all_tests);
+  mu_run_test(test_is_leap_year);
+  mu_run_test(test_to_and_from_epoch_days);
+  mu_summary();
 }

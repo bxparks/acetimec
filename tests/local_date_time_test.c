@@ -108,20 +108,16 @@ mu_test(test_from_epoch_seconds_2068)
 //---------------------------------------------------------------------------
 
 int tests_run = 0;
-
-mu_test(all_tests)
-{
-  mu_run_test(test_to_epoch_seconds);
-  mu_run_test(test_from_epoch_seconds_2000);
-  mu_run_test(test_from_epoch_seconds_2029);
-  mu_run_test(test_from_epoch_seconds_2068);
-  mu_pass();
-}
+int tests_failed = 0;
 
 int main(int argc, char **argv)
 {
   (void) argc;
   (void) argv;
 
-  mu_run_suite(all_tests);
+  mu_run_test(test_to_epoch_seconds);
+  mu_run_test(test_from_epoch_seconds_2000);
+  mu_run_test(test_from_epoch_seconds_2029);
+  mu_run_test(test_from_epoch_seconds_2068);
+  mu_summary();
 }
