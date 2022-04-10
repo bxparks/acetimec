@@ -73,6 +73,9 @@ struct acu_result {
       } else { \
         printf("\n"); \
       } \
+      printf("FAILED: %s\n", #test); \
+    } else { \
+      printf("PASSED: %s\n", #test); \
     } \
   } while (0)
 
@@ -80,10 +83,10 @@ struct acu_result {
 #define acu_summary() \
   do { \
     if (acu_tests_failed) { \
-      printf("FAILED: %d failed out of %d test(s)\n", \
+      printf("Summary: FAILED: %d failed out of %d test(s)\n", \
           acu_tests_failed, acu_tests_run); \
     } else { \
-      printf("ALL PASSED: %d tests(s)\n", acu_tests_run); \
+      printf("Summary: PASSED: %d tests(s)\n", acu_tests_run); \
     } \
     return acu_tests_failed != 0; \
   } while (0)
