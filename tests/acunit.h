@@ -13,10 +13,13 @@
  * Return value of each test function. If an assertion fails, this struct
  * contains the file name, line number, and a string representation of the
  * condition expression that was asserted.
+ *
+ * It looks like the `__LINE__` is guaranteed to fit inside a `long` in C11
+ * (https://stackoverflow.com/questions/5075928).
  */
 struct acu_result {
   const char *file;
-  uint32_t line;
+  long line;
   const char *condition;
   const char *message;
 };
@@ -65,7 +68,7 @@ struct acu_result {
     struct acu_result result = test(); \
     acu_tests_run++; \
     if (result.file) { \
-      printf("%s:%lu: Assertion failed: [%s] is false", \
+      printf("%s:%ld: Assertion failed: [%s] is false", \
           result.file, (unsigned long) result.line, result.condition); \
       acu_tests_failed++; \
       if (result.message) { \
