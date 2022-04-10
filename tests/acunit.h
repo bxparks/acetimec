@@ -65,8 +65,8 @@ struct acu_result {
     struct acu_result result = test(); \
     acu_tests_run++; \
     if (result.file) { \
-      printf("%s:%d: Assertion failed: [%s] is false", \
-          result.file, result.line, result.condition); \
+      printf("%s:%lu: Assertion failed: [%s] is false", \
+          result.file, (unsigned long) result.line, result.condition); \
       acu_tests_failed++; \
       if (result.message) { \
         printf(": %s\n", result.message); \
