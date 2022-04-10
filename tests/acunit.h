@@ -16,7 +16,7 @@
  */
 struct acu_result {
   const char *file;
-  uint16_t line;
+  uint32_t line;
   const char *condition;
   const char *message;
 };
