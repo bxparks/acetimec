@@ -7,12 +7,12 @@
 // Offset to between 'year' and 'year_tiny'.
 #define ATC_YEAR_TINY_OFFSET 2000
 
-static int32_t to_epoch_seconds(uint8_t hour, uint8_t minute, uint8_t second)
+static atc_time_t to_epoch_seconds(uint8_t hour, uint8_t minute, uint8_t second)
 {
   return ((hour * (int16_t) 60) + minute) * (int32_t) 60 + second;
 }
 
-int32_t atc_to_epoch_seconds(
+atc_time_t atc_to_epoch_seconds(
   int16_t year, uint8_t month, uint8_t day,
   uint8_t hour, uint8_t minute, uint8_t second)
 {
@@ -25,7 +25,7 @@ int32_t atc_to_epoch_seconds(
 }
 
 void atc_from_epoch_seconds(
-  int32_t epoch_seconds,
+  atc_time_t epoch_seconds,
   int16_t *year, uint8_t *month, uint8_t *day,
   uint8_t *hour, uint8_t *minute, uint8_t *second)
 {

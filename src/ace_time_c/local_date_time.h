@@ -8,16 +8,17 @@
 
 #include <stdint.h>
 
+typedef int32_t atc_time_t;
+
 /** Convert (year, month, day, hour, minute, second) in UTC to epoch seconds. */
-int32_t atc_to_epoch_seconds(
+atc_time_t atc_to_epoch_seconds(
   int16_t year, uint8_t month, uint8_t day,
   uint8_t hour, uint8_t minute, uint8_t second);
 
 /** Convert epoch seconds to (year, month, day, hour, minute, second) in UTC. */
 void atc_from_epoch_seconds(
-  int32_t epoch_seconds,
+  atc_time_t epoch_seconds,
   int16_t *year, uint8_t *month, uint8_t *day,
   uint8_t *hour, uint8_t *minute, uint8_t *second);
-
 
 #endif
