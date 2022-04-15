@@ -11,8 +11,24 @@
 #include "common.h" // atc_time_t
 #include "zone_info.h"
 
-struct AtcZoneEra;
-struct AtcZoneRule;
+//---------------------------------------------------------------------------
+// Conversion and accessor utilities.
+//---------------------------------------------------------------------------
+
+extern inline uint16_t atc_zone_info_time_code_to_minutes(
+  uint8_t code, uint8_t modifier)
+{
+  return code * (uint16_t) 15 + (modifier & 0x0f);
+}
+
+extern inline uint8_t atc_zone_info_modifier_to_suffix(uint8_t modifier)
+{
+  return modifier & 0xf0;
+}
+
+//---------------------------------------------------------------------------
+// Data structures to track ZoneEra transitions and associated info.
+//---------------------------------------------------------------------------
 
 enum {
   /**
@@ -37,7 +53,7 @@ struct AtcYearMonth {
   uint8_t month;
 };
 
-/** A tuple of (year_tiny, month, day, minutes). */
+/** An internal tuple of (year_tiny, month, day, minutes). */
 struct AtcDateTime {
   int8_t year_tiny; // [-127, 126], 127 will cause bugs
   uint8_t month; // [1-12]
@@ -70,6 +86,8 @@ struct AtcMatchingEra {
   uint16_t last_delta_minutes;
 };
 
+//---------------------------------------------------------------------------
+
 /**
  * The result of comparing transition of a Transition to the time interval
  * of the corresponding AtcMatchingEra.
@@ -81,8 +99,6 @@ enum {
   kAtcMatchStatusWithinMatch, // 3
   kAtcMatchStatusFarFuture, // 4
 };
-
-//---------------------------------------------------------------------------
 
 struct AtcTransition {
   /** The matching_era which generated this Transition. */
@@ -189,17 +205,24 @@ struct AtcTransitionStorage {
   uint8_t alloc_size;
 };
 
-/** Zone processing work space. */
+//---------------------------------------------------------------------------
+// Externally exported API for converting between epoch seconds and
+// LocalDateTime and OffsetDateTime.
+//---------------------------------------------------------------------------
+
+/**
+ * Zone processing work space. One of these should be created for each active
+ * timezone. It can be reused among multiple timezones but a change of timezone
+ * causes the internal cache to be wiped and recreated.
+ */
 struct AtcZoneProcessing {
-  struct AtcZoneInfo *zone_info;
+  const struct AtcZoneInfo *zone_info;
   int16_t year; // maybe create LocalDate::kInvalidYear?
   uint8_t is_filled;
   uint8_t num_matches; // actual number of matches
   struct AtcMatchingEra matches[kAtcMaxMatches];
   struct AtcTransitionStorage transition_storage;
 };
-
-//---------------------------------------------------------------------------
 
 struct AtcLocalDateTime {
   int16_t year;
