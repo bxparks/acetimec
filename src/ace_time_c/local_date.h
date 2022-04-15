@@ -9,9 +9,6 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-/** Base year of the AceTimeC epoch. */
-#define ATC_EPOCH_YEAR 2000
-
 /** Return true if year is a leap year. */
 bool atc_is_leap_year(uint16_t year);
 

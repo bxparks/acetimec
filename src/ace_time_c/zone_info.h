@@ -18,7 +18,7 @@
 #define ACE_TIME_C_PROGMEM
 
 /** Constants for entries in the zonedb files. */
-enum AtcLimit {
+enum {
   /**
    * The maximum value of ZoneRule::from_year_tiny and ZoneRule::to_year_tiny.
    * Must be < ZoneEra::kMaxUntilYear.
@@ -141,7 +141,7 @@ struct AtcZonePolicy {
 
 //---------------------------------------------------------------------------
 
-enum AtcTimeSuffix {
+enum {
   /** Represents 'w' or wall time. */
   kAtcSuffixW = 0x00,
 
@@ -299,7 +299,7 @@ struct AtcZoneInfo {
   uint32_t const zone_id;
 
   /** ZoneContext metadata. */
-  const struct AtcZoneContext * const zoneContext;
+  const struct AtcZoneContext * const zone_context;
 
   /** Number of ZoneEra entries. Set to 0 if this Zone is a actually a Link. */
   uint8_t const num_eras;
@@ -323,10 +323,10 @@ struct AtcZoneInfo {
  */
 struct AtcLinkEntry {
   /** Hash id of the source LINK name (e.g. "US/Pacific"). */
-  uint32_t const linkId;
+  uint32_t const link_id;
 
   /** Hash id of the target ZONE name (e.g. "America/Los_Angeles"). */
-  uint32_t const zoneId;
+  uint32_t const zone_id;
 };
 
 #endif

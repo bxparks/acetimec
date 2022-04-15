@@ -7,8 +7,7 @@
 #define ACE_TIME_C_LOCAL_DATE_TIME_H
 
 #include <stdint.h>
-
-typedef int32_t atc_time_t;
+#include "common.h"
 
 /** Convert (year, month, day, hour, minute, second) in UTC to epoch seconds. */
 atc_time_t atc_to_epoch_seconds(
