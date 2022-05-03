@@ -1,30 +1,30 @@
 #include "acunit.h"
 #include <acetimec.h>
 
-acu_test(test_to_epoch_seconds)
+ACU_TEST(test_to_epoch_seconds)
 {
   int32_t seconds = atc_to_epoch_seconds(1931, 12, 13, 20, 45, 53);
-  acu_assert(seconds == INT32_MIN + 1);
+  ACU_ASSERT(seconds == INT32_MIN + 1);
 
   seconds = atc_to_epoch_seconds(2000, 1, 1, 0, 0, 0);
-  acu_assert(seconds == 0);
+  ACU_ASSERT(seconds == 0);
 
   seconds = atc_to_epoch_seconds(2000, 1, 2, 0, 0, 0);
-  acu_assert(seconds == 86400);
+  ACU_ASSERT(seconds == 86400);
 
   seconds = atc_to_epoch_seconds(2000, 2, 29, 0, 0, 0);
-  acu_assert(seconds == 86400 * 59);
+  ACU_ASSERT(seconds == 86400 * 59);
 
   seconds = atc_to_epoch_seconds(2018, 1, 1, 0, 0, 0);
-  acu_assert(seconds == 86400 * 6575);
+  ACU_ASSERT(seconds == 86400 * 6575);
 
   seconds = atc_to_epoch_seconds(2038, 1, 19, 3, 14, 7);
-  acu_assert(seconds == 1200798847);
+  ACU_ASSERT(seconds == 1200798847);
 
-  acu_pass();
+  ACU_PASS();
 }
 
-acu_test(test_from_epoch_seconds_2000)
+ACU_TEST(test_from_epoch_seconds_2000)
 {
   int16_t year;
   uint8_t month;
@@ -41,17 +41,17 @@ acu_test(test_from_epoch_seconds_2000)
     &hour,
     &minute,
     &second);
-  acu_assert(year == 2000);
-  acu_assert(month == 1);
-  acu_assert(day == 1);
-  acu_assert(hour == 0);
-  acu_assert(minute == 0);
-  acu_assert(second == 0);
+  ACU_ASSERT(year == 2000);
+  ACU_ASSERT(month == 1);
+  ACU_ASSERT(day == 1);
+  ACU_ASSERT(hour == 0);
+  ACU_ASSERT(minute == 0);
+  ACU_ASSERT(second == 0);
 
-  acu_pass();
+  ACU_PASS();
 }
 
-acu_test(test_from_epoch_seconds_2029)
+ACU_TEST(test_from_epoch_seconds_2029)
 {
   int16_t year;
   uint8_t month;
@@ -68,17 +68,17 @@ acu_test(test_from_epoch_seconds_2029)
     &hour,
     &minute,
     &second);
-  acu_assert(year == 2029);
-  acu_assert(month == 12);
-  acu_assert(day == 31);
-  acu_assert(hour == 23);
-  acu_assert(minute == 59);
-  acu_assert(second == 59);
+  ACU_ASSERT(year == 2029);
+  ACU_ASSERT(month == 12);
+  ACU_ASSERT(day == 31);
+  ACU_ASSERT(hour == 23);
+  ACU_ASSERT(minute == 59);
+  ACU_ASSERT(second == 59);
 
-  acu_pass();
+  ACU_PASS();
 }
 
-acu_test(test_from_epoch_seconds_2068)
+ACU_TEST(test_from_epoch_seconds_2068)
 {
   int16_t year;
   uint8_t month;
@@ -95,14 +95,14 @@ acu_test(test_from_epoch_seconds_2068)
     &hour,
     &minute,
     &second);
-  acu_assert(year == 2068);
-  acu_assert(month == 1);
-  acu_assert(day == 19);
-  acu_assert(hour == 3);
-  acu_assert(minute == 14);
-  acu_assert(second == 6);
+  ACU_ASSERT(year == 2068);
+  ACU_ASSERT(month == 1);
+  ACU_ASSERT(day == 19);
+  ACU_ASSERT(hour == 3);
+  ACU_ASSERT(minute == 14);
+  ACU_ASSERT(second == 6);
 
-  acu_pass();
+  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------
@@ -115,9 +115,9 @@ int main(int argc, char **argv)
   (void) argc;
   (void) argv;
 
-  acu_run_test(test_to_epoch_seconds);
-  acu_run_test(test_from_epoch_seconds_2000);
-  acu_run_test(test_from_epoch_seconds_2029);
-  acu_run_test(test_from_epoch_seconds_2068);
-  acu_summary();
+  ACU_RUN_TEST(test_to_epoch_seconds);
+  ACU_RUN_TEST(test_from_epoch_seconds_2000);
+  ACU_RUN_TEST(test_from_epoch_seconds_2029);
+  ACU_RUN_TEST(test_from_epoch_seconds_2068);
+  ACU_SUMMARY();
 }

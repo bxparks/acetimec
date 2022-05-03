@@ -15,7 +15,7 @@ extern int acu_tests_run;
 extern int acu_tests_failed;
 
 /** Define a test function that returns 0 on failure, 1 on success.. */
-#define acu_test(name) int name(void)
+#define ACU_TEST(name) int name(void)
 
 /**
  * Print assertion failure message.
@@ -38,13 +38,13 @@ extern inline void acu_assertion(
 }
 
 /**
- * Implement the 1-argument acu_assert() macro. If we try to use a CPP trick to
- * overload acu_assert() to take 1 or 2 arguments, we get a GCC error message
+ * Implement the 1-argument ACU_ASSERT() macro. If we try to use a CPP trick to
+ * overload ACU_ASSERT() to take 1 or 2 arguments, we get a GCC error message
  * saying that 'ISO C99 requires at least one argument for the "..." in a
  * variadic macro'. So we have to use a separate acu_assert_msg() for the 2
  * parameter version.
  */
-#define acu_assert(condition) \
+#define ACU_ASSERT(condition) \
   do { \
     if (!(condition)) { \
       acu_assertion(__FILE__, __LINE__, #condition, NULL); \
@@ -52,8 +52,8 @@ extern inline void acu_assertion(
     } \
   } while (0)
 
-/** Implement the 2-argument acu_assert() macro with a message. */
-#define acu_assert_msg(condition, message) \
+/** Implement the 2-argument ACU_ASSERT() macro with a message. */
+#define ACU_ASSERT_MSG(condition, message) \
   do { \
     if (!(condition)) { \
       acu_assertion(__FILE__, __LINE__, #condition, message); \
@@ -62,13 +62,13 @@ extern inline void acu_assertion(
   } while (0)
 
 /** Return from the test function with a success code. */
-#define acu_pass() return 1
+#define ACU_PASS() return 1
 
 /**
  * Run the given 'test' function. If an assertion fails, print the diagnostic
  * message that was returned.
  */
-#define acu_run_test(test) \
+#define ACU_RUN_TEST(test) \
   do { \
     int passed = test(); \
     acu_tests_run++; \
@@ -76,7 +76,7 @@ extern inline void acu_assertion(
   } while (0)
 
 /** Print out the test summary. */
-#define acu_summary() \
+#define ACU_SUMMARY() \
   do { \
     if (acu_tests_failed) { \
       printf("Summary: FAILED: %d failed out of %d test(s)\n", \

@@ -1,17 +1,17 @@
 #include "acunit.h"
 #include <acetimec.h>
 
-acu_test(test_is_leap_year)
+ACU_TEST(test_is_leap_year)
 {
-  acu_assert(atc_is_leap_year(2000));
-  acu_assert(atc_is_leap_year(2004));
-  acu_assert(!atc_is_leap_year(2100));
-  acu_pass();
+  ACU_ASSERT(atc_is_leap_year(2000));
+  ACU_ASSERT(atc_is_leap_year(2004));
+  ACU_ASSERT(!atc_is_leap_year(2100));
+  ACU_PASS();
 }
 
 // Do a round-trip atc_to_epoch_days()/atc_from_epoch_days() conversion for
 // every day from 1873-01-01 to 2127-12-31, inclusive.
-acu_test(test_to_and_from_epoch_days)
+ACU_TEST(test_to_and_from_epoch_days)
 {
   int32_t epoch_days = -46385; // 1873-01-01
   for (int16_t year = 2000 - 127; year <= 2000 + 127; year++) {
@@ -22,23 +22,23 @@ acu_test(test_to_and_from_epoch_days)
         // Test atc_to_epoch_days()
         int32_t obs_epoch_days = atc_to_epoch_days(
             year_tiny, month, day);
-        acu_assert(epoch_days == obs_epoch_days);
+        ACU_ASSERT(epoch_days == obs_epoch_days);
 
         // Test atc_from_epoch_days()
         int8_t obs_year_tiny;
         uint8_t obs_month;
         uint8_t obs_day;
         atc_from_epoch_days(epoch_days, &obs_year_tiny, &obs_month, &obs_day);
-        acu_assert(year_tiny == obs_year_tiny);
-        acu_assert(month == obs_month);
-        acu_assert(day == obs_day);
+        ACU_ASSERT(year_tiny == obs_year_tiny);
+        ACU_ASSERT(month == obs_month);
+        ACU_ASSERT(day == obs_day);
 
         // next epoch day
         epoch_days++;
       }
     }
   }
-  acu_pass();
+  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------
@@ -51,7 +51,7 @@ int main(int argc, char **argv)
   (void) argc;
   (void) argv;
 
-  acu_run_test(test_is_leap_year);
-  acu_run_test(test_to_and_from_epoch_days);
-  acu_summary();
+  ACU_RUN_TEST(test_is_leap_year);
+  ACU_RUN_TEST(test_to_and_from_epoch_days);
+  ACU_SUMMARY();
 }
