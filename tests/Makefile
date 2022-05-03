@@ -1,6 +1,9 @@
 CFLAGS := -Wall -Wextra -Werror -ansi -pedantic -std=c11 -I ../src
 
-TARGETS := local_date_test.out local_date_time_test.out zonedb_test.out
+TARGETS := local_date_test.out \
+	local_date_time_test.out \
+	zonedb_test.out \
+	zone_processing_test.out
 
 all: $(TARGETS)
 
@@ -10,12 +13,17 @@ local_date_test.out: local_date_test.o ../src/acetimec.a
 local_date_time_test.out: local_date_time_test.o ../src/acetimec.a
 	$(CC) -o $@ $^
 
+zone_processing_test.out: zone_processing_test.o ../src/acetimec.a
+	$(CC) -o $@ $^
+
 zonedb_test.out: zonedb_test.o ../src/acetimec.a
 	$(CC) -o $@ $^
 
 local_date_test.o: local_date_test.c acunit.h
 
 local_date_time_test.o: local_date_time_test.c acunit.h
+
+zone_processing_test.o: zone_processing_test.c acunit.h
 
 zonedb_test.o: zonedb_test.c acunit.h
 

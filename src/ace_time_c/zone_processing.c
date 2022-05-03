@@ -10,9 +10,17 @@
 // Internal helper methods.
 //---------------------------------------------------------------------------
 
-/**
- * Compare AtcDateTime a to AtcDateTime b, ignoring the suffix.
- */
+uint16_t atc_zone_info_time_code_to_minutes(
+  uint8_t code, uint8_t modifier)
+{
+  return code * (uint16_t) 15 + (modifier & 0x0f);
+}
+
+uint8_t atc_zone_info_modifier_to_suffix(uint8_t modifier)
+{
+  return modifier & 0xf0;
+}
+
 int8_t atc_compare_internal_date_time(
   const struct AtcDateTime *a,
   const struct AtcDateTime *b)

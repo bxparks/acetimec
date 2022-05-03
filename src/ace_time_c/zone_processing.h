@@ -15,16 +15,10 @@
 // Conversion and accessor utilities.
 //---------------------------------------------------------------------------
 
-extern inline uint16_t atc_zone_info_time_code_to_minutes(
-  uint8_t code, uint8_t modifier)
-{
-  return code * (uint16_t) 15 + (modifier & 0x0f);
-}
+uint16_t atc_zone_info_time_code_to_minutes(
+  uint8_t code, uint8_t modifier);
 
-extern inline uint8_t atc_zone_info_modifier_to_suffix(uint8_t modifier)
-{
-  return modifier & 0xf0;
-}
+uint8_t atc_zone_info_modifier_to_suffix(uint8_t modifier);
 
 //---------------------------------------------------------------------------
 // Data structures to track ZoneEra transitions and associated info.
@@ -85,6 +79,13 @@ struct AtcMatchingEra {
   /** The DST offset of the last Transition in this MatchingEra. */
   uint16_t last_delta_minutes;
 };
+
+/**
+ * Compare AtcDateTime a to AtcDateTime b, ignoring the suffix.
+ */
+int8_t atc_compare_internal_date_time(
+  const struct AtcDateTime *a,
+  const struct AtcDateTime *b);
 
 //---------------------------------------------------------------------------
 
