@@ -14,6 +14,11 @@ extern int acu_tests_run;
 /** Number of unit tests failed. */
 extern int acu_tests_failed;
 
+/** Define the global parameters required by ACUnit. */
+#define ACU_PARAMS() \
+  int acu_tests_run = 0; \
+  int acu_tests_failed = 0
+
 /** Define a test function that returns 0 on failure, 1 on success.. */
 #define ACU_TEST(name) int name(void)
 

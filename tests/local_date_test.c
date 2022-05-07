@@ -43,8 +43,7 @@ ACU_TEST(test_to_and_from_epoch_days)
 
 //---------------------------------------------------------------------------
 
-int acu_tests_run = 0;
-int acu_tests_failed = 0;
+ACU_PARAMS();
 
 int main(int argc, char **argv)
 {
