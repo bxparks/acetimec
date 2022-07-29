@@ -23,6 +23,32 @@ from [AceTime](https://github.com/bxparks/AceTime).
 <a name="UserGuide"></a>
 ## User Guide
 
+The expected usage is something like this:
+
+```C
+#include <acetimec.h>
+
+struct AtcZoneProcessing los_angeles_processing;
+
+void something() {
+  // initialize the time zone processing workspace
+  atc_zone_processing_init(
+      &los_angeles_processing,
+      &kAtcZoneAmerica_Los_Angeles);
+
+  atc_time_t seconds = 3432423;
+
+  // convert epoch seconds to components
+  struct AtcOffsetDateTime dt;
+  atc_zone_processing_calc_offset_date_time(
+    &los_angeles_processing, seconds, &dt);
+
+  // convert components to epoch seconds
+  seconds = atc_zone_processing_calc_epoch_seconds(
+    &los_angeles_processing, &dt);
+}
+```
+
 <a name="License"></a>
 ## License
 

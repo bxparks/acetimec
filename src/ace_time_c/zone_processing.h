@@ -248,24 +248,23 @@ void atc_zone_processing_init(
   struct AtcZoneProcessing *processing,
   struct AtcZoneInfo *zone_info);
 
+// internal, exposed for testing
 bool atc_zone_processing_init_for_year(
   struct AtcZoneProcessing *processing,
   int16_t year);
 
+// internal, exposed for testing
 void atc_zone_processing_init_for_epoch_seconds(
   struct AtcZoneProcessing *processing,
-  struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds);
 
 void atc_zone_processing_calc_offset_date_time(
   struct AtcZoneProcessing *processing,
-  struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds,
   struct AtcOffsetDateTime *offset_dt);
 
 atc_time_t atc_zone_processing_calc_epoch_seconds(
   struct AtcZoneProcessing *processing,
-  struct AtcZoneInfo *zone_info,
   struct AtcLocalDateTime *local_dt);
 
 #endif

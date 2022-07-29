@@ -188,10 +188,9 @@ void atc_zone_processing_init(
   struct AtcZoneProcessing *processing,
   struct AtcZoneInfo *zone_info)
 {
-  processing->zone_info = NULL;
+  processing->zone_info = zone_info;
   processing->is_filled = 0;
   processing->num_matches = 0;
-  processing->zone_info = zone_info;
 }
 
 bool atc_zone_processing_is_filled_for_year(
@@ -236,7 +235,6 @@ bool atc_zone_processing_init_for_year(
 
 void atc_zone_processing_init_for_epoch_seconds(
   struct AtcZoneProcessing *processing,
-  struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds)
 {
   (void) processing;
@@ -246,23 +244,19 @@ void atc_zone_processing_init_for_epoch_seconds(
 
 void atc_zone_processing_calc_offset_date_time(
   struct AtcZoneProcessing *processing,
-  struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds,
   struct AtcOffsetDateTime *offset_dt)
 {
   (void) processing;
-  (void) zone_info;
   (void) epoch_seconds;
   (void) offset_dt;
 }
 
 atc_time_t atc_zone_processing_calc_epoch_seconds(
   struct AtcZoneProcessing *processing,
-  struct AtcZoneInfo *zone_info,
   struct AtcLocalDateTime *local_dt)
 {
   (void) processing;
-  (void) zone_info;
   (void) local_dt;
   return 0;
 }
