@@ -38,4 +38,11 @@ void atc_from_epoch_days(
     uint8_t *month,
     uint8_t *day);
 
+/**
+ * Calculate the ISO day of week (i.e. Monday=1, Sunday=7) given the (year,
+ * month, day). Idea borrowed from https://github.com/evq/utz. No validation of
+ * year, month or day is performed.
+ */
+uint8_t atc_day_of_week(int16_t year, uint8_t month, uint8_t day);
+
 #endif

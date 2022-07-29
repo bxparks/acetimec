@@ -41,6 +41,26 @@ ACU_TEST(test_to_and_from_epoch_days)
   ACU_PASS();
 }
 
+ACU_TEST(test_day_of_week)
+{
+  // Check every day from year 2000 to 2499, inclusive.
+  uint8_t expected = 6; // 2000-01-01 was a Saturday (6)
+  for (int16_t y = 2000; y < 2500; y++) {
+    for (uint8_t m = 1; m <= 12; m++) {
+      uint8_t days_in_month = atc_days_in_year_month(y, m);
+      for (uint8_t d = 1; d <= days_in_month; d++) {
+        uint8_t dow = atc_day_of_week(y, m, d);
+        ACU_ASSERT(expected == dow);
+        expected++;
+        if (expected > 7) {
+          expected = 1;
+        }
+      }
+    }
+  }
+  ACU_PASS();
+}
+
 //---------------------------------------------------------------------------
 
 ACU_PARAMS();
@@ -52,5 +72,6 @@ int main(int argc, char **argv)
 
   ACU_RUN_TEST(test_is_leap_year);
   ACU_RUN_TEST(test_to_and_from_epoch_days);
+  ACU_RUN_TEST(test_day_of_week);
   ACU_SUMMARY();
 }
