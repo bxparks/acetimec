@@ -15,10 +15,41 @@
 // Conversion and accessor utilities.
 //---------------------------------------------------------------------------
 
+/**
+ * Convert time code (in 15 minute increments to minutes
+ * The lower 4-bits of the modifier contains the remaining 0-14 minutes.
+ */
 uint16_t atc_zone_info_time_code_to_minutes(
   uint8_t code, uint8_t modifier);
 
+/** Extract the time suffix (w, s, gu) from the upper 4-bits of the modifier. */
 uint8_t atc_zone_info_modifier_to_suffix(uint8_t modifier);
+
+/**
+ * Extract the actual (month, day) pair from the expression used in the TZ
+ * data files of the form (onDayOfWeek >= onDayOfMonth) or (onDayOfWeek <=
+ * onDayOfMonth).
+ *
+ * There are 4 combinations:
+ *
+ * @verbatim
+ * onDayOfWeek=0, onDayOfMonth=(1-31): exact match
+ * onDayOfWeek=1-7, onDayOfMonth=1-31: dayOfWeek>=dayOfMonth
+ * onDayOfWeek=1-7, onDayOfMonth=0: last{dayOfWeek}
+ * onDayOfWeek=1-7, onDayOfMonth=-(1-31): dayOfWeek<=dayOfMonth
+ * @endverbatim
+ *
+ * Caveats: This function handles expressions which crosses month boundaries,
+ * but not year boundaries (e.g. Jan to Dec of the previous year, or Dec to
+ * Jan of the following year.)
+ */
+void atc_calc_start_day_of_month(
+    int16_t year,
+    uint8_t month,
+    uint8_t on_day_of_week,
+    int8_t on_day_of_month,
+    uint8_t *result_month,
+    uint8_t *result_day);
 
 //---------------------------------------------------------------------------
 // Data structures to track ZoneEra transitions and associated info.
@@ -88,6 +119,8 @@ int8_t atc_compare_internal_date_time(
   const struct AtcDateTime *b);
 
 //---------------------------------------------------------------------------
+// AtcTransition and AtcTransitionStorage
+//---------------------------------------------------------------------------
 
 /**
  * The result of comparing transition of a Transition to the time interval
@@ -110,7 +143,7 @@ struct AtcTransition {
    * nullptr if the RULES column is '-', indicating that the MatchingEra was
    * a "simple" ZoneEra.
    */
-  struct AtcZoneRule *rule;
+  const struct AtcZoneRule *rule;
 
   /**
    * The original transition time, usually 'w' but sometimes 's' or 'u'. After
