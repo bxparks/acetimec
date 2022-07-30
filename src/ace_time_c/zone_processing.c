@@ -226,6 +226,8 @@ uint8_t atc_zone_processing_find_matches(
 // Step 2
 // ---------------------------------------------------------------------------
 
+// Simple Match
+
 void atc_processing_transition_storage_init(
   struct AtcTransitionStorage *transition_storage)
 {
@@ -340,13 +342,79 @@ void atc_zone_processing_create_transitions_from_simple_match(
       transition_storage);
 }
 
-void atc_zone_processing_create_transitions_from_named_match(
+//---------------------------------------------------------------------------
+
+// Named Match
+
+void atc_zone_processing_reset_candidate_pool(
+    struct AtcTransitionStorage *transition_storage)
+{
+  transition_storage->index_candidate = transition_storage->index_prior;
+  transition_storage->index_free = transition_storage->index_prior;
+}
+
+// Pass 1
+void atc_zone_processing_find_candidate_transitions(
     struct AtcTransitionStorage *transition_storage,
     struct AtcMatchingEra *match)
 {
   (void) transition_storage;
   (void) match;
 }
+
+// Pass 2
+void atc_zone_processing_fix_transition_times(
+      struct AtcTransition **begin,
+      struct AtcTransition **end)
+{
+  (void) begin;
+  (void) end;
+}
+
+// Pass 3
+void atc_zone_processing_select_active_transitions(
+      struct AtcTransition **begin,
+      struct AtcTransition **end)
+{
+  (void) begin;
+  (void) end;
+}
+
+struct AtcTransition *atc_zone_processing_add_active_candidates_to_active_pool(
+    struct AtcTransitionStorage *transition_storage)
+{
+  (void) transition_storage;
+  return NULL;
+}
+
+void atc_zone_processing_create_transitions_from_named_match(
+    struct AtcTransitionStorage *transition_storage,
+    struct AtcMatchingEra *match)
+{
+  atc_zone_processing_reset_candidate_pool(transition_storage);
+
+  // Pass 1: Find candidate transitions using whole years.
+  atc_zone_processing_find_candidate_transitions(transition_storage, match);
+
+  // Pass 2: Fix the transitions times, converting 's' and 'u' into 'w'
+  // uniformly.
+  atc_zone_processing_fix_transition_times(
+      &transition_storage->transitions[transition_storage->index_candidate],
+      &transition_storage->transitions[transition_storage->index_free]);
+
+  // Pass 3: Select only those Transitions which overlap with the actual
+  // start and until times of the MatchingEra.
+  atc_zone_processing_select_active_transitions(
+      &transition_storage->transitions[transition_storage->index_candidate],
+      &transition_storage->transitions[transition_storage->index_free]);
+  struct AtcTransition *last_transition =
+      atc_zone_processing_add_active_candidates_to_active_pool(
+          transition_storage);
+  match->last_offset_minutes = last_transition->offset_minutes;
+  match->last_delta_minutes = last_transition->delta_minutes;
+}
+
+//---------------------------------------------------------------------------
 
 void atc_zone_processing_create_transitions_for_match(
   struct AtcTransitionStorage *transition_storage,
