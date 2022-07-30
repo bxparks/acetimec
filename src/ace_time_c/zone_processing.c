@@ -208,6 +208,11 @@ void atc_transition_storage_init(struct AtcTransitionStorage *ts)
   ts->index_free = 0;
 }
 
+/**
+ * Return a pointer to the first Transition in the free pool. If this
+ * transition is not used, then it's ok to just drop it. The next time
+ * getFreeAgent() is called, the same Transition will be returned.
+ */
 struct AtcTransition *atc_transition_storage_get_free_agent(
     struct AtcTransitionStorage *ts)
 {
@@ -226,6 +231,13 @@ struct AtcTransition *atc_transition_storage_get_free_agent(
   }
 }
 
+/**
+ * Immediately add the free agent Transition at index mIndexFree to the
+ * Active pool. Then increment mIndexFree to consume the free agent
+ * from the Free pool. This assumes that the Pending and Candidate pool are
+ * empty, which makes the Active pool come immediately before the Free
+ * pool.
+ */
 void atc_transition_storage_add_free_agent_to_active_pool(
     struct AtcTransitionStorage *ts)
 {
@@ -240,6 +252,63 @@ void atc_transition_storage_reset_candidate_pool(
 {
   ts->index_candidate = ts->index_prior;
   ts->index_free = ts->index_prior;
+}
+
+struct AtcTransition **atc_transition_storage_reserve_prior(
+    struct AtcTransitionStorage *ts)
+{
+  (void) atc_transition_storage_get_free_agent(ts);
+  ts->index_candidate++;
+  ts->index_free++;
+  return &ts->transitions[ts->index_prior];
+}
+
+/** Set the free agent transition as the most recent prior. */
+void atc_transition_storage_set_free_agent_as_prior_if_valid(
+    struct AtcTransitionStorage *ts)
+{
+  struct AtcTransition *ft = ts->transitions[ts->index_free];
+  struct AtcTransition *prior = ts->transitions[ts->index_prior];
+  if ((prior->is_valid_prior
+      && atc_compare_internal_date_time(
+          &prior->transition_time,
+          &ft->transition_time) < 0)
+      || !prior->is_valid_prior) {
+    ft->is_valid_prior = true;
+    prior->is_valid_prior = false;
+
+    // swap(prior, free)
+    ts->transitions[ts->index_prior] = ft;
+    ts->transitions[ts->index_free] = prior;
+  }
+}
+
+/**
+ * Add the free agent Transition at index mIndexFree to the Candidate pool,
+ * sorted by transitionTime. Then increment mIndexFree by one to remove the
+ * free agent from the Free pool. Essentially this is an Insertion Sort
+ * keyed by the 'transitionTime' (ignoring the DateTuple.suffix).
+ */
+void atc_transition_storage_add_free_agent_to_candidate_pool(
+    struct AtcTransitionStorage *ts)
+{
+  if (ts->index_free >= kAtcTransitionStorageSize) return;
+  for (uint8_t i= ts->index_free; i > ts->index_candidate; i--) {
+    struct AtcTransition *curr = ts->transitions[i];
+    struct AtcTransition *prev = ts->transitions[i - 1];
+    if (atc_compare_internal_date_time(
+        &curr->transition_time,
+        &prev->transition_time) >= 0) break;
+    ts->transitions[i] = prev;
+    ts->transitions[i - 1] = curr;
+  }
+  ts->index_free++;
+}
+
+void atc_transition_storage_add_prior_to_candidate_pool(
+    struct AtcTransitionStorage *ts)
+{
+  ts->index_candidate++;
 }
 
 //---------------------------------------------------------------------------
@@ -338,42 +407,150 @@ void atc_processing_create_transition_for_year(
 }
 
 void atc_processing_create_transitions_from_simple_match(
-    struct AtcTransitionStorage *transition_storage,
+    struct AtcTransitionStorage *ts,
     struct AtcMatchingEra *match)
 {
-  struct AtcTransition *free_agent = atc_transition_storage_get_free_agent(
-    transition_storage);
+  struct AtcTransition *free_agent = atc_transition_storage_get_free_agent(ts);
   atc_processing_create_transition_for_year(free_agent, 0, NULL, match);
   free_agent->match_status = kAtcMatchStatusExactMatch;
   match->last_offset_minutes = free_agent->offset_minutes;
   match->last_delta_minutes = free_agent->delta_minutes;
-  atc_transition_storage_add_free_agent_to_active_pool(
-      transition_storage);
+  atc_transition_storage_add_free_agent_to_active_pool(ts);
 }
 
 //---------------------------------------------------------------------------
 
 // Named Match
 
+/**
+ * Calculate interior years. Up to maxInteriorYears, usually 3 or 4.
+ * Returns the number of interior years.
+ */
+uint8_t atc_processing_calc_interior_years(
+    int8_t* interior_years,
+    uint8_t max_interior_years,
+    int8_t from_year,
+    int8_t to_year,
+    int8_t start_year,
+    int8_t end_year)
+{
+  uint8_t i = 0;
+  for (int8_t year = start_year; year <= end_year; year++) {
+    if (from_year <= year && year <= to_year) {
+      interior_years[i] = year;
+      i++;
+      if (i >= max_interior_years) break;
+    }
+  }
+  return i;
+}
+
+/**
+ * Like compare_transition_to_match() except perform a fuzzy match within at
+ * least one-month of the match.start or match.until.
+ *
+ * Return:
+ *    * kAtcMatchStatusPrior if t less than match by at least one month
+ *    * kAtcMatchStatusWithinMatch if t within match,
+ *    * kAtcMatchStatusFarFuture if t greater than match by at least one month
+ *    * kAtcMatchStatusExactMatch is never returned, we cannot know that t ==
+ *      match.start
+ */
+uint8_t atc_processing_compare_transition_to_match_fuzzy(
+    const struct AtcTransition *t, const struct AtcMatchingEra *match)
+{
+  int16_t tt_months = t->transition_time.year_tiny * 12
+      + t->transition_time.month;
+
+  int16_t match_start_months = match->start_dt.year_tiny * 12
+      + match->start_dt.month;
+  if (tt_months < match_start_months - 1) return kAtcMatchStatusPrior;
+
+  int16_t match_until_months = match->until_dt.year_tiny * 12
+      + match->until_dt.month;
+  if (match_until_months + 2 <= tt_months) return kAtcMatchStatusFarFuture;
+
+  return kAtcMatchStatusWithinMatch;
+}
+
+int8_t atc_processing_get_most_recent_prior_year(
+    int8_t from_year, int8_t to_year,
+    int8_t start_year, int8_t end_year)
+{
+  (void) end_year; // disable compiler warnings
+
+  if (from_year < start_year) {
+    if (to_year < start_year) {
+      return to_year;
+    } else {
+      return start_year - 1;
+    }
+  } else {
+    return kAtcInvalidYearTiny;
+  }
+}
+
 // Pass 1
 void atc_processing_find_candidate_transitions(
-    struct AtcTransitionStorage *transition_storage,
+    struct AtcTransitionStorage *ts,
     struct AtcMatchingEra *match)
 {
-  (void) transition_storage;
-  (void) match;
-  /*
   const struct AtcZonePolicy *policy = match->era->zone_policy;
   uint8_t num_rules = policy->num_rules;
   int8_t start_year_tiny = match->start_dt.year_tiny;
   int8_t end_year_tiny = match->until_dt.year_tiny;
 
-  struct AtcTranstion **prior = atc_processing_reserve_prior(
-      transition_storage);
-  */
+  struct AtcTransition **prior = atc_transition_storage_reserve_prior(ts);
+  (*prior)->is_valid_prior = false;
+  for (uint8_t r = 0; r < num_rules; r++) {
+    const struct AtcZoneRule *rule = &policy->rules[r];
+
+    // Add transitions for interior years
+    int8_t interior_years[kAtcMaxInteriorYears];
+    uint8_t num_years = atc_processing_calc_interior_years(
+        interior_years,
+        kAtcMaxInteriorYears,
+        rule->from_year_tiny,
+        rule->to_year_tiny,
+        start_year_tiny,
+        end_year_tiny);
+    for (uint8_t y = 0; y < num_years; y++) {
+      int8_t year = interior_years[y];
+      struct AtcTransition *t = atc_transition_storage_get_free_agent(ts);
+      atc_processing_create_transition_for_year(t, year,rule, match);
+      uint8_t status = atc_processing_compare_transition_to_match_fuzzy(
+          t, match);
+      if (status == kAtcMatchStatusPrior) {
+        atc_transition_storage_set_free_agent_as_prior_if_valid(ts);
+      } else if (status == kAtcMatchStatusWithinMatch) {
+        atc_transition_storage_add_free_agent_to_candidate_pool(ts);
+      } else {
+        // Must be kFarFuture.
+        // Do nothing, allowing the free agent to be reused.
+      }
+    }
+
+    // Add Transition for prior year
+    int8_t prior_year = atc_processing_get_most_recent_prior_year(
+        rule->from_year_tiny, rule->to_year_tiny,
+        start_year_tiny, end_year_tiny);
+    if (prior_year != kAtcInvalidYearTiny) {
+      struct AtcTransition *t = atc_transition_storage_get_free_agent(ts);
+      atc_processing_create_transition_for_year(t, prior_year, rule, match);
+      atc_transition_storage_set_free_agent_as_prior_if_valid(ts);
+    }
+  }
+
+  // Add the reserved prior into the Candidate pool only if 'isValidPrior' is
+  // true.
+  if ((*prior)->is_valid_prior) {
+    atc_transition_storage_add_prior_to_candidate_pool(ts);
+  }
 }
 
+//---------------------------------------------------------------------------
 // Pass 2
+
 void atc_processing_fix_transition_times(
       struct AtcTransition **begin,
       struct AtcTransition **end)
@@ -382,7 +559,9 @@ void atc_processing_fix_transition_times(
   (void) end;
 }
 
+//---------------------------------------------------------------------------
 // Pass 3
+
 void atc_processing_select_active_transitions(
       struct AtcTransition **begin,
       struct AtcTransition **end)
@@ -392,35 +571,36 @@ void atc_processing_select_active_transitions(
 }
 
 struct AtcTransition *atc_processing_add_active_candidates_to_active_pool(
-    struct AtcTransitionStorage *transition_storage)
+    struct AtcTransitionStorage *ts)
 {
-  (void) transition_storage;
+  (void) ts;
   return NULL;
 }
 
+//---------------------------------------------------------------------------
+
 void atc_processing_create_transitions_from_named_match(
-    struct AtcTransitionStorage *transition_storage,
+    struct AtcTransitionStorage *ts,
     struct AtcMatchingEra *match)
 {
-  atc_transition_storage_reset_candidate_pool(transition_storage);
+  atc_transition_storage_reset_candidate_pool(ts);
 
   // Pass 1: Find candidate transitions using whole years.
-  atc_processing_find_candidate_transitions(transition_storage, match);
+  atc_processing_find_candidate_transitions(ts, match);
 
   // Pass 2: Fix the transitions times, converting 's' and 'u' into 'w'
   // uniformly.
   atc_processing_fix_transition_times(
-      &transition_storage->transitions[transition_storage->index_candidate],
-      &transition_storage->transitions[transition_storage->index_free]);
+      &ts->transitions[ts->index_candidate],
+      &ts->transitions[ts->index_free]);
 
   // Pass 3: Select only those Transitions which overlap with the actual
   // start and until times of the MatchingEra.
   atc_processing_select_active_transitions(
-      &transition_storage->transitions[transition_storage->index_candidate],
-      &transition_storage->transitions[transition_storage->index_free]);
+      &ts->transitions[ts->index_candidate],
+      &ts->transitions[ts->index_free]);
   struct AtcTransition *last_transition =
-      atc_processing_add_active_candidates_to_active_pool(
-          transition_storage);
+      atc_processing_add_active_candidates_to_active_pool(ts);
   match->last_offset_minutes = last_transition->offset_minutes;
   match->last_delta_minutes = last_transition->delta_minutes;
 }
@@ -428,27 +608,24 @@ void atc_processing_create_transitions_from_named_match(
 //---------------------------------------------------------------------------
 
 void atc_processing_create_transitions_for_match(
-  struct AtcTransitionStorage *transition_storage,
+  struct AtcTransitionStorage *ts,
   struct AtcMatchingEra *match)
 {
   const struct AtcZonePolicy *policy = match->era->zone_policy;
   if (policy == NULL) {
-    atc_processing_create_transitions_from_simple_match(
-        transition_storage, match);
+    atc_processing_create_transitions_from_simple_match(ts, match);
   } else {
-    atc_processing_create_transitions_from_named_match(
-        transition_storage, match);
+    atc_processing_create_transitions_from_named_match(ts, match);
   }
 }
 
 void atc_processing_create_transitions(
-  struct AtcTransitionStorage *transition_storage,
+  struct AtcTransitionStorage *ts,
   struct AtcMatchingEra *matches,
   uint8_t num_matches)
 {
   for (uint8_t i = 0; i < num_matches; i++) {
-    atc_processing_create_transitions_for_match(
-      transition_storage, &matches[i]);
+    atc_processing_create_transitions_for_match(ts, &matches[i]);
   }
 }
 

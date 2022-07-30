@@ -57,19 +57,25 @@ void atc_calc_start_day_of_month(
 
 enum {
   /**
-  * Number of characters in a time zone abbreviation. 6 is the maximum
-  * plus 1 for the NUL terminator.
-  */
+   * Number of characters in a time zone abbreviation. 6 is the maximum
+   * plus 1 for the NUL terminator.
+   */
   kAtcAbbrevSize = 7,
 
   /** Number of transitions in the transition_storage. */
   kAtcTransitionStorageSize = 8,
 
   /**
-  * Number of Matches. We look at the 3 years straddling the current year, plus
-  * the most recent prior year, so that makes 4.
-  */
+   * Number of Matches. We look at the 3 years straddling the current year, plus
+   * the most recent prior year, so that makes 4.
+   */
   kAtcMaxMatches = 4,
+
+  /**
+   * Maximum number of interior years. For a viewing window of 14 months,
+   * this will be 4. (Verify: I think this can be changed to 3.)
+   */
+  kAtcMaxInteriorYears = 4,
 };
 
 /** A tuple of (year_tiny, month). */
@@ -85,6 +91,30 @@ struct AtcDateTime {
   uint8_t day; // [1-31]
   uint8_t suffix; // kAtcSuffixS, kAtcSuffixW, kAtcSuffixU
   int16_t minutes; // negative values allowed
+};
+
+/**
+ * Compare AtcDateTime a to AtcDateTime b, ignoring the suffix.
+ * Exported for testing.
+ */
+int8_t atc_compare_internal_date_time(
+  const struct AtcDateTime *a,
+  const struct AtcDateTime *b);
+
+//---------------------------------------------------------------------------
+// AtcTransition and AtcTransitionStorage
+//---------------------------------------------------------------------------
+
+/**
+ * The result of comparing transition of a Transition to the time interval
+ * of the corresponding AtcMatchingEra.
+ */
+enum {
+  kAtcMatchStatusFarPast, // 0
+  kAtcMatchStatusPrior, // 1
+  kAtcMatchStatusExactMatch, // 2
+  kAtcMatchStatusWithinMatch, // 3
+  kAtcMatchStatusFarFuture, // 4
 };
 
 /** A struct that represents a matching ZoneEra. */
@@ -109,29 +139,6 @@ struct AtcMatchingEra {
 
   /** The DST offset of the last Transition in this MatchingEra. */
   uint16_t last_delta_minutes;
-};
-
-/**
- * Compare AtcDateTime a to AtcDateTime b, ignoring the suffix.
- */
-int8_t atc_compare_internal_date_time(
-  const struct AtcDateTime *a,
-  const struct AtcDateTime *b);
-
-//---------------------------------------------------------------------------
-// AtcTransition and AtcTransitionStorage
-//---------------------------------------------------------------------------
-
-/**
- * The result of comparing transition of a Transition to the time interval
- * of the corresponding AtcMatchingEra.
- */
-enum {
-  kAtcMatchStatusFarPast, // 0
-  kAtcMatchStatusPrior, // 1
-  kAtcMatchStatusExactMatch, // 2
-  kAtcMatchStatusWithinMatch, // 3
-  kAtcMatchStatusFarFuture, // 4
 };
 
 struct AtcTransition {
@@ -239,6 +246,40 @@ struct AtcTransitionStorage {
   uint8_t alloc_size;
 };
 
+/**
+ * Like compare_transition_to_match() except perform a fuzzy match within at
+ * least one-month of the match.start or match.until.
+ *
+ * Return:
+ *    * kAtcMatchStatusPrior if t less than match by at least one month
+ *    * kAtcMatchStatusWithinMatch if t within match,
+ *    * kAtcMatchStatusFarFuture if t greater than match by at least one month
+ *    * kAtcMatchStatusExactMatch is never returned, we cannot know that t ==
+ *      match.start
+ *
+ * Exported for testing.
+ */
+uint8_t atc_processing_compare_transition_to_match_fuzzy(
+    const struct AtcTransition *t, const struct AtcMatchingEra *match);
+
+/**
+ * Return the most recent year from the Rule[fromYear, toYear] which is
+ * prior to the matching ZoneEra years of [startYear, endYear].
+ *
+ * Return LocalDate::kInvalidYearTiny (-128) if the rule[fromYear,
+ * to_year] has no prior year to the MatchingEra[startYear, endYear].
+ *
+ * Exported for testing.
+ *
+ * @param fromYear FROM year field of a Rule entry
+ * @param toYear TO year field of a Rule entry
+ * @param startYear start year of the matching ZoneEra
+ * @param endYear until year of the matching ZoneEra (unused)
+ */
+int8_t atc_processing_get_most_recent_prior_year(
+    int8_t from_year, int8_t to_year,
+    int8_t start_year, int8_t end_year);
+
 //---------------------------------------------------------------------------
 // Externally exported API for converting between epoch seconds and
 // LocalDateTime and OffsetDateTime.
@@ -258,6 +299,7 @@ struct AtcZoneProcessing {
   struct AtcTransitionStorage transition_storage;
 };
 
+// External API
 struct AtcLocalDateTime {
   int16_t year;
   uint8_t month;
@@ -267,6 +309,7 @@ struct AtcLocalDateTime {
   uint8_t second;
 };
 
+// External API
 struct AtcOffsetDateTime {
   int16_t year;
   uint8_t month;
@@ -276,10 +319,6 @@ struct AtcOffsetDateTime {
   uint8_t second;
   int16_t offset_minutes;
 };
-
-void atc_processing_init(
-  struct AtcZoneProcessing *processing,
-  struct AtcZoneInfo *zone_info);
 
 // internal, exposed for testing
 bool atc_processing_init_for_year(
@@ -291,11 +330,18 @@ void atc_processing_init_for_epoch_seconds(
   struct AtcZoneProcessing *processing,
   atc_time_t epoch_seconds);
 
+// External API
+void atc_processing_init(
+  struct AtcZoneProcessing *processing,
+  struct AtcZoneInfo *zone_info);
+
+// External API
 void atc_processing_calc_offset_date_time(
   struct AtcZoneProcessing *processing,
   atc_time_t epoch_seconds,
   struct AtcOffsetDateTime *offset_dt);
 
+// External API
 atc_time_t atc_processing_calc_epoch_seconds(
   struct AtcZoneProcessing *processing,
   struct AtcLocalDateTime *local_dt);
