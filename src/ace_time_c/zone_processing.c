@@ -198,7 +198,7 @@ void atc_calc_start_day_of_month(
 // Step 1
 //---------------------------------------------------------------------------
 
-uint8_t atc_zone_processing_find_matches(
+uint8_t atc_processing_find_matches(
   const struct AtcZoneInfo *zone_info,
   struct AtcYearMonth start_ym,
   struct AtcYearMonth until_ym,
@@ -240,7 +240,7 @@ void atc_processing_transition_storage_init(
   transition_storage->index_free = 0;
 }
 
-struct AtcTransition *atc_zone_processing_get_free_agent(
+struct AtcTransition *atc_processing_get_free_agent(
     struct AtcTransitionStorage *transition_storage)
 {
   if (transition_storage->index_free < kAtcTransitionStorageSize) {
@@ -258,7 +258,7 @@ struct AtcTransition *atc_zone_processing_get_free_agent(
   }
 }
 
-void atc_zone_processing_get_transition_time(
+void atc_processing_get_transition_time(
     int8_t year_tiny,
     const struct AtcZoneRule* rule,
     struct AtcDateTime *dt)
@@ -282,7 +282,7 @@ void atc_zone_processing_get_transition_time(
   dt->suffix = atc_zone_info_modifier_to_suffix(rule->at_time_modifier);
 }
 
-void atc_zone_processing_create_transition_for_year(
+void atc_processing_create_transition_for_year(
     struct AtcTransition *t,
     int8_t year_tiny,
     const struct AtcZoneRule *rule,
@@ -295,7 +295,7 @@ void atc_zone_processing_create_transition_for_year(
   t->letter_buf[0] = '\0';
 
   if (rule) {
-    atc_zone_processing_get_transition_time(
+    atc_processing_get_transition_time(
         year_tiny, rule, &t->transition_time);
     t->delta_minutes = atc_zone_info_time_code_to_minutes(rule->delta_code, 0);
     char letter = rule->letter;
@@ -308,7 +308,7 @@ void atc_zone_processing_create_transition_for_year(
     } else {
       // rule->letter is a long string, so is referenced as an offset index into
       // the ZonePolicy.letters array. The string cannot fit in letter_buf, so
-      // will be retrieved by the atc_zone_processing_long_letter() function.
+      // will be retrieved by the atc_processing_long_letter() function.
     }
   } else {
     // Create a Transition using the MatchingEra for the transitionTime.
@@ -319,7 +319,7 @@ void atc_zone_processing_create_transition_for_year(
   }
 }
 
-void atc_zone_processing_add_free_agent_to_active_pool(
+void atc_processing_add_free_agent_to_active_pool(
     struct AtcTransitionStorage *ts)
 {
   if (ts->index_free >= kAtcTransitionStorageSize) return;
@@ -328,17 +328,17 @@ void atc_zone_processing_add_free_agent_to_active_pool(
   ts->index_candidate = ts->index_free;
 }
 
-void atc_zone_processing_create_transitions_from_simple_match(
+void atc_processing_create_transitions_from_simple_match(
     struct AtcTransitionStorage *transition_storage,
     struct AtcMatchingEra *match)
 {
-  struct AtcTransition *free_agent = atc_zone_processing_get_free_agent(
+  struct AtcTransition *free_agent = atc_processing_get_free_agent(
     transition_storage);
-  atc_zone_processing_create_transition_for_year(free_agent, 0, NULL, match);
+  atc_processing_create_transition_for_year(free_agent, 0, NULL, match);
   free_agent->match_status = kAtcMatchStatusExactMatch;
   match->last_offset_minutes = free_agent->offset_minutes;
   match->last_delta_minutes = free_agent->delta_minutes;
-  atc_zone_processing_add_free_agent_to_active_pool(
+  atc_processing_add_free_agent_to_active_pool(
       transition_storage);
 }
 
@@ -346,7 +346,7 @@ void atc_zone_processing_create_transitions_from_simple_match(
 
 // Named Match
 
-void atc_zone_processing_reset_candidate_pool(
+void atc_processing_reset_candidate_pool(
     struct AtcTransitionStorage *transition_storage)
 {
   transition_storage->index_candidate = transition_storage->index_prior;
@@ -354,7 +354,7 @@ void atc_zone_processing_reset_candidate_pool(
 }
 
 // Pass 1
-void atc_zone_processing_find_candidate_transitions(
+void atc_processing_find_candidate_transitions(
     struct AtcTransitionStorage *transition_storage,
     struct AtcMatchingEra *match)
 {
@@ -363,7 +363,7 @@ void atc_zone_processing_find_candidate_transitions(
 }
 
 // Pass 2
-void atc_zone_processing_fix_transition_times(
+void atc_processing_fix_transition_times(
       struct AtcTransition **begin,
       struct AtcTransition **end)
 {
@@ -372,7 +372,7 @@ void atc_zone_processing_fix_transition_times(
 }
 
 // Pass 3
-void atc_zone_processing_select_active_transitions(
+void atc_processing_select_active_transitions(
       struct AtcTransition **begin,
       struct AtcTransition **end)
 {
@@ -380,35 +380,35 @@ void atc_zone_processing_select_active_transitions(
   (void) end;
 }
 
-struct AtcTransition *atc_zone_processing_add_active_candidates_to_active_pool(
+struct AtcTransition *atc_processing_add_active_candidates_to_active_pool(
     struct AtcTransitionStorage *transition_storage)
 {
   (void) transition_storage;
   return NULL;
 }
 
-void atc_zone_processing_create_transitions_from_named_match(
+void atc_processing_create_transitions_from_named_match(
     struct AtcTransitionStorage *transition_storage,
     struct AtcMatchingEra *match)
 {
-  atc_zone_processing_reset_candidate_pool(transition_storage);
+  atc_processing_reset_candidate_pool(transition_storage);
 
   // Pass 1: Find candidate transitions using whole years.
-  atc_zone_processing_find_candidate_transitions(transition_storage, match);
+  atc_processing_find_candidate_transitions(transition_storage, match);
 
   // Pass 2: Fix the transitions times, converting 's' and 'u' into 'w'
   // uniformly.
-  atc_zone_processing_fix_transition_times(
+  atc_processing_fix_transition_times(
       &transition_storage->transitions[transition_storage->index_candidate],
       &transition_storage->transitions[transition_storage->index_free]);
 
   // Pass 3: Select only those Transitions which overlap with the actual
   // start and until times of the MatchingEra.
-  atc_zone_processing_select_active_transitions(
+  atc_processing_select_active_transitions(
       &transition_storage->transitions[transition_storage->index_candidate],
       &transition_storage->transitions[transition_storage->index_free]);
   struct AtcTransition *last_transition =
-      atc_zone_processing_add_active_candidates_to_active_pool(
+      atc_processing_add_active_candidates_to_active_pool(
           transition_storage);
   match->last_offset_minutes = last_transition->offset_minutes;
   match->last_delta_minutes = last_transition->delta_minutes;
@@ -416,27 +416,27 @@ void atc_zone_processing_create_transitions_from_named_match(
 
 //---------------------------------------------------------------------------
 
-void atc_zone_processing_create_transitions_for_match(
+void atc_processing_create_transitions_for_match(
   struct AtcTransitionStorage *transition_storage,
   struct AtcMatchingEra *match)
 {
   const struct AtcZonePolicy *policy = match->era->zone_policy;
   if (policy == NULL) {
-    atc_zone_processing_create_transitions_from_simple_match(
+    atc_processing_create_transitions_from_simple_match(
         transition_storage, match);
   } else {
-    atc_zone_processing_create_transitions_from_named_match(
+    atc_processing_create_transitions_from_named_match(
         transition_storage, match);
   }
 }
 
-void atc_zone_processing_create_transitions(
+void atc_processing_create_transitions(
   struct AtcTransitionStorage *transition_storage,
   struct AtcMatchingEra *matches,
   uint8_t num_matches)
 {
   for (uint8_t i = 0; i < num_matches; i++) {
-    atc_zone_processing_create_transitions_for_match(
+    atc_processing_create_transitions_for_match(
       transition_storage, &matches[i]);
   }
 }
@@ -445,7 +445,7 @@ void atc_zone_processing_create_transitions(
 // Initialization of AtcZoneProcessing.
 //---------------------------------------------------------------------------
 
-void atc_zone_processing_init(
+void atc_processing_init(
   struct AtcZoneProcessing *processing,
   struct AtcZoneInfo *zone_info)
 {
@@ -454,18 +454,18 @@ void atc_zone_processing_init(
   processing->num_matches = 0;
 }
 
-bool atc_zone_processing_is_filled_for_year(
+bool atc_processing_is_filled_for_year(
   struct AtcZoneProcessing *processing,
   int16_t year)
 {
   return processing->is_filled && (year == processing->year);
 }
 
-bool atc_zone_processing_init_for_year(
+bool atc_processing_init_for_year(
   struct AtcZoneProcessing *processing,
   int16_t year)
 {
-  if (atc_zone_processing_is_filled_for_year(processing, year)) return true;
+  if (atc_processing_is_filled_for_year(processing, year)) return true;
 
   processing->year = year;
   processing->num_matches = 0;
@@ -478,7 +478,7 @@ bool atc_zone_processing_init_for_year(
   struct AtcYearMonth until_ym = { (int8_t) (year - kAtcEpochYear + 1), 2 };
 
   // Step 1: Find matches.
-  uint8_t num_matches = atc_zone_processing_find_matches(
+  uint8_t num_matches = atc_processing_find_matches(
     processing->zone_info,
     start_ym,
     until_ym,
@@ -486,7 +486,7 @@ bool atc_zone_processing_init_for_year(
     kAtcMaxMatches);
 
   // Step 2: Create Transitions.
-  atc_zone_processing_create_transitions(
+  atc_processing_create_transitions(
     &processing->transition_storage,
     processing->matches,
     num_matches);
@@ -500,7 +500,7 @@ bool atc_zone_processing_init_for_year(
   return true;
 }
 
-void atc_zone_processing_init_for_epoch_seconds(
+void atc_processing_init_for_epoch_seconds(
   struct AtcZoneProcessing *processing,
   atc_time_t epoch_seconds)
 {
@@ -512,7 +512,7 @@ void atc_zone_processing_init_for_epoch_seconds(
 // Public API.
 //---------------------------------------------------------------------------
 
-void atc_zone_processing_calc_offset_date_time(
+void atc_processing_calc_offset_date_time(
   struct AtcZoneProcessing *processing,
   atc_time_t epoch_seconds,
   struct AtcOffsetDateTime *offset_dt)
@@ -522,7 +522,7 @@ void atc_zone_processing_calc_offset_date_time(
   (void) offset_dt;
 }
 
-atc_time_t atc_zone_processing_calc_epoch_seconds(
+atc_time_t atc_processing_calc_epoch_seconds(
   struct AtcZoneProcessing *processing,
   struct AtcLocalDateTime *local_dt)
 {
