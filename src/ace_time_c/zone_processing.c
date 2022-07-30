@@ -195,6 +195,54 @@ void atc_calc_start_day_of_month(
 }
 
 //---------------------------------------------------------------------------
+// TransitionStorage helpers
+//---------------------------------------------------------------------------
+
+void atc_transition_storage_init(struct AtcTransitionStorage *ts)
+{
+  for (int i = 0; i < kAtcTransitionStorageSize; i++) {
+    ts->transitions[i] = &ts->transition_pool[i];
+  }
+  ts->index_prior = 0;
+  ts->index_candidate = 0;
+  ts->index_free = 0;
+}
+
+struct AtcTransition *atc_transition_storage_get_free_agent(
+    struct AtcTransitionStorage *ts)
+{
+  if (ts->index_free < kAtcTransitionStorageSize) {
+    if (ts->index_free >= ts->alloc_size) {
+      ts->alloc_size = ts->index_free + 1;
+    }
+    return ts->transitions[ts->index_free];
+  } else {
+    /* No more transition available in the buffer, so just return the last
+     * one. This will probably cause a bug in the timezone calculations, but
+     * I think this is better than triggering undefined behavior by running
+     * off the end of the mTransitions buffer.
+     */
+    return ts->transitions[kAtcTransitionStorageSize - 1];
+  }
+}
+
+void atc_transition_storage_add_free_agent_to_active_pool(
+    struct AtcTransitionStorage *ts)
+{
+  if (ts->index_free >= kAtcTransitionStorageSize) return;
+  ts->index_free++;
+  ts->index_prior = ts->index_free;
+  ts->index_candidate = ts->index_free;
+}
+
+void atc_transition_storage_reset_candidate_pool(
+    struct AtcTransitionStorage *ts)
+{
+  ts->index_candidate = ts->index_prior;
+  ts->index_free = ts->index_prior;
+}
+
+//---------------------------------------------------------------------------
 // Step 1
 //---------------------------------------------------------------------------
 
@@ -227,36 +275,6 @@ uint8_t atc_processing_find_matches(
 // ---------------------------------------------------------------------------
 
 // Simple Match
-
-void atc_processing_transition_storage_init(
-  struct AtcTransitionStorage *transition_storage)
-{
-  for (int i = 0; i < kAtcTransitionStorageSize; i++) {
-    transition_storage->transitions[i] =
-        &transition_storage->transition_pool[i];
-  }
-  transition_storage->index_prior = 0;
-  transition_storage->index_candidate = 0;
-  transition_storage->index_free = 0;
-}
-
-struct AtcTransition *atc_processing_get_free_agent(
-    struct AtcTransitionStorage *transition_storage)
-{
-  if (transition_storage->index_free < kAtcTransitionStorageSize) {
-    if (transition_storage->index_free >= transition_storage->alloc_size) {
-      transition_storage->alloc_size = transition_storage->index_free + 1;
-    }
-    return transition_storage->transitions[transition_storage->index_free];
-  } else {
-    /* No more transition available in the buffer, so just return the last
-     * one. This will probably cause a bug in the timezone calculations, but
-     * I think this is better than triggering undefined behavior by running
-     * off the end of the mTransitions buffer.
-     */
-    return transition_storage->transitions[kAtcTransitionStorageSize - 1];
-  }
-}
 
 void atc_processing_get_transition_time(
     int8_t year_tiny,
@@ -319,39 +337,23 @@ void atc_processing_create_transition_for_year(
   }
 }
 
-void atc_processing_add_free_agent_to_active_pool(
-    struct AtcTransitionStorage *ts)
-{
-  if (ts->index_free >= kAtcTransitionStorageSize) return;
-  ts->index_free++;
-  ts->index_prior = ts->index_free;
-  ts->index_candidate = ts->index_free;
-}
-
 void atc_processing_create_transitions_from_simple_match(
     struct AtcTransitionStorage *transition_storage,
     struct AtcMatchingEra *match)
 {
-  struct AtcTransition *free_agent = atc_processing_get_free_agent(
+  struct AtcTransition *free_agent = atc_transition_storage_get_free_agent(
     transition_storage);
   atc_processing_create_transition_for_year(free_agent, 0, NULL, match);
   free_agent->match_status = kAtcMatchStatusExactMatch;
   match->last_offset_minutes = free_agent->offset_minutes;
   match->last_delta_minutes = free_agent->delta_minutes;
-  atc_processing_add_free_agent_to_active_pool(
+  atc_transition_storage_add_free_agent_to_active_pool(
       transition_storage);
 }
 
 //---------------------------------------------------------------------------
 
 // Named Match
-
-void atc_processing_reset_candidate_pool(
-    struct AtcTransitionStorage *transition_storage)
-{
-  transition_storage->index_candidate = transition_storage->index_prior;
-  transition_storage->index_free = transition_storage->index_prior;
-}
 
 // Pass 1
 void atc_processing_find_candidate_transitions(
@@ -360,6 +362,15 @@ void atc_processing_find_candidate_transitions(
 {
   (void) transition_storage;
   (void) match;
+  /*
+  const struct AtcZonePolicy *policy = match->era->zone_policy;
+  uint8_t num_rules = policy->num_rules;
+  int8_t start_year_tiny = match->start_dt.year_tiny;
+  int8_t end_year_tiny = match->until_dt.year_tiny;
+
+  struct AtcTranstion **prior = atc_processing_reserve_prior(
+      transition_storage);
+  */
 }
 
 // Pass 2
@@ -391,7 +402,7 @@ void atc_processing_create_transitions_from_named_match(
     struct AtcTransitionStorage *transition_storage,
     struct AtcMatchingEra *match)
 {
-  atc_processing_reset_candidate_pool(transition_storage);
+  atc_transition_storage_reset_candidate_pool(transition_storage);
 
   // Pass 1: Find candidate transitions using whole years.
   atc_processing_find_candidate_transitions(transition_storage, match);
@@ -469,7 +480,7 @@ bool atc_processing_init_for_year(
 
   processing->year = year;
   processing->num_matches = 0;
-  atc_processing_transition_storage_init(&processing->transition_storage);
+  atc_transition_storage_init(&processing->transition_storage);
   const struct AtcZoneContext *context = processing->zone_info->zone_context;
   if (year < context->start_year - 1 || context->until_year < year) {
     return false;
