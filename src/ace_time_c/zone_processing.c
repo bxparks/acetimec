@@ -149,7 +149,7 @@ void atc_create_matching_era(
   new_match->last_delta_minutes = 0;
 }
 
-void atc_calc_start_day_of_month(
+void atc_processing_calc_start_day_of_month(
     int16_t year,
     uint8_t month,
     uint8_t on_day_of_week,
@@ -353,7 +353,7 @@ void atc_processing_get_transition_time(
 {
   uint8_t month;
   uint8_t day;
-  atc_calc_start_day_of_month(
+  atc_processing_calc_start_day_of_month(
       year_tiny + kAtcEpochYear,
       rule->in_month,
       rule->on_day_of_week,

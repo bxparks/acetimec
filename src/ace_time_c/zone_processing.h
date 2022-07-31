@@ -44,7 +44,7 @@ uint8_t atc_zone_info_modifier_to_suffix(uint8_t modifier);
  * but not year boundaries (e.g. Jan to Dec of the previous year, or Dec to
  * Jan of the following year.)
  */
-void atc_calc_start_day_of_month(
+void atc_processing_calc_start_day_of_month(
     int16_t year,
     uint8_t month,
     uint8_t on_day_of_week,
