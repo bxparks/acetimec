@@ -60,9 +60,9 @@ void something() {
 
 If you have any questions, comments, or feature requests for this library,
 please use the [GitHub
-Discussions](https://github.com/bxparks/AceTime/discussions) for this project.
+Discussions](https://github.com/bxparks/AceTimeC/discussions) for this project.
 If you have bug reports, please file a ticket in [GitHub
-Issues](https://github.com/bxparks/AceTime/issues). Feature requests should go
+Issues](https://github.com/bxparks/AceTimeC/issues). Feature requests should go
 into Discussions first because they often have alternative solutions which are
 useful to remain visible, instead of disappearing from the default view of the
 Issue tracker after the ticket is closed.
