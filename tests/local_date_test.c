@@ -40,6 +40,7 @@ ACU_TEST(test_local_date_to_and_from_epoch_days)
       }
     }
   }
+
   ACU_PASS();
 }
 
@@ -60,6 +61,117 @@ ACU_TEST(test_day_of_week)
       }
     }
   }
+
+  ACU_PASS();
+}
+
+ACU_TEST(test_increment_one_day)
+{
+  struct AtcLocalDate ld;
+
+  ld.year = 2000;
+  ld.month = 2;
+  ld.day = 28;
+  atc_local_date_increment_one_day(&ld);
+  ACU_ASSERT(ld.year == 2000);
+  ACU_ASSERT(ld.month == 2);
+  ACU_ASSERT(ld.day == 29);
+
+  ld.year = 2000;
+  ld.month = 2;
+  ld.day = 29;
+  atc_local_date_increment_one_day(&ld);
+  ACU_ASSERT(ld.year == 2000);
+  ACU_ASSERT(ld.month == 3);
+  ACU_ASSERT(ld.day == 1);
+
+  ld.year = 2000;
+  ld.month = 3;
+  ld.day = 31;
+  atc_local_date_increment_one_day(&ld);
+  ACU_ASSERT(ld.year == 2000);
+  ACU_ASSERT(ld.month == 4);
+  ACU_ASSERT(ld.day == 1);
+
+  ld.year = 2000;
+  ld.month = 12;
+  ld.day = 31;
+  atc_local_date_increment_one_day(&ld);
+  ACU_ASSERT(ld.year == 2001);
+  ACU_ASSERT(ld.month == 1);
+  ACU_ASSERT(ld.day == 1);
+
+  ld.year = 2001;
+  ld.month = 2;
+  ld.day = 28;
+  atc_local_date_increment_one_day(&ld);
+  ACU_ASSERT(ld.year == 2001);
+  ACU_ASSERT(ld.month == 3);
+  ACU_ASSERT(ld.day == 1);
+
+  ld.year = 2004;
+  ld.month = 2;
+  ld.day = 28;
+  atc_local_date_increment_one_day(&ld);
+  ACU_ASSERT(ld.year == 2004);
+  ACU_ASSERT(ld.month == 2);
+  ACU_ASSERT(ld.day == 29);
+
+  ACU_PASS();
+}
+
+ACU_TEST(test_decrement_one_day)
+{
+  struct AtcLocalDate ld;
+
+  ld.year = 2004;
+  ld.month = 2;
+  ld.day = 29;
+  atc_local_date_decrement_one_day(&ld);
+  ACU_ASSERT(ld.year == 2004);
+  ACU_ASSERT(ld.month == 2);
+  ACU_ASSERT(ld.day == 28);
+
+  ld.year = 2001;
+  ld.month = 3;
+  ld.day = 1;
+  atc_local_date_decrement_one_day(&ld);
+  ACU_ASSERT(ld.year == 2001);
+  ACU_ASSERT(ld.month == 2);
+  ACU_ASSERT(ld.day == 28);
+
+  ld.year = 2001;
+  ld.month = 1;
+  ld.day = 1;
+  atc_local_date_decrement_one_day(&ld);
+  ACU_ASSERT(ld.year == 2000);
+  ACU_ASSERT(ld.month == 12);
+  ACU_ASSERT(ld.day == 31);
+
+  ld.year = 2000;
+  ld.month = 4;
+  ld.day = 1;
+  atc_local_date_decrement_one_day(&ld);
+  ACU_ASSERT(ld.year == 2000);
+  ACU_ASSERT(ld.month == 3);
+  ACU_ASSERT(ld.day == 31);
+
+  ld.year = 2000;
+  ld.month = 3;
+  ld.day = 1;
+  atc_local_date_decrement_one_day(&ld);
+  ACU_ASSERT(ld.year == 2000);
+  ACU_ASSERT(ld.month == 2);
+  ACU_ASSERT(ld.day == 29);
+
+  ld.year = 2000;
+  ld.month = 2;
+  ld.day = 29;
+  atc_local_date_decrement_one_day(&ld);
+  ACU_ASSERT(ld.year == 2000);
+  ACU_ASSERT(ld.month == 2);
+  ACU_ASSERT(ld.day == 28);
+
   ACU_PASS();
 }
 
@@ -75,5 +187,7 @@ int main(int argc, char **argv)
   ACU_RUN_TEST(test_is_leap_year);
   ACU_RUN_TEST(test_local_date_to_and_from_epoch_days);
   ACU_RUN_TEST(test_day_of_week);
+  ACU_RUN_TEST(test_increment_one_day);
+  ACU_RUN_TEST(test_decrement_one_day);
   ACU_SUMMARY();
 }

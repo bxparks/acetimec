@@ -556,20 +556,114 @@ void atc_processing_find_candidate_transitions(
 //---------------------------------------------------------------------------
 // Step 2B: Pass 2
 
-void atc_processing_fix_transition_times(
-      struct AtcTransition **begin,
-      struct AtcTransition **end)
+void atc_processing_normalize_date_tuple(struct AtcDateTuple *dt)
 {
-  (void) begin;
-  (void) end;
+  const int16_t kOneDayAsMinutes = 60 * 24;
+
+  if (dt->minutes <= -kOneDayAsMinutes) {
+    struct AtcLocalDate ld = {
+        dt->year_tiny + kAtcEpochYear, dt->month, dt->day};
+    atc_local_date_decrement_one_day(&ld);
+    dt->year_tiny = ld.year - kAtcEpochYear;
+    dt->month = ld.month;
+    dt->day = ld.day;
+    dt->minutes += kOneDayAsMinutes;
+  } else if (kOneDayAsMinutes <= dt->minutes) {
+    struct AtcLocalDate ld = {
+        dt->year_tiny + kAtcEpochYear, dt->month, dt->day};
+    atc_local_date_increment_one_day(&ld);
+    dt->year_tiny = ld.year - kAtcEpochYear;
+    dt->month = ld.month;
+    dt->day = ld.day;
+    dt->minutes -= kOneDayAsMinutes;
+  } else {
+    // do nothing
+  }
+}
+
+void atc_processing_expand_date_tuple(
+    const struct AtcDateTuple *tt,
+    int16_t offset_minutes,
+    int16_t delta_minutes,
+    struct AtcDateTuple *ttw,
+    struct AtcDateTuple *tts,
+    struct AtcDateTuple *ttu) {
+
+  if (tt->suffix == kAtcSuffixS) {
+    *tts = *tt;
+
+    ttu->year_tiny = tt->year_tiny;
+    ttu->month = tt->month;
+    ttu->day = tt->day;
+    ttu->minutes = (int16_t) (tt->minutes - offset_minutes);
+    ttu->suffix = kAtcSuffixU;
+
+    ttw->year_tiny = tt->year_tiny;
+    ttw->month = tt->month;
+    ttw->day = tt->day;
+    ttw->minutes = (int16_t) (tt->minutes + delta_minutes);
+    ttw->suffix = kAtcSuffixW;
+  } else if (tt->suffix == kAtcSuffixU) {
+    *ttu = *tt;
+
+    tts->year_tiny = tt->year_tiny;
+    tts->month = tt->month;
+    tts->day = tt->day;
+    tts->minutes = (int16_t) (tt->minutes + offset_minutes);
+    tts->suffix = kAtcSuffixS;
+
+    ttw->year_tiny = tt->year_tiny;
+    ttw->month = tt->month;
+    ttw->day = tt->day;
+    ttw->minutes = (int16_t) (tt->minutes + (offset_minutes + delta_minutes));
+    ttw->suffix = kAtcSuffixW;
+  } else {
+    // Explicit set the suffix to 'w' in case it was something else.
+    *ttw = *tt;
+    ttw->suffix = kAtcSuffixW;
+
+    tts->year_tiny = tt->year_tiny;
+    tts->month = tt->month;
+    tts->day = tt->day;
+    tts->minutes = (int16_t) (tt->minutes - delta_minutes);
+    tts->suffix = kAtcSuffixS;
+
+    ttu->year_tiny = tt->year_tiny;
+    ttu->month = tt->month;
+    ttu->day = tt->day;
+    ttu->minutes = (int16_t) (tt->minutes - (delta_minutes + offset_minutes));
+    ttu->suffix = kAtcSuffixU;
+  }
+
+  atc_processing_normalize_date_tuple(ttw);
+  atc_processing_normalize_date_tuple(tts);
+  atc_processing_normalize_date_tuple(ttu);
+}
+
+void atc_processing_fix_transition_times(
+    struct AtcTransition **begin,
+    struct AtcTransition **end)
+{
+  struct AtcTransition *prev = *begin;
+  for (struct AtcTransition **iter = begin; iter != end; ++iter) {
+    struct AtcTransition *curr = *iter;
+    atc_processing_expand_date_tuple(
+        &curr->transition_time,
+        prev->offset_minutes,
+        prev->delta_minutes,
+        &curr->transition_time,
+        &curr->transition_time_s,
+        &curr->transition_time_u);
+    prev = curr;
+  }
 }
 
 //---------------------------------------------------------------------------
 // Step 2B: Pass 3
 
 void atc_processing_select_active_transitions(
-      struct AtcTransition **begin,
-      struct AtcTransition **end)
+    struct AtcTransition **begin,
+    struct AtcTransition **end)
 {
   (void) begin;
   (void) end;
@@ -696,8 +790,6 @@ bool atc_processing_init_for_year(
   return true;
 }
 
-//---------------------------------------------------------------------------
-
 bool atc_processing_init_for_epoch_seconds(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
@@ -708,9 +800,12 @@ bool atc_processing_init_for_epoch_seconds(
     processing->zone_info = zone_info;
   }
 
-  (void) epoch_seconds;
-  return true;
+  struct AtcLocalDateTime ldt;
+  atc_local_date_time_from_epoch_seconds(epoch_seconds, &ldt);
+  return atc_processing_init_for_year(processing, zone_info, ldt.year);
 }
+
+//---------------------------------------------------------------------------
 
 void atc_processing_offset_date_time_from_epoch_seconds(
   struct AtcZoneProcessing *processing,

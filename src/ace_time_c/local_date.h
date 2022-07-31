@@ -46,4 +46,17 @@ void atc_local_date_from_epoch_days(
     uint8_t *month,
     uint8_t *day);
 
+/** Local Date struct. */
+struct AtcLocalDate {
+  int16_t year;
+  uint8_t month;
+  uint8_t day;
+};
+
+/** Increment given AtcLocalDate by one day. */
+void atc_local_date_increment_one_day(struct AtcLocalDate *ld);
+
+/** Decrement given AtcLocalDate by one day. */
+void atc_local_date_decrement_one_day(struct AtcLocalDate *ld);
+
 #endif
