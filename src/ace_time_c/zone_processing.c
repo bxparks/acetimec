@@ -25,8 +25,8 @@ uint8_t atc_zone_info_modifier_to_suffix(uint8_t modifier)
 //---------------------------------------------------------------------------
 
 int8_t atc_compare_internal_date_time(
-  const struct AtcDateTime *a,
-  const struct AtcDateTime *b)
+  const struct AtcDateTuple *a,
+  const struct AtcDateTuple *b)
 {
   if (a->year_tiny < b->year_tiny) return -1;
   if (a->year_tiny > b->year_tiny) return 1;
@@ -93,7 +93,7 @@ void atc_create_matching_era(
 
   // If prev_match is null, set start_date to be earlier than all valid
   // ZoneEra.
-  struct AtcDateTime start_date;
+  struct AtcDateTuple start_date;
   if (prev_match == NULL) {
     start_date.year_tiny = kAtcInvalidYearTiny;
     start_date.month = 1;
@@ -110,7 +110,7 @@ void atc_create_matching_era(
     start_date.suffix = atc_zone_info_modifier_to_suffix(
         prev_match->era->until_time_modifier);
   }
-  struct AtcDateTime lower_bound = {
+  struct AtcDateTuple lower_bound = {
     start_ym.year_tiny,
     start_ym.month,
     1,
@@ -121,7 +121,7 @@ void atc_create_matching_era(
     start_date = lower_bound;
   }
 
-  struct AtcDateTime until_date = {
+  struct AtcDateTuple until_date = {
     era->until_year_tiny,
     era->until_month,
     era->until_day,
@@ -130,7 +130,7 @@ void atc_create_matching_era(
         era->until_time_modifier),
     atc_zone_info_modifier_to_suffix(era->until_time_modifier),
   };
-  struct AtcDateTime upper_bound = {
+  struct AtcDateTuple upper_bound = {
     until_ym.year_tiny,
     until_ym.month,
     1,
@@ -349,7 +349,7 @@ uint8_t atc_processing_find_matches(
 void atc_processing_get_transition_time(
     int8_t year_tiny,
     const struct AtcZoneRule* rule,
-    struct AtcDateTime *dt)
+    struct AtcDateTuple *dt)
 {
   uint8_t month;
   uint8_t day;

@@ -86,7 +86,7 @@ struct AtcYearMonth {
 };
 
 /** An internal tuple of (year_tiny, month, day, minutes). */
-struct AtcDateTime {
+struct AtcDateTuple {
   int8_t year_tiny; // [-127, 126], 127 will cause bugs
   uint8_t month; // [1-12]
   uint8_t day; // [1-31]
@@ -95,12 +95,12 @@ struct AtcDateTime {
 };
 
 /**
- * Compare AtcDateTime a to AtcDateTime b, ignoring the suffix.
+ * Compare AtcDateTuple a to AtcDateTuple b, ignoring the suffix.
  * Exported for testing.
  */
 int8_t atc_compare_internal_date_time(
-  const struct AtcDateTime *a,
-  const struct AtcDateTime *b);
+  const struct AtcDateTuple *a,
+  const struct AtcDateTuple *b);
 
 //---------------------------------------------------------------------------
 // AtcTransition and AtcTransitionStorage
@@ -124,10 +124,10 @@ struct AtcMatchingEra {
    * The effective start time of the matching ZoneEra, which uses the
    * UTC offsets of the previous matching era.
    */
-  struct AtcDateTime start_dt;
+  struct AtcDateTuple start_dt;
 
   /** The effective until time of the matching ZoneEra. */
-  struct AtcDateTime until_dt;
+  struct AtcDateTuple until_dt;
 
   /** The ZoneEra that matched the given year. NonNullable. */
   struct AtcZoneEra *era;
@@ -159,7 +159,7 @@ struct AtcTransition {
    * remember that the transition_time* fields are expressed using the UTC
    * offset of the *previous* Transition.
    */
-  struct AtcDateTime transition_time;
+  struct AtcDateTuple transition_time;
 
   union {
     /**
@@ -167,13 +167,13 @@ struct AtcTransition {
      * *previous* Transition. Valid before
      * ExtendedZoneProcessor::generateStartUntilTimes() is called.
      */
-    struct AtcDateTime transition_time_s;
+    struct AtcDateTuple transition_time_s;
 
     /**
      * Start time expressed using the UTC offset of the current Transition.
      * Valid after ExtendedZoneProcessor::generateStartUntilTimes() is called.
      */
-    struct AtcDateTime start_dt;
+    struct AtcDateTuple start_dt;
   };
 
   union {
@@ -182,13 +182,13 @@ struct AtcTransition {
      * *previous* transition. Valid before
      * ExtendedZoneProcessor::generateStartUntilTimes() is called.
      */
-    struct AtcDateTime transition_time_u;
+    struct AtcDateTuple transition_time_u;
 
     /**
      * Until time expressed using the UTC offset of the current Transition.
      * Valid after ExtendedZoneProcessor::generateStartUntilTimes() is called.
      */
-    struct AtcDateTime until_dt;
+    struct AtcDateTuple until_dt;
   };
 
   /** The calculated transition time of the given rule. */
