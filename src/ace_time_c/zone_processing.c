@@ -4,7 +4,7 @@
  */
 
 #include <stdbool.h>
-#include "local_date.h" // atc_days_in_year_month()
+#include "local_date.h" // atc_local_date_days_in_year_month()
 #include "zone_processing.h"
 
 //---------------------------------------------------------------------------
@@ -344,7 +344,9 @@ uint8_t atc_processing_find_matches(
 // Step 2
 // ---------------------------------------------------------------------------
 
-// Simple Match
+// ---------------------------------------------------------------------------
+// Step 2a: Simple Match
+// ---------------------------------------------------------------------------
 
 void atc_processing_get_transition_time(
     int8_t year_tiny,
@@ -420,8 +422,11 @@ void atc_processing_create_transitions_from_simple_match(
 }
 
 //---------------------------------------------------------------------------
+// Step 2B: Named Match
+//---------------------------------------------------------------------------
 
-// Named Match
+//---------------------------------------------------------------------------
+// Step 2B: Pass 1
 
 /**
  * Calculate interior years. Up to maxInteriorYears, usually 3 or 4.
@@ -491,7 +496,6 @@ int8_t atc_processing_get_most_recent_prior_year(
   }
 }
 
-// Pass 1
 void atc_processing_find_candidate_transitions(
     struct AtcTransitionStorage *ts,
     struct AtcMatchingEra *match)
@@ -550,7 +554,7 @@ void atc_processing_find_candidate_transitions(
 }
 
 //---------------------------------------------------------------------------
-// Pass 2
+// Step 2B: Pass 2
 
 void atc_processing_fix_transition_times(
       struct AtcTransition **begin,
@@ -561,7 +565,7 @@ void atc_processing_fix_transition_times(
 }
 
 //---------------------------------------------------------------------------
-// Pass 3
+// Step 2B: Pass 3
 
 void atc_processing_select_active_transitions(
       struct AtcTransition **begin,
@@ -614,8 +618,10 @@ void atc_processing_create_transitions_for_match(
 {
   const struct AtcZonePolicy *policy = match->era->zone_policy;
   if (policy == NULL) {
+    // Step 2A
     atc_processing_create_transitions_from_simple_match(ts, match);
   } else {
+    // Step 2B
     atc_processing_create_transitions_from_named_match(ts, match);
   }
 }
