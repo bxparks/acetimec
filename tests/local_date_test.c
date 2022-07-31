@@ -179,11 +179,8 @@ ACU_TEST(test_decrement_one_day)
 
 ACU_PARAMS();
 
-int main(int argc, char **argv)
+int main()
 {
-  (void) argc;
-  (void) argv;
-
   ACU_RUN_TEST(test_is_leap_year);
   ACU_RUN_TEST(test_local_date_to_and_from_epoch_days);
   ACU_RUN_TEST(test_day_of_week);

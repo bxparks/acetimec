@@ -76,11 +76,8 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2068)
 
 ACU_PARAMS();
 
-int main(int argc, char **argv)
+int main()
 {
-  (void) argc;
-  (void) argv;
-
   ACU_RUN_TEST(test_atc_local_date_time_to_epoch_seconds);
   ACU_RUN_TEST(test_atc_local_date_time_from_epoch_seconds_2000);
   ACU_RUN_TEST(test_atc_local_date_time_from_epoch_seconds_2029);

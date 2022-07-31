@@ -16,11 +16,8 @@ ACU_TEST(test_zonedb_sizes)
 
 ACU_PARAMS();
 
-int main(int argc, char **argv)
+int main()
 {
-  (void) argc;
-  (void) argv;
-
   ACU_RUN_TEST(test_zonedb_sizes);
   ACU_SUMMARY();
 }

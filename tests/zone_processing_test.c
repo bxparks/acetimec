@@ -113,11 +113,8 @@ ACU_TEST(test_atc_processing_calc_interior_years)
 
 ACU_PARAMS();
 
-int main(int argc, char **argv)
+int main()
 {
-  (void) argc;
-  (void) argv;
-
   ACU_RUN_TEST(test_atc_zone_info_time_code_to_minutes);
   ACU_RUN_TEST(test_atc_zone_info_modifier_to_suffix);
   ACU_RUN_TEST(test_atc_processing_compare_date_tuple);
