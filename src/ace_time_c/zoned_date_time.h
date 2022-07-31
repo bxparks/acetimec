@@ -25,24 +25,24 @@ struct AtcZonedDateTime {
   uint8_t minute;
   uint8_t second;
   int16_t offset_minutes; /* possibly ignored */
-  struct AtcZoneInfo *zone_info; /* nullable, possibly ignored */
+  const struct AtcZoneInfo *zone_info; /* nullable, possibly ignored */
 };
 
 /**
  * Convert epoch seconds to struct AtcZonedDateTime using the time zone
  * identified by zone_info.
  */
-void atc_calc_date_time(
+void atc_zoned_date_time_from_epoch_seconds(
     struct AtcZoneProcessing *processing,
-    atc_time_t epoch_seconds,
     const struct AtcZoneInfo *zone_info,
+    atc_time_t epoch_seconds,
     struct AtcZonedDateTime *dt);
 
 /**
  * Convert struct AtcZonedDateTime to epoch seconds using the time zone
  * identified by the zone_info inside zdt.
  */
-atc_time_t atc_calc_epoch_seconds(
+atc_time_t atc_zoned_date_time_to_epoch_seconds(
     struct AtcZoneProcessing *processing,
     const struct AtcZonedDateTime *zdt);
 

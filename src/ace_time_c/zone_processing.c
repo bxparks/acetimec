@@ -640,11 +640,9 @@ void atc_processing_create_transitions(
 // Initialization of AtcZoneProcessing.
 //---------------------------------------------------------------------------
 
-void atc_processing_init(
-  struct AtcZoneProcessing *processing,
-  const struct AtcZoneInfo *zone_info)
+void atc_processing_init(struct AtcZoneProcessing *processing)
 {
-  processing->zone_info = zone_info;
+  processing->zone_info = NULL;
   processing->is_filled = 0;
   processing->num_matches = 0;
 }
@@ -658,8 +656,13 @@ bool atc_processing_is_filled_for_year(
 
 bool atc_processing_init_for_year(
   struct AtcZoneProcessing *processing,
+  const struct AtcZoneInfo *zone_info,
   int16_t year)
 {
+  if (processing->zone_info != zone_info) {
+    atc_processing_init(processing);
+    processing->zone_info = zone_info;
+  }
   if (atc_processing_is_filled_for_year(processing, year)) return true;
 
   processing->year = year;
@@ -686,8 +689,6 @@ bool atc_processing_init_for_year(
     processing->matches,
     num_matches);
 
-  (void) num_matches;
-
   // Step 3: Fix transition times.
   // Step 4: Generate start and until times.
   // Step 5: Calc abbreviations.
@@ -695,31 +696,33 @@ bool atc_processing_init_for_year(
   return true;
 }
 
-void atc_processing_init_for_epoch_seconds(
+//---------------------------------------------------------------------------
+
+bool atc_processing_init_for_epoch_seconds(
   struct AtcZoneProcessing *processing,
+  const struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds)
 {
-  (void) processing;
+  if (processing->zone_info != zone_info) {
+    atc_processing_init(processing);
+    processing->zone_info = zone_info;
+  }
+
   (void) epoch_seconds;
+  return true;
 }
 
-//---------------------------------------------------------------------------
-// Public API.
-//---------------------------------------------------------------------------
-
-void atc_processing_calc_offset_date_time(
+void atc_processing_offset_date_time_from_epoch_seconds(
   struct AtcZoneProcessing *processing,
   atc_time_t epoch_seconds,
-  const struct AtcZoneInfo *zone_info,
   struct AtcOffsetDateTime *odt)
 {
   (void) processing;
   (void) epoch_seconds;
-  (void) zone_info;
   (void) odt;
 }
 
-atc_time_t atc_processing_calc_epoch_seconds(
+atc_time_t atc_processing_local_date_time_to_epoch_seconds(
   struct AtcZoneProcessing *processing,
   const struct AtcLocalDateTime *ldt)
 {

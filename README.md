@@ -38,15 +38,16 @@ void something() {
 
   // convert epoch seconds to date/time components for given time zone
   struct AtcZonedDateTime zdt;
-  atc_calc_date_time(
+  atc_zoned_date_time_from_epoch_seconds(
     &los_angeles_processing,
-    seconds,
     &kAtcZoneAmerica_Los_Angeles,
+    seconds,
     &zdt);
 
   // convert components to epoch seconds
-  seconds = atc_calc_epoch_seconds(
-    &los_angeles_processing, &zdt);
+  seconds = atc_zoned_date_time_to_epoch_seconds(
+    &los_angeles_processing,
+    &zdt);
 }
 ```
 

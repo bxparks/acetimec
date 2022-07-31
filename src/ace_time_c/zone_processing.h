@@ -311,30 +311,29 @@ struct AtcOffsetDateTime {
   int16_t offset_minutes;
 };
 
-// internal, exposed for testing
+/** Initialize AtcZoneProcessing. Should be called once in the app. */
+void atc_processing_init(struct AtcZoneProcessing *processing);
+
+/** Initialize AtcZoneProcessing for the given zone_info and year. */
 bool atc_processing_init_for_year(
   struct AtcZoneProcessing *processing,
+  const struct AtcZoneInfo *zone_info,
   int16_t year);
 
-// internal, exposed for testing
-void atc_processing_init_for_epoch_seconds(
+/** Initialize AtcZoneProcessing for the given zone_info and epoch seconds. */
+bool atc_processing_init_for_epoch_seconds(
   struct AtcZoneProcessing *processing,
+  const struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds);
 
-// External API
-void atc_processing_init(
-  struct AtcZoneProcessing *processing,
-  const struct AtcZoneInfo *zone_info);
-
 /** Convert epoch_seconds to odt using the given zone_info. */
-void atc_processing_calc_offset_date_time(
+void atc_processing_offset_date_time_from_epoch_seconds(
   struct AtcZoneProcessing *processing,
   atc_time_t epoch_seconds,
-  const struct AtcZoneInfo *zone_info,
   struct AtcOffsetDateTime *odt);
 
 /** Convert the ldt to the epoch seconds. */
-atc_time_t atc_processing_calc_epoch_seconds(
+atc_time_t atc_processing_local_date_time_to_epoch_seconds(
   struct AtcZoneProcessing *processing,
   const struct AtcLocalDateTime *ldt);
 
