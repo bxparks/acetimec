@@ -281,6 +281,20 @@ int8_t atc_processing_get_most_recent_prior_year(
     int8_t from_year, int8_t to_year,
     int8_t start_year, int8_t end_year);
 
+/**
+ * Calculate interior years. Up to maxInteriorYears, usually 3 or 4.
+ * Returns the number of interior years.
+ *
+ * Exported for testing.
+ */
+uint8_t atc_processing_calc_interior_years(
+    int8_t* interior_years,
+    uint8_t max_interior_years,
+    int8_t from_year,
+    int8_t to_year,
+    int8_t start_year,
+    int8_t end_year);
+
 //---------------------------------------------------------------------------
 // Externally exported API for converting between epoch seconds and
 // LocalDateTime and OffsetDateTime.

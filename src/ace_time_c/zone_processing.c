@@ -428,10 +428,6 @@ void atc_processing_create_transitions_from_simple_match(
 //---------------------------------------------------------------------------
 // Step 2B: Pass 1
 
-/**
- * Calculate interior years. Up to maxInteriorYears, usually 3 or 4.
- * Returns the number of interior years.
- */
 uint8_t atc_processing_calc_interior_years(
     int8_t* interior_years,
     uint8_t max_interior_years,
