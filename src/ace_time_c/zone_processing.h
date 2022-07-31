@@ -9,6 +9,7 @@
 #include <stdint.h>
 #include <stdbool.h>
 #include "common.h" // atc_time_t
+#include "local_date_time.h" // AtcLocalDateTime
 #include "zone_info.h"
 
 //---------------------------------------------------------------------------
@@ -300,16 +301,6 @@ struct AtcZoneProcessing {
 };
 
 // External API
-struct AtcLocalDateTime {
-  int16_t year;
-  uint8_t month;
-  uint8_t day;
-  uint8_t hour;
-  uint8_t minute;
-  uint8_t second;
-};
-
-// External API
 struct AtcOffsetDateTime {
   int16_t year;
   uint8_t month;
@@ -333,17 +324,18 @@ void atc_processing_init_for_epoch_seconds(
 // External API
 void atc_processing_init(
   struct AtcZoneProcessing *processing,
-  struct AtcZoneInfo *zone_info);
+  const struct AtcZoneInfo *zone_info);
 
-// External API
+/** Convert epoch_seconds to odt using the given zone_info. */
 void atc_processing_calc_offset_date_time(
   struct AtcZoneProcessing *processing,
   atc_time_t epoch_seconds,
-  struct AtcOffsetDateTime *offset_dt);
+  const struct AtcZoneInfo *zone_info,
+  struct AtcOffsetDateTime *odt);
 
-// External API
+/** Convert the ldt to the epoch seconds. */
 atc_time_t atc_processing_calc_epoch_seconds(
   struct AtcZoneProcessing *processing,
-  struct AtcLocalDateTime *local_dt);
+  const struct AtcLocalDateTime *ldt);
 
 #endif

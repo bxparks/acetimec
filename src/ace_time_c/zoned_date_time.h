@@ -28,16 +28,22 @@ struct AtcZonedDateTime {
   struct AtcZoneInfo *zone_info; /* nullable, possibly ignored */
 };
 
-/** Convert epoch seconds to struct AtcZonedDateTime. */
+/**
+ * Convert epoch seconds to struct AtcZonedDateTime using the time zone
+ * identified by zone_info.
+ */
 void atc_calc_date_time(
-    struct AtcZoneInfo *zone_info,
     struct AtcZoneProcessing *processing,
     atc_time_t epoch_seconds,
+    const struct AtcZoneInfo *zone_info,
     struct AtcZonedDateTime *dt);
 
-/** Convert struct AtcZonedDateTime to epoch seconds. */
+/**
+ * Convert struct AtcZonedDateTime to epoch seconds using the time zone
+ * identified by the zone_info inside zdt.
+ */
 atc_time_t atc_calc_epoch_seconds(
     struct AtcZoneProcessing *processing,
-    struct AtcZonedDateTime *dt);
+    const struct AtcZonedDateTime *zdt);
 
 #endif

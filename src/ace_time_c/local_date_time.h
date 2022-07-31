@@ -9,15 +9,22 @@
 #include <stdint.h>
 #include "common.h"
 
-/** Convert (year, month, day, hour, minute, second) in UTC to epoch seconds. */
-atc_time_t atc_to_epoch_seconds(
-  int16_t year, uint8_t month, uint8_t day,
-  uint8_t hour, uint8_t minute, uint8_t second);
+struct AtcLocalDateTime {
+  int16_t year;
+  uint8_t month;
+  uint8_t day;
+  uint8_t hour;
+  uint8_t minute;
+  uint8_t second;
+};
 
-/** Convert epoch seconds to (year, month, day, hour, minute, second) in UTC. */
-void atc_from_epoch_seconds(
+/** Convert LocalDateTime in UTC to epoch seconds. */
+atc_time_t atc_local_date_time_to_epoch_seconds(
+    const struct AtcLocalDateTime *ldt);
+
+/** Convert epoch seconds to LocalDateTime in UTC. */
+void atc_local_date_time_from_epoch_seconds(
   atc_time_t epoch_seconds,
-  int16_t *year, uint8_t *month, uint8_t *day,
-  uint8_t *hour, uint8_t *minute, uint8_t *second);
+  struct AtcLocalDateTime *ldt);
 
 #endif

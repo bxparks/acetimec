@@ -1,106 +1,73 @@
 #include "acunit.h"
 #include <acetimec.h>
 
-ACU_TEST(test_to_epoch_seconds)
+ACU_TEST(test_atc_local_date_time_to_epoch_seconds)
 {
-  int32_t seconds = atc_to_epoch_seconds(1931, 12, 13, 20, 45, 53);
+  struct AtcLocalDateTime ldt1 = {1931, 12, 13, 20, 45, 53};
+  int32_t seconds = atc_local_date_time_to_epoch_seconds(&ldt1);
   ACU_ASSERT(seconds == INT32_MIN + 1);
 
-  seconds = atc_to_epoch_seconds(2000, 1, 1, 0, 0, 0);
+  struct AtcLocalDateTime ldt2 = {2000, 1, 1, 0, 0, 0};
+  seconds = atc_local_date_time_to_epoch_seconds(&ldt2);
   ACU_ASSERT(seconds == 0);
 
-  seconds = atc_to_epoch_seconds(2000, 1, 2, 0, 0, 0);
+  struct AtcLocalDateTime ldt3 = {2000, 1, 2, 0, 0, 0};
+  seconds = atc_local_date_time_to_epoch_seconds(&ldt3);
   ACU_ASSERT(seconds == 86400);
 
-  seconds = atc_to_epoch_seconds(2000, 2, 29, 0, 0, 0);
+  struct AtcLocalDateTime ldt4 = {2000, 2, 29, 0, 0, 0};
+  seconds = atc_local_date_time_to_epoch_seconds(&ldt4);
   ACU_ASSERT(seconds == 86400 * 59);
 
-  seconds = atc_to_epoch_seconds(2018, 1, 1, 0, 0, 0);
+  struct AtcLocalDateTime ldt5 = {2018, 1, 1, 0, 0, 0};
+  seconds = atc_local_date_time_to_epoch_seconds(&ldt5);
   ACU_ASSERT(seconds == 86400 * 6575);
 
-  seconds = atc_to_epoch_seconds(2038, 1, 19, 3, 14, 7);
+  struct AtcLocalDateTime ldt6 = {2038, 1, 19, 3, 14, 7};
+  seconds = atc_local_date_time_to_epoch_seconds(&ldt6);
   ACU_ASSERT(seconds == 1200798847);
 
   ACU_PASS();
 }
 
-ACU_TEST(test_from_epoch_seconds_2000)
+ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2000)
 {
-  int16_t year;
-  uint8_t month;
-  uint8_t day;
-  uint8_t hour;
-  uint8_t minute;
-  uint8_t second;
-
-  atc_from_epoch_seconds(
-    0,
-    &year,
-    &month,
-    &day,
-    &hour,
-    &minute,
-    &second);
-  ACU_ASSERT(year == 2000);
-  ACU_ASSERT(month == 1);
-  ACU_ASSERT(day == 1);
-  ACU_ASSERT(hour == 0);
-  ACU_ASSERT(minute == 0);
-  ACU_ASSERT(second == 0);
+  struct AtcLocalDateTime ldt;
+  atc_local_date_time_from_epoch_seconds(0, &ldt);
+  ACU_ASSERT(ldt.year == 2000);
+  ACU_ASSERT(ldt.month == 1);
+  ACU_ASSERT(ldt.day == 1);
+  ACU_ASSERT(ldt.hour == 0);
+  ACU_ASSERT(ldt.minute == 0);
+  ACU_ASSERT(ldt.second == 0);
 
   ACU_PASS();
 }
 
-ACU_TEST(test_from_epoch_seconds_2029)
+ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2029)
 {
-  int16_t year;
-  uint8_t month;
-  uint8_t day;
-  uint8_t hour;
-  uint8_t minute;
-  uint8_t second;
-
-  atc_from_epoch_seconds(
-    10958 * 86400 - 1,
-    &year,
-    &month,
-    &day,
-    &hour,
-    &minute,
-    &second);
-  ACU_ASSERT(year == 2029);
-  ACU_ASSERT(month == 12);
-  ACU_ASSERT(day == 31);
-  ACU_ASSERT(hour == 23);
-  ACU_ASSERT(minute == 59);
-  ACU_ASSERT(second == 59);
+  struct AtcLocalDateTime ldt;
+  atc_local_date_time_from_epoch_seconds(10958 * 86400 - 1, &ldt);
+  ACU_ASSERT(ldt.year == 2029);
+  ACU_ASSERT(ldt.month == 12);
+  ACU_ASSERT(ldt.day == 31);
+  ACU_ASSERT(ldt.hour == 23);
+  ACU_ASSERT(ldt.minute == 59);
+  ACU_ASSERT(ldt.second == 59);
 
   ACU_PASS();
 }
 
-ACU_TEST(test_from_epoch_seconds_2068)
+ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2068)
 {
-  int16_t year;
-  uint8_t month;
-  uint8_t day;
-  uint8_t hour;
-  uint8_t minute;
-  uint8_t second;
-
-  atc_from_epoch_seconds(
-    INT32_MAX - 1,
-    &year,
-    &month,
-    &day,
-    &hour,
-    &minute,
-    &second);
-  ACU_ASSERT(year == 2068);
-  ACU_ASSERT(month == 1);
-  ACU_ASSERT(day == 19);
-  ACU_ASSERT(hour == 3);
-  ACU_ASSERT(minute == 14);
-  ACU_ASSERT(second == 6);
+  struct AtcLocalDateTime ldt;
+  atc_local_date_time_from_epoch_seconds(INT32_MAX - 1, &ldt);
+  ACU_ASSERT(ldt.year == 2068);
+  ACU_ASSERT(ldt.month == 1);
+  ACU_ASSERT(ldt.day == 19);
+  ACU_ASSERT(ldt.hour == 3);
+  ACU_ASSERT(ldt.minute == 14);
+  ACU_ASSERT(ldt.second == 6);
 
   ACU_PASS();
 }
@@ -114,9 +81,9 @@ int main(int argc, char **argv)
   (void) argc;
   (void) argv;
 
-  ACU_RUN_TEST(test_to_epoch_seconds);
-  ACU_RUN_TEST(test_from_epoch_seconds_2000);
-  ACU_RUN_TEST(test_from_epoch_seconds_2029);
-  ACU_RUN_TEST(test_from_epoch_seconds_2068);
+  ACU_RUN_TEST(test_atc_local_date_time_to_epoch_seconds);
+  ACU_RUN_TEST(test_atc_local_date_time_from_epoch_seconds_2000);
+  ACU_RUN_TEST(test_atc_local_date_time_from_epoch_seconds_2029);
+  ACU_RUN_TEST(test_atc_local_date_time_from_epoch_seconds_2068);
   ACU_SUMMARY();
 }

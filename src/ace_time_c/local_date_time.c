@@ -1,42 +1,41 @@
 #include "local_date_time.h"
 
-#include <stdint.h>
+#include "common.h"
 #include "local_date.h"
 #include "local_date_time.h"
 
 // Offset to between 'year' and 'year_tiny'.
 #define ATC_YEAR_TINY_OFFSET 2000
 
-static atc_time_t to_epoch_seconds(uint8_t hour, uint8_t minute, uint8_t second)
+static atc_time_t hms_to_epoch_seconds(
+    uint8_t hour, uint8_t minute, uint8_t second)
 {
   return ((hour * (int16_t) 60) + minute) * (int32_t) 60 + second;
 }
 
-atc_time_t atc_to_epoch_seconds(
-  int16_t year, uint8_t month, uint8_t day,
-  uint8_t hour, uint8_t minute, uint8_t second)
+atc_time_t atc_local_date_time_to_epoch_seconds(
+    const struct AtcLocalDateTime *ldt)
 {
-  if (year == INT16_MIN) return INT32_MIN;
+  if (ldt->year == kAtcInvalidYear) return kAtcInvalidEpochSeconds;
 
-  int8_t year_tiny = year - ATC_YEAR_TINY_OFFSET;
-  int32_t days = atc_to_epoch_days(year_tiny, month, day);
-  int32_t seconds = to_epoch_seconds(hour, minute, second);
+  int8_t year_tiny = ldt->year - ATC_YEAR_TINY_OFFSET;
+  int32_t days = atc_local_date_to_epoch_days(year_tiny, ldt->month, ldt->day);
+  int32_t seconds = hms_to_epoch_seconds(ldt->hour, ldt->minute, ldt->second);
   return days * 86400 + seconds;
 }
 
-void atc_from_epoch_seconds(
+void atc_local_date_time_from_epoch_seconds(
   atc_time_t epoch_seconds,
-  int16_t *year, uint8_t *month, uint8_t *day,
-  uint8_t *hour, uint8_t *minute, uint8_t *second)
+  struct AtcLocalDateTime *ldt)
 {
   // TODO: Check for epoch_seconds which generates year<-127 or year>127.
-  if (epoch_seconds == INT32_MIN) {
-    *year = INT16_MIN;
-    *month = 0;
-    *day = 0;
-    *hour = 0;
-    *minute = 0;
-    *second = 0;
+  if (epoch_seconds == kAtcInvalidEpochSeconds) {
+    ldt->year = kAtcInvalidYear;
+    ldt->month = 0;
+    ldt->day = 0;
+    ldt->hour = 0;
+    ldt->minute = 0;
+    ldt->second = 0;
     return;
   }
 
@@ -48,13 +47,13 @@ void atc_from_epoch_seconds(
 
   // Extract (year, month day).
   int8_t year_tiny;
-  atc_from_epoch_days(days, &year_tiny, month, day);
-  *year = year_tiny + ATC_YEAR_TINY_OFFSET;
+  atc_local_date_from_epoch_days(days, &year_tiny, &ldt->month, &ldt->day);
+  ldt->year = year_tiny + ATC_YEAR_TINY_OFFSET;
 
   // Extract (hour, minute, second). The compiler will combine the mod (%) and
   // division (/) operations into a single (dividend, remainder) function call.
-  *second = seconds % 60;
+  ldt->second = seconds % 60;
   uint16_t minutes = seconds / 60;
-  *minute = minutes % 60;
-  *hour = minutes / 60;
+  ldt->minute = minutes % 60;
+  ldt->hour = minutes / 60;
 }

@@ -42,10 +42,20 @@ bool atc_is_leap_year(uint16_t year)
   return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
 }
 
-uint8_t atc_days_in_year_month(int16_t year, uint8_t month)
+uint8_t atc_local_date_days_in_year_month(int16_t year, uint8_t month)
 {
   uint8_t days = atc_days_in_month[month - 1];
   return (month == 2 && atc_is_leap_year(year)) ? days + 1 : days;
+}
+
+uint8_t atc_local_date_day_of_week(int16_t year, uint8_t month, uint8_t day)
+{
+  // The "year" starts in March to shift leap year calculation to end.
+  int16_t y = year - (month < 3);
+  int16_t d = y + y/4 - y/100 + y/400 + atc_days_of_week[month-1] + day;
+
+  // 2000-01-01 was a Saturday=6, so set the offsets accordingly
+  return (d < -1) ? (d + 1) % 7 + 8 : (d + 1) % 7 + 1;
 }
 
 /**
@@ -61,7 +71,8 @@ static uint16_t atc_to_days_until_month_prime(uint8_t month_prime)
 
 // This algorithm corresponds to
 // AceTime/src/ace_time/internal/EpochConverterHinnant2.h.
-int32_t atc_to_epoch_days(int8_t year_tiny, uint8_t month, uint8_t day)
+int32_t atc_local_date_to_epoch_days(
+    int8_t year_tiny, uint8_t month, uint8_t day)
 {
   int8_t year_prime_tiny = year_tiny - ((month <= 2) ? 1 : 0);
   int8_t era_tiny = (year_prime_tiny < 0) ? -1 : 0;
@@ -79,7 +90,7 @@ int32_t atc_to_epoch_days(int8_t year_tiny, uint8_t month, uint8_t day)
 
 // This algorithm corresponds to
 // AceTime/src/ace_time/internal/EpochConverterHinnant2.h.
-void atc_from_epoch_days(
+void atc_local_date_from_epoch_days(
     int32_t epoch_days,
     int8_t *year_tiny,
     uint8_t *month,
@@ -101,14 +112,4 @@ void atc_from_epoch_days(
   *day = day_of_year_prime - days_until_month_prime + 1;
   *month = (month_prime < 10) ? month_prime + 3 : month_prime - 9;
   *year_tiny = year_prime_tiny + ((*month <= 2) ? 1 : 0);
-}
-
-uint8_t atc_day_of_week(int16_t year, uint8_t month, uint8_t day)
-{
-  // The "year" starts in March to shift leap year calculation to end.
-  int16_t y = year - (month < 3);
-  int16_t d = y + y/4 - y/100 + y/400 + atc_days_of_week[month-1] + day;
-
-  // 2000-01-01 was a Saturday=6, so set the offsets accordingly
-  return (d < -1) ? (d + 1) % 7 + 8 : (d + 1) % 7 + 1;
 }

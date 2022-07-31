@@ -9,18 +9,19 @@ ACU_TEST(test_is_leap_year)
   ACU_PASS();
 }
 
-// Do a round-trip atc_to_epoch_days()/atc_from_epoch_days() conversion for
-// every day from 1873-01-01 to 2127-12-31, inclusive.
-ACU_TEST(test_to_and_from_epoch_days)
+// Do a round-trip of conversion atc_local_date_to_epoch_days() and
+// atc_local_date_from_epoch_days() for every day from 1873-01-01 to 2127-12-31,
+// inclusive.
+ACU_TEST(test_local_date_to_and_from_epoch_days)
 {
   int32_t epoch_days = -46385; // 1873-01-01
   for (int16_t year = 2000 - 127; year <= 2000 + 127; year++) {
     int8_t year_tiny = year - 2000;
     for (uint8_t month = 1; month <= 12; month++) {
-      uint8_t days_in_month = atc_days_in_year_month(year, month);
+      uint8_t days_in_month = atc_local_date_days_in_year_month(year, month);
       for (uint8_t day = 1; day <= days_in_month; day++) {
         // Test atc_to_epoch_days()
-        int32_t obs_epoch_days = atc_to_epoch_days(
+        int32_t obs_epoch_days = atc_local_date_to_epoch_days(
             year_tiny, month, day);
         ACU_ASSERT(epoch_days == obs_epoch_days);
 
@@ -28,7 +29,8 @@ ACU_TEST(test_to_and_from_epoch_days)
         int8_t obs_year_tiny;
         uint8_t obs_month;
         uint8_t obs_day;
-        atc_from_epoch_days(epoch_days, &obs_year_tiny, &obs_month, &obs_day);
+        atc_local_date_from_epoch_days(
+            epoch_days, &obs_year_tiny, &obs_month, &obs_day);
         ACU_ASSERT(year_tiny == obs_year_tiny);
         ACU_ASSERT(month == obs_month);
         ACU_ASSERT(day == obs_day);
@@ -47,9 +49,9 @@ ACU_TEST(test_day_of_week)
   uint8_t expected = 6; // 2000-01-01 was a Saturday (6)
   for (int16_t y = 2000; y < 2500; y++) {
     for (uint8_t m = 1; m <= 12; m++) {
-      uint8_t days_in_month = atc_days_in_year_month(y, m);
+      uint8_t days_in_month = atc_local_date_days_in_year_month(y, m);
       for (uint8_t d = 1; d <= days_in_month; d++) {
-        uint8_t dow = atc_day_of_week(y, m, d);
+        uint8_t dow = atc_local_date_day_of_week(y, m, d);
         ACU_ASSERT(expected == dow);
         expected++;
         if (expected > 7) {
@@ -71,7 +73,7 @@ int main(int argc, char **argv)
   (void) argv;
 
   ACU_RUN_TEST(test_is_leap_year);
-  ACU_RUN_TEST(test_to_and_from_epoch_days);
+  ACU_RUN_TEST(test_local_date_to_and_from_epoch_days);
   ACU_RUN_TEST(test_day_of_week);
   ACU_SUMMARY();
 }

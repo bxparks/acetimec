@@ -5,24 +5,23 @@
 
 #include "zoned_date_time.h"
 
-void atc_to_date_time_tz(
-    struct AtcZonedDateTime *dt,
+void atc_calc_date_time(
+    struct AtcZoneProcessing *processing,
     atc_time_t epoch_seconds,
-    struct AtcZoneInfo *zone_info,
-    struct AtcZoneProcessing *processing)
+    const struct AtcZoneInfo *zone_info,
+    struct AtcZonedDateTime *zdt)
 {
-  (void) dt;
+  (void) zdt;
   (void) epoch_seconds;
   (void) zone_info;
   (void) processing;
 }
 
-/** Convert struct AtcZonedDateTime to epoch seconds. */
-atc_time_t atc_to_epoch_seconds_tz(
-    struct AtcZonedDateTime *dt,
-    struct AtcZoneProcessing *processing)
+atc_time_t atc_calc_epoch_seconds(
+    struct AtcZoneProcessing *processing,
+    const struct AtcZonedDateTime *zdt)
 {
-  (void) dt;
   (void) processing;
+  (void) zdt;
   return 0;
 }

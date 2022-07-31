@@ -32,20 +32,21 @@ struct AtcZoneProcessing los_angeles_processing;
 
 void something() {
   // initialize the time zone processing workspace
-  atc_processing_init(
-      &los_angeles_processing,
-      &kAtcZoneAmerica_Los_Angeles);
+  atc_processing_init(&los_angeles_processing);
 
   atc_time_t seconds = 3432423;
 
-  // convert epoch seconds to components
-  struct AtcOffsetDateTime dt;
-  atc_processing_calc_offset_date_time(
-    &los_angeles_processing, seconds, &dt);
+  // convert epoch seconds to date/time components for given time zone
+  struct AtcZonedDateTime zdt;
+  atc_calc_date_time(
+    &los_angeles_processing,
+    seconds,
+    &kAtcZoneAmerica_Los_Angeles,
+    &zdt);
 
   // convert components to epoch seconds
-  seconds = atc_processing_calc_epoch_seconds(
-    &los_angeles_processing, &dt);
+  seconds = atc_calc_epoch_seconds(
+    &los_angeles_processing, &zdt);
 }
 ```
 

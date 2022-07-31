@@ -164,11 +164,11 @@ void atc_calc_start_day_of_month(
   }
 
   if (on_day_of_month >= 0) {
-    uint8_t days_in_month = atc_days_in_year_month(year, month);
+    uint8_t days_in_month = atc_local_date_days_in_year_month(year, month);
     if (on_day_of_month == 0) {
       on_day_of_month = days_in_month - 6;
     }
-    uint8_t dow = atc_day_of_week(year, month, on_day_of_month);
+    uint8_t dow = atc_local_date_day_of_week(year, month, on_day_of_month);
     uint8_t day_of_week_shift = (on_day_of_week - dow + 7) % 7;
     uint8_t day = (uint8_t) (on_day_of_week + day_of_week_shift);
     if (day > days_in_month) {
@@ -180,13 +180,14 @@ void atc_calc_start_day_of_month(
     *result_day = day;
   } else {
     on_day_of_month = -on_day_of_month;
-    uint8_t dow = atc_day_of_week(year, month, on_day_of_month);
+    uint8_t dow = atc_local_date_day_of_week(year, month, on_day_of_month);
     int8_t day_of_week_shift = (dow - on_day_of_week + 7) % 7;
     int8_t day = on_day_of_week - day_of_week_shift;
     if (day < 1) {
       // TODO: Support shifting from Jan to Dec of the previous year.
       month--;
-      uint8_t days_in_prev_month = atc_days_in_year_month(year, month);
+      uint8_t days_in_prev_month = atc_local_date_days_in_year_month(
+          year, month);
       day += days_in_prev_month;
     }
     *result_month = month;
@@ -635,7 +636,7 @@ void atc_processing_create_transitions(
 
 void atc_processing_init(
   struct AtcZoneProcessing *processing,
-  struct AtcZoneInfo *zone_info)
+  const struct AtcZoneInfo *zone_info)
 {
   processing->zone_info = zone_info;
   processing->is_filled = 0;
@@ -703,18 +704,20 @@ void atc_processing_init_for_epoch_seconds(
 void atc_processing_calc_offset_date_time(
   struct AtcZoneProcessing *processing,
   atc_time_t epoch_seconds,
-  struct AtcOffsetDateTime *offset_dt)
+  const struct AtcZoneInfo *zone_info,
+  struct AtcOffsetDateTime *odt)
 {
   (void) processing;
   (void) epoch_seconds;
-  (void) offset_dt;
+  (void) zone_info;
+  (void) odt;
 }
 
 atc_time_t atc_processing_calc_epoch_seconds(
   struct AtcZoneProcessing *processing,
-  struct AtcLocalDateTime *local_dt)
+  const struct AtcLocalDateTime *ldt)
 {
   (void) processing;
-  (void) local_dt;
+  (void) ldt;
   return 0;
 }
