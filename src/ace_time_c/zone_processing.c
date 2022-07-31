@@ -24,7 +24,7 @@ uint8_t atc_zone_info_modifier_to_suffix(uint8_t modifier)
 
 //---------------------------------------------------------------------------
 
-int8_t atc_compare_internal_date_time(
+int8_t atc_processing_compare_date_tuple(
   const struct AtcDateTuple *a,
   const struct AtcDateTuple *b)
 {
@@ -117,7 +117,7 @@ void atc_create_matching_era(
     0,
     kAtcSuffixW
   };
-  if (atc_compare_internal_date_time(&start_date, &lower_bound) < 0) {
+  if (atc_processing_compare_date_tuple(&start_date, &lower_bound) < 0) {
     start_date = lower_bound;
   }
 
@@ -137,7 +137,7 @@ void atc_create_matching_era(
     0,
     kAtcSuffixW
   };
-  if (atc_compare_internal_date_time(&upper_bound, &until_date) < 0) {
+  if (atc_processing_compare_date_tuple(&upper_bound, &until_date) < 0) {
     until_date = upper_bound;
   }
 
@@ -271,7 +271,7 @@ void atc_transition_storage_set_free_agent_as_prior_if_valid(
   struct AtcTransition *ft = ts->transitions[ts->index_free];
   struct AtcTransition *prior = ts->transitions[ts->index_prior];
   if ((prior->is_valid_prior
-      && atc_compare_internal_date_time(
+      && atc_processing_compare_date_tuple(
           &prior->transition_time,
           &ft->transition_time) < 0)
       || !prior->is_valid_prior) {
@@ -297,7 +297,7 @@ void atc_transition_storage_add_free_agent_to_candidate_pool(
   for (uint8_t i= ts->index_free; i > ts->index_candidate; i--) {
     struct AtcTransition *curr = ts->transitions[i];
     struct AtcTransition *prev = ts->transitions[i - 1];
-    if (atc_compare_internal_date_time(
+    if (atc_processing_compare_date_tuple(
         &curr->transition_time,
         &prev->transition_time) >= 0) break;
     ts->transitions[i] = prev;

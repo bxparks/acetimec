@@ -98,7 +98,7 @@ struct AtcDateTuple {
  * Compare AtcDateTuple a to AtcDateTuple b, ignoring the suffix.
  * Exported for testing.
  */
-int8_t atc_compare_internal_date_time(
+int8_t atc_processing_compare_date_tuple(
   const struct AtcDateTuple *a,
   const struct AtcDateTuple *b);
 

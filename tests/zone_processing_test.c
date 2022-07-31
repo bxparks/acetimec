@@ -21,26 +21,26 @@ ACU_TEST(test_atc_zone_info_modifier_to_suffix)
   ACU_PASS();
 }
 
-ACU_TEST(test_atc_compare_internal_date_time)
+ACU_TEST(test_atc_processing_compare_date_tuple)
 {
   struct AtcDateTuple a = {0, 1, 1, kAtcSuffixW, 0};
   struct AtcDateTuple b = {0, 1, 1, kAtcSuffixW, 0};
-  ACU_ASSERT(atc_compare_internal_date_time(&a, &b) == 0);
+  ACU_ASSERT(atc_processing_compare_date_tuple(&a, &b) == 0);
 
   struct AtcDateTuple bb = {0, 1, 1, kAtcSuffixS, 0};
-  ACU_ASSERT(atc_compare_internal_date_time(&a, &bb) == 0);
+  ACU_ASSERT(atc_processing_compare_date_tuple(&a, &bb) == 0);
 
   struct AtcDateTuple c = {0, 1, 1, kAtcSuffixW, 1};
-  ACU_ASSERT(atc_compare_internal_date_time(&a, &c) < 0);
+  ACU_ASSERT(atc_processing_compare_date_tuple(&a, &c) < 0);
 
   struct AtcDateTuple d = {0, 1, 2, kAtcSuffixW, 0};
-  ACU_ASSERT(atc_compare_internal_date_time(&a, &d) < 0);
+  ACU_ASSERT(atc_processing_compare_date_tuple(&a, &d) < 0);
 
   struct AtcDateTuple e = {0, 2, 1, kAtcSuffixW, 0};
-  ACU_ASSERT(atc_compare_internal_date_time(&a, &e) < 0);
+  ACU_ASSERT(atc_processing_compare_date_tuple(&a, &e) < 0);
 
   struct AtcDateTuple f = {1, 1, 1, kAtcSuffixW, 0};
-  ACU_ASSERT(atc_compare_internal_date_time(&a, &f) < 0);
+  ACU_ASSERT(atc_processing_compare_date_tuple(&a, &f) < 0);
 
   ACU_PASS();
 }
@@ -81,7 +81,7 @@ int main(int argc, char **argv)
 
   ACU_RUN_TEST(test_atc_zone_info_time_code_to_minutes);
   ACU_RUN_TEST(test_atc_zone_info_modifier_to_suffix);
-  ACU_RUN_TEST(test_atc_compare_internal_date_time);
+  ACU_RUN_TEST(test_atc_processing_compare_date_tuple);
   ACU_RUN_TEST(test_atc_processing_get_most_recent_prior_year);
   ACU_SUMMARY();
 }
