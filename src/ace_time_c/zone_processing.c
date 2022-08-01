@@ -4,6 +4,8 @@
  */
 
 #include <stdbool.h>
+#include <string.h> // memcpy(), strncpy()
+#include "common.h" // atc_copy_replace_string()
 #include "local_date.h" // atc_local_date_days_in_year_month()
 #include "zone_processing.h"
 
@@ -265,7 +267,7 @@ struct AtcTransition **atc_transition_storage_reserve_prior(
 }
 
 /** Set the free agent transition as the most recent prior. */
-void atc_transition_storage_set_free_agent_as_prior_if_valid(
+static void atc_transition_storage_set_free_agent_as_prior_if_valid(
     struct AtcTransitionStorage *ts)
 {
   struct AtcTransition *ft = ts->transitions[ts->index_free];
@@ -290,7 +292,7 @@ void atc_transition_storage_set_free_agent_as_prior_if_valid(
  * free agent from the Free pool. Essentially this is an Insertion Sort
  * keyed by the 'transitionTime' (ignoring the DateTuple.suffix).
  */
-void atc_transition_storage_add_free_agent_to_candidate_pool(
+static void atc_transition_storage_add_free_agent_to_candidate_pool(
     struct AtcTransitionStorage *ts)
 {
   if (ts->index_free >= kAtcTransitionStorageSize) return;
@@ -306,10 +308,47 @@ void atc_transition_storage_add_free_agent_to_candidate_pool(
   ts->index_free++;
 }
 
-void atc_transition_storage_add_prior_to_candidate_pool(
+static void atc_transition_storage_add_prior_to_candidate_pool(
     struct AtcTransitionStorage *ts)
 {
   ts->index_candidate++;
+}
+
+/**
+  * Return the letter string. Returns nullptr if the RULES column is empty
+  * since that means that the ZoneRule is not used, which means LETTER does
+  * not exist. A LETTER of '-' is returned as an empty string "".
+  */
+static const char *atc_transition_extract_letter(const struct AtcTransition *t)
+{
+  // RULES column is '-' or hh:mm, so return nullptr to indicate this.
+  if (t->rule == NULL) {
+    return NULL;
+  }
+
+  // RULES point to a named rule, and LETTER is a single, printable character.
+  // Return the letter_buf which contains a NUL-terminated string containing the
+  // single character, as initialized in
+  // atc_processing_create_transition_for_year().
+  char letter = t->rule->letter;
+  if (letter >= 32) {
+    return t->letter_buf;
+  }
+
+  // RULES points to a named rule, and the LETTER is a string. The
+  // rule->letter is a non-printable number < 32, which is an index into
+  // a list of strings given by match->era->zonePolicy->letters[].
+  const struct AtcZonePolicy *policy = t->match->era->zone_policy;
+  uint8_t num_letters = policy->num_letters;
+  if (letter >= num_letters) {
+    // This should never happen unless there is a programming error. If it
+    // does, return an empty string. (createTransitionForYear() sets
+    // letterBuf to a NUL terminated empty string if rule->letter < 32)
+    return t->letter_buf;
+  }
+
+  // Return the string at index 'rule->letter'.
+  return policy->letters[(uint8_t) letter];
 }
 
 //---------------------------------------------------------------------------
@@ -901,12 +940,60 @@ void atc_processing_generate_start_until_times(
 //---------------------------------------------------------------------------
 // Step 5
 //---------------------------------------------------------------------------
+
+static void atc_processing_create_abbreviation(
+    char* dest,
+    uint8_t dest_size,
+    const char* format,
+    uint16_t delta_minutes,
+    const char* letter_string) {
+
+  // Check if FORMAT contains a '%'.
+  if (strchr(format, '%') != NULL) {
+    // Check if RULES column empty, therefore no 'letter'
+    if (letter_string == NULL) {
+      strncpy(dest, format, dest_size - 1);
+      dest[dest_size - 1] = '\0';
+    } else {
+      atc_copy_replace_string(
+          dest, dest_size, format, '%', letter_string);
+    }
+  } else {
+    // Check if FORMAT contains a '/'.
+    const char* slash_pos = strchr(format, '/');
+    if (slash_pos != NULL) {
+      if (delta_minutes == 0) {
+        uint8_t head_length = (slash_pos - format);
+        if (head_length >= dest_size) head_length = dest_size - 1;
+        memcpy(dest, format, head_length);
+        dest[head_length] = '\0';
+      } else {
+        uint8_t tail_length = strlen(slash_pos+1);
+        if (tail_length >= dest_size) tail_length = dest_size - 1;
+        memcpy(dest, slash_pos+1, tail_length);
+        dest[tail_length] = '\0';
+      }
+    } else {
+      // Just copy the FORMAT disregarding delta_minutes and letter_string.
+      strncpy(dest, format, dest_size);
+      dest[dest_size - 1] = '\0';
+    }
+  }
+}
+
 void atc_processing_calc_abbreviations(
     struct AtcTransition **begin,
     struct AtcTransition **end)
 {
-  (void) begin;
-  (void) end;
+  for (struct AtcTransition **iter = begin; iter != end; ++iter) {
+    struct AtcTransition * const t = *iter;
+    atc_processing_create_abbreviation(
+        t->abbrev,
+        kAtcAbbrevSize,
+        t->match->era->format,
+        t->delta_minutes,
+        atc_transition_extract_letter(t));
+  }
 }
 
 //---------------------------------------------------------------------------
