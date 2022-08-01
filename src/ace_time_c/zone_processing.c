@@ -657,12 +657,117 @@ void atc_processing_fix_transition_times(
 //---------------------------------------------------------------------------
 // Step 2B: Pass 3
 
+static uint8_t compareTransitionToMatch(
+    const struct AtcTransition *transition,
+    const struct AtcMatchingEra *match)
+{
+  // Find the previous Match offsets.
+  int16_t prev_match_offset_minutes;
+  int16_t prev_match_delta_minutes;
+  if (match->prev_match) {
+    prev_match_offset_minutes = match->prev_match->last_offset_minutes;
+    prev_match_delta_minutes = match->prev_match->last_delta_minutes;
+  } else {
+    prev_match_offset_minutes = atc_zone_info_time_code_to_minutes(
+        match->era->offset_code, 0);
+    prev_match_delta_minutes = 0;
+  }
+
+  // Expand start times.
+  struct AtcDateTuple stw;
+  struct AtcDateTuple sts;
+  struct AtcDateTuple stu;
+  atc_processing_expand_date_tuple(
+      &match->start_dt,
+      prev_match_offset_minutes,
+      prev_match_delta_minutes,
+      &stw,
+      &sts,
+      &stu);
+
+  // Transition times.
+  const struct AtcDateTuple *ttw = &transition->transition_time;
+  const struct AtcDateTuple *tts = &transition->transition_time_s;
+  const struct AtcDateTuple *ttu = &transition->transition_time_u;
+
+  // Compare Transition to Match, where equality is assumed if *any* of the
+  // 'w', 's', or 'u' versions of the DateTuple are equal. This prevents
+  // duplicate Transition instances from being created in a few cases.
+  if (atc_processing_compare_date_tuple(ttw, &stw) == 0
+      || atc_processing_compare_date_tuple(tts, &sts) == 0
+      || atc_processing_compare_date_tuple(ttu, &stu) == 0) {
+    return kAtcMatchStatusExactMatch;
+  }
+
+  if (atc_processing_compare_date_tuple(ttu, &stu) < 0) {
+    return kAtcMatchStatusPrior;
+  }
+
+  // Now check if the transition occurs after the given match. The
+  // untilDateTime of the current match uses the same UTC offsets as the
+  // transitionTime of the current transition, so no complicated adjustments
+  // are needed. We just make sure we compare 'w' with 'w', 's' with 's',
+  // and 'u' with 'u'.
+  const struct AtcDateTuple *match_until = &match->until_dt;
+  const struct AtcDateTuple *transition_time;
+  if (match_until->suffix == kAtcSuffixS) {
+    transition_time = tts;
+  } else if (match_until->suffix == kAtcSuffixU) {
+    transition_time = ttu;
+  } else { // assume 'w'
+    transition_time = ttw;
+  }
+  if (atc_processing_compare_date_tuple(transition_time, match_until) < 0) {
+    return kAtcMatchStatusWithinMatch;
+  }
+
+  return kAtcMatchStatusFarFuture;
+}
+
+static void atc_processing_process_transition_match_status(
+    struct AtcTransition *transition,
+    struct AtcTransition **prior)
+{
+  uint8_t status = compareTransitionToMatch(
+      transition, transition->match);
+  transition->match_status = status;
+
+  if (status == kAtcMatchStatusExactMatch) {
+    if (*prior) {
+      (*prior)->match_status = kAtcMatchStatusFarPast;
+    }
+    (*prior) = transition;
+  } else if (status == kAtcMatchStatusPrior) {
+    if (*prior) {
+      if (atc_processing_compare_date_tuple(
+          &(*prior)->transition_time_u,
+          &transition->transition_time_u) <= 0) {
+        (*prior)->match_status = kAtcMatchStatusFarPast;
+        (*prior) = transition;
+      } else {
+        transition->match_status = kAtcMatchStatusFarPast;
+      }
+    } else {
+      (*prior) = transition;
+    }
+  }
+}
+
 void atc_processing_select_active_transitions(
     struct AtcTransition **begin,
     struct AtcTransition **end)
 {
-  (void) begin;
-  (void) end;
+  struct AtcTransition *prior = NULL;
+  for (struct AtcTransition **iter = begin; iter != end; ++iter) {
+    struct AtcTransition *transition = *iter;
+    atc_processing_process_transition_match_status(transition, &prior);
+  }
+
+  // If the latest prior transition is found, shift it to start at the
+  // startDateTime of the current match.
+  if (prior) {
+    prior->transition_time = prior->match->start_dt;
+  }
 }
 
 struct AtcTransition *atc_processing_add_active_candidates_to_active_pool(
