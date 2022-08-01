@@ -341,11 +341,7 @@ uint8_t atc_processing_find_matches(
 }
 
 // ---------------------------------------------------------------------------
-// Step 2
-// ---------------------------------------------------------------------------
-
-// ---------------------------------------------------------------------------
-// Step 2a: Simple Match
+// Step 2A: Simple Match
 // ---------------------------------------------------------------------------
 
 void atc_processing_get_transition_time(
@@ -422,11 +418,8 @@ void atc_processing_create_transitions_from_simple_match(
 }
 
 //---------------------------------------------------------------------------
-// Step 2B: Named Match
-//---------------------------------------------------------------------------
-
-//---------------------------------------------------------------------------
 // Step 2B: Pass 1
+//---------------------------------------------------------------------------
 
 uint8_t atc_processing_calc_interior_years(
     int8_t* interior_years,
@@ -551,6 +544,7 @@ void atc_processing_find_candidate_transitions(
 
 //---------------------------------------------------------------------------
 // Step 2B: Pass 2
+//---------------------------------------------------------------------------
 
 void atc_processing_normalize_date_tuple(struct AtcDateTuple *dt)
 {
@@ -656,6 +650,7 @@ void atc_processing_fix_transition_times(
 
 //---------------------------------------------------------------------------
 // Step 2B: Pass 3
+//---------------------------------------------------------------------------
 
 static uint8_t compareTransitionToMatch(
     const struct AtcTransition *transition,
@@ -778,6 +773,8 @@ struct AtcTransition *atc_processing_add_active_candidates_to_active_pool(
 }
 
 //---------------------------------------------------------------------------
+// Step 2B
+//---------------------------------------------------------------------------
 
 void atc_processing_create_transitions_from_named_match(
     struct AtcTransitionStorage *ts,
@@ -806,6 +803,8 @@ void atc_processing_create_transitions_from_named_match(
 }
 
 //---------------------------------------------------------------------------
+// Step 2
+//---------------------------------------------------------------------------
 
 void atc_processing_create_transitions_for_match(
   struct AtcTransitionStorage *ts,
@@ -829,6 +828,85 @@ void atc_processing_create_transitions(
   for (uint8_t i = 0; i < num_matches; i++) {
     atc_processing_create_transitions_for_match(ts, &matches[i]);
   }
+}
+
+//---------------------------------------------------------------------------
+// Step 4
+//---------------------------------------------------------------------------
+void atc_processing_generate_start_until_times(
+    struct AtcTransition **begin,
+    struct AtcTransition **end)
+{
+  struct AtcTransition *prev = *begin;
+  bool is_after_first = false;
+
+  for (struct AtcTransition **iter = begin; iter != end; ++iter) {
+    struct AtcTransition * const t = *iter;
+
+    // 1) Update the untilDateTime of the previous Transition
+    const struct AtcDateTuple *tt = &t->transition_time;
+    if (is_after_first) {
+      prev->until_dt = *tt;
+    }
+
+    // 2) Calculate the current startDateTime by shifting the
+    // transitionTime (represented in the UTC offset of the previous
+    // transition) into the UTC offset of the *current* transition.
+    int16_t minutes = tt->minutes + (
+        - prev->offset_minutes - prev->delta_minutes
+        + t->offset_minutes + t->delta_minutes);
+    t->start_dt.year_tiny = tt->year_tiny;
+    t->start_dt.month = tt->month;
+    t->start_dt.day = tt->day;
+    t->start_dt.minutes = minutes;
+    t->start_dt.suffix = tt->suffix;
+    atc_processing_normalize_date_tuple(&t->start_dt);
+
+    // 3) The epochSecond of the 'transitionTime' is determined by the
+    // UTC offset of the *previous* Transition. However, the
+    // transitionTime can be represented by an illegal time (e.g. 24:00).
+    // So, it is better to use the properly normalized startDateTime
+    // (calculated above) with the *current* UTC offset.
+    //
+    // NOTE: We should also be able to  calculate this directly from
+    // 'transitionTimeU' which should still be a valid field, because it
+    // hasn't been clobbered by 'untilDateTime' yet. Not sure if this saves
+    // any CPU time though, since we still need to mutiply by 900.
+    const struct AtcDateTuple *st = &t->start_dt;
+    const atc_time_t offset_seconds = (atc_time_t) 60
+        * (st->minutes - (t->offset_minutes + t->delta_minutes));
+    int32_t epoch_seconds = (int32_t) 86400 * atc_local_date_to_epoch_days(
+        st->year_tiny, st->month, st->day);
+    t->start_epoch_seconds = epoch_seconds + offset_seconds;
+
+    prev = t;
+    is_after_first = true;
+  }
+
+  // The last Transition's until time is the until time of the MatchingEra.
+  struct AtcDateTuple until_time_w;
+  struct AtcDateTuple until_time_s;
+  struct AtcDateTuple until_time_u;
+  atc_processing_expand_date_tuple(
+      &prev->match->until_dt,
+      prev->offset_minutes,
+      prev->delta_minutes,
+      &until_time_w,
+      &until_time_s,
+      &until_time_u);
+  prev->until_dt = until_time_w;
+}
+
+
+//---------------------------------------------------------------------------
+// Step 5
+//---------------------------------------------------------------------------
+void atc_processing_calc_abbreviations(
+    struct AtcTransition **begin,
+    struct AtcTransition **end)
+{
+  (void) begin;
+  (void) end;
 }
 
 //---------------------------------------------------------------------------
@@ -885,8 +963,16 @@ bool atc_processing_init_for_year(
     num_matches);
 
   // Step 3: Fix transition times.
+  struct AtcTransitionStorage *ts = &processing->transition_storage;
+  struct AtcTransition **begin = &ts->transitions[0];
+  struct AtcTransition **end = &ts->transitions[ts->index_free];
+  atc_processing_fix_transition_times(begin, end);
+
   // Step 4: Generate start and until times.
+  atc_processing_generate_start_until_times(begin, end);
+
   // Step 5: Calc abbreviations.
+  atc_processing_calc_abbreviations(begin, end);
 
   return true;
 }
