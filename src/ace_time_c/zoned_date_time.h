@@ -21,9 +21,12 @@ struct AtcZonedDateTime {
   int16_t year;
   uint8_t month;
   uint8_t day;
+
   uint8_t hour;
   uint8_t minute;
   uint8_t second;
+  uint8_t fold;
+
   int16_t offset_minutes; /* possibly ignored */
   const struct AtcZoneInfo *zone_info; /* nullable, possibly ignored */
 };

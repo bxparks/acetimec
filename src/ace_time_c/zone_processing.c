@@ -41,6 +41,20 @@ int8_t atc_processing_compare_date_tuple(
   return 0;
 }
 
+/** Return the number of seconds in (a - b), ignoring suffix. */
+atc_time_t atc_processing_subtract_date_tuple(
+    const struct AtcDateTuple *a,
+    const struct AtcDateTuple *b)
+{
+  int32_t eda = atc_local_date_to_epoch_days(a->year_tiny, a->month, a->day);
+  int32_t esa = eda * 86400 + a->minutes * 60;
+
+  int32_t edb = atc_local_date_to_epoch_days(b->year_tiny, b->month, b->day);
+  int32_t esb = edb * 86400 + b->minutes * 60;
+
+  return esa - esb;
+}
+
 /** Return (1, 0, -1) depending on how era compares to (year_tiny, month). */
 int8_t atc_compare_era_to_year_month(
     const struct AtcZoneEra *era,
@@ -315,13 +329,13 @@ static void atc_transition_storage_add_prior_to_candidate_pool(
 }
 
 /**
-  * Return the letter string. Returns nullptr if the RULES column is empty
+  * Return the letter string. Returns NULL if the RULES column is empty
   * since that means that the ZoneRule is not used, which means LETTER does
   * not exist. A LETTER of '-' is returned as an empty string "".
   */
 static const char *atc_transition_extract_letter(const struct AtcTransition *t)
 {
-  // RULES column is '-' or hh:mm, so return nullptr to indicate this.
+  // RULES column is '-' or hh:mm, so return NULL to indicate this.
   if (t->rule == NULL) {
     return NULL;
   }
@@ -1081,14 +1095,74 @@ bool atc_processing_init_for_epoch_seconds(
 
 //---------------------------------------------------------------------------
 
-void atc_processing_offset_date_time_from_epoch_seconds(
+struct AtcMatchingTransition {
+  const struct AtcTransition *transition;
+  uint8_t fold; // 1 if in the overlap, otherwise 0
+};
+
+static uint8_t atc_processing_calculate_fold(
+    atc_time_t epoch_seconds,
+    const struct AtcTransition *match,
+    const struct AtcTransition *prev_match)
+{
+  if (match == NULL) return 0;
+  if (prev_match == NULL) return 0;
+
+  // Check if epoch_seconds occurs during a "fall back" DST transition.
+  atc_time_t overlap_seconds = atc_processing_subtract_date_tuple(
+      &prev_match->until_dt, &match->start_dt);
+  if (overlap_seconds <= 0) return 0;
+  atc_time_t seconds_from_transition_start =
+      epoch_seconds - match->start_epoch_seconds;
+  if (seconds_from_transition_start >= overlap_seconds) return 0;
+
+  // EpochSeconds occurs within the "fall back" overlap.
+  return 1;
+}
+
+static struct AtcMatchingTransition atc_processing_find_transition_for_seconds(
+    const struct AtcTransitionStorage *ts,
+    atc_time_t epoch_seconds)
+{
+  const struct AtcTransition *prev_match = NULL;
+  const struct AtcTransition *match = NULL;
+  for (uint8_t i = 0; i < ts->index_free; i++) {
+    const struct AtcTransition *candidate = ts->transitions[i];
+    if (candidate->start_epoch_seconds > epoch_seconds) break;
+    prev_match = match;
+    match = candidate;
+  }
+  uint8_t fold = atc_processing_calculate_fold(
+      epoch_seconds, match, prev_match);
+  struct AtcMatchingTransition result = { match, fold };
+  return result;
+}
+
+//---------------------------------------------------------------------------
+
+bool atc_processing_offset_date_time_from_epoch_seconds(
   struct AtcZoneProcessing *processing,
+  const struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds,
   struct AtcOffsetDateTime *odt)
 {
-  (void) processing;
-  (void) epoch_seconds;
-  (void) odt;
+  bool status = atc_processing_init_for_epoch_seconds(
+      processing,
+      zone_info,
+      epoch_seconds);
+  if (! status) return status;
+
+  struct AtcMatchingTransition mt = atc_processing_find_transition_for_seconds(
+      &processing->transition_storage, epoch_seconds);
+  const struct AtcTransition *t = mt.transition;
+  if (! t) return false;
+
+  atc_local_date_time_from_epoch_seconds(
+      epoch_seconds,
+      (struct AtcLocalDateTime *) odt);
+  odt->offset_minutes = t->offset_minutes + t->delta_minutes;
+  odt->fold = mt.fold;
+  return true;
 }
 
 atc_time_t atc_processing_local_date_time_to_epoch_seconds(
