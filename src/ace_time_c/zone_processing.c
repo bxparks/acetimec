@@ -443,13 +443,6 @@ void atc_processing_select_active_transitions(
   }
 }
 
-struct AtcTransition *atc_processing_add_active_candidates_to_active_pool(
-    struct AtcTransitionStorage *ts)
-{
-  (void) ts;
-  return NULL;
-}
-
 //---------------------------------------------------------------------------
 // Step 2B
 //---------------------------------------------------------------------------
@@ -475,7 +468,7 @@ void atc_processing_create_transitions_from_named_match(
       &ts->transitions[ts->index_candidate],
       &ts->transitions[ts->index_free]);
   struct AtcTransition *last_transition =
-      atc_processing_add_active_candidates_to_active_pool(ts);
+      atc_transition_storage_add_active_candidates_to_active_pool(ts);
   match->last_offset_minutes = last_transition->offset_minutes;
   match->last_delta_minutes = last_transition->delta_minutes;
 }

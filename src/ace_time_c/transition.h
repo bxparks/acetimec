@@ -214,6 +214,10 @@ void atc_transition_storage_add_free_agent_to_candidate_pool(
 void atc_transition_storage_add_prior_to_candidate_pool(
     struct AtcTransitionStorage *ts);
 
+struct AtcTransition *
+atc_transition_storage_add_active_candidates_to_active_pool(
+    struct AtcTransitionStorage *ts);
+
 /**
  * Return the letter string. Returns NULL if the RULES column is empty
  * since that means that the ZoneRule is not used, which means LETTER does

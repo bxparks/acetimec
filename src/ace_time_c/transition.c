@@ -233,6 +233,38 @@ void atc_transition_storage_add_prior_to_candidate_pool(
   ts->index_candidate++;
 }
 
+static bool is_match_status_active(uint8_t status) {
+  return status == kAtcMatchStatusExactMatch
+      || status == kAtcMatchStatusWithinMatch
+      || status == kAtcMatchStatusPrior;
+}
+
+struct AtcTransition *
+atc_transition_storage_add_active_candidates_to_active_pool(
+    struct AtcTransitionStorage *ts)
+{
+  // Shift active candidates to the left into the Active pool.
+  uint8_t i_active = ts->index_prior;
+  uint8_t i_candidate = ts->index_candidate;
+  for (; i_candidate < ts->index_free; i_candidate++) {
+    if (is_match_status_active(ts->transitions[i_candidate]->match_status)) {
+      if (i_active != i_candidate) {
+        // Perform swap of pointers to AtcTransition.
+        struct AtcTransition *tmp = ts->transitions[i_active];
+        ts->transitions[i_active] = ts->transitions[i_candidate];
+        ts->transitions[i_candidate] = tmp;
+      }
+      ++i_active;
+    }
+  }
+
+  ts->index_prior = i_active;
+  ts->index_candidate = i_active;
+  ts->index_free = i_active;
+
+  return ts->transitions[i_active - 1];
+}
+
 //---------------------------------------------------------------------------
 
 const char *atc_transition_extract_letter(const struct AtcTransition *t)
