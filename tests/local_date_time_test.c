@@ -3,28 +3,28 @@
 
 ACU_TEST(test_atc_local_date_time_to_epoch_seconds)
 {
-  struct AtcLocalDateTime ldt1 = {1931, 12, 13, 20, 45, 53};
-  int32_t seconds = atc_local_date_time_to_epoch_seconds(&ldt1);
+  struct AtcLocalDateTime ldt = {1931, 12, 13, 20, 45, 53};
+  int32_t seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == INT32_MIN + 1);
 
-  struct AtcLocalDateTime ldt2 = {2000, 1, 1, 0, 0, 0};
-  seconds = atc_local_date_time_to_epoch_seconds(&ldt2);
+  ldt = (struct AtcLocalDateTime) {2000, 1, 1, 0, 0, 0};
+  seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 0);
 
-  struct AtcLocalDateTime ldt3 = {2000, 1, 2, 0, 0, 0};
-  seconds = atc_local_date_time_to_epoch_seconds(&ldt3);
+  ldt = (struct AtcLocalDateTime) {2000, 1, 2, 0, 0, 0};
+  seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 86400);
 
-  struct AtcLocalDateTime ldt4 = {2000, 2, 29, 0, 0, 0};
-  seconds = atc_local_date_time_to_epoch_seconds(&ldt4);
+  ldt = (struct AtcLocalDateTime) {2000, 2, 29, 0, 0, 0};
+  seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 86400 * 59);
 
-  struct AtcLocalDateTime ldt5 = {2018, 1, 1, 0, 0, 0};
-  seconds = atc_local_date_time_to_epoch_seconds(&ldt5);
+  ldt = (struct AtcLocalDateTime) {2018, 1, 1, 0, 0, 0};
+  seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 86400 * 6575);
 
-  struct AtcLocalDateTime ldt6 = {2038, 1, 19, 3, 14, 7};
-  seconds = atc_local_date_time_to_epoch_seconds(&ldt6);
+  ldt = (struct AtcLocalDateTime) {2038, 1, 19, 3, 14, 7};
+  seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 1200798847);
 
   ACU_PASS();
