@@ -6,6 +6,9 @@
 #ifndef ACE_TIME_C_OFFSET_DATE_TIME_H
 #define ACE_TIME_C_OFFSET_DATE_TIME_H
 
+#include <stdint.h>
+#include "common.h" // atc_time_t
+
 /**
  * Date and time fields with a UTC offset in minutes.
  *

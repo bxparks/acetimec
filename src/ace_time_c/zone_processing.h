@@ -54,6 +54,12 @@ struct AtcYearMonth {
   uint8_t month;
 };
 
+enum {
+  kAtcSearchStatusGap = 0,
+  kAtcSearchStatusExact = 1,
+  kAtcSearchStatusOverlap = 2,
+};
+
 struct AtcTransitionResult {
   const struct AtcTransition *transition0; // fold==0
   const struct AtcTransition *transition1; // fold==1
@@ -149,6 +155,7 @@ bool atc_processing_offset_date_time_from_local_date_time(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   const struct AtcLocalDateTime *ldt,
+  uint8_t fold,
   struct AtcOffsetDateTime *odt);
 
 #endif

@@ -8,10 +8,9 @@
 #include "common.h" // atc_copy_replace_string()
 #include "local_date.h" // atc_local_date_days_in_year_month()
 #include "zone_info_utils.h" // atc_zone_info_time_code_to_minutes()
+#include "offset_date_time.h"
 #include "zone_processing.h"
 
-//---------------------------------------------------------------------------
-// ZoneInfo, ZoneEra, ZoneRule, ZonePolicy helpers
 //---------------------------------------------------------------------------
 
 /** Return (1, 0, -1) depending on how era compares to (year_tiny, month). */
@@ -764,15 +763,65 @@ static struct AtcMatchingTransition atc_processing_find_transition_for_seconds(
   return result;
 }
 
-//---------------------------------------------------------------------------
-
-struct AtcTransitionResult atc_transition_storage_find_transition_for_date_time(
+static struct AtcTransitionResult atc_processing_find_transition_for_date_time(
     const struct AtcTransitionStorage *ts,
     const struct AtcLocalDateTime *ldt)
 {
-  (void) ts;
-  (void) ldt;
-  struct AtcTransitionResult result = { NULL, NULL, 0 };
+  // Convert LocalDateTime to DateTuple.
+  struct AtcDateTuple local_dt = {
+      ldt->year - kAtcEpochYear,
+      ldt->month,
+      ldt->day,
+      (int16_t) (ldt->hour * 60 + ldt->minute),
+      kAtcSuffixW
+  };
+
+  // Examine adjacent pairs of Transitions, looking for an exact match, gap,
+  // or overlap.
+  const struct AtcTransition *prev_candidate = NULL;
+  const struct AtcTransition *candidate = NULL;
+  int8_t search_status = kAtcSearchStatusGap;
+  for (uint8_t i = 0; i < ts->index_free; i++) {
+    candidate = ts->transitions[i];
+
+    const struct AtcDateTuple *start_dt = &candidate->start_dt;
+    const struct AtcDateTuple *until_dt = &candidate->until_dt;
+    bool is_exact_match = atc_date_tuple_compare(start_dt, &local_dt) <= 0
+        && atc_date_tuple_compare(&local_dt, until_dt) < 0;
+
+    if (is_exact_match) {
+      // Check for a previous exact match to detect an overlap.
+      if (search_status == kAtcSearchStatusExact) {
+        search_status = kAtcSearchStatusOverlap;
+        break;
+      }
+
+      // Loop again to detect an overlap.
+      search_status = kAtcSearchStatusExact;
+
+    } else if (atc_date_tuple_compare(start_dt, &local_dt) > 0) {
+      // Exit loop since no more candidate transition.
+      break;
+    }
+
+    prev_candidate = candidate;
+
+    // Set nullptr so that if the loop runs off the end of the list of
+    // Transitions, the candidate is marked as nullptr.
+    candidate = NULL;
+  }
+
+  // Check if the prev was an exact match, and clear the current to
+  // avoid confusion.
+  if (search_status == kAtcSearchStatusExact) {
+    candidate = NULL;
+  }
+
+  struct AtcTransitionResult result = {
+    prev_candidate,
+    candidate,
+    search_status,
+  };
   return result;
 }
 
@@ -807,16 +856,65 @@ bool atc_processing_offset_date_time_from_local_date_time(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   const struct AtcLocalDateTime *ldt,
+  uint8_t fold,
   struct AtcOffsetDateTime *odt)
 {
   bool status = atc_processing_init_for_year(processing, zone_info, ldt->year);
   if (! status) return status;
 
   struct AtcTransitionResult result =
-      atc_transition_storage_find_transition_for_date_time(
+      atc_processing_find_transition_for_date_time(
           &processing->transition_storage, ldt);
 
-  (void) result;
-  (void) odt;
+  // Extract the appropriate Transition, depending on the requested 'fold'
+  // and the 'result.search_status'.
+  bool needs_normalization = false;
+  const struct AtcTransition *t;
+  if (result.search_status == kAtcSearchStatusExact) {
+    t = result.transition0;
+  } else {
+    if (result.transition0 == NULL || result.transition1 == NULL) {
+      // ldt was far past or far future, and didn't match anything.
+      t = NULL;
+    } else {
+      needs_normalization = (result.search_status == kAtcSearchStatusGap);
+      t = (fold == 0) ? result.transition0 : result.transition1;
+    }
+  }
+
+  if (! t) return false;
+
+  odt->year = ldt->year;
+  odt->month = ldt->month;
+  odt->day = ldt->day;
+  odt->hour = ldt->hour;
+  odt->minute = ldt->minute;
+  odt->second = ldt->second;
+  odt->offset_minutes = t->offset_minutes + t->delta_minutes;
+  odt->fold = fold;
+
+  if (needs_normalization) {
+    atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(odt);
+
+    // If in the gap, normalization means that we convert to epochSeconds
+    // then perform another search through the Transitions, then use
+    // that new Transition to convert the epochSeconds to OffsetDateTime. It
+    // turns out that this process identical to just using the other
+    // Transition returned in TransitionResult above.
+    const struct AtcTransition *othert = (fold == 0)
+        ? result.transition1
+        : result.transition0;
+    atc_local_date_time_from_epoch_seconds(
+        epoch_seconds, (struct AtcLocalDateTime *) odt);
+    odt->offset_minutes = othert->offset_minutes + othert->delta_minutes;
+
+    // Invert the fold.
+    // 1) The normalization process causes the LocalDateTime to jump to the
+    // other transition.
+    // 2) Provides a user-accessible indicator that a gap normalization was
+    // performed.
+    odt->fold = 1 - fold;
+  }
+
   return true;
 }

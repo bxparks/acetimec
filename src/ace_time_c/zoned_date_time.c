@@ -56,5 +56,6 @@ bool atc_zoned_date_time_normalize(
       processing,
       zdt->zone_info,
       &ldt,
+      zdt->fold,
       (struct AtcOffsetDateTime *) zdt);
 }
