@@ -235,7 +235,7 @@ struct AtcTransition {
 struct AtcTransitionResult {
   const struct AtcTransition *transition0; // fold==0
   const struct AtcTransition *transition1; // fold==1
-  int8_t search_status;
+  int8_t search_status; // 0-gap, 1=exact, 2=overlap
 };
 
 /** The list of transitions for a given time zone. */
@@ -339,8 +339,7 @@ void atc_processing_init(struct AtcZoneProcessing *processing);
 
 /**
  * Convert epoch_seconds to odt using the given zone_info. Return true upon
- * upon success. Must call atc_processing_init_for_epoch_seconds() before
- * calling this.
+ * success.
  */
 bool atc_processing_offset_date_time_from_epoch_seconds(
   struct AtcZoneProcessing *processing,
@@ -349,11 +348,13 @@ bool atc_processing_offset_date_time_from_epoch_seconds(
   struct AtcOffsetDateTime *odt);
 
 /**
- * Convert the ldt to the epoch seconds. Must call
- * atc_processing_init_for_year() before calling this.
+ * Convert the LocalDateTime to OffsetDateTime using the given zone_info.
+ * Return true upon success.
  */
-atc_time_t atc_processing_local_date_time_to_epoch_seconds(
+bool atc_processing_offset_date_time_from_local_date_time(
   struct AtcZoneProcessing *processing,
-  const struct AtcLocalDateTime *ldt);
+  const struct AtcZoneInfo *zone_info,
+  const struct AtcLocalDateTime *ldt,
+  struct AtcOffsetDateTime *odt);
 
 #endif

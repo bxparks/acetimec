@@ -38,16 +38,26 @@ void something() {
 
   // convert epoch seconds to date/time components for given time zone
   struct AtcZonedDateTime zdt;
-  atc_zoned_date_time_from_epoch_seconds(
+  bool status = atc_zoned_date_time_from_epoch_seconds(
     &los_angeles_processing,
     &kAtcZoneAmerica_Los_Angeles,
     seconds,
     &zdt);
+  if (! status) { /*error*/ }
 
   // convert components to epoch seconds
-  seconds = atc_zoned_date_time_to_epoch_seconds(
-    &los_angeles_processing,
-    &zdt);
+  seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
+  if (seconds == kAtcInvalidEpochSeconds) { /*error*/ }
+
+  // normalize the zoned date time components
+  zdt.year = ...;
+  zdt.month = ...;
+  zdt.day = ...;
+  zdt.hour = ...;
+  zdt.minute = ...;
+  zdt.second = ...;
+  zdt.zone_info = &kAtcZoneAmerica_Los_Angeles;
+  atc_zoned_date_time_normalize(&los_angeles_processing, &zdt);
 }
 ```
 

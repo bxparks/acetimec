@@ -1140,6 +1140,18 @@ static struct AtcMatchingTransition atc_processing_find_transition_for_seconds(
 
 //---------------------------------------------------------------------------
 
+struct AtcTransitionResult atc_transition_storage_find_transition_for_date_time(
+    const struct AtcTransitionStorage *ts,
+    const struct AtcLocalDateTime *ldt)
+{
+  (void) ts;
+  (void) ldt;
+  struct AtcTransitionResult result = { NULL, NULL, 0 };
+  return result;
+}
+
+//---------------------------------------------------------------------------
+
 bool atc_processing_offset_date_time_from_epoch_seconds(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
@@ -1165,11 +1177,20 @@ bool atc_processing_offset_date_time_from_epoch_seconds(
   return true;
 }
 
-atc_time_t atc_processing_local_date_time_to_epoch_seconds(
+bool atc_processing_offset_date_time_from_local_date_time(
   struct AtcZoneProcessing *processing,
-  const struct AtcLocalDateTime *ldt)
+  const struct AtcZoneInfo *zone_info,
+  const struct AtcLocalDateTime *ldt,
+  struct AtcOffsetDateTime *odt)
 {
-  (void) processing;
-  (void) ldt;
-  return 0;
+  bool status = atc_processing_init_for_year(processing, zone_info, ldt->year);
+  if (! status) return status;
+
+  struct AtcTransitionResult result =
+      atc_transition_storage_find_transition_for_date_time(
+          &processing->transition_storage, ldt);
+
+  (void) result;
+  (void) odt;
+  return true;
 }

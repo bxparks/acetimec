@@ -35,11 +35,11 @@ struct AtcZonedDateTime {
  * Convert epoch seconds to struct AtcZonedDateTime using the time zone
  * identified by zone_info.
  */
-void atc_zoned_date_time_from_epoch_seconds(
+bool atc_zoned_date_time_from_epoch_seconds(
     struct AtcZoneProcessing *processing,
     const struct AtcZoneInfo *zone_info,
     atc_time_t epoch_seconds,
-    struct AtcZonedDateTime *dt);
+    struct AtcZonedDateTime *zdt);
 
 /**
  * Convert struct AtcZonedDateTime to epoch seconds using the time zone
@@ -47,5 +47,10 @@ void atc_zoned_date_time_from_epoch_seconds(
  */
 atc_time_t atc_zoned_date_time_to_epoch_seconds(
     const struct AtcZonedDateTime *zdt);
+
+/** Normalize the date time components for given time zone. */
+bool atc_zoned_date_time_normalize(
+    struct AtcZoneProcessing *processing,
+    struct AtcZonedDateTime *zdt);
 
 #endif
