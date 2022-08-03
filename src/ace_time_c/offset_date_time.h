@@ -13,12 +13,14 @@
  * Date and time fields with a UTC offset in minutes.
  *
  * In AceTime, the 'fold' parameter was included in the low-level LocalTime
- * class, which worked because C++ allows this extra parameter to be mostly
- * ignore until needed using a default parameter in the constructor to
- * automatically set 'fold' to a default value. Unfortunately, C does not have
- * default parameters, so adding a 'fold' in LocalDateTime causes unnecessary
- * friction. Therefore, we add this parameter at a higher level, in the
- * OffsetDateTime instead.
+ * class, which then got absorbed into the LocalDatetime class. This extra
+ * parameter is mostly transparent to the user because C++ supports default
+ * parameters in the constructor and functions.
+ *
+ * Unfortunately C does not have default parameters, so adding a 'fold' in
+ * LocalDateTime causes unnecessary friction. Therefore, I am adding this
+ * parameter to the OffsetDateTime instead, which is higher level so hopefully
+ * the parameter is exposed to the user only when the user needs.
  */
 struct AtcOffsetDateTime {
   int16_t year;
