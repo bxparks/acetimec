@@ -32,14 +32,8 @@ void atc_zoned_date_time_from_epoch_seconds(
 }
 
 atc_time_t atc_zoned_date_time_to_epoch_seconds(
-    struct AtcZoneProcessing *processing,
     const struct AtcZonedDateTime *zdt)
 {
-  atc_processing_init_for_year(
-      processing,
-      zdt->zone_info,
-      zdt->year);
-  return atc_processing_local_date_time_to_epoch_seconds(
-      processing,
-      (const struct AtcLocalDateTime *) zdt);
+  return atc_offset_date_time_to_epoch_seconds(
+      (const struct AtcOffsetDateTime*) zdt);
 }

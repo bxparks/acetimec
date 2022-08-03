@@ -46,7 +46,6 @@ void atc_zoned_date_time_from_epoch_seconds(
  * identified by the zone_info inside zdt.
  */
 atc_time_t atc_zoned_date_time_to_epoch_seconds(
-    struct AtcZoneProcessing *processing,
     const struct AtcZonedDateTime *zdt);
 
 #endif
