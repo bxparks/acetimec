@@ -19,16 +19,6 @@
 //---------------------------------------------------------------------------
 
 /**
- * Convert time code (in 15 minute increments to minutes
- * The lower 4-bits of the modifier contains the remaining 0-14 minutes.
- */
-uint16_t atc_zone_info_time_code_to_minutes(
-  uint8_t code, uint8_t modifier);
-
-/** Extract the time suffix (w, s, gu) from the upper 4-bits of the modifier. */
-uint8_t atc_zone_info_modifier_to_suffix(uint8_t modifier);
-
-/**
  * Extract the actual (month, day) pair from the expression used in the TZ
  * data files of the form (onDayOfWeek >= onDayOfMonth) or (onDayOfWeek <=
  * onDayOfMonth).
@@ -69,22 +59,6 @@ struct AtcTransitionResult {
   const struct AtcTransition *transition1; // fold==1
   int8_t search_status; // 0-gap, 1=exact, 2=overlap
 };
-
-/**
- * Like compare_transition_to_match() except perform a fuzzy match within at
- * least one-month of the match.start or match.until.
- *
- * Return:
- *    * kAtcMatchStatusPrior if t less than match by at least one month
- *    * kAtcMatchStatusWithinMatch if t within match,
- *    * kAtcMatchStatusFarFuture if t greater than match by at least one month
- *    * kAtcMatchStatusExactMatch is never returned, we cannot know that t ==
- *      match.start
- *
- * Exported for testing.
- */
-uint8_t atc_processing_compare_transition_to_match_fuzzy(
-    const struct AtcTransition *t, const struct AtcMatchingEra *match);
 
 /**
  * Return the most recent year from the Rule[fromYear, toYear] which is

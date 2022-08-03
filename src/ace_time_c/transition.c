@@ -1,5 +1,6 @@
 #include "transition.h"
 #include "zone_info.h"
+#include "zone_info_utils.h"
 #include "local_date.h" // atc_local_date_to_epoch_days()
 
 //---------------------------------------------------------------------------
@@ -31,6 +32,90 @@ atc_time_t atc_date_tuple_subtract(
   int32_t esb = edb * 86400 + b->minutes * 60;
 
   return esa - esb;
+}
+
+void atc_date_tuple_expand(
+    const struct AtcDateTuple *tt,
+    int16_t offset_minutes,
+    int16_t delta_minutes,
+    struct AtcDateTuple *ttw,
+    struct AtcDateTuple *tts,
+    struct AtcDateTuple *ttu) {
+
+  if (tt->suffix == kAtcSuffixS) {
+    *tts = *tt;
+
+    ttu->year_tiny = tt->year_tiny;
+    ttu->month = tt->month;
+    ttu->day = tt->day;
+    ttu->minutes = (int16_t) (tt->minutes - offset_minutes);
+    ttu->suffix = kAtcSuffixU;
+
+    ttw->year_tiny = tt->year_tiny;
+    ttw->month = tt->month;
+    ttw->day = tt->day;
+    ttw->minutes = (int16_t) (tt->minutes + delta_minutes);
+    ttw->suffix = kAtcSuffixW;
+  } else if (tt->suffix == kAtcSuffixU) {
+    *ttu = *tt;
+
+    tts->year_tiny = tt->year_tiny;
+    tts->month = tt->month;
+    tts->day = tt->day;
+    tts->minutes = (int16_t) (tt->minutes + offset_minutes);
+    tts->suffix = kAtcSuffixS;
+
+    ttw->year_tiny = tt->year_tiny;
+    ttw->month = tt->month;
+    ttw->day = tt->day;
+    ttw->minutes = (int16_t) (tt->minutes + (offset_minutes + delta_minutes));
+    ttw->suffix = kAtcSuffixW;
+  } else {
+    // Explicit set the suffix to 'w' in case it was something else.
+    *ttw = *tt;
+    ttw->suffix = kAtcSuffixW;
+
+    tts->year_tiny = tt->year_tiny;
+    tts->month = tt->month;
+    tts->day = tt->day;
+    tts->minutes = (int16_t) (tt->minutes - delta_minutes);
+    tts->suffix = kAtcSuffixS;
+
+    ttu->year_tiny = tt->year_tiny;
+    ttu->month = tt->month;
+    ttu->day = tt->day;
+    ttu->minutes = (int16_t) (tt->minutes - (delta_minutes + offset_minutes));
+    ttu->suffix = kAtcSuffixU;
+  }
+
+  atc_date_tuple_normalize(ttw);
+  atc_date_tuple_normalize(tts);
+  atc_date_tuple_normalize(ttu);
+}
+
+void atc_date_tuple_normalize(struct AtcDateTuple *dt)
+{
+  const int16_t kOneDayAsMinutes = 60 * 24;
+
+  if (dt->minutes <= -kOneDayAsMinutes) {
+    struct AtcLocalDate ld = {
+        dt->year_tiny + kAtcEpochYear, dt->month, dt->day};
+    atc_local_date_decrement_one_day(&ld);
+    dt->year_tiny = ld.year - kAtcEpochYear;
+    dt->month = ld.month;
+    dt->day = ld.day;
+    dt->minutes += kOneDayAsMinutes;
+  } else if (kOneDayAsMinutes <= dt->minutes) {
+    struct AtcLocalDate ld = {
+        dt->year_tiny + kAtcEpochYear, dt->month, dt->day};
+    atc_local_date_increment_one_day(&ld);
+    dt->year_tiny = ld.year - kAtcEpochYear;
+    dt->month = ld.month;
+    dt->day = ld.day;
+    dt->minutes -= kOneDayAsMinutes;
+  } else {
+    // do nothing
+  }
 }
 
 //---------------------------------------------------------------------------
@@ -150,11 +235,6 @@ void atc_transition_storage_add_prior_to_candidate_pool(
 
 //---------------------------------------------------------------------------
 
-/**
-  * Return the letter string. Returns NULL if the RULES column is empty
-  * since that means that the ZoneRule is not used, which means LETTER does
-  * not exist. A LETTER of '-' is returned as an empty string "".
-  */
 const char *atc_transition_extract_letter(const struct AtcTransition *t)
 {
   // RULES column is '-' or hh:mm, so return NULL to indicate this.
@@ -187,3 +267,87 @@ const char *atc_transition_extract_letter(const struct AtcTransition *t)
   return policy->letters[(uint8_t) letter];
 }
 
+//---------------------------------------------------------------------------
+
+uint8_t atc_transition_compare_to_match(
+    const struct AtcTransition *t, const struct AtcMatchingEra *match)
+{
+  // Find the previous Match offsets.
+  int16_t prev_match_offset_minutes;
+  int16_t prev_match_delta_minutes;
+  if (match->prev_match) {
+    prev_match_offset_minutes = match->prev_match->last_offset_minutes;
+    prev_match_delta_minutes = match->prev_match->last_delta_minutes;
+  } else {
+    prev_match_offset_minutes = atc_zone_info_time_code_to_minutes(
+        match->era->offset_code, 0);
+    prev_match_delta_minutes = 0;
+  }
+
+  // Expand start times.
+  struct AtcDateTuple stw;
+  struct AtcDateTuple sts;
+  struct AtcDateTuple stu;
+  atc_date_tuple_expand(
+      &match->start_dt,
+      prev_match_offset_minutes,
+      prev_match_delta_minutes,
+      &stw,
+      &sts,
+      &stu);
+
+  // Transition times.
+  const struct AtcDateTuple *ttw = &t->transition_time;
+  const struct AtcDateTuple *tts = &t->transition_time_s;
+  const struct AtcDateTuple *ttu = &t->transition_time_u;
+
+  // Compare Transition to Match, where equality is assumed if *any* of the
+  // 'w', 's', or 'u' versions of the DateTuple are equal. This prevents
+  // duplicate Transition instances from being created in a few cases.
+  if (atc_date_tuple_compare(ttw, &stw) == 0
+      || atc_date_tuple_compare(tts, &sts) == 0
+      || atc_date_tuple_compare(ttu, &stu) == 0) {
+    return kAtcMatchStatusExactMatch;
+  }
+
+  if (atc_date_tuple_compare(ttu, &stu) < 0) {
+    return kAtcMatchStatusPrior;
+  }
+
+  // Now check if the transition occurs after the given match. The
+  // untilDateTime of the current match uses the same UTC offsets as the
+  // transitionTime of the current transition, so no complicated adjustments
+  // are needed. We just make sure we compare 'w' with 'w', 's' with 's',
+  // and 'u' with 'u'.
+  const struct AtcDateTuple *match_until = &match->until_dt;
+  const struct AtcDateTuple *transition_time;
+  if (match_until->suffix == kAtcSuffixS) {
+    transition_time = tts;
+  } else if (match_until->suffix == kAtcSuffixU) {
+    transition_time = ttu;
+  } else { // assume 'w'
+    transition_time = ttw;
+  }
+  if (atc_date_tuple_compare(transition_time, match_until) < 0) {
+    return kAtcMatchStatusWithinMatch;
+  }
+
+  return kAtcMatchStatusFarFuture;
+}
+
+uint8_t atc_transition_compare_to_match_fuzzy(
+    const struct AtcTransition *t, const struct AtcMatchingEra *match)
+{
+  int16_t tt_months = t->transition_time.year_tiny * 12
+      + t->transition_time.month;
+
+  int16_t match_start_months = match->start_dt.year_tiny * 12
+      + match->start_dt.month;
+  if (tt_months < match_start_months - 1) return kAtcMatchStatusPrior;
+
+  int16_t match_until_months = match->until_dt.year_tiny * 12
+      + match->until_dt.month;
+  if (match_until_months + 2 <= tt_months) return kAtcMatchStatusFarFuture;
+
+  return kAtcMatchStatusWithinMatch;
+}

@@ -31,6 +31,16 @@ atc_time_t atc_date_tuple_subtract(
     const struct AtcDateTuple *a,
     const struct AtcDateTuple *b);
 
+void atc_date_tuple_expand(
+    const struct AtcDateTuple *tt,
+    int16_t offset_minutes,
+    int16_t delta_minutes,
+    struct AtcDateTuple *ttw,
+    struct AtcDateTuple *tts,
+    struct AtcDateTuple *ttu);
+
+void atc_date_tuple_normalize(struct AtcDateTuple *dt);
+
 //---------------------------------------------------------------------------
 
 enum {
@@ -54,18 +64,6 @@ enum {
    * this will be 4. (Verify: I think this can be changed to 3.)
    */
   kAtcMaxInteriorYears = 4,
-};
-
-/**
- * The result of comparing transition of a Transition to the time interval
- * of the corresponding AtcMatchingEra.
- */
-enum {
-  kAtcMatchStatusFarPast, // 0
-  kAtcMatchStatusPrior, // 1
-  kAtcMatchStatusExactMatch, // 2
-  kAtcMatchStatusWithinMatch, // 3
-  kAtcMatchStatusFarFuture, // 4
 };
 
 /** A struct that represents a matching ZoneEra. */
@@ -216,6 +214,52 @@ void atc_transition_storage_add_free_agent_to_candidate_pool(
 void atc_transition_storage_add_prior_to_candidate_pool(
     struct AtcTransitionStorage *ts);
 
+/**
+ * Return the letter string. Returns NULL if the RULES column is empty
+ * since that means that the ZoneRule is not used, which means LETTER does
+ * not exist. A LETTER of '-' is returned as an empty string "".
+ */
 const char *atc_transition_extract_letter(const struct AtcTransition *t);
+
+//---------------------------------------------------------------------------
+
+/**
+ * The result of comparing transition of a Transition to the time interval
+ * of the corresponding AtcMatchingEra.
+ */
+enum {
+  kAtcMatchStatusFarPast, // 0
+  kAtcMatchStatusPrior, // 1
+  kAtcMatchStatusExactMatch, // 2
+  kAtcMatchStatusWithinMatch, // 3
+  kAtcMatchStatusFarFuture, // 4
+};
+
+/**
+ * Compare the temporal location of transition compared to the interval
+ * defined by  the match. The transition time of the Transition is expanded
+ * to include all 3 versions ('w', 's', and 'u') of the time stamp. When
+ * comparing against the MatchingEra.startDateTime and
+ * MatchingEra.untilDateTime, the version will be determined by the suffix
+ * of those parameters.
+ */
+uint8_t atc_transition_compare_to_match(
+    const struct AtcTransition *t, const struct AtcMatchingEra *match);
+
+/**
+ * Like compare_transition_to_match() except perform a fuzzy match within at
+ * least one-month of the match.start or match.until.
+ *
+ * Return:
+ *    * kAtcMatchStatusPrior if t less than match by at least one month
+ *    * kAtcMatchStatusWithinMatch if t within match,
+ *    * kAtcMatchStatusFarFuture if t greater than match by at least one month
+ *    * kAtcMatchStatusExactMatch is never returned, we cannot know that t ==
+ *      match.start
+ *
+ * Exported for testing.
+ */
+uint8_t atc_transition_compare_to_match_fuzzy(
+    const struct AtcTransition *t, const struct AtcMatchingEra *match);
 
 #endif

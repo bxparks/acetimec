@@ -7,23 +7,11 @@
 #include <string.h> // memcpy(), strncpy()
 #include "common.h" // atc_copy_replace_string()
 #include "local_date.h" // atc_local_date_days_in_year_month()
+#include "zone_info_utils.h" // atc_zone_info_time_code_to_minutes()
 #include "zone_processing.h"
 
 //---------------------------------------------------------------------------
 // ZoneInfo, ZoneEra, ZoneRule, ZonePolicy helpers
-//---------------------------------------------------------------------------
-
-uint16_t atc_zone_info_time_code_to_minutes(
-  uint8_t code, uint8_t modifier)
-{
-  return code * (uint16_t) 15 + (modifier & 0x0f);
-}
-
-uint8_t atc_zone_info_modifier_to_suffix(uint8_t modifier)
-{
-  return modifier & 0xf0;
-}
-
 //---------------------------------------------------------------------------
 
 /** Return (1, 0, -1) depending on how era compares to (year_tiny, month). */
@@ -310,34 +298,6 @@ uint8_t atc_processing_calc_interior_years(
   return i;
 }
 
-/**
- * Like compare_transition_to_match() except perform a fuzzy match within at
- * least one-month of the match.start or match.until.
- *
- * Return:
- *    * kAtcMatchStatusPrior if t less than match by at least one month
- *    * kAtcMatchStatusWithinMatch if t within match,
- *    * kAtcMatchStatusFarFuture if t greater than match by at least one month
- *    * kAtcMatchStatusExactMatch is never returned, we cannot know that t ==
- *      match.start
- */
-uint8_t atc_processing_compare_transition_to_match_fuzzy(
-    const struct AtcTransition *t, const struct AtcMatchingEra *match)
-{
-  int16_t tt_months = t->transition_time.year_tiny * 12
-      + t->transition_time.month;
-
-  int16_t match_start_months = match->start_dt.year_tiny * 12
-      + match->start_dt.month;
-  if (tt_months < match_start_months - 1) return kAtcMatchStatusPrior;
-
-  int16_t match_until_months = match->until_dt.year_tiny * 12
-      + match->until_dt.month;
-  if (match_until_months + 2 <= tt_months) return kAtcMatchStatusFarFuture;
-
-  return kAtcMatchStatusWithinMatch;
-}
-
 int8_t atc_processing_get_most_recent_prior_year(
     int8_t from_year, int8_t to_year,
     int8_t start_year, int8_t end_year)
@@ -382,7 +342,7 @@ void atc_processing_find_candidate_transitions(
       int8_t year = interior_years[y];
       struct AtcTransition *t = atc_transition_storage_get_free_agent(ts);
       atc_processing_create_transition_for_year(t, year,rule, match);
-      uint8_t status = atc_processing_compare_transition_to_match_fuzzy(
+      uint8_t status = atc_transition_compare_to_match_fuzzy(
           t, match);
       if (status == kAtcMatchStatusPrior) {
         atc_transition_storage_set_free_agent_as_prior_if_valid(ts);
@@ -416,90 +376,6 @@ void atc_processing_find_candidate_transitions(
 // Step 2B: Pass 2
 //---------------------------------------------------------------------------
 
-void atc_processing_normalize_date_tuple(struct AtcDateTuple *dt)
-{
-  const int16_t kOneDayAsMinutes = 60 * 24;
-
-  if (dt->minutes <= -kOneDayAsMinutes) {
-    struct AtcLocalDate ld = {
-        dt->year_tiny + kAtcEpochYear, dt->month, dt->day};
-    atc_local_date_decrement_one_day(&ld);
-    dt->year_tiny = ld.year - kAtcEpochYear;
-    dt->month = ld.month;
-    dt->day = ld.day;
-    dt->minutes += kOneDayAsMinutes;
-  } else if (kOneDayAsMinutes <= dt->minutes) {
-    struct AtcLocalDate ld = {
-        dt->year_tiny + kAtcEpochYear, dt->month, dt->day};
-    atc_local_date_increment_one_day(&ld);
-    dt->year_tiny = ld.year - kAtcEpochYear;
-    dt->month = ld.month;
-    dt->day = ld.day;
-    dt->minutes -= kOneDayAsMinutes;
-  } else {
-    // do nothing
-  }
-}
-
-void atc_processing_expand_date_tuple(
-    const struct AtcDateTuple *tt,
-    int16_t offset_minutes,
-    int16_t delta_minutes,
-    struct AtcDateTuple *ttw,
-    struct AtcDateTuple *tts,
-    struct AtcDateTuple *ttu) {
-
-  if (tt->suffix == kAtcSuffixS) {
-    *tts = *tt;
-
-    ttu->year_tiny = tt->year_tiny;
-    ttu->month = tt->month;
-    ttu->day = tt->day;
-    ttu->minutes = (int16_t) (tt->minutes - offset_minutes);
-    ttu->suffix = kAtcSuffixU;
-
-    ttw->year_tiny = tt->year_tiny;
-    ttw->month = tt->month;
-    ttw->day = tt->day;
-    ttw->minutes = (int16_t) (tt->minutes + delta_minutes);
-    ttw->suffix = kAtcSuffixW;
-  } else if (tt->suffix == kAtcSuffixU) {
-    *ttu = *tt;
-
-    tts->year_tiny = tt->year_tiny;
-    tts->month = tt->month;
-    tts->day = tt->day;
-    tts->minutes = (int16_t) (tt->minutes + offset_minutes);
-    tts->suffix = kAtcSuffixS;
-
-    ttw->year_tiny = tt->year_tiny;
-    ttw->month = tt->month;
-    ttw->day = tt->day;
-    ttw->minutes = (int16_t) (tt->minutes + (offset_minutes + delta_minutes));
-    ttw->suffix = kAtcSuffixW;
-  } else {
-    // Explicit set the suffix to 'w' in case it was something else.
-    *ttw = *tt;
-    ttw->suffix = kAtcSuffixW;
-
-    tts->year_tiny = tt->year_tiny;
-    tts->month = tt->month;
-    tts->day = tt->day;
-    tts->minutes = (int16_t) (tt->minutes - delta_minutes);
-    tts->suffix = kAtcSuffixS;
-
-    ttu->year_tiny = tt->year_tiny;
-    ttu->month = tt->month;
-    ttu->day = tt->day;
-    ttu->minutes = (int16_t) (tt->minutes - (delta_minutes + offset_minutes));
-    ttu->suffix = kAtcSuffixU;
-  }
-
-  atc_processing_normalize_date_tuple(ttw);
-  atc_processing_normalize_date_tuple(tts);
-  atc_processing_normalize_date_tuple(ttu);
-}
-
 void atc_processing_fix_transition_times(
     struct AtcTransition **begin,
     struct AtcTransition **end)
@@ -507,7 +383,7 @@ void atc_processing_fix_transition_times(
   struct AtcTransition *prev = *begin;
   for (struct AtcTransition **iter = begin; iter != end; ++iter) {
     struct AtcTransition *curr = *iter;
-    atc_processing_expand_date_tuple(
+    atc_date_tuple_expand(
         &curr->transition_time,
         prev->offset_minutes,
         prev->delta_minutes,
@@ -522,78 +398,11 @@ void atc_processing_fix_transition_times(
 // Step 2B: Pass 3
 //---------------------------------------------------------------------------
 
-static uint8_t compareTransitionToMatch(
-    const struct AtcTransition *transition,
-    const struct AtcMatchingEra *match)
-{
-  // Find the previous Match offsets.
-  int16_t prev_match_offset_minutes;
-  int16_t prev_match_delta_minutes;
-  if (match->prev_match) {
-    prev_match_offset_minutes = match->prev_match->last_offset_minutes;
-    prev_match_delta_minutes = match->prev_match->last_delta_minutes;
-  } else {
-    prev_match_offset_minutes = atc_zone_info_time_code_to_minutes(
-        match->era->offset_code, 0);
-    prev_match_delta_minutes = 0;
-  }
-
-  // Expand start times.
-  struct AtcDateTuple stw;
-  struct AtcDateTuple sts;
-  struct AtcDateTuple stu;
-  atc_processing_expand_date_tuple(
-      &match->start_dt,
-      prev_match_offset_minutes,
-      prev_match_delta_minutes,
-      &stw,
-      &sts,
-      &stu);
-
-  // Transition times.
-  const struct AtcDateTuple *ttw = &transition->transition_time;
-  const struct AtcDateTuple *tts = &transition->transition_time_s;
-  const struct AtcDateTuple *ttu = &transition->transition_time_u;
-
-  // Compare Transition to Match, where equality is assumed if *any* of the
-  // 'w', 's', or 'u' versions of the DateTuple are equal. This prevents
-  // duplicate Transition instances from being created in a few cases.
-  if (atc_date_tuple_compare(ttw, &stw) == 0
-      || atc_date_tuple_compare(tts, &sts) == 0
-      || atc_date_tuple_compare(ttu, &stu) == 0) {
-    return kAtcMatchStatusExactMatch;
-  }
-
-  if (atc_date_tuple_compare(ttu, &stu) < 0) {
-    return kAtcMatchStatusPrior;
-  }
-
-  // Now check if the transition occurs after the given match. The
-  // untilDateTime of the current match uses the same UTC offsets as the
-  // transitionTime of the current transition, so no complicated adjustments
-  // are needed. We just make sure we compare 'w' with 'w', 's' with 's',
-  // and 'u' with 'u'.
-  const struct AtcDateTuple *match_until = &match->until_dt;
-  const struct AtcDateTuple *transition_time;
-  if (match_until->suffix == kAtcSuffixS) {
-    transition_time = tts;
-  } else if (match_until->suffix == kAtcSuffixU) {
-    transition_time = ttu;
-  } else { // assume 'w'
-    transition_time = ttw;
-  }
-  if (atc_date_tuple_compare(transition_time, match_until) < 0) {
-    return kAtcMatchStatusWithinMatch;
-  }
-
-  return kAtcMatchStatusFarFuture;
-}
-
 static void atc_processing_process_transition_match_status(
     struct AtcTransition *transition,
     struct AtcTransition **prior)
 {
-  uint8_t status = compareTransitionToMatch(
+  uint8_t status = atc_transition_compare_to_match(
       transition, transition->match);
   transition->match_status = status;
 
@@ -730,7 +539,7 @@ void atc_processing_generate_start_until_times(
     t->start_dt.day = tt->day;
     t->start_dt.minutes = minutes;
     t->start_dt.suffix = tt->suffix;
-    atc_processing_normalize_date_tuple(&t->start_dt);
+    atc_date_tuple_normalize(&t->start_dt);
 
     // 3) The epochSecond of the 'transitionTime' is determined by the
     // UTC offset of the *previous* Transition. However, the
@@ -757,7 +566,7 @@ void atc_processing_generate_start_until_times(
   struct AtcDateTuple until_time_w;
   struct AtcDateTuple until_time_s;
   struct AtcDateTuple until_time_u;
-  atc_processing_expand_date_tuple(
+  atc_date_tuple_expand(
       &prev->match->until_dt,
       prev->offset_minutes,
       prev->delta_minutes,
