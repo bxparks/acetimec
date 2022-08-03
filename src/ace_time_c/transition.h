@@ -12,13 +12,26 @@
 
 //---------------------------------------------------------------------------
 
-/** An internal tuple of (year_tiny, month, day, minutes). */
+/**
+ * An internal simplified version of the AtcDateTime class that uses the
+ * (year_tiny, month, day, minutes, suffix) fields.
+ *
+ * The order of 'minutes' and 'suffix' are reversed from the DateTuple class in
+ * the AceTime library because C does not support constructors, so the
+ * initializer list must be in the same order as the field order. But I have a
+ * bunch of code ported from the C++ code in AceTime which assumes that
+ * 'minutes' comes before 'suffix'. So it is easier to fix the ordering here.
+ *
+ * This causes the field alignment to be slightly less than ideal, but the class
+ * already consumes 2 x 4-byte slots on 32-bit processors, so the new ordering
+ * does not change the overall sizeof(AtcDateTuple).
+ */
 struct AtcDateTuple {
   int8_t year_tiny; // [-127, 126], 127 will cause bugs
   uint8_t month; // [1-12]
   uint8_t day; // [1-31]
-  uint8_t suffix; // kAtcSuffixS, kAtcSuffixW, kAtcSuffixU
   int16_t minutes; // negative values allowed
+  uint8_t suffix; // kAtcSuffixS, kAtcSuffixW, kAtcSuffixU
 };
 
 /** Compare a to b, ignoring the suffix. Exported for testing. */

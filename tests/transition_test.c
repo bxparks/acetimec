@@ -3,24 +3,24 @@
 
 ACU_TEST(test_atc_date_tuple_compare)
 {
-  struct AtcDateTuple a = {0, 1, 1, kAtcSuffixW, 0};
-  struct AtcDateTuple b = {0, 1, 1, kAtcSuffixW, 0};
-  ACU_ASSERT(atc_processing_compare_date_tuple(&a, &b) == 0);
+  struct AtcDateTuple a = {0, 1, 1, 0, kAtcSuffixW};
+  struct AtcDateTuple b = {0, 1, 1, 0, kAtcSuffixW};
+  ACU_ASSERT(atc_date_tuple_compare(&a, &b) == 0);
 
-  struct AtcDateTuple bb = {0, 1, 1, kAtcSuffixS, 0};
-  ACU_ASSERT(atc_processing_compare_date_tuple(&a, &bb) == 0);
+  struct AtcDateTuple bb = {0, 1, 1, 0, kAtcSuffixS};
+  ACU_ASSERT(atc_date_tuple_compare(&a, &bb) == 0);
 
-  struct AtcDateTuple c = {0, 1, 1, kAtcSuffixW, 1};
-  ACU_ASSERT(atc_processing_compare_date_tuple(&a, &c) < 0);
+  struct AtcDateTuple c = {0, 1, 1, 1, kAtcSuffixW};
+  ACU_ASSERT(atc_date_tuple_compare(&a, &c) < 0);
 
-  struct AtcDateTuple d = {0, 1, 2, kAtcSuffixW, 0};
-  ACU_ASSERT(atc_processing_compare_date_tuple(&a, &d) < 0);
+  struct AtcDateTuple d = {0, 1, 2, 0, kAtcSuffixW};
+  ACU_ASSERT(atc_date_tuple_compare(&a, &d) < 0);
 
-  struct AtcDateTuple e = {0, 2, 1, kAtcSuffixW, 0};
-  ACU_ASSERT(atc_processing_compare_date_tuple(&a, &e) < 0);
+  struct AtcDateTuple e = {0, 2, 1, 0, kAtcSuffixW};
+  ACU_ASSERT(atc_date_tuple_compare(&a, &e) < 0);
 
-  struct AtcDateTuple f = {1, 1, 1, kAtcSuffixW, 0};
-  ACU_ASSERT(atc_processing_compare_date_tuple(&a, &f) < 0);
+  struct AtcDateTuple f = {1, 1, 1, 0, kAtcSuffixW};
+  ACU_ASSERT(atc_date_tuple_compare(&a, &f) < 0);
 
   ACU_PASS();
 }
