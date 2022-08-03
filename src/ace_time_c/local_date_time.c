@@ -4,9 +4,6 @@
 #include "local_date.h"
 #include "local_date_time.h"
 
-// Offset to between 'year' and 'year_tiny'.
-#define ATC_YEAR_TINY_OFFSET 2000
-
 static atc_time_t hms_to_epoch_seconds(
     uint8_t hour, uint8_t minute, uint8_t second)
 {
@@ -18,7 +15,7 @@ atc_time_t atc_local_date_time_to_epoch_seconds(
 {
   if (ldt->year == kAtcInvalidYear) return kAtcInvalidEpochSeconds;
 
-  int8_t year_tiny = ldt->year - ATC_YEAR_TINY_OFFSET;
+  int8_t year_tiny = ldt->year - kAtcEpochYear;
   int32_t days = atc_local_date_to_epoch_days(year_tiny, ldt->month, ldt->day);
   int32_t seconds = hms_to_epoch_seconds(ldt->hour, ldt->minute, ldt->second);
   return days * 86400 + seconds;
@@ -48,7 +45,7 @@ void atc_local_date_time_from_epoch_seconds(
   // Extract (year, month day).
   int8_t year_tiny;
   atc_local_date_from_epoch_days(days, &year_tiny, &ldt->month, &ldt->day);
-  ldt->year = year_tiny + ATC_YEAR_TINY_OFFSET;
+  ldt->year = year_tiny + kAtcEpochYear;
 
   // Extract (hour, minute, second). The compiler will combine the mod (%) and
   // division (/) operations into a single (dividend, remainder) function call.
