@@ -26,37 +26,8 @@ uint8_t atc_zone_info_modifier_to_suffix(uint8_t modifier)
 
 //---------------------------------------------------------------------------
 
-int8_t atc_processing_compare_date_tuple(
-  const struct AtcDateTuple *a,
-  const struct AtcDateTuple *b)
-{
-  if (a->year_tiny < b->year_tiny) return -1;
-  if (a->year_tiny > b->year_tiny) return 1;
-  if (a->month < b->month) return -1;
-  if (a->month > b->month) return 1;
-  if (a->day < b->day) return -1;
-  if (a->day > b->day) return 1;
-  if (a->minutes < b->minutes) return -1;
-  if (a->minutes > b->minutes) return 1;
-  return 0;
-}
-
-/** Return the number of seconds in (a - b), ignoring suffix. */
-atc_time_t atc_processing_subtract_date_tuple(
-    const struct AtcDateTuple *a,
-    const struct AtcDateTuple *b)
-{
-  int32_t eda = atc_local_date_to_epoch_days(a->year_tiny, a->month, a->day);
-  int32_t esa = eda * 86400 + a->minutes * 60;
-
-  int32_t edb = atc_local_date_to_epoch_days(b->year_tiny, b->month, b->day);
-  int32_t esb = edb * 86400 + b->minutes * 60;
-
-  return esa - esb;
-}
-
 /** Return (1, 0, -1) depending on how era compares to (year_tiny, month). */
-int8_t atc_compare_era_to_year_month(
+static int8_t atc_compare_era_to_year_month(
     const struct AtcZoneEra *era,
     int8_t year_tiny,
     uint8_t month)
@@ -82,7 +53,7 @@ int8_t atc_compare_era_to_year_month(
  * (era.until > startYm). If prev.isNull(), then interpret prev as the
  * earliest ZoneEra.
  */
-bool atc_era_overlaps_interval(
+static bool atc_era_overlaps_interval(
   const struct AtcMatchingEra *prev_match,
   const struct AtcZoneEra *era,
   struct AtcYearMonth start_ym,
@@ -100,7 +71,7 @@ bool atc_era_overlaps_interval(
  * the ZoneEra using the eraOverlapsInterval() method. The 'prev' ZoneEra is
  * needed to define the startDateTime of the current era.
  */
-void atc_create_matching_era(
+static void atc_create_matching_era(
     struct AtcMatchingEra *new_match,
     struct AtcMatchingEra *prev_match,
     struct AtcZoneEra *era,
@@ -133,7 +104,7 @@ void atc_create_matching_era(
     0,
     kAtcSuffixW
   };
-  if (atc_processing_compare_date_tuple(&start_date, &lower_bound) < 0) {
+  if (atc_date_tuple_compare(&start_date, &lower_bound) < 0) {
     start_date = lower_bound;
   }
 
@@ -153,7 +124,7 @@ void atc_create_matching_era(
     0,
     kAtcSuffixW
   };
-  if (atc_processing_compare_date_tuple(&upper_bound, &until_date) < 0) {
+  if (atc_date_tuple_compare(&upper_bound, &until_date) < 0) {
     until_date = upper_bound;
   }
 
@@ -209,160 +180,6 @@ void atc_processing_calc_start_day_of_month(
     *result_month = month;
     *result_day = (uint8_t) day;
   }
-}
-
-//---------------------------------------------------------------------------
-// TransitionStorage helpers
-//---------------------------------------------------------------------------
-
-void atc_transition_storage_init(struct AtcTransitionStorage *ts)
-{
-  for (int i = 0; i < kAtcTransitionStorageSize; i++) {
-    ts->transitions[i] = &ts->transition_pool[i];
-  }
-  ts->index_prior = 0;
-  ts->index_candidate = 0;
-  ts->index_free = 0;
-}
-
-/**
- * Return a pointer to the first Transition in the free pool. If this
- * transition is not used, then it's ok to just drop it. The next time
- * getFreeAgent() is called, the same Transition will be returned.
- */
-struct AtcTransition *atc_transition_storage_get_free_agent(
-    struct AtcTransitionStorage *ts)
-{
-  if (ts->index_free < kAtcTransitionStorageSize) {
-    if (ts->index_free >= ts->alloc_size) {
-      ts->alloc_size = ts->index_free + 1;
-    }
-    return ts->transitions[ts->index_free];
-  } else {
-    /* No more transition available in the buffer, so just return the last
-     * one. This will probably cause a bug in the timezone calculations, but
-     * I think this is better than triggering undefined behavior by running
-     * off the end of the mTransitions buffer.
-     */
-    return ts->transitions[kAtcTransitionStorageSize - 1];
-  }
-}
-
-/**
- * Immediately add the free agent Transition at index mIndexFree to the
- * Active pool. Then increment mIndexFree to consume the free agent
- * from the Free pool. This assumes that the Pending and Candidate pool are
- * empty, which makes the Active pool come immediately before the Free
- * pool.
- */
-void atc_transition_storage_add_free_agent_to_active_pool(
-    struct AtcTransitionStorage *ts)
-{
-  if (ts->index_free >= kAtcTransitionStorageSize) return;
-  ts->index_free++;
-  ts->index_prior = ts->index_free;
-  ts->index_candidate = ts->index_free;
-}
-
-void atc_transition_storage_reset_candidate_pool(
-    struct AtcTransitionStorage *ts)
-{
-  ts->index_candidate = ts->index_prior;
-  ts->index_free = ts->index_prior;
-}
-
-struct AtcTransition **atc_transition_storage_reserve_prior(
-    struct AtcTransitionStorage *ts)
-{
-  (void) atc_transition_storage_get_free_agent(ts);
-  ts->index_candidate++;
-  ts->index_free++;
-  return &ts->transitions[ts->index_prior];
-}
-
-/** Set the free agent transition as the most recent prior. */
-static void atc_transition_storage_set_free_agent_as_prior_if_valid(
-    struct AtcTransitionStorage *ts)
-{
-  struct AtcTransition *ft = ts->transitions[ts->index_free];
-  struct AtcTransition *prior = ts->transitions[ts->index_prior];
-  if ((prior->is_valid_prior
-      && atc_processing_compare_date_tuple(
-          &prior->transition_time,
-          &ft->transition_time) < 0)
-      || !prior->is_valid_prior) {
-    ft->is_valid_prior = true;
-    prior->is_valid_prior = false;
-
-    // swap(prior, free)
-    ts->transitions[ts->index_prior] = ft;
-    ts->transitions[ts->index_free] = prior;
-  }
-}
-
-/**
- * Add the free agent Transition at index mIndexFree to the Candidate pool,
- * sorted by transitionTime. Then increment mIndexFree by one to remove the
- * free agent from the Free pool. Essentially this is an Insertion Sort
- * keyed by the 'transitionTime' (ignoring the DateTuple.suffix).
- */
-static void atc_transition_storage_add_free_agent_to_candidate_pool(
-    struct AtcTransitionStorage *ts)
-{
-  if (ts->index_free >= kAtcTransitionStorageSize) return;
-  for (uint8_t i= ts->index_free; i > ts->index_candidate; i--) {
-    struct AtcTransition *curr = ts->transitions[i];
-    struct AtcTransition *prev = ts->transitions[i - 1];
-    if (atc_processing_compare_date_tuple(
-        &curr->transition_time,
-        &prev->transition_time) >= 0) break;
-    ts->transitions[i] = prev;
-    ts->transitions[i - 1] = curr;
-  }
-  ts->index_free++;
-}
-
-static void atc_transition_storage_add_prior_to_candidate_pool(
-    struct AtcTransitionStorage *ts)
-{
-  ts->index_candidate++;
-}
-
-/**
-  * Return the letter string. Returns NULL if the RULES column is empty
-  * since that means that the ZoneRule is not used, which means LETTER does
-  * not exist. A LETTER of '-' is returned as an empty string "".
-  */
-static const char *atc_transition_extract_letter(const struct AtcTransition *t)
-{
-  // RULES column is '-' or hh:mm, so return NULL to indicate this.
-  if (t->rule == NULL) {
-    return NULL;
-  }
-
-  // RULES point to a named rule, and LETTER is a single, printable character.
-  // Return the letter_buf which contains a NUL-terminated string containing the
-  // single character, as initialized in
-  // atc_processing_create_transition_for_year().
-  char letter = t->rule->letter;
-  if (letter >= 32) {
-    return t->letter_buf;
-  }
-
-  // RULES points to a named rule, and the LETTER is a string. The
-  // rule->letter is a non-printable number < 32, which is an index into
-  // a list of strings given by match->era->zonePolicy->letters[].
-  const struct AtcZonePolicy *policy = t->match->era->zone_policy;
-  uint8_t num_letters = policy->num_letters;
-  if (letter >= num_letters) {
-    // This should never happen unless there is a programming error. If it
-    // does, return an empty string. (createTransitionForYear() sets
-    // letterBuf to a NUL terminated empty string if rule->letter < 32)
-    return t->letter_buf;
-  }
-
-  // Return the string at index 'rule->letter'.
-  return policy->letters[(uint8_t) letter];
 }
 
 //---------------------------------------------------------------------------
@@ -741,13 +558,13 @@ static uint8_t compareTransitionToMatch(
   // Compare Transition to Match, where equality is assumed if *any* of the
   // 'w', 's', or 'u' versions of the DateTuple are equal. This prevents
   // duplicate Transition instances from being created in a few cases.
-  if (atc_processing_compare_date_tuple(ttw, &stw) == 0
-      || atc_processing_compare_date_tuple(tts, &sts) == 0
-      || atc_processing_compare_date_tuple(ttu, &stu) == 0) {
+  if (atc_date_tuple_compare(ttw, &stw) == 0
+      || atc_date_tuple_compare(tts, &sts) == 0
+      || atc_date_tuple_compare(ttu, &stu) == 0) {
     return kAtcMatchStatusExactMatch;
   }
 
-  if (atc_processing_compare_date_tuple(ttu, &stu) < 0) {
+  if (atc_date_tuple_compare(ttu, &stu) < 0) {
     return kAtcMatchStatusPrior;
   }
 
@@ -765,7 +582,7 @@ static uint8_t compareTransitionToMatch(
   } else { // assume 'w'
     transition_time = ttw;
   }
-  if (atc_processing_compare_date_tuple(transition_time, match_until) < 0) {
+  if (atc_date_tuple_compare(transition_time, match_until) < 0) {
     return kAtcMatchStatusWithinMatch;
   }
 
@@ -787,7 +604,7 @@ static void atc_processing_process_transition_match_status(
     (*prior) = transition;
   } else if (status == kAtcMatchStatusPrior) {
     if (*prior) {
-      if (atc_processing_compare_date_tuple(
+      if (atc_date_tuple_compare(
           &(*prior)->transition_time_u,
           &transition->transition_time_u) <= 0) {
         (*prior)->match_status = kAtcMatchStatusFarPast;
@@ -1109,7 +926,7 @@ static uint8_t atc_processing_calculate_fold(
   if (prev_match == NULL) return 0;
 
   // Check if epoch_seconds occurs during a "fall back" DST transition.
-  atc_time_t overlap_seconds = atc_processing_subtract_date_tuple(
+  atc_time_t overlap_seconds = atc_date_tuple_subtract(
       &prev_match->until_dt, &match->start_dt);
   if (overlap_seconds <= 0) return 0;
   atc_time_t seconds_from_transition_start =
