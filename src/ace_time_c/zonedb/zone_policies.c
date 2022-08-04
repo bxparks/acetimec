@@ -159,8 +159,8 @@ static const struct AtcZoneRule kAtcZoneRulesAN[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyAN ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesAN /*rules*/,
   NULL /*letters*/,
-  9 /*numRules*/,
-  0 /*numLetters*/,
+  9 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -191,8 +191,8 @@ static const struct AtcZoneRule kAtcZoneRulesAQ[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyAQ ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesAQ /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -295,8 +295,8 @@ static const struct AtcZoneRule kAtcZoneRulesAS[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyAS ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesAS /*rules*/,
   NULL /*letters*/,
-  7 /*numRules*/,
-  0 /*numLetters*/,
+  7 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -411,8 +411,8 @@ static const struct AtcZoneRule kAtcZoneRulesAT[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyAT ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesAT /*rules*/,
   NULL /*letters*/,
-  8 /*numRules*/,
-  0 /*numLetters*/,
+  8 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -539,8 +539,8 @@ static const struct AtcZoneRule kAtcZoneRulesAV[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyAV ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesAV /*rules*/,
   NULL /*letters*/,
-  9 /*numRules*/,
-  0 /*numLetters*/,
+  9 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -607,8 +607,8 @@ static const struct AtcZoneRule kAtcZoneRulesAW[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyAW ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesAW /*rules*/,
   NULL /*letters*/,
-  4 /*numRules*/,
-  0 /*numLetters*/,
+  4 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -699,8 +699,8 @@ static const struct AtcZoneRule kAtcZoneRulesArg[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyArg ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesArg /*rules*/,
   NULL /*letters*/,
-  6 /*numRules*/,
-  0 /*numLetters*/,
+  6 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -755,8 +755,8 @@ static const struct AtcZoneRule kAtcZoneRulesArmenia[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyArmenia ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesArmenia /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -787,8 +787,8 @@ static const struct AtcZoneRule kAtcZoneRulesAus[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyAus ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesAus /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -831,8 +831,8 @@ static const struct AtcZoneRule kAtcZoneRulesAzer[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyAzer ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesAzer /*rules*/,
   NULL /*letters*/,
-  2 /*numRules*/,
-  0 /*numLetters*/,
+  2 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -863,8 +863,8 @@ static const struct AtcZoneRule kAtcZoneRulesBarb[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyBarb ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesBarb /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -899,8 +899,8 @@ static const char * const kLettersBelize[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyBelize ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesBelize /*rules*/,
   kLettersBelize /*letters*/,
-  1 /*numRules*/,
-  1 /*numLetters*/,
+  1 /*num_rules*/,
+  1 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1159,8 +1159,8 @@ static const struct AtcZoneRule kAtcZoneRulesBrazil[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyBrazil ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesBrazil /*rules*/,
   NULL /*letters*/,
-  20 /*numRules*/,
-  0 /*numLetters*/,
+  20 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1215,8 +1215,8 @@ static const struct AtcZoneRule kAtcZoneRulesC_Eur[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyC_Eur ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesC_Eur /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1247,8 +1247,8 @@ static const struct AtcZoneRule kAtcZoneRulesCO[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyCO ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesCO /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1279,8 +1279,8 @@ static const struct AtcZoneRule kAtcZoneRulesCR[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyCR ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesCR /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1359,8 +1359,8 @@ static const struct AtcZoneRule kAtcZoneRulesCanada[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyCanada ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesCanada /*rules*/,
   NULL /*letters*/,
-  5 /*numRules*/,
-  0 /*numLetters*/,
+  5 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1439,8 +1439,8 @@ static const struct AtcZoneRule kAtcZoneRulesChatham[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyChatham ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesChatham /*rules*/,
   NULL /*letters*/,
-  5 /*numRules*/,
-  0 /*numLetters*/,
+  5 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1639,8 +1639,8 @@ static const struct AtcZoneRule kAtcZoneRulesChile[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyChile ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesChile /*rules*/,
   NULL /*letters*/,
-  15 /*numRules*/,
-  0 /*numLetters*/,
+  15 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1671,8 +1671,8 @@ static const struct AtcZoneRule kAtcZoneRulesCook[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyCook ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesCook /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1859,8 +1859,8 @@ static const struct AtcZoneRule kAtcZoneRulesCuba[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyCuba ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesCuba /*rules*/,
   NULL /*letters*/,
-  14 /*numRules*/,
-  0 /*numLetters*/,
+  14 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1915,8 +1915,8 @@ static const struct AtcZoneRule kAtcZoneRulesDhaka[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyDhaka ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesDhaka /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1971,8 +1971,8 @@ static const struct AtcZoneRule kAtcZoneRulesE_EurAsia[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyE_EurAsia ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesE_EurAsia /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2027,8 +2027,8 @@ static const struct AtcZoneRule kAtcZoneRulesEU[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyEU ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesEU /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2083,8 +2083,8 @@ static const struct AtcZoneRule kAtcZoneRulesEUAsia[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyEUAsia ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesEUAsia /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2115,8 +2115,8 @@ static const struct AtcZoneRule kAtcZoneRulesEcuador[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyEcuador ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesEcuador /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2303,8 +2303,8 @@ static const struct AtcZoneRule kAtcZoneRulesEgypt[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyEgypt ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesEgypt /*rules*/,
   NULL /*letters*/,
-  14 /*numRules*/,
-  0 /*numLetters*/,
+  14 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2359,8 +2359,8 @@ static const struct AtcZoneRule kAtcZoneRulesEire[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyEire ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesEire /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2439,8 +2439,8 @@ static const struct AtcZoneRule kAtcZoneRulesFalk[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyFalk ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesFalk /*rules*/,
   NULL /*letters*/,
-  5 /*numRules*/,
-  0 /*numLetters*/,
+  5 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2627,8 +2627,8 @@ static const struct AtcZoneRule kAtcZoneRulesFiji[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyFiji ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesFiji /*rules*/,
   NULL /*letters*/,
-  14 /*numRules*/,
-  0 /*numLetters*/,
+  14 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2659,8 +2659,8 @@ static const struct AtcZoneRule kAtcZoneRulesGuam[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyGuam ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesGuam /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2715,8 +2715,8 @@ static const struct AtcZoneRule kAtcZoneRulesGuat[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyGuat ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesGuat /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2747,8 +2747,8 @@ static const struct AtcZoneRule kAtcZoneRulesHK[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyHK ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesHK /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2851,8 +2851,8 @@ static const struct AtcZoneRule kAtcZoneRulesHaiti[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyHaiti ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesHaiti /*rules*/,
   NULL /*letters*/,
-  7 /*numRules*/,
-  0 /*numLetters*/,
+  7 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2883,8 +2883,8 @@ static const struct AtcZoneRule kAtcZoneRulesHoliday[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyHoliday ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesHoliday /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2939,8 +2939,8 @@ static const struct AtcZoneRule kAtcZoneRulesHond[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyHond ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesHond /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3619,8 +3619,8 @@ static const struct AtcZoneRule kAtcZoneRulesIran[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyIran ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesIran /*rules*/,
   NULL /*letters*/,
-  55 /*numRules*/,
-  0 /*numLetters*/,
+  55 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3675,8 +3675,8 @@ static const struct AtcZoneRule kAtcZoneRulesIraq[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyIraq ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesIraq /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3707,8 +3707,8 @@ static const struct AtcZoneRule kAtcZoneRulesJapan[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyJapan ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesJapan /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3883,8 +3883,8 @@ static const struct AtcZoneRule kAtcZoneRulesJordan[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyJordan ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesJordan /*rules*/,
   NULL /*letters*/,
-  13 /*numRules*/,
-  0 /*numLetters*/,
+  13 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3939,8 +3939,8 @@ static const struct AtcZoneRule kAtcZoneRulesKyrgyz[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyKyrgyz ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesKyrgyz /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4067,8 +4067,8 @@ static const struct AtcZoneRule kAtcZoneRulesLH[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyLH ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesLH /*rules*/,
   NULL /*letters*/,
-  9 /*numRules*/,
-  0 /*numLetters*/,
+  9 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4123,8 +4123,8 @@ static const struct AtcZoneRule kAtcZoneRulesLebanon[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyLebanon ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesLebanon /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4179,8 +4179,8 @@ static const struct AtcZoneRule kAtcZoneRulesLibya[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyLibya ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesLibya /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4211,8 +4211,8 @@ static const struct AtcZoneRule kAtcZoneRulesMacau[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyMacau ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesMacau /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4267,8 +4267,8 @@ static const struct AtcZoneRule kAtcZoneRulesMauritius[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyMauritius ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesMauritius /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4371,8 +4371,8 @@ static const struct AtcZoneRule kAtcZoneRulesMexico[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyMexico ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesMexico /*rules*/,
   NULL /*letters*/,
-  7 /*numRules*/,
-  0 /*numLetters*/,
+  7 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4415,8 +4415,8 @@ static const struct AtcZoneRule kAtcZoneRulesMoldova[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyMoldova ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesMoldova /*rules*/,
   NULL /*letters*/,
-  2 /*numRules*/,
-  0 /*numLetters*/,
+  2 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4471,8 +4471,8 @@ static const struct AtcZoneRule kAtcZoneRulesMoncton[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyMoncton ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesMoncton /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4563,8 +4563,8 @@ static const struct AtcZoneRule kAtcZoneRulesMongol[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyMongol ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesMongol /*rules*/,
   NULL /*letters*/,
-  6 /*numRules*/,
-  0 /*numLetters*/,
+  6 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5711,8 +5711,8 @@ static const struct AtcZoneRule kAtcZoneRulesMorocco[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyMorocco ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesMorocco /*rules*/,
   NULL /*letters*/,
-  94 /*numRules*/,
-  0 /*numLetters*/,
+  94 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5743,8 +5743,8 @@ static const struct AtcZoneRule kAtcZoneRulesNC[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyNC ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesNC /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5799,8 +5799,8 @@ static const struct AtcZoneRule kAtcZoneRulesNT_YK[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyNT_YK ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesNT_YK /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5879,8 +5879,8 @@ static const struct AtcZoneRule kAtcZoneRulesNZ[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyNZ ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesNZ /*rules*/,
   NULL /*letters*/,
-  5 /*numRules*/,
-  0 /*numLetters*/,
+  5 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5940,8 +5940,8 @@ static const char * const kLettersNamibia[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyNamibia ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesNamibia /*rules*/,
   kLettersNamibia /*letters*/,
-  3 /*numRules*/,
-  2 /*numLetters*/,
+  3 /*num_rules*/,
+  2 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6020,8 +6020,8 @@ static const struct AtcZoneRule kAtcZoneRulesNic[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyNic ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesNic /*rules*/,
   NULL /*letters*/,
-  5 /*numRules*/,
-  0 /*numLetters*/,
+  5 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6052,8 +6052,8 @@ static const struct AtcZoneRule kAtcZoneRulesPRC[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyPRC ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesPRC /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6144,8 +6144,8 @@ static const struct AtcZoneRule kAtcZoneRulesPakistan[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyPakistan ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesPakistan /*rules*/,
   NULL /*letters*/,
-  6 /*numRules*/,
-  0 /*numLetters*/,
+  6 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6536,8 +6536,8 @@ static const struct AtcZoneRule kAtcZoneRulesPalestine[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyPalestine ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesPalestine /*rules*/,
   NULL /*letters*/,
-  31 /*numRules*/,
-  0 /*numLetters*/,
+  31 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6676,8 +6676,8 @@ static const struct AtcZoneRule kAtcZoneRulesPara[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyPara ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesPara /*rules*/,
   NULL /*letters*/,
-  10 /*numRules*/,
-  0 /*numLetters*/,
+  10 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6708,8 +6708,8 @@ static const struct AtcZoneRule kAtcZoneRulesPeru[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyPeru ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesPeru /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6740,8 +6740,8 @@ static const struct AtcZoneRule kAtcZoneRulesPhil[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyPhil ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesPhil /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6772,8 +6772,8 @@ static const struct AtcZoneRule kAtcZoneRulesROK[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyROK ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesROK /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6828,8 +6828,8 @@ static const struct AtcZoneRule kAtcZoneRulesRussia[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyRussia ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesRussia /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6884,8 +6884,8 @@ static const struct AtcZoneRule kAtcZoneRulesRussiaAsia[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyRussiaAsia ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesRussiaAsia /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6916,8 +6916,8 @@ static const struct AtcZoneRule kAtcZoneRulesSA[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicySA ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesSA /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6948,8 +6948,8 @@ static const struct AtcZoneRule kAtcZoneRulesSalv[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicySalv ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesSalv /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7004,8 +7004,8 @@ static const struct AtcZoneRule kAtcZoneRulesSanLuis[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicySanLuis ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesSanLuis /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7088,8 +7088,8 @@ static const char * const kLettersStJohns[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyStJohns ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesStJohns /*rules*/,
   kLettersStJohns /*letters*/,
-  5 /*numRules*/,
-  1 /*numLetters*/,
+  5 /*num_rules*/,
+  1 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7120,8 +7120,8 @@ static const struct AtcZoneRule kAtcZoneRulesSudan[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicySudan ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesSudan /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7284,8 +7284,8 @@ static const struct AtcZoneRule kAtcZoneRulesSyria[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicySyria ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesSyria /*rules*/,
   NULL /*letters*/,
-  12 /*numRules*/,
-  0 /*numLetters*/,
+  12 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7316,8 +7316,8 @@ static const struct AtcZoneRule kAtcZoneRulesTaiwan[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyTaiwan ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesTaiwan /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7396,8 +7396,8 @@ static const struct AtcZoneRule kAtcZoneRulesThule[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyThule ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesThule /*rules*/,
   NULL /*letters*/,
-  5 /*numRules*/,
-  0 /*numLetters*/,
+  5 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7500,8 +7500,8 @@ static const struct AtcZoneRule kAtcZoneRulesTonga[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyTonga ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesTonga /*rules*/,
   NULL /*letters*/,
-  7 /*numRules*/,
-  0 /*numLetters*/,
+  7 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7561,8 +7561,8 @@ static const char * const kLettersTroll[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyTroll ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesTroll /*rules*/,
   kLettersTroll /*letters*/,
-  3 /*numRules*/,
-  2 /*numLetters*/,
+  3 /*num_rules*/,
+  2 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7641,8 +7641,8 @@ static const struct AtcZoneRule kAtcZoneRulesTunisia[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyTunisia ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesTunisia /*rules*/,
   NULL /*letters*/,
-  5 /*numRules*/,
-  0 /*numLetters*/,
+  5 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7697,8 +7697,8 @@ static const struct AtcZoneRule kAtcZoneRulesTurkey[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyTurkey ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesTurkey /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7777,8 +7777,8 @@ static const struct AtcZoneRule kAtcZoneRulesUS[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyUS ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesUS /*rules*/,
   NULL /*letters*/,
-  5 /*numRules*/,
-  0 /*numLetters*/,
+  5 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7869,8 +7869,8 @@ static const struct AtcZoneRule kAtcZoneRulesUruguay[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyUruguay ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesUruguay /*rules*/,
   NULL /*letters*/,
-  6 /*numRules*/,
-  0 /*numLetters*/,
+  6 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7901,8 +7901,8 @@ static const struct AtcZoneRule kAtcZoneRulesVanuatu[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyVanuatu ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesVanuatu /*rules*/,
   NULL /*letters*/,
-  1 /*numRules*/,
-  0 /*numLetters*/,
+  1 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7993,8 +7993,8 @@ static const struct AtcZoneRule kAtcZoneRulesWS[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyWS ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesWS /*rules*/,
   NULL /*letters*/,
-  6 /*numRules*/,
-  0 /*numLetters*/,
+  6 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8049,8 +8049,8 @@ static const struct AtcZoneRule kAtcZoneRulesWinn[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyWinn ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesWinn /*rules*/,
   NULL /*letters*/,
-  3 /*numRules*/,
-  0 /*numLetters*/,
+  3 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8357,8 +8357,8 @@ static const struct AtcZoneRule kAtcZoneRulesZion[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyZion ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesZion /*rules*/,
   NULL /*letters*/,
-  24 /*numRules*/,
-  0 /*numLetters*/,
+  24 /*num_rules*/,
+  0 /*num_letters*/,
 };
 
 
