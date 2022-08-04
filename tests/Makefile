@@ -6,6 +6,7 @@ TARGETS := \
 	local_date_time_test.out \
 	offset_date_time_test.out \
 	transition_test.out \
+	zone_info_utils_test.out \
 	zone_processing_test.out \
 	zoned_date_time_test.out \
 	zonedb_test.out
@@ -29,6 +30,9 @@ offset_date_time_test.out: offset_date_time_test.o ../src/acetimec.a
 transition_test.out: transition_test.o ../src/acetimec.a
 	$(CC) -o $@ $^
 
+zone_info_utils_test.out: zone_info_utils_test.o ../src/acetimec.a
+	$(CC) -o $@ $^
+
 zone_processing_test.out: zone_processing_test.o ../src/acetimec.a
 	$(CC) -o $@ $^
 
@@ -49,6 +53,8 @@ local_date_time_test.o: local_date_time_test.c acunit.h
 offset_date_time_test.o: offset_date_time_test.c acunit.h
 
 transition_test.o: transition_test.c acunit.h
+
+zone_info_utils_test.o: zone_info_utils_test.c acunit.h
 
 zone_processing_test.o: zone_processing_test.c acunit.h
 

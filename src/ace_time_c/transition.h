@@ -97,10 +97,10 @@ struct AtcMatchingEra {
   struct AtcMatchingEra *prev_match;
 
   /** The STD offset of the last Transition in this MatchingEra. */
-  uint16_t last_offset_minutes;
+  int16_t last_offset_minutes;
 
   /** The DST offset of the last Transition in this MatchingEra. */
-  uint16_t last_delta_minutes;
+  int16_t last_delta_minutes;
 };
 
 struct AtcTransition {

@@ -7,7 +7,7 @@
 #include <string.h> // memcpy(), strncpy()
 #include "common.h" // atc_copy_replace_string()
 #include "local_date.h" // atc_local_date_days_in_year_month()
-#include "zone_info_utils.h" // atc_zone_info_time_code_to_minutes()
+#include "zone_info_utils.h"
 #include "offset_date_time.h"
 #include "zone_processing.h"
 
@@ -78,11 +78,8 @@ static void atc_create_matching_era(
     start_date.year_tiny = prev_match->era->until_year_tiny;
     start_date.month = prev_match->era->until_month;
     start_date.day = prev_match->era->until_day;
-    start_date.minutes = atc_zone_info_time_code_to_minutes(
-        prev_match->era->until_time_code,
-        prev_match->era->until_time_modifier);
-    start_date.suffix = atc_zone_info_modifier_to_suffix(
-        prev_match->era->until_time_modifier);
+    start_date.minutes = atc_zone_era_until_minutes(prev_match->era);
+    start_date.suffix = atc_zone_era_until_suffix(prev_match->era);
   }
   struct AtcDateTuple lower_bound = {
     start_ym.year_tiny,
@@ -99,10 +96,8 @@ static void atc_create_matching_era(
     era->until_year_tiny,
     era->until_month,
     era->until_day,
-    atc_zone_info_time_code_to_minutes(
-        era->until_time_code,
-        era->until_time_modifier),
-    atc_zone_info_modifier_to_suffix(era->until_time_modifier),
+    atc_zone_era_until_minutes(era),
+    atc_zone_era_until_suffix(era),
   };
   struct AtcDateTuple upper_bound = {
     until_ym.year_tiny,
@@ -219,10 +214,8 @@ void atc_processing_get_transition_time(
   dt->year_tiny = year_tiny;
   dt->month = month;
   dt->day = day;
-  dt->minutes = atc_zone_info_time_code_to_minutes(
-      rule->at_time_code,
-      rule->at_time_modifier);
-  dt->suffix = atc_zone_info_modifier_to_suffix(rule->at_time_modifier);
+  dt->minutes = atc_zone_rule_at_minutes(rule);
+  dt->suffix = atc_zone_rule_at_suffix(rule);
 }
 
 void atc_processing_create_transition_for_year(
@@ -233,14 +226,13 @@ void atc_processing_create_transition_for_year(
 {
   t->match = match;
   t->rule = rule;
-  t->offset_minutes = atc_zone_info_time_code_to_minutes(
-      match->era->offset_code, 0);
+  t->offset_minutes = atc_zone_era_dst_offset_minutes(match->era);
   t->letter_buf[0] = '\0';
 
   if (rule) {
     atc_processing_get_transition_time(
         year_tiny, rule, &t->transition_time);
-    t->delta_minutes = atc_zone_info_time_code_to_minutes(rule->delta_code, 0);
+    t->delta_minutes = atc_zone_rule_dst_offset_minutes(rule);
     char letter = rule->letter;
     if (letter >= 32) {
       // If LETTER is a '-', treat it the same as an empty string.
@@ -257,8 +249,7 @@ void atc_processing_create_transition_for_year(
     // Create a Transition using the MatchingEra for the transitionTime.
     // Used for simple MatchingEra.
     t->transition_time = match->start_dt;
-    t->delta_minutes = atc_zone_info_time_code_to_minutes(
-        match->era->delta_code, 0);
+    t->delta_minutes = atc_zone_era_dst_offset_minutes(match->era);
   }
 }
 

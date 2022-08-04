@@ -1,26 +1,6 @@
 #include "acunit.h"
 #include <acetimec.h>
 
-ACU_TEST(test_atc_zone_info_time_code_to_minutes)
-{
-  ACU_ASSERT(atc_zone_info_time_code_to_minutes(1, 1) == 16);
-  ACU_ASSERT(atc_zone_info_time_code_to_minutes(2, 1) == 31);
-  ACU_ASSERT(atc_zone_info_time_code_to_minutes(1, 2) == 17);
-
-  ACU_PASS();
-}
-
-ACU_TEST(test_atc_zone_info_modifier_to_suffix)
-{
-  ACU_ASSERT(atc_zone_info_modifier_to_suffix(kAtcSuffixW) == kAtcSuffixW);
-  ACU_ASSERT(atc_zone_info_modifier_to_suffix(kAtcSuffixW | 0x1)
-      == kAtcSuffixW);
-  ACU_ASSERT(atc_zone_info_modifier_to_suffix(kAtcSuffixS | 0x8)
-      == kAtcSuffixS);
-
-  ACU_PASS();
-}
-
 ACU_TEST(test_atc_processing_get_most_recent_prior_year)
 {
   int8_t year_tiny;
@@ -91,8 +71,6 @@ ACU_PARAMS();
 
 int main()
 {
-  ACU_RUN_TEST(test_atc_zone_info_time_code_to_minutes);
-  ACU_RUN_TEST(test_atc_zone_info_modifier_to_suffix);
   ACU_RUN_TEST(test_atc_processing_get_most_recent_prior_year);
   ACU_RUN_TEST(test_atc_processing_calc_interior_years);
   ACU_SUMMARY();

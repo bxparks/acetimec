@@ -311,8 +311,7 @@ uint8_t atc_transition_compare_to_match(
     prev_match_offset_minutes = match->prev_match->last_offset_minutes;
     prev_match_delta_minutes = match->prev_match->last_delta_minutes;
   } else {
-    prev_match_offset_minutes = atc_zone_info_time_code_to_minutes(
-        match->era->offset_code, 0);
+    prev_match_offset_minutes = atc_zone_era_std_offset_minutes(match->era);
     prev_match_delta_minutes = 0;
   }
 
