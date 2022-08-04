@@ -33,15 +33,15 @@
 #include "../zone_info.h"
 
 // Zones
-const uint16_t kAtcZoneRegistrySize = 377;
+#define kAtcZoneRegistrySize 377
 extern const struct AtcZoneInfo * const kAtcZoneRegistry[377];
 
 // Zones and Links
-const uint16_t kAtcZoneAndLinkRegistrySize = 594;
+#define kAtcZoneAndLinkRegistrySize 594
 extern const struct AtcZoneInfo * const kAtcZoneAndLinkRegistry[594];
 
 // Link Entries
-const uint16_t kAtcLinkRegistrySize = 217;
+#define kAtcLinkRegistrySize 217
 extern const struct AtcLinkEntry kAtcLinkRegistry[217];
 
 #endif

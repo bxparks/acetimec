@@ -427,383 +427,383 @@ extern const struct AtcZoneInfo kAtcZoneWET; // WET
 
 // Zone Ids
 
-const uint32_t kAtcZoneIdAfrica_Abidjan = 0xc21305a3; // Africa/Abidjan
-const uint32_t kAtcZoneIdAfrica_Algiers = 0xd94515c1; // Africa/Algiers
-const uint32_t kAtcZoneIdAfrica_Bissau = 0x75564141; // Africa/Bissau
-const uint32_t kAtcZoneIdAfrica_Cairo = 0x77f8e228; // Africa/Cairo
-const uint32_t kAtcZoneIdAfrica_Casablanca = 0xc59f1b33; // Africa/Casablanca
-const uint32_t kAtcZoneIdAfrica_Ceuta = 0x77fb46ec; // Africa/Ceuta
-const uint32_t kAtcZoneIdAfrica_El_Aaiun = 0x9d6fb118; // Africa/El_Aaiun
-const uint32_t kAtcZoneIdAfrica_Johannesburg = 0xd5d157a0; // Africa/Johannesburg
-const uint32_t kAtcZoneIdAfrica_Juba = 0xd51b395c; // Africa/Juba
-const uint32_t kAtcZoneIdAfrica_Khartoum = 0xfb3d4205; // Africa/Khartoum
-const uint32_t kAtcZoneIdAfrica_Lagos = 0x789bb5d0; // Africa/Lagos
-const uint32_t kAtcZoneIdAfrica_Maputo = 0x8e6ca1f0; // Africa/Maputo
-const uint32_t kAtcZoneIdAfrica_Monrovia = 0x0ce90385; // Africa/Monrovia
-const uint32_t kAtcZoneIdAfrica_Nairobi = 0xa87ab57e; // Africa/Nairobi
-const uint32_t kAtcZoneIdAfrica_Ndjamena = 0x9fe09898; // Africa/Ndjamena
-const uint32_t kAtcZoneIdAfrica_Sao_Tome = 0x61b319d1; // Africa/Sao_Tome
-const uint32_t kAtcZoneIdAfrica_Tripoli = 0x9dfebd3d; // Africa/Tripoli
-const uint32_t kAtcZoneIdAfrica_Tunis = 0x79378e6d; // Africa/Tunis
-const uint32_t kAtcZoneIdAfrica_Windhoek = 0x789c9bd3; // Africa/Windhoek
-const uint32_t kAtcZoneIdAmerica_Adak = 0x97fe49d7; // America/Adak
-const uint32_t kAtcZoneIdAmerica_Anchorage = 0x5a79260e; // America/Anchorage
-const uint32_t kAtcZoneIdAmerica_Araguaina = 0x6f9a3aef; // America/Araguaina
-const uint32_t kAtcZoneIdAmerica_Argentina_Buenos_Aires = 0xd43b4c0d; // America/Argentina/Buenos_Aires
-const uint32_t kAtcZoneIdAmerica_Argentina_Catamarca = 0x8d40986b; // America/Argentina/Catamarca
-const uint32_t kAtcZoneIdAmerica_Argentina_Cordoba = 0xbfccc308; // America/Argentina/Cordoba
-const uint32_t kAtcZoneIdAmerica_Argentina_Jujuy = 0x5f2f46c5; // America/Argentina/Jujuy
-const uint32_t kAtcZoneIdAmerica_Argentina_La_Rioja = 0xa46b7eef; // America/Argentina/La_Rioja
-const uint32_t kAtcZoneIdAmerica_Argentina_Mendoza = 0xa9f72d5c; // America/Argentina/Mendoza
-const uint32_t kAtcZoneIdAmerica_Argentina_Rio_Gallegos = 0xc5b0f565; // America/Argentina/Rio_Gallegos
-const uint32_t kAtcZoneIdAmerica_Argentina_Salta = 0x5fc73403; // America/Argentina/Salta
-const uint32_t kAtcZoneIdAmerica_Argentina_San_Juan = 0x3e1009bd; // America/Argentina/San_Juan
-const uint32_t kAtcZoneIdAmerica_Argentina_San_Luis = 0x3e11238c; // America/Argentina/San_Luis
-const uint32_t kAtcZoneIdAmerica_Argentina_Tucuman = 0xe96399eb; // America/Argentina/Tucuman
-const uint32_t kAtcZoneIdAmerica_Argentina_Ushuaia = 0x320dcdde; // America/Argentina/Ushuaia
-const uint32_t kAtcZoneIdAmerica_Asuncion = 0x50ec79a6; // America/Asuncion
-const uint32_t kAtcZoneIdAmerica_Bahia = 0x97d815fb; // America/Bahia
-const uint32_t kAtcZoneIdAmerica_Bahia_Banderas = 0x14f6329a; // America/Bahia_Banderas
-const uint32_t kAtcZoneIdAmerica_Barbados = 0xcbbc3b04; // America/Barbados
-const uint32_t kAtcZoneIdAmerica_Belem = 0x97da580b; // America/Belem
-const uint32_t kAtcZoneIdAmerica_Belize = 0x93256c81; // America/Belize
-const uint32_t kAtcZoneIdAmerica_Boa_Vista = 0x0a7b7efe; // America/Boa_Vista
-const uint32_t kAtcZoneIdAmerica_Bogota = 0x93d7bc62; // America/Bogota
-const uint32_t kAtcZoneIdAmerica_Boise = 0x97dfc8d8; // America/Boise
-const uint32_t kAtcZoneIdAmerica_Cambridge_Bay = 0xd5a44aff; // America/Cambridge_Bay
-const uint32_t kAtcZoneIdAmerica_Campo_Grande = 0xfec3e7a6; // America/Campo_Grande
-const uint32_t kAtcZoneIdAmerica_Cancun = 0x953331be; // America/Cancun
-const uint32_t kAtcZoneIdAmerica_Caracas = 0x3be064f4; // America/Caracas
-const uint32_t kAtcZoneIdAmerica_Cayenne = 0x3c617269; // America/Cayenne
-const uint32_t kAtcZoneIdAmerica_Chicago = 0x4b92b5d4; // America/Chicago
-const uint32_t kAtcZoneIdAmerica_Chihuahua = 0x8827d776; // America/Chihuahua
-const uint32_t kAtcZoneIdAmerica_Costa_Rica = 0x63ff66be; // America/Costa_Rica
-const uint32_t kAtcZoneIdAmerica_Cuiaba = 0x969a52eb; // America/Cuiaba
-const uint32_t kAtcZoneIdAmerica_Danmarkshavn = 0xf554d204; // America/Danmarkshavn
-const uint32_t kAtcZoneIdAmerica_Dawson = 0x978d8d12; // America/Dawson
-const uint32_t kAtcZoneIdAmerica_Dawson_Creek = 0x6cf24e5b; // America/Dawson_Creek
-const uint32_t kAtcZoneIdAmerica_Denver = 0x97d10b2a; // America/Denver
-const uint32_t kAtcZoneIdAmerica_Detroit = 0x925cfbc1; // America/Detroit
-const uint32_t kAtcZoneIdAmerica_Edmonton = 0x6cb9484a; // America/Edmonton
-const uint32_t kAtcZoneIdAmerica_Eirunepe = 0xf9b29683; // America/Eirunepe
-const uint32_t kAtcZoneIdAmerica_El_Salvador = 0x752ad652; // America/El_Salvador
-const uint32_t kAtcZoneIdAmerica_Fort_Nelson = 0x3f437e0f; // America/Fort_Nelson
-const uint32_t kAtcZoneIdAmerica_Fortaleza = 0x2ad018ee; // America/Fortaleza
-const uint32_t kAtcZoneIdAmerica_Glace_Bay = 0x9681f8dd; // America/Glace_Bay
-const uint32_t kAtcZoneIdAmerica_Goose_Bay = 0xb649541e; // America/Goose_Bay
-const uint32_t kAtcZoneIdAmerica_Grand_Turk = 0x6e216197; // America/Grand_Turk
-const uint32_t kAtcZoneIdAmerica_Guatemala = 0x0c8259f7; // America/Guatemala
-const uint32_t kAtcZoneIdAmerica_Guayaquil = 0x17e64958; // America/Guayaquil
-const uint32_t kAtcZoneIdAmerica_Guyana = 0x9ff7bd0b; // America/Guyana
-const uint32_t kAtcZoneIdAmerica_Halifax = 0xbc5b7183; // America/Halifax
-const uint32_t kAtcZoneIdAmerica_Havana = 0xa0e15675; // America/Havana
-const uint32_t kAtcZoneIdAmerica_Hermosillo = 0x065d21c4; // America/Hermosillo
-const uint32_t kAtcZoneIdAmerica_Indiana_Indianapolis = 0x28a669a4; // America/Indiana/Indianapolis
-const uint32_t kAtcZoneIdAmerica_Indiana_Knox = 0x6554adc9; // America/Indiana/Knox
-const uint32_t kAtcZoneIdAmerica_Indiana_Marengo = 0x2feeee72; // America/Indiana/Marengo
-const uint32_t kAtcZoneIdAmerica_Indiana_Petersburg = 0x94ac7acc; // America/Indiana/Petersburg
-const uint32_t kAtcZoneIdAmerica_Indiana_Tell_City = 0x09263612; // America/Indiana/Tell_City
-const uint32_t kAtcZoneIdAmerica_Indiana_Vevay = 0x10aca054; // America/Indiana/Vevay
-const uint32_t kAtcZoneIdAmerica_Indiana_Vincennes = 0x28a0b212; // America/Indiana/Vincennes
-const uint32_t kAtcZoneIdAmerica_Indiana_Winamac = 0x4413fa69; // America/Indiana/Winamac
-const uint32_t kAtcZoneIdAmerica_Inuvik = 0xa42189fc; // America/Inuvik
-const uint32_t kAtcZoneIdAmerica_Iqaluit = 0x2de310bf; // America/Iqaluit
-const uint32_t kAtcZoneIdAmerica_Jamaica = 0x565dad6c; // America/Jamaica
-const uint32_t kAtcZoneIdAmerica_Juneau = 0xa6f13e2e; // America/Juneau
-const uint32_t kAtcZoneIdAmerica_Kentucky_Louisville = 0x1a21024b; // America/Kentucky/Louisville
-const uint32_t kAtcZoneIdAmerica_Kentucky_Monticello = 0xde71c439; // America/Kentucky/Monticello
-const uint32_t kAtcZoneIdAmerica_La_Paz = 0xaa29125d; // America/La_Paz
-const uint32_t kAtcZoneIdAmerica_Lima = 0x980468c9; // America/Lima
-const uint32_t kAtcZoneIdAmerica_Los_Angeles = 0xb7f7e8f2; // America/Los_Angeles
-const uint32_t kAtcZoneIdAmerica_Maceio = 0xac80c6d4; // America/Maceio
-const uint32_t kAtcZoneIdAmerica_Managua = 0x3d5e7600; // America/Managua
-const uint32_t kAtcZoneIdAmerica_Manaus = 0xac86bf8b; // America/Manaus
-const uint32_t kAtcZoneIdAmerica_Martinique = 0x551e84c5; // America/Martinique
-const uint32_t kAtcZoneIdAmerica_Matamoros = 0xdd1b0259; // America/Matamoros
-const uint32_t kAtcZoneIdAmerica_Mazatlan = 0x0532189e; // America/Mazatlan
-const uint32_t kAtcZoneIdAmerica_Menominee = 0xe0e9c583; // America/Menominee
-const uint32_t kAtcZoneIdAmerica_Merida = 0xacd172d8; // America/Merida
-const uint32_t kAtcZoneIdAmerica_Metlakatla = 0x84de2686; // America/Metlakatla
-const uint32_t kAtcZoneIdAmerica_Mexico_City = 0xd0d93f43; // America/Mexico_City
-const uint32_t kAtcZoneIdAmerica_Miquelon = 0x59674330; // America/Miquelon
-const uint32_t kAtcZoneIdAmerica_Moncton = 0x5e07fe24; // America/Moncton
-const uint32_t kAtcZoneIdAmerica_Monterrey = 0x269a1deb; // America/Monterrey
-const uint32_t kAtcZoneIdAmerica_Montevideo = 0xfa214780; // America/Montevideo
-const uint32_t kAtcZoneIdAmerica_New_York = 0x1e2a7654; // America/New_York
-const uint32_t kAtcZoneIdAmerica_Nipigon = 0x9d2a8b1a; // America/Nipigon
-const uint32_t kAtcZoneIdAmerica_Nome = 0x98059b15; // America/Nome
-const uint32_t kAtcZoneIdAmerica_Noronha = 0xab5116fb; // America/Noronha
-const uint32_t kAtcZoneIdAmerica_North_Dakota_Beulah = 0x9b52b384; // America/North_Dakota/Beulah
-const uint32_t kAtcZoneIdAmerica_North_Dakota_Center = 0x9da42814; // America/North_Dakota/Center
-const uint32_t kAtcZoneIdAmerica_North_Dakota_New_Salem = 0x04f9958e; // America/North_Dakota/New_Salem
-const uint32_t kAtcZoneIdAmerica_Nuuk = 0x9805b5a9; // America/Nuuk
-const uint32_t kAtcZoneIdAmerica_Ojinaga = 0xebfde83f; // America/Ojinaga
-const uint32_t kAtcZoneIdAmerica_Panama = 0xb3863854; // America/Panama
-const uint32_t kAtcZoneIdAmerica_Pangnirtung = 0x2d999193; // America/Pangnirtung
-const uint32_t kAtcZoneIdAmerica_Paramaribo = 0xb319e4c4; // America/Paramaribo
-const uint32_t kAtcZoneIdAmerica_Phoenix = 0x34b5af01; // America/Phoenix
-const uint32_t kAtcZoneIdAmerica_Port_au_Prince = 0x8e4a7bdc; // America/Port-au-Prince
-const uint32_t kAtcZoneIdAmerica_Porto_Velho = 0x6b1aac77; // America/Porto_Velho
-const uint32_t kAtcZoneIdAmerica_Puerto_Rico = 0x6752ca31; // America/Puerto_Rico
-const uint32_t kAtcZoneIdAmerica_Punta_Arenas = 0xc2c3bce7; // America/Punta_Arenas
-const uint32_t kAtcZoneIdAmerica_Rainy_River = 0x9cd58a10; // America/Rainy_River
-const uint32_t kAtcZoneIdAmerica_Rankin_Inlet = 0xc8de4984; // America/Rankin_Inlet
-const uint32_t kAtcZoneIdAmerica_Recife = 0xb8730494; // America/Recife
-const uint32_t kAtcZoneIdAmerica_Regina = 0xb875371c; // America/Regina
-const uint32_t kAtcZoneIdAmerica_Resolute = 0xc7093459; // America/Resolute
-const uint32_t kAtcZoneIdAmerica_Rio_Branco = 0x9d352764; // America/Rio_Branco
-const uint32_t kAtcZoneIdAmerica_Santarem = 0x740caec1; // America/Santarem
-const uint32_t kAtcZoneIdAmerica_Santiago = 0x7410c9bc; // America/Santiago
-const uint32_t kAtcZoneIdAmerica_Santo_Domingo = 0x75a0d177; // America/Santo_Domingo
-const uint32_t kAtcZoneIdAmerica_Sao_Paulo = 0x1063bfc9; // America/Sao_Paulo
-const uint32_t kAtcZoneIdAmerica_Scoresbysund = 0x123f8d2a; // America/Scoresbysund
-const uint32_t kAtcZoneIdAmerica_Sitka = 0x99104ce2; // America/Sitka
-const uint32_t kAtcZoneIdAmerica_St_Johns = 0x04b14e6e; // America/St_Johns
-const uint32_t kAtcZoneIdAmerica_Swift_Current = 0xdef98e55; // America/Swift_Current
-const uint32_t kAtcZoneIdAmerica_Tegucigalpa = 0xbfd6fd4c; // America/Tegucigalpa
-const uint32_t kAtcZoneIdAmerica_Thule = 0x9921dd68; // America/Thule
-const uint32_t kAtcZoneIdAmerica_Thunder_Bay = 0xf962e71b; // America/Thunder_Bay
-const uint32_t kAtcZoneIdAmerica_Tijuana = 0x6aa1df72; // America/Tijuana
-const uint32_t kAtcZoneIdAmerica_Toronto = 0x792e851b; // America/Toronto
-const uint32_t kAtcZoneIdAmerica_Vancouver = 0x2c6f6b1f; // America/Vancouver
-const uint32_t kAtcZoneIdAmerica_Whitehorse = 0x54e0e3e8; // America/Whitehorse
-const uint32_t kAtcZoneIdAmerica_Winnipeg = 0x8c7dafc7; // America/Winnipeg
-const uint32_t kAtcZoneIdAmerica_Yakutat = 0xd8ee31e9; // America/Yakutat
-const uint32_t kAtcZoneIdAmerica_Yellowknife = 0x0f76c76f; // America/Yellowknife
-const uint32_t kAtcZoneIdAntarctica_Casey = 0xe2022583; // Antarctica/Casey
-const uint32_t kAtcZoneIdAntarctica_Davis = 0xe2144b45; // Antarctica/Davis
-const uint32_t kAtcZoneIdAntarctica_Macquarie = 0x92f47626; // Antarctica/Macquarie
-const uint32_t kAtcZoneIdAntarctica_Mawson = 0x399cd863; // Antarctica/Mawson
-const uint32_t kAtcZoneIdAntarctica_Palmer = 0x40962f4f; // Antarctica/Palmer
-const uint32_t kAtcZoneIdAntarctica_Rothera = 0x0e86d203; // Antarctica/Rothera
-const uint32_t kAtcZoneIdAntarctica_Troll = 0xe33f085b; // Antarctica/Troll
-const uint32_t kAtcZoneIdAntarctica_Vostok = 0x4f966fd4; // Antarctica/Vostok
-const uint32_t kAtcZoneIdAsia_Almaty = 0xa61f41fa; // Asia/Almaty
-const uint32_t kAtcZoneIdAsia_Amman = 0x148d21bc; // Asia/Amman
-const uint32_t kAtcZoneIdAsia_Anadyr = 0xa63cebd1; // Asia/Anadyr
-const uint32_t kAtcZoneIdAsia_Aqtau = 0x148f710e; // Asia/Aqtau
-const uint32_t kAtcZoneIdAsia_Aqtobe = 0xa67dcc4e; // Asia/Aqtobe
-const uint32_t kAtcZoneIdAsia_Ashgabat = 0xba87598d; // Asia/Ashgabat
-const uint32_t kAtcZoneIdAsia_Atyrau = 0xa6b6e068; // Asia/Atyrau
-const uint32_t kAtcZoneIdAsia_Baghdad = 0x9ceffbed; // Asia/Baghdad
-const uint32_t kAtcZoneIdAsia_Baku = 0x1fa788b5; // Asia/Baku
-const uint32_t kAtcZoneIdAsia_Bangkok = 0x9d6e3aaf; // Asia/Bangkok
-const uint32_t kAtcZoneIdAsia_Barnaul = 0x9dba4997; // Asia/Barnaul
-const uint32_t kAtcZoneIdAsia_Beirut = 0xa7f3d5fd; // Asia/Beirut
-const uint32_t kAtcZoneIdAsia_Bishkek = 0xb0728553; // Asia/Bishkek
-const uint32_t kAtcZoneIdAsia_Brunei = 0xa8e595f7; // Asia/Brunei
-const uint32_t kAtcZoneIdAsia_Chita = 0x14ae863b; // Asia/Chita
-const uint32_t kAtcZoneIdAsia_Choibalsan = 0x928aa4a6; // Asia/Choibalsan
-const uint32_t kAtcZoneIdAsia_Colombo = 0x0af0e91d; // Asia/Colombo
-const uint32_t kAtcZoneIdAsia_Damascus = 0x20fbb063; // Asia/Damascus
-const uint32_t kAtcZoneIdAsia_Dhaka = 0x14c07b8b; // Asia/Dhaka
-const uint32_t kAtcZoneIdAsia_Dili = 0x1fa8c394; // Asia/Dili
-const uint32_t kAtcZoneIdAsia_Dubai = 0x14c79f77; // Asia/Dubai
-const uint32_t kAtcZoneIdAsia_Dushanbe = 0x32fc5c3c; // Asia/Dushanbe
-const uint32_t kAtcZoneIdAsia_Famagusta = 0x289b4f8b; // Asia/Famagusta
-const uint32_t kAtcZoneIdAsia_Gaza = 0x1faa4875; // Asia/Gaza
-const uint32_t kAtcZoneIdAsia_Hebron = 0xb5eef250; // Asia/Hebron
-const uint32_t kAtcZoneIdAsia_Ho_Chi_Minh = 0x20f2d127; // Asia/Ho_Chi_Minh
-const uint32_t kAtcZoneIdAsia_Hong_Kong = 0x577f28ac; // Asia/Hong_Kong
-const uint32_t kAtcZoneIdAsia_Hovd = 0x1fab0fe3; // Asia/Hovd
-const uint32_t kAtcZoneIdAsia_Irkutsk = 0xdfbf213f; // Asia/Irkutsk
-const uint32_t kAtcZoneIdAsia_Jakarta = 0x0506ab50; // Asia/Jakarta
-const uint32_t kAtcZoneIdAsia_Jayapura = 0xc6833c2f; // Asia/Jayapura
-const uint32_t kAtcZoneIdAsia_Jerusalem = 0x5becd23a; // Asia/Jerusalem
-const uint32_t kAtcZoneIdAsia_Kabul = 0x153b5601; // Asia/Kabul
-const uint32_t kAtcZoneIdAsia_Kamchatka = 0x73baf9d7; // Asia/Kamchatka
-const uint32_t kAtcZoneIdAsia_Karachi = 0x527f5245; // Asia/Karachi
-const uint32_t kAtcZoneIdAsia_Kathmandu = 0x9a96ce6f; // Asia/Kathmandu
-const uint32_t kAtcZoneIdAsia_Khandyga = 0x9685a4d9; // Asia/Khandyga
-const uint32_t kAtcZoneIdAsia_Kolkata = 0x72c06cd9; // Asia/Kolkata
-const uint32_t kAtcZoneIdAsia_Krasnoyarsk = 0xd0376c6a; // Asia/Krasnoyarsk
-const uint32_t kAtcZoneIdAsia_Kuala_Lumpur = 0x014763c4; // Asia/Kuala_Lumpur
-const uint32_t kAtcZoneIdAsia_Kuching = 0x801b003b; // Asia/Kuching
-const uint32_t kAtcZoneIdAsia_Macau = 0x155f88b9; // Asia/Macau
-const uint32_t kAtcZoneIdAsia_Magadan = 0xebacc19b; // Asia/Magadan
-const uint32_t kAtcZoneIdAsia_Makassar = 0x6aa21c85; // Asia/Makassar
-const uint32_t kAtcZoneIdAsia_Manila = 0xc156c944; // Asia/Manila
-const uint32_t kAtcZoneIdAsia_Nicosia = 0x4b0fcf78; // Asia/Nicosia
-const uint32_t kAtcZoneIdAsia_Novokuznetsk = 0x69264f93; // Asia/Novokuznetsk
-const uint32_t kAtcZoneIdAsia_Novosibirsk = 0xa2a435cb; // Asia/Novosibirsk
-const uint32_t kAtcZoneIdAsia_Omsk = 0x1faeddac; // Asia/Omsk
-const uint32_t kAtcZoneIdAsia_Oral = 0x1faef0a0; // Asia/Oral
-const uint32_t kAtcZoneIdAsia_Pontianak = 0x1a76c057; // Asia/Pontianak
-const uint32_t kAtcZoneIdAsia_Pyongyang = 0x93ed1c8e; // Asia/Pyongyang
-const uint32_t kAtcZoneIdAsia_Qatar = 0x15a8330b; // Asia/Qatar
-const uint32_t kAtcZoneIdAsia_Qostanay = 0x654fe522; // Asia/Qostanay
-const uint32_t kAtcZoneIdAsia_Qyzylorda = 0x71282e81; // Asia/Qyzylorda
-const uint32_t kAtcZoneIdAsia_Riyadh = 0xcd973d93; // Asia/Riyadh
-const uint32_t kAtcZoneIdAsia_Sakhalin = 0xf4a1c9bd; // Asia/Sakhalin
-const uint32_t kAtcZoneIdAsia_Samarkand = 0x13ae5104; // Asia/Samarkand
-const uint32_t kAtcZoneIdAsia_Seoul = 0x15ce82da; // Asia/Seoul
-const uint32_t kAtcZoneIdAsia_Shanghai = 0xf895a7f5; // Asia/Shanghai
-const uint32_t kAtcZoneIdAsia_Singapore = 0xcf8581fa; // Asia/Singapore
-const uint32_t kAtcZoneIdAsia_Srednekolymsk = 0xbf8e337d; // Asia/Srednekolymsk
-const uint32_t kAtcZoneIdAsia_Taipei = 0xd1a844ae; // Asia/Taipei
-const uint32_t kAtcZoneIdAsia_Tashkent = 0xf3924254; // Asia/Tashkent
-const uint32_t kAtcZoneIdAsia_Tbilisi = 0x0903e442; // Asia/Tbilisi
-const uint32_t kAtcZoneIdAsia_Tehran = 0xd1f02254; // Asia/Tehran
-const uint32_t kAtcZoneIdAsia_Thimphu = 0x170380d1; // Asia/Thimphu
-const uint32_t kAtcZoneIdAsia_Tokyo = 0x15e606a8; // Asia/Tokyo
-const uint32_t kAtcZoneIdAsia_Tomsk = 0x15e60e60; // Asia/Tomsk
-const uint32_t kAtcZoneIdAsia_Ulaanbaatar = 0x30f0cc4e; // Asia/Ulaanbaatar
-const uint32_t kAtcZoneIdAsia_Urumqi = 0xd5379735; // Asia/Urumqi
-const uint32_t kAtcZoneIdAsia_Ust_Nera = 0x4785f921; // Asia/Ust-Nera
-const uint32_t kAtcZoneIdAsia_Vladivostok = 0x29de34a8; // Asia/Vladivostok
-const uint32_t kAtcZoneIdAsia_Yakutsk = 0x87bb3a9e; // Asia/Yakutsk
-const uint32_t kAtcZoneIdAsia_Yangon = 0xdd54a8be; // Asia/Yangon
-const uint32_t kAtcZoneIdAsia_Yekaterinburg = 0xfb544c6e; // Asia/Yekaterinburg
-const uint32_t kAtcZoneIdAsia_Yerevan = 0x9185c8cc; // Asia/Yerevan
-const uint32_t kAtcZoneIdAtlantic_Azores = 0xf93ed918; // Atlantic/Azores
-const uint32_t kAtcZoneIdAtlantic_Bermuda = 0x3d4bb1c4; // Atlantic/Bermuda
-const uint32_t kAtcZoneIdAtlantic_Canary = 0xfc23f2c2; // Atlantic/Canary
-const uint32_t kAtcZoneIdAtlantic_Cape_Verde = 0x5c5e1772; // Atlantic/Cape_Verde
-const uint32_t kAtcZoneIdAtlantic_Faroe = 0xe110a971; // Atlantic/Faroe
-const uint32_t kAtcZoneIdAtlantic_Madeira = 0x81b5c037; // Atlantic/Madeira
-const uint32_t kAtcZoneIdAtlantic_Reykjavik = 0x1c2b4f74; // Atlantic/Reykjavik
-const uint32_t kAtcZoneIdAtlantic_South_Georgia = 0x33013174; // Atlantic/South_Georgia
-const uint32_t kAtcZoneIdAtlantic_Stanley = 0x7bb3e1c4; // Atlantic/Stanley
-const uint32_t kAtcZoneIdAustralia_Adelaide = 0x2428e8a3; // Australia/Adelaide
-const uint32_t kAtcZoneIdAustralia_Brisbane = 0x4fedc9c0; // Australia/Brisbane
-const uint32_t kAtcZoneIdAustralia_Broken_Hill = 0xb06eada3; // Australia/Broken_Hill
-const uint32_t kAtcZoneIdAustralia_Darwin = 0x2876bdff; // Australia/Darwin
-const uint32_t kAtcZoneIdAustralia_Eucla = 0x8cf99e44; // Australia/Eucla
-const uint32_t kAtcZoneIdAustralia_Hobart = 0x32bf951a; // Australia/Hobart
-const uint32_t kAtcZoneIdAustralia_Lindeman = 0xe05029e2; // Australia/Lindeman
-const uint32_t kAtcZoneIdAustralia_Lord_Howe = 0xa748b67d; // Australia/Lord_Howe
-const uint32_t kAtcZoneIdAustralia_Melbourne = 0x0fe559a3; // Australia/Melbourne
-const uint32_t kAtcZoneIdAustralia_Perth = 0x8db8269d; // Australia/Perth
-const uint32_t kAtcZoneIdAustralia_Sydney = 0x4d1e9776; // Australia/Sydney
-const uint32_t kAtcZoneIdCET = 0x0b87d921; // CET
-const uint32_t kAtcZoneIdCST6CDT = 0xf0e87d00; // CST6CDT
-const uint32_t kAtcZoneIdEET = 0x0b87e1a3; // EET
-const uint32_t kAtcZoneIdEST = 0x0b87e371; // EST
-const uint32_t kAtcZoneIdEST5EDT = 0x8adc72a3; // EST5EDT
-const uint32_t kAtcZoneIdEtc_GMT = 0xd8e2de58; // Etc/GMT
-const uint32_t kAtcZoneIdEtc_GMT_PLUS_1 = 0x9d13da14; // Etc/GMT+1
-const uint32_t kAtcZoneIdEtc_GMT_PLUS_10 = 0x3f8f1cc4; // Etc/GMT+10
-const uint32_t kAtcZoneIdEtc_GMT_PLUS_11 = 0x3f8f1cc5; // Etc/GMT+11
-const uint32_t kAtcZoneIdEtc_GMT_PLUS_12 = 0x3f8f1cc6; // Etc/GMT+12
-const uint32_t kAtcZoneIdEtc_GMT_PLUS_2 = 0x9d13da15; // Etc/GMT+2
-const uint32_t kAtcZoneIdEtc_GMT_PLUS_3 = 0x9d13da16; // Etc/GMT+3
-const uint32_t kAtcZoneIdEtc_GMT_PLUS_4 = 0x9d13da17; // Etc/GMT+4
-const uint32_t kAtcZoneIdEtc_GMT_PLUS_5 = 0x9d13da18; // Etc/GMT+5
-const uint32_t kAtcZoneIdEtc_GMT_PLUS_6 = 0x9d13da19; // Etc/GMT+6
-const uint32_t kAtcZoneIdEtc_GMT_PLUS_7 = 0x9d13da1a; // Etc/GMT+7
-const uint32_t kAtcZoneIdEtc_GMT_PLUS_8 = 0x9d13da1b; // Etc/GMT+8
-const uint32_t kAtcZoneIdEtc_GMT_PLUS_9 = 0x9d13da1c; // Etc/GMT+9
-const uint32_t kAtcZoneIdEtc_GMT_1 = 0x9d13da56; // Etc/GMT-1
-const uint32_t kAtcZoneIdEtc_GMT_10 = 0x3f8f2546; // Etc/GMT-10
-const uint32_t kAtcZoneIdEtc_GMT_11 = 0x3f8f2547; // Etc/GMT-11
-const uint32_t kAtcZoneIdEtc_GMT_12 = 0x3f8f2548; // Etc/GMT-12
-const uint32_t kAtcZoneIdEtc_GMT_13 = 0x3f8f2549; // Etc/GMT-13
-const uint32_t kAtcZoneIdEtc_GMT_14 = 0x3f8f254a; // Etc/GMT-14
-const uint32_t kAtcZoneIdEtc_GMT_2 = 0x9d13da57; // Etc/GMT-2
-const uint32_t kAtcZoneIdEtc_GMT_3 = 0x9d13da58; // Etc/GMT-3
-const uint32_t kAtcZoneIdEtc_GMT_4 = 0x9d13da59; // Etc/GMT-4
-const uint32_t kAtcZoneIdEtc_GMT_5 = 0x9d13da5a; // Etc/GMT-5
-const uint32_t kAtcZoneIdEtc_GMT_6 = 0x9d13da5b; // Etc/GMT-6
-const uint32_t kAtcZoneIdEtc_GMT_7 = 0x9d13da5c; // Etc/GMT-7
-const uint32_t kAtcZoneIdEtc_GMT_8 = 0x9d13da5d; // Etc/GMT-8
-const uint32_t kAtcZoneIdEtc_GMT_9 = 0x9d13da5e; // Etc/GMT-9
-const uint32_t kAtcZoneIdEtc_UTC = 0xd8e31abc; // Etc/UTC
-const uint32_t kAtcZoneIdEurope_Amsterdam = 0x109395c2; // Europe/Amsterdam
-const uint32_t kAtcZoneIdEurope_Andorra = 0x97f6764b; // Europe/Andorra
-const uint32_t kAtcZoneIdEurope_Astrakhan = 0xe22256e1; // Europe/Astrakhan
-const uint32_t kAtcZoneIdEurope_Athens = 0x4318fa27; // Europe/Athens
-const uint32_t kAtcZoneIdEurope_Belgrade = 0xe0532b3a; // Europe/Belgrade
-const uint32_t kAtcZoneIdEurope_Berlin = 0x44644c20; // Europe/Berlin
-const uint32_t kAtcZoneIdEurope_Brussels = 0xdee07337; // Europe/Brussels
-const uint32_t kAtcZoneIdEurope_Bucharest = 0xfb349ec5; // Europe/Bucharest
-const uint32_t kAtcZoneIdEurope_Budapest = 0x9ce0197c; // Europe/Budapest
-const uint32_t kAtcZoneIdEurope_Chisinau = 0xad58aa18; // Europe/Chisinau
-const uint32_t kAtcZoneIdEurope_Copenhagen = 0xe0ed30bc; // Europe/Copenhagen
-const uint32_t kAtcZoneIdEurope_Dublin = 0x4a275f62; // Europe/Dublin
-const uint32_t kAtcZoneIdEurope_Gibraltar = 0xf8e325fc; // Europe/Gibraltar
-const uint32_t kAtcZoneIdEurope_Helsinki = 0x6ab2975b; // Europe/Helsinki
-const uint32_t kAtcZoneIdEurope_Istanbul = 0x9e09d6e6; // Europe/Istanbul
-const uint32_t kAtcZoneIdEurope_Kaliningrad = 0xd33b2f28; // Europe/Kaliningrad
-const uint32_t kAtcZoneIdEurope_Kiev = 0xa2c19eb3; // Europe/Kiev
-const uint32_t kAtcZoneIdEurope_Kirov = 0xfaf5abef; // Europe/Kirov
-const uint32_t kAtcZoneIdEurope_Lisbon = 0x5c00a70b; // Europe/Lisbon
-const uint32_t kAtcZoneIdEurope_London = 0x5c6a84ae; // Europe/London
-const uint32_t kAtcZoneIdEurope_Luxembourg = 0x1f8bc6ce; // Europe/Luxembourg
-const uint32_t kAtcZoneIdEurope_Madrid = 0x5dbd1535; // Europe/Madrid
-const uint32_t kAtcZoneIdEurope_Malta = 0xfb1560f3; // Europe/Malta
-const uint32_t kAtcZoneIdEurope_Minsk = 0xfb19cc66; // Europe/Minsk
-const uint32_t kAtcZoneIdEurope_Monaco = 0x5ebf9f01; // Europe/Monaco
-const uint32_t kAtcZoneIdEurope_Moscow = 0x5ec266fc; // Europe/Moscow
-const uint32_t kAtcZoneIdEurope_Oslo = 0xa2c3fba1; // Europe/Oslo
-const uint32_t kAtcZoneIdEurope_Paris = 0xfb4bc2a3; // Europe/Paris
-const uint32_t kAtcZoneIdEurope_Prague = 0x65ee5d48; // Europe/Prague
-const uint32_t kAtcZoneIdEurope_Riga = 0xa2c57587; // Europe/Riga
-const uint32_t kAtcZoneIdEurope_Rome = 0xa2c58fd7; // Europe/Rome
-const uint32_t kAtcZoneIdEurope_Samara = 0x6bc0b139; // Europe/Samara
-const uint32_t kAtcZoneIdEurope_Saratov = 0xe4315da4; // Europe/Saratov
-const uint32_t kAtcZoneIdEurope_Simferopol = 0xda9eb724; // Europe/Simferopol
-const uint32_t kAtcZoneIdEurope_Sofia = 0xfb898656; // Europe/Sofia
-const uint32_t kAtcZoneIdEurope_Stockholm = 0x5bf6fbb8; // Europe/Stockholm
-const uint32_t kAtcZoneIdEurope_Tallinn = 0x30c4e096; // Europe/Tallinn
-const uint32_t kAtcZoneIdEurope_Tirane = 0x6ea95b47; // Europe/Tirane
-const uint32_t kAtcZoneIdEurope_Ulyanovsk = 0xe03783d0; // Europe/Ulyanovsk
-const uint32_t kAtcZoneIdEurope_Uzhgorod = 0xb066f5d6; // Europe/Uzhgorod
-const uint32_t kAtcZoneIdEurope_Vienna = 0x734cc2e5; // Europe/Vienna
-const uint32_t kAtcZoneIdEurope_Vilnius = 0xdd63b8ce; // Europe/Vilnius
-const uint32_t kAtcZoneIdEurope_Volgograd = 0x3ed0f389; // Europe/Volgograd
-const uint32_t kAtcZoneIdEurope_Warsaw = 0x75185c19; // Europe/Warsaw
-const uint32_t kAtcZoneIdEurope_Zaporozhye = 0xeab9767f; // Europe/Zaporozhye
-const uint32_t kAtcZoneIdEurope_Zurich = 0x7d8195b9; // Europe/Zurich
-const uint32_t kAtcZoneIdHST = 0x0b87f034; // HST
-const uint32_t kAtcZoneIdIndian_Chagos = 0x456f7c3c; // Indian/Chagos
-const uint32_t kAtcZoneIdIndian_Christmas = 0x68c207d5; // Indian/Christmas
-const uint32_t kAtcZoneIdIndian_Cocos = 0x021e86de; // Indian/Cocos
-const uint32_t kAtcZoneIdIndian_Kerguelen = 0x4351b389; // Indian/Kerguelen
-const uint32_t kAtcZoneIdIndian_Mahe = 0x45e725e2; // Indian/Mahe
-const uint32_t kAtcZoneIdIndian_Maldives = 0x9869681c; // Indian/Maldives
-const uint32_t kAtcZoneIdIndian_Mauritius = 0x7b09c02a; // Indian/Mauritius
-const uint32_t kAtcZoneIdIndian_Reunion = 0x7076c047; // Indian/Reunion
-const uint32_t kAtcZoneIdMET = 0x0b8803ab; // MET
-const uint32_t kAtcZoneIdMST = 0x0b880579; // MST
-const uint32_t kAtcZoneIdMST7MDT = 0xf2af9375; // MST7MDT
-const uint32_t kAtcZoneIdPST8PDT = 0xd99ee2dc; // PST8PDT
-const uint32_t kAtcZoneIdPacific_Apia = 0x23359b5e; // Pacific/Apia
-const uint32_t kAtcZoneIdPacific_Auckland = 0x25062f86; // Pacific/Auckland
-const uint32_t kAtcZoneIdPacific_Bougainville = 0x5e10f7a4; // Pacific/Bougainville
-const uint32_t kAtcZoneIdPacific_Chatham = 0x2f0de999; // Pacific/Chatham
-const uint32_t kAtcZoneIdPacific_Chuuk = 0x8a090b23; // Pacific/Chuuk
-const uint32_t kAtcZoneIdPacific_Easter = 0xcf54f7e7; // Pacific/Easter
-const uint32_t kAtcZoneIdPacific_Efate = 0x8a2bce28; // Pacific/Efate
-const uint32_t kAtcZoneIdPacific_Fakaofo = 0x06532bba; // Pacific/Fakaofo
-const uint32_t kAtcZoneIdPacific_Fiji = 0x23383ba5; // Pacific/Fiji
-const uint32_t kAtcZoneIdPacific_Funafuti = 0xdb402d65; // Pacific/Funafuti
-const uint32_t kAtcZoneIdPacific_Galapagos = 0xa952f752; // Pacific/Galapagos
-const uint32_t kAtcZoneIdPacific_Gambier = 0x53720c3a; // Pacific/Gambier
-const uint32_t kAtcZoneIdPacific_Guadalcanal = 0xf4dd25f0; // Pacific/Guadalcanal
-const uint32_t kAtcZoneIdPacific_Guam = 0x2338f9ed; // Pacific/Guam
-const uint32_t kAtcZoneIdPacific_Honolulu = 0xe6e70af9; // Pacific/Honolulu
-const uint32_t kAtcZoneIdPacific_Kanton = 0xdd512f0e; // Pacific/Kanton
-const uint32_t kAtcZoneIdPacific_Kiritimati = 0x8305073a; // Pacific/Kiritimati
-const uint32_t kAtcZoneIdPacific_Kosrae = 0xde5139a8; // Pacific/Kosrae
-const uint32_t kAtcZoneIdPacific_Kwajalein = 0x8e216759; // Pacific/Kwajalein
-const uint32_t kAtcZoneIdPacific_Majuro = 0xe1f95371; // Pacific/Majuro
-const uint32_t kAtcZoneIdPacific_Marquesas = 0x57ca7135; // Pacific/Marquesas
-const uint32_t kAtcZoneIdPacific_Nauru = 0x8acc41ae; // Pacific/Nauru
-const uint32_t kAtcZoneIdPacific_Niue = 0x233ca014; // Pacific/Niue
-const uint32_t kAtcZoneIdPacific_Norfolk = 0x8f4eb4be; // Pacific/Norfolk
-const uint32_t kAtcZoneIdPacific_Noumea = 0xe551b788; // Pacific/Noumea
-const uint32_t kAtcZoneIdPacific_Pago_Pago = 0x603aebd0; // Pacific/Pago_Pago
-const uint32_t kAtcZoneIdPacific_Palau = 0x8af04a36; // Pacific/Palau
-const uint32_t kAtcZoneIdPacific_Pitcairn = 0x8837d8bd; // Pacific/Pitcairn
-const uint32_t kAtcZoneIdPacific_Pohnpei = 0x28929f96; // Pacific/Pohnpei
-const uint32_t kAtcZoneIdPacific_Port_Moresby = 0xa7ba7f68; // Pacific/Port_Moresby
-const uint32_t kAtcZoneIdPacific_Rarotonga = 0x9981a3b0; // Pacific/Rarotonga
-const uint32_t kAtcZoneIdPacific_Tahiti = 0xf24c2446; // Pacific/Tahiti
-const uint32_t kAtcZoneIdPacific_Tarawa = 0xf2517e63; // Pacific/Tarawa
-const uint32_t kAtcZoneIdPacific_Tongatapu = 0x262ca836; // Pacific/Tongatapu
-const uint32_t kAtcZoneIdPacific_Wake = 0x23416c2b; // Pacific/Wake
-const uint32_t kAtcZoneIdPacific_Wallis = 0xf94ddb0f; // Pacific/Wallis
-const uint32_t kAtcZoneIdWET = 0x0b882e35; // WET
+#define kAtcZoneIdAfrica_Abidjan 0xc21305a3 /* Africa/Abidjan */
+#define kAtcZoneIdAfrica_Algiers 0xd94515c1 /* Africa/Algiers */
+#define kAtcZoneIdAfrica_Bissau 0x75564141 /* Africa/Bissau */
+#define kAtcZoneIdAfrica_Cairo 0x77f8e228 /* Africa/Cairo */
+#define kAtcZoneIdAfrica_Casablanca 0xc59f1b33 /* Africa/Casablanca */
+#define kAtcZoneIdAfrica_Ceuta 0x77fb46ec /* Africa/Ceuta */
+#define kAtcZoneIdAfrica_El_Aaiun 0x9d6fb118 /* Africa/El_Aaiun */
+#define kAtcZoneIdAfrica_Johannesburg 0xd5d157a0 /* Africa/Johannesburg */
+#define kAtcZoneIdAfrica_Juba 0xd51b395c /* Africa/Juba */
+#define kAtcZoneIdAfrica_Khartoum 0xfb3d4205 /* Africa/Khartoum */
+#define kAtcZoneIdAfrica_Lagos 0x789bb5d0 /* Africa/Lagos */
+#define kAtcZoneIdAfrica_Maputo 0x8e6ca1f0 /* Africa/Maputo */
+#define kAtcZoneIdAfrica_Monrovia 0x0ce90385 /* Africa/Monrovia */
+#define kAtcZoneIdAfrica_Nairobi 0xa87ab57e /* Africa/Nairobi */
+#define kAtcZoneIdAfrica_Ndjamena 0x9fe09898 /* Africa/Ndjamena */
+#define kAtcZoneIdAfrica_Sao_Tome 0x61b319d1 /* Africa/Sao_Tome */
+#define kAtcZoneIdAfrica_Tripoli 0x9dfebd3d /* Africa/Tripoli */
+#define kAtcZoneIdAfrica_Tunis 0x79378e6d /* Africa/Tunis */
+#define kAtcZoneIdAfrica_Windhoek 0x789c9bd3 /* Africa/Windhoek */
+#define kAtcZoneIdAmerica_Adak 0x97fe49d7 /* America/Adak */
+#define kAtcZoneIdAmerica_Anchorage 0x5a79260e /* America/Anchorage */
+#define kAtcZoneIdAmerica_Araguaina 0x6f9a3aef /* America/Araguaina */
+#define kAtcZoneIdAmerica_Argentina_Buenos_Aires 0xd43b4c0d /* America/Argentina/Buenos_Aires */
+#define kAtcZoneIdAmerica_Argentina_Catamarca 0x8d40986b /* America/Argentina/Catamarca */
+#define kAtcZoneIdAmerica_Argentina_Cordoba 0xbfccc308 /* America/Argentina/Cordoba */
+#define kAtcZoneIdAmerica_Argentina_Jujuy 0x5f2f46c5 /* America/Argentina/Jujuy */
+#define kAtcZoneIdAmerica_Argentina_La_Rioja 0xa46b7eef /* America/Argentina/La_Rioja */
+#define kAtcZoneIdAmerica_Argentina_Mendoza 0xa9f72d5c /* America/Argentina/Mendoza */
+#define kAtcZoneIdAmerica_Argentina_Rio_Gallegos 0xc5b0f565 /* America/Argentina/Rio_Gallegos */
+#define kAtcZoneIdAmerica_Argentina_Salta 0x5fc73403 /* America/Argentina/Salta */
+#define kAtcZoneIdAmerica_Argentina_San_Juan 0x3e1009bd /* America/Argentina/San_Juan */
+#define kAtcZoneIdAmerica_Argentina_San_Luis 0x3e11238c /* America/Argentina/San_Luis */
+#define kAtcZoneIdAmerica_Argentina_Tucuman 0xe96399eb /* America/Argentina/Tucuman */
+#define kAtcZoneIdAmerica_Argentina_Ushuaia 0x320dcdde /* America/Argentina/Ushuaia */
+#define kAtcZoneIdAmerica_Asuncion 0x50ec79a6 /* America/Asuncion */
+#define kAtcZoneIdAmerica_Bahia 0x97d815fb /* America/Bahia */
+#define kAtcZoneIdAmerica_Bahia_Banderas 0x14f6329a /* America/Bahia_Banderas */
+#define kAtcZoneIdAmerica_Barbados 0xcbbc3b04 /* America/Barbados */
+#define kAtcZoneIdAmerica_Belem 0x97da580b /* America/Belem */
+#define kAtcZoneIdAmerica_Belize 0x93256c81 /* America/Belize */
+#define kAtcZoneIdAmerica_Boa_Vista 0x0a7b7efe /* America/Boa_Vista */
+#define kAtcZoneIdAmerica_Bogota 0x93d7bc62 /* America/Bogota */
+#define kAtcZoneIdAmerica_Boise 0x97dfc8d8 /* America/Boise */
+#define kAtcZoneIdAmerica_Cambridge_Bay 0xd5a44aff /* America/Cambridge_Bay */
+#define kAtcZoneIdAmerica_Campo_Grande 0xfec3e7a6 /* America/Campo_Grande */
+#define kAtcZoneIdAmerica_Cancun 0x953331be /* America/Cancun */
+#define kAtcZoneIdAmerica_Caracas 0x3be064f4 /* America/Caracas */
+#define kAtcZoneIdAmerica_Cayenne 0x3c617269 /* America/Cayenne */
+#define kAtcZoneIdAmerica_Chicago 0x4b92b5d4 /* America/Chicago */
+#define kAtcZoneIdAmerica_Chihuahua 0x8827d776 /* America/Chihuahua */
+#define kAtcZoneIdAmerica_Costa_Rica 0x63ff66be /* America/Costa_Rica */
+#define kAtcZoneIdAmerica_Cuiaba 0x969a52eb /* America/Cuiaba */
+#define kAtcZoneIdAmerica_Danmarkshavn 0xf554d204 /* America/Danmarkshavn */
+#define kAtcZoneIdAmerica_Dawson 0x978d8d12 /* America/Dawson */
+#define kAtcZoneIdAmerica_Dawson_Creek 0x6cf24e5b /* America/Dawson_Creek */
+#define kAtcZoneIdAmerica_Denver 0x97d10b2a /* America/Denver */
+#define kAtcZoneIdAmerica_Detroit 0x925cfbc1 /* America/Detroit */
+#define kAtcZoneIdAmerica_Edmonton 0x6cb9484a /* America/Edmonton */
+#define kAtcZoneIdAmerica_Eirunepe 0xf9b29683 /* America/Eirunepe */
+#define kAtcZoneIdAmerica_El_Salvador 0x752ad652 /* America/El_Salvador */
+#define kAtcZoneIdAmerica_Fort_Nelson 0x3f437e0f /* America/Fort_Nelson */
+#define kAtcZoneIdAmerica_Fortaleza 0x2ad018ee /* America/Fortaleza */
+#define kAtcZoneIdAmerica_Glace_Bay 0x9681f8dd /* America/Glace_Bay */
+#define kAtcZoneIdAmerica_Goose_Bay 0xb649541e /* America/Goose_Bay */
+#define kAtcZoneIdAmerica_Grand_Turk 0x6e216197 /* America/Grand_Turk */
+#define kAtcZoneIdAmerica_Guatemala 0x0c8259f7 /* America/Guatemala */
+#define kAtcZoneIdAmerica_Guayaquil 0x17e64958 /* America/Guayaquil */
+#define kAtcZoneIdAmerica_Guyana 0x9ff7bd0b /* America/Guyana */
+#define kAtcZoneIdAmerica_Halifax 0xbc5b7183 /* America/Halifax */
+#define kAtcZoneIdAmerica_Havana 0xa0e15675 /* America/Havana */
+#define kAtcZoneIdAmerica_Hermosillo 0x065d21c4 /* America/Hermosillo */
+#define kAtcZoneIdAmerica_Indiana_Indianapolis 0x28a669a4 /* America/Indiana/Indianapolis */
+#define kAtcZoneIdAmerica_Indiana_Knox 0x6554adc9 /* America/Indiana/Knox */
+#define kAtcZoneIdAmerica_Indiana_Marengo 0x2feeee72 /* America/Indiana/Marengo */
+#define kAtcZoneIdAmerica_Indiana_Petersburg 0x94ac7acc /* America/Indiana/Petersburg */
+#define kAtcZoneIdAmerica_Indiana_Tell_City 0x09263612 /* America/Indiana/Tell_City */
+#define kAtcZoneIdAmerica_Indiana_Vevay 0x10aca054 /* America/Indiana/Vevay */
+#define kAtcZoneIdAmerica_Indiana_Vincennes 0x28a0b212 /* America/Indiana/Vincennes */
+#define kAtcZoneIdAmerica_Indiana_Winamac 0x4413fa69 /* America/Indiana/Winamac */
+#define kAtcZoneIdAmerica_Inuvik 0xa42189fc /* America/Inuvik */
+#define kAtcZoneIdAmerica_Iqaluit 0x2de310bf /* America/Iqaluit */
+#define kAtcZoneIdAmerica_Jamaica 0x565dad6c /* America/Jamaica */
+#define kAtcZoneIdAmerica_Juneau 0xa6f13e2e /* America/Juneau */
+#define kAtcZoneIdAmerica_Kentucky_Louisville 0x1a21024b /* America/Kentucky/Louisville */
+#define kAtcZoneIdAmerica_Kentucky_Monticello 0xde71c439 /* America/Kentucky/Monticello */
+#define kAtcZoneIdAmerica_La_Paz 0xaa29125d /* America/La_Paz */
+#define kAtcZoneIdAmerica_Lima 0x980468c9 /* America/Lima */
+#define kAtcZoneIdAmerica_Los_Angeles 0xb7f7e8f2 /* America/Los_Angeles */
+#define kAtcZoneIdAmerica_Maceio 0xac80c6d4 /* America/Maceio */
+#define kAtcZoneIdAmerica_Managua 0x3d5e7600 /* America/Managua */
+#define kAtcZoneIdAmerica_Manaus 0xac86bf8b /* America/Manaus */
+#define kAtcZoneIdAmerica_Martinique 0x551e84c5 /* America/Martinique */
+#define kAtcZoneIdAmerica_Matamoros 0xdd1b0259 /* America/Matamoros */
+#define kAtcZoneIdAmerica_Mazatlan 0x0532189e /* America/Mazatlan */
+#define kAtcZoneIdAmerica_Menominee 0xe0e9c583 /* America/Menominee */
+#define kAtcZoneIdAmerica_Merida 0xacd172d8 /* America/Merida */
+#define kAtcZoneIdAmerica_Metlakatla 0x84de2686 /* America/Metlakatla */
+#define kAtcZoneIdAmerica_Mexico_City 0xd0d93f43 /* America/Mexico_City */
+#define kAtcZoneIdAmerica_Miquelon 0x59674330 /* America/Miquelon */
+#define kAtcZoneIdAmerica_Moncton 0x5e07fe24 /* America/Moncton */
+#define kAtcZoneIdAmerica_Monterrey 0x269a1deb /* America/Monterrey */
+#define kAtcZoneIdAmerica_Montevideo 0xfa214780 /* America/Montevideo */
+#define kAtcZoneIdAmerica_New_York 0x1e2a7654 /* America/New_York */
+#define kAtcZoneIdAmerica_Nipigon 0x9d2a8b1a /* America/Nipigon */
+#define kAtcZoneIdAmerica_Nome 0x98059b15 /* America/Nome */
+#define kAtcZoneIdAmerica_Noronha 0xab5116fb /* America/Noronha */
+#define kAtcZoneIdAmerica_North_Dakota_Beulah 0x9b52b384 /* America/North_Dakota/Beulah */
+#define kAtcZoneIdAmerica_North_Dakota_Center 0x9da42814 /* America/North_Dakota/Center */
+#define kAtcZoneIdAmerica_North_Dakota_New_Salem 0x04f9958e /* America/North_Dakota/New_Salem */
+#define kAtcZoneIdAmerica_Nuuk 0x9805b5a9 /* America/Nuuk */
+#define kAtcZoneIdAmerica_Ojinaga 0xebfde83f /* America/Ojinaga */
+#define kAtcZoneIdAmerica_Panama 0xb3863854 /* America/Panama */
+#define kAtcZoneIdAmerica_Pangnirtung 0x2d999193 /* America/Pangnirtung */
+#define kAtcZoneIdAmerica_Paramaribo 0xb319e4c4 /* America/Paramaribo */
+#define kAtcZoneIdAmerica_Phoenix 0x34b5af01 /* America/Phoenix */
+#define kAtcZoneIdAmerica_Port_au_Prince 0x8e4a7bdc /* America/Port-au-Prince */
+#define kAtcZoneIdAmerica_Porto_Velho 0x6b1aac77 /* America/Porto_Velho */
+#define kAtcZoneIdAmerica_Puerto_Rico 0x6752ca31 /* America/Puerto_Rico */
+#define kAtcZoneIdAmerica_Punta_Arenas 0xc2c3bce7 /* America/Punta_Arenas */
+#define kAtcZoneIdAmerica_Rainy_River 0x9cd58a10 /* America/Rainy_River */
+#define kAtcZoneIdAmerica_Rankin_Inlet 0xc8de4984 /* America/Rankin_Inlet */
+#define kAtcZoneIdAmerica_Recife 0xb8730494 /* America/Recife */
+#define kAtcZoneIdAmerica_Regina 0xb875371c /* America/Regina */
+#define kAtcZoneIdAmerica_Resolute 0xc7093459 /* America/Resolute */
+#define kAtcZoneIdAmerica_Rio_Branco 0x9d352764 /* America/Rio_Branco */
+#define kAtcZoneIdAmerica_Santarem 0x740caec1 /* America/Santarem */
+#define kAtcZoneIdAmerica_Santiago 0x7410c9bc /* America/Santiago */
+#define kAtcZoneIdAmerica_Santo_Domingo 0x75a0d177 /* America/Santo_Domingo */
+#define kAtcZoneIdAmerica_Sao_Paulo 0x1063bfc9 /* America/Sao_Paulo */
+#define kAtcZoneIdAmerica_Scoresbysund 0x123f8d2a /* America/Scoresbysund */
+#define kAtcZoneIdAmerica_Sitka 0x99104ce2 /* America/Sitka */
+#define kAtcZoneIdAmerica_St_Johns 0x04b14e6e /* America/St_Johns */
+#define kAtcZoneIdAmerica_Swift_Current 0xdef98e55 /* America/Swift_Current */
+#define kAtcZoneIdAmerica_Tegucigalpa 0xbfd6fd4c /* America/Tegucigalpa */
+#define kAtcZoneIdAmerica_Thule 0x9921dd68 /* America/Thule */
+#define kAtcZoneIdAmerica_Thunder_Bay 0xf962e71b /* America/Thunder_Bay */
+#define kAtcZoneIdAmerica_Tijuana 0x6aa1df72 /* America/Tijuana */
+#define kAtcZoneIdAmerica_Toronto 0x792e851b /* America/Toronto */
+#define kAtcZoneIdAmerica_Vancouver 0x2c6f6b1f /* America/Vancouver */
+#define kAtcZoneIdAmerica_Whitehorse 0x54e0e3e8 /* America/Whitehorse */
+#define kAtcZoneIdAmerica_Winnipeg 0x8c7dafc7 /* America/Winnipeg */
+#define kAtcZoneIdAmerica_Yakutat 0xd8ee31e9 /* America/Yakutat */
+#define kAtcZoneIdAmerica_Yellowknife 0x0f76c76f /* America/Yellowknife */
+#define kAtcZoneIdAntarctica_Casey 0xe2022583 /* Antarctica/Casey */
+#define kAtcZoneIdAntarctica_Davis 0xe2144b45 /* Antarctica/Davis */
+#define kAtcZoneIdAntarctica_Macquarie 0x92f47626 /* Antarctica/Macquarie */
+#define kAtcZoneIdAntarctica_Mawson 0x399cd863 /* Antarctica/Mawson */
+#define kAtcZoneIdAntarctica_Palmer 0x40962f4f /* Antarctica/Palmer */
+#define kAtcZoneIdAntarctica_Rothera 0x0e86d203 /* Antarctica/Rothera */
+#define kAtcZoneIdAntarctica_Troll 0xe33f085b /* Antarctica/Troll */
+#define kAtcZoneIdAntarctica_Vostok 0x4f966fd4 /* Antarctica/Vostok */
+#define kAtcZoneIdAsia_Almaty 0xa61f41fa /* Asia/Almaty */
+#define kAtcZoneIdAsia_Amman 0x148d21bc /* Asia/Amman */
+#define kAtcZoneIdAsia_Anadyr 0xa63cebd1 /* Asia/Anadyr */
+#define kAtcZoneIdAsia_Aqtau 0x148f710e /* Asia/Aqtau */
+#define kAtcZoneIdAsia_Aqtobe 0xa67dcc4e /* Asia/Aqtobe */
+#define kAtcZoneIdAsia_Ashgabat 0xba87598d /* Asia/Ashgabat */
+#define kAtcZoneIdAsia_Atyrau 0xa6b6e068 /* Asia/Atyrau */
+#define kAtcZoneIdAsia_Baghdad 0x9ceffbed /* Asia/Baghdad */
+#define kAtcZoneIdAsia_Baku 0x1fa788b5 /* Asia/Baku */
+#define kAtcZoneIdAsia_Bangkok 0x9d6e3aaf /* Asia/Bangkok */
+#define kAtcZoneIdAsia_Barnaul 0x9dba4997 /* Asia/Barnaul */
+#define kAtcZoneIdAsia_Beirut 0xa7f3d5fd /* Asia/Beirut */
+#define kAtcZoneIdAsia_Bishkek 0xb0728553 /* Asia/Bishkek */
+#define kAtcZoneIdAsia_Brunei 0xa8e595f7 /* Asia/Brunei */
+#define kAtcZoneIdAsia_Chita 0x14ae863b /* Asia/Chita */
+#define kAtcZoneIdAsia_Choibalsan 0x928aa4a6 /* Asia/Choibalsan */
+#define kAtcZoneIdAsia_Colombo 0x0af0e91d /* Asia/Colombo */
+#define kAtcZoneIdAsia_Damascus 0x20fbb063 /* Asia/Damascus */
+#define kAtcZoneIdAsia_Dhaka 0x14c07b8b /* Asia/Dhaka */
+#define kAtcZoneIdAsia_Dili 0x1fa8c394 /* Asia/Dili */
+#define kAtcZoneIdAsia_Dubai 0x14c79f77 /* Asia/Dubai */
+#define kAtcZoneIdAsia_Dushanbe 0x32fc5c3c /* Asia/Dushanbe */
+#define kAtcZoneIdAsia_Famagusta 0x289b4f8b /* Asia/Famagusta */
+#define kAtcZoneIdAsia_Gaza 0x1faa4875 /* Asia/Gaza */
+#define kAtcZoneIdAsia_Hebron 0xb5eef250 /* Asia/Hebron */
+#define kAtcZoneIdAsia_Ho_Chi_Minh 0x20f2d127 /* Asia/Ho_Chi_Minh */
+#define kAtcZoneIdAsia_Hong_Kong 0x577f28ac /* Asia/Hong_Kong */
+#define kAtcZoneIdAsia_Hovd 0x1fab0fe3 /* Asia/Hovd */
+#define kAtcZoneIdAsia_Irkutsk 0xdfbf213f /* Asia/Irkutsk */
+#define kAtcZoneIdAsia_Jakarta 0x0506ab50 /* Asia/Jakarta */
+#define kAtcZoneIdAsia_Jayapura 0xc6833c2f /* Asia/Jayapura */
+#define kAtcZoneIdAsia_Jerusalem 0x5becd23a /* Asia/Jerusalem */
+#define kAtcZoneIdAsia_Kabul 0x153b5601 /* Asia/Kabul */
+#define kAtcZoneIdAsia_Kamchatka 0x73baf9d7 /* Asia/Kamchatka */
+#define kAtcZoneIdAsia_Karachi 0x527f5245 /* Asia/Karachi */
+#define kAtcZoneIdAsia_Kathmandu 0x9a96ce6f /* Asia/Kathmandu */
+#define kAtcZoneIdAsia_Khandyga 0x9685a4d9 /* Asia/Khandyga */
+#define kAtcZoneIdAsia_Kolkata 0x72c06cd9 /* Asia/Kolkata */
+#define kAtcZoneIdAsia_Krasnoyarsk 0xd0376c6a /* Asia/Krasnoyarsk */
+#define kAtcZoneIdAsia_Kuala_Lumpur 0x014763c4 /* Asia/Kuala_Lumpur */
+#define kAtcZoneIdAsia_Kuching 0x801b003b /* Asia/Kuching */
+#define kAtcZoneIdAsia_Macau 0x155f88b9 /* Asia/Macau */
+#define kAtcZoneIdAsia_Magadan 0xebacc19b /* Asia/Magadan */
+#define kAtcZoneIdAsia_Makassar 0x6aa21c85 /* Asia/Makassar */
+#define kAtcZoneIdAsia_Manila 0xc156c944 /* Asia/Manila */
+#define kAtcZoneIdAsia_Nicosia 0x4b0fcf78 /* Asia/Nicosia */
+#define kAtcZoneIdAsia_Novokuznetsk 0x69264f93 /* Asia/Novokuznetsk */
+#define kAtcZoneIdAsia_Novosibirsk 0xa2a435cb /* Asia/Novosibirsk */
+#define kAtcZoneIdAsia_Omsk 0x1faeddac /* Asia/Omsk */
+#define kAtcZoneIdAsia_Oral 0x1faef0a0 /* Asia/Oral */
+#define kAtcZoneIdAsia_Pontianak 0x1a76c057 /* Asia/Pontianak */
+#define kAtcZoneIdAsia_Pyongyang 0x93ed1c8e /* Asia/Pyongyang */
+#define kAtcZoneIdAsia_Qatar 0x15a8330b /* Asia/Qatar */
+#define kAtcZoneIdAsia_Qostanay 0x654fe522 /* Asia/Qostanay */
+#define kAtcZoneIdAsia_Qyzylorda 0x71282e81 /* Asia/Qyzylorda */
+#define kAtcZoneIdAsia_Riyadh 0xcd973d93 /* Asia/Riyadh */
+#define kAtcZoneIdAsia_Sakhalin 0xf4a1c9bd /* Asia/Sakhalin */
+#define kAtcZoneIdAsia_Samarkand 0x13ae5104 /* Asia/Samarkand */
+#define kAtcZoneIdAsia_Seoul 0x15ce82da /* Asia/Seoul */
+#define kAtcZoneIdAsia_Shanghai 0xf895a7f5 /* Asia/Shanghai */
+#define kAtcZoneIdAsia_Singapore 0xcf8581fa /* Asia/Singapore */
+#define kAtcZoneIdAsia_Srednekolymsk 0xbf8e337d /* Asia/Srednekolymsk */
+#define kAtcZoneIdAsia_Taipei 0xd1a844ae /* Asia/Taipei */
+#define kAtcZoneIdAsia_Tashkent 0xf3924254 /* Asia/Tashkent */
+#define kAtcZoneIdAsia_Tbilisi 0x0903e442 /* Asia/Tbilisi */
+#define kAtcZoneIdAsia_Tehran 0xd1f02254 /* Asia/Tehran */
+#define kAtcZoneIdAsia_Thimphu 0x170380d1 /* Asia/Thimphu */
+#define kAtcZoneIdAsia_Tokyo 0x15e606a8 /* Asia/Tokyo */
+#define kAtcZoneIdAsia_Tomsk 0x15e60e60 /* Asia/Tomsk */
+#define kAtcZoneIdAsia_Ulaanbaatar 0x30f0cc4e /* Asia/Ulaanbaatar */
+#define kAtcZoneIdAsia_Urumqi 0xd5379735 /* Asia/Urumqi */
+#define kAtcZoneIdAsia_Ust_Nera 0x4785f921 /* Asia/Ust-Nera */
+#define kAtcZoneIdAsia_Vladivostok 0x29de34a8 /* Asia/Vladivostok */
+#define kAtcZoneIdAsia_Yakutsk 0x87bb3a9e /* Asia/Yakutsk */
+#define kAtcZoneIdAsia_Yangon 0xdd54a8be /* Asia/Yangon */
+#define kAtcZoneIdAsia_Yekaterinburg 0xfb544c6e /* Asia/Yekaterinburg */
+#define kAtcZoneIdAsia_Yerevan 0x9185c8cc /* Asia/Yerevan */
+#define kAtcZoneIdAtlantic_Azores 0xf93ed918 /* Atlantic/Azores */
+#define kAtcZoneIdAtlantic_Bermuda 0x3d4bb1c4 /* Atlantic/Bermuda */
+#define kAtcZoneIdAtlantic_Canary 0xfc23f2c2 /* Atlantic/Canary */
+#define kAtcZoneIdAtlantic_Cape_Verde 0x5c5e1772 /* Atlantic/Cape_Verde */
+#define kAtcZoneIdAtlantic_Faroe 0xe110a971 /* Atlantic/Faroe */
+#define kAtcZoneIdAtlantic_Madeira 0x81b5c037 /* Atlantic/Madeira */
+#define kAtcZoneIdAtlantic_Reykjavik 0x1c2b4f74 /* Atlantic/Reykjavik */
+#define kAtcZoneIdAtlantic_South_Georgia 0x33013174 /* Atlantic/South_Georgia */
+#define kAtcZoneIdAtlantic_Stanley 0x7bb3e1c4 /* Atlantic/Stanley */
+#define kAtcZoneIdAustralia_Adelaide 0x2428e8a3 /* Australia/Adelaide */
+#define kAtcZoneIdAustralia_Brisbane 0x4fedc9c0 /* Australia/Brisbane */
+#define kAtcZoneIdAustralia_Broken_Hill 0xb06eada3 /* Australia/Broken_Hill */
+#define kAtcZoneIdAustralia_Darwin 0x2876bdff /* Australia/Darwin */
+#define kAtcZoneIdAustralia_Eucla 0x8cf99e44 /* Australia/Eucla */
+#define kAtcZoneIdAustralia_Hobart 0x32bf951a /* Australia/Hobart */
+#define kAtcZoneIdAustralia_Lindeman 0xe05029e2 /* Australia/Lindeman */
+#define kAtcZoneIdAustralia_Lord_Howe 0xa748b67d /* Australia/Lord_Howe */
+#define kAtcZoneIdAustralia_Melbourne 0x0fe559a3 /* Australia/Melbourne */
+#define kAtcZoneIdAustralia_Perth 0x8db8269d /* Australia/Perth */
+#define kAtcZoneIdAustralia_Sydney 0x4d1e9776 /* Australia/Sydney */
+#define kAtcZoneIdCET 0x0b87d921 /* CET */
+#define kAtcZoneIdCST6CDT 0xf0e87d00 /* CST6CDT */
+#define kAtcZoneIdEET 0x0b87e1a3 /* EET */
+#define kAtcZoneIdEST 0x0b87e371 /* EST */
+#define kAtcZoneIdEST5EDT 0x8adc72a3 /* EST5EDT */
+#define kAtcZoneIdEtc_GMT 0xd8e2de58 /* Etc/GMT */
+#define kAtcZoneIdEtc_GMT_PLUS_1 0x9d13da14 /* Etc/GMT+1 */
+#define kAtcZoneIdEtc_GMT_PLUS_10 0x3f8f1cc4 /* Etc/GMT+10 */
+#define kAtcZoneIdEtc_GMT_PLUS_11 0x3f8f1cc5 /* Etc/GMT+11 */
+#define kAtcZoneIdEtc_GMT_PLUS_12 0x3f8f1cc6 /* Etc/GMT+12 */
+#define kAtcZoneIdEtc_GMT_PLUS_2 0x9d13da15 /* Etc/GMT+2 */
+#define kAtcZoneIdEtc_GMT_PLUS_3 0x9d13da16 /* Etc/GMT+3 */
+#define kAtcZoneIdEtc_GMT_PLUS_4 0x9d13da17 /* Etc/GMT+4 */
+#define kAtcZoneIdEtc_GMT_PLUS_5 0x9d13da18 /* Etc/GMT+5 */
+#define kAtcZoneIdEtc_GMT_PLUS_6 0x9d13da19 /* Etc/GMT+6 */
+#define kAtcZoneIdEtc_GMT_PLUS_7 0x9d13da1a /* Etc/GMT+7 */
+#define kAtcZoneIdEtc_GMT_PLUS_8 0x9d13da1b /* Etc/GMT+8 */
+#define kAtcZoneIdEtc_GMT_PLUS_9 0x9d13da1c /* Etc/GMT+9 */
+#define kAtcZoneIdEtc_GMT_1 0x9d13da56 /* Etc/GMT-1 */
+#define kAtcZoneIdEtc_GMT_10 0x3f8f2546 /* Etc/GMT-10 */
+#define kAtcZoneIdEtc_GMT_11 0x3f8f2547 /* Etc/GMT-11 */
+#define kAtcZoneIdEtc_GMT_12 0x3f8f2548 /* Etc/GMT-12 */
+#define kAtcZoneIdEtc_GMT_13 0x3f8f2549 /* Etc/GMT-13 */
+#define kAtcZoneIdEtc_GMT_14 0x3f8f254a /* Etc/GMT-14 */
+#define kAtcZoneIdEtc_GMT_2 0x9d13da57 /* Etc/GMT-2 */
+#define kAtcZoneIdEtc_GMT_3 0x9d13da58 /* Etc/GMT-3 */
+#define kAtcZoneIdEtc_GMT_4 0x9d13da59 /* Etc/GMT-4 */
+#define kAtcZoneIdEtc_GMT_5 0x9d13da5a /* Etc/GMT-5 */
+#define kAtcZoneIdEtc_GMT_6 0x9d13da5b /* Etc/GMT-6 */
+#define kAtcZoneIdEtc_GMT_7 0x9d13da5c /* Etc/GMT-7 */
+#define kAtcZoneIdEtc_GMT_8 0x9d13da5d /* Etc/GMT-8 */
+#define kAtcZoneIdEtc_GMT_9 0x9d13da5e /* Etc/GMT-9 */
+#define kAtcZoneIdEtc_UTC 0xd8e31abc /* Etc/UTC */
+#define kAtcZoneIdEurope_Amsterdam 0x109395c2 /* Europe/Amsterdam */
+#define kAtcZoneIdEurope_Andorra 0x97f6764b /* Europe/Andorra */
+#define kAtcZoneIdEurope_Astrakhan 0xe22256e1 /* Europe/Astrakhan */
+#define kAtcZoneIdEurope_Athens 0x4318fa27 /* Europe/Athens */
+#define kAtcZoneIdEurope_Belgrade 0xe0532b3a /* Europe/Belgrade */
+#define kAtcZoneIdEurope_Berlin 0x44644c20 /* Europe/Berlin */
+#define kAtcZoneIdEurope_Brussels 0xdee07337 /* Europe/Brussels */
+#define kAtcZoneIdEurope_Bucharest 0xfb349ec5 /* Europe/Bucharest */
+#define kAtcZoneIdEurope_Budapest 0x9ce0197c /* Europe/Budapest */
+#define kAtcZoneIdEurope_Chisinau 0xad58aa18 /* Europe/Chisinau */
+#define kAtcZoneIdEurope_Copenhagen 0xe0ed30bc /* Europe/Copenhagen */
+#define kAtcZoneIdEurope_Dublin 0x4a275f62 /* Europe/Dublin */
+#define kAtcZoneIdEurope_Gibraltar 0xf8e325fc /* Europe/Gibraltar */
+#define kAtcZoneIdEurope_Helsinki 0x6ab2975b /* Europe/Helsinki */
+#define kAtcZoneIdEurope_Istanbul 0x9e09d6e6 /* Europe/Istanbul */
+#define kAtcZoneIdEurope_Kaliningrad 0xd33b2f28 /* Europe/Kaliningrad */
+#define kAtcZoneIdEurope_Kiev 0xa2c19eb3 /* Europe/Kiev */
+#define kAtcZoneIdEurope_Kirov 0xfaf5abef /* Europe/Kirov */
+#define kAtcZoneIdEurope_Lisbon 0x5c00a70b /* Europe/Lisbon */
+#define kAtcZoneIdEurope_London 0x5c6a84ae /* Europe/London */
+#define kAtcZoneIdEurope_Luxembourg 0x1f8bc6ce /* Europe/Luxembourg */
+#define kAtcZoneIdEurope_Madrid 0x5dbd1535 /* Europe/Madrid */
+#define kAtcZoneIdEurope_Malta 0xfb1560f3 /* Europe/Malta */
+#define kAtcZoneIdEurope_Minsk 0xfb19cc66 /* Europe/Minsk */
+#define kAtcZoneIdEurope_Monaco 0x5ebf9f01 /* Europe/Monaco */
+#define kAtcZoneIdEurope_Moscow 0x5ec266fc /* Europe/Moscow */
+#define kAtcZoneIdEurope_Oslo 0xa2c3fba1 /* Europe/Oslo */
+#define kAtcZoneIdEurope_Paris 0xfb4bc2a3 /* Europe/Paris */
+#define kAtcZoneIdEurope_Prague 0x65ee5d48 /* Europe/Prague */
+#define kAtcZoneIdEurope_Riga 0xa2c57587 /* Europe/Riga */
+#define kAtcZoneIdEurope_Rome 0xa2c58fd7 /* Europe/Rome */
+#define kAtcZoneIdEurope_Samara 0x6bc0b139 /* Europe/Samara */
+#define kAtcZoneIdEurope_Saratov 0xe4315da4 /* Europe/Saratov */
+#define kAtcZoneIdEurope_Simferopol 0xda9eb724 /* Europe/Simferopol */
+#define kAtcZoneIdEurope_Sofia 0xfb898656 /* Europe/Sofia */
+#define kAtcZoneIdEurope_Stockholm 0x5bf6fbb8 /* Europe/Stockholm */
+#define kAtcZoneIdEurope_Tallinn 0x30c4e096 /* Europe/Tallinn */
+#define kAtcZoneIdEurope_Tirane 0x6ea95b47 /* Europe/Tirane */
+#define kAtcZoneIdEurope_Ulyanovsk 0xe03783d0 /* Europe/Ulyanovsk */
+#define kAtcZoneIdEurope_Uzhgorod 0xb066f5d6 /* Europe/Uzhgorod */
+#define kAtcZoneIdEurope_Vienna 0x734cc2e5 /* Europe/Vienna */
+#define kAtcZoneIdEurope_Vilnius 0xdd63b8ce /* Europe/Vilnius */
+#define kAtcZoneIdEurope_Volgograd 0x3ed0f389 /* Europe/Volgograd */
+#define kAtcZoneIdEurope_Warsaw 0x75185c19 /* Europe/Warsaw */
+#define kAtcZoneIdEurope_Zaporozhye 0xeab9767f /* Europe/Zaporozhye */
+#define kAtcZoneIdEurope_Zurich 0x7d8195b9 /* Europe/Zurich */
+#define kAtcZoneIdHST 0x0b87f034 /* HST */
+#define kAtcZoneIdIndian_Chagos 0x456f7c3c /* Indian/Chagos */
+#define kAtcZoneIdIndian_Christmas 0x68c207d5 /* Indian/Christmas */
+#define kAtcZoneIdIndian_Cocos 0x021e86de /* Indian/Cocos */
+#define kAtcZoneIdIndian_Kerguelen 0x4351b389 /* Indian/Kerguelen */
+#define kAtcZoneIdIndian_Mahe 0x45e725e2 /* Indian/Mahe */
+#define kAtcZoneIdIndian_Maldives 0x9869681c /* Indian/Maldives */
+#define kAtcZoneIdIndian_Mauritius 0x7b09c02a /* Indian/Mauritius */
+#define kAtcZoneIdIndian_Reunion 0x7076c047 /* Indian/Reunion */
+#define kAtcZoneIdMET 0x0b8803ab /* MET */
+#define kAtcZoneIdMST 0x0b880579 /* MST */
+#define kAtcZoneIdMST7MDT 0xf2af9375 /* MST7MDT */
+#define kAtcZoneIdPST8PDT 0xd99ee2dc /* PST8PDT */
+#define kAtcZoneIdPacific_Apia 0x23359b5e /* Pacific/Apia */
+#define kAtcZoneIdPacific_Auckland 0x25062f86 /* Pacific/Auckland */
+#define kAtcZoneIdPacific_Bougainville 0x5e10f7a4 /* Pacific/Bougainville */
+#define kAtcZoneIdPacific_Chatham 0x2f0de999 /* Pacific/Chatham */
+#define kAtcZoneIdPacific_Chuuk 0x8a090b23 /* Pacific/Chuuk */
+#define kAtcZoneIdPacific_Easter 0xcf54f7e7 /* Pacific/Easter */
+#define kAtcZoneIdPacific_Efate 0x8a2bce28 /* Pacific/Efate */
+#define kAtcZoneIdPacific_Fakaofo 0x06532bba /* Pacific/Fakaofo */
+#define kAtcZoneIdPacific_Fiji 0x23383ba5 /* Pacific/Fiji */
+#define kAtcZoneIdPacific_Funafuti 0xdb402d65 /* Pacific/Funafuti */
+#define kAtcZoneIdPacific_Galapagos 0xa952f752 /* Pacific/Galapagos */
+#define kAtcZoneIdPacific_Gambier 0x53720c3a /* Pacific/Gambier */
+#define kAtcZoneIdPacific_Guadalcanal 0xf4dd25f0 /* Pacific/Guadalcanal */
+#define kAtcZoneIdPacific_Guam 0x2338f9ed /* Pacific/Guam */
+#define kAtcZoneIdPacific_Honolulu 0xe6e70af9 /* Pacific/Honolulu */
+#define kAtcZoneIdPacific_Kanton 0xdd512f0e /* Pacific/Kanton */
+#define kAtcZoneIdPacific_Kiritimati 0x8305073a /* Pacific/Kiritimati */
+#define kAtcZoneIdPacific_Kosrae 0xde5139a8 /* Pacific/Kosrae */
+#define kAtcZoneIdPacific_Kwajalein 0x8e216759 /* Pacific/Kwajalein */
+#define kAtcZoneIdPacific_Majuro 0xe1f95371 /* Pacific/Majuro */
+#define kAtcZoneIdPacific_Marquesas 0x57ca7135 /* Pacific/Marquesas */
+#define kAtcZoneIdPacific_Nauru 0x8acc41ae /* Pacific/Nauru */
+#define kAtcZoneIdPacific_Niue 0x233ca014 /* Pacific/Niue */
+#define kAtcZoneIdPacific_Norfolk 0x8f4eb4be /* Pacific/Norfolk */
+#define kAtcZoneIdPacific_Noumea 0xe551b788 /* Pacific/Noumea */
+#define kAtcZoneIdPacific_Pago_Pago 0x603aebd0 /* Pacific/Pago_Pago */
+#define kAtcZoneIdPacific_Palau 0x8af04a36 /* Pacific/Palau */
+#define kAtcZoneIdPacific_Pitcairn 0x8837d8bd /* Pacific/Pitcairn */
+#define kAtcZoneIdPacific_Pohnpei 0x28929f96 /* Pacific/Pohnpei */
+#define kAtcZoneIdPacific_Port_Moresby 0xa7ba7f68 /* Pacific/Port_Moresby */
+#define kAtcZoneIdPacific_Rarotonga 0x9981a3b0 /* Pacific/Rarotonga */
+#define kAtcZoneIdPacific_Tahiti 0xf24c2446 /* Pacific/Tahiti */
+#define kAtcZoneIdPacific_Tarawa 0xf2517e63 /* Pacific/Tarawa */
+#define kAtcZoneIdPacific_Tongatapu 0x262ca836 /* Pacific/Tongatapu */
+#define kAtcZoneIdPacific_Wake 0x23416c2b /* Pacific/Wake */
+#define kAtcZoneIdPacific_Wallis 0xf94ddb0f /* Pacific/Wallis */
+#define kAtcZoneIdWET 0x0b882e35 /* WET */
 
 
 //---------------------------------------------------------------------------
@@ -1031,223 +1031,223 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 
 // Zone Ids
 
-const uint32_t kAtcZoneIdAfrica_Accra = 0x77d5b054; // Africa/Accra
-const uint32_t kAtcZoneIdAfrica_Addis_Ababa = 0x05ae1e65; // Africa/Addis_Ababa
-const uint32_t kAtcZoneIdAfrica_Asmara = 0x73b278ef; // Africa/Asmara
-const uint32_t kAtcZoneIdAfrica_Asmera = 0x73b289f3; // Africa/Asmera
-const uint32_t kAtcZoneIdAfrica_Bamako = 0x74c1e7a5; // Africa/Bamako
-const uint32_t kAtcZoneIdAfrica_Bangui = 0x74c28ed0; // Africa/Bangui
-const uint32_t kAtcZoneIdAfrica_Banjul = 0x74c29b96; // Africa/Banjul
-const uint32_t kAtcZoneIdAfrica_Blantyre = 0xe08d813b; // Africa/Blantyre
-const uint32_t kAtcZoneIdAfrica_Brazzaville = 0x39cda760; // Africa/Brazzaville
-const uint32_t kAtcZoneIdAfrica_Bujumbura = 0x05232a47; // Africa/Bujumbura
-const uint32_t kAtcZoneIdAfrica_Conakry = 0x7ab36b31; // Africa/Conakry
-const uint32_t kAtcZoneIdAfrica_Dakar = 0x780b00fd; // Africa/Dakar
-const uint32_t kAtcZoneIdAfrica_Dar_es_Salaam = 0xa04c47b6; // Africa/Dar_es_Salaam
-const uint32_t kAtcZoneIdAfrica_Djibouti = 0x30ea01d4; // Africa/Djibouti
-const uint32_t kAtcZoneIdAfrica_Douala = 0x7a6df310; // Africa/Douala
-const uint32_t kAtcZoneIdAfrica_Freetown = 0x6823dd64; // Africa/Freetown
-const uint32_t kAtcZoneIdAfrica_Gaborone = 0x317c0aa7; // Africa/Gaborone
-const uint32_t kAtcZoneIdAfrica_Harare = 0x82c39a2d; // Africa/Harare
-const uint32_t kAtcZoneIdAfrica_Kampala = 0xc1d30e31; // Africa/Kampala
-const uint32_t kAtcZoneIdAfrica_Kigali = 0x8a4dcf2b; // Africa/Kigali
-const uint32_t kAtcZoneIdAfrica_Kinshasa = 0x6695d70c; // Africa/Kinshasa
-const uint32_t kAtcZoneIdAfrica_Libreville = 0x01d96de4; // Africa/Libreville
-const uint32_t kAtcZoneIdAfrica_Lome = 0xd51c3a07; // Africa/Lome
-const uint32_t kAtcZoneIdAfrica_Luanda = 0x8d7909cf; // Africa/Luanda
-const uint32_t kAtcZoneIdAfrica_Lubumbashi = 0x6fd88566; // Africa/Lubumbashi
-const uint32_t kAtcZoneIdAfrica_Lusaka = 0x8d82b23b; // Africa/Lusaka
-const uint32_t kAtcZoneIdAfrica_Malabo = 0x8e6a1906; // Africa/Malabo
-const uint32_t kAtcZoneIdAfrica_Maseru = 0x8e6e02c7; // Africa/Maseru
-const uint32_t kAtcZoneIdAfrica_Mbabane = 0x5d3bdd40; // Africa/Mbabane
-const uint32_t kAtcZoneIdAfrica_Mogadishu = 0x66bc159b; // Africa/Mogadishu
-const uint32_t kAtcZoneIdAfrica_Niamey = 0x914a30fd; // Africa/Niamey
-const uint32_t kAtcZoneIdAfrica_Nouakchott = 0x3dc49dba; // Africa/Nouakchott
-const uint32_t kAtcZoneIdAfrica_Ouagadougou = 0x04d7219a; // Africa/Ouagadougou
-const uint32_t kAtcZoneIdAfrica_Porto_Novo = 0x3d1bf95d; // Africa/Porto-Novo
-const uint32_t kAtcZoneIdAfrica_Timbuktu = 0xb164d56f; // Africa/Timbuktu
-const uint32_t kAtcZoneIdAmerica_Anguilla = 0xafe31333; // America/Anguilla
-const uint32_t kAtcZoneIdAmerica_Antigua = 0xc067a32f; // America/Antigua
-const uint32_t kAtcZoneIdAmerica_Argentina_ComodRivadavia = 0x22758877; // America/Argentina/ComodRivadavia
-const uint32_t kAtcZoneIdAmerica_Aruba = 0x97cf8651; // America/Aruba
-const uint32_t kAtcZoneIdAmerica_Atikokan = 0x81b92098; // America/Atikokan
-const uint32_t kAtcZoneIdAmerica_Atka = 0x97fe8f27; // America/Atka
-const uint32_t kAtcZoneIdAmerica_Blanc_Sablon = 0x6e299892; // America/Blanc-Sablon
-const uint32_t kAtcZoneIdAmerica_Buenos_Aires = 0x67d79a05; // America/Buenos_Aires
-const uint32_t kAtcZoneIdAmerica_Catamarca = 0x5036e963; // America/Catamarca
-const uint32_t kAtcZoneIdAmerica_Cayman = 0x953961df; // America/Cayman
-const uint32_t kAtcZoneIdAmerica_Coral_Harbour = 0xabcb7569; // America/Coral_Harbour
-const uint32_t kAtcZoneIdAmerica_Cordoba = 0x5c8a7600; // America/Cordoba
-const uint32_t kAtcZoneIdAmerica_Creston = 0x62a70204; // America/Creston
-const uint32_t kAtcZoneIdAmerica_Curacao = 0x6a879184; // America/Curacao
-const uint32_t kAtcZoneIdAmerica_Dominica = 0xcecb4c4a; // America/Dominica
-const uint32_t kAtcZoneIdAmerica_Ensenada = 0x7bc95445; // America/Ensenada
-const uint32_t kAtcZoneIdAmerica_Fort_Wayne = 0x7eaaaf24; // America/Fort_Wayne
-const uint32_t kAtcZoneIdAmerica_Godthab = 0x8f7eba1f; // America/Godthab
-const uint32_t kAtcZoneIdAmerica_Grenada = 0x968ce4d8; // America/Grenada
-const uint32_t kAtcZoneIdAmerica_Guadeloupe = 0xcd1f8a31; // America/Guadeloupe
-const uint32_t kAtcZoneIdAmerica_Indianapolis = 0x6a009ae1; // America/Indianapolis
-const uint32_t kAtcZoneIdAmerica_Jujuy = 0x9873dbbd; // America/Jujuy
-const uint32_t kAtcZoneIdAmerica_Knox_IN = 0xc1db9a1c; // America/Knox_IN
-const uint32_t kAtcZoneIdAmerica_Kralendijk = 0xe7c456c5; // America/Kralendijk
-const uint32_t kAtcZoneIdAmerica_Louisville = 0x3dcb47ee; // America/Louisville
-const uint32_t kAtcZoneIdAmerica_Lower_Princes = 0x6ae45b62; // America/Lower_Princes
-const uint32_t kAtcZoneIdAmerica_Marigot = 0x3dab3a59; // America/Marigot
-const uint32_t kAtcZoneIdAmerica_Mendoza = 0x46b4e054; // America/Mendoza
-const uint32_t kAtcZoneIdAmerica_Montreal = 0x203a1ea8; // America/Montreal
-const uint32_t kAtcZoneIdAmerica_Montserrat = 0x199b0a35; // America/Montserrat
-const uint32_t kAtcZoneIdAmerica_Nassau = 0xaedef011; // America/Nassau
-const uint32_t kAtcZoneIdAmerica_Port_of_Spain = 0xd8b28d59; // America/Port_of_Spain
-const uint32_t kAtcZoneIdAmerica_Porto_Acre = 0xcce5bf54; // America/Porto_Acre
-const uint32_t kAtcZoneIdAmerica_Rosario = 0xdf448665; // America/Rosario
-const uint32_t kAtcZoneIdAmerica_Santa_Isabel = 0xfd18a56c; // America/Santa_Isabel
-const uint32_t kAtcZoneIdAmerica_Shiprock = 0x82fb7049; // America/Shiprock
-const uint32_t kAtcZoneIdAmerica_St_Barthelemy = 0x054e6a79; // America/St_Barthelemy
-const uint32_t kAtcZoneIdAmerica_St_Kitts = 0x04c0507b; // America/St_Kitts
-const uint32_t kAtcZoneIdAmerica_St_Lucia = 0x04d8b3ba; // America/St_Lucia
-const uint32_t kAtcZoneIdAmerica_St_Thomas = 0xb1b3d778; // America/St_Thomas
-const uint32_t kAtcZoneIdAmerica_St_Vincent = 0x8460e523; // America/St_Vincent
-const uint32_t kAtcZoneIdAmerica_Tortola = 0x7931462b; // America/Tortola
-const uint32_t kAtcZoneIdAmerica_Virgin = 0xc2183ab5; // America/Virgin
-const uint32_t kAtcZoneIdAntarctica_DumontDUrville = 0x5a3c656c; // Antarctica/DumontDUrville
-const uint32_t kAtcZoneIdAntarctica_McMurdo = 0x6eeb5585; // Antarctica/McMurdo
-const uint32_t kAtcZoneIdAntarctica_South_Pole = 0xcd96b290; // Antarctica/South_Pole
-const uint32_t kAtcZoneIdAntarctica_Syowa = 0xe330c7e1; // Antarctica/Syowa
-const uint32_t kAtcZoneIdArctic_Longyearbyen = 0xd23e7859; // Arctic/Longyearbyen
-const uint32_t kAtcZoneIdAsia_Aden = 0x1fa7084a; // Asia/Aden
-const uint32_t kAtcZoneIdAsia_Ashkhabad = 0x15454f09; // Asia/Ashkhabad
-const uint32_t kAtcZoneIdAsia_Bahrain = 0x9d078487; // Asia/Bahrain
-const uint32_t kAtcZoneIdAsia_Calcutta = 0x328a44c3; // Asia/Calcutta
-const uint32_t kAtcZoneIdAsia_Chongqing = 0xf937fb90; // Asia/Chongqing
-const uint32_t kAtcZoneIdAsia_Chungking = 0xc7121dd0; // Asia/Chungking
-const uint32_t kAtcZoneIdAsia_Dacca = 0x14bcac5e; // Asia/Dacca
-const uint32_t kAtcZoneIdAsia_Harbin = 0xb5af1186; // Asia/Harbin
-const uint32_t kAtcZoneIdAsia_Istanbul = 0x382e7894; // Asia/Istanbul
-const uint32_t kAtcZoneIdAsia_Kashgar = 0x52955193; // Asia/Kashgar
-const uint32_t kAtcZoneIdAsia_Katmandu = 0xa7ec12c7; // Asia/Katmandu
-const uint32_t kAtcZoneIdAsia_Kuwait = 0xbe1b2f27; // Asia/Kuwait
-const uint32_t kAtcZoneIdAsia_Macao = 0x155f88b3; // Asia/Macao
-const uint32_t kAtcZoneIdAsia_Muscat = 0xc2c3565f; // Asia/Muscat
-const uint32_t kAtcZoneIdAsia_Phnom_Penh = 0xc224945e; // Asia/Phnom_Penh
-const uint32_t kAtcZoneIdAsia_Rangoon = 0x6d1217c6; // Asia/Rangoon
-const uint32_t kAtcZoneIdAsia_Saigon = 0xcf52f713; // Asia/Saigon
-const uint32_t kAtcZoneIdAsia_Tel_Aviv = 0x166d7c2c; // Asia/Tel_Aviv
-const uint32_t kAtcZoneIdAsia_Thimbu = 0xd226e31b; // Asia/Thimbu
-const uint32_t kAtcZoneIdAsia_Ujung_Pandang = 0x5d001eb3; // Asia/Ujung_Pandang
-const uint32_t kAtcZoneIdAsia_Ulan_Bator = 0x394db4d9; // Asia/Ulan_Bator
-const uint32_t kAtcZoneIdAsia_Vientiane = 0x89d68d75; // Asia/Vientiane
-const uint32_t kAtcZoneIdAtlantic_Faeroe = 0x031ec516; // Atlantic/Faeroe
-const uint32_t kAtcZoneIdAtlantic_Jan_Mayen = 0x5a7535b6; // Atlantic/Jan_Mayen
-const uint32_t kAtcZoneIdAtlantic_St_Helena = 0x451fc5f7; // Atlantic/St_Helena
-const uint32_t kAtcZoneIdAustralia_ACT = 0x8a970eb2; // Australia/ACT
-const uint32_t kAtcZoneIdAustralia_Canberra = 0x2a09ae58; // Australia/Canberra
-const uint32_t kAtcZoneIdAustralia_Currie = 0x278b6a24; // Australia/Currie
-const uint32_t kAtcZoneIdAustralia_LHI = 0x8a973e17; // Australia/LHI
-const uint32_t kAtcZoneIdAustralia_NSW = 0x8a974812; // Australia/NSW
-const uint32_t kAtcZoneIdAustralia_North = 0x8d997165; // Australia/North
-const uint32_t kAtcZoneIdAustralia_Queensland = 0xd326ed0a; // Australia/Queensland
-const uint32_t kAtcZoneIdAustralia_South = 0x8df3f8ad; // Australia/South
-const uint32_t kAtcZoneIdAustralia_Tasmania = 0xe6d76648; // Australia/Tasmania
-const uint32_t kAtcZoneIdAustralia_Victoria = 0x0260d5db; // Australia/Victoria
-const uint32_t kAtcZoneIdAustralia_West = 0xdd858a5d; // Australia/West
-const uint32_t kAtcZoneIdAustralia_Yancowinna = 0x90bac131; // Australia/Yancowinna
-const uint32_t kAtcZoneIdBrazil_Acre = 0x66934f93; // Brazil/Acre
-const uint32_t kAtcZoneIdBrazil_DeNoronha = 0x9b4cb496; // Brazil/DeNoronha
-const uint32_t kAtcZoneIdBrazil_East = 0x669578c5; // Brazil/East
-const uint32_t kAtcZoneIdBrazil_West = 0x669f689b; // Brazil/West
-const uint32_t kAtcZoneIdCanada_Atlantic = 0x536b119c; // Canada/Atlantic
-const uint32_t kAtcZoneIdCanada_Central = 0x626710f5; // Canada/Central
-const uint32_t kAtcZoneIdCanada_Eastern = 0xf3612d5e; // Canada/Eastern
-const uint32_t kAtcZoneIdCanada_Mountain = 0xfb8a8217; // Canada/Mountain
-const uint32_t kAtcZoneIdCanada_Newfoundland = 0xb396e991; // Canada/Newfoundland
-const uint32_t kAtcZoneIdCanada_Pacific = 0x40fa3c7b; // Canada/Pacific
-const uint32_t kAtcZoneIdCanada_Saskatchewan = 0x77311f49; // Canada/Saskatchewan
-const uint32_t kAtcZoneIdCanada_Yukon = 0x78dd35c2; // Canada/Yukon
-const uint32_t kAtcZoneIdChile_Continental = 0x7e2bdb18; // Chile/Continental
-const uint32_t kAtcZoneIdChile_EasterIsland = 0xb0982af8; // Chile/EasterIsland
-const uint32_t kAtcZoneIdCuba = 0x7c83cba0; // Cuba
-const uint32_t kAtcZoneIdEgypt = 0x0d1a278e; // Egypt
-const uint32_t kAtcZoneIdEire = 0x7c84b36a; // Eire
-const uint32_t kAtcZoneIdEtc_GMT_PLUS_0 = 0x9d13da13; // Etc/GMT+0
-const uint32_t kAtcZoneIdEtc_GMT_0 = 0x9d13da55; // Etc/GMT-0
-const uint32_t kAtcZoneIdEtc_GMT0 = 0xf53ea988; // Etc/GMT0
-const uint32_t kAtcZoneIdEtc_Greenwich = 0x26daa98c; // Etc/Greenwich
-const uint32_t kAtcZoneIdEtc_UCT = 0xd8e3189c; // Etc/UCT
-const uint32_t kAtcZoneIdEtc_Universal = 0x2f8cb9a9; // Etc/Universal
-const uint32_t kAtcZoneIdEtc_Zulu = 0xf549c240; // Etc/Zulu
-const uint32_t kAtcZoneIdEurope_Belfast = 0xd07dd1e5; // Europe/Belfast
-const uint32_t kAtcZoneIdEurope_Bratislava = 0xda493bed; // Europe/Bratislava
-const uint32_t kAtcZoneIdEurope_Busingen = 0xc06d2cdf; // Europe/Busingen
-const uint32_t kAtcZoneIdEurope_Guernsey = 0x3db12c16; // Europe/Guernsey
-const uint32_t kAtcZoneIdEurope_Isle_of_Man = 0xeaf84580; // Europe/Isle_of_Man
-const uint32_t kAtcZoneIdEurope_Jersey = 0x570dae76; // Europe/Jersey
-const uint32_t kAtcZoneIdEurope_Ljubljana = 0xbd98cdb7; // Europe/Ljubljana
-const uint32_t kAtcZoneIdEurope_Mariehamn = 0x0caa6496; // Europe/Mariehamn
-const uint32_t kAtcZoneIdEurope_Nicosia = 0x74efab8a; // Europe/Nicosia
-const uint32_t kAtcZoneIdEurope_Podgorica = 0x1c1a499c; // Europe/Podgorica
-const uint32_t kAtcZoneIdEurope_San_Marino = 0xcef7724b; // Europe/San_Marino
-const uint32_t kAtcZoneIdEurope_Sarajevo = 0x6a576c3f; // Europe/Sarajevo
-const uint32_t kAtcZoneIdEurope_Skopje = 0x6c76fdd0; // Europe/Skopje
-const uint32_t kAtcZoneIdEurope_Tiraspol = 0xbe704472; // Europe/Tiraspol
-const uint32_t kAtcZoneIdEurope_Vaduz = 0xfbb81bae; // Europe/Vaduz
-const uint32_t kAtcZoneIdEurope_Vatican = 0xcb485dca; // Europe/Vatican
-const uint32_t kAtcZoneIdEurope_Zagreb = 0x7c11c9ff; // Europe/Zagreb
-const uint32_t kAtcZoneIdGB = 0x005973ae; // GB
-const uint32_t kAtcZoneIdGB_Eire = 0xfa70e300; // GB-Eire
-const uint32_t kAtcZoneIdGMT = 0x0b87eb2d; // GMT
-const uint32_t kAtcZoneIdGMT_PLUS_0 = 0x0d2f7028; // GMT+0
-const uint32_t kAtcZoneIdGMT_0 = 0x0d2f706a; // GMT-0
-const uint32_t kAtcZoneIdGMT0 = 0x7c8550fd; // GMT0
-const uint32_t kAtcZoneIdGreenwich = 0xc84d4221; // Greenwich
-const uint32_t kAtcZoneIdHongkong = 0x56d36560; // Hongkong
-const uint32_t kAtcZoneIdIceland = 0xe56a35b5; // Iceland
-const uint32_t kAtcZoneIdIndian_Antananarivo = 0x9ebf5289; // Indian/Antananarivo
-const uint32_t kAtcZoneIdIndian_Comoro = 0x45f4deb6; // Indian/Comoro
-const uint32_t kAtcZoneIdIndian_Mayotte = 0xe6880bca; // Indian/Mayotte
-const uint32_t kAtcZoneIdIran = 0x7c87090f; // Iran
-const uint32_t kAtcZoneIdIsrael = 0xba88c9e5; // Israel
-const uint32_t kAtcZoneIdJamaica = 0x2e44fdab; // Jamaica
-const uint32_t kAtcZoneIdJapan = 0x0d712f8f; // Japan
-const uint32_t kAtcZoneIdKwajalein = 0x0e57afbb; // Kwajalein
-const uint32_t kAtcZoneIdLibya = 0x0d998b16; // Libya
-const uint32_t kAtcZoneIdMexico_BajaNorte = 0xfcf7150f; // Mexico/BajaNorte
-const uint32_t kAtcZoneIdMexico_BajaSur = 0x08ee3641; // Mexico/BajaSur
-const uint32_t kAtcZoneIdMexico_General = 0x93711d57; // Mexico/General
-const uint32_t kAtcZoneIdNZ = 0x005974ad; // NZ
-const uint32_t kAtcZoneIdNZ_CHAT = 0x4d42afda; // NZ-CHAT
-const uint32_t kAtcZoneIdNavajo = 0xc4ef0e24; // Navajo
-const uint32_t kAtcZoneIdPRC = 0x0b88120a; // PRC
-const uint32_t kAtcZoneIdPacific_Enderbury = 0x61599a93; // Pacific/Enderbury
-const uint32_t kAtcZoneIdPacific_Johnston = 0xb15d7b36; // Pacific/Johnston
-const uint32_t kAtcZoneIdPacific_Midway = 0xe286d38e; // Pacific/Midway
-const uint32_t kAtcZoneIdPacific_Ponape = 0xe9f80086; // Pacific/Ponape
-const uint32_t kAtcZoneIdPacific_Saipan = 0xeff7a35f; // Pacific/Saipan
-const uint32_t kAtcZoneIdPacific_Samoa = 0x8b2699b4; // Pacific/Samoa
-const uint32_t kAtcZoneIdPacific_Truk = 0x234010a9; // Pacific/Truk
-const uint32_t kAtcZoneIdPacific_Yap = 0xbb40138d; // Pacific/Yap
-const uint32_t kAtcZoneIdPoland = 0xca913b23; // Poland
-const uint32_t kAtcZoneIdPortugal = 0xc3274593; // Portugal
-const uint32_t kAtcZoneIdROC = 0x0b881a29; // ROC
-const uint32_t kAtcZoneIdROK = 0x0b881a31; // ROK
-const uint32_t kAtcZoneIdSingapore = 0xa8598c8d; // Singapore
-const uint32_t kAtcZoneIdTurkey = 0xd455e469; // Turkey
-const uint32_t kAtcZoneIdUCT = 0x0b882571; // UCT
-const uint32_t kAtcZoneIdUS_Alaska = 0xfa300bc9; // US/Alaska
-const uint32_t kAtcZoneIdUS_Aleutian = 0x4fe013ef; // US/Aleutian
-const uint32_t kAtcZoneIdUS_Arizona = 0x4ec52670; // US/Arizona
-const uint32_t kAtcZoneIdUS_Central = 0xcabdcb25; // US/Central
-const uint32_t kAtcZoneIdUS_East_Indiana = 0x6dcf558a; // US/East-Indiana
-const uint32_t kAtcZoneIdUS_Eastern = 0x5bb7e78e; // US/Eastern
-const uint32_t kAtcZoneIdUS_Hawaii = 0x09c8de2f; // US/Hawaii
-const uint32_t kAtcZoneIdUS_Indiana_Starke = 0x67977be7; // US/Indiana-Starke
-const uint32_t kAtcZoneIdUS_Michigan = 0x766bb7bc; // US/Michigan
-const uint32_t kAtcZoneIdUS_Mountain = 0x6eb88247; // US/Mountain
-const uint32_t kAtcZoneIdUS_Pacific = 0xa950f6ab; // US/Pacific
-const uint32_t kAtcZoneIdUS_Samoa = 0x566821cd; // US/Samoa
-const uint32_t kAtcZoneIdUTC = 0x0b882791; // UTC
-const uint32_t kAtcZoneIdUniversal = 0xd0ff523e; // Universal
-const uint32_t kAtcZoneIdW_SU = 0x7c8d8ef1; // W-SU
-const uint32_t kAtcZoneIdZulu = 0x7c9069b5; // Zulu
+#define kAtcZoneIdAfrica_Accra 0x77d5b054 /* Africa/Accra */
+#define kAtcZoneIdAfrica_Addis_Ababa 0x05ae1e65 /* Africa/Addis_Ababa */
+#define kAtcZoneIdAfrica_Asmara 0x73b278ef /* Africa/Asmara */
+#define kAtcZoneIdAfrica_Asmera 0x73b289f3 /* Africa/Asmera */
+#define kAtcZoneIdAfrica_Bamako 0x74c1e7a5 /* Africa/Bamako */
+#define kAtcZoneIdAfrica_Bangui 0x74c28ed0 /* Africa/Bangui */
+#define kAtcZoneIdAfrica_Banjul 0x74c29b96 /* Africa/Banjul */
+#define kAtcZoneIdAfrica_Blantyre 0xe08d813b /* Africa/Blantyre */
+#define kAtcZoneIdAfrica_Brazzaville 0x39cda760 /* Africa/Brazzaville */
+#define kAtcZoneIdAfrica_Bujumbura 0x05232a47 /* Africa/Bujumbura */
+#define kAtcZoneIdAfrica_Conakry 0x7ab36b31 /* Africa/Conakry */
+#define kAtcZoneIdAfrica_Dakar 0x780b00fd /* Africa/Dakar */
+#define kAtcZoneIdAfrica_Dar_es_Salaam 0xa04c47b6 /* Africa/Dar_es_Salaam */
+#define kAtcZoneIdAfrica_Djibouti 0x30ea01d4 /* Africa/Djibouti */
+#define kAtcZoneIdAfrica_Douala 0x7a6df310 /* Africa/Douala */
+#define kAtcZoneIdAfrica_Freetown 0x6823dd64 /* Africa/Freetown */
+#define kAtcZoneIdAfrica_Gaborone 0x317c0aa7 /* Africa/Gaborone */
+#define kAtcZoneIdAfrica_Harare 0x82c39a2d /* Africa/Harare */
+#define kAtcZoneIdAfrica_Kampala 0xc1d30e31 /* Africa/Kampala */
+#define kAtcZoneIdAfrica_Kigali 0x8a4dcf2b /* Africa/Kigali */
+#define kAtcZoneIdAfrica_Kinshasa 0x6695d70c /* Africa/Kinshasa */
+#define kAtcZoneIdAfrica_Libreville 0x01d96de4 /* Africa/Libreville */
+#define kAtcZoneIdAfrica_Lome 0xd51c3a07 /* Africa/Lome */
+#define kAtcZoneIdAfrica_Luanda 0x8d7909cf /* Africa/Luanda */
+#define kAtcZoneIdAfrica_Lubumbashi 0x6fd88566 /* Africa/Lubumbashi */
+#define kAtcZoneIdAfrica_Lusaka 0x8d82b23b /* Africa/Lusaka */
+#define kAtcZoneIdAfrica_Malabo 0x8e6a1906 /* Africa/Malabo */
+#define kAtcZoneIdAfrica_Maseru 0x8e6e02c7 /* Africa/Maseru */
+#define kAtcZoneIdAfrica_Mbabane 0x5d3bdd40 /* Africa/Mbabane */
+#define kAtcZoneIdAfrica_Mogadishu 0x66bc159b /* Africa/Mogadishu */
+#define kAtcZoneIdAfrica_Niamey 0x914a30fd /* Africa/Niamey */
+#define kAtcZoneIdAfrica_Nouakchott 0x3dc49dba /* Africa/Nouakchott */
+#define kAtcZoneIdAfrica_Ouagadougou 0x04d7219a /* Africa/Ouagadougou */
+#define kAtcZoneIdAfrica_Porto_Novo 0x3d1bf95d /* Africa/Porto-Novo */
+#define kAtcZoneIdAfrica_Timbuktu 0xb164d56f /* Africa/Timbuktu */
+#define kAtcZoneIdAmerica_Anguilla 0xafe31333 /* America/Anguilla */
+#define kAtcZoneIdAmerica_Antigua 0xc067a32f /* America/Antigua */
+#define kAtcZoneIdAmerica_Argentina_ComodRivadavia 0x22758877 /* America/Argentina/ComodRivadavia */
+#define kAtcZoneIdAmerica_Aruba 0x97cf8651 /* America/Aruba */
+#define kAtcZoneIdAmerica_Atikokan 0x81b92098 /* America/Atikokan */
+#define kAtcZoneIdAmerica_Atka 0x97fe8f27 /* America/Atka */
+#define kAtcZoneIdAmerica_Blanc_Sablon 0x6e299892 /* America/Blanc-Sablon */
+#define kAtcZoneIdAmerica_Buenos_Aires 0x67d79a05 /* America/Buenos_Aires */
+#define kAtcZoneIdAmerica_Catamarca 0x5036e963 /* America/Catamarca */
+#define kAtcZoneIdAmerica_Cayman 0x953961df /* America/Cayman */
+#define kAtcZoneIdAmerica_Coral_Harbour 0xabcb7569 /* America/Coral_Harbour */
+#define kAtcZoneIdAmerica_Cordoba 0x5c8a7600 /* America/Cordoba */
+#define kAtcZoneIdAmerica_Creston 0x62a70204 /* America/Creston */
+#define kAtcZoneIdAmerica_Curacao 0x6a879184 /* America/Curacao */
+#define kAtcZoneIdAmerica_Dominica 0xcecb4c4a /* America/Dominica */
+#define kAtcZoneIdAmerica_Ensenada 0x7bc95445 /* America/Ensenada */
+#define kAtcZoneIdAmerica_Fort_Wayne 0x7eaaaf24 /* America/Fort_Wayne */
+#define kAtcZoneIdAmerica_Godthab 0x8f7eba1f /* America/Godthab */
+#define kAtcZoneIdAmerica_Grenada 0x968ce4d8 /* America/Grenada */
+#define kAtcZoneIdAmerica_Guadeloupe 0xcd1f8a31 /* America/Guadeloupe */
+#define kAtcZoneIdAmerica_Indianapolis 0x6a009ae1 /* America/Indianapolis */
+#define kAtcZoneIdAmerica_Jujuy 0x9873dbbd /* America/Jujuy */
+#define kAtcZoneIdAmerica_Knox_IN 0xc1db9a1c /* America/Knox_IN */
+#define kAtcZoneIdAmerica_Kralendijk 0xe7c456c5 /* America/Kralendijk */
+#define kAtcZoneIdAmerica_Louisville 0x3dcb47ee /* America/Louisville */
+#define kAtcZoneIdAmerica_Lower_Princes 0x6ae45b62 /* America/Lower_Princes */
+#define kAtcZoneIdAmerica_Marigot 0x3dab3a59 /* America/Marigot */
+#define kAtcZoneIdAmerica_Mendoza 0x46b4e054 /* America/Mendoza */
+#define kAtcZoneIdAmerica_Montreal 0x203a1ea8 /* America/Montreal */
+#define kAtcZoneIdAmerica_Montserrat 0x199b0a35 /* America/Montserrat */
+#define kAtcZoneIdAmerica_Nassau 0xaedef011 /* America/Nassau */
+#define kAtcZoneIdAmerica_Port_of_Spain 0xd8b28d59 /* America/Port_of_Spain */
+#define kAtcZoneIdAmerica_Porto_Acre 0xcce5bf54 /* America/Porto_Acre */
+#define kAtcZoneIdAmerica_Rosario 0xdf448665 /* America/Rosario */
+#define kAtcZoneIdAmerica_Santa_Isabel 0xfd18a56c /* America/Santa_Isabel */
+#define kAtcZoneIdAmerica_Shiprock 0x82fb7049 /* America/Shiprock */
+#define kAtcZoneIdAmerica_St_Barthelemy 0x054e6a79 /* America/St_Barthelemy */
+#define kAtcZoneIdAmerica_St_Kitts 0x04c0507b /* America/St_Kitts */
+#define kAtcZoneIdAmerica_St_Lucia 0x04d8b3ba /* America/St_Lucia */
+#define kAtcZoneIdAmerica_St_Thomas 0xb1b3d778 /* America/St_Thomas */
+#define kAtcZoneIdAmerica_St_Vincent 0x8460e523 /* America/St_Vincent */
+#define kAtcZoneIdAmerica_Tortola 0x7931462b /* America/Tortola */
+#define kAtcZoneIdAmerica_Virgin 0xc2183ab5 /* America/Virgin */
+#define kAtcZoneIdAntarctica_DumontDUrville 0x5a3c656c /* Antarctica/DumontDUrville */
+#define kAtcZoneIdAntarctica_McMurdo 0x6eeb5585 /* Antarctica/McMurdo */
+#define kAtcZoneIdAntarctica_South_Pole 0xcd96b290 /* Antarctica/South_Pole */
+#define kAtcZoneIdAntarctica_Syowa 0xe330c7e1 /* Antarctica/Syowa */
+#define kAtcZoneIdArctic_Longyearbyen 0xd23e7859 /* Arctic/Longyearbyen */
+#define kAtcZoneIdAsia_Aden 0x1fa7084a /* Asia/Aden */
+#define kAtcZoneIdAsia_Ashkhabad 0x15454f09 /* Asia/Ashkhabad */
+#define kAtcZoneIdAsia_Bahrain 0x9d078487 /* Asia/Bahrain */
+#define kAtcZoneIdAsia_Calcutta 0x328a44c3 /* Asia/Calcutta */
+#define kAtcZoneIdAsia_Chongqing 0xf937fb90 /* Asia/Chongqing */
+#define kAtcZoneIdAsia_Chungking 0xc7121dd0 /* Asia/Chungking */
+#define kAtcZoneIdAsia_Dacca 0x14bcac5e /* Asia/Dacca */
+#define kAtcZoneIdAsia_Harbin 0xb5af1186 /* Asia/Harbin */
+#define kAtcZoneIdAsia_Istanbul 0x382e7894 /* Asia/Istanbul */
+#define kAtcZoneIdAsia_Kashgar 0x52955193 /* Asia/Kashgar */
+#define kAtcZoneIdAsia_Katmandu 0xa7ec12c7 /* Asia/Katmandu */
+#define kAtcZoneIdAsia_Kuwait 0xbe1b2f27 /* Asia/Kuwait */
+#define kAtcZoneIdAsia_Macao 0x155f88b3 /* Asia/Macao */
+#define kAtcZoneIdAsia_Muscat 0xc2c3565f /* Asia/Muscat */
+#define kAtcZoneIdAsia_Phnom_Penh 0xc224945e /* Asia/Phnom_Penh */
+#define kAtcZoneIdAsia_Rangoon 0x6d1217c6 /* Asia/Rangoon */
+#define kAtcZoneIdAsia_Saigon 0xcf52f713 /* Asia/Saigon */
+#define kAtcZoneIdAsia_Tel_Aviv 0x166d7c2c /* Asia/Tel_Aviv */
+#define kAtcZoneIdAsia_Thimbu 0xd226e31b /* Asia/Thimbu */
+#define kAtcZoneIdAsia_Ujung_Pandang 0x5d001eb3 /* Asia/Ujung_Pandang */
+#define kAtcZoneIdAsia_Ulan_Bator 0x394db4d9 /* Asia/Ulan_Bator */
+#define kAtcZoneIdAsia_Vientiane 0x89d68d75 /* Asia/Vientiane */
+#define kAtcZoneIdAtlantic_Faeroe 0x031ec516 /* Atlantic/Faeroe */
+#define kAtcZoneIdAtlantic_Jan_Mayen 0x5a7535b6 /* Atlantic/Jan_Mayen */
+#define kAtcZoneIdAtlantic_St_Helena 0x451fc5f7 /* Atlantic/St_Helena */
+#define kAtcZoneIdAustralia_ACT 0x8a970eb2 /* Australia/ACT */
+#define kAtcZoneIdAustralia_Canberra 0x2a09ae58 /* Australia/Canberra */
+#define kAtcZoneIdAustralia_Currie 0x278b6a24 /* Australia/Currie */
+#define kAtcZoneIdAustralia_LHI 0x8a973e17 /* Australia/LHI */
+#define kAtcZoneIdAustralia_NSW 0x8a974812 /* Australia/NSW */
+#define kAtcZoneIdAustralia_North 0x8d997165 /* Australia/North */
+#define kAtcZoneIdAustralia_Queensland 0xd326ed0a /* Australia/Queensland */
+#define kAtcZoneIdAustralia_South 0x8df3f8ad /* Australia/South */
+#define kAtcZoneIdAustralia_Tasmania 0xe6d76648 /* Australia/Tasmania */
+#define kAtcZoneIdAustralia_Victoria 0x0260d5db /* Australia/Victoria */
+#define kAtcZoneIdAustralia_West 0xdd858a5d /* Australia/West */
+#define kAtcZoneIdAustralia_Yancowinna 0x90bac131 /* Australia/Yancowinna */
+#define kAtcZoneIdBrazil_Acre 0x66934f93 /* Brazil/Acre */
+#define kAtcZoneIdBrazil_DeNoronha 0x9b4cb496 /* Brazil/DeNoronha */
+#define kAtcZoneIdBrazil_East 0x669578c5 /* Brazil/East */
+#define kAtcZoneIdBrazil_West 0x669f689b /* Brazil/West */
+#define kAtcZoneIdCanada_Atlantic 0x536b119c /* Canada/Atlantic */
+#define kAtcZoneIdCanada_Central 0x626710f5 /* Canada/Central */
+#define kAtcZoneIdCanada_Eastern 0xf3612d5e /* Canada/Eastern */
+#define kAtcZoneIdCanada_Mountain 0xfb8a8217 /* Canada/Mountain */
+#define kAtcZoneIdCanada_Newfoundland 0xb396e991 /* Canada/Newfoundland */
+#define kAtcZoneIdCanada_Pacific 0x40fa3c7b /* Canada/Pacific */
+#define kAtcZoneIdCanada_Saskatchewan 0x77311f49 /* Canada/Saskatchewan */
+#define kAtcZoneIdCanada_Yukon 0x78dd35c2 /* Canada/Yukon */
+#define kAtcZoneIdChile_Continental 0x7e2bdb18 /* Chile/Continental */
+#define kAtcZoneIdChile_EasterIsland 0xb0982af8 /* Chile/EasterIsland */
+#define kAtcZoneIdCuba 0x7c83cba0 /* Cuba */
+#define kAtcZoneIdEgypt 0x0d1a278e /* Egypt */
+#define kAtcZoneIdEire 0x7c84b36a /* Eire */
+#define kAtcZoneIdEtc_GMT_PLUS_0 0x9d13da13 /* Etc/GMT+0 */
+#define kAtcZoneIdEtc_GMT_0 0x9d13da55 /* Etc/GMT-0 */
+#define kAtcZoneIdEtc_GMT0 0xf53ea988 /* Etc/GMT0 */
+#define kAtcZoneIdEtc_Greenwich 0x26daa98c /* Etc/Greenwich */
+#define kAtcZoneIdEtc_UCT 0xd8e3189c /* Etc/UCT */
+#define kAtcZoneIdEtc_Universal 0x2f8cb9a9 /* Etc/Universal */
+#define kAtcZoneIdEtc_Zulu 0xf549c240 /* Etc/Zulu */
+#define kAtcZoneIdEurope_Belfast 0xd07dd1e5 /* Europe/Belfast */
+#define kAtcZoneIdEurope_Bratislava 0xda493bed /* Europe/Bratislava */
+#define kAtcZoneIdEurope_Busingen 0xc06d2cdf /* Europe/Busingen */
+#define kAtcZoneIdEurope_Guernsey 0x3db12c16 /* Europe/Guernsey */
+#define kAtcZoneIdEurope_Isle_of_Man 0xeaf84580 /* Europe/Isle_of_Man */
+#define kAtcZoneIdEurope_Jersey 0x570dae76 /* Europe/Jersey */
+#define kAtcZoneIdEurope_Ljubljana 0xbd98cdb7 /* Europe/Ljubljana */
+#define kAtcZoneIdEurope_Mariehamn 0x0caa6496 /* Europe/Mariehamn */
+#define kAtcZoneIdEurope_Nicosia 0x74efab8a /* Europe/Nicosia */
+#define kAtcZoneIdEurope_Podgorica 0x1c1a499c /* Europe/Podgorica */
+#define kAtcZoneIdEurope_San_Marino 0xcef7724b /* Europe/San_Marino */
+#define kAtcZoneIdEurope_Sarajevo 0x6a576c3f /* Europe/Sarajevo */
+#define kAtcZoneIdEurope_Skopje 0x6c76fdd0 /* Europe/Skopje */
+#define kAtcZoneIdEurope_Tiraspol 0xbe704472 /* Europe/Tiraspol */
+#define kAtcZoneIdEurope_Vaduz 0xfbb81bae /* Europe/Vaduz */
+#define kAtcZoneIdEurope_Vatican 0xcb485dca /* Europe/Vatican */
+#define kAtcZoneIdEurope_Zagreb 0x7c11c9ff /* Europe/Zagreb */
+#define kAtcZoneIdGB 0x005973ae /* GB */
+#define kAtcZoneIdGB_Eire 0xfa70e300 /* GB-Eire */
+#define kAtcZoneIdGMT 0x0b87eb2d /* GMT */
+#define kAtcZoneIdGMT_PLUS_0 0x0d2f7028 /* GMT+0 */
+#define kAtcZoneIdGMT_0 0x0d2f706a /* GMT-0 */
+#define kAtcZoneIdGMT0 0x7c8550fd /* GMT0 */
+#define kAtcZoneIdGreenwich 0xc84d4221 /* Greenwich */
+#define kAtcZoneIdHongkong 0x56d36560 /* Hongkong */
+#define kAtcZoneIdIceland 0xe56a35b5 /* Iceland */
+#define kAtcZoneIdIndian_Antananarivo 0x9ebf5289 /* Indian/Antananarivo */
+#define kAtcZoneIdIndian_Comoro 0x45f4deb6 /* Indian/Comoro */
+#define kAtcZoneIdIndian_Mayotte 0xe6880bca /* Indian/Mayotte */
+#define kAtcZoneIdIran 0x7c87090f /* Iran */
+#define kAtcZoneIdIsrael 0xba88c9e5 /* Israel */
+#define kAtcZoneIdJamaica 0x2e44fdab /* Jamaica */
+#define kAtcZoneIdJapan 0x0d712f8f /* Japan */
+#define kAtcZoneIdKwajalein 0x0e57afbb /* Kwajalein */
+#define kAtcZoneIdLibya 0x0d998b16 /* Libya */
+#define kAtcZoneIdMexico_BajaNorte 0xfcf7150f /* Mexico/BajaNorte */
+#define kAtcZoneIdMexico_BajaSur 0x08ee3641 /* Mexico/BajaSur */
+#define kAtcZoneIdMexico_General 0x93711d57 /* Mexico/General */
+#define kAtcZoneIdNZ 0x005974ad /* NZ */
+#define kAtcZoneIdNZ_CHAT 0x4d42afda /* NZ-CHAT */
+#define kAtcZoneIdNavajo 0xc4ef0e24 /* Navajo */
+#define kAtcZoneIdPRC 0x0b88120a /* PRC */
+#define kAtcZoneIdPacific_Enderbury 0x61599a93 /* Pacific/Enderbury */
+#define kAtcZoneIdPacific_Johnston 0xb15d7b36 /* Pacific/Johnston */
+#define kAtcZoneIdPacific_Midway 0xe286d38e /* Pacific/Midway */
+#define kAtcZoneIdPacific_Ponape 0xe9f80086 /* Pacific/Ponape */
+#define kAtcZoneIdPacific_Saipan 0xeff7a35f /* Pacific/Saipan */
+#define kAtcZoneIdPacific_Samoa 0x8b2699b4 /* Pacific/Samoa */
+#define kAtcZoneIdPacific_Truk 0x234010a9 /* Pacific/Truk */
+#define kAtcZoneIdPacific_Yap 0xbb40138d /* Pacific/Yap */
+#define kAtcZoneIdPoland 0xca913b23 /* Poland */
+#define kAtcZoneIdPortugal 0xc3274593 /* Portugal */
+#define kAtcZoneIdROC 0x0b881a29 /* ROC */
+#define kAtcZoneIdROK 0x0b881a31 /* ROK */
+#define kAtcZoneIdSingapore 0xa8598c8d /* Singapore */
+#define kAtcZoneIdTurkey 0xd455e469 /* Turkey */
+#define kAtcZoneIdUCT 0x0b882571 /* UCT */
+#define kAtcZoneIdUS_Alaska 0xfa300bc9 /* US/Alaska */
+#define kAtcZoneIdUS_Aleutian 0x4fe013ef /* US/Aleutian */
+#define kAtcZoneIdUS_Arizona 0x4ec52670 /* US/Arizona */
+#define kAtcZoneIdUS_Central 0xcabdcb25 /* US/Central */
+#define kAtcZoneIdUS_East_Indiana 0x6dcf558a /* US/East-Indiana */
+#define kAtcZoneIdUS_Eastern 0x5bb7e78e /* US/Eastern */
+#define kAtcZoneIdUS_Hawaii 0x09c8de2f /* US/Hawaii */
+#define kAtcZoneIdUS_Indiana_Starke 0x67977be7 /* US/Indiana-Starke */
+#define kAtcZoneIdUS_Michigan 0x766bb7bc /* US/Michigan */
+#define kAtcZoneIdUS_Mountain 0x6eb88247 /* US/Mountain */
+#define kAtcZoneIdUS_Pacific 0xa950f6ab /* US/Pacific */
+#define kAtcZoneIdUS_Samoa 0x566821cd /* US/Samoa */
+#define kAtcZoneIdUTC 0x0b882791 /* UTC */
+#define kAtcZoneIdUniversal 0xd0ff523e /* Universal */
+#define kAtcZoneIdW_SU 0x7c8d8ef1 /* W-SU */
+#define kAtcZoneIdZulu 0x7c9069b5 /* Zulu */
 
 
 //---------------------------------------------------------------------------
@@ -1258,383 +1258,383 @@ const uint32_t kAtcZoneIdZulu = 0x7c9069b5; // Zulu
 // MaxBufSize: 7
 //---------------------------------------------------------------------------
 
-const uint8_t kAtcZoneBufSizeAfrica_Abidjan = 1;  // Africa/Abidjan in 2000
-const uint8_t kAtcZoneBufSizeAfrica_Algiers = 1;  // Africa/Algiers in 2000
-const uint8_t kAtcZoneBufSizeAfrica_Bissau = 1;  // Africa/Bissau in 2000
-const uint8_t kAtcZoneBufSizeAfrica_Cairo = 5;  // Africa/Cairo in 2010
-const uint8_t kAtcZoneBufSizeAfrica_Casablanca = 7;  // Africa/Casablanca in 2013
-const uint8_t kAtcZoneBufSizeAfrica_Ceuta = 5;  // Africa/Ceuta in 2000
-const uint8_t kAtcZoneBufSizeAfrica_El_Aaiun = 7;  // Africa/El_Aaiun in 2013
-const uint8_t kAtcZoneBufSizeAfrica_Johannesburg = 2;  // Africa/Johannesburg in 2000
-const uint8_t kAtcZoneBufSizeAfrica_Juba = 2;  // Africa/Juba in 2000
-const uint8_t kAtcZoneBufSizeAfrica_Khartoum = 2;  // Africa/Khartoum in 2000
-const uint8_t kAtcZoneBufSizeAfrica_Lagos = 1;  // Africa/Lagos in 2000
-const uint8_t kAtcZoneBufSizeAfrica_Maputo = 1;  // Africa/Maputo in 2000
-const uint8_t kAtcZoneBufSizeAfrica_Monrovia = 1;  // Africa/Monrovia in 2000
-const uint8_t kAtcZoneBufSizeAfrica_Nairobi = 1;  // Africa/Nairobi in 2000
-const uint8_t kAtcZoneBufSizeAfrica_Ndjamena = 1;  // Africa/Ndjamena in 2000
-const uint8_t kAtcZoneBufSizeAfrica_Sao_Tome = 3;  // Africa/Sao_Tome in 2018
-const uint8_t kAtcZoneBufSizeAfrica_Tripoli = 4;  // Africa/Tripoli in 2012
-const uint8_t kAtcZoneBufSizeAfrica_Tunis = 5;  // Africa/Tunis in 2005
-const uint8_t kAtcZoneBufSizeAfrica_Windhoek = 4;  // Africa/Windhoek in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Adak = 6;  // America/Adak in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Anchorage = 6;  // America/Anchorage in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Araguaina = 5;  // America/Araguaina in 2001
-const uint8_t kAtcZoneBufSizeAmerica_Argentina_Buenos_Aires = 5;  // America/Argentina/Buenos_Aires in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Argentina_Catamarca = 4;  // America/Argentina/Catamarca in 2004
-const uint8_t kAtcZoneBufSizeAmerica_Argentina_Cordoba = 5;  // America/Argentina/Cordoba in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Argentina_Jujuy = 4;  // America/Argentina/Jujuy in 2007
-const uint8_t kAtcZoneBufSizeAmerica_Argentina_La_Rioja = 4;  // America/Argentina/La_Rioja in 2004
-const uint8_t kAtcZoneBufSizeAmerica_Argentina_Mendoza = 4;  // America/Argentina/Mendoza in 2004
-const uint8_t kAtcZoneBufSizeAmerica_Argentina_Rio_Gallegos = 4;  // America/Argentina/Rio_Gallegos in 2004
-const uint8_t kAtcZoneBufSizeAmerica_Argentina_Salta = 4;  // America/Argentina/Salta in 2007
-const uint8_t kAtcZoneBufSizeAmerica_Argentina_San_Juan = 4;  // America/Argentina/San_Juan in 2004
-const uint8_t kAtcZoneBufSizeAmerica_Argentina_San_Luis = 7;  // America/Argentina/San_Luis in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Argentina_Tucuman = 5;  // America/Argentina/Tucuman in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Argentina_Ushuaia = 4;  // America/Argentina/Ushuaia in 2004
-const uint8_t kAtcZoneBufSizeAmerica_Asuncion = 5;  // America/Asuncion in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Bahia = 5;  // America/Bahia in 2001
-const uint8_t kAtcZoneBufSizeAmerica_Bahia_Banderas = 5;  // America/Bahia_Banderas in 2010
-const uint8_t kAtcZoneBufSizeAmerica_Barbados = 2;  // America/Barbados in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Belem = 1;  // America/Belem in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Belize = 2;  // America/Belize in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Boa_Vista = 4;  // America/Boa_Vista in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Bogota = 2;  // America/Bogota in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Boise = 6;  // America/Boise in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Cambridge_Bay = 6;  // America/Cambridge_Bay in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Campo_Grande = 6;  // America/Campo_Grande in 2003
-const uint8_t kAtcZoneBufSizeAmerica_Cancun = 4;  // America/Cancun in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Caracas = 2;  // America/Caracas in 2007
-const uint8_t kAtcZoneBufSizeAmerica_Cayenne = 1;  // America/Cayenne in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Chicago = 6;  // America/Chicago in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Chihuahua = 4;  // America/Chihuahua in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Costa_Rica = 2;  // America/Costa_Rica in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Cuiaba = 6;  // America/Cuiaba in 2005
-const uint8_t kAtcZoneBufSizeAmerica_Danmarkshavn = 1;  // America/Danmarkshavn in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Dawson = 6;  // America/Dawson in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Dawson_Creek = 1;  // America/Dawson_Creek in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Denver = 6;  // America/Denver in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Detroit = 6;  // America/Detroit in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Edmonton = 6;  // America/Edmonton in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Eirunepe = 2;  // America/Eirunepe in 2008
-const uint8_t kAtcZoneBufSizeAmerica_El_Salvador = 2;  // America/El_Salvador in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Fort_Nelson = 6;  // America/Fort_Nelson in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Fortaleza = 5;  // America/Fortaleza in 2001
-const uint8_t kAtcZoneBufSizeAmerica_Glace_Bay = 6;  // America/Glace_Bay in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Goose_Bay = 6;  // America/Goose_Bay in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Grand_Turk = 6;  // America/Grand_Turk in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Guatemala = 3;  // America/Guatemala in 2006
-const uint8_t kAtcZoneBufSizeAmerica_Guayaquil = 2;  // America/Guayaquil in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Guyana = 1;  // America/Guyana in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Halifax = 6;  // America/Halifax in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Havana = 6;  // America/Havana in 2015
-const uint8_t kAtcZoneBufSizeAmerica_Hermosillo = 1;  // America/Hermosillo in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Indiana_Indianapolis = 6;  // America/Indiana/Indianapolis in 2006
-const uint8_t kAtcZoneBufSizeAmerica_Indiana_Knox = 6;  // America/Indiana/Knox in 2006
-const uint8_t kAtcZoneBufSizeAmerica_Indiana_Marengo = 6;  // America/Indiana/Marengo in 2006
-const uint8_t kAtcZoneBufSizeAmerica_Indiana_Petersburg = 6;  // America/Indiana/Petersburg in 2006
-const uint8_t kAtcZoneBufSizeAmerica_Indiana_Tell_City = 6;  // America/Indiana/Tell_City in 2006
-const uint8_t kAtcZoneBufSizeAmerica_Indiana_Vevay = 6;  // America/Indiana/Vevay in 2006
-const uint8_t kAtcZoneBufSizeAmerica_Indiana_Vincennes = 6;  // America/Indiana/Vincennes in 2006
-const uint8_t kAtcZoneBufSizeAmerica_Indiana_Winamac = 6;  // America/Indiana/Winamac in 2006
-const uint8_t kAtcZoneBufSizeAmerica_Inuvik = 6;  // America/Inuvik in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Iqaluit = 6;  // America/Iqaluit in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Jamaica = 1;  // America/Jamaica in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Juneau = 6;  // America/Juneau in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Kentucky_Louisville = 6;  // America/Kentucky/Louisville in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Kentucky_Monticello = 6;  // America/Kentucky/Monticello in 2008
-const uint8_t kAtcZoneBufSizeAmerica_La_Paz = 1;  // America/La_Paz in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Lima = 2;  // America/Lima in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Los_Angeles = 6;  // America/Los_Angeles in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Maceio = 5;  // America/Maceio in 2001
-const uint8_t kAtcZoneBufSizeAmerica_Managua = 4;  // America/Managua in 2005
-const uint8_t kAtcZoneBufSizeAmerica_Manaus = 1;  // America/Manaus in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Martinique = 1;  // America/Martinique in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Matamoros = 6;  // America/Matamoros in 2009
-const uint8_t kAtcZoneBufSizeAmerica_Mazatlan = 4;  // America/Mazatlan in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Menominee = 6;  // America/Menominee in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Merida = 4;  // America/Merida in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Metlakatla = 6;  // America/Metlakatla in 2016
-const uint8_t kAtcZoneBufSizeAmerica_Mexico_City = 5;  // America/Mexico_City in 2002
-const uint8_t kAtcZoneBufSizeAmerica_Miquelon = 6;  // America/Miquelon in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Moncton = 6;  // America/Moncton in 2006
-const uint8_t kAtcZoneBufSizeAmerica_Monterrey = 4;  // America/Monterrey in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Montevideo = 5;  // America/Montevideo in 2005
-const uint8_t kAtcZoneBufSizeAmerica_New_York = 6;  // America/New_York in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Nipigon = 6;  // America/Nipigon in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Nome = 6;  // America/Nome in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Noronha = 5;  // America/Noronha in 2001
-const uint8_t kAtcZoneBufSizeAmerica_North_Dakota_Beulah = 6;  // America/North_Dakota/Beulah in 2008
-const uint8_t kAtcZoneBufSizeAmerica_North_Dakota_Center = 6;  // America/North_Dakota/Center in 2008
-const uint8_t kAtcZoneBufSizeAmerica_North_Dakota_New_Salem = 6;  // America/North_Dakota/New_Salem in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Nuuk = 5;  // America/Nuuk in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Ojinaga = 6;  // America/Ojinaga in 2009
-const uint8_t kAtcZoneBufSizeAmerica_Panama = 1;  // America/Panama in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Pangnirtung = 6;  // America/Pangnirtung in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Paramaribo = 1;  // America/Paramaribo in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Phoenix = 1;  // America/Phoenix in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Port_au_Prince = 6;  // America/Port-au-Prince in 2013
-const uint8_t kAtcZoneBufSizeAmerica_Porto_Velho = 1;  // America/Porto_Velho in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Puerto_Rico = 1;  // America/Puerto_Rico in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Punta_Arenas = 5;  // America/Punta_Arenas in 2002
-const uint8_t kAtcZoneBufSizeAmerica_Rainy_River = 6;  // America/Rainy_River in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Rankin_Inlet = 6;  // America/Rankin_Inlet in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Recife = 5;  // America/Recife in 2001
-const uint8_t kAtcZoneBufSizeAmerica_Regina = 1;  // America/Regina in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Resolute = 6;  // America/Resolute in 2007
-const uint8_t kAtcZoneBufSizeAmerica_Rio_Branco = 2;  // America/Rio_Branco in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Santarem = 2;  // America/Santarem in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Santiago = 5;  // America/Santiago in 2002
-const uint8_t kAtcZoneBufSizeAmerica_Santo_Domingo = 4;  // America/Santo_Domingo in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Sao_Paulo = 6;  // America/Sao_Paulo in 2003
-const uint8_t kAtcZoneBufSizeAmerica_Scoresbysund = 5;  // America/Scoresbysund in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Sitka = 6;  // America/Sitka in 2008
-const uint8_t kAtcZoneBufSizeAmerica_St_Johns = 6;  // America/St_Johns in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Swift_Current = 1;  // America/Swift_Current in 2000
-const uint8_t kAtcZoneBufSizeAmerica_Tegucigalpa = 3;  // America/Tegucigalpa in 2006
-const uint8_t kAtcZoneBufSizeAmerica_Thule = 6;  // America/Thule in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Thunder_Bay = 6;  // America/Thunder_Bay in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Tijuana = 6;  // America/Tijuana in 2009
-const uint8_t kAtcZoneBufSizeAmerica_Toronto = 6;  // America/Toronto in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Vancouver = 6;  // America/Vancouver in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Whitehorse = 6;  // America/Whitehorse in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Winnipeg = 6;  // America/Winnipeg in 2006
-const uint8_t kAtcZoneBufSizeAmerica_Yakutat = 6;  // America/Yakutat in 2008
-const uint8_t kAtcZoneBufSizeAmerica_Yellowknife = 6;  // America/Yellowknife in 2008
-const uint8_t kAtcZoneBufSizeAntarctica_Casey = 3;  // Antarctica/Casey in 2018
-const uint8_t kAtcZoneBufSizeAntarctica_Davis = 2;  // Antarctica/Davis in 2009
-const uint8_t kAtcZoneBufSizeAntarctica_Macquarie = 5;  // Antarctica/Macquarie in 2000
-const uint8_t kAtcZoneBufSizeAntarctica_Mawson = 2;  // Antarctica/Mawson in 2009
-const uint8_t kAtcZoneBufSizeAntarctica_Palmer = 5;  // Antarctica/Palmer in 2002
-const uint8_t kAtcZoneBufSizeAntarctica_Rothera = 1;  // Antarctica/Rothera in 2000
-const uint8_t kAtcZoneBufSizeAntarctica_Troll = 6;  // Antarctica/Troll in 2005
-const uint8_t kAtcZoneBufSizeAntarctica_Vostok = 1;  // Antarctica/Vostok in 2000
-const uint8_t kAtcZoneBufSizeAsia_Almaty = 5;  // Asia/Almaty in 2000
-const uint8_t kAtcZoneBufSizeAsia_Amman = 6;  // Asia/Amman in 2014
-const uint8_t kAtcZoneBufSizeAsia_Anadyr = 5;  // Asia/Anadyr in 2000
-const uint8_t kAtcZoneBufSizeAsia_Aqtau = 5;  // Asia/Aqtau in 2000
-const uint8_t kAtcZoneBufSizeAsia_Aqtobe = 5;  // Asia/Aqtobe in 2000
-const uint8_t kAtcZoneBufSizeAsia_Ashgabat = 1;  // Asia/Ashgabat in 2000
-const uint8_t kAtcZoneBufSizeAsia_Atyrau = 5;  // Asia/Atyrau in 2000
-const uint8_t kAtcZoneBufSizeAsia_Baghdad = 4;  // Asia/Baghdad in 2000
-const uint8_t kAtcZoneBufSizeAsia_Baku = 5;  // Asia/Baku in 2000
-const uint8_t kAtcZoneBufSizeAsia_Bangkok = 1;  // Asia/Bangkok in 2000
-const uint8_t kAtcZoneBufSizeAsia_Barnaul = 5;  // Asia/Barnaul in 2000
-const uint8_t kAtcZoneBufSizeAsia_Beirut = 5;  // Asia/Beirut in 2000
-const uint8_t kAtcZoneBufSizeAsia_Bishkek = 5;  // Asia/Bishkek in 2000
-const uint8_t kAtcZoneBufSizeAsia_Brunei = 1;  // Asia/Brunei in 2000
-const uint8_t kAtcZoneBufSizeAsia_Chita = 5;  // Asia/Chita in 2000
-const uint8_t kAtcZoneBufSizeAsia_Choibalsan = 5;  // Asia/Choibalsan in 2004
-const uint8_t kAtcZoneBufSizeAsia_Colombo = 2;  // Asia/Colombo in 2006
-const uint8_t kAtcZoneBufSizeAsia_Damascus = 6;  // Asia/Damascus in 2008
-const uint8_t kAtcZoneBufSizeAsia_Dhaka = 4;  // Asia/Dhaka in 2009
-const uint8_t kAtcZoneBufSizeAsia_Dili = 2;  // Asia/Dili in 2000
-const uint8_t kAtcZoneBufSizeAsia_Dubai = 1;  // Asia/Dubai in 2000
-const uint8_t kAtcZoneBufSizeAsia_Dushanbe = 1;  // Asia/Dushanbe in 2000
-const uint8_t kAtcZoneBufSizeAsia_Famagusta = 5;  // Asia/Famagusta in 2000
-const uint8_t kAtcZoneBufSizeAsia_Gaza = 7;  // Asia/Gaza in 2008
-const uint8_t kAtcZoneBufSizeAsia_Hebron = 7;  // Asia/Hebron in 2011
-const uint8_t kAtcZoneBufSizeAsia_Ho_Chi_Minh = 1;  // Asia/Ho_Chi_Minh in 2000
-const uint8_t kAtcZoneBufSizeAsia_Hong_Kong = 2;  // Asia/Hong_Kong in 2000
-const uint8_t kAtcZoneBufSizeAsia_Hovd = 5;  // Asia/Hovd in 2004
-const uint8_t kAtcZoneBufSizeAsia_Irkutsk = 5;  // Asia/Irkutsk in 2000
-const uint8_t kAtcZoneBufSizeAsia_Jakarta = 1;  // Asia/Jakarta in 2000
-const uint8_t kAtcZoneBufSizeAsia_Jayapura = 1;  // Asia/Jayapura in 2000
-const uint8_t kAtcZoneBufSizeAsia_Jerusalem = 5;  // Asia/Jerusalem in 2001
-const uint8_t kAtcZoneBufSizeAsia_Kabul = 1;  // Asia/Kabul in 2000
-const uint8_t kAtcZoneBufSizeAsia_Kamchatka = 5;  // Asia/Kamchatka in 2000
-const uint8_t kAtcZoneBufSizeAsia_Karachi = 4;  // Asia/Karachi in 2008
-const uint8_t kAtcZoneBufSizeAsia_Kathmandu = 1;  // Asia/Kathmandu in 2000
-const uint8_t kAtcZoneBufSizeAsia_Khandyga = 6;  // Asia/Khandyga in 2003
-const uint8_t kAtcZoneBufSizeAsia_Kolkata = 1;  // Asia/Kolkata in 2000
-const uint8_t kAtcZoneBufSizeAsia_Krasnoyarsk = 5;  // Asia/Krasnoyarsk in 2000
-const uint8_t kAtcZoneBufSizeAsia_Kuala_Lumpur = 1;  // Asia/Kuala_Lumpur in 2000
-const uint8_t kAtcZoneBufSizeAsia_Kuching = 1;  // Asia/Kuching in 2000
-const uint8_t kAtcZoneBufSizeAsia_Macau = 2;  // Asia/Macau in 2000
-const uint8_t kAtcZoneBufSizeAsia_Magadan = 5;  // Asia/Magadan in 2000
-const uint8_t kAtcZoneBufSizeAsia_Makassar = 1;  // Asia/Makassar in 2000
-const uint8_t kAtcZoneBufSizeAsia_Manila = 2;  // Asia/Manila in 2000
-const uint8_t kAtcZoneBufSizeAsia_Nicosia = 5;  // Asia/Nicosia in 2000
-const uint8_t kAtcZoneBufSizeAsia_Novokuznetsk = 5;  // Asia/Novokuznetsk in 2000
-const uint8_t kAtcZoneBufSizeAsia_Novosibirsk = 5;  // Asia/Novosibirsk in 2000
-const uint8_t kAtcZoneBufSizeAsia_Omsk = 5;  // Asia/Omsk in 2000
-const uint8_t kAtcZoneBufSizeAsia_Oral = 5;  // Asia/Oral in 2000
-const uint8_t kAtcZoneBufSizeAsia_Pontianak = 1;  // Asia/Pontianak in 2000
-const uint8_t kAtcZoneBufSizeAsia_Pyongyang = 2;  // Asia/Pyongyang in 2015
-const uint8_t kAtcZoneBufSizeAsia_Qatar = 1;  // Asia/Qatar in 2000
-const uint8_t kAtcZoneBufSizeAsia_Qostanay = 5;  // Asia/Qostanay in 2000
-const uint8_t kAtcZoneBufSizeAsia_Qyzylorda = 5;  // Asia/Qyzylorda in 2000
-const uint8_t kAtcZoneBufSizeAsia_Riyadh = 1;  // Asia/Riyadh in 2000
-const uint8_t kAtcZoneBufSizeAsia_Sakhalin = 5;  // Asia/Sakhalin in 2000
-const uint8_t kAtcZoneBufSizeAsia_Samarkand = 1;  // Asia/Samarkand in 2000
-const uint8_t kAtcZoneBufSizeAsia_Seoul = 2;  // Asia/Seoul in 2000
-const uint8_t kAtcZoneBufSizeAsia_Shanghai = 2;  // Asia/Shanghai in 2000
-const uint8_t kAtcZoneBufSizeAsia_Singapore = 1;  // Asia/Singapore in 2000
-const uint8_t kAtcZoneBufSizeAsia_Srednekolymsk = 5;  // Asia/Srednekolymsk in 2000
-const uint8_t kAtcZoneBufSizeAsia_Taipei = 2;  // Asia/Taipei in 2000
-const uint8_t kAtcZoneBufSizeAsia_Tashkent = 1;  // Asia/Tashkent in 2000
-const uint8_t kAtcZoneBufSizeAsia_Tbilisi = 6;  // Asia/Tbilisi in 2004
-const uint8_t kAtcZoneBufSizeAsia_Tehran = 5;  // Asia/Tehran in 2000
-const uint8_t kAtcZoneBufSizeAsia_Thimphu = 1;  // Asia/Thimphu in 2000
-const uint8_t kAtcZoneBufSizeAsia_Tokyo = 2;  // Asia/Tokyo in 2000
-const uint8_t kAtcZoneBufSizeAsia_Tomsk = 6;  // Asia/Tomsk in 2002
-const uint8_t kAtcZoneBufSizeAsia_Ulaanbaatar = 5;  // Asia/Ulaanbaatar in 2004
-const uint8_t kAtcZoneBufSizeAsia_Urumqi = 1;  // Asia/Urumqi in 2000
-const uint8_t kAtcZoneBufSizeAsia_Ust_Nera = 5;  // Asia/Ust-Nera in 2000
-const uint8_t kAtcZoneBufSizeAsia_Vladivostok = 5;  // Asia/Vladivostok in 2000
-const uint8_t kAtcZoneBufSizeAsia_Yakutsk = 5;  // Asia/Yakutsk in 2000
-const uint8_t kAtcZoneBufSizeAsia_Yangon = 1;  // Asia/Yangon in 2000
-const uint8_t kAtcZoneBufSizeAsia_Yekaterinburg = 5;  // Asia/Yekaterinburg in 2000
-const uint8_t kAtcZoneBufSizeAsia_Yerevan = 6;  // Asia/Yerevan in 2010
-const uint8_t kAtcZoneBufSizeAtlantic_Azores = 5;  // Atlantic/Azores in 2000
-const uint8_t kAtcZoneBufSizeAtlantic_Bermuda = 6;  // Atlantic/Bermuda in 2008
-const uint8_t kAtcZoneBufSizeAtlantic_Canary = 5;  // Atlantic/Canary in 2000
-const uint8_t kAtcZoneBufSizeAtlantic_Cape_Verde = 1;  // Atlantic/Cape_Verde in 2000
-const uint8_t kAtcZoneBufSizeAtlantic_Faroe = 5;  // Atlantic/Faroe in 2000
-const uint8_t kAtcZoneBufSizeAtlantic_Madeira = 5;  // Atlantic/Madeira in 2000
-const uint8_t kAtcZoneBufSizeAtlantic_Reykjavik = 1;  // Atlantic/Reykjavik in 2000
-const uint8_t kAtcZoneBufSizeAtlantic_South_Georgia = 1;  // Atlantic/South_Georgia in 2000
-const uint8_t kAtcZoneBufSizeAtlantic_Stanley = 4;  // Atlantic/Stanley in 2000
-const uint8_t kAtcZoneBufSizeAustralia_Adelaide = 5;  // Australia/Adelaide in 2000
-const uint8_t kAtcZoneBufSizeAustralia_Brisbane = 2;  // Australia/Brisbane in 2000
-const uint8_t kAtcZoneBufSizeAustralia_Broken_Hill = 6;  // Australia/Broken_Hill in 2000
-const uint8_t kAtcZoneBufSizeAustralia_Darwin = 2;  // Australia/Darwin in 2000
-const uint8_t kAtcZoneBufSizeAustralia_Eucla = 6;  // Australia/Eucla in 2007
-const uint8_t kAtcZoneBufSizeAustralia_Hobart = 5;  // Australia/Hobart in 2000
-const uint8_t kAtcZoneBufSizeAustralia_Lindeman = 2;  // Australia/Lindeman in 2000
-const uint8_t kAtcZoneBufSizeAustralia_Lord_Howe = 5;  // Australia/Lord_Howe in 2000
-const uint8_t kAtcZoneBufSizeAustralia_Melbourne = 5;  // Australia/Melbourne in 2000
-const uint8_t kAtcZoneBufSizeAustralia_Perth = 6;  // Australia/Perth in 2007
-const uint8_t kAtcZoneBufSizeAustralia_Sydney = 5;  // Australia/Sydney in 2000
-const uint8_t kAtcZoneBufSizeCET = 5;  // CET in 2000
-const uint8_t kAtcZoneBufSizeCST6CDT = 6;  // CST6CDT in 2008
-const uint8_t kAtcZoneBufSizeEET = 5;  // EET in 2000
-const uint8_t kAtcZoneBufSizeEST = 1;  // EST in 2000
-const uint8_t kAtcZoneBufSizeEST5EDT = 6;  // EST5EDT in 2008
-const uint8_t kAtcZoneBufSizeEtc_GMT = 1;  // Etc/GMT in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_PLUS_1 = 1;  // Etc/GMT+1 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_PLUS_10 = 1;  // Etc/GMT+10 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_PLUS_11 = 1;  // Etc/GMT+11 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_PLUS_12 = 1;  // Etc/GMT+12 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_PLUS_2 = 1;  // Etc/GMT+2 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_PLUS_3 = 1;  // Etc/GMT+3 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_PLUS_4 = 1;  // Etc/GMT+4 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_PLUS_5 = 1;  // Etc/GMT+5 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_PLUS_6 = 1;  // Etc/GMT+6 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_PLUS_7 = 1;  // Etc/GMT+7 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_PLUS_8 = 1;  // Etc/GMT+8 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_PLUS_9 = 1;  // Etc/GMT+9 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_1 = 1;  // Etc/GMT-1 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_10 = 1;  // Etc/GMT-10 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_11 = 1;  // Etc/GMT-11 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_12 = 1;  // Etc/GMT-12 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_13 = 1;  // Etc/GMT-13 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_14 = 1;  // Etc/GMT-14 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_2 = 1;  // Etc/GMT-2 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_3 = 1;  // Etc/GMT-3 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_4 = 1;  // Etc/GMT-4 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_5 = 1;  // Etc/GMT-5 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_6 = 1;  // Etc/GMT-6 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_7 = 1;  // Etc/GMT-7 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_8 = 1;  // Etc/GMT-8 in 2000
-const uint8_t kAtcZoneBufSizeEtc_GMT_9 = 1;  // Etc/GMT-9 in 2000
-const uint8_t kAtcZoneBufSizeEtc_UTC = 1;  // Etc/UTC in 2000
-const uint8_t kAtcZoneBufSizeEurope_Amsterdam = 5;  // Europe/Amsterdam in 2000
-const uint8_t kAtcZoneBufSizeEurope_Andorra = 5;  // Europe/Andorra in 2000
-const uint8_t kAtcZoneBufSizeEurope_Astrakhan = 5;  // Europe/Astrakhan in 2000
-const uint8_t kAtcZoneBufSizeEurope_Athens = 5;  // Europe/Athens in 2000
-const uint8_t kAtcZoneBufSizeEurope_Belgrade = 5;  // Europe/Belgrade in 2000
-const uint8_t kAtcZoneBufSizeEurope_Berlin = 5;  // Europe/Berlin in 2000
-const uint8_t kAtcZoneBufSizeEurope_Brussels = 5;  // Europe/Brussels in 2000
-const uint8_t kAtcZoneBufSizeEurope_Bucharest = 5;  // Europe/Bucharest in 2000
-const uint8_t kAtcZoneBufSizeEurope_Budapest = 5;  // Europe/Budapest in 2000
-const uint8_t kAtcZoneBufSizeEurope_Chisinau = 5;  // Europe/Chisinau in 2000
-const uint8_t kAtcZoneBufSizeEurope_Copenhagen = 5;  // Europe/Copenhagen in 2000
-const uint8_t kAtcZoneBufSizeEurope_Dublin = 5;  // Europe/Dublin in 2000
-const uint8_t kAtcZoneBufSizeEurope_Gibraltar = 5;  // Europe/Gibraltar in 2000
-const uint8_t kAtcZoneBufSizeEurope_Helsinki = 5;  // Europe/Helsinki in 2000
-const uint8_t kAtcZoneBufSizeEurope_Istanbul = 7;  // Europe/Istanbul in 2011
-const uint8_t kAtcZoneBufSizeEurope_Kaliningrad = 5;  // Europe/Kaliningrad in 2000
-const uint8_t kAtcZoneBufSizeEurope_Kiev = 5;  // Europe/Kiev in 2000
-const uint8_t kAtcZoneBufSizeEurope_Kirov = 5;  // Europe/Kirov in 2000
-const uint8_t kAtcZoneBufSizeEurope_Lisbon = 5;  // Europe/Lisbon in 2000
-const uint8_t kAtcZoneBufSizeEurope_London = 5;  // Europe/London in 2000
-const uint8_t kAtcZoneBufSizeEurope_Luxembourg = 5;  // Europe/Luxembourg in 2000
-const uint8_t kAtcZoneBufSizeEurope_Madrid = 5;  // Europe/Madrid in 2000
-const uint8_t kAtcZoneBufSizeEurope_Malta = 5;  // Europe/Malta in 2000
-const uint8_t kAtcZoneBufSizeEurope_Minsk = 5;  // Europe/Minsk in 2000
-const uint8_t kAtcZoneBufSizeEurope_Monaco = 5;  // Europe/Monaco in 2000
-const uint8_t kAtcZoneBufSizeEurope_Moscow = 5;  // Europe/Moscow in 2000
-const uint8_t kAtcZoneBufSizeEurope_Oslo = 5;  // Europe/Oslo in 2000
-const uint8_t kAtcZoneBufSizeEurope_Paris = 5;  // Europe/Paris in 2000
-const uint8_t kAtcZoneBufSizeEurope_Prague = 5;  // Europe/Prague in 2000
-const uint8_t kAtcZoneBufSizeEurope_Riga = 6;  // Europe/Riga in 2001
-const uint8_t kAtcZoneBufSizeEurope_Rome = 5;  // Europe/Rome in 2000
-const uint8_t kAtcZoneBufSizeEurope_Samara = 5;  // Europe/Samara in 2000
-const uint8_t kAtcZoneBufSizeEurope_Saratov = 5;  // Europe/Saratov in 2000
-const uint8_t kAtcZoneBufSizeEurope_Simferopol = 5;  // Europe/Simferopol in 2000
-const uint8_t kAtcZoneBufSizeEurope_Sofia = 5;  // Europe/Sofia in 2000
-const uint8_t kAtcZoneBufSizeEurope_Stockholm = 5;  // Europe/Stockholm in 2000
-const uint8_t kAtcZoneBufSizeEurope_Tallinn = 6;  // Europe/Tallinn in 2002
-const uint8_t kAtcZoneBufSizeEurope_Tirane = 5;  // Europe/Tirane in 2000
-const uint8_t kAtcZoneBufSizeEurope_Ulyanovsk = 5;  // Europe/Ulyanovsk in 2000
-const uint8_t kAtcZoneBufSizeEurope_Uzhgorod = 5;  // Europe/Uzhgorod in 2000
-const uint8_t kAtcZoneBufSizeEurope_Vienna = 5;  // Europe/Vienna in 2000
-const uint8_t kAtcZoneBufSizeEurope_Vilnius = 6;  // Europe/Vilnius in 2003
-const uint8_t kAtcZoneBufSizeEurope_Volgograd = 5;  // Europe/Volgograd in 2000
-const uint8_t kAtcZoneBufSizeEurope_Warsaw = 5;  // Europe/Warsaw in 2000
-const uint8_t kAtcZoneBufSizeEurope_Zaporozhye = 5;  // Europe/Zaporozhye in 2000
-const uint8_t kAtcZoneBufSizeEurope_Zurich = 5;  // Europe/Zurich in 2000
-const uint8_t kAtcZoneBufSizeHST = 1;  // HST in 2000
-const uint8_t kAtcZoneBufSizeIndian_Chagos = 1;  // Indian/Chagos in 2000
-const uint8_t kAtcZoneBufSizeIndian_Christmas = 1;  // Indian/Christmas in 2000
-const uint8_t kAtcZoneBufSizeIndian_Cocos = 1;  // Indian/Cocos in 2000
-const uint8_t kAtcZoneBufSizeIndian_Kerguelen = 1;  // Indian/Kerguelen in 2000
-const uint8_t kAtcZoneBufSizeIndian_Mahe = 1;  // Indian/Mahe in 2000
-const uint8_t kAtcZoneBufSizeIndian_Maldives = 1;  // Indian/Maldives in 2000
-const uint8_t kAtcZoneBufSizeIndian_Mauritius = 3;  // Indian/Mauritius in 2008
-const uint8_t kAtcZoneBufSizeIndian_Reunion = 1;  // Indian/Reunion in 2000
-const uint8_t kAtcZoneBufSizeMET = 5;  // MET in 2000
-const uint8_t kAtcZoneBufSizeMST = 1;  // MST in 2000
-const uint8_t kAtcZoneBufSizeMST7MDT = 6;  // MST7MDT in 2008
-const uint8_t kAtcZoneBufSizePST8PDT = 6;  // PST8PDT in 2008
-const uint8_t kAtcZoneBufSizePacific_Apia = 5;  // Pacific/Apia in 2011
-const uint8_t kAtcZoneBufSizePacific_Auckland = 5;  // Pacific/Auckland in 2000
-const uint8_t kAtcZoneBufSizePacific_Bougainville = 2;  // Pacific/Bougainville in 2014
-const uint8_t kAtcZoneBufSizePacific_Chatham = 5;  // Pacific/Chatham in 2000
-const uint8_t kAtcZoneBufSizePacific_Chuuk = 1;  // Pacific/Chuuk in 2000
-const uint8_t kAtcZoneBufSizePacific_Easter = 5;  // Pacific/Easter in 2002
-const uint8_t kAtcZoneBufSizePacific_Efate = 2;  // Pacific/Efate in 2000
-const uint8_t kAtcZoneBufSizePacific_Fakaofo = 2;  // Pacific/Fakaofo in 2011
-const uint8_t kAtcZoneBufSizePacific_Fiji = 6;  // Pacific/Fiji in 2017
-const uint8_t kAtcZoneBufSizePacific_Funafuti = 1;  // Pacific/Funafuti in 2000
-const uint8_t kAtcZoneBufSizePacific_Galapagos = 2;  // Pacific/Galapagos in 2000
-const uint8_t kAtcZoneBufSizePacific_Gambier = 1;  // Pacific/Gambier in 2000
-const uint8_t kAtcZoneBufSizePacific_Guadalcanal = 1;  // Pacific/Guadalcanal in 2000
-const uint8_t kAtcZoneBufSizePacific_Guam = 2;  // Pacific/Guam in 2000
-const uint8_t kAtcZoneBufSizePacific_Honolulu = 1;  // Pacific/Honolulu in 2000
-const uint8_t kAtcZoneBufSizePacific_Kanton = 1;  // Pacific/Kanton in 2000
-const uint8_t kAtcZoneBufSizePacific_Kiritimati = 1;  // Pacific/Kiritimati in 2000
-const uint8_t kAtcZoneBufSizePacific_Kosrae = 1;  // Pacific/Kosrae in 2000
-const uint8_t kAtcZoneBufSizePacific_Kwajalein = 1;  // Pacific/Kwajalein in 2000
-const uint8_t kAtcZoneBufSizePacific_Majuro = 1;  // Pacific/Majuro in 2000
-const uint8_t kAtcZoneBufSizePacific_Marquesas = 1;  // Pacific/Marquesas in 2000
-const uint8_t kAtcZoneBufSizePacific_Nauru = 1;  // Pacific/Nauru in 2000
-const uint8_t kAtcZoneBufSizePacific_Niue = 1;  // Pacific/Niue in 2000
-const uint8_t kAtcZoneBufSizePacific_Norfolk = 4;  // Pacific/Norfolk in 2019
-const uint8_t kAtcZoneBufSizePacific_Noumea = 2;  // Pacific/Noumea in 2000
-const uint8_t kAtcZoneBufSizePacific_Pago_Pago = 1;  // Pacific/Pago_Pago in 2000
-const uint8_t kAtcZoneBufSizePacific_Palau = 1;  // Pacific/Palau in 2000
-const uint8_t kAtcZoneBufSizePacific_Pitcairn = 1;  // Pacific/Pitcairn in 2000
-const uint8_t kAtcZoneBufSizePacific_Pohnpei = 1;  // Pacific/Pohnpei in 2000
-const uint8_t kAtcZoneBufSizePacific_Port_Moresby = 1;  // Pacific/Port_Moresby in 2000
-const uint8_t kAtcZoneBufSizePacific_Rarotonga = 2;  // Pacific/Rarotonga in 2000
-const uint8_t kAtcZoneBufSizePacific_Tahiti = 1;  // Pacific/Tahiti in 2000
-const uint8_t kAtcZoneBufSizePacific_Tarawa = 1;  // Pacific/Tarawa in 2000
-const uint8_t kAtcZoneBufSizePacific_Tongatapu = 5;  // Pacific/Tongatapu in 2001
-const uint8_t kAtcZoneBufSizePacific_Wake = 1;  // Pacific/Wake in 2000
-const uint8_t kAtcZoneBufSizePacific_Wallis = 1;  // Pacific/Wallis in 2000
-const uint8_t kAtcZoneBufSizeWET = 5;  // WET in 2000
+#define kAtcZoneBufSizeAfrica_Abidjan 1  /* Africa/Abidjan in 2000 */
+#define kAtcZoneBufSizeAfrica_Algiers 1  /* Africa/Algiers in 2000 */
+#define kAtcZoneBufSizeAfrica_Bissau 1  /* Africa/Bissau in 2000 */
+#define kAtcZoneBufSizeAfrica_Cairo 5  /* Africa/Cairo in 2010 */
+#define kAtcZoneBufSizeAfrica_Casablanca 7  /* Africa/Casablanca in 2013 */
+#define kAtcZoneBufSizeAfrica_Ceuta 5  /* Africa/Ceuta in 2000 */
+#define kAtcZoneBufSizeAfrica_El_Aaiun 7  /* Africa/El_Aaiun in 2013 */
+#define kAtcZoneBufSizeAfrica_Johannesburg 2  /* Africa/Johannesburg in 2000 */
+#define kAtcZoneBufSizeAfrica_Juba 2  /* Africa/Juba in 2000 */
+#define kAtcZoneBufSizeAfrica_Khartoum 2  /* Africa/Khartoum in 2000 */
+#define kAtcZoneBufSizeAfrica_Lagos 1  /* Africa/Lagos in 2000 */
+#define kAtcZoneBufSizeAfrica_Maputo 1  /* Africa/Maputo in 2000 */
+#define kAtcZoneBufSizeAfrica_Monrovia 1  /* Africa/Monrovia in 2000 */
+#define kAtcZoneBufSizeAfrica_Nairobi 1  /* Africa/Nairobi in 2000 */
+#define kAtcZoneBufSizeAfrica_Ndjamena 1  /* Africa/Ndjamena in 2000 */
+#define kAtcZoneBufSizeAfrica_Sao_Tome 3  /* Africa/Sao_Tome in 2018 */
+#define kAtcZoneBufSizeAfrica_Tripoli 4  /* Africa/Tripoli in 2012 */
+#define kAtcZoneBufSizeAfrica_Tunis 5  /* Africa/Tunis in 2005 */
+#define kAtcZoneBufSizeAfrica_Windhoek 4  /* Africa/Windhoek in 2000 */
+#define kAtcZoneBufSizeAmerica_Adak 6  /* America/Adak in 2008 */
+#define kAtcZoneBufSizeAmerica_Anchorage 6  /* America/Anchorage in 2008 */
+#define kAtcZoneBufSizeAmerica_Araguaina 5  /* America/Araguaina in 2001 */
+#define kAtcZoneBufSizeAmerica_Argentina_Buenos_Aires 5  /* America/Argentina/Buenos_Aires in 2008 */
+#define kAtcZoneBufSizeAmerica_Argentina_Catamarca 4  /* America/Argentina/Catamarca in 2004 */
+#define kAtcZoneBufSizeAmerica_Argentina_Cordoba 5  /* America/Argentina/Cordoba in 2008 */
+#define kAtcZoneBufSizeAmerica_Argentina_Jujuy 4  /* America/Argentina/Jujuy in 2007 */
+#define kAtcZoneBufSizeAmerica_Argentina_La_Rioja 4  /* America/Argentina/La_Rioja in 2004 */
+#define kAtcZoneBufSizeAmerica_Argentina_Mendoza 4  /* America/Argentina/Mendoza in 2004 */
+#define kAtcZoneBufSizeAmerica_Argentina_Rio_Gallegos 4  /* America/Argentina/Rio_Gallegos in 2004 */
+#define kAtcZoneBufSizeAmerica_Argentina_Salta 4  /* America/Argentina/Salta in 2007 */
+#define kAtcZoneBufSizeAmerica_Argentina_San_Juan 4  /* America/Argentina/San_Juan in 2004 */
+#define kAtcZoneBufSizeAmerica_Argentina_San_Luis 7  /* America/Argentina/San_Luis in 2008 */
+#define kAtcZoneBufSizeAmerica_Argentina_Tucuman 5  /* America/Argentina/Tucuman in 2008 */
+#define kAtcZoneBufSizeAmerica_Argentina_Ushuaia 4  /* America/Argentina/Ushuaia in 2004 */
+#define kAtcZoneBufSizeAmerica_Asuncion 5  /* America/Asuncion in 2000 */
+#define kAtcZoneBufSizeAmerica_Bahia 5  /* America/Bahia in 2001 */
+#define kAtcZoneBufSizeAmerica_Bahia_Banderas 5  /* America/Bahia_Banderas in 2010 */
+#define kAtcZoneBufSizeAmerica_Barbados 2  /* America/Barbados in 2000 */
+#define kAtcZoneBufSizeAmerica_Belem 1  /* America/Belem in 2000 */
+#define kAtcZoneBufSizeAmerica_Belize 2  /* America/Belize in 2000 */
+#define kAtcZoneBufSizeAmerica_Boa_Vista 4  /* America/Boa_Vista in 2000 */
+#define kAtcZoneBufSizeAmerica_Bogota 2  /* America/Bogota in 2000 */
+#define kAtcZoneBufSizeAmerica_Boise 6  /* America/Boise in 2008 */
+#define kAtcZoneBufSizeAmerica_Cambridge_Bay 6  /* America/Cambridge_Bay in 2008 */
+#define kAtcZoneBufSizeAmerica_Campo_Grande 6  /* America/Campo_Grande in 2003 */
+#define kAtcZoneBufSizeAmerica_Cancun 4  /* America/Cancun in 2000 */
+#define kAtcZoneBufSizeAmerica_Caracas 2  /* America/Caracas in 2007 */
+#define kAtcZoneBufSizeAmerica_Cayenne 1  /* America/Cayenne in 2000 */
+#define kAtcZoneBufSizeAmerica_Chicago 6  /* America/Chicago in 2008 */
+#define kAtcZoneBufSizeAmerica_Chihuahua 4  /* America/Chihuahua in 2000 */
+#define kAtcZoneBufSizeAmerica_Costa_Rica 2  /* America/Costa_Rica in 2000 */
+#define kAtcZoneBufSizeAmerica_Cuiaba 6  /* America/Cuiaba in 2005 */
+#define kAtcZoneBufSizeAmerica_Danmarkshavn 1  /* America/Danmarkshavn in 2000 */
+#define kAtcZoneBufSizeAmerica_Dawson 6  /* America/Dawson in 2008 */
+#define kAtcZoneBufSizeAmerica_Dawson_Creek 1  /* America/Dawson_Creek in 2000 */
+#define kAtcZoneBufSizeAmerica_Denver 6  /* America/Denver in 2008 */
+#define kAtcZoneBufSizeAmerica_Detroit 6  /* America/Detroit in 2008 */
+#define kAtcZoneBufSizeAmerica_Edmonton 6  /* America/Edmonton in 2008 */
+#define kAtcZoneBufSizeAmerica_Eirunepe 2  /* America/Eirunepe in 2008 */
+#define kAtcZoneBufSizeAmerica_El_Salvador 2  /* America/El_Salvador in 2000 */
+#define kAtcZoneBufSizeAmerica_Fort_Nelson 6  /* America/Fort_Nelson in 2008 */
+#define kAtcZoneBufSizeAmerica_Fortaleza 5  /* America/Fortaleza in 2001 */
+#define kAtcZoneBufSizeAmerica_Glace_Bay 6  /* America/Glace_Bay in 2008 */
+#define kAtcZoneBufSizeAmerica_Goose_Bay 6  /* America/Goose_Bay in 2008 */
+#define kAtcZoneBufSizeAmerica_Grand_Turk 6  /* America/Grand_Turk in 2008 */
+#define kAtcZoneBufSizeAmerica_Guatemala 3  /* America/Guatemala in 2006 */
+#define kAtcZoneBufSizeAmerica_Guayaquil 2  /* America/Guayaquil in 2000 */
+#define kAtcZoneBufSizeAmerica_Guyana 1  /* America/Guyana in 2000 */
+#define kAtcZoneBufSizeAmerica_Halifax 6  /* America/Halifax in 2008 */
+#define kAtcZoneBufSizeAmerica_Havana 6  /* America/Havana in 2015 */
+#define kAtcZoneBufSizeAmerica_Hermosillo 1  /* America/Hermosillo in 2000 */
+#define kAtcZoneBufSizeAmerica_Indiana_Indianapolis 6  /* America/Indiana/Indianapolis in 2006 */
+#define kAtcZoneBufSizeAmerica_Indiana_Knox 6  /* America/Indiana/Knox in 2006 */
+#define kAtcZoneBufSizeAmerica_Indiana_Marengo 6  /* America/Indiana/Marengo in 2006 */
+#define kAtcZoneBufSizeAmerica_Indiana_Petersburg 6  /* America/Indiana/Petersburg in 2006 */
+#define kAtcZoneBufSizeAmerica_Indiana_Tell_City 6  /* America/Indiana/Tell_City in 2006 */
+#define kAtcZoneBufSizeAmerica_Indiana_Vevay 6  /* America/Indiana/Vevay in 2006 */
+#define kAtcZoneBufSizeAmerica_Indiana_Vincennes 6  /* America/Indiana/Vincennes in 2006 */
+#define kAtcZoneBufSizeAmerica_Indiana_Winamac 6  /* America/Indiana/Winamac in 2006 */
+#define kAtcZoneBufSizeAmerica_Inuvik 6  /* America/Inuvik in 2008 */
+#define kAtcZoneBufSizeAmerica_Iqaluit 6  /* America/Iqaluit in 2008 */
+#define kAtcZoneBufSizeAmerica_Jamaica 1  /* America/Jamaica in 2000 */
+#define kAtcZoneBufSizeAmerica_Juneau 6  /* America/Juneau in 2008 */
+#define kAtcZoneBufSizeAmerica_Kentucky_Louisville 6  /* America/Kentucky/Louisville in 2008 */
+#define kAtcZoneBufSizeAmerica_Kentucky_Monticello 6  /* America/Kentucky/Monticello in 2008 */
+#define kAtcZoneBufSizeAmerica_La_Paz 1  /* America/La_Paz in 2000 */
+#define kAtcZoneBufSizeAmerica_Lima 2  /* America/Lima in 2000 */
+#define kAtcZoneBufSizeAmerica_Los_Angeles 6  /* America/Los_Angeles in 2008 */
+#define kAtcZoneBufSizeAmerica_Maceio 5  /* America/Maceio in 2001 */
+#define kAtcZoneBufSizeAmerica_Managua 4  /* America/Managua in 2005 */
+#define kAtcZoneBufSizeAmerica_Manaus 1  /* America/Manaus in 2000 */
+#define kAtcZoneBufSizeAmerica_Martinique 1  /* America/Martinique in 2000 */
+#define kAtcZoneBufSizeAmerica_Matamoros 6  /* America/Matamoros in 2009 */
+#define kAtcZoneBufSizeAmerica_Mazatlan 4  /* America/Mazatlan in 2000 */
+#define kAtcZoneBufSizeAmerica_Menominee 6  /* America/Menominee in 2008 */
+#define kAtcZoneBufSizeAmerica_Merida 4  /* America/Merida in 2000 */
+#define kAtcZoneBufSizeAmerica_Metlakatla 6  /* America/Metlakatla in 2016 */
+#define kAtcZoneBufSizeAmerica_Mexico_City 5  /* America/Mexico_City in 2002 */
+#define kAtcZoneBufSizeAmerica_Miquelon 6  /* America/Miquelon in 2008 */
+#define kAtcZoneBufSizeAmerica_Moncton 6  /* America/Moncton in 2006 */
+#define kAtcZoneBufSizeAmerica_Monterrey 4  /* America/Monterrey in 2000 */
+#define kAtcZoneBufSizeAmerica_Montevideo 5  /* America/Montevideo in 2005 */
+#define kAtcZoneBufSizeAmerica_New_York 6  /* America/New_York in 2008 */
+#define kAtcZoneBufSizeAmerica_Nipigon 6  /* America/Nipigon in 2008 */
+#define kAtcZoneBufSizeAmerica_Nome 6  /* America/Nome in 2008 */
+#define kAtcZoneBufSizeAmerica_Noronha 5  /* America/Noronha in 2001 */
+#define kAtcZoneBufSizeAmerica_North_Dakota_Beulah 6  /* America/North_Dakota/Beulah in 2008 */
+#define kAtcZoneBufSizeAmerica_North_Dakota_Center 6  /* America/North_Dakota/Center in 2008 */
+#define kAtcZoneBufSizeAmerica_North_Dakota_New_Salem 6  /* America/North_Dakota/New_Salem in 2008 */
+#define kAtcZoneBufSizeAmerica_Nuuk 5  /* America/Nuuk in 2000 */
+#define kAtcZoneBufSizeAmerica_Ojinaga 6  /* America/Ojinaga in 2009 */
+#define kAtcZoneBufSizeAmerica_Panama 1  /* America/Panama in 2000 */
+#define kAtcZoneBufSizeAmerica_Pangnirtung 6  /* America/Pangnirtung in 2008 */
+#define kAtcZoneBufSizeAmerica_Paramaribo 1  /* America/Paramaribo in 2000 */
+#define kAtcZoneBufSizeAmerica_Phoenix 1  /* America/Phoenix in 2000 */
+#define kAtcZoneBufSizeAmerica_Port_au_Prince 6  /* America/Port-au-Prince in 2013 */
+#define kAtcZoneBufSizeAmerica_Porto_Velho 1  /* America/Porto_Velho in 2000 */
+#define kAtcZoneBufSizeAmerica_Puerto_Rico 1  /* America/Puerto_Rico in 2000 */
+#define kAtcZoneBufSizeAmerica_Punta_Arenas 5  /* America/Punta_Arenas in 2002 */
+#define kAtcZoneBufSizeAmerica_Rainy_River 6  /* America/Rainy_River in 2008 */
+#define kAtcZoneBufSizeAmerica_Rankin_Inlet 6  /* America/Rankin_Inlet in 2008 */
+#define kAtcZoneBufSizeAmerica_Recife 5  /* America/Recife in 2001 */
+#define kAtcZoneBufSizeAmerica_Regina 1  /* America/Regina in 2000 */
+#define kAtcZoneBufSizeAmerica_Resolute 6  /* America/Resolute in 2007 */
+#define kAtcZoneBufSizeAmerica_Rio_Branco 2  /* America/Rio_Branco in 2008 */
+#define kAtcZoneBufSizeAmerica_Santarem 2  /* America/Santarem in 2008 */
+#define kAtcZoneBufSizeAmerica_Santiago 5  /* America/Santiago in 2002 */
+#define kAtcZoneBufSizeAmerica_Santo_Domingo 4  /* America/Santo_Domingo in 2000 */
+#define kAtcZoneBufSizeAmerica_Sao_Paulo 6  /* America/Sao_Paulo in 2003 */
+#define kAtcZoneBufSizeAmerica_Scoresbysund 5  /* America/Scoresbysund in 2000 */
+#define kAtcZoneBufSizeAmerica_Sitka 6  /* America/Sitka in 2008 */
+#define kAtcZoneBufSizeAmerica_St_Johns 6  /* America/St_Johns in 2008 */
+#define kAtcZoneBufSizeAmerica_Swift_Current 1  /* America/Swift_Current in 2000 */
+#define kAtcZoneBufSizeAmerica_Tegucigalpa 3  /* America/Tegucigalpa in 2006 */
+#define kAtcZoneBufSizeAmerica_Thule 6  /* America/Thule in 2008 */
+#define kAtcZoneBufSizeAmerica_Thunder_Bay 6  /* America/Thunder_Bay in 2008 */
+#define kAtcZoneBufSizeAmerica_Tijuana 6  /* America/Tijuana in 2009 */
+#define kAtcZoneBufSizeAmerica_Toronto 6  /* America/Toronto in 2008 */
+#define kAtcZoneBufSizeAmerica_Vancouver 6  /* America/Vancouver in 2008 */
+#define kAtcZoneBufSizeAmerica_Whitehorse 6  /* America/Whitehorse in 2008 */
+#define kAtcZoneBufSizeAmerica_Winnipeg 6  /* America/Winnipeg in 2006 */
+#define kAtcZoneBufSizeAmerica_Yakutat 6  /* America/Yakutat in 2008 */
+#define kAtcZoneBufSizeAmerica_Yellowknife 6  /* America/Yellowknife in 2008 */
+#define kAtcZoneBufSizeAntarctica_Casey 3  /* Antarctica/Casey in 2018 */
+#define kAtcZoneBufSizeAntarctica_Davis 2  /* Antarctica/Davis in 2009 */
+#define kAtcZoneBufSizeAntarctica_Macquarie 5  /* Antarctica/Macquarie in 2000 */
+#define kAtcZoneBufSizeAntarctica_Mawson 2  /* Antarctica/Mawson in 2009 */
+#define kAtcZoneBufSizeAntarctica_Palmer 5  /* Antarctica/Palmer in 2002 */
+#define kAtcZoneBufSizeAntarctica_Rothera 1  /* Antarctica/Rothera in 2000 */
+#define kAtcZoneBufSizeAntarctica_Troll 6  /* Antarctica/Troll in 2005 */
+#define kAtcZoneBufSizeAntarctica_Vostok 1  /* Antarctica/Vostok in 2000 */
+#define kAtcZoneBufSizeAsia_Almaty 5  /* Asia/Almaty in 2000 */
+#define kAtcZoneBufSizeAsia_Amman 6  /* Asia/Amman in 2014 */
+#define kAtcZoneBufSizeAsia_Anadyr 5  /* Asia/Anadyr in 2000 */
+#define kAtcZoneBufSizeAsia_Aqtau 5  /* Asia/Aqtau in 2000 */
+#define kAtcZoneBufSizeAsia_Aqtobe 5  /* Asia/Aqtobe in 2000 */
+#define kAtcZoneBufSizeAsia_Ashgabat 1  /* Asia/Ashgabat in 2000 */
+#define kAtcZoneBufSizeAsia_Atyrau 5  /* Asia/Atyrau in 2000 */
+#define kAtcZoneBufSizeAsia_Baghdad 4  /* Asia/Baghdad in 2000 */
+#define kAtcZoneBufSizeAsia_Baku 5  /* Asia/Baku in 2000 */
+#define kAtcZoneBufSizeAsia_Bangkok 1  /* Asia/Bangkok in 2000 */
+#define kAtcZoneBufSizeAsia_Barnaul 5  /* Asia/Barnaul in 2000 */
+#define kAtcZoneBufSizeAsia_Beirut 5  /* Asia/Beirut in 2000 */
+#define kAtcZoneBufSizeAsia_Bishkek 5  /* Asia/Bishkek in 2000 */
+#define kAtcZoneBufSizeAsia_Brunei 1  /* Asia/Brunei in 2000 */
+#define kAtcZoneBufSizeAsia_Chita 5  /* Asia/Chita in 2000 */
+#define kAtcZoneBufSizeAsia_Choibalsan 5  /* Asia/Choibalsan in 2004 */
+#define kAtcZoneBufSizeAsia_Colombo 2  /* Asia/Colombo in 2006 */
+#define kAtcZoneBufSizeAsia_Damascus 6  /* Asia/Damascus in 2008 */
+#define kAtcZoneBufSizeAsia_Dhaka 4  /* Asia/Dhaka in 2009 */
+#define kAtcZoneBufSizeAsia_Dili 2  /* Asia/Dili in 2000 */
+#define kAtcZoneBufSizeAsia_Dubai 1  /* Asia/Dubai in 2000 */
+#define kAtcZoneBufSizeAsia_Dushanbe 1  /* Asia/Dushanbe in 2000 */
+#define kAtcZoneBufSizeAsia_Famagusta 5  /* Asia/Famagusta in 2000 */
+#define kAtcZoneBufSizeAsia_Gaza 7  /* Asia/Gaza in 2008 */
+#define kAtcZoneBufSizeAsia_Hebron 7  /* Asia/Hebron in 2011 */
+#define kAtcZoneBufSizeAsia_Ho_Chi_Minh 1  /* Asia/Ho_Chi_Minh in 2000 */
+#define kAtcZoneBufSizeAsia_Hong_Kong 2  /* Asia/Hong_Kong in 2000 */
+#define kAtcZoneBufSizeAsia_Hovd 5  /* Asia/Hovd in 2004 */
+#define kAtcZoneBufSizeAsia_Irkutsk 5  /* Asia/Irkutsk in 2000 */
+#define kAtcZoneBufSizeAsia_Jakarta 1  /* Asia/Jakarta in 2000 */
+#define kAtcZoneBufSizeAsia_Jayapura 1  /* Asia/Jayapura in 2000 */
+#define kAtcZoneBufSizeAsia_Jerusalem 5  /* Asia/Jerusalem in 2001 */
+#define kAtcZoneBufSizeAsia_Kabul 1  /* Asia/Kabul in 2000 */
+#define kAtcZoneBufSizeAsia_Kamchatka 5  /* Asia/Kamchatka in 2000 */
+#define kAtcZoneBufSizeAsia_Karachi 4  /* Asia/Karachi in 2008 */
+#define kAtcZoneBufSizeAsia_Kathmandu 1  /* Asia/Kathmandu in 2000 */
+#define kAtcZoneBufSizeAsia_Khandyga 6  /* Asia/Khandyga in 2003 */
+#define kAtcZoneBufSizeAsia_Kolkata 1  /* Asia/Kolkata in 2000 */
+#define kAtcZoneBufSizeAsia_Krasnoyarsk 5  /* Asia/Krasnoyarsk in 2000 */
+#define kAtcZoneBufSizeAsia_Kuala_Lumpur 1  /* Asia/Kuala_Lumpur in 2000 */
+#define kAtcZoneBufSizeAsia_Kuching 1  /* Asia/Kuching in 2000 */
+#define kAtcZoneBufSizeAsia_Macau 2  /* Asia/Macau in 2000 */
+#define kAtcZoneBufSizeAsia_Magadan 5  /* Asia/Magadan in 2000 */
+#define kAtcZoneBufSizeAsia_Makassar 1  /* Asia/Makassar in 2000 */
+#define kAtcZoneBufSizeAsia_Manila 2  /* Asia/Manila in 2000 */
+#define kAtcZoneBufSizeAsia_Nicosia 5  /* Asia/Nicosia in 2000 */
+#define kAtcZoneBufSizeAsia_Novokuznetsk 5  /* Asia/Novokuznetsk in 2000 */
+#define kAtcZoneBufSizeAsia_Novosibirsk 5  /* Asia/Novosibirsk in 2000 */
+#define kAtcZoneBufSizeAsia_Omsk 5  /* Asia/Omsk in 2000 */
+#define kAtcZoneBufSizeAsia_Oral 5  /* Asia/Oral in 2000 */
+#define kAtcZoneBufSizeAsia_Pontianak 1  /* Asia/Pontianak in 2000 */
+#define kAtcZoneBufSizeAsia_Pyongyang 2  /* Asia/Pyongyang in 2015 */
+#define kAtcZoneBufSizeAsia_Qatar 1  /* Asia/Qatar in 2000 */
+#define kAtcZoneBufSizeAsia_Qostanay 5  /* Asia/Qostanay in 2000 */
+#define kAtcZoneBufSizeAsia_Qyzylorda 5  /* Asia/Qyzylorda in 2000 */
+#define kAtcZoneBufSizeAsia_Riyadh 1  /* Asia/Riyadh in 2000 */
+#define kAtcZoneBufSizeAsia_Sakhalin 5  /* Asia/Sakhalin in 2000 */
+#define kAtcZoneBufSizeAsia_Samarkand 1  /* Asia/Samarkand in 2000 */
+#define kAtcZoneBufSizeAsia_Seoul 2  /* Asia/Seoul in 2000 */
+#define kAtcZoneBufSizeAsia_Shanghai 2  /* Asia/Shanghai in 2000 */
+#define kAtcZoneBufSizeAsia_Singapore 1  /* Asia/Singapore in 2000 */
+#define kAtcZoneBufSizeAsia_Srednekolymsk 5  /* Asia/Srednekolymsk in 2000 */
+#define kAtcZoneBufSizeAsia_Taipei 2  /* Asia/Taipei in 2000 */
+#define kAtcZoneBufSizeAsia_Tashkent 1  /* Asia/Tashkent in 2000 */
+#define kAtcZoneBufSizeAsia_Tbilisi 6  /* Asia/Tbilisi in 2004 */
+#define kAtcZoneBufSizeAsia_Tehran 5  /* Asia/Tehran in 2000 */
+#define kAtcZoneBufSizeAsia_Thimphu 1  /* Asia/Thimphu in 2000 */
+#define kAtcZoneBufSizeAsia_Tokyo 2  /* Asia/Tokyo in 2000 */
+#define kAtcZoneBufSizeAsia_Tomsk 6  /* Asia/Tomsk in 2002 */
+#define kAtcZoneBufSizeAsia_Ulaanbaatar 5  /* Asia/Ulaanbaatar in 2004 */
+#define kAtcZoneBufSizeAsia_Urumqi 1  /* Asia/Urumqi in 2000 */
+#define kAtcZoneBufSizeAsia_Ust_Nera 5  /* Asia/Ust-Nera in 2000 */
+#define kAtcZoneBufSizeAsia_Vladivostok 5  /* Asia/Vladivostok in 2000 */
+#define kAtcZoneBufSizeAsia_Yakutsk 5  /* Asia/Yakutsk in 2000 */
+#define kAtcZoneBufSizeAsia_Yangon 1  /* Asia/Yangon in 2000 */
+#define kAtcZoneBufSizeAsia_Yekaterinburg 5  /* Asia/Yekaterinburg in 2000 */
+#define kAtcZoneBufSizeAsia_Yerevan 6  /* Asia/Yerevan in 2010 */
+#define kAtcZoneBufSizeAtlantic_Azores 5  /* Atlantic/Azores in 2000 */
+#define kAtcZoneBufSizeAtlantic_Bermuda 6  /* Atlantic/Bermuda in 2008 */
+#define kAtcZoneBufSizeAtlantic_Canary 5  /* Atlantic/Canary in 2000 */
+#define kAtcZoneBufSizeAtlantic_Cape_Verde 1  /* Atlantic/Cape_Verde in 2000 */
+#define kAtcZoneBufSizeAtlantic_Faroe 5  /* Atlantic/Faroe in 2000 */
+#define kAtcZoneBufSizeAtlantic_Madeira 5  /* Atlantic/Madeira in 2000 */
+#define kAtcZoneBufSizeAtlantic_Reykjavik 1  /* Atlantic/Reykjavik in 2000 */
+#define kAtcZoneBufSizeAtlantic_South_Georgia 1  /* Atlantic/South_Georgia in 2000 */
+#define kAtcZoneBufSizeAtlantic_Stanley 4  /* Atlantic/Stanley in 2000 */
+#define kAtcZoneBufSizeAustralia_Adelaide 5  /* Australia/Adelaide in 2000 */
+#define kAtcZoneBufSizeAustralia_Brisbane 2  /* Australia/Brisbane in 2000 */
+#define kAtcZoneBufSizeAustralia_Broken_Hill 6  /* Australia/Broken_Hill in 2000 */
+#define kAtcZoneBufSizeAustralia_Darwin 2  /* Australia/Darwin in 2000 */
+#define kAtcZoneBufSizeAustralia_Eucla 6  /* Australia/Eucla in 2007 */
+#define kAtcZoneBufSizeAustralia_Hobart 5  /* Australia/Hobart in 2000 */
+#define kAtcZoneBufSizeAustralia_Lindeman 2  /* Australia/Lindeman in 2000 */
+#define kAtcZoneBufSizeAustralia_Lord_Howe 5  /* Australia/Lord_Howe in 2000 */
+#define kAtcZoneBufSizeAustralia_Melbourne 5  /* Australia/Melbourne in 2000 */
+#define kAtcZoneBufSizeAustralia_Perth 6  /* Australia/Perth in 2007 */
+#define kAtcZoneBufSizeAustralia_Sydney 5  /* Australia/Sydney in 2000 */
+#define kAtcZoneBufSizeCET 5  /* CET in 2000 */
+#define kAtcZoneBufSizeCST6CDT 6  /* CST6CDT in 2008 */
+#define kAtcZoneBufSizeEET 5  /* EET in 2000 */
+#define kAtcZoneBufSizeEST 1  /* EST in 2000 */
+#define kAtcZoneBufSizeEST5EDT 6  /* EST5EDT in 2008 */
+#define kAtcZoneBufSizeEtc_GMT 1  /* Etc/GMT in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_1 1  /* Etc/GMT+1 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_10 1  /* Etc/GMT+10 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_11 1  /* Etc/GMT+11 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_12 1  /* Etc/GMT+12 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_2 1  /* Etc/GMT+2 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_3 1  /* Etc/GMT+3 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_4 1  /* Etc/GMT+4 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_5 1  /* Etc/GMT+5 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_6 1  /* Etc/GMT+6 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_7 1  /* Etc/GMT+7 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_8 1  /* Etc/GMT+8 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_9 1  /* Etc/GMT+9 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_1 1  /* Etc/GMT-1 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_10 1  /* Etc/GMT-10 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_11 1  /* Etc/GMT-11 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_12 1  /* Etc/GMT-12 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_13 1  /* Etc/GMT-13 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_14 1  /* Etc/GMT-14 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_2 1  /* Etc/GMT-2 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_3 1  /* Etc/GMT-3 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_4 1  /* Etc/GMT-4 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_5 1  /* Etc/GMT-5 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_6 1  /* Etc/GMT-6 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_7 1  /* Etc/GMT-7 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_8 1  /* Etc/GMT-8 in 2000 */
+#define kAtcZoneBufSizeEtc_GMT_9 1  /* Etc/GMT-9 in 2000 */
+#define kAtcZoneBufSizeEtc_UTC 1  /* Etc/UTC in 2000 */
+#define kAtcZoneBufSizeEurope_Amsterdam 5  /* Europe/Amsterdam in 2000 */
+#define kAtcZoneBufSizeEurope_Andorra 5  /* Europe/Andorra in 2000 */
+#define kAtcZoneBufSizeEurope_Astrakhan 5  /* Europe/Astrakhan in 2000 */
+#define kAtcZoneBufSizeEurope_Athens 5  /* Europe/Athens in 2000 */
+#define kAtcZoneBufSizeEurope_Belgrade 5  /* Europe/Belgrade in 2000 */
+#define kAtcZoneBufSizeEurope_Berlin 5  /* Europe/Berlin in 2000 */
+#define kAtcZoneBufSizeEurope_Brussels 5  /* Europe/Brussels in 2000 */
+#define kAtcZoneBufSizeEurope_Bucharest 5  /* Europe/Bucharest in 2000 */
+#define kAtcZoneBufSizeEurope_Budapest 5  /* Europe/Budapest in 2000 */
+#define kAtcZoneBufSizeEurope_Chisinau 5  /* Europe/Chisinau in 2000 */
+#define kAtcZoneBufSizeEurope_Copenhagen 5  /* Europe/Copenhagen in 2000 */
+#define kAtcZoneBufSizeEurope_Dublin 5  /* Europe/Dublin in 2000 */
+#define kAtcZoneBufSizeEurope_Gibraltar 5  /* Europe/Gibraltar in 2000 */
+#define kAtcZoneBufSizeEurope_Helsinki 5  /* Europe/Helsinki in 2000 */
+#define kAtcZoneBufSizeEurope_Istanbul 7  /* Europe/Istanbul in 2011 */
+#define kAtcZoneBufSizeEurope_Kaliningrad 5  /* Europe/Kaliningrad in 2000 */
+#define kAtcZoneBufSizeEurope_Kiev 5  /* Europe/Kiev in 2000 */
+#define kAtcZoneBufSizeEurope_Kirov 5  /* Europe/Kirov in 2000 */
+#define kAtcZoneBufSizeEurope_Lisbon 5  /* Europe/Lisbon in 2000 */
+#define kAtcZoneBufSizeEurope_London 5  /* Europe/London in 2000 */
+#define kAtcZoneBufSizeEurope_Luxembourg 5  /* Europe/Luxembourg in 2000 */
+#define kAtcZoneBufSizeEurope_Madrid 5  /* Europe/Madrid in 2000 */
+#define kAtcZoneBufSizeEurope_Malta 5  /* Europe/Malta in 2000 */
+#define kAtcZoneBufSizeEurope_Minsk 5  /* Europe/Minsk in 2000 */
+#define kAtcZoneBufSizeEurope_Monaco 5  /* Europe/Monaco in 2000 */
+#define kAtcZoneBufSizeEurope_Moscow 5  /* Europe/Moscow in 2000 */
+#define kAtcZoneBufSizeEurope_Oslo 5  /* Europe/Oslo in 2000 */
+#define kAtcZoneBufSizeEurope_Paris 5  /* Europe/Paris in 2000 */
+#define kAtcZoneBufSizeEurope_Prague 5  /* Europe/Prague in 2000 */
+#define kAtcZoneBufSizeEurope_Riga 6  /* Europe/Riga in 2001 */
+#define kAtcZoneBufSizeEurope_Rome 5  /* Europe/Rome in 2000 */
+#define kAtcZoneBufSizeEurope_Samara 5  /* Europe/Samara in 2000 */
+#define kAtcZoneBufSizeEurope_Saratov 5  /* Europe/Saratov in 2000 */
+#define kAtcZoneBufSizeEurope_Simferopol 5  /* Europe/Simferopol in 2000 */
+#define kAtcZoneBufSizeEurope_Sofia 5  /* Europe/Sofia in 2000 */
+#define kAtcZoneBufSizeEurope_Stockholm 5  /* Europe/Stockholm in 2000 */
+#define kAtcZoneBufSizeEurope_Tallinn 6  /* Europe/Tallinn in 2002 */
+#define kAtcZoneBufSizeEurope_Tirane 5  /* Europe/Tirane in 2000 */
+#define kAtcZoneBufSizeEurope_Ulyanovsk 5  /* Europe/Ulyanovsk in 2000 */
+#define kAtcZoneBufSizeEurope_Uzhgorod 5  /* Europe/Uzhgorod in 2000 */
+#define kAtcZoneBufSizeEurope_Vienna 5  /* Europe/Vienna in 2000 */
+#define kAtcZoneBufSizeEurope_Vilnius 6  /* Europe/Vilnius in 2003 */
+#define kAtcZoneBufSizeEurope_Volgograd 5  /* Europe/Volgograd in 2000 */
+#define kAtcZoneBufSizeEurope_Warsaw 5  /* Europe/Warsaw in 2000 */
+#define kAtcZoneBufSizeEurope_Zaporozhye 5  /* Europe/Zaporozhye in 2000 */
+#define kAtcZoneBufSizeEurope_Zurich 5  /* Europe/Zurich in 2000 */
+#define kAtcZoneBufSizeHST 1  /* HST in 2000 */
+#define kAtcZoneBufSizeIndian_Chagos 1  /* Indian/Chagos in 2000 */
+#define kAtcZoneBufSizeIndian_Christmas 1  /* Indian/Christmas in 2000 */
+#define kAtcZoneBufSizeIndian_Cocos 1  /* Indian/Cocos in 2000 */
+#define kAtcZoneBufSizeIndian_Kerguelen 1  /* Indian/Kerguelen in 2000 */
+#define kAtcZoneBufSizeIndian_Mahe 1  /* Indian/Mahe in 2000 */
+#define kAtcZoneBufSizeIndian_Maldives 1  /* Indian/Maldives in 2000 */
+#define kAtcZoneBufSizeIndian_Mauritius 3  /* Indian/Mauritius in 2008 */
+#define kAtcZoneBufSizeIndian_Reunion 1  /* Indian/Reunion in 2000 */
+#define kAtcZoneBufSizeMET 5  /* MET in 2000 */
+#define kAtcZoneBufSizeMST 1  /* MST in 2000 */
+#define kAtcZoneBufSizeMST7MDT 6  /* MST7MDT in 2008 */
+#define kAtcZoneBufSizePST8PDT 6  /* PST8PDT in 2008 */
+#define kAtcZoneBufSizePacific_Apia 5  /* Pacific/Apia in 2011 */
+#define kAtcZoneBufSizePacific_Auckland 5  /* Pacific/Auckland in 2000 */
+#define kAtcZoneBufSizePacific_Bougainville 2  /* Pacific/Bougainville in 2014 */
+#define kAtcZoneBufSizePacific_Chatham 5  /* Pacific/Chatham in 2000 */
+#define kAtcZoneBufSizePacific_Chuuk 1  /* Pacific/Chuuk in 2000 */
+#define kAtcZoneBufSizePacific_Easter 5  /* Pacific/Easter in 2002 */
+#define kAtcZoneBufSizePacific_Efate 2  /* Pacific/Efate in 2000 */
+#define kAtcZoneBufSizePacific_Fakaofo 2  /* Pacific/Fakaofo in 2011 */
+#define kAtcZoneBufSizePacific_Fiji 6  /* Pacific/Fiji in 2017 */
+#define kAtcZoneBufSizePacific_Funafuti 1  /* Pacific/Funafuti in 2000 */
+#define kAtcZoneBufSizePacific_Galapagos 2  /* Pacific/Galapagos in 2000 */
+#define kAtcZoneBufSizePacific_Gambier 1  /* Pacific/Gambier in 2000 */
+#define kAtcZoneBufSizePacific_Guadalcanal 1  /* Pacific/Guadalcanal in 2000 */
+#define kAtcZoneBufSizePacific_Guam 2  /* Pacific/Guam in 2000 */
+#define kAtcZoneBufSizePacific_Honolulu 1  /* Pacific/Honolulu in 2000 */
+#define kAtcZoneBufSizePacific_Kanton 1  /* Pacific/Kanton in 2000 */
+#define kAtcZoneBufSizePacific_Kiritimati 1  /* Pacific/Kiritimati in 2000 */
+#define kAtcZoneBufSizePacific_Kosrae 1  /* Pacific/Kosrae in 2000 */
+#define kAtcZoneBufSizePacific_Kwajalein 1  /* Pacific/Kwajalein in 2000 */
+#define kAtcZoneBufSizePacific_Majuro 1  /* Pacific/Majuro in 2000 */
+#define kAtcZoneBufSizePacific_Marquesas 1  /* Pacific/Marquesas in 2000 */
+#define kAtcZoneBufSizePacific_Nauru 1  /* Pacific/Nauru in 2000 */
+#define kAtcZoneBufSizePacific_Niue 1  /* Pacific/Niue in 2000 */
+#define kAtcZoneBufSizePacific_Norfolk 4  /* Pacific/Norfolk in 2019 */
+#define kAtcZoneBufSizePacific_Noumea 2  /* Pacific/Noumea in 2000 */
+#define kAtcZoneBufSizePacific_Pago_Pago 1  /* Pacific/Pago_Pago in 2000 */
+#define kAtcZoneBufSizePacific_Palau 1  /* Pacific/Palau in 2000 */
+#define kAtcZoneBufSizePacific_Pitcairn 1  /* Pacific/Pitcairn in 2000 */
+#define kAtcZoneBufSizePacific_Pohnpei 1  /* Pacific/Pohnpei in 2000 */
+#define kAtcZoneBufSizePacific_Port_Moresby 1  /* Pacific/Port_Moresby in 2000 */
+#define kAtcZoneBufSizePacific_Rarotonga 2  /* Pacific/Rarotonga in 2000 */
+#define kAtcZoneBufSizePacific_Tahiti 1  /* Pacific/Tahiti in 2000 */
+#define kAtcZoneBufSizePacific_Tarawa 1  /* Pacific/Tarawa in 2000 */
+#define kAtcZoneBufSizePacific_Tongatapu 5  /* Pacific/Tongatapu in 2001 */
+#define kAtcZoneBufSizePacific_Wake 1  /* Pacific/Wake in 2000 */
+#define kAtcZoneBufSizePacific_Wallis 1  /* Pacific/Wallis in 2000 */
+#define kAtcZoneBufSizeWET 5  /* WET in 2000 */
 
 
 //---------------------------------------------------------------------------
