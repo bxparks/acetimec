@@ -34,7 +34,7 @@ struct AtcDateTuple {
   uint8_t suffix; // kAtcSuffixS, kAtcSuffixW, kAtcSuffixU
 };
 
-/** Compare a to b, ignoring the suffix. Exported for testing. */
+/** Compare a to b, ignoring the suffix. */
 int8_t atc_date_tuple_compare(
     const struct AtcDateTuple *a,
     const struct AtcDateTuple *b);
@@ -44,6 +44,14 @@ atc_time_t atc_date_tuple_subtract(
     const struct AtcDateTuple *a,
     const struct AtcDateTuple *b);
 
+/** Normalize AtcDateTuple::minutes if its magnitude is more than 24 hours. */
+void atc_date_tuple_normalize(struct AtcDateTuple *dt);
+
+/**
+ * Convert the given 'tt', offsetMinutes, and deltaMinutes into the 'w', 's'
+ * and 'u' versions of the AtcDateTuple. It is allowed for 'ttw' to be an alias
+ * of 'tt'.
+ */
 void atc_date_tuple_expand(
     const struct AtcDateTuple *tt,
     int16_t offset_minutes,
@@ -51,8 +59,6 @@ void atc_date_tuple_expand(
     struct AtcDateTuple *ttw,
     struct AtcDateTuple *tts,
     struct AtcDateTuple *ttu);
-
-void atc_date_tuple_normalize(struct AtcDateTuple *dt);
 
 //---------------------------------------------------------------------------
 
