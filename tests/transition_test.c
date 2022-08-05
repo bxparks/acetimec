@@ -1,6 +1,8 @@
 #include "acunit.h"
 #include <acetimec.h>
 
+//---------------------------------------------------------------------------
+
 ACU_TEST(test_atc_date_tuple_compare)
 {
   struct AtcDateTuple a = {0, 1, 1, 0, kAtcSuffixW};
@@ -194,6 +196,103 @@ ACU_TEST(test_atc_date_tuple_expand)
 
 //---------------------------------------------------------------------------
 
+ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
+{
+  //const struct AtcDateTuple EMPTY_DATE = {0, 0, 0, 0, 0};
+  const struct AtcMatchingEra match = {
+    {0, 1, 1, 0, kAtcSuffixW} /* start_dt */,
+    {1, 1, 1, 0, kAtcSuffixW} /* until_dt */,
+    NULL /*era*/,
+    NULL /*prev_match*/,
+    0 /*last_offset_minutes*/,
+    0 /*last_delta_minutes*/
+  };
+
+  struct AtcTransition transition = {
+    &match /*match*/,
+    NULL /*rule*/,
+    {-1, 11, 1, 0, kAtcSuffixW} /*transition_time*/,
+    {{0, 0, 0, 0, 0}} /*start_dt*/,
+    {{0, 0, 0, 0, 0}} /*until_dt*/,
+    0 /*start_epoch_seconds*/,
+    0 /*offset_minutes*/,
+    0 /*delta_minutes*/,
+    {0} /*abbrev*/,
+    {0} /*letter_buf*/,
+    {0} /*match_status*/
+  };
+  uint8_t status = atc_transition_compare_to_match_fuzzy(&transition, &match);
+  ACU_ASSERT(status == kAtcMatchStatusPrior);
+
+  transition = (struct AtcTransition) {
+    &match /*match*/,
+    NULL /*rule*/,
+    {-1, 12, 1, 0, kAtcSuffixW} /*transition_time*/,
+    {{0, 0, 0, 0, 0}} /*start_dt*/,
+    {{0, 0, 0, 0, 0}} /*until_dt*/,
+    0 /*start_epoch_seconds*/,
+    0 /*offset_minutes*/,
+    0 /*delta_minutes*/,
+    {0} /*abbrev*/,
+    {0} /*letter_buf*/,
+    {0} /*match_status*/
+  };
+  status = atc_transition_compare_to_match_fuzzy(&transition, &match);
+  ACU_ASSERT(status == kAtcMatchStatusWithinMatch);
+
+  transition = (struct AtcTransition) {
+    &match /*match*/,
+    NULL /*rule*/,
+    {0, 1, 1, 0, kAtcSuffixW} /*transition_time*/,
+    {{0, 0, 0, 0, 0}} /*start_dt*/,
+    {{0, 0, 0, 0, 0}} /*until_dt*/,
+    0 /*start_epoch_seconds*/,
+    0 /*offset_minutes*/,
+    0 /*delta_minutes*/,
+    {0} /*abbrev*/,
+    {0} /*letter_buf*/,
+    {0} /*match_status*/
+  };
+  status = atc_transition_compare_to_match_fuzzy(&transition, &match);
+  ACU_ASSERT(status == kAtcMatchStatusWithinMatch);
+
+  transition = (struct AtcTransition) {
+    &match /*match*/,
+    NULL /*rule*/,
+    {1, 1, 1, 0, kAtcSuffixW} /*transition_time*/,
+    {{0, 0, 0, 0, 0}} /*start_dt*/,
+    {{0, 0, 0, 0, 0}} /*until_dt*/,
+    0 /*start_epoch_seconds*/,
+    0 /*offset_minutes*/,
+    0 /*delta_minutes*/,
+    {0} /*abbrev*/,
+    {0} /*letter_buf*/,
+    {0} /*match_status*/
+  };
+  status = atc_transition_compare_to_match_fuzzy(&transition, &match);
+  ACU_ASSERT(status == kAtcMatchStatusWithinMatch);
+
+  transition = (struct AtcTransition) {
+    &match /*match*/,
+    NULL /*rule*/,
+    {1, 3, 1, 0, kAtcSuffixW} /*transition_time*/,
+    {{0, 0, 0, 0, 0}} /*start_dt*/,
+    {{0, 0, 0, 0, 0}} /*until_dt*/,
+    0 /*start_epoch_seconds*/,
+    0 /*offset_minutes*/,
+    0 /*delta_minutes*/,
+    {0} /*abbrev*/,
+    {0} /*letter_buf*/,
+    {0} /*match_status*/
+  };
+  status = atc_transition_compare_to_match_fuzzy(&transition, &match);
+  ACU_ASSERT(status == kAtcMatchStatusFarFuture);
+
+  ACU_PASS();
+}
+
+//---------------------------------------------------------------------------
+
 ACU_PARAMS();
 
 int main()
@@ -202,5 +301,6 @@ int main()
   ACU_RUN_TEST(test_atc_date_tuple_subtract);
   ACU_RUN_TEST(test_atc_date_tuple_normalize);
   ACU_RUN_TEST(test_atc_date_tuple_expand);
+  ACU_RUN_TEST(test_atc_transition_compare_to_match_fuzzy);
   ACU_SUMMARY();
 }
