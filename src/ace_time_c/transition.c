@@ -210,7 +210,7 @@ void atc_transition_storage_add_free_agent_to_candidate_pool(
 void atc_transition_storage_add_prior_to_candidate_pool(
     struct AtcTransitionStorage *ts)
 {
-  ts->index_candidate++;
+  ts->index_candidate--;
 }
 
 static bool is_match_status_active(uint8_t status) {

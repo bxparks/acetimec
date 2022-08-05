@@ -230,9 +230,25 @@ struct AtcTransition *atc_transition_storage_get_free_agent(
 void atc_transition_storage_add_free_agent_to_active_pool(
     struct AtcTransitionStorage *ts);
 
+/**
+ * Empty the Candidate pool by resetting the various indexes.
+ *
+ * If every iteration of createTransitionsForMatch() finishes with
+ * addFreeAgentToActivePool() or addActiveCandidatesToActivePool(), it may
+ * be possible to remove this. But it's safer to reset the indexes upon
+ * each iteration.
+ */
 void atc_transition_storage_reset_candidate_pool(
     struct AtcTransitionStorage *ts);
 
+/**
+ * Allocate a free Transition then add it to the Prior pool. This assumes
+ * that the Prior pool and Candidate pool were both empty before calling
+ * this method. Shift the Candidate pool and Free pool up by one. Return a
+ * handle (pointer to pointer) to the Transition, so that the prior
+ * Transition can be swapped with another Transition, while keeping the
+ * handle valid.
+ */
 struct AtcTransition **atc_transition_storage_reserve_prior(
     struct AtcTransitionStorage *ts);
 
@@ -249,9 +265,20 @@ void atc_transition_storage_set_free_agent_as_prior_if_valid(
 void atc_transition_storage_add_free_agent_to_candidate_pool(
     struct AtcTransitionStorage *ts);
 
+/**
+ * Add the current prior into the Candidates pool. Prior is always just
+ * before the start of the Candidate pool, so we just need to shift back
+ * the start index of the Candidate pool.
+ */
 void atc_transition_storage_add_prior_to_candidate_pool(
     struct AtcTransitionStorage *ts);
 
+/**
+ * Add active candidates into the Active pool, and collapse the Candidate
+ * pool. Every MatchingEra will have at least one Transition.
+ *
+ * @return the last Transition that was added
+ */
 struct AtcTransition *
 atc_transition_storage_add_active_candidates_to_active_pool(
     struct AtcTransitionStorage *ts);
