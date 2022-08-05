@@ -58,6 +58,65 @@ ACU_TEST(test_atc_date_tuple_subtract)
   ACU_PASS();
 }
 
+ACU_TEST(test_atc_date_tuple_normalize)
+{
+  // 00:00
+  struct AtcDateTuple dt = {0, 1, 1, 0, kAtcSuffixW};
+  atc_date_tuple_normalize(&dt);
+  ACU_ASSERT(dt.year_tiny == 0);
+  ACU_ASSERT(dt.month == 1);
+  ACU_ASSERT(dt.day == 1);
+  ACU_ASSERT(dt.minutes == 0);
+  ACU_ASSERT(dt.suffix == kAtcSuffixW);
+
+  // 23:45
+  dt = (struct AtcDateTuple) {0, 1, 1, 15*95, kAtcSuffixW};
+  atc_date_tuple_normalize(&dt);
+  ACU_ASSERT(dt.year_tiny == 0);
+  ACU_ASSERT(dt.month == 1);
+  ACU_ASSERT(dt.day == 1);
+  ACU_ASSERT(dt.minutes == 15*95);
+  ACU_ASSERT(dt.suffix == kAtcSuffixW);
+
+  // 24:00
+  dt = (struct AtcDateTuple) {0, 1, 1, 15*96, kAtcSuffixW};
+  atc_date_tuple_normalize(&dt);
+  ACU_ASSERT(dt.year_tiny == 0);
+  ACU_ASSERT(dt.month == 1);
+  ACU_ASSERT(dt.day == 2);
+  ACU_ASSERT(dt.minutes == 0);
+  ACU_ASSERT(dt.suffix == kAtcSuffixW);
+
+  // 24:15
+  dt = (struct AtcDateTuple) {0, 1, 1, 15*97, kAtcSuffixW};
+  atc_date_tuple_normalize(&dt);
+  ACU_ASSERT(dt.year_tiny == 0);
+  ACU_ASSERT(dt.month == 1);
+  ACU_ASSERT(dt.day == 2);
+  ACU_ASSERT(dt.minutes == 15);
+  ACU_ASSERT(dt.suffix == kAtcSuffixW);
+
+  // -24:00
+  dt = (struct AtcDateTuple) {0, 1, 1, -15*96, kAtcSuffixW};
+  atc_date_tuple_normalize(&dt);
+  ACU_ASSERT(dt.year_tiny == -1);
+  ACU_ASSERT(dt.month == 12);
+  ACU_ASSERT(dt.day == 31);
+  ACU_ASSERT(dt.minutes == 0);
+  ACU_ASSERT(dt.suffix == kAtcSuffixW);
+
+  // -24:15
+  dt = (struct AtcDateTuple) {0, 1, 1, -15*97, kAtcSuffixW};
+  atc_date_tuple_normalize(&dt);
+  ACU_ASSERT(dt.year_tiny == -1);
+  ACU_ASSERT(dt.month == 12);
+  ACU_ASSERT(dt.day == 31);
+  ACU_ASSERT(dt.minutes == -15);
+  ACU_ASSERT(dt.suffix == kAtcSuffixW);
+
+  ACU_PASS();
+}
+
 //---------------------------------------------------------------------------
 
 ACU_PARAMS();
@@ -66,5 +125,6 @@ int main()
 {
   ACU_RUN_TEST(test_atc_date_tuple_compare);
   ACU_RUN_TEST(test_atc_date_tuple_subtract);
+  ACU_RUN_TEST(test_atc_date_tuple_normalize);
   ACU_SUMMARY();
 }
