@@ -196,6 +196,8 @@ struct AtcTransition {
   };
 };
 
+//---------------------------------------------------------------------------
+
 /** The list of transitions for a given time zone. */
 struct AtcTransitionStorage {
   struct AtcTransition transition_pool[kAtcTransitionStorageSize];
@@ -207,8 +209,6 @@ struct AtcTransitionStorage {
   /** Number of allocated transitions. */
   uint8_t alloc_size;
 };
-
-//---------------------------------------------------------------------------
 
 void atc_transition_storage_init(struct AtcTransitionStorage *ts);
 

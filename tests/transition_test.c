@@ -468,6 +468,19 @@ ACU_TEST(test_atc_transition_storage_reserve_prior) {
   ACU_ASSERT(1 == ts.index_candidate);
   ACU_ASSERT(1 == ts.index_free);
 
+  ACU_PASS();
+}
+
+ACU_TEST(test_atc_transition_storage_add_prior_to_candidate_pool) {
+  struct AtcTransitionStorage ts;
+  atc_transition_storage_init(&ts);
+
+  struct AtcTransition** prior = atc_transition_storage_reserve_prior(&ts);
+  ACU_ASSERT(prior == &ts.transitions[0]);
+  ACU_ASSERT(0 == ts.index_prior);
+  ACU_ASSERT(1 == ts.index_candidate);
+  ACU_ASSERT(1 == ts.index_free);
+
   atc_transition_storage_add_prior_to_candidate_pool(&ts);
   ACU_ASSERT(0 == ts.index_prior);
   ACU_ASSERT(0 == ts.index_candidate);
@@ -652,6 +665,7 @@ int main()
   ACU_RUN_TEST(test_atc_transition_storage_add_free_agent_to_active_pool);
   ACU_RUN_TEST(test_atc_transition_storage_add_free_agent_to_candidate_pool);
   ACU_RUN_TEST(test_atc_transition_storage_reserve_prior);
+  ACU_RUN_TEST(test_atc_transition_storage_add_prior_to_candidate_pool);
   ACU_RUN_TEST(test_atc_transition_storage_set_free_agent_as_prior_if_valid);
   ACU_RUN_TEST(
       test_atc_transition_storage_add_active_candidates_to_active_pool);
