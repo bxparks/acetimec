@@ -97,7 +97,7 @@ struct AtcMatchingEra {
   struct AtcDateTuple until_dt;
 
   /** The ZoneEra that matched the given year. NonNullable. */
-  struct AtcZoneEra *era;
+  const struct AtcZoneEra *era;
 
   /** The previous MatchingEra, needed to interpret start_dt.  */
   struct AtcMatchingEra *prev_match;
@@ -212,9 +212,21 @@ struct AtcTransitionStorage {
 
 void atc_transition_storage_init(struct AtcTransitionStorage *ts);
 
+/**
+ * Return a pointer to the first Transition in the free pool. If this
+ * transition is not used, then it's ok to just drop it. The next time
+ * getFreeAgent() is called, the same Transition will be returned.
+ */
 struct AtcTransition *atc_transition_storage_get_free_agent(
     struct AtcTransitionStorage *ts);
 
+/**
+ * Immediately add the free agent Transition at index mIndexFree to the
+ * Active pool. Then increment mIndexFree to consume the free agent
+ * from the Free pool. This assumes that the Pending and Candidate pool are
+ * empty, which makes the Active pool come immediately before the Free
+ * pool.
+ */
 void atc_transition_storage_add_free_agent_to_active_pool(
     struct AtcTransitionStorage *ts);
 
@@ -224,9 +236,16 @@ void atc_transition_storage_reset_candidate_pool(
 struct AtcTransition **atc_transition_storage_reserve_prior(
     struct AtcTransitionStorage *ts);
 
+/** Set the free agent transition as the most recent prior. */
 void atc_transition_storage_set_free_agent_as_prior_if_valid(
     struct AtcTransitionStorage *ts);
 
+/**
+ * Add the free agent Transition at index mIndexFree to the Candidate pool,
+ * sorted by transitionTime. Then increment mIndexFree by one to remove the
+ * free agent from the Free pool. Essentially this is an Insertion Sort
+ * keyed by the 'transitionTime' (ignoring the DateTuple.suffix).
+ */
 void atc_transition_storage_add_free_agent_to_candidate_pool(
     struct AtcTransitionStorage *ts);
 
@@ -237,12 +256,26 @@ struct AtcTransition *
 atc_transition_storage_add_active_candidates_to_active_pool(
     struct AtcTransitionStorage *ts);
 
+//---------------------------------------------------------------------------
+
 /**
  * Return the letter string. Returns NULL if the RULES column is empty
  * since that means that the ZoneRule is not used, which means LETTER does
  * not exist. A LETTER of '-' is returned as an empty string "".
  */
 const char *atc_transition_extract_letter(const struct AtcTransition *t);
+
+/**
+ * Normalize the transition_time* fields of the array of Transition objects.
+ * Most Transition.transition_time* values are given in 'w' mode. However, if
+ * they are given in 's' or 'u' mode, we convert these into the 'w' mode for
+ * consistency. To convert an 's' or 'u' into 'w', we need the UTC offset of the
+ * current AtcTransition, which happens to be given by the *previous*
+ * AtcTransition.
+ */
+void atc_transition_fix_times(
+    struct AtcTransition **begin,
+    struct AtcTransition **end);
 
 //---------------------------------------------------------------------------
 

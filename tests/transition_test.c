@@ -198,7 +198,6 @@ ACU_TEST(test_atc_date_tuple_expand)
 
 ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
 {
-  //const struct AtcDateTuple EMPTY_DATE = {0, 0, 0, 0, 0};
   const struct AtcMatchingEra match = {
     {0, 1, 1, 0, kAtcSuffixW} /* start_dt */,
     {1, 1, 1, 0, kAtcSuffixW} /* until_dt */,
@@ -291,6 +290,100 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
   ACU_PASS();
 }
 
+ACU_TEST(test_atc_transition_compare_to_match)
+{
+  // UNTIL = 2002-01-02T03:00
+  const struct AtcZoneEra ERA = {
+      NULL /*zonePolicy*/,
+      "" /*format*/,
+      0 /*offsetCode*/,
+      0 /*deltaCode*/,
+      2 /*untilYearTiny*/,
+      1 /*untilMonth*/,
+      2 /*untilDay*/,
+      12 /*untilTimeCode*/,
+      kAtcSuffixW
+  };
+
+  // MatchingEra=[2000-01-01, 2001-01-01)
+  const struct AtcMatchingEra match = {
+    {0, 1, 1, 0, kAtcSuffixW} /*startDateTime*/,
+    {1, 1, 1, 0, kAtcSuffixW} /*untilDateTime*/,
+    &ERA /*era*/,
+    NULL /*prevMatch*/,
+    0 /*lastOffsetMinutes*/,
+    0 /*lastDeltaMinutes*/
+  };
+
+  // transitionTime = 1999-12-31
+  struct AtcTransition transition0 = {
+    &match /*match*/,
+    NULL /*rule*/,
+    {-1, 12, 31, 0, kAtcSuffixW} /*transitionTime*/,
+    {{0, 0, 0, 0, 0}},
+    {{0, 0, 0, 0, 0}},
+    0, 0, 0, {0}, {0},
+    {0}
+  };
+
+  // transitionTime = 2000-01-01
+  struct AtcTransition transition1 = {
+    &match /*match*/,
+    NULL /*rule*/,
+    {0, 1, 1, 0, kAtcSuffixW} /*transitionTime*/,
+    {{0, 0, 0, 0, 0}},
+    {{0, 0, 0, 0, 0}},
+    0, 0, 0, {0}, {0},
+    {0}
+  };
+
+  // transitionTime = 2000-01-02
+  struct AtcTransition transition2 = {
+    &match /*match*/,
+    NULL /*rule*/,
+    {0, 1, 2, 0, kAtcSuffixW} /*transitionTime*/,
+    {{0, 0, 0, 0, 0}},
+    {{0, 0, 0, 0, 0}},
+    0, 0, 0, {0}, {0},
+    {0}
+  };
+
+  // transitionTime = 2001-02-03
+  struct AtcTransition transition3 = {
+    &match /*match*/,
+    NULL /*rule*/,
+    {1, 2, 3, 0, kAtcSuffixW} /*transitionTime*/,
+    {{0, 0, 0, 0, 0}},
+    {{0, 0, 0, 0, 0}},
+    0, 0, 0, {0}, {0},
+    {0}
+  };
+
+  struct AtcTransition *transitions[] = {
+    &transition0,
+    &transition1,
+    &transition2,
+    &transition3,
+  };
+
+  // Populate the transitionTimeS and transitionTimeU fields.
+  atc_transition_fix_times(&transitions[0], &transitions[4]);
+
+  uint8_t status = atc_transition_compare_to_match(&transition0, &match);
+  ACU_ASSERT(status == kAtcMatchStatusPrior);
+
+  status = atc_transition_compare_to_match(&transition1, &match);
+  ACU_ASSERT(status == kAtcMatchStatusExactMatch);
+
+  status = atc_transition_compare_to_match(&transition2, &match);
+  ACU_ASSERT(status == kAtcMatchStatusWithinMatch);
+
+  status = atc_transition_compare_to_match(&transition3, &match);
+  ACU_ASSERT(status == kAtcMatchStatusFarFuture);
+
+  ACU_PASS();
+}
+
 //---------------------------------------------------------------------------
 
 ACU_PARAMS();
@@ -302,5 +395,6 @@ int main()
   ACU_RUN_TEST(test_atc_date_tuple_normalize);
   ACU_RUN_TEST(test_atc_date_tuple_expand);
   ACU_RUN_TEST(test_atc_transition_compare_to_match_fuzzy);
+  ACU_RUN_TEST(test_atc_transition_compare_to_match);
   ACU_SUMMARY();
 }

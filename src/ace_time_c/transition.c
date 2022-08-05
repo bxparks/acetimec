@@ -20,7 +20,6 @@ int8_t atc_date_tuple_compare(
   return 0;
 }
 
-/** Return the number of seconds in (a - b), ignoring suffix. */
 atc_time_t atc_date_tuple_subtract(
     const struct AtcDateTuple *a,
     const struct AtcDateTuple *b)
@@ -130,11 +129,6 @@ void atc_transition_storage_init(struct AtcTransitionStorage *ts)
   ts->index_free = 0;
 }
 
-/**
- * Return a pointer to the first Transition in the free pool. If this
- * transition is not used, then it's ok to just drop it. The next time
- * getFreeAgent() is called, the same Transition will be returned.
- */
 struct AtcTransition *atc_transition_storage_get_free_agent(
     struct AtcTransitionStorage *ts)
 {
@@ -153,13 +147,6 @@ struct AtcTransition *atc_transition_storage_get_free_agent(
   }
 }
 
-/**
- * Immediately add the free agent Transition at index mIndexFree to the
- * Active pool. Then increment mIndexFree to consume the free agent
- * from the Free pool. This assumes that the Pending and Candidate pool are
- * empty, which makes the Active pool come immediately before the Free
- * pool.
- */
 void atc_transition_storage_add_free_agent_to_active_pool(
     struct AtcTransitionStorage *ts)
 {
@@ -185,7 +172,6 @@ struct AtcTransition **atc_transition_storage_reserve_prior(
   return &ts->transitions[ts->index_prior];
 }
 
-/** Set the free agent transition as the most recent prior. */
 void atc_transition_storage_set_free_agent_as_prior_if_valid(
     struct AtcTransitionStorage *ts)
 {
@@ -205,12 +191,6 @@ void atc_transition_storage_set_free_agent_as_prior_if_valid(
   }
 }
 
-/**
- * Add the free agent Transition at index mIndexFree to the Candidate pool,
- * sorted by transitionTime. Then increment mIndexFree by one to remove the
- * free agent from the Free pool. Essentially this is an Insertion Sort
- * keyed by the 'transitionTime' (ignoring the DateTuple.suffix).
- */
 void atc_transition_storage_add_free_agent_to_candidate_pool(
     struct AtcTransitionStorage *ts)
 {
@@ -266,6 +246,24 @@ atc_transition_storage_add_active_candidates_to_active_pool(
 }
 
 //---------------------------------------------------------------------------
+
+void atc_transition_fix_times(
+    struct AtcTransition **begin,
+    struct AtcTransition **end)
+{
+  struct AtcTransition *prev = *begin;
+  for (struct AtcTransition **iter = begin; iter != end; ++iter) {
+    struct AtcTransition *curr = *iter;
+    atc_date_tuple_expand(
+        &curr->transition_time,
+        prev->offset_minutes,
+        prev->delta_minutes,
+        &curr->transition_time,
+        &curr->transition_time_s,
+        &curr->transition_time_u);
+    prev = curr;
+  }
+}
 
 const char *atc_transition_extract_letter(const struct AtcTransition *t)
 {
