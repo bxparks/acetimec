@@ -447,8 +447,77 @@ ACU_TEST(test_atc_processing_find_matches_named)
 }
 
 //---------------------------------------------------------------------------
-// Step 2
+// Step 2A
 //---------------------------------------------------------------------------
+
+ACU_TEST(test_atc_calc_start_day_of_month) {
+  // 2018-11, Sun>=1
+  struct AtcMonthDay monthDay = atc_processing_calc_start_day_of_month(
+      2018, 11, kAtcIsoWeekdaySunday, 1);
+  ACU_ASSERT(11 == monthDay.month);
+  ACU_ASSERT(4 == monthDay.day);
+
+  // 2018-11, lastSun
+  monthDay = atc_processing_calc_start_day_of_month(
+      2018, 11, kAtcIsoWeekdaySunday, 0);
+  ACU_ASSERT(11 == monthDay.month);
+  ACU_ASSERT(25 == monthDay.day);
+
+  // 2018-11, Sun>=30, should shift to 2018-12-2
+  monthDay = atc_processing_calc_start_day_of_month(
+      2018, 11, kAtcIsoWeekdaySunday, 30);
+  ACU_ASSERT(12 == monthDay.month);
+  ACU_ASSERT(2 == monthDay.day);
+
+  // 2018-11, Mon<=7
+  monthDay = atc_processing_calc_start_day_of_month(
+      2018, 11, kAtcIsoWeekdayMonday, -7);
+  ACU_ASSERT(11 == monthDay.month);
+  ACU_ASSERT(5 == monthDay.day);
+
+  // 2018-11, Mon<=1, shifts back into October
+  monthDay = atc_processing_calc_start_day_of_month(
+      2018, 11, kAtcIsoWeekdayMonday, -1);
+  ACU_ASSERT(10 == monthDay.month);
+  ACU_ASSERT(29 == monthDay.day);
+
+  // 2018-03, Thu>=9
+  monthDay = atc_processing_calc_start_day_of_month(
+      2018, 3, kAtcIsoWeekdayThursday, 9);
+  ACU_ASSERT(3 == monthDay.month);
+  ACU_ASSERT(15 == monthDay.day);
+
+  // 2018-03-30 exactly
+  monthDay = atc_processing_calc_start_day_of_month(2018, 3, 0, 30);
+  ACU_ASSERT(3 == monthDay.month);
+  ACU_ASSERT(30 == monthDay.day);
+
+  ACU_PASS();
+}
+
+ACU_TEST(test_atc_processing_get_transition_time) {
+  // Nov Sun>=1
+  const struct AtcZoneRule *rule = &kZoneRulesTestUS[4];
+
+  // Nov 4 2018
+  struct AtcDateTuple dt;
+  atc_processing_get_transition_time(18, rule, &dt);
+  ACU_ASSERT(dt.year_tiny == 18);
+  ACU_ASSERT(dt.month == 11);
+  ACU_ASSERT(dt.day == 4);
+  ACU_ASSERT(dt.minutes == 15*8);
+  ACU_ASSERT(dt.suffix == kAtcSuffixW);
+
+  // Nov 3 2019
+  atc_processing_get_transition_time(19, rule, &dt);
+  ACU_ASSERT(dt.year_tiny == 19);
+  ACU_ASSERT(dt.month == 11);
+  ACU_ASSERT(dt.day == 3);
+  ACU_ASSERT(dt.minutes == 15*8);
+  ACU_ASSERT(dt.suffix == kAtcSuffixW);
+
+  ACU_PASS();
+}
 
 //---------------------------------------------------------------------------
 
@@ -464,6 +533,8 @@ int main()
   ACU_RUN_TEST(test_atc_create_matching_era);
   ACU_RUN_TEST(test_atc_processing_find_matches_simple);
   ACU_RUN_TEST(test_atc_processing_find_matches_named);
+  ACU_RUN_TEST(test_atc_calc_start_day_of_month);
+  ACU_RUN_TEST(test_atc_processing_get_transition_time);
 
   ACU_SUMMARY();
 }

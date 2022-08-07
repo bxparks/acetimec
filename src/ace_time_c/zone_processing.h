@@ -18,6 +18,11 @@
 // Conversion and accessor utilities.
 //---------------------------------------------------------------------------
 
+struct AtcMonthDay {
+  uint8_t month;
+  uint8_t day;
+};
+
 /**
  * Extract the actual (month, day) pair from the expression used in the TZ
  * data files of the form (onDayOfWeek >= onDayOfMonth) or (onDayOfWeek <=
@@ -36,13 +41,11 @@
  * but not year boundaries (e.g. Jan to Dec of the previous year, or Dec to
  * Jan of the following year.)
  */
-void atc_processing_calc_start_day_of_month(
+struct AtcMonthDay atc_processing_calc_start_day_of_month(
     int16_t year,
     uint8_t month,
     uint8_t on_day_of_week,
-    int8_t on_day_of_month,
-    uint8_t *result_month,
-    uint8_t *result_day);
+    int8_t on_day_of_month);
 
 //---------------------------------------------------------------------------
 // Data structures to track ZoneEra transitions and associated info.
@@ -180,5 +183,10 @@ void atc_create_matching_era(
     const struct AtcZoneEra *era,
     struct AtcYearMonth start_ym,
     struct AtcYearMonth until_ym);
+
+void atc_processing_get_transition_time(
+    int8_t year_tiny,
+    const struct AtcZoneRule* rule,
+    struct AtcDateTuple *dt);
 
 #endif

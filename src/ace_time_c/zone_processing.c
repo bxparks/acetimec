@@ -119,18 +119,18 @@ void atc_create_matching_era(
   new_match->last_delta_minutes = 0;
 }
 
-void atc_processing_calc_start_day_of_month(
+struct AtcMonthDay atc_processing_calc_start_day_of_month(
     int16_t year,
     uint8_t month,
     uint8_t on_day_of_week,
-    int8_t on_day_of_month,
-    uint8_t *result_month,
-    uint8_t *result_day)
+    int8_t on_day_of_month)
 {
+  struct AtcMonthDay md;
+
   if (on_day_of_week == 0) {
-    *result_month = month;
-    *result_day = on_day_of_month;
-    return;
+    md.month = month;
+    md.day = on_day_of_month;
+    return md;
   }
 
   if (on_day_of_month >= 0) {
@@ -140,19 +140,20 @@ void atc_processing_calc_start_day_of_month(
     }
     uint8_t dow = atc_local_date_day_of_week(year, month, on_day_of_month);
     uint8_t day_of_week_shift = (on_day_of_week - dow + 7) % 7;
-    uint8_t day = (uint8_t) (on_day_of_week + day_of_week_shift);
+    uint8_t day = (uint8_t) (on_day_of_month + day_of_week_shift);
     if (day > days_in_month) {
       // TODO: Support shifting from Dec to Jan of following  year.
       day -= days_in_month;
       month++;
     }
-    *result_month = month;
-    *result_day = day;
+    md.month = month;
+    md.day = day;
+    return md;
   } else {
     on_day_of_month = -on_day_of_month;
     uint8_t dow = atc_local_date_day_of_week(year, month, on_day_of_month);
     int8_t day_of_week_shift = (dow - on_day_of_week + 7) % 7;
-    int8_t day = on_day_of_week - day_of_week_shift;
+    int8_t day = on_day_of_month - day_of_week_shift;
     if (day < 1) {
       // TODO: Support shifting from Jan to Dec of the previous year.
       month--;
@@ -160,8 +161,9 @@ void atc_processing_calc_start_day_of_month(
           year, month);
       day += days_in_prev_month;
     }
-    *result_month = month;
-    *result_day = (uint8_t) day;
+    md.month = month;
+    md.day = day;
+    return md;
   }
 }
 
@@ -202,19 +204,15 @@ void atc_processing_get_transition_time(
     const struct AtcZoneRule* rule,
     struct AtcDateTuple *dt)
 {
-  uint8_t month;
-  uint8_t day;
-  atc_processing_calc_start_day_of_month(
+  struct AtcMonthDay md = atc_processing_calc_start_day_of_month(
       year_tiny + kAtcEpochYear,
       rule->in_month,
       rule->on_day_of_week,
-      rule->on_day_of_month,
-      &month,
-      &day);
+      rule->on_day_of_month);
 
   dt->year_tiny = year_tiny;
-  dt->month = month;
-  dt->day = day;
+  dt->month = md.month;
+  dt->day = md.day;
   dt->minutes = atc_zone_rule_at_minutes(rule);
   dt->suffix = atc_zone_rule_at_suffix(rule);
 }
