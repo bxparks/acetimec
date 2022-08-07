@@ -158,4 +158,13 @@ bool atc_processing_offset_date_time_from_local_date_time(
   uint8_t fold,
   struct AtcOffsetDateTime *odt);
 
+//---------------------------------------------------------------------------
+
+uint8_t atc_processing_find_matches(
+  const struct AtcZoneInfo *zone_info,
+  struct AtcYearMonth start_ym,
+  struct AtcYearMonth until_ym,
+  struct AtcMatchingEra *matches,
+  uint8_t num_matches);
+
 #endif
