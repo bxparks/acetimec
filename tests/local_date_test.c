@@ -1,6 +1,13 @@
 #include "acunit.h"
 #include <acetimec.h>
 
+ACU_TEST(test_iso_week_enum)
+{
+  ACU_ASSERT(1 == kAtcIsoWeekdayMonday);
+  ACU_ASSERT(7 == kAtcIsoWeekdaySunday);
+  ACU_PASS();
+}
+
 ACU_TEST(test_is_leap_year)
 {
   ACU_ASSERT(atc_is_leap_year(2000));
@@ -181,6 +188,7 @@ ACU_PARAMS();
 
 int main()
 {
+  ACU_RUN_TEST(test_iso_week_enum);
   ACU_RUN_TEST(test_is_leap_year);
   ACU_RUN_TEST(test_local_date_to_and_from_epoch_days);
   ACU_RUN_TEST(test_day_of_week);

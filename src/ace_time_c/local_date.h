@@ -9,6 +9,17 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+/** ISO Weekday numbers. Monday=1, Sunday=7. */
+enum {
+  kAtcIsoWeekdayMonday = 1,
+  kAtcIsoWeekdayTuesday,
+  kAtcIsoWeekdayWednesday,
+  kAtcIsoWeekdayThursday,
+  kAtcIsoWeekdayFriday,
+  kAtcIsoWeekdaySaturday,
+  kAtcIsoWeekdaySunday,
+};
+
 /** Return true if year is a leap year. */
 bool atc_is_leap_year(uint16_t year);
 
