@@ -189,4 +189,10 @@ void atc_processing_get_transition_time(
     const struct AtcZoneRule* rule,
     struct AtcDateTuple *dt);
 
+void atc_processing_create_transition_for_year(
+    struct AtcTransition *t,
+    int8_t year_tiny,
+    const struct AtcZoneRule *rule,
+    const struct AtcMatchingEra *match);
+
 #endif

@@ -519,6 +519,30 @@ ACU_TEST(test_atc_processing_get_transition_time) {
   ACU_PASS();
 }
 
+ACU_TEST(test_atc_processing_create_transition_for_year) {
+  const struct AtcMatchingEra match = {
+    {18, 12, 1, 0, kAtcSuffixW},
+    {20, 2, 1, 0, kAtcSuffixW},
+    &kZoneEraTestLos_Angeles[0],
+    NULL /*prevMatch*/,
+    0 /*lastOffsetMinutes*/,
+    0 /*lastDeltaMinutes*/
+  };
+
+  // Nov Sun>=1
+  const struct AtcZoneRule *rule = &kZoneRulesTestUS[4];
+  struct AtcTransition t;
+  atc_processing_create_transition_for_year(&t, 19, rule, &match);
+  const struct AtcDateTuple *tt = &t.transition_time;
+  ACU_ASSERT(tt->year_tiny == 19);
+  ACU_ASSERT(tt->month == 11);
+  ACU_ASSERT(tt->day == 3);
+  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->suffix == kAtcSuffixW);
+
+  ACU_PASS();
+}
+
 //---------------------------------------------------------------------------
 
 ACU_PARAMS();
@@ -535,6 +559,7 @@ int main()
   ACU_RUN_TEST(test_atc_processing_find_matches_named);
   ACU_RUN_TEST(test_atc_calc_start_day_of_month);
   ACU_RUN_TEST(test_atc_processing_get_transition_time);
+  ACU_RUN_TEST(test_atc_processing_create_transition_for_year);
 
   ACU_SUMMARY();
 }
