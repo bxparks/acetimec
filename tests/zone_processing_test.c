@@ -71,6 +71,24 @@ ACU_TEST(test_atc_processing_calc_interior_years)
 // Step 1
 //---------------------------------------------------------------------------
 
+ACU_TEST(test_atc_compare_era_to_year_month) {
+  const struct AtcZoneEra era = {NULL, "", 0, 0, 0, 1, 2, 12, kAtcSuffixW};
+
+  ACU_ASSERT(1 == atc_compare_era_to_year_month(&era, 0, 1));
+  ACU_ASSERT(1 == atc_compare_era_to_year_month(&era, 0, 1));
+  ACU_ASSERT(-1 == atc_compare_era_to_year_month(&era, 0, 2));
+  ACU_ASSERT(-1 == atc_compare_era_to_year_month(&era, 0, 3));
+
+  ACU_PASS();
+}
+
+ACU_TEST(test_atc_compare_era_to_year_month_equal) {
+  const struct AtcZoneEra era2 = {NULL, "", 0, 0, 0, 1, 0, 0, kAtcSuffixW};
+
+  ACU_ASSERT(0 == atc_compare_era_to_year_month(&era2, 0, 1));
+  ACU_PASS();
+}
+
 //---------------------------------------------------------------------------
 // A simplified version of America/Los_Angeles, using only simple ZoneEras
 // (i.e. no references to a ZonePolicy). Valid only for 2018.
@@ -347,6 +365,9 @@ int main()
 {
   ACU_RUN_TEST(test_atc_processing_get_most_recent_prior_year);
   ACU_RUN_TEST(test_atc_processing_calc_interior_years);
+
+  ACU_RUN_TEST(test_atc_compare_era_to_year_month);
+  ACU_RUN_TEST(test_atc_compare_era_to_year_month_equal);
   ACU_RUN_TEST(test_atc_processing_find_matches_simple);
   ACU_RUN_TEST(test_atc_processing_find_matches_named);
 

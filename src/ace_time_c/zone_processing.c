@@ -15,7 +15,7 @@
 //---------------------------------------------------------------------------
 
 /** Return (1, 0, -1) depending on how era compares to (year_tiny, month). */
-static int8_t atc_compare_era_to_year_month(
+int8_t atc_compare_era_to_year_month(
     const struct AtcZoneEra *era,
     int8_t year_tiny,
     uint8_t month)
