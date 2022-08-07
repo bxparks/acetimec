@@ -545,6 +545,70 @@ ACU_TEST(test_atc_processing_get_most_recent_prior_year)
   ACU_PASS();
 }
 
+ACU_TEST(test_atc_processing_find_candidate_transitions) {
+  struct AtcMatchingEra match = {
+    {18, 12, 1, 0, kAtcSuffixW},
+    {20, 2, 1, 0, kAtcSuffixW},
+    &kZoneEraTestLos_Angeles[0],
+    NULL /*prevMatch*/,
+    0 /*lastOffsetMinutes*/,
+    0 /*lastDeltaMinutes*/
+  };
+
+  // Reserve storage for the Transitions
+  struct AtcTransitionStorage storage;
+  atc_transition_storage_init(&storage);
+
+  // Verify compareTransitionToMatchFuzzy() elminates various transitions
+  // to get down to 5:
+  //    * 2018 Mar Sun>=8 (11)
+  //    * 2019 Nov Sun>=1 (4)
+  //    * 2019 Mar Sun>=8 (10)
+  //    * 2019 Nov Sun>=1 (3)
+  //    * 2020 Mar Sun>=8 (8)
+  atc_transition_storage_reset_candidate_pool(&storage);
+  atc_processing_find_candidate_transitions(&storage, &match);
+  ACU_ASSERT(5 == (int) (storage.index_free - storage.index_candidate));
+
+  struct AtcTransition **t = &storage.transitions[storage.index_candidate];
+  struct AtcDateTuple *tt = &(*t++)->transition_time;
+  ACU_ASSERT(tt->year_tiny == 18);
+  ACU_ASSERT(tt->month == 3);
+  ACU_ASSERT(tt->day == 11);
+  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->suffix == kAtcSuffixW);
+  //
+  tt = &(*t++)->transition_time;
+  ACU_ASSERT(tt->year_tiny == 18);
+  ACU_ASSERT(tt->month == 11);
+  ACU_ASSERT(tt->day == 4);
+  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->suffix == kAtcSuffixW);
+  //
+  tt = &(*t++)->transition_time;
+  ACU_ASSERT(tt->year_tiny == 19);
+  ACU_ASSERT(tt->month == 3);
+  ACU_ASSERT(tt->day == 10);
+  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->suffix == kAtcSuffixW);
+  //
+  tt = &(*t++)->transition_time;
+  ACU_ASSERT(tt->year_tiny == 19);
+  ACU_ASSERT(tt->month == 11);
+  ACU_ASSERT(tt->day == 3);
+  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->suffix == kAtcSuffixW);
+  //
+  tt = &(*t++)->transition_time;
+  ACU_ASSERT(tt->year_tiny == 20);
+  ACU_ASSERT(tt->month == 3);
+  ACU_ASSERT(tt->day == 8);
+  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->suffix == kAtcSuffixW);
+
+  ACU_PASS();
+}
+
 //---------------------------------------------------------------------------
 
 ACU_PARAMS();
@@ -561,6 +625,7 @@ int main()
   ACU_RUN_TEST(test_atc_processing_create_transition_for_year);
   ACU_RUN_TEST(test_atc_processing_calc_interior_years);
   ACU_RUN_TEST(test_atc_processing_get_most_recent_prior_year);
+  ACU_RUN_TEST(test_atc_processing_find_candidate_transitions);
 
   ACU_SUMMARY();
 }

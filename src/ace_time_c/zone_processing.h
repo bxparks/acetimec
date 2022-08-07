@@ -195,4 +195,8 @@ void atc_processing_create_transition_for_year(
     const struct AtcZoneRule *rule,
     const struct AtcMatchingEra *match);
 
+void atc_processing_find_candidate_transitions(
+    struct AtcTransitionStorage *ts,
+    struct AtcMatchingEra *match);
+
 #endif

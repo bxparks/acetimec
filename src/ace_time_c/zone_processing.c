@@ -331,9 +331,8 @@ void atc_processing_find_candidate_transitions(
     for (uint8_t y = 0; y < num_years; y++) {
       int8_t year = interior_years[y];
       struct AtcTransition *t = atc_transition_storage_get_free_agent(ts);
-      atc_processing_create_transition_for_year(t, year,rule, match);
-      uint8_t status = atc_transition_compare_to_match_fuzzy(
-          t, match);
+      atc_processing_create_transition_for_year(t, year, rule, match);
+      uint8_t status = atc_transition_compare_to_match_fuzzy(t, match);
       if (status == kAtcMatchStatusPrior) {
         atc_transition_storage_set_free_agent_as_prior_if_valid(ts);
       } else if (status == kAtcMatchStatusWithinMatch) {
