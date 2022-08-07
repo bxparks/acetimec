@@ -48,12 +48,6 @@ void atc_processing_calc_start_day_of_month(
 // Data structures to track ZoneEra transitions and associated info.
 //---------------------------------------------------------------------------
 
-/** A tuple of (year_tiny, month). */
-struct AtcYearMonth {
-  int8_t year_tiny;
-  uint8_t month;
-};
-
 enum {
   kAtcSearchStatusGap = 0,
   kAtcSearchStatusExact = 1,
@@ -159,8 +153,14 @@ bool atc_processing_offset_date_time_from_local_date_time(
   struct AtcOffsetDateTime *odt);
 
 //---------------------------------------------------------------------------
-// Functions exposed for testing.
+// Functions and data structures exposed for testing.
 //---------------------------------------------------------------------------
+
+/** A tuple of (year_tiny, month). */
+struct AtcYearMonth {
+  int8_t year_tiny;
+  uint8_t month;
+};
 
 uint8_t atc_processing_find_matches(
   const struct AtcZoneInfo *zone_info,
@@ -173,5 +173,12 @@ int8_t atc_compare_era_to_year_month(
     const struct AtcZoneEra *era,
     int8_t year_tiny,
     uint8_t month);
+
+void atc_create_matching_era(
+    struct AtcMatchingEra *new_match,
+    struct AtcMatchingEra *prev_match,
+    const struct AtcZoneEra *era,
+    struct AtcYearMonth start_ym,
+    struct AtcYearMonth until_ym);
 
 #endif

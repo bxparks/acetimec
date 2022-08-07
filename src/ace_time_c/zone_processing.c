@@ -59,10 +59,10 @@ static bool atc_era_overlaps_interval(
  * the ZoneEra using the eraOverlapsInterval() method. The 'prev' ZoneEra is
  * needed to define the startDateTime of the current era.
  */
-static void atc_create_matching_era(
+void atc_create_matching_era(
     struct AtcMatchingEra *new_match,
     struct AtcMatchingEra *prev_match,
-    struct AtcZoneEra *era,
+    const struct AtcZoneEra *era,
     struct AtcYearMonth start_ym,
     struct AtcYearMonth until_ym) {
 

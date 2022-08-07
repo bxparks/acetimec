@@ -90,6 +90,99 @@ ACU_TEST(test_atc_compare_era_to_year_month_equal) {
 }
 
 //---------------------------------------------------------------------------
+
+ACU_TEST(test_atc_create_matching_era) {
+  // 14-month interval, from 2000-12 until 2002-02
+  struct AtcYearMonth start_ym = {0, 12};
+  struct AtcYearMonth until_ym = {2, 2};
+
+  // UNTIL = 2000-12-02 3:00
+  const struct AtcZoneEra era1 =
+      {NULL, "", 0, 0, 0 /*y*/, 12/*m*/, 2/*d*/, 3*(60/15),
+      kAtcSuffixW};
+
+  // UNTIL = 2001-02-03 4:00
+  const struct AtcZoneEra era2 =
+      {NULL, "", 0, 0, 1/*y*/, 2/*m*/, 3/*d*/, 4*(60/15),
+      kAtcSuffixW};
+
+  // UNTIL = 2002-10-11 4:00
+  const struct AtcZoneEra era3 =
+      {NULL, "", 0, 0, 2/*y*/, 10/*m*/, 11/*d*/, 4*(60/15),
+      kAtcSuffixW};
+
+  // No previous matching era, so start_dt is set to start_ym.
+  struct AtcMatchingEra match1;
+  atc_create_matching_era(
+      &match1,
+      NULL /*prevMatch*/,
+      &era1 /*era*/,
+      start_ym,
+      until_ym);
+  ACU_ASSERT(match1.start_dt.year_tiny == 0);
+  ACU_ASSERT(match1.start_dt.month == 12);
+  ACU_ASSERT(match1.start_dt.day == 1);
+  ACU_ASSERT(match1.start_dt.minutes == 60*0);
+  ACU_ASSERT(match1.start_dt.suffix == kAtcSuffixW);
+  //
+  ACU_ASSERT(match1.until_dt.year_tiny == 0);
+  ACU_ASSERT(match1.until_dt.month == 12);
+  ACU_ASSERT(match1.until_dt.day == 2);
+  ACU_ASSERT(match1.until_dt.minutes == 60*3);
+  ACU_ASSERT(match1.until_dt.suffix == kAtcSuffixW);
+  //
+  ACU_ASSERT(match1.era == &era1);
+
+  // start_dt is set to the prevMatch.until_dt.
+  // until_dt is < until_ym, so is retained.
+  struct AtcMatchingEra match2;
+  atc_create_matching_era(
+      &match2,
+      &match1,
+      &era2 /*era*/,
+      start_ym,
+      until_ym);
+  ACU_ASSERT(match2.start_dt.year_tiny == 0);
+  ACU_ASSERT(match2.start_dt.month == 12);
+  ACU_ASSERT(match2.start_dt.day == 2);
+  ACU_ASSERT(match2.start_dt.minutes == 60*3);
+  ACU_ASSERT(match2.start_dt.suffix == kAtcSuffixW);
+  //
+  ACU_ASSERT(match2.until_dt.year_tiny == 1);
+  ACU_ASSERT(match2.until_dt.month == 2);
+  ACU_ASSERT(match2.until_dt.day == 3);
+  ACU_ASSERT(match2.until_dt.minutes == 60*4);
+  ACU_ASSERT(match2.until_dt.suffix == kAtcSuffixW);
+  //
+  ACU_ASSERT(match2.era == &era2);
+
+  // start_dt is set to the prevMatch.until_dt.
+  // until_dt is > until_ym so truncated to until_ym.
+  struct AtcMatchingEra match3;
+  atc_create_matching_era(
+      &match3,
+      &match2,
+      &era3 /*era*/,
+      start_ym,
+      until_ym);
+  ACU_ASSERT(match3.start_dt.year_tiny == 1);
+  ACU_ASSERT(match3.start_dt.month == 2);
+  ACU_ASSERT(match3.start_dt.day == 3);
+  ACU_ASSERT(match3.start_dt.minutes == 60*4);
+  ACU_ASSERT(match3.start_dt.suffix == kAtcSuffixW);
+  //
+  ACU_ASSERT(match3.until_dt.year_tiny == 2);
+  ACU_ASSERT(match3.until_dt.month == 2);
+  ACU_ASSERT(match3.until_dt.day == 1);
+  ACU_ASSERT(match3.until_dt.minutes == 60*0);
+  ACU_ASSERT(match3.until_dt.suffix == kAtcSuffixW);
+  //
+  ACU_ASSERT(match3.era == &era3);
+
+  ACU_PASS();
+}
+
+//---------------------------------------------------------------------------
 // A simplified version of America/Los_Angeles, using only simple ZoneEras
 // (i.e. no references to a ZonePolicy). Valid only for 2018.
 //---------------------------------------------------------------------------
@@ -368,6 +461,7 @@ int main()
 
   ACU_RUN_TEST(test_atc_compare_era_to_year_month);
   ACU_RUN_TEST(test_atc_compare_era_to_year_month_equal);
+  ACU_RUN_TEST(test_atc_create_matching_era);
   ACU_RUN_TEST(test_atc_processing_find_matches_simple);
   ACU_RUN_TEST(test_atc_processing_find_matches_named);
 
