@@ -610,6 +610,110 @@ ACU_TEST(test_atc_processing_find_candidate_transitions) {
 }
 
 //---------------------------------------------------------------------------
+// Step 2B: Pass 3
+//---------------------------------------------------------------------------
+
+ACU_TEST(test_atc_process_transition_match_status)
+{
+  // UNTIL = 2002-01-02T03:00
+  const struct AtcZoneEra ERA = {
+      NULL /*zonePolicy*/,
+      "" /*format*/,
+      0 /*offsetCode*/,
+      0 /*deltaCode*/,
+      2 /*untilYearTiny*/,
+      1 /*untilMonth*/,
+      2 /*untilDay*/,
+      12 /*untilTimeCode*/,
+      kAtcSuffixW
+  };
+
+  // [2000-01-01, 2001-01-01)
+  struct AtcTransition *prior = NULL;
+  const struct AtcMatchingEra match = {
+    {0, 1, 1, 0, kAtcSuffixW} /*startDateTime*/,
+    {1, 1, 1, 0, kAtcSuffixW} /*untilDateTime*/,
+    &ERA /*era*/,
+    NULL /*prevMatch*/,
+    0 /*lastOffsetMinutes*/,
+    0 /*lastDeltaMinutes*/
+  };
+
+  // This transition occurs before the match, so prior should be filled.
+  // transitionTime = 1999-12-31
+  struct AtcTransition transition0 = {
+    &match /*match*/,
+    NULL /*rule*/,
+    {-1, 12, 31, 0, kAtcSuffixW} /*transitionTime*/,
+    {{0, 0, 0, 0, 0}} /*start_dt*/,
+    {{0, 0, 0, 0, 0}} /*until_dt*/,
+    0, 0, 0, {0}, {0}, {0}
+  };
+
+  // This occurs at exactly match.startDateTime, so should replace the prior.
+  // transitionTime = 2000-01-01
+  struct AtcTransition transition1 = {
+    &match /*match*/,
+    NULL /*rule*/,
+    {0, 1, 1, 0, kAtcSuffixW} /*transitionTime*/,
+    {{0, 0, 0, 0, 0}} /*start_dt*/,
+    {{0, 0, 0, 0, 0}} /*until_dt*/,
+    0, 0, 0, {0}, {0}, {0}
+  };
+
+  // An interior transition. Prior should not change.
+  // transitionTime = 2000-01-02
+  struct AtcTransition transition2 = {
+    &match /*match*/,
+    NULL /*rule*/,
+    {0, 1, 2, 0, kAtcSuffixW} /*transitionTime*/,
+    {{0, 0, 0, 0, 0}} /*start_dt*/,
+    {{0, 0, 0, 0, 0}} /*until_dt*/,
+    0, 0, 0, {0}, {0}, {0}
+  };
+
+  // Occurs after match.untilDateTime, so should be rejected.
+  // transitionTime = 2001-01-02
+  struct AtcTransition transition3 = {
+    &match /*match*/,
+    NULL /*rule*/,
+    {1, 1, 2, 0, kAtcSuffixW} /*transitionTime*/,
+    {{0, 0, 0, 0, 0}} /*start_dt*/,
+    {{0, 0, 0, 0, 0}} /*until_dt*/,
+    0, 0, 0, {0}, {0}, {0}
+  };
+
+  struct AtcTransition *transitions[] = {
+    &transition0,
+    &transition1,
+    &transition2,
+    &transition3,
+  };
+
+  // Populate the transitionTimeS and transitionTimeU fields.
+  atc_transition_fix_times(&transitions[0], &transitions[4]);
+
+  atc_processing_process_transition_match_status(&transition0, &prior);
+  ACU_ASSERT(kAtcMatchStatusPrior == transition0.match_status);
+  ACU_ASSERT(prior == &transition0);
+
+  atc_processing_process_transition_match_status(&transition1, &prior);
+  ACU_ASSERT(kAtcMatchStatusExactMatch == transition1.match_status);
+  ACU_ASSERT(prior == &transition1);
+
+  atc_processing_process_transition_match_status(&transition2, &prior);
+  ACU_ASSERT(kAtcMatchStatusWithinMatch == transition2.match_status);
+  ACU_ASSERT(prior == &transition1);
+
+  atc_processing_process_transition_match_status(&transition3, &prior);
+  ACU_ASSERT(kAtcMatchStatusFarFuture == transition3.match_status);
+  ACU_ASSERT(prior == &transition1);
+
+  ACU_PASS();
+}
+
+
+//---------------------------------------------------------------------------
 
 ACU_PARAMS();
 
@@ -626,6 +730,7 @@ int main()
   ACU_RUN_TEST(test_atc_processing_calc_interior_years);
   ACU_RUN_TEST(test_atc_processing_get_most_recent_prior_year);
   ACU_RUN_TEST(test_atc_processing_find_candidate_transitions);
+  ACU_RUN_TEST(test_atc_process_transition_match_status);
 
   ACU_SUMMARY();
 }

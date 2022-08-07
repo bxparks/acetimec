@@ -365,7 +365,7 @@ void atc_processing_find_candidate_transitions(
 // Step 2B: Pass 3
 //---------------------------------------------------------------------------
 
-static void atc_processing_process_transition_match_status(
+void atc_processing_process_transition_match_status(
     struct AtcTransition *transition,
     struct AtcTransition **prior)
 {

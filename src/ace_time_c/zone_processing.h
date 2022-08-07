@@ -199,4 +199,8 @@ void atc_processing_find_candidate_transitions(
     struct AtcTransitionStorage *ts,
     struct AtcMatchingEra *match);
 
+void atc_processing_process_transition_match_status(
+    struct AtcTransition *transition,
+    struct AtcTransition **prior);
+
 #endif
