@@ -210,7 +210,20 @@ struct AtcTransitionStorage {
   uint8_t alloc_size;
 };
 
+/** Initialize the Transition Storage. Should be called once for a given app. */
 void atc_transition_storage_init(struct AtcTransitionStorage *ts);
+
+struct AtcTransition **atc_transition_storage_get_candidate_pool_begin(
+    struct AtcTransitionStorage *ts);
+
+struct AtcTransition **atc_transition_storage_get_candidate_pool_end(
+    struct AtcTransitionStorage *ts);
+
+struct AtcTransition **atc_transition_storage_get_active_pool_begin(
+    struct AtcTransitionStorage *ts);
+
+struct AtcTransition **atc_transition_storage_get_active_pool_end(
+    struct AtcTransitionStorage *ts);
 
 /**
  * Return a pointer to the first Transition in the free pool. If this

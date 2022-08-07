@@ -130,6 +130,31 @@ void atc_transition_storage_init(struct AtcTransitionStorage *ts)
   ts->alloc_size = 0;
 }
 
+struct AtcTransition **atc_transition_storage_get_candidate_pool_begin(
+    struct AtcTransitionStorage *ts)
+{
+  return &ts->transitions[ts->index_candidate];
+}
+
+struct AtcTransition **atc_transition_storage_get_candidate_pool_end(
+    struct AtcTransitionStorage *ts)
+{
+  return &ts->transitions[ts->index_free];
+}
+
+struct AtcTransition **atc_transition_storage_get_active_pool_begin(
+    struct AtcTransitionStorage *ts)
+{
+  return &ts->transitions[0];
+}
+
+struct AtcTransition **atc_transition_storage_get_active_pool_end(
+    struct AtcTransitionStorage *ts)
+{
+  // NOTE: I think this should be index_prior not index_free
+  return &ts->transitions[ts->index_free];
+}
+
 void atc_transition_storage_reset_candidate_pool(
     struct AtcTransitionStorage *ts)
 {
