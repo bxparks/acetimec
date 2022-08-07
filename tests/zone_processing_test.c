@@ -712,6 +712,51 @@ ACU_TEST(test_atc_process_transition_match_status)
   ACU_PASS();
 }
 
+//---------------------------------------------------------------------------
+// Step 2B
+//---------------------------------------------------------------------------
+
+ACU_TEST(test_atc_processing_create_transitions_from_named_match)
+{
+  struct AtcMatchingEra match = {
+    {18, 12, 1, 0, kAtcSuffixW},
+    {20, 2, 1, 0, kAtcSuffixW},
+    &kZoneEraTestLos_Angeles[0],
+    NULL /*prevMatch*/,
+    0 /*lastOffsetMinutes*/,
+    0 /*lastDeltaMinutes*/
+  };
+
+  // Reserve storage for the Transitions
+  struct AtcTransitionStorage storage;
+  atc_transition_storage_init(&storage);
+
+  atc_processing_create_transitions_from_named_match(&storage, &match);
+  ACU_ASSERT(3 == (int) (storage.index_free - 0));  // size of active pool
+  struct AtcTransition **t = &storage.transitions[0];
+  struct AtcDateTuple *tt = &(*t++)->transition_time;
+  ACU_ASSERT(tt->year_tiny == 18);
+  ACU_ASSERT(tt->month == 12);
+  ACU_ASSERT(tt->day == 1);
+  ACU_ASSERT(tt->minutes == 0);
+  ACU_ASSERT(tt->suffix == kAtcSuffixW);
+  //
+  tt = &(*t++)->transition_time;
+  ACU_ASSERT(tt->year_tiny == 19);
+  ACU_ASSERT(tt->month == 3);
+  ACU_ASSERT(tt->day == 10);
+  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->suffix == kAtcSuffixW);
+  //
+  tt = &(*t++)->transition_time;
+  ACU_ASSERT(tt->year_tiny == 19);
+  ACU_ASSERT(tt->month == 11);
+  ACU_ASSERT(tt->day == 3);
+  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->suffix == kAtcSuffixW);
+
+  ACU_PASS();
+}
 
 //---------------------------------------------------------------------------
 
@@ -731,6 +776,7 @@ int main()
   ACU_RUN_TEST(test_atc_processing_get_most_recent_prior_year);
   ACU_RUN_TEST(test_atc_processing_find_candidate_transitions);
   ACU_RUN_TEST(test_atc_process_transition_match_status);
+  ACU_RUN_TEST(test_atc_processing_create_transitions_from_named_match);
 
   ACU_SUMMARY();
 }

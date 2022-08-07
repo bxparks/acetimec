@@ -203,4 +203,8 @@ void atc_processing_process_transition_match_status(
     struct AtcTransition *transition,
     struct AtcTransition **prior);
 
+void atc_processing_create_transitions_from_named_match(
+    struct AtcTransitionStorage *ts,
+    struct AtcMatchingEra *match);
+
 #endif
