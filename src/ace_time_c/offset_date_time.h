@@ -35,8 +35,17 @@ struct AtcOffsetDateTime {
   int16_t offset_minutes;
 };
 
-/** Return the epoch seconds for the given OffsetDateTime. */
+/** Return the epoch seconds for the given AtcOffsetDateTime. */
 atc_time_t atc_offset_date_time_to_epoch_seconds(
     const struct AtcOffsetDateTime *odt);
+
+/**
+ * Create the AtcOffsetDateTime from the epoch_seconds and total offset minutes.
+ * Returns true upon success. The 'fold' parameter is explicitly set to 0.
+ */
+bool atc_offset_date_time_from_epoch_seconds(
+    atc_time_t epoch_seconds,
+    int16_t offset_minutes,
+    struct AtcOffsetDateTime *odt);
 
 #endif

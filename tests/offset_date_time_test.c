@@ -61,6 +61,78 @@ ACU_TEST(test_offset_date_time_to_epoch_seconds_invalid)
 
 //---------------------------------------------------------------------------
 
+ACU_TEST(test_offset_date_time_from_epoch_seconds_invalid)
+{
+  struct AtcOffsetDateTime odt;
+  int16_t total_offset_minutes = 0;
+  atc_time_t epoch_seconds = kAtcInvalidEpochSeconds;
+
+  bool status = atc_offset_date_time_from_epoch_seconds(
+      epoch_seconds, total_offset_minutes, &odt);
+  ACU_ASSERT(status == false);
+
+  ACU_PASS();
+}
+
+ACU_TEST(test_offset_date_time_from_epoch_seconds_0)
+{
+  struct AtcOffsetDateTime odt;
+  int16_t total_offset_minutes = 0;
+  atc_time_t epoch_seconds = 0; // 00:00:00
+
+  bool status = atc_offset_date_time_from_epoch_seconds(
+      epoch_seconds, total_offset_minutes, &odt);
+  ACU_ASSERT(status == true);
+  ACU_ASSERT(odt.year == 2000);
+  ACU_ASSERT(odt.month == 1);
+  ACU_ASSERT(odt.day == 1);
+  ACU_ASSERT(odt.hour == 0);
+  ACU_ASSERT(odt.minute == 0);
+  ACU_ASSERT(odt.second == 0);
+
+  ACU_PASS();
+}
+
+ACU_TEST(test_offset_date_time_from_epoch_seconds_3661)
+{
+  struct AtcOffsetDateTime odt;
+  int16_t total_offset_minutes = 0;
+  atc_time_t epoch_seconds = 3661; // 01:01:01 later
+
+  bool status = atc_offset_date_time_from_epoch_seconds(
+      epoch_seconds, total_offset_minutes, &odt);
+  ACU_ASSERT(status == true);
+  ACU_ASSERT(odt.year == 2000);
+  ACU_ASSERT(odt.month == 1);
+  ACU_ASSERT(odt.day == 1);
+  ACU_ASSERT(odt.hour == 1);
+  ACU_ASSERT(odt.minute == 1);
+  ACU_ASSERT(odt.second == 1);
+
+  ACU_PASS();
+}
+
+ACU_TEST(test_offset_date_time_from_epoch_seconds_with_offset)
+{
+  struct AtcOffsetDateTime odt;
+  int16_t total_offset_minutes = -8*60; // UTC-08:00
+  atc_time_t epoch_seconds = 0; // 00:00:00
+
+  bool status = atc_offset_date_time_from_epoch_seconds(
+      epoch_seconds, total_offset_minutes, &odt);
+  ACU_ASSERT(status == true);
+  ACU_ASSERT(odt.year == 1999);
+  ACU_ASSERT(odt.month == 12);
+  ACU_ASSERT(odt.day == 31);
+  ACU_ASSERT(odt.hour == 16);
+  ACU_ASSERT(odt.minute == 0);
+  ACU_ASSERT(odt.second == 0);
+
+  ACU_PASS();
+}
+
+//---------------------------------------------------------------------------
+
 ACU_PARAMS();
 
 int main()
@@ -68,5 +140,9 @@ int main()
   ACU_RUN_TEST(test_offset_date_time_to_epoch_seconds);
   ACU_RUN_TEST(test_offset_date_time_to_epoch_seconds_with_offset);
   ACU_RUN_TEST(test_offset_date_time_to_epoch_seconds_invalid);
+  ACU_RUN_TEST(test_offset_date_time_from_epoch_seconds_invalid);
+  ACU_RUN_TEST(test_offset_date_time_from_epoch_seconds_0);
+  ACU_RUN_TEST(test_offset_date_time_from_epoch_seconds_3661);
+  ACU_RUN_TEST(test_offset_date_time_from_epoch_seconds_with_offset);
   ACU_SUMMARY();
 }
