@@ -207,4 +207,8 @@ void atc_processing_create_transitions_from_named_match(
     struct AtcTransitionStorage *ts,
     struct AtcMatchingEra *match);
 
+void atc_processing_generate_start_until_times(
+    struct AtcTransition **begin,
+    struct AtcTransition **end);
+
 #endif

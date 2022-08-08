@@ -467,6 +467,8 @@ ACU_TEST(test_atc_processing_create_transition_for_year) {
   const struct AtcZoneRule *rule = &kZoneRulesTestUS[4];
   struct AtcTransition t;
   atc_processing_create_transition_for_year(&t, 19, rule, &match);
+  ACU_ASSERT(t.offset_minutes == -15*32);
+  ACU_ASSERT(t.delta_minutes == 0);
   const struct AtcDateTuple *tt = &t.transition_time;
   ACU_ASSERT(tt->year_tiny == 19);
   ACU_ASSERT(tt->month == 11);
@@ -568,7 +570,11 @@ ACU_TEST(test_atc_processing_find_candidate_transitions) {
   //    * 2020 Mar Sun>=8 (8)
   atc_transition_storage_reset_candidate_pool(&storage);
   atc_processing_find_candidate_transitions(&storage, &match);
-  ACU_ASSERT(5 == (int) (storage.index_free - storage.index_candidate));
+  struct AtcTransition **end =
+      atc_transition_storage_get_candidate_pool_end(&storage);
+  struct AtcTransition **begin =
+      atc_transition_storage_get_candidate_pool_begin(&storage);
+  ACU_ASSERT(5 == (int) (end - begin));
 
   struct AtcTransition **t = &storage.transitions[storage.index_candidate];
   struct AtcDateTuple *tt = &(*t++)->transition_time;
@@ -732,7 +738,12 @@ ACU_TEST(test_atc_processing_create_transitions_from_named_match)
   atc_transition_storage_init(&storage);
 
   atc_processing_create_transitions_from_named_match(&storage, &match);
-  ACU_ASSERT(3 == (int) (storage.index_free - 0));  // size of active pool
+  struct AtcTransition **end =
+      atc_transition_storage_get_active_pool_end(&storage);
+  struct AtcTransition **begin =
+      atc_transition_storage_get_active_pool_begin(&storage);
+  ACU_ASSERT(3 == (int) (end - begin));
+  //
   struct AtcTransition **t = &storage.transitions[0];
   struct AtcDateTuple *tt = &(*t++)->transition_time;
   ACU_ASSERT(tt->year_tiny == 18);
@@ -759,6 +770,203 @@ ACU_TEST(test_atc_processing_create_transitions_from_named_match)
 }
 
 //---------------------------------------------------------------------------
+// Step 3, Step 4
+//---------------------------------------------------------------------------
+
+static void print_date_tuple(const struct AtcDateTuple *dt)
+{
+  int16_t ms = dt->minutes;
+  int16_t h = ms / 60;
+  int16_t m = ms % 60;
+  char suffix =
+      (dt->suffix == kAtcSuffixW ? 'w' :
+      (dt->suffix == kAtcSuffixS ? 's' :
+      (dt->suffix == kAtcSuffixU ? 'u' : '?')));
+  printf("%02d-%02d-%02d %02d:%02d%c",
+      dt->year_tiny,
+      dt->month,
+      dt->day,
+      h,
+      m,
+      suffix);
+}
+
+static void print_transition(const struct AtcTransition *t)
+{
+  printf("tt=");
+  print_date_tuple(&t->transition_time);
+  printf(";tts=");
+  print_date_tuple(&t->transition_time_s);
+  printf(";ttu=");
+  print_date_tuple(&t->transition_time_u);
+  printf(";offset=%d", t->offset_minutes);
+  printf(";delta=%d", t->delta_minutes);
+  printf("\n");
+}
+
+ACU_TEST(test_fix_transition_times_generate_start_until_times)
+{
+  // Create 3 matches for the AlmostLosAngeles test zone.
+  struct AtcYearMonth start_ym = {18, 12};
+  struct AtcYearMonth until_ym = {20, 2};
+  const uint8_t kMaxMatches = 4;
+  struct AtcMatchingEra matches[kMaxMatches];
+  uint8_t num_matches = atc_processing_find_matches(
+      &kZoneAlmostLosAngeles, start_ym, until_ym, matches, kMaxMatches);
+  ACU_ASSERT(3 == num_matches);
+
+  // Create a custom template instantiation to use a different SIZE than the
+  // pre-defined typedef in ExtendedZoneProcess::TransitionStorage.
+  struct AtcTransitionStorage storage;
+  atc_transition_storage_init(&storage);
+
+  // Create 3 Transitions corresponding to the matches.
+  // Implements ExtendedZoneProcessor::createTransitionsFromSimpleMatch().
+  struct AtcTransition *transition1 =
+      atc_transition_storage_get_free_agent(&storage);
+  atc_processing_create_transition_for_year(
+      transition1, 0 /*year, not used*/, NULL /*rule*/, &matches[0]);
+  transition1->match_status = kAtcMatchStatusExactMatch; // synthetic example
+  atc_transition_storage_add_free_agent_to_candidate_pool(&storage);
+
+  struct AtcTransition *transition2 =
+      atc_transition_storage_get_free_agent(&storage);
+  atc_processing_create_transition_for_year(
+      transition2, 0 /*year, not used*/, NULL /*rule*/, &matches[1]);
+  transition2->match_status = kAtcMatchStatusWithinMatch; // synthetic example
+  atc_transition_storage_add_free_agent_to_candidate_pool(&storage);
+
+  struct AtcTransition *transition3 =
+      atc_transition_storage_get_free_agent(&storage);
+  atc_processing_create_transition_for_year(
+      transition3, 0 /*year, not used*/, NULL /*rule*/, &matches[2]);
+  transition3->match_status = kAtcMatchStatusWithinMatch; // synthetic example
+  atc_transition_storage_add_free_agent_to_candidate_pool(&storage);
+
+  // Move actives to Active pool.
+  atc_transition_storage_add_active_candidates_to_active_pool(&storage);
+  struct AtcTransition **begin =
+      atc_transition_storage_get_active_pool_begin(&storage);
+  struct AtcTransition **end =
+      atc_transition_storage_get_active_pool_end(&storage);
+  ACU_ASSERT(3 == (int) (end - begin));
+  ACU_ASSERT(begin[0] == transition1);
+  ACU_ASSERT(begin[1] == transition2);
+  ACU_ASSERT(begin[2] == transition3);
+  print_transition(transition1);
+  print_transition(transition2);
+  print_transition(transition3);
+
+  // Chain the transitions.
+  atc_transition_fix_times(begin, end);
+
+  print_transition(transition1);
+  print_transition(transition2);
+  print_transition(transition3);
+
+  // Verify. The first Transition is extended to -infinity.
+  struct AtcDateTuple *tt = &transition1->transition_time;
+  ACU_ASSERT(tt->year_tiny == 18);
+  ACU_ASSERT(tt->month == 12);
+  ACU_ASSERT(tt->day == 1);
+  ACU_ASSERT(tt->minutes == 0);
+  ACU_ASSERT(tt->suffix == kAtcSuffixW);
+  struct AtcDateTuple *tts = &transition1->transition_time_s;
+  ACU_ASSERT(tts->year_tiny == 18);
+  ACU_ASSERT(tts->month == 12);
+  ACU_ASSERT(tts->day == 1);
+  ACU_ASSERT(tts->minutes == 0);
+  ACU_ASSERT(tts->suffix == kAtcSuffixS);
+  struct AtcDateTuple *ttu = &transition1->transition_time_u;
+  ACU_ASSERT(ttu->year_tiny == 18);
+  ACU_ASSERT(ttu->month == 12);
+  ACU_ASSERT(ttu->day == 1);
+  ACU_ASSERT(ttu->minutes == 15*32);
+  ACU_ASSERT(ttu->suffix == kAtcSuffixU);
+
+  // Second transition uses the UTC offset of the first.
+  tt = &transition2->transition_time;
+  ACU_ASSERT(tt->year_tiny == 19);
+  ACU_ASSERT(tt->month == 3);
+  ACU_ASSERT(tt->day == 10);
+  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->suffix == kAtcSuffixW);
+  tts = &transition2->transition_time_s;
+  ACU_ASSERT(tts->year_tiny == 19);
+  ACU_ASSERT(tts->month == 3);
+  ACU_ASSERT(tts->day == 10);
+  ACU_ASSERT(tts->minutes == 15*8);
+  ACU_ASSERT(tts->suffix == kAtcSuffixS);
+  ttu = &transition2->transition_time_u;
+  ACU_ASSERT(ttu->year_tiny == 19);
+  ACU_ASSERT(ttu->month == 3);
+  ACU_ASSERT(ttu->day == 10);
+  ACU_ASSERT(ttu->minutes == 15*40);
+  ACU_ASSERT(ttu->suffix == kAtcSuffixU);
+
+  // Third transition uses the UTC offset of the second.
+  tt = &transition3->transition_time;
+  ACU_ASSERT(tt->year_tiny == 19);
+  ACU_ASSERT(tt->month == 11);
+  ACU_ASSERT(tt->day == 3);
+  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->suffix == kAtcSuffixW);
+  tts = &transition3->transition_time_s;
+  ACU_ASSERT(tts->year_tiny == 19);
+  ACU_ASSERT(tts->month == 11);
+  ACU_ASSERT(tts->day == 3);
+  ACU_ASSERT(tts->minutes == 15*4);
+  ACU_ASSERT(tts->suffix == kAtcSuffixS);
+  ttu = &transition3->transition_time_u;
+  ACU_ASSERT(ttu->year_tiny == 19);
+  ACU_ASSERT(ttu->month == 11);
+  ACU_ASSERT(ttu->day == 3);
+  ACU_ASSERT(ttu->minutes == 15*36);
+  ACU_ASSERT(ttu->suffix == kAtcSuffixU);
+
+  /*
+  // Generate the startDateTime and untilDateTime of the transitions.
+  atc_processing_generate_start_until_times(begin, end);
+
+  // Verify. The first transition startTime should be the same as its
+  // transitionTime.
+  //assertTrue((transition1->transitionTime == DateTuple{18, 12, 1, 0,
+  //    kAtcSuffixW}));
+  assertTrue((transition1->startDateTime == DateTuple{18, 12, 1, 0,
+      kAtcSuffixW}));
+  assertTrue((transition1->untilDateTime == DateTuple{19, 3, 10, 15*8,
+      kAtcSuffixW}));
+  acetime_t epochSecs = OffsetDateTime::forComponents(
+      2018, 12, 1, 0, 0, 0, TimeOffset::forHours(-8)).toEpochSeconds();
+  assertEqual(epochSecs, transition1->startEpochSeconds);
+
+  // Second transition startTime is shifted forward one hour into PDT.
+  //assertTrue((transition2->transitionTime == DateTuple{19, 3, 10, 15*8,
+  //    kAtcSuffixW}));
+  assertTrue((transition2->startDateTime == DateTuple{19, 3, 10, 15*12,
+      kAtcSuffixW}));
+  assertTrue((transition2->untilDateTime == DateTuple{19, 11, 3, 15*8,
+      kAtcSuffixW}));
+  epochSecs = OffsetDateTime::forComponents(
+      2019, 3, 10, 3, 0, 0, TimeOffset::forHours(-7)).toEpochSeconds();
+  assertEqual(epochSecs, transition2->startEpochSeconds);
+
+  // Third transition startTime is shifted back one hour into PST.
+  assertTrue((transition3->transitionTime == DateTuple{19, 11, 3, 15*8,
+      kAtcSuffixW}));
+  assertTrue((transition3->startDateTime == DateTuple{19, 11, 3, 15*4,
+      kAtcSuffixW}));
+  assertTrue((transition3->untilDateTime == DateTuple{20, 2, 1, 0,
+      kAtcSuffixW}));
+  epochSecs = OffsetDateTime::forComponents(
+      2019, 11, 3, 1, 0, 0, TimeOffset::forHours(-8)).toEpochSeconds();
+  assertEqual(epochSecs, transition3->startEpochSeconds);
+  */
+
+  ACU_PASS();
+}
+
+//---------------------------------------------------------------------------
 
 ACU_PARAMS();
 
@@ -777,6 +985,7 @@ int main()
   ACU_RUN_TEST(test_atc_processing_find_candidate_transitions);
   ACU_RUN_TEST(test_atc_process_transition_match_status);
   ACU_RUN_TEST(test_atc_processing_create_transitions_from_named_match);
+  ACU_RUN_TEST(test_fix_transition_times_generate_start_until_times);
 
   ACU_SUMMARY();
 }

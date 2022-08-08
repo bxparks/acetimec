@@ -21,7 +21,7 @@ ACU_TEST(test_zoned_date_time_normalize)
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
   printf("***zdt.offset_minutes=%d\n", zdt.offset_minutes);
-  //ACU_ASSERT(zdt.offset_minutes == -8*60);
+  ACU_ASSERT(zdt.offset_minutes == -8*60);
 
   ACU_PASS();
 }
@@ -45,7 +45,7 @@ ACU_TEST(test_zoned_date_time_normalize_before_dst)
   ACU_ASSERT(zdt.minute == 59);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
-  //ACU_ASSERT(zdt.offset_minutes == -8*60);
+  ACU_ASSERT(zdt.offset_minutes == -8*60);
 
   ACU_PASS();
 }

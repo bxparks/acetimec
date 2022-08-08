@@ -225,7 +225,7 @@ void atc_processing_create_transition_for_year(
 {
   t->match = match;
   t->rule = rule;
-  t->offset_minutes = atc_zone_era_dst_offset_minutes(match->era);
+  t->offset_minutes = atc_zone_era_std_offset_minutes(match->era);
   t->letter_buf[0] = '\0';
 
   if (rule) {
@@ -256,7 +256,6 @@ void atc_processing_create_transitions_from_simple_match(
     struct AtcTransitionStorage *ts,
     struct AtcMatchingEra *match)
 {
-  printf("***atc_processing_create_transitions_from_simple_match()\n");
   struct AtcTransition *free_agent = atc_transition_storage_get_free_agent(ts);
   atc_processing_create_transition_for_year(free_agent, 0, NULL, match);
   free_agent->match_status = kAtcMatchStatusExactMatch;
@@ -329,9 +328,9 @@ void atc_processing_find_candidate_transitions(
         start_year_tiny,
         end_year_tiny);
     for (uint8_t y = 0; y < num_years; y++) {
-      int8_t year = interior_years[y];
+      int8_t year_tiny = interior_years[y];
       struct AtcTransition *t = atc_transition_storage_get_free_agent(ts);
-      atc_processing_create_transition_for_year(t, year, rule, match);
+      atc_processing_create_transition_for_year(t, year_tiny, rule, match);
       uint8_t status = atc_transition_compare_to_match_fuzzy(t, match);
       if (status == kAtcMatchStatusPrior) {
         atc_transition_storage_set_free_agent_as_prior_if_valid(ts);
@@ -419,7 +418,6 @@ void atc_processing_create_transitions_from_named_match(
     struct AtcTransitionStorage *ts,
     struct AtcMatchingEra *match)
 {
-  printf("***atc_processing_create_transitions_from_named_match()\n");
   atc_transition_storage_reset_candidate_pool(ts);
 
   // Pass 1: Find candidate transitions using whole years.
