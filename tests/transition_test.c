@@ -128,67 +128,67 @@ ACU_TEST(test_atc_date_tuple_expand)
   int16_t offset_minutes = 2*60;
   int16_t delta_minutes = 1*60;
 
-  struct AtcDateTuple tt = {0, 1, 30, 15*12, kAtcSuffixW}; // 03:00
+  struct AtcDateTuple tt = {0, 1, 30, 15*16, kAtcSuffixW}; // 04:00
   atc_date_tuple_expand(
       &tt, offset_minutes, delta_minutes, &ttw, &tts, &ttu);
   ACU_ASSERT(ttw.year_tiny == 0);
   ACU_ASSERT(ttw.month == 1);
   ACU_ASSERT(ttw.day == 30);
-  ACU_ASSERT(ttw.minutes == 15*12);
+  ACU_ASSERT(ttw.minutes == 15*16);
   ACU_ASSERT(ttw.suffix == kAtcSuffixW);
   //
   ACU_ASSERT(tts.year_tiny == 0);
   ACU_ASSERT(tts.month == 1);
   ACU_ASSERT(tts.day == 30);
-  ACU_ASSERT(tts.minutes == 15*8);
+  ACU_ASSERT(tts.minutes == 15*12);
   ACU_ASSERT(tts.suffix == kAtcSuffixS);
   //
   ACU_ASSERT(ttu.year_tiny == 0);
   ACU_ASSERT(ttu.month == 1);
   ACU_ASSERT(ttu.day == 30);
-  ACU_ASSERT(ttu.minutes == 0);
+  ACU_ASSERT(ttu.minutes == 15*4);
   ACU_ASSERT(ttu.suffix == kAtcSuffixU);
 
-  tt = (struct AtcDateTuple) {0, 1, 30, 15*8, kAtcSuffixS};
+  tt = (struct AtcDateTuple) {0, 1, 30, 15*12, kAtcSuffixS};
   atc_date_tuple_expand(
       &tt, offset_minutes, delta_minutes, &ttw, &tts, &ttu);
   ACU_ASSERT(ttw.year_tiny == 0);
   ACU_ASSERT(ttw.month == 1);
   ACU_ASSERT(ttw.day == 30);
-  ACU_ASSERT(ttw.minutes == 15*12);
+  ACU_ASSERT(ttw.minutes == 15*16);
   ACU_ASSERT(ttw.suffix == kAtcSuffixW);
   //
   ACU_ASSERT(tts.year_tiny == 0);
   ACU_ASSERT(tts.month == 1);
   ACU_ASSERT(tts.day == 30);
-  ACU_ASSERT(tts.minutes == 15*8);
+  ACU_ASSERT(tts.minutes == 15*12);
   ACU_ASSERT(tts.suffix == kAtcSuffixS);
   //
   ACU_ASSERT(ttu.year_tiny == 0);
   ACU_ASSERT(ttu.month == 1);
   ACU_ASSERT(ttu.day == 30);
-  ACU_ASSERT(ttu.minutes == 0);
+  ACU_ASSERT(ttu.minutes == 15*4);
   ACU_ASSERT(ttu.suffix == kAtcSuffixU);
 
-  tt = (struct AtcDateTuple) {0, 1, 30, 0, kAtcSuffixU};
+  tt = (struct AtcDateTuple) {0, 1, 30, 15*4, kAtcSuffixU};
   atc_date_tuple_expand(
       &tt, offset_minutes, delta_minutes, &ttw, &tts, &ttu);
   ACU_ASSERT(ttw.year_tiny == 0);
   ACU_ASSERT(ttw.month == 1);
   ACU_ASSERT(ttw.day == 30);
-  ACU_ASSERT(ttw.minutes == 15*12);
+  ACU_ASSERT(ttw.minutes == 15*16);
   ACU_ASSERT(ttw.suffix == kAtcSuffixW);
   //
   ACU_ASSERT(tts.year_tiny == 0);
   ACU_ASSERT(tts.month == 1);
   ACU_ASSERT(tts.day == 30);
-  ACU_ASSERT(tts.minutes == 15*8);
+  ACU_ASSERT(tts.minutes == 15*12);
   ACU_ASSERT(tts.suffix == kAtcSuffixS);
   //
   ACU_ASSERT(ttu.year_tiny == 0);
   ACU_ASSERT(ttu.month == 1);
   ACU_ASSERT(ttu.day == 30);
-  ACU_ASSERT(ttu.minutes == 0);
+  ACU_ASSERT(ttu.minutes == 15*4);
   ACU_ASSERT(ttu.suffix == kAtcSuffixU);
 
   ACU_PASS();
