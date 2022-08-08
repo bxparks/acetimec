@@ -33,7 +33,8 @@ ACU_TEST(test_atc_local_date_time_to_epoch_seconds)
 ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2000)
 {
   struct AtcLocalDateTime ldt;
-  atc_local_date_time_from_epoch_seconds(0, &ldt);
+  bool status = atc_local_date_time_from_epoch_seconds(0, &ldt);
+  ACU_ASSERT(status == true);
   ACU_ASSERT(ldt.year == 2000);
   ACU_ASSERT(ldt.month == 1);
   ACU_ASSERT(ldt.day == 1);
@@ -47,7 +48,8 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2000)
 ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2029)
 {
   struct AtcLocalDateTime ldt;
-  atc_local_date_time_from_epoch_seconds(10958 * 86400 - 1, &ldt);
+  bool status = atc_local_date_time_from_epoch_seconds(10958 * 86400 - 1, &ldt);
+  ACU_ASSERT(status == true);
   ACU_ASSERT(ldt.year == 2029);
   ACU_ASSERT(ldt.month == 12);
   ACU_ASSERT(ldt.day == 31);
@@ -61,7 +63,8 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2029)
 ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2068)
 {
   struct AtcLocalDateTime ldt;
-  atc_local_date_time_from_epoch_seconds(INT32_MAX - 1, &ldt);
+  bool status = atc_local_date_time_from_epoch_seconds(INT32_MAX - 1, &ldt);
+  ACU_ASSERT(status == true);
   ACU_ASSERT(ldt.year == 2068);
   ACU_ASSERT(ldt.month == 1);
   ACU_ASSERT(ldt.day == 19);
