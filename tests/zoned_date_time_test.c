@@ -1,6 +1,78 @@
 #include "acunit.h"
 #include <acetimec.h>
 
+//---------------------------------------------------------------------------
+
+ACU_TEST(test_zoned_date_time_from_epoch_seconds)
+{
+  struct AtcZoneProcessing processing;
+  atc_processing_init(&processing);
+
+  struct AtcZonedDateTime zdt;
+  atc_time_t epoch_seconds = 0;
+
+  bool status = atc_zoned_date_time_from_epoch_seconds(
+    &processing,
+    &kAtcZoneAmerica_Los_Angeles,
+    epoch_seconds,
+    &zdt);
+  ACU_ASSERT(status == true);
+  ACU_ASSERT(zdt.year == 1999);
+  ACU_ASSERT(zdt.month == 12);
+  ACU_ASSERT(zdt.day == 31);
+  ACU_ASSERT(zdt.hour == 16);
+  ACU_ASSERT(zdt.minute == 0);
+  ACU_ASSERT(zdt.second == 0);
+  ACU_ASSERT(zdt.fold == 0);
+
+  ACU_PASS();
+}
+
+ACU_TEST(test_zoned_date_time_from_epoch_seconds_unix_max)
+{
+  struct AtcZoneProcessing processing;
+  atc_processing_init(&processing);
+
+  struct AtcZonedDateTime zdt;
+  atc_time_t epoch_seconds = 1200798847;
+
+  bool status = atc_zoned_date_time_from_epoch_seconds(
+    &processing,
+    &kAtcZoneEtc_UTC,
+    epoch_seconds,
+    &zdt);
+  ACU_ASSERT(status == true);
+  ACU_ASSERT(zdt.year == 2038);
+  ACU_ASSERT(zdt.month == 1);
+  ACU_ASSERT(zdt.day == 19);
+  ACU_ASSERT(zdt.hour == 3);
+  ACU_ASSERT(zdt.minute == 14);
+  ACU_ASSERT(zdt.second == 7);
+  ACU_ASSERT(zdt.fold == 0);
+
+  ACU_PASS();
+}
+
+ACU_TEST(test_zoned_date_time_from_epoch_seconds_invalid)
+{
+  struct AtcZoneProcessing processing;
+  atc_processing_init(&processing);
+
+  struct AtcZonedDateTime zdt;
+  atc_time_t epoch_seconds = kAtcInvalidEpochSeconds;
+
+  bool status = atc_zoned_date_time_from_epoch_seconds(
+    &processing,
+    &kAtcZoneEtc_UTC,
+    epoch_seconds,
+    &zdt);
+  ACU_ASSERT(status == false);
+
+  ACU_PASS();
+}
+
+//---------------------------------------------------------------------------
+
 ACU_TEST(test_zoned_date_time_normalize)
 {
   struct AtcZoneProcessing processing;
@@ -20,7 +92,6 @@ ACU_TEST(test_zoned_date_time_normalize)
   ACU_ASSERT(zdt.minute == 0);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
-  printf("***zdt.offset_minutes=%d\n", zdt.offset_minutes);
   ACU_ASSERT(zdt.offset_minutes == -8*60);
 
   ACU_PASS();
@@ -65,46 +136,13 @@ ACU_TEST(test_zoned_date_time_normalize_in_gap)
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 3);
   ACU_ASSERT(zdt.day == 11);
-  //ACU_ASSERT(zdt.hour == 3);
+  printf("***test_zoned_date_time_normalize_in_gap(): zdt.hour=%d\n", zdt.hour);
+  ACU_ASSERT(zdt.hour == 3);
   ACU_ASSERT(zdt.minute == 1);
   ACU_ASSERT(zdt.second == 0);
   //ACU_ASSERT(zdt.fold == 0);
-  //ACU_ASSERT(zdt.offset_minutes == -7*60);
+  ACU_ASSERT(zdt.offset_minutes == -7*60);
 
-  ACU_PASS();
-}
-
-ACU_TEST(test_zoned_date_time_from_epoch_seconds)
-{
-  struct AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-
-  struct AtcZonedDateTime zdt;
-  atc_time_t epoch_seconds = 0;
-
-  bool status = atc_zoned_date_time_from_epoch_seconds(
-    &processing,
-    &kAtcZoneAmerica_Los_Angeles,
-    epoch_seconds,
-    &zdt);
-  ACU_ASSERT(status == true);
-
-  /*
-  printf("***zdt.year=%d\n", zdt.year);
-  ACU_ASSERT(zdt.year == 1999);
-  ACU_ASSERT(zdt.month == 12);
-  ACU_ASSERT(zdt.day == 31);
-  ACU_ASSERT(zdt.hour == 16);
-  ACU_ASSERT(zdt.minute == 0);
-  ACU_ASSERT(zdt.second == 0);
-  ACU_ASSERT(zdt.fold == 0);
-  */
-
-  ACU_PASS();
-}
-
-ACU_TEST(test_zoned_date_time_from_epoch_seconds_invalid)
-{
   ACU_PASS();
 }
 
@@ -114,10 +152,11 @@ ACU_PARAMS();
 
 int main()
 {
-  ACU_RUN_TEST(test_zoned_date_time_normalize);
-  ACU_RUN_TEST(test_zoned_date_time_normalize_before_dst);
-  ACU_RUN_TEST(test_zoned_date_time_normalize_in_gap);
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds);
+  ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_unix_max);
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_invalid);
+  //ACU_RUN_TEST(test_zoned_date_time_normalize);
+  //ACU_RUN_TEST(test_zoned_date_time_normalize_before_dst);
+  //ACU_RUN_TEST(test_zoned_date_time_normalize_in_gap);
   ACU_SUMMARY();
 }

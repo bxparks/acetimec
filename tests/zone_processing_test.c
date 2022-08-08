@@ -924,44 +924,73 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
   ACU_ASSERT(ttu->minutes == 15*36);
   ACU_ASSERT(ttu->suffix == kAtcSuffixU);
 
-  /*
   // Generate the startDateTime and untilDateTime of the transitions.
   atc_processing_generate_start_until_times(begin, end);
 
   // Verify. The first transition startTime should be the same as its
   // transitionTime.
-  //assertTrue((transition1->transitionTime == DateTuple{18, 12, 1, 0,
-  //    kAtcSuffixW}));
-  assertTrue((transition1->startDateTime == DateTuple{18, 12, 1, 0,
-      kAtcSuffixW}));
-  assertTrue((transition1->untilDateTime == DateTuple{19, 3, 10, 15*8,
-      kAtcSuffixW}));
-  acetime_t epochSecs = OffsetDateTime::forComponents(
-      2018, 12, 1, 0, 0, 0, TimeOffset::forHours(-8)).toEpochSeconds();
-  assertEqual(epochSecs, transition1->startEpochSeconds);
+  struct AtcDateTuple *sdt = &transition1->start_dt;
+  ACU_ASSERT(sdt->year_tiny == 18);
+  ACU_ASSERT(sdt->month == 12);
+  ACU_ASSERT(sdt->day == 1);
+  ACU_ASSERT(sdt->minutes == 0);
+  ACU_ASSERT(sdt->suffix == kAtcSuffixW);
+  //
+  struct AtcDateTuple *udt = &transition1->until_dt;
+  ACU_ASSERT(udt->year_tiny == 19);
+  ACU_ASSERT(udt->month == 3);
+  ACU_ASSERT(udt->day == 10);
+  ACU_ASSERT(udt->minutes == 15*8);
+  ACU_ASSERT(udt->suffix == kAtcSuffixW);
+  //
+  struct AtcOffsetDateTime odt = {
+    2018, 12, 1, 0, 0, 0, 0 /*fold*/, -8*60 /*offset_minutes*/
+  };
+  atc_time_t eps = atc_offset_date_time_to_epoch_seconds(&odt);
+  ACU_ASSERT(eps == transition1->start_epoch_seconds);
 
   // Second transition startTime is shifted forward one hour into PDT.
-  //assertTrue((transition2->transitionTime == DateTuple{19, 3, 10, 15*8,
-  //    kAtcSuffixW}));
-  assertTrue((transition2->startDateTime == DateTuple{19, 3, 10, 15*12,
-      kAtcSuffixW}));
-  assertTrue((transition2->untilDateTime == DateTuple{19, 11, 3, 15*8,
-      kAtcSuffixW}));
-  epochSecs = OffsetDateTime::forComponents(
-      2019, 3, 10, 3, 0, 0, TimeOffset::forHours(-7)).toEpochSeconds();
-  assertEqual(epochSecs, transition2->startEpochSeconds);
+  sdt = &transition2->start_dt;
+  ACU_ASSERT(sdt->year_tiny == 19);
+  ACU_ASSERT(sdt->month == 3);
+  ACU_ASSERT(sdt->day == 10);
+  ACU_ASSERT(sdt->minutes == 15*12);
+  ACU_ASSERT(sdt->suffix == kAtcSuffixW);
+  //
+  udt = &transition2->until_dt;
+  ACU_ASSERT(udt->year_tiny == 19);
+  ACU_ASSERT(udt->month == 11);
+  ACU_ASSERT(udt->day == 3);
+  ACU_ASSERT(udt->minutes == 15*8);
+  ACU_ASSERT(udt->suffix == kAtcSuffixW);
+  //
+  odt = (struct AtcOffsetDateTime) {
+    2019, 3, 10, 3, 0, 0, 0 /*fold*/, -7*60 /*offset_minutes*/
+  };
+  eps = atc_offset_date_time_to_epoch_seconds(&odt);
+  ACU_ASSERT(eps == transition2->start_epoch_seconds);
 
   // Third transition startTime is shifted back one hour into PST.
-  assertTrue((transition3->transitionTime == DateTuple{19, 11, 3, 15*8,
-      kAtcSuffixW}));
-  assertTrue((transition3->startDateTime == DateTuple{19, 11, 3, 15*4,
-      kAtcSuffixW}));
-  assertTrue((transition3->untilDateTime == DateTuple{20, 2, 1, 0,
-      kAtcSuffixW}));
-  epochSecs = OffsetDateTime::forComponents(
-      2019, 11, 3, 1, 0, 0, TimeOffset::forHours(-8)).toEpochSeconds();
-  assertEqual(epochSecs, transition3->startEpochSeconds);
-  */
+  sdt = &transition3->start_dt;
+  ACU_ASSERT(sdt->year_tiny == 19);
+  ACU_ASSERT(sdt->month == 11);
+  ACU_ASSERT(sdt->day == 3);
+  ACU_ASSERT(sdt->minutes == 15*4);
+  ACU_ASSERT(sdt->suffix == kAtcSuffixW);
+  //
+  udt = &transition3->until_dt;
+  ACU_ASSERT(udt->year_tiny == 20);
+  ACU_ASSERT(udt->month == 2);
+  ACU_ASSERT(udt->day == 1);
+  ACU_ASSERT(udt->minutes == 0);
+  ACU_ASSERT(udt->suffix == kAtcSuffixW);
+  //
+  odt = (struct AtcOffsetDateTime) {
+    2019, 11, 3, 1, 0, 0, 0 /*fold*/, -8*60 /*offset_minutes*/
+  };
+  eps = atc_offset_date_time_to_epoch_seconds(&odt);
+  ACU_ASSERT(eps == transition3->start_epoch_seconds);
+
 
   ACU_PASS();
 }

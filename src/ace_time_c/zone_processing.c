@@ -678,7 +678,9 @@ bool atc_processing_init_for_epoch_seconds(
   }
 
   struct AtcLocalDateTime ldt;
-  atc_local_date_time_from_epoch_seconds(epoch_seconds, &ldt);
+  bool status = atc_local_date_time_from_epoch_seconds(epoch_seconds, &ldt);
+  if (! status) return status;
+
   return atc_processing_init_for_year(processing, zone_info, ldt.year);
 }
 
@@ -801,22 +803,19 @@ bool atc_processing_offset_date_time_from_epoch_seconds(
       processing,
       zone_info,
       epoch_seconds);
-  printf("***atc_processing_offset_date_time_from_epoch_seconds(): #1\n");
   if (! status) return status;
 
   struct AtcMatchingTransition mt = atc_processing_find_transition_for_seconds(
       &processing->transition_storage, epoch_seconds);
   const struct AtcTransition *t = mt.transition;
-  printf("***atc_processing_offset_date_time_from_epoch_seconds(): #2: t=%d\n",
-    (t != NULL));
   if (! t) return false;
 
-  atc_local_date_time_from_epoch_seconds(
-      epoch_seconds,
-      (struct AtcLocalDateTime *) odt);
-  odt->offset_minutes = t->offset_minutes + t->delta_minutes;
+  int16_t total_offset_minutes = t->offset_minutes + t->delta_minutes;
+  status = atc_offset_date_time_from_epoch_seconds(
+      epoch_seconds, total_offset_minutes, odt);
+  if (! status) return status;
+
   odt->fold = mt.fold;
-  printf("***atc_processing_offset_date_time_from_epoch_seconds(): #3\n");
   return true;
 }
 
@@ -875,8 +874,9 @@ bool atc_processing_offset_date_time_from_local_date_time(
     const struct AtcTransition *othert = (fold == 0)
         ? result.transition1
         : result.transition0;
-    atc_local_date_time_from_epoch_seconds(
+    bool status = atc_local_date_time_from_epoch_seconds(
         epoch_seconds, (struct AtcLocalDateTime *) odt);
+    if (! status) return status;
     odt->offset_minutes = othert->offset_minutes + othert->delta_minutes;
 
     // Invert the fold.
