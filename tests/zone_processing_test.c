@@ -773,6 +773,7 @@ ACU_TEST(test_atc_processing_create_transitions_from_named_match)
 // Step 3, Step 4
 //---------------------------------------------------------------------------
 
+#if ENABLE_DEBUG >= 1
 static void print_date_tuple(const struct AtcDateTuple *dt)
 {
   int16_t ms = dt->minutes;
@@ -803,6 +804,7 @@ static void print_transition(const struct AtcTransition *t)
   printf(";delta=%d", t->delta_minutes);
   printf("\n");
 }
+#endif
 
 ACU_TEST(test_fix_transition_times_generate_start_until_times)
 {
@@ -853,16 +855,20 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
   ACU_ASSERT(begin[0] == transition1);
   ACU_ASSERT(begin[1] == transition2);
   ACU_ASSERT(begin[2] == transition3);
+#if ENABLE_DEBUG >= 1
   print_transition(transition1);
   print_transition(transition2);
   print_transition(transition3);
+#endif
 
   // Chain the transitions.
   atc_transition_fix_times(begin, end);
 
+#if ENABLE_DEBUG >= 1
   print_transition(transition1);
   print_transition(transition2);
   print_transition(transition3);
+#endif
 
   // Verify. The first Transition is extended to -infinity.
   struct AtcDateTuple *tt = &transition1->transition_time;

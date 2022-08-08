@@ -622,14 +622,12 @@ bool atc_processing_init_for_year(
     atc_processing_init(processing);
     processing->zone_info = zone_info;
   }
-  printf("***atc_processing_init_for_year(): #1\n");
   if (atc_processing_is_filled_for_year(processing, year)) return true;
 
   processing->year = year;
   processing->num_matches = 0;
   atc_transition_storage_init(&processing->transition_storage);
   const struct AtcZoneContext *context = processing->zone_info->zone_context;
-  printf("***atc_processing_init_for_year(): #2\n");
   if (year < context->start_year - 1 || context->until_year < year) {
     return false;
   }
@@ -643,7 +641,6 @@ bool atc_processing_init_for_year(
     until_ym,
     processing->matches,
     kAtcMaxMatches);
-  printf("***atc_processing_init_for_year(): num_matches=%d\n", num_matches);
 
   // Step 2: Create Transitions.
   atc_processing_create_transitions(
@@ -663,7 +660,6 @@ bool atc_processing_init_for_year(
   // Step 5: Calc abbreviations.
   atc_processing_calc_abbreviations(begin, end);
 
-  printf("***atc_processing_init_for_year(): #3\n");
   return true;
 }
 
@@ -839,16 +835,13 @@ bool atc_processing_offset_date_time_from_local_date_time(
   const struct AtcTransition *t;
   if (result.search_status == kAtcSearchStatusExact) {
     t = result.transition0;
-    printf("***atc_processing_offset_date_time_from_local_date_time(): #1\n");
   } else {
     if (result.transition0 == NULL || result.transition1 == NULL) {
       // ldt was far past or far future, and didn't match anything.
       t = NULL;
-      printf("***atc_processing_offset_date_time_from_local_date_time(): t=NULL\n");
     } else {
       needs_normalization = (result.search_status == kAtcSearchStatusGap);
       t = (fold == 0) ? result.transition0 : result.transition1;
-      printf("***atc_processing_offset_date_time_from_local_date_time(): #2\n");
     }
   }
 
