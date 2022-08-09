@@ -45,19 +45,18 @@ void something() {
     &zdt);
   if (! status) { /*error*/ }
 
-  // convert components to epoch seconds
+  // convert zoned_date_time to epoch seconds
   seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
   if (seconds == kAtcInvalidEpochSeconds) { /*error*/ }
 
-  // normalize the zoned date time components
-  zdt.year = ...;
-  zdt.month = ...;
-  zdt.day = ...;
-  zdt.hour = ...;
-  zdt.minute = ...;
-  zdt.second = ...;
-  zdt.zone_info = &kAtcZoneAmerica_Los_Angeles;
-  atc_zoned_date_time_normalize(&los_angeles_processing, &zdt);
+  // convert components to zoned_date_time
+  atc_zoned_date_time_from_components(
+    &los_angeles_processing,
+    &kAtcZoneAmerica_Los_Angeles,
+    year, month, day,
+    hour, minute, second,
+    fold,
+    &zdt);
 }
 ```
 

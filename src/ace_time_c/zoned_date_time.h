@@ -48,6 +48,15 @@ bool atc_zoned_date_time_from_epoch_seconds(
 atc_time_t atc_zoned_date_time_to_epoch_seconds(
     const struct AtcZonedDateTime *zdt);
 
+/** Create zoned date time from components and given time zone. */
+bool atc_zoned_date_time_from_components(
+    struct AtcZoneProcessing *processing,
+    const struct AtcZoneInfo *zone_info,
+    int16_t year, uint8_t month, uint8_t day,
+    uint8_t hour, uint8_t minute, uint8_t second,
+    uint8_t fold,
+    struct AtcZonedDateTime *zdt);
+
 /** Normalize the date time components for given time zone. */
 bool atc_zoned_date_time_normalize(
     struct AtcZoneProcessing *processing,

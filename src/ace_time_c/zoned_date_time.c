@@ -39,6 +39,25 @@ atc_time_t atc_zoned_date_time_to_epoch_seconds(
       (const struct AtcOffsetDateTime*) zdt);
 }
 
+bool atc_zoned_date_time_from_components(
+    struct AtcZoneProcessing *processing,
+    const struct AtcZoneInfo *zone_info,
+    int16_t year, uint8_t month, uint8_t day,
+    uint8_t hour, uint8_t minute, uint8_t second,
+    uint8_t fold,
+    struct AtcZonedDateTime *zdt)
+{
+  struct AtcLocalDateTime ldt = {
+    year, month, day, hour, minute, second
+  };
+  return atc_processing_offset_date_time_from_local_date_time(
+      processing,
+      zone_info,
+      &ldt,
+      fold,
+      (struct AtcOffsetDateTime *) zdt);
+}
+
 bool atc_zoned_date_time_normalize(
     struct AtcZoneProcessing *processing,
     struct AtcZonedDateTime *zdt)
