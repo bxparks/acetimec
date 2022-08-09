@@ -1,6 +1,10 @@
 #include "acunit.h"
 #include <acetimec.h>
 
+
+// Much of the following tests adapted from ZonedDateTimeExtendedTest.ino in the
+// AceTime library.
+
 //---------------------------------------------------------------------------
 
 ACU_TEST(test_zoned_date_time_from_epoch_seconds)
@@ -77,10 +81,118 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_invalid)
   ACU_PASS();
 }
 
-//---------------------------------------------------------------------------
+ACU_TEST(test_zoned_date_time_from_epoch_seconds_fall_back)
+{
+  struct AtcZoneProcessing processing;
+  atc_processing_init(&processing);
+  struct AtcZonedDateTime zdt;
 
-// The following tests adapted from ZonedDateTimeExtendedTest.ino in the AceTime
-// library.
+  // Start our sampling at 01:29:00-07:00, which is 31 minutes before the DST
+  // fall-back.
+  struct AtcOffsetDateTime odt = { 2022, 11, 6, 1, 29, 0, 0 /*fold*/, -7*60 };
+  atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(&odt);
+
+  bool status = atc_zoned_date_time_from_epoch_seconds(
+    &processing,
+    &kAtcZoneAmerica_Los_Angeles,
+    epoch_seconds,
+    &zdt);
+  ACU_ASSERT(status == true);
+  ACU_ASSERT(2022 == zdt.year);
+  ACU_ASSERT(11 == zdt.month);
+  ACU_ASSERT(6 == zdt.day);
+  ACU_ASSERT(1 == zdt.hour);
+  ACU_ASSERT(29 == zdt.minute);
+  ACU_ASSERT(0 == zdt.second);
+  ACU_ASSERT(-7*60 == zdt.offset_minutes);
+  ACU_ASSERT(0 == zdt.fold);
+
+  // Go forward an hour. Should return 01:29:00-08:00, the second time this
+  // was seen, so fold should be 1.
+  epoch_seconds += 3600;
+  status = atc_zoned_date_time_from_epoch_seconds(
+    &processing,
+    &kAtcZoneAmerica_Los_Angeles,
+    epoch_seconds,
+    &zdt);
+  ACU_ASSERT(status == true);
+  ACU_ASSERT(2022 == zdt.year);
+  ACU_ASSERT(11 == zdt.month);
+  ACU_ASSERT(6 == zdt.day);
+  ACU_ASSERT(1 == zdt.hour);
+  ACU_ASSERT(29 == zdt.minute);
+  ACU_ASSERT(0 == zdt.second);
+  ACU_ASSERT(-8*60 == zdt.offset_minutes);
+  ACU_ASSERT(1 == zdt.fold);
+
+  // Go forward another hour. Should return 02:29:00-08:00, which occurs only
+  // once, so fold should be 0.
+  epoch_seconds += 3600;
+  status = atc_zoned_date_time_from_epoch_seconds(
+    &processing,
+    &kAtcZoneAmerica_Los_Angeles,
+    epoch_seconds,
+    &zdt);
+  ACU_ASSERT(status == true);
+  ACU_ASSERT(2022 == zdt.year);
+  ACU_ASSERT(11 == zdt.month);
+  ACU_ASSERT(6 == zdt.day);
+  ACU_ASSERT(2 == zdt.hour);
+  ACU_ASSERT(29 == zdt.minute);
+  ACU_ASSERT(0 == zdt.second);
+  ACU_ASSERT(-8*60 == zdt.offset_minutes);
+  ACU_ASSERT(0 == zdt.fold);
+
+  ACU_PASS();
+}
+
+ACU_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward)
+{
+  struct AtcZoneProcessing processing;
+  atc_processing_init(&processing);
+  struct AtcZonedDateTime zdt;
+
+  // Start our sampling at 01:29:00-08:00, which is 31 minutes before the DST
+  // spring forward.
+  struct AtcOffsetDateTime odt = { 2022, 3, 13, 1, 29, 0, 0 /*fold*/, -8*60 };
+  atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(&odt);
+
+  bool status = atc_zoned_date_time_from_epoch_seconds(
+    &processing,
+    &kAtcZoneAmerica_Los_Angeles,
+    epoch_seconds,
+    &zdt);
+  ACU_ASSERT(status == true);
+  ACU_ASSERT(2022 == zdt.year);
+  ACU_ASSERT(3 == zdt.month);
+  ACU_ASSERT(13 == zdt.day);
+  ACU_ASSERT(1 == zdt.hour);
+  ACU_ASSERT(29 == zdt.minute);
+  ACU_ASSERT(0 == zdt.second);
+  ACU_ASSERT(-8*60 == zdt.offset_minutes);
+  ACU_ASSERT(0 == zdt.fold);
+
+  // An hour later, we spring forward to 03:29:00-07:00.
+  epoch_seconds += 3600;
+  status = atc_zoned_date_time_from_epoch_seconds(
+    &processing,
+    &kAtcZoneAmerica_Los_Angeles,
+    epoch_seconds,
+    &zdt);
+  ACU_ASSERT(status == true);
+  ACU_ASSERT(2022 == zdt.year);
+  ACU_ASSERT(3 == zdt.month);
+  ACU_ASSERT(13 == zdt.day);
+  ACU_ASSERT(3 == zdt.hour);
+  ACU_ASSERT(29 == zdt.minute);
+  ACU_ASSERT(0 == zdt.second);
+  ACU_ASSERT(-7*60 == zdt.offset_minutes);
+  ACU_ASSERT(0 == zdt.fold);
+
+  ACU_PASS();
+}
+
+//---------------------------------------------------------------------------
 
 ACU_TEST(test_zoned_date_time_from_components_epoch_0)
 {
@@ -102,6 +214,23 @@ ACU_TEST(test_zoned_date_time_from_components_epoch_0)
   ACU_ASSERT(zdt.minute == 0);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
+  ACU_ASSERT(zdt.offset_minutes == -8*60);
+
+  // check that fold=1 gives identical results, while preserving fold
+  status = atc_zoned_date_time_from_components(
+      &processing,
+      &kAtcZoneAmerica_Los_Angeles,
+      2000, 1, 1, 0, 0, 0,
+      1 /*fold*/,
+      &zdt);
+  ACU_ASSERT(status == true);
+  ACU_ASSERT(zdt.year == 2000);
+  ACU_ASSERT(zdt.month == 1);
+  ACU_ASSERT(zdt.day == 1);
+  ACU_ASSERT(zdt.hour == 0);
+  ACU_ASSERT(zdt.minute == 0);
+  ACU_ASSERT(zdt.second == 0);
+  ACU_ASSERT(zdt.fold == 1);
   ACU_ASSERT(zdt.offset_minutes == -8*60);
 
   ACU_PASS();
@@ -128,6 +257,23 @@ ACU_TEST(test_zoned_date_time_from_components_before_dst)
   ACU_ASSERT(zdt.minute == 59);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
+  ACU_ASSERT(zdt.offset_minutes == -8*60);
+
+  // check that fold=1 gives identical results, while preserving fold
+  status = atc_zoned_date_time_from_components(
+      &processing,
+      &kAtcZoneAmerica_Los_Angeles,
+      2018, 3, 11, 1, 59, 0,
+      1 /*fold*/,
+      &zdt);
+  ACU_ASSERT(status == true);
+  ACU_ASSERT(zdt.year == 2018);
+  ACU_ASSERT(zdt.month == 3);
+  ACU_ASSERT(zdt.day == 11);
+  ACU_ASSERT(zdt.hour == 1);
+  ACU_ASSERT(zdt.minute == 59);
+  ACU_ASSERT(zdt.second == 0);
+  ACU_ASSERT(zdt.fold == 1);
   ACU_ASSERT(zdt.offset_minutes == -8*60);
 
   ACU_PASS();
@@ -205,6 +351,23 @@ ACU_TEST(test_zoned_date_time_from_components_in_dst)
   ACU_ASSERT(zdt.fold == 0);
   ACU_ASSERT(zdt.offset_minutes == -7*60);
 
+  // check that fold=1 gives identical results, while preserving fold
+  status = atc_zoned_date_time_from_components(
+      &processing,
+      &kAtcZoneAmerica_Los_Angeles,
+      2018, 3, 11, 3, 1, 0,
+      1 /*fold*/,
+      &zdt);
+  ACU_ASSERT(status == true);
+  ACU_ASSERT(zdt.year == 2018);
+  ACU_ASSERT(zdt.month == 3);
+  ACU_ASSERT(zdt.day == 11);
+  ACU_ASSERT(zdt.hour == 3);
+  ACU_ASSERT(zdt.minute == 1);
+  ACU_ASSERT(zdt.second == 0);
+  ACU_ASSERT(zdt.fold == 1);
+  ACU_ASSERT(zdt.offset_minutes == -7*60);
+
   ACU_PASS();
 }
 
@@ -230,6 +393,23 @@ ACU_TEST(test_zoned_date_time_from_components_before_sdt)
   ACU_ASSERT(zdt.minute == 59);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
+  ACU_ASSERT(zdt.offset_minutes == -7*60);
+
+  // check that fold=1 gives identical results, while preserving fold
+  status = atc_zoned_date_time_from_components(
+      &processing,
+      &kAtcZoneAmerica_Los_Angeles,
+      2018, 11, 4, 0, 59, 0,
+      1 /*fold*/,
+      &zdt);
+  ACU_ASSERT(status == true);
+  ACU_ASSERT(zdt.year == 2018);
+  ACU_ASSERT(zdt.month == 11);
+  ACU_ASSERT(zdt.day == 4);
+  ACU_ASSERT(zdt.hour == 0);
+  ACU_ASSERT(zdt.minute == 59);
+  ACU_ASSERT(zdt.second == 0);
+  ACU_ASSERT(zdt.fold == 1);
   ACU_ASSERT(zdt.offset_minutes == -7*60);
 
   ACU_PASS();
@@ -303,6 +483,23 @@ ACU_TEST(test_zoned_date_time_from_components_after_overlap)
   ACU_ASSERT(zdt.fold == 0);
   ACU_ASSERT(zdt.offset_minutes == -8*60);
 
+  // check that fold=1 gives identical results, while preserving fold
+  status = atc_zoned_date_time_from_components(
+      &processing,
+      &kAtcZoneAmerica_Los_Angeles,
+      2018, 11, 4, 2, 1, 0,
+      1 /*fold*/,
+      &zdt);
+  ACU_ASSERT(status == true);
+  ACU_ASSERT(zdt.year == 2018);
+  ACU_ASSERT(zdt.month == 11);
+  ACU_ASSERT(zdt.day == 4);
+  ACU_ASSERT(zdt.hour == 2);
+  ACU_ASSERT(zdt.minute == 1);
+  ACU_ASSERT(zdt.second == 0);
+  ACU_ASSERT(zdt.fold == 1);
+  ACU_ASSERT(zdt.offset_minutes == -8*60);
+
   ACU_PASS();
 }
 
@@ -315,6 +512,8 @@ int main()
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds);
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_unix_max);
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_invalid);
+  ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_fall_back);
+  ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward);
   ACU_RUN_TEST(test_zoned_date_time_from_components_epoch_0);
   ACU_RUN_TEST(test_zoned_date_time_from_components_before_dst);
   ACU_RUN_TEST(test_zoned_date_time_from_components_in_gap);
