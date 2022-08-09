@@ -211,4 +211,11 @@ void atc_processing_generate_start_until_times(
     struct AtcTransition **begin,
     struct AtcTransition **end);
 
+void atc_processing_create_abbreviation(
+    char* dest,
+    uint8_t dest_size,
+    const char* format,
+    uint16_t delta_minutes,
+    const char* letter_string);
+
 #endif

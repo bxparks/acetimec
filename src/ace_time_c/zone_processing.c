@@ -540,7 +540,7 @@ void atc_processing_generate_start_until_times(
 // Step 5
 //---------------------------------------------------------------------------
 
-static void atc_processing_create_abbreviation(
+void atc_processing_create_abbreviation(
     char* dest,
     uint8_t dest_size,
     const char* format,

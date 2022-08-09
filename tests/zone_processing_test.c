@@ -1,5 +1,11 @@
-#include "acunit.h"
+/*
+ * Unit tests for zone_processing.c. Much of this was adapted from
+ * ExtendedZoneProcessingTest.ino from the AceTime library.
+ */
+
+#include <string.h>
 #include <acetimec.h>
+#include "acunit.h"
 
 //---------------------------------------------------------------------------
 // Step 1
@@ -1002,6 +1008,56 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
 }
 
 //---------------------------------------------------------------------------
+// Step 5
+//---------------------------------------------------------------------------
+
+ACU_TEST(test_atc_processing_create_abbreviation)
+{
+  const uint8_t kDstSize = 6;
+  char dst[kDstSize];
+
+  // If no '%', deltaMinutes and letter should not matter
+  atc_processing_create_abbreviation(dst, kDstSize, "SAST", 0, NULL);
+  ACU_ASSERT(strcmp("SAST", dst) == 0);
+
+  atc_processing_create_abbreviation(dst, kDstSize, "SAST", 60, "A");
+  ACU_ASSERT(strcmp("SAST", dst) == 0);
+
+  // If '%', and letter is (incorrectly) set to '\0', just copy the thing
+  atc_processing_create_abbreviation(dst, kDstSize, "SA%ST", 0, NULL);
+  ACU_ASSERT(strcmp("SA%ST", dst) == 0);
+
+  // If '%', then replaced with (non-null) letterString.
+  atc_processing_create_abbreviation(dst, kDstSize, "P%T", 60, "D");
+  ACU_ASSERT(strcmp("PDT", dst) == 0);
+
+  atc_processing_create_abbreviation(dst, kDstSize, "P%T", 0, "S");
+  ACU_ASSERT(strcmp("PST", dst) == 0);
+
+  atc_processing_create_abbreviation(dst, kDstSize, "P%T", 0, "");
+  ACU_ASSERT(strcmp("PT", dst) == 0);
+
+  atc_processing_create_abbreviation(dst, kDstSize, "%", 60, "CAT");
+  ACU_ASSERT(strcmp("CAT", dst) == 0);
+
+  atc_processing_create_abbreviation(dst, kDstSize, "%", 0, "WAT");
+  ACU_ASSERT(strcmp("WAT", dst) == 0);
+
+  // If '/', then deltaMinutes selects the first or second component.
+  atc_processing_create_abbreviation(dst, kDstSize, "GMT/BST", 0, "");
+  ACU_ASSERT(strcmp("GMT", dst) == 0);
+
+  atc_processing_create_abbreviation(dst, kDstSize, "GMT/BST", 60, "");
+  ACU_ASSERT(strcmp("BST", dst) == 0);
+
+  // test truncation to kDstSize
+  atc_processing_create_abbreviation(dst, kDstSize, "P%T3456", 60, "DD");
+  ACU_ASSERT(strcmp("PDDT3", dst) == 0);
+
+  ACU_PASS();
+}
+
+//---------------------------------------------------------------------------
 
 ACU_PARAMS();
 
@@ -1021,6 +1077,7 @@ int main()
   ACU_RUN_TEST(test_atc_process_transition_match_status);
   ACU_RUN_TEST(test_atc_processing_create_transitions_from_named_match);
   ACU_RUN_TEST(test_fix_transition_times_generate_start_until_times);
+  ACU_RUN_TEST(test_atc_processing_create_abbreviation);
 
   ACU_SUMMARY();
 }
