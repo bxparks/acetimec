@@ -23,9 +23,12 @@ extern int acu_tests_failed;
 #define ACU_TEST(name) int name(void)
 
 /**
- * Print assertion failure message.
- * It looks like the `__LINE__` is guaranteed to fit inside a `long` in C11
- * (https://stackoverflow.com/questions/5075928).
+ * Print assertion failure message. The format is compatible with the error
+ * messages printed out by the C compiler. This format is recognized by editors
+ * such as vim to quickly jump to the location of the error in the source file.
+ *
+ * It looks like the value of the `__LINE__` macro is guaranteed to fit inside a
+ * `long` in C11 (https://stackoverflow.com/questions/5075928).
  */
 extern inline void acu_assertion(
   const char *file,
