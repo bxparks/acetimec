@@ -815,6 +815,8 @@ bool atc_processing_offset_date_time_from_epoch_seconds(
   return true;
 }
 
+// Adapted from ExtendedZoneProcessor::getOffsetDateTime(const LocalDatetime&)
+// from ExtendedZoneProcessor in AceTime.
 bool atc_processing_offset_date_time_from_local_date_time(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
@@ -867,10 +869,11 @@ bool atc_processing_offset_date_time_from_local_date_time(
     const struct AtcTransition *othert = (fold == 0)
         ? result.transition1
         : result.transition0;
-    bool status = atc_local_date_time_from_epoch_seconds(
-        epoch_seconds, (struct AtcLocalDateTime *) odt);
+    bool status = atc_offset_date_time_from_epoch_seconds(
+        epoch_seconds,
+        othert->offset_minutes + othert->delta_minutes,
+        odt);
     if (! status) return status;
-    odt->offset_minutes = othert->offset_minutes + othert->delta_minutes;
 
     // Invert the fold.
     // 1) The normalization process causes the LocalDateTime to jump to the
