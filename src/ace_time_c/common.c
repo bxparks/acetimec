@@ -22,3 +22,14 @@ void atc_copy_replace_string(char *dst, size_t dst_size, const char *src,
   }
   *dst = '\0';
 }
+
+uint32_t atc_djb2(const char *s) {
+  uint32_t hash = 5381;
+  uint8_t c;
+
+  while ((c = *s++)) {
+    hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+  }
+
+  return hash;
+}

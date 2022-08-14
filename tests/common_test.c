@@ -31,11 +31,27 @@ ACU_TEST(test_atc_copy_replace_string_out_of_bounds) {
 
 //---------------------------------------------------------------------------
 
+ACU_TEST(test_atc_djb2)
+{
+  ACU_ASSERT((uint32_t) 5381 == atc_djb2(""));
+  ACU_ASSERT((uint32_t) 177670 == atc_djb2("a"));
+  ACU_ASSERT((uint32_t) 177671 == atc_djb2("b"));
+  ACU_ASSERT((uint32_t) 5863208 == atc_djb2("ab"));
+  ACU_ASSERT((uint32_t) 193485963 == atc_djb2("abc"));
+  ACU_ASSERT((uint32_t) 2090069583 == atc_djb2("abcd"));
+  ACU_ASSERT((uint32_t) 252819604 == atc_djb2("abcde"));
+
+  ACU_PASS();
+}
+
+//---------------------------------------------------------------------------
+
 ACU_PARAMS();
 
 int main()
 {
   ACU_RUN_TEST(test_atc_copy_replace_string_normal);
   ACU_RUN_TEST(test_atc_copy_replace_string_out_of_bounds);
+  ACU_RUN_TEST(test_atc_djb2);
   ACU_SUMMARY();
 }
