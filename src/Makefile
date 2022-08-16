@@ -10,6 +10,7 @@ OBJS := \
 	ace_time_c/zone_processing.o \
 	ace_time_c/zone_registrar.o \
 	ace_time_c/zoned_date_time.o \
+	ace_time_c/zoned_extra.o \
 	ace_time_c/zonedb/zone_infos.o \
 	ace_time_c/zonedb/zone_policies.o \
 	ace_time_c/zonedb/zone_registry.o

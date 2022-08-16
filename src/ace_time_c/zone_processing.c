@@ -815,6 +815,31 @@ bool atc_processing_offset_date_time_from_epoch_seconds(
   return true;
 }
 
+bool atc_processing_transition_info_from_epoch_seconds(
+  struct AtcZoneProcessing *processing,
+  const struct AtcZoneInfo *zone_info,
+  atc_time_t epoch_seconds,
+  struct AtcTransitionInfo *ti)
+{
+  bool status = atc_processing_init_for_epoch_seconds(
+      processing,
+      zone_info,
+      epoch_seconds);
+  if (! status) return status;
+
+  struct AtcMatchingTransition mt = atc_processing_find_transition_for_seconds(
+      &processing->transition_storage, epoch_seconds);
+  const struct AtcTransition *t = mt.transition;
+  if (! t) return false;
+
+  ti->std_offset_minutes = t->offset_minutes;
+  ti->dst_offset_minutes = t->delta_minutes;
+  strncpy(ti->abbrev, t->abbrev, kAtcAbbrevSize);
+  ti->abbrev[kAtcAbbrevSize - 1] = '\0';
+
+  return true;
+}
+
 // Adapted from ExtendedZoneProcessor::getOffsetDateTime(const LocalDatetime&)
 // from ExtendedZoneProcessor in AceTime.
 bool atc_processing_offset_date_time_from_local_date_time(

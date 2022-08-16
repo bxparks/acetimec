@@ -116,6 +116,9 @@ struct AtcZoneProcessing {
 
 //---------------------------------------------------------------------------
 
+/** Initialize AtcZoneProcessing. Should be called once in the app. */
+void atc_processing_init(struct AtcZoneProcessing *processing);
+
 /** Initialize AtcZoneProcessing for the given zone_info and year. */
 bool atc_processing_init_for_year(
   struct AtcZoneProcessing *processing,
@@ -131,12 +134,9 @@ bool atc_processing_init_for_epoch_seconds(
   const struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds);
 
-/** Initialize AtcZoneProcessing. Should be called once in the app. */
-void atc_processing_init(struct AtcZoneProcessing *processing);
-
 /**
- * Convert epoch_seconds to odt using the given zone_info. Return true upon
- * success.
+ * Convert epoch_seconds to an AtcOffsetDateTime using the given zone_info.
+ * Return true upon success.
  */
 bool atc_processing_offset_date_time_from_epoch_seconds(
   struct AtcZoneProcessing *processing,
@@ -154,6 +154,17 @@ bool atc_processing_offset_date_time_from_local_date_time(
   const struct AtcLocalDateTime *ldt,
   uint8_t fold,
   struct AtcOffsetDateTime *odt);
+
+/**
+ * Find the AtcTransitionInfo (i.e. STD offset, DST offset, abbrev)
+ * at the given epoch_seconds.
+ * Return true on success, false if there's an error.
+ */
+bool atc_processing_transition_info_from_epoch_seconds(
+  struct AtcZoneProcessing *processing,
+  const struct AtcZoneInfo *zone_info,
+  atc_time_t epoch_seconds,
+  struct AtcTransitionInfo *ti);
 
 //---------------------------------------------------------------------------
 // Functions and data structures exposed for testing.

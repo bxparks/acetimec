@@ -10,6 +10,7 @@ TARGETS := \
 	zone_processing_test.out \
 	zone_registrar_test.out \
 	zoned_date_time_test.out \
+	zoned_extra_test.out \
 	zonedb_test.out
 
 all: $(TARGETS)
@@ -43,6 +44,9 @@ zone_registrar_test.out: zone_registrar_test.o ../src/acetimec.a
 zoned_date_time_test.out: zoned_date_time_test.o ../src/acetimec.a
 	$(CC) -o $@ $^
 
+zoned_extra_test.out: zoned_extra_test.o ../src/acetimec.a
+	$(CC) -o $@ $^
+
 zonedb_test.out: zonedb_test.o ../src/acetimec.a
 	$(CC) -o $@ $^
 
@@ -65,6 +69,8 @@ zone_processing_test.o: zone_processing_test.c acunit.h
 zone_registrar_test.o: zone_registrar_test.c acunit.h
 
 zoned_date_time_test.o: zoned_date_time_test.c acunit.h
+
+zoned_extra_test.o: zoned_extra_test.c acunit.h
 
 zonedb_test.o: zonedb_test.c acunit.h
 
