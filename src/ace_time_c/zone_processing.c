@@ -180,9 +180,10 @@ uint8_t atc_processing_find_matches(
 {
   uint8_t i_match = 0;
   struct AtcMatchingEra *prev_match = NULL;
-  for (uint8_t i_era = 0; i_era < zone_info->num_eras; i_era++) {
-    struct AtcZoneEra *eras = (struct AtcZoneEra*) zone_info->eras;
-    struct AtcZoneEra *era = &eras[i_era];
+  // Support both normal Zones and Links using accessors.
+  uint8_t num_eras = atc_zone_info_num_eras(zone_info);
+  for (uint8_t i_era = 0; i_era < num_eras; i_era++) {
+    const struct AtcZoneEra *era = atc_zone_info_era(zone_info, i_era);
     if (atc_era_overlaps_interval(prev_match, era, start_ym, until_ym)) {
       if (i_match < num_matches) {
         atc_create_matching_era(

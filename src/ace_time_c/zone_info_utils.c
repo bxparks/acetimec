@@ -1,4 +1,38 @@
+#include <stdbool.h>
 #include "zone_info_utils.h"
+
+//---------------------------------------------------------------------------
+
+bool atc_zone_info_is_link(const struct AtcZoneInfo *info)
+{
+  return info->num_eras == 0;
+}
+
+const struct AtcZoneInfo *atc_zone_info_actual_info(
+    const struct AtcZoneInfo *info)
+{
+  if (atc_zone_info_is_link(info)) {
+    return (const struct AtcZoneInfo *) (info->eras);
+  } else {
+    return info;
+  }
+}
+
+uint8_t atc_zone_info_num_eras(const struct AtcZoneInfo *info)
+{
+  const struct AtcZoneInfo *actual_info = atc_zone_info_actual_info(info);
+  return actual_info->num_eras;
+}
+
+const struct AtcZoneEra *atc_zone_info_era(
+    const struct AtcZoneInfo *info, uint8_t i)
+{
+  const struct AtcZoneInfo *actual_info = atc_zone_info_actual_info(info);
+  const struct AtcZoneEra *eras = (const struct AtcZoneEra *) actual_info->eras;
+  return &eras[i];
+}
+
+//---------------------------------------------------------------------------
 
 int16_t atc_zone_era_std_offset_minutes(
     const struct AtcZoneEra *era)
@@ -24,6 +58,8 @@ uint8_t atc_zone_era_until_suffix(
 {
   return era->until_time_modifier & 0xf0;
 }
+
+//---------------------------------------------------------------------------
 
 int16_t atc_zone_rule_at_minutes(
     const struct AtcZoneRule *rule)
