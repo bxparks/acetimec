@@ -155,6 +155,15 @@ bool atc_processing_offset_date_time_from_local_date_time(
   uint8_t fold,
   struct AtcOffsetDateTime *odt);
 
+//---------------------------------------------------------------------------
+
+/** Additional meta information about the transition. */
+struct AtcTransitionInfo {
+  int16_t std_offset_minutes; // STD offset
+  int16_t dst_offset_minutes; // DST offset
+  char abbrev[kAtcAbbrevSize];
+};
+
 /**
  * Find the AtcTransitionInfo (i.e. STD offset, DST offset, abbrev)
  * at the given epoch_seconds.

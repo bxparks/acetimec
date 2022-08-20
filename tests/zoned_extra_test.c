@@ -37,7 +37,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_fall_back)
     epoch_seconds,
     &zet);
   ACU_ASSERT(status == true);
-  ACU_ASSERT(-7*60 == zet.utc_offset_minutes);
+  ACU_ASSERT(-8*60 == zet.std_offset_minutes);
   ACU_ASSERT(1*60 == zet.dst_offset_minutes);
   ACU_ASSERT(strcmp(zet.abbrev, "PDT") == 0);
 
@@ -49,7 +49,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_fall_back)
     epoch_seconds,
     &zet);
   ACU_ASSERT(status == true);
-  ACU_ASSERT(-8*60 == zet.utc_offset_minutes);
+  ACU_ASSERT(-8*60 == zet.std_offset_minutes);
   ACU_ASSERT(0*60 == zet.dst_offset_minutes);
   ACU_ASSERT(strcmp(zet.abbrev, "PST") == 0);
 
@@ -73,7 +73,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_spring_forward)
     epoch_seconds,
     &zet);
   ACU_ASSERT(status == true);
-  ACU_ASSERT(-8*60 == zet.utc_offset_minutes);
+  ACU_ASSERT(-8*60 == zet.std_offset_minutes);
   ACU_ASSERT(0*60 == zet.dst_offset_minutes);
   ACU_ASSERT(strcmp(zet.abbrev, "PST") == 0);
 
@@ -85,7 +85,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_spring_forward)
     epoch_seconds,
     &zet);
   ACU_ASSERT(status == true);
-  ACU_ASSERT(-7*60 == zet.utc_offset_minutes);
+  ACU_ASSERT(-8*60 == zet.std_offset_minutes);
   ACU_ASSERT(1*60 == zet.dst_offset_minutes);
   ACU_ASSERT(strcmp(zet.abbrev, "PDT") == 0);
 

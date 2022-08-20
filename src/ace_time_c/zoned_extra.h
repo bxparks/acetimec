@@ -13,9 +13,12 @@
 #include "zone_processing.h"
 #include "transition.h" // kAtcAbbrevSize
 
-/** Extra information about a given time zone at a specified epoch seconds. */
+/**
+ * Extra information about a given time zone at a specified epoch seconds.
+ * Should be identical to AtcTransitionInfo.
+ */
 struct AtcZonedExtra {
-  int16_t utc_offset_minutes; // total UTC offset
+  int16_t std_offset_minutes; // STD offset
   int16_t dst_offset_minutes; // DST offset
   char abbrev[kAtcAbbrevSize];
 };

@@ -358,13 +358,4 @@ uint8_t atc_transition_compare_to_match(
 uint8_t atc_transition_compare_to_match_fuzzy(
     const struct AtcTransition *t, const struct AtcMatchingEra *match);
 
-//---------------------------------------------------------------------------
-
-/** Additional meta information about the transition. */
-struct AtcTransitionInfo {
-  int16_t std_offset_minutes;
-  int16_t dst_offset_minutes;
-  char abbrev[kAtcAbbrevSize];
-};
-
 #endif
