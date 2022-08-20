@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/dev/tz
 //     --output_dir /home/brian/src/AceTimeC/src/ace_time_c/zonedb
-//     --tz_version 2022a
+//     --tz_version 2022b
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -23,22 +23,22 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022a
+// from https://github.com/eggert/tz/releases/tag/2022b
 //
-// Zones: 377
-// Links: 217
+// Zones: 356
+// Links: 239
 // kAtcZoneRegistry sizes (bytes):
-//   Names: 5934 (originally 5934)
+//   Names: 5607 (originally 5607)
 //   Formats: 597
 //   Fragments: 122
-//   Memory (8-bit): 18910
-//   Memory (32-bit): 26387
+//   Memory (8-bit): 18079
+//   Memory (32-bit): 25220
 // kAtcZoneAndLinkRegistry sizes (bytes):
-//   Names: 9042 (originally 9042)
+//   Names: 9054 (originally 9054)
 //   Formats: 597
 //   Fragments: 122
-//   Memory (8-bit): 24839
-//   Memory (32-bit): 34703
+//   Memory (8-bit): 24633
+//   Memory (32-bit): 34403
 //
 // DO NOT EDIT
 
@@ -49,7 +49,7 @@
 // ZoneContext (should not be in PROGMEM)
 //---------------------------------------------------------------------------
 
-const char kAtcTzDatabaseVersion[] = "2022a";
+const char kAtcTzDatabaseVersion[] = "2022b";
 
 const char * const kAtcFragments[] = {
 /*\x00*/ NULL,
@@ -79,7 +79,7 @@ const struct AtcZoneContext kAtcZoneContext = {
 };
 
 //---------------------------------------------------------------------------
-// Zones: 377
+// Zones: 356
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
@@ -7175,40 +7175,6 @@ const struct AtcZoneInfo kAtcZoneAntarctica_Troll ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
-// Zone name: Antarctica/Vostok
-// Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraAntarctica_Vostok[] ACE_TIME_C_PROGMEM = {
-  //             6:00    -    +06
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameAntarctica_Vostok[] ACE_TIME_C_PROGMEM = "Antarctica/Vostok";
-
-const struct AtcZoneInfo kAtcZoneAntarctica_Vostok ACE_TIME_C_PROGMEM = {
-  kAtcZoneNameAntarctica_Vostok /*name*/,
-  0x4f966fd4 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraAntarctica_Vostok /*eras*/,
-};
-
-//---------------------------------------------------------------------------
 // Zone name: Asia/Almaty
 // Zone Eras: 2
 // Strings (bytes): 24 (originally 24)
@@ -7780,40 +7746,6 @@ const struct AtcZoneInfo kAtcZoneAsia_Bishkek ACE_TIME_C_PROGMEM = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Bishkek /*eras*/,
-};
-
-//---------------------------------------------------------------------------
-// Zone name: Asia/Brunei
-// Zone Eras: 1
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 38
-// Memory (32-bit): 52
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraAsia_Brunei[] ACE_TIME_C_PROGMEM = {
-  //             8:00    -    +08
-  {
-    NULL /*zone_policy*/,
-    "+08" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameAsia_Brunei[] ACE_TIME_C_PROGMEM = "Asia/Brunei";
-
-const struct AtcZoneInfo kAtcZoneAsia_Brunei ACE_TIME_C_PROGMEM = {
-  kAtcZoneNameAsia_Brunei /*name*/,
-  0xa8e595f7 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraAsia_Brunei /*eras*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8988,40 +8920,6 @@ const struct AtcZoneInfo kAtcZoneAsia_Krasnoyarsk ACE_TIME_C_PROGMEM = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Krasnoyarsk /*eras*/,
-};
-
-//---------------------------------------------------------------------------
-// Zone name: Asia/Kuala_Lumpur
-// Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraAsia_Kuala_Lumpur[] ACE_TIME_C_PROGMEM = {
-  //             8:00    -    +08
-  {
-    NULL /*zone_policy*/,
-    "+08" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameAsia_Kuala_Lumpur[] ACE_TIME_C_PROGMEM = "Asia/Kuala_Lumpur";
-
-const struct AtcZoneInfo kAtcZoneAsia_Kuala_Lumpur ACE_TIME_C_PROGMEM = {
-  kAtcZoneNameAsia_Kuala_Lumpur /*name*/,
-  0x014763c4 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraAsia_Kuala_Lumpur /*eras*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10931,40 +10829,6 @@ const struct AtcZoneInfo kAtcZoneAtlantic_Madeira ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
-// Zone name: Atlantic/Reykjavik
-// Zone Eras: 1
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 45
-// Memory (32-bit): 59
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraAtlantic_Reykjavik[] ACE_TIME_C_PROGMEM = {
-  //              0:00    -    GMT
-  {
-    NULL /*zone_policy*/,
-    "GMT" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameAtlantic_Reykjavik[] ACE_TIME_C_PROGMEM = "Atlantic/Reykjavik";
-
-const struct AtcZoneInfo kAtcZoneAtlantic_Reykjavik ACE_TIME_C_PROGMEM = {
-  kAtcZoneNameAtlantic_Reykjavik /*name*/,
-  0x1c2b4f74 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraAtlantic_Reykjavik /*eras*/,
-};
-
-//---------------------------------------------------------------------------
 // Zone name: Atlantic/South_Georgia
 // Zone Eras: 1
 // Strings (bytes): 27 (originally 27)
@@ -12553,40 +12417,6 @@ const struct AtcZoneInfo kAtcZoneEtc_UTC ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
-// Zone name: Europe/Amsterdam
-// Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraEurope_Amsterdam[] ACE_TIME_C_PROGMEM = {
-  //             1:00    EU    CE%sT
-  {
-    &kAtcPolicyEU /*zone_policy*/,
-    "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameEurope_Amsterdam[] ACE_TIME_C_PROGMEM = "Europe/Amsterdam";
-
-const struct AtcZoneInfo kAtcZoneEurope_Amsterdam ACE_TIME_C_PROGMEM = {
-  kAtcZoneNameEurope_Amsterdam /*name*/,
-  0x109395c2 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraEurope_Amsterdam /*eras*/,
-};
-
-//---------------------------------------------------------------------------
 // Zone name: Europe/Andorra
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
@@ -12929,40 +12759,6 @@ const struct AtcZoneInfo kAtcZoneEurope_Chisinau ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
-// Zone name: Europe/Copenhagen
-// Zone Eras: 1
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 45
-// Memory (32-bit): 59
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraEurope_Copenhagen[] ACE_TIME_C_PROGMEM = {
-  //              1:00    EU    CE%sT
-  {
-    &kAtcPolicyEU /*zone_policy*/,
-    "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameEurope_Copenhagen[] ACE_TIME_C_PROGMEM = "Europe/Copenhagen";
-
-const struct AtcZoneInfo kAtcZoneEurope_Copenhagen ACE_TIME_C_PROGMEM = {
-  kAtcZoneNameEurope_Copenhagen /*name*/,
-  0xe0ed30bc /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraEurope_Copenhagen /*eras*/,
-};
-
-//---------------------------------------------------------------------------
 // Zone name: Europe/Dublin
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
@@ -13253,40 +13049,6 @@ const struct AtcZoneInfo kAtcZoneEurope_Kaliningrad ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
-// Zone name: Europe/Kiev
-// Zone Eras: 1
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 39
-// Memory (32-bit): 53
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraEurope_Kiev[] ACE_TIME_C_PROGMEM = {
-  //             2:00    EU    EE%sT
-  {
-    &kAtcPolicyEU /*zone_policy*/,
-    "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameEurope_Kiev[] ACE_TIME_C_PROGMEM = "Europe/Kiev";
-
-const struct AtcZoneInfo kAtcZoneEurope_Kiev ACE_TIME_C_PROGMEM = {
-  kAtcZoneNameEurope_Kiev /*name*/,
-  0xa2c19eb3 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraEurope_Kiev /*eras*/,
-};
-
-//---------------------------------------------------------------------------
 // Zone name: Europe/Kirov
 // Zone Eras: 3
 // Strings (bytes): 29 (originally 29)
@@ -13342,6 +13104,40 @@ const struct AtcZoneInfo kAtcZoneEurope_Kirov ACE_TIME_C_PROGMEM = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Kirov /*eras*/,
+};
+
+//---------------------------------------------------------------------------
+// Zone name: Europe/Kyiv
+// Zone Eras: 1
+// Strings (bytes): 17 (originally 17)
+// Memory (8-bit): 39
+// Memory (32-bit): 53
+//---------------------------------------------------------------------------
+
+static const struct AtcZoneEra kAtcZoneEraEurope_Kyiv[] ACE_TIME_C_PROGMEM = {
+  //             2:00    EU    EE%sT
+  {
+    &kAtcPolicyEU /*zone_policy*/,
+    "EE%T" /*format*/,
+    8 /*offset_code*/,
+    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    127 /*until_year_tiny*/,
+    1 /*until_month*/,
+    1 /*until_day*/,
+    0 /*until_time_code*/,
+    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+  },
+
+};
+
+static const char kAtcZoneNameEurope_Kyiv[] ACE_TIME_C_PROGMEM = "Europe/Kyiv";
+
+const struct AtcZoneInfo kAtcZoneEurope_Kyiv ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameEurope_Kyiv /*name*/,
+  0xa2c1e347 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
+  kAtcZoneEraEurope_Kyiv /*eras*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13410,40 +13206,6 @@ const struct AtcZoneInfo kAtcZoneEurope_London ACE_TIME_C_PROGMEM = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
-};
-
-//---------------------------------------------------------------------------
-// Zone name: Europe/Luxembourg
-// Zone Eras: 1
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 45
-// Memory (32-bit): 59
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraEurope_Luxembourg[] ACE_TIME_C_PROGMEM = {
-  //             1:00    EU    CE%sT
-  {
-    &kAtcPolicyEU /*zone_policy*/,
-    "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameEurope_Luxembourg[] ACE_TIME_C_PROGMEM = "Europe/Luxembourg";
-
-const struct AtcZoneInfo kAtcZoneEurope_Luxembourg ACE_TIME_C_PROGMEM = {
-  kAtcZoneNameEurope_Luxembourg /*name*/,
-  0x1f8bc6ce /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraEurope_Luxembourg /*eras*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13561,40 +13323,6 @@ const struct AtcZoneInfo kAtcZoneEurope_Minsk ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
-// Zone name: Europe/Monaco
-// Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraEurope_Monaco[] ACE_TIME_C_PROGMEM = {
-  //             1:00    EU    CE%sT
-  {
-    &kAtcPolicyEU /*zone_policy*/,
-    "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameEurope_Monaco[] ACE_TIME_C_PROGMEM = "Europe/Monaco";
-
-const struct AtcZoneInfo kAtcZoneEurope_Monaco ACE_TIME_C_PROGMEM = {
-  kAtcZoneNameEurope_Monaco /*name*/,
-  0x5ebf9f01 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraEurope_Monaco /*eras*/,
-};
-
-//---------------------------------------------------------------------------
 // Zone name: Europe/Moscow
 // Zone Eras: 3
 // Strings (bytes): 30 (originally 30)
@@ -13650,40 +13378,6 @@ const struct AtcZoneInfo kAtcZoneEurope_Moscow ACE_TIME_C_PROGMEM = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Moscow /*eras*/,
-};
-
-//---------------------------------------------------------------------------
-// Zone name: Europe/Oslo
-// Zone Eras: 1
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 39
-// Memory (32-bit): 53
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraEurope_Oslo[] ACE_TIME_C_PROGMEM = {
-  //             1:00    EU    CE%sT
-  {
-    &kAtcPolicyEU /*zone_policy*/,
-    "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameEurope_Oslo[] ACE_TIME_C_PROGMEM = "Europe/Oslo";
-
-const struct AtcZoneInfo kAtcZoneEurope_Oslo ACE_TIME_C_PROGMEM = {
-  kAtcZoneNameEurope_Oslo /*name*/,
-  0xa2c3fba1 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraEurope_Oslo /*eras*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14064,40 +13758,6 @@ const struct AtcZoneInfo kAtcZoneEurope_Sofia ACE_TIME_C_PROGMEM = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Sofia /*eras*/,
-};
-
-//---------------------------------------------------------------------------
-// Zone name: Europe/Stockholm
-// Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraEurope_Stockholm[] ACE_TIME_C_PROGMEM = {
-  //             1:00    EU    CE%sT
-  {
-    &kAtcPolicyEU /*zone_policy*/,
-    "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameEurope_Stockholm[] ACE_TIME_C_PROGMEM = "Europe/Stockholm";
-
-const struct AtcZoneInfo kAtcZoneEurope_Stockholm ACE_TIME_C_PROGMEM = {
-  kAtcZoneNameEurope_Stockholm /*name*/,
-  0x5bf6fbb8 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraEurope_Stockholm /*eras*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14641,142 +14301,6 @@ const struct AtcZoneInfo kAtcZoneIndian_Chagos ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
-// Zone name: Indian/Christmas
-// Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraIndian_Christmas[] ACE_TIME_C_PROGMEM = {
-  //             7:00    -    +07
-  {
-    NULL /*zone_policy*/,
-    "+07" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameIndian_Christmas[] ACE_TIME_C_PROGMEM = "Indian/Christmas";
-
-const struct AtcZoneInfo kAtcZoneIndian_Christmas ACE_TIME_C_PROGMEM = {
-  kAtcZoneNameIndian_Christmas /*name*/,
-  0x68c207d5 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraIndian_Christmas /*eras*/,
-};
-
-//---------------------------------------------------------------------------
-// Zone name: Indian/Cocos
-// Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraIndian_Cocos[] ACE_TIME_C_PROGMEM = {
-  //             6:30    -    +0630
-  {
-    NULL /*zone_policy*/,
-    "+0630" /*format*/,
-    26 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameIndian_Cocos[] ACE_TIME_C_PROGMEM = "Indian/Cocos";
-
-const struct AtcZoneInfo kAtcZoneIndian_Cocos ACE_TIME_C_PROGMEM = {
-  kAtcZoneNameIndian_Cocos /*name*/,
-  0x021e86de /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraIndian_Cocos /*eras*/,
-};
-
-//---------------------------------------------------------------------------
-// Zone name: Indian/Kerguelen
-// Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraIndian_Kerguelen[] ACE_TIME_C_PROGMEM = {
-  //             5:00    -    +05
-  {
-    NULL /*zone_policy*/,
-    "+05" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameIndian_Kerguelen[] ACE_TIME_C_PROGMEM = "Indian/Kerguelen";
-
-const struct AtcZoneInfo kAtcZoneIndian_Kerguelen ACE_TIME_C_PROGMEM = {
-  kAtcZoneNameIndian_Kerguelen /*name*/,
-  0x4351b389 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraIndian_Kerguelen /*eras*/,
-};
-
-//---------------------------------------------------------------------------
-// Zone name: Indian/Mahe
-// Zone Eras: 1
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 38
-// Memory (32-bit): 52
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraIndian_Mahe[] ACE_TIME_C_PROGMEM = {
-  //             4:00    -    +04
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameIndian_Mahe[] ACE_TIME_C_PROGMEM = "Indian/Mahe";
-
-const struct AtcZoneInfo kAtcZoneIndian_Mahe ACE_TIME_C_PROGMEM = {
-  kAtcZoneNameIndian_Mahe /*name*/,
-  0x45e725e2 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraIndian_Mahe /*eras*/,
-};
-
-//---------------------------------------------------------------------------
 // Zone name: Indian/Maldives
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
@@ -14842,40 +14366,6 @@ const struct AtcZoneInfo kAtcZoneIndian_Mauritius ACE_TIME_C_PROGMEM = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraIndian_Mauritius /*eras*/,
-};
-
-//---------------------------------------------------------------------------
-// Zone name: Indian/Reunion
-// Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraIndian_Reunion[] ACE_TIME_C_PROGMEM = {
-  //             4:00    -    +04
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameIndian_Reunion[] ACE_TIME_C_PROGMEM = "Indian/Reunion";
-
-const struct AtcZoneInfo kAtcZoneIndian_Reunion ACE_TIME_C_PROGMEM = {
-  kAtcZoneNameIndian_Reunion /*name*/,
-  0x7076c047 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraIndian_Reunion /*eras*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15175,40 +14665,6 @@ const struct AtcZoneInfo kAtcZonePacific_Chatham ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
-// Zone name: Pacific/Chuuk
-// Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraPacific_Chuuk[] ACE_TIME_C_PROGMEM = {
-  //              10:00    -    +10
-  {
-    NULL /*zone_policy*/,
-    "+10" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNamePacific_Chuuk[] ACE_TIME_C_PROGMEM = "Pacific/Chuuk";
-
-const struct AtcZoneInfo kAtcZonePacific_Chuuk ACE_TIME_C_PROGMEM = {
-  kAtcZoneNamePacific_Chuuk /*name*/,
-  0x8a090b23 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraPacific_Chuuk /*eras*/,
-};
-
-//---------------------------------------------------------------------------
 // Zone name: Pacific/Easter
 // Zone Eras: 1
 // Strings (bytes): 23 (originally 23)
@@ -15354,40 +14810,6 @@ const struct AtcZoneInfo kAtcZonePacific_Fiji ACE_TIME_C_PROGMEM = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Fiji /*eras*/,
-};
-
-//---------------------------------------------------------------------------
-// Zone name: Pacific/Funafuti
-// Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraPacific_Funafuti[] ACE_TIME_C_PROGMEM = {
-  //             12:00    -    +12
-  {
-    NULL /*zone_policy*/,
-    "+12" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNamePacific_Funafuti[] ACE_TIME_C_PROGMEM = "Pacific/Funafuti";
-
-const struct AtcZoneInfo kAtcZonePacific_Funafuti ACE_TIME_C_PROGMEM = {
-  kAtcZoneNamePacific_Funafuti /*name*/,
-  0xdb402d65 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraPacific_Funafuti /*eras*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15721,40 +15143,6 @@ const struct AtcZoneInfo kAtcZonePacific_Kwajalein ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
-// Zone name: Pacific/Majuro
-// Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraPacific_Majuro[] ACE_TIME_C_PROGMEM = {
-  //              12:00    -    +12
-  {
-    NULL /*zone_policy*/,
-    "+12" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNamePacific_Majuro[] ACE_TIME_C_PROGMEM = "Pacific/Majuro";
-
-const struct AtcZoneInfo kAtcZonePacific_Majuro ACE_TIME_C_PROGMEM = {
-  kAtcZoneNamePacific_Majuro /*name*/,
-  0xe1f95371 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraPacific_Majuro /*eras*/,
-};
-
-//---------------------------------------------------------------------------
 // Zone name: Pacific/Marquesas
 // Zone Eras: 1
 // Strings (bytes): 24 (originally 24)
@@ -16051,40 +15439,6 @@ const struct AtcZoneInfo kAtcZonePacific_Pitcairn ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
-// Zone name: Pacific/Pohnpei
-// Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraPacific_Pohnpei[] ACE_TIME_C_PROGMEM = {
-  //              11:00    -    +11
-  {
-    NULL /*zone_policy*/,
-    "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNamePacific_Pohnpei[] ACE_TIME_C_PROGMEM = "Pacific/Pohnpei";
-
-const struct AtcZoneInfo kAtcZonePacific_Pohnpei ACE_TIME_C_PROGMEM = {
-  kAtcZoneNamePacific_Pohnpei /*name*/,
-  0x28929f96 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraPacific_Pohnpei /*eras*/,
-};
-
-//---------------------------------------------------------------------------
 // Zone name: Pacific/Port_Moresby
 // Zone Eras: 1
 // Strings (bytes): 25 (originally 25)
@@ -16267,74 +15621,6 @@ const struct AtcZoneInfo kAtcZonePacific_Tongatapu ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
-// Zone name: Pacific/Wake
-// Zone Eras: 1
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 39
-// Memory (32-bit): 53
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraPacific_Wake[] ACE_TIME_C_PROGMEM = {
-  //             12:00    -    +12
-  {
-    NULL /*zone_policy*/,
-    "+12" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNamePacific_Wake[] ACE_TIME_C_PROGMEM = "Pacific/Wake";
-
-const struct AtcZoneInfo kAtcZonePacific_Wake ACE_TIME_C_PROGMEM = {
-  kAtcZoneNamePacific_Wake /*name*/,
-  0x23416c2b /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraPacific_Wake /*eras*/,
-};
-
-//---------------------------------------------------------------------------
-// Zone name: Pacific/Wallis
-// Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
-//---------------------------------------------------------------------------
-
-static const struct AtcZoneEra kAtcZoneEraPacific_Wallis[] ACE_TIME_C_PROGMEM = {
-  //             12:00    -    +12
-  {
-    NULL /*zone_policy*/,
-    "+12" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    127 /*until_year_tiny*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNamePacific_Wallis[] ACE_TIME_C_PROGMEM = "Pacific/Wallis";
-
-const struct AtcZoneInfo kAtcZonePacific_Wallis ACE_TIME_C_PROGMEM = {
-  kAtcZoneNamePacific_Wallis /*name*/,
-  0xf94ddb0f /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraPacific_Wallis /*eras*/,
-};
-
-//---------------------------------------------------------------------------
 // Zone name: WET
 // Zone Eras: 1
 // Strings (bytes): 9 (originally 9)
@@ -16371,7 +15657,7 @@ const struct AtcZoneInfo kAtcZoneWET ACE_TIME_C_PROGMEM = {
 
 
 //---------------------------------------------------------------------------
-// Links: 217
+// Links: 239
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
@@ -17769,7 +17055,24 @@ const struct AtcZoneInfo kAtcZoneAntarctica_Syowa ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
-// Link name: Arctic/Longyearbyen -> Europe/Oslo
+// Link name: Antarctica/Vostok -> Asia/Urumqi
+// Strings (bytes): 18 (originally 18)
+// Memory (8-bit): 29
+// Memory (32-bit): 38
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameAntarctica_Vostok[] ACE_TIME_C_PROGMEM = "Antarctica/Vostok";
+
+const struct AtcZoneInfo kAtcZoneAntarctica_Vostok ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameAntarctica_Vostok /*name*/,
+  0x4f966fd4 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneAsia_Urumqi /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: Arctic/Longyearbyen -> Europe/Berlin
 // Strings (bytes): 20 (originally 20)
 // Memory (8-bit): 31
 // Memory (32-bit): 40
@@ -17782,7 +17085,7 @@ const struct AtcZoneInfo kAtcZoneArctic_Longyearbyen ACE_TIME_C_PROGMEM = {
   0xd23e7859 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
-  &kAtcZoneEurope_Oslo /*eras(info)*/,
+  &kAtcZoneEurope_Berlin /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17834,6 +17137,23 @@ const struct AtcZoneInfo kAtcZoneAsia_Bahrain ACE_TIME_C_PROGMEM = {
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
   &kAtcZoneAsia_Qatar /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: Asia/Brunei -> Asia/Kuching
+// Strings (bytes): 12 (originally 12)
+// Memory (8-bit): 23
+// Memory (32-bit): 32
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameAsia_Brunei[] ACE_TIME_C_PROGMEM = "Asia/Brunei";
+
+const struct AtcZoneInfo kAtcZoneAsia_Brunei ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameAsia_Brunei /*name*/,
+  0xa8e595f7 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneAsia_Kuching /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17970,6 +17290,23 @@ const struct AtcZoneInfo kAtcZoneAsia_Katmandu ACE_TIME_C_PROGMEM = {
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
   &kAtcZoneAsia_Kathmandu /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: Asia/Kuala_Lumpur -> Asia/Singapore
+// Strings (bytes): 18 (originally 18)
+// Memory (8-bit): 29
+// Memory (32-bit): 38
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameAsia_Kuala_Lumpur[] ACE_TIME_C_PROGMEM = "Asia/Kuala_Lumpur";
+
+const struct AtcZoneInfo kAtcZoneAsia_Kuala_Lumpur ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameAsia_Kuala_Lumpur /*name*/,
+  0x014763c4 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneAsia_Singapore /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18177,7 +17514,7 @@ const struct AtcZoneInfo kAtcZoneAtlantic_Faeroe ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
-// Link name: Atlantic/Jan_Mayen -> Europe/Oslo
+// Link name: Atlantic/Jan_Mayen -> Europe/Berlin
 // Strings (bytes): 19 (originally 19)
 // Memory (8-bit): 30
 // Memory (32-bit): 39
@@ -18190,7 +17527,24 @@ const struct AtcZoneInfo kAtcZoneAtlantic_Jan_Mayen ACE_TIME_C_PROGMEM = {
   0x5a7535b6 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
-  &kAtcZoneEurope_Oslo /*eras(info)*/,
+  &kAtcZoneEurope_Berlin /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: Atlantic/Reykjavik -> Africa/Abidjan
+// Strings (bytes): 19 (originally 19)
+// Memory (8-bit): 30
+// Memory (32-bit): 39
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameAtlantic_Reykjavik[] ACE_TIME_C_PROGMEM = "Atlantic/Reykjavik";
+
+const struct AtcZoneInfo kAtcZoneAtlantic_Reykjavik ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameAtlantic_Reykjavik /*name*/,
+  0x1c2b4f74 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneAfrica_Abidjan /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18823,6 +18177,23 @@ const struct AtcZoneInfo kAtcZoneEtc_Zulu ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
+// Link name: Europe/Amsterdam -> Europe/Brussels
+// Strings (bytes): 17 (originally 17)
+// Memory (8-bit): 28
+// Memory (32-bit): 37
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameEurope_Amsterdam[] ACE_TIME_C_PROGMEM = "Europe/Amsterdam";
+
+const struct AtcZoneInfo kAtcZoneEurope_Amsterdam ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameEurope_Amsterdam /*name*/,
+  0x109395c2 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneEurope_Brussels /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
 // Link name: Europe/Belfast -> Europe/London
 // Strings (bytes): 15 (originally 15)
 // Memory (8-bit): 26
@@ -18871,6 +18242,23 @@ const struct AtcZoneInfo kAtcZoneEurope_Busingen ACE_TIME_C_PROGMEM = {
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
   &kAtcZoneEurope_Zurich /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: Europe/Copenhagen -> Europe/Berlin
+// Strings (bytes): 18 (originally 18)
+// Memory (8-bit): 29
+// Memory (32-bit): 38
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameEurope_Copenhagen[] ACE_TIME_C_PROGMEM = "Europe/Copenhagen";
+
+const struct AtcZoneInfo kAtcZoneEurope_Copenhagen ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameEurope_Copenhagen /*name*/,
+  0xe0ed30bc /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneEurope_Berlin /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18925,6 +18313,23 @@ const struct AtcZoneInfo kAtcZoneEurope_Jersey ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
+// Link name: Europe/Kiev -> Europe/Kyiv
+// Strings (bytes): 12 (originally 12)
+// Memory (8-bit): 23
+// Memory (32-bit): 32
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameEurope_Kiev[] ACE_TIME_C_PROGMEM = "Europe/Kiev";
+
+const struct AtcZoneInfo kAtcZoneEurope_Kiev ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameEurope_Kiev /*name*/,
+  0xa2c19eb3 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneEurope_Kyiv /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
 // Link name: Europe/Ljubljana -> Europe/Belgrade
 // Strings (bytes): 17 (originally 17)
 // Memory (8-bit): 28
@@ -18939,6 +18344,23 @@ const struct AtcZoneInfo kAtcZoneEurope_Ljubljana ACE_TIME_C_PROGMEM = {
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
   &kAtcZoneEurope_Belgrade /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: Europe/Luxembourg -> Europe/Brussels
+// Strings (bytes): 18 (originally 18)
+// Memory (8-bit): 29
+// Memory (32-bit): 38
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameEurope_Luxembourg[] ACE_TIME_C_PROGMEM = "Europe/Luxembourg";
+
+const struct AtcZoneInfo kAtcZoneEurope_Luxembourg ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameEurope_Luxembourg /*name*/,
+  0x1f8bc6ce /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneEurope_Brussels /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18959,6 +18381,23 @@ const struct AtcZoneInfo kAtcZoneEurope_Mariehamn ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
+// Link name: Europe/Monaco -> Europe/Paris
+// Strings (bytes): 14 (originally 14)
+// Memory (8-bit): 25
+// Memory (32-bit): 34
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameEurope_Monaco[] ACE_TIME_C_PROGMEM = "Europe/Monaco";
+
+const struct AtcZoneInfo kAtcZoneEurope_Monaco ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameEurope_Monaco /*name*/,
+  0x5ebf9f01 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneEurope_Paris /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
 // Link name: Europe/Nicosia -> Asia/Nicosia
 // Strings (bytes): 15 (originally 15)
 // Memory (8-bit): 26
@@ -18973,6 +18412,23 @@ const struct AtcZoneInfo kAtcZoneEurope_Nicosia ACE_TIME_C_PROGMEM = {
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
   &kAtcZoneAsia_Nicosia /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: Europe/Oslo -> Europe/Berlin
+// Strings (bytes): 12 (originally 12)
+// Memory (8-bit): 23
+// Memory (32-bit): 32
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameEurope_Oslo[] ACE_TIME_C_PROGMEM = "Europe/Oslo";
+
+const struct AtcZoneInfo kAtcZoneEurope_Oslo ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameEurope_Oslo /*name*/,
+  0xa2c3fba1 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneEurope_Berlin /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19041,6 +18497,23 @@ const struct AtcZoneInfo kAtcZoneEurope_Skopje ACE_TIME_C_PROGMEM = {
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
   &kAtcZoneEurope_Belgrade /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: Europe/Stockholm -> Europe/Berlin
+// Strings (bytes): 17 (originally 17)
+// Memory (8-bit): 28
+// Memory (32-bit): 37
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameEurope_Stockholm[] ACE_TIME_C_PROGMEM = "Europe/Stockholm";
+
+const struct AtcZoneInfo kAtcZoneEurope_Stockholm ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameEurope_Stockholm /*name*/,
+  0x5bf6fbb8 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneEurope_Berlin /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19248,7 +18721,7 @@ const struct AtcZoneInfo kAtcZoneHongkong ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
-// Link name: Iceland -> Atlantic/Reykjavik
+// Link name: Iceland -> Africa/Abidjan
 // Strings (bytes): 8 (originally 8)
 // Memory (8-bit): 19
 // Memory (32-bit): 28
@@ -19261,7 +18734,7 @@ const struct AtcZoneInfo kAtcZoneIceland ACE_TIME_C_PROGMEM = {
   0xe56a35b5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
-  &kAtcZoneAtlantic_Reykjavik /*eras(info)*/,
+  &kAtcZoneAfrica_Abidjan /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19282,6 +18755,40 @@ const struct AtcZoneInfo kAtcZoneIndian_Antananarivo ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
+// Link name: Indian/Christmas -> Asia/Bangkok
+// Strings (bytes): 17 (originally 17)
+// Memory (8-bit): 28
+// Memory (32-bit): 37
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameIndian_Christmas[] ACE_TIME_C_PROGMEM = "Indian/Christmas";
+
+const struct AtcZoneInfo kAtcZoneIndian_Christmas ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameIndian_Christmas /*name*/,
+  0x68c207d5 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneAsia_Bangkok /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: Indian/Cocos -> Asia/Yangon
+// Strings (bytes): 13 (originally 13)
+// Memory (8-bit): 24
+// Memory (32-bit): 33
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameIndian_Cocos[] ACE_TIME_C_PROGMEM = "Indian/Cocos";
+
+const struct AtcZoneInfo kAtcZoneIndian_Cocos ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameIndian_Cocos /*name*/,
+  0x021e86de /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneAsia_Yangon /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
 // Link name: Indian/Comoro -> Africa/Nairobi
 // Strings (bytes): 14 (originally 14)
 // Memory (8-bit): 25
@@ -19299,6 +18806,40 @@ const struct AtcZoneInfo kAtcZoneIndian_Comoro ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
+// Link name: Indian/Kerguelen -> Indian/Maldives
+// Strings (bytes): 17 (originally 17)
+// Memory (8-bit): 28
+// Memory (32-bit): 37
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameIndian_Kerguelen[] ACE_TIME_C_PROGMEM = "Indian/Kerguelen";
+
+const struct AtcZoneInfo kAtcZoneIndian_Kerguelen ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameIndian_Kerguelen /*name*/,
+  0x4351b389 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneIndian_Maldives /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: Indian/Mahe -> Asia/Dubai
+// Strings (bytes): 12 (originally 12)
+// Memory (8-bit): 23
+// Memory (32-bit): 32
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameIndian_Mahe[] ACE_TIME_C_PROGMEM = "Indian/Mahe";
+
+const struct AtcZoneInfo kAtcZoneIndian_Mahe ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameIndian_Mahe /*name*/,
+  0x45e725e2 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneAsia_Dubai /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
 // Link name: Indian/Mayotte -> Africa/Nairobi
 // Strings (bytes): 15 (originally 15)
 // Memory (8-bit): 26
@@ -19313,6 +18854,23 @@ const struct AtcZoneInfo kAtcZoneIndian_Mayotte ACE_TIME_C_PROGMEM = {
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
   &kAtcZoneAfrica_Nairobi /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: Indian/Reunion -> Asia/Dubai
+// Strings (bytes): 15 (originally 15)
+// Memory (8-bit): 26
+// Memory (32-bit): 35
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameIndian_Reunion[] ACE_TIME_C_PROGMEM = "Indian/Reunion";
+
+const struct AtcZoneInfo kAtcZoneIndian_Reunion ACE_TIME_C_PROGMEM = {
+  kAtcZoneNameIndian_Reunion /*name*/,
+  0x7076c047 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneAsia_Dubai /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19537,6 +19095,23 @@ const struct AtcZoneInfo kAtcZonePRC ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
+// Link name: Pacific/Chuuk -> Pacific/Port_Moresby
+// Strings (bytes): 14 (originally 14)
+// Memory (8-bit): 25
+// Memory (32-bit): 34
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNamePacific_Chuuk[] ACE_TIME_C_PROGMEM = "Pacific/Chuuk";
+
+const struct AtcZoneInfo kAtcZonePacific_Chuuk ACE_TIME_C_PROGMEM = {
+  kAtcZoneNamePacific_Chuuk /*name*/,
+  0x8a090b23 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZonePacific_Port_Moresby /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
 // Link name: Pacific/Enderbury -> Pacific/Kanton
 // Strings (bytes): 18 (originally 18)
 // Memory (8-bit): 29
@@ -19551,6 +19126,23 @@ const struct AtcZoneInfo kAtcZonePacific_Enderbury ACE_TIME_C_PROGMEM = {
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
   &kAtcZonePacific_Kanton /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: Pacific/Funafuti -> Pacific/Tarawa
+// Strings (bytes): 17 (originally 17)
+// Memory (8-bit): 28
+// Memory (32-bit): 37
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNamePacific_Funafuti[] ACE_TIME_C_PROGMEM = "Pacific/Funafuti";
+
+const struct AtcZoneInfo kAtcZonePacific_Funafuti ACE_TIME_C_PROGMEM = {
+  kAtcZoneNamePacific_Funafuti /*name*/,
+  0xdb402d65 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZonePacific_Tarawa /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19571,6 +19163,23 @@ const struct AtcZoneInfo kAtcZonePacific_Johnston ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
+// Link name: Pacific/Majuro -> Pacific/Tarawa
+// Strings (bytes): 15 (originally 15)
+// Memory (8-bit): 26
+// Memory (32-bit): 35
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNamePacific_Majuro[] ACE_TIME_C_PROGMEM = "Pacific/Majuro";
+
+const struct AtcZoneInfo kAtcZonePacific_Majuro ACE_TIME_C_PROGMEM = {
+  kAtcZoneNamePacific_Majuro /*name*/,
+  0xe1f95371 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZonePacific_Tarawa /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
 // Link name: Pacific/Midway -> Pacific/Pago_Pago
 // Strings (bytes): 15 (originally 15)
 // Memory (8-bit): 26
@@ -19588,7 +19197,24 @@ const struct AtcZoneInfo kAtcZonePacific_Midway ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
-// Link name: Pacific/Ponape -> Pacific/Pohnpei
+// Link name: Pacific/Pohnpei -> Pacific/Guadalcanal
+// Strings (bytes): 16 (originally 16)
+// Memory (8-bit): 27
+// Memory (32-bit): 36
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNamePacific_Pohnpei[] ACE_TIME_C_PROGMEM = "Pacific/Pohnpei";
+
+const struct AtcZoneInfo kAtcZonePacific_Pohnpei ACE_TIME_C_PROGMEM = {
+  kAtcZoneNamePacific_Pohnpei /*name*/,
+  0x28929f96 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZonePacific_Guadalcanal /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: Pacific/Ponape -> Pacific/Guadalcanal
 // Strings (bytes): 15 (originally 15)
 // Memory (8-bit): 26
 // Memory (32-bit): 35
@@ -19601,7 +19227,7 @@ const struct AtcZoneInfo kAtcZonePacific_Ponape ACE_TIME_C_PROGMEM = {
   0xe9f80086 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
-  &kAtcZonePacific_Pohnpei /*eras(info)*/,
+  &kAtcZonePacific_Guadalcanal /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19639,7 +19265,7 @@ const struct AtcZoneInfo kAtcZonePacific_Samoa ACE_TIME_C_PROGMEM = {
 };
 
 //---------------------------------------------------------------------------
-// Link name: Pacific/Truk -> Pacific/Chuuk
+// Link name: Pacific/Truk -> Pacific/Port_Moresby
 // Strings (bytes): 13 (originally 13)
 // Memory (8-bit): 24
 // Memory (32-bit): 33
@@ -19652,11 +19278,45 @@ const struct AtcZoneInfo kAtcZonePacific_Truk ACE_TIME_C_PROGMEM = {
   0x234010a9 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
-  &kAtcZonePacific_Chuuk /*eras(info)*/,
+  &kAtcZonePacific_Port_Moresby /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------
-// Link name: Pacific/Yap -> Pacific/Chuuk
+// Link name: Pacific/Wake -> Pacific/Tarawa
+// Strings (bytes): 13 (originally 13)
+// Memory (8-bit): 24
+// Memory (32-bit): 33
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNamePacific_Wake[] ACE_TIME_C_PROGMEM = "Pacific/Wake";
+
+const struct AtcZoneInfo kAtcZonePacific_Wake ACE_TIME_C_PROGMEM = {
+  kAtcZoneNamePacific_Wake /*name*/,
+  0x23416c2b /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZonePacific_Tarawa /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: Pacific/Wallis -> Pacific/Tarawa
+// Strings (bytes): 15 (originally 15)
+// Memory (8-bit): 26
+// Memory (32-bit): 35
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNamePacific_Wallis[] ACE_TIME_C_PROGMEM = "Pacific/Wallis";
+
+const struct AtcZoneInfo kAtcZonePacific_Wallis ACE_TIME_C_PROGMEM = {
+  kAtcZoneNamePacific_Wallis /*name*/,
+  0xf94ddb0f /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZonePacific_Tarawa /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: Pacific/Yap -> Pacific/Port_Moresby
 // Strings (bytes): 12 (originally 12)
 // Memory (8-bit): 23
 // Memory (32-bit): 32
@@ -19669,7 +19329,7 @@ const struct AtcZoneInfo kAtcZonePacific_Yap ACE_TIME_C_PROGMEM = {
   0xbb40138d /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
-  &kAtcZonePacific_Chuuk /*eras(info)*/,
+  &kAtcZonePacific_Port_Moresby /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------

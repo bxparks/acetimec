@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/dev/tz
 //     --output_dir /home/brian/src/AceTimeC/src/ace_time_c/zonedb
-//     --tz_version 2022a
+//     --tz_version 2022b
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -23,7 +23,7 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022a
+// from https://github.com/eggert/tz/releases/tag/2022b
 //
 // DO NOT EDIT
 
@@ -122,7 +122,7 @@ extern const struct AtcZonePolicy kAtcPolicyZion;
 
 
 //---------------------------------------------------------------------------
-// Unsupported zone policies: 55
+// Unsupported zone policies: 50
 //---------------------------------------------------------------------------
 
 // Albania (unused)
@@ -136,7 +136,6 @@ extern const struct AtcZonePolicy kAtcPolicyZion;
 // Cyprus (unused)
 // Czech (unused)
 // DR (unused)
-// Denmark (unused)
 // Denver (unused)
 // Detroit (unused)
 // E-Eur (unused)
@@ -149,19 +148,15 @@ extern const struct AtcZonePolicy kAtcPolicyZion;
 // Greece (unused)
 // Halifax (unused)
 // Hungary (unused)
-// Iceland (unused)
 // Indianapolis (unused)
 // Italy (unused)
 // Latvia (unused)
 // Louisville (unused)
-// Lux (unused)
 // Malta (unused)
 // Marengo (unused)
 // Menominee (unused)
 // NBorneo (unused)
 // NYC (unused)
-// Neth (unused)
-// Norway (unused)
 // Perry (unused)
 // Pike (unused)
 // Poland (unused)

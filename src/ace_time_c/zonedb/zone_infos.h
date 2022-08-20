@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/dev/tz
 //     --output_dir /home/brian/src/AceTimeC/src/ace_time_c/zonedb
-//     --tz_version 2022a
+//     --tz_version 2022b
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -23,7 +23,7 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022a
+// from https://github.com/eggert/tz/releases/tag/2022b
 //
 // DO NOT EDIT
 
@@ -43,7 +43,7 @@ extern const char kAtcTzDatabaseVersion[];
 extern const struct AtcZoneContext kAtcZoneContext;
 
 //---------------------------------------------------------------------------
-// Supported zones: 377
+// Supported zones: 356
 //---------------------------------------------------------------------------
 
 extern const struct AtcZoneInfo kAtcZoneAfrica_Abidjan; // Africa/Abidjan
@@ -196,7 +196,6 @@ extern const struct AtcZoneInfo kAtcZoneAntarctica_Mawson; // Antarctica/Mawson
 extern const struct AtcZoneInfo kAtcZoneAntarctica_Palmer; // Antarctica/Palmer
 extern const struct AtcZoneInfo kAtcZoneAntarctica_Rothera; // Antarctica/Rothera
 extern const struct AtcZoneInfo kAtcZoneAntarctica_Troll; // Antarctica/Troll
-extern const struct AtcZoneInfo kAtcZoneAntarctica_Vostok; // Antarctica/Vostok
 extern const struct AtcZoneInfo kAtcZoneAsia_Almaty; // Asia/Almaty
 extern const struct AtcZoneInfo kAtcZoneAsia_Amman; // Asia/Amman
 extern const struct AtcZoneInfo kAtcZoneAsia_Anadyr; // Asia/Anadyr
@@ -210,7 +209,6 @@ extern const struct AtcZoneInfo kAtcZoneAsia_Bangkok; // Asia/Bangkok
 extern const struct AtcZoneInfo kAtcZoneAsia_Barnaul; // Asia/Barnaul
 extern const struct AtcZoneInfo kAtcZoneAsia_Beirut; // Asia/Beirut
 extern const struct AtcZoneInfo kAtcZoneAsia_Bishkek; // Asia/Bishkek
-extern const struct AtcZoneInfo kAtcZoneAsia_Brunei; // Asia/Brunei
 extern const struct AtcZoneInfo kAtcZoneAsia_Chita; // Asia/Chita
 extern const struct AtcZoneInfo kAtcZoneAsia_Choibalsan; // Asia/Choibalsan
 extern const struct AtcZoneInfo kAtcZoneAsia_Colombo; // Asia/Colombo
@@ -236,7 +234,6 @@ extern const struct AtcZoneInfo kAtcZoneAsia_Kathmandu; // Asia/Kathmandu
 extern const struct AtcZoneInfo kAtcZoneAsia_Khandyga; // Asia/Khandyga
 extern const struct AtcZoneInfo kAtcZoneAsia_Kolkata; // Asia/Kolkata
 extern const struct AtcZoneInfo kAtcZoneAsia_Krasnoyarsk; // Asia/Krasnoyarsk
-extern const struct AtcZoneInfo kAtcZoneAsia_Kuala_Lumpur; // Asia/Kuala_Lumpur
 extern const struct AtcZoneInfo kAtcZoneAsia_Kuching; // Asia/Kuching
 extern const struct AtcZoneInfo kAtcZoneAsia_Macau; // Asia/Macau
 extern const struct AtcZoneInfo kAtcZoneAsia_Magadan; // Asia/Magadan
@@ -280,7 +277,6 @@ extern const struct AtcZoneInfo kAtcZoneAtlantic_Canary; // Atlantic/Canary
 extern const struct AtcZoneInfo kAtcZoneAtlantic_Cape_Verde; // Atlantic/Cape_Verde
 extern const struct AtcZoneInfo kAtcZoneAtlantic_Faroe; // Atlantic/Faroe
 extern const struct AtcZoneInfo kAtcZoneAtlantic_Madeira; // Atlantic/Madeira
-extern const struct AtcZoneInfo kAtcZoneAtlantic_Reykjavik; // Atlantic/Reykjavik
 extern const struct AtcZoneInfo kAtcZoneAtlantic_South_Georgia; // Atlantic/South_Georgia
 extern const struct AtcZoneInfo kAtcZoneAtlantic_Stanley; // Atlantic/Stanley
 extern const struct AtcZoneInfo kAtcZoneAustralia_Adelaide; // Australia/Adelaide
@@ -327,7 +323,6 @@ extern const struct AtcZoneInfo kAtcZoneEtc_GMT_7; // Etc/GMT-7
 extern const struct AtcZoneInfo kAtcZoneEtc_GMT_8; // Etc/GMT-8
 extern const struct AtcZoneInfo kAtcZoneEtc_GMT_9; // Etc/GMT-9
 extern const struct AtcZoneInfo kAtcZoneEtc_UTC; // Etc/UTC
-extern const struct AtcZoneInfo kAtcZoneEurope_Amsterdam; // Europe/Amsterdam
 extern const struct AtcZoneInfo kAtcZoneEurope_Andorra; // Europe/Andorra
 extern const struct AtcZoneInfo kAtcZoneEurope_Astrakhan; // Europe/Astrakhan
 extern const struct AtcZoneInfo kAtcZoneEurope_Athens; // Europe/Athens
@@ -337,23 +332,19 @@ extern const struct AtcZoneInfo kAtcZoneEurope_Brussels; // Europe/Brussels
 extern const struct AtcZoneInfo kAtcZoneEurope_Bucharest; // Europe/Bucharest
 extern const struct AtcZoneInfo kAtcZoneEurope_Budapest; // Europe/Budapest
 extern const struct AtcZoneInfo kAtcZoneEurope_Chisinau; // Europe/Chisinau
-extern const struct AtcZoneInfo kAtcZoneEurope_Copenhagen; // Europe/Copenhagen
 extern const struct AtcZoneInfo kAtcZoneEurope_Dublin; // Europe/Dublin
 extern const struct AtcZoneInfo kAtcZoneEurope_Gibraltar; // Europe/Gibraltar
 extern const struct AtcZoneInfo kAtcZoneEurope_Helsinki; // Europe/Helsinki
 extern const struct AtcZoneInfo kAtcZoneEurope_Istanbul; // Europe/Istanbul
 extern const struct AtcZoneInfo kAtcZoneEurope_Kaliningrad; // Europe/Kaliningrad
-extern const struct AtcZoneInfo kAtcZoneEurope_Kiev; // Europe/Kiev
 extern const struct AtcZoneInfo kAtcZoneEurope_Kirov; // Europe/Kirov
+extern const struct AtcZoneInfo kAtcZoneEurope_Kyiv; // Europe/Kyiv
 extern const struct AtcZoneInfo kAtcZoneEurope_Lisbon; // Europe/Lisbon
 extern const struct AtcZoneInfo kAtcZoneEurope_London; // Europe/London
-extern const struct AtcZoneInfo kAtcZoneEurope_Luxembourg; // Europe/Luxembourg
 extern const struct AtcZoneInfo kAtcZoneEurope_Madrid; // Europe/Madrid
 extern const struct AtcZoneInfo kAtcZoneEurope_Malta; // Europe/Malta
 extern const struct AtcZoneInfo kAtcZoneEurope_Minsk; // Europe/Minsk
-extern const struct AtcZoneInfo kAtcZoneEurope_Monaco; // Europe/Monaco
 extern const struct AtcZoneInfo kAtcZoneEurope_Moscow; // Europe/Moscow
-extern const struct AtcZoneInfo kAtcZoneEurope_Oslo; // Europe/Oslo
 extern const struct AtcZoneInfo kAtcZoneEurope_Paris; // Europe/Paris
 extern const struct AtcZoneInfo kAtcZoneEurope_Prague; // Europe/Prague
 extern const struct AtcZoneInfo kAtcZoneEurope_Riga; // Europe/Riga
@@ -362,7 +353,6 @@ extern const struct AtcZoneInfo kAtcZoneEurope_Samara; // Europe/Samara
 extern const struct AtcZoneInfo kAtcZoneEurope_Saratov; // Europe/Saratov
 extern const struct AtcZoneInfo kAtcZoneEurope_Simferopol; // Europe/Simferopol
 extern const struct AtcZoneInfo kAtcZoneEurope_Sofia; // Europe/Sofia
-extern const struct AtcZoneInfo kAtcZoneEurope_Stockholm; // Europe/Stockholm
 extern const struct AtcZoneInfo kAtcZoneEurope_Tallinn; // Europe/Tallinn
 extern const struct AtcZoneInfo kAtcZoneEurope_Tirane; // Europe/Tirane
 extern const struct AtcZoneInfo kAtcZoneEurope_Ulyanovsk; // Europe/Ulyanovsk
@@ -375,13 +365,8 @@ extern const struct AtcZoneInfo kAtcZoneEurope_Zaporozhye; // Europe/Zaporozhye
 extern const struct AtcZoneInfo kAtcZoneEurope_Zurich; // Europe/Zurich
 extern const struct AtcZoneInfo kAtcZoneHST; // HST
 extern const struct AtcZoneInfo kAtcZoneIndian_Chagos; // Indian/Chagos
-extern const struct AtcZoneInfo kAtcZoneIndian_Christmas; // Indian/Christmas
-extern const struct AtcZoneInfo kAtcZoneIndian_Cocos; // Indian/Cocos
-extern const struct AtcZoneInfo kAtcZoneIndian_Kerguelen; // Indian/Kerguelen
-extern const struct AtcZoneInfo kAtcZoneIndian_Mahe; // Indian/Mahe
 extern const struct AtcZoneInfo kAtcZoneIndian_Maldives; // Indian/Maldives
 extern const struct AtcZoneInfo kAtcZoneIndian_Mauritius; // Indian/Mauritius
-extern const struct AtcZoneInfo kAtcZoneIndian_Reunion; // Indian/Reunion
 extern const struct AtcZoneInfo kAtcZoneMET; // MET
 extern const struct AtcZoneInfo kAtcZoneMST; // MST
 extern const struct AtcZoneInfo kAtcZoneMST7MDT; // MST7MDT
@@ -390,12 +375,10 @@ extern const struct AtcZoneInfo kAtcZonePacific_Apia; // Pacific/Apia
 extern const struct AtcZoneInfo kAtcZonePacific_Auckland; // Pacific/Auckland
 extern const struct AtcZoneInfo kAtcZonePacific_Bougainville; // Pacific/Bougainville
 extern const struct AtcZoneInfo kAtcZonePacific_Chatham; // Pacific/Chatham
-extern const struct AtcZoneInfo kAtcZonePacific_Chuuk; // Pacific/Chuuk
 extern const struct AtcZoneInfo kAtcZonePacific_Easter; // Pacific/Easter
 extern const struct AtcZoneInfo kAtcZonePacific_Efate; // Pacific/Efate
 extern const struct AtcZoneInfo kAtcZonePacific_Fakaofo; // Pacific/Fakaofo
 extern const struct AtcZoneInfo kAtcZonePacific_Fiji; // Pacific/Fiji
-extern const struct AtcZoneInfo kAtcZonePacific_Funafuti; // Pacific/Funafuti
 extern const struct AtcZoneInfo kAtcZonePacific_Galapagos; // Pacific/Galapagos
 extern const struct AtcZoneInfo kAtcZonePacific_Gambier; // Pacific/Gambier
 extern const struct AtcZoneInfo kAtcZonePacific_Guadalcanal; // Pacific/Guadalcanal
@@ -405,7 +388,6 @@ extern const struct AtcZoneInfo kAtcZonePacific_Kanton; // Pacific/Kanton
 extern const struct AtcZoneInfo kAtcZonePacific_Kiritimati; // Pacific/Kiritimati
 extern const struct AtcZoneInfo kAtcZonePacific_Kosrae; // Pacific/Kosrae
 extern const struct AtcZoneInfo kAtcZonePacific_Kwajalein; // Pacific/Kwajalein
-extern const struct AtcZoneInfo kAtcZonePacific_Majuro; // Pacific/Majuro
 extern const struct AtcZoneInfo kAtcZonePacific_Marquesas; // Pacific/Marquesas
 extern const struct AtcZoneInfo kAtcZonePacific_Nauru; // Pacific/Nauru
 extern const struct AtcZoneInfo kAtcZonePacific_Niue; // Pacific/Niue
@@ -414,14 +396,11 @@ extern const struct AtcZoneInfo kAtcZonePacific_Noumea; // Pacific/Noumea
 extern const struct AtcZoneInfo kAtcZonePacific_Pago_Pago; // Pacific/Pago_Pago
 extern const struct AtcZoneInfo kAtcZonePacific_Palau; // Pacific/Palau
 extern const struct AtcZoneInfo kAtcZonePacific_Pitcairn; // Pacific/Pitcairn
-extern const struct AtcZoneInfo kAtcZonePacific_Pohnpei; // Pacific/Pohnpei
 extern const struct AtcZoneInfo kAtcZonePacific_Port_Moresby; // Pacific/Port_Moresby
 extern const struct AtcZoneInfo kAtcZonePacific_Rarotonga; // Pacific/Rarotonga
 extern const struct AtcZoneInfo kAtcZonePacific_Tahiti; // Pacific/Tahiti
 extern const struct AtcZoneInfo kAtcZonePacific_Tarawa; // Pacific/Tarawa
 extern const struct AtcZoneInfo kAtcZonePacific_Tongatapu; // Pacific/Tongatapu
-extern const struct AtcZoneInfo kAtcZonePacific_Wake; // Pacific/Wake
-extern const struct AtcZoneInfo kAtcZonePacific_Wallis; // Pacific/Wallis
 extern const struct AtcZoneInfo kAtcZoneWET; // WET
 
 
@@ -577,7 +556,6 @@ extern const struct AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdAntarctica_Palmer 0x40962f4f /* Antarctica/Palmer */
 #define kAtcZoneIdAntarctica_Rothera 0x0e86d203 /* Antarctica/Rothera */
 #define kAtcZoneIdAntarctica_Troll 0xe33f085b /* Antarctica/Troll */
-#define kAtcZoneIdAntarctica_Vostok 0x4f966fd4 /* Antarctica/Vostok */
 #define kAtcZoneIdAsia_Almaty 0xa61f41fa /* Asia/Almaty */
 #define kAtcZoneIdAsia_Amman 0x148d21bc /* Asia/Amman */
 #define kAtcZoneIdAsia_Anadyr 0xa63cebd1 /* Asia/Anadyr */
@@ -591,7 +569,6 @@ extern const struct AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdAsia_Barnaul 0x9dba4997 /* Asia/Barnaul */
 #define kAtcZoneIdAsia_Beirut 0xa7f3d5fd /* Asia/Beirut */
 #define kAtcZoneIdAsia_Bishkek 0xb0728553 /* Asia/Bishkek */
-#define kAtcZoneIdAsia_Brunei 0xa8e595f7 /* Asia/Brunei */
 #define kAtcZoneIdAsia_Chita 0x14ae863b /* Asia/Chita */
 #define kAtcZoneIdAsia_Choibalsan 0x928aa4a6 /* Asia/Choibalsan */
 #define kAtcZoneIdAsia_Colombo 0x0af0e91d /* Asia/Colombo */
@@ -617,7 +594,6 @@ extern const struct AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdAsia_Khandyga 0x9685a4d9 /* Asia/Khandyga */
 #define kAtcZoneIdAsia_Kolkata 0x72c06cd9 /* Asia/Kolkata */
 #define kAtcZoneIdAsia_Krasnoyarsk 0xd0376c6a /* Asia/Krasnoyarsk */
-#define kAtcZoneIdAsia_Kuala_Lumpur 0x014763c4 /* Asia/Kuala_Lumpur */
 #define kAtcZoneIdAsia_Kuching 0x801b003b /* Asia/Kuching */
 #define kAtcZoneIdAsia_Macau 0x155f88b9 /* Asia/Macau */
 #define kAtcZoneIdAsia_Magadan 0xebacc19b /* Asia/Magadan */
@@ -661,7 +637,6 @@ extern const struct AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdAtlantic_Cape_Verde 0x5c5e1772 /* Atlantic/Cape_Verde */
 #define kAtcZoneIdAtlantic_Faroe 0xe110a971 /* Atlantic/Faroe */
 #define kAtcZoneIdAtlantic_Madeira 0x81b5c037 /* Atlantic/Madeira */
-#define kAtcZoneIdAtlantic_Reykjavik 0x1c2b4f74 /* Atlantic/Reykjavik */
 #define kAtcZoneIdAtlantic_South_Georgia 0x33013174 /* Atlantic/South_Georgia */
 #define kAtcZoneIdAtlantic_Stanley 0x7bb3e1c4 /* Atlantic/Stanley */
 #define kAtcZoneIdAustralia_Adelaide 0x2428e8a3 /* Australia/Adelaide */
@@ -708,7 +683,6 @@ extern const struct AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdEtc_GMT_8 0x9d13da5d /* Etc/GMT-8 */
 #define kAtcZoneIdEtc_GMT_9 0x9d13da5e /* Etc/GMT-9 */
 #define kAtcZoneIdEtc_UTC 0xd8e31abc /* Etc/UTC */
-#define kAtcZoneIdEurope_Amsterdam 0x109395c2 /* Europe/Amsterdam */
 #define kAtcZoneIdEurope_Andorra 0x97f6764b /* Europe/Andorra */
 #define kAtcZoneIdEurope_Astrakhan 0xe22256e1 /* Europe/Astrakhan */
 #define kAtcZoneIdEurope_Athens 0x4318fa27 /* Europe/Athens */
@@ -718,23 +692,19 @@ extern const struct AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdEurope_Bucharest 0xfb349ec5 /* Europe/Bucharest */
 #define kAtcZoneIdEurope_Budapest 0x9ce0197c /* Europe/Budapest */
 #define kAtcZoneIdEurope_Chisinau 0xad58aa18 /* Europe/Chisinau */
-#define kAtcZoneIdEurope_Copenhagen 0xe0ed30bc /* Europe/Copenhagen */
 #define kAtcZoneIdEurope_Dublin 0x4a275f62 /* Europe/Dublin */
 #define kAtcZoneIdEurope_Gibraltar 0xf8e325fc /* Europe/Gibraltar */
 #define kAtcZoneIdEurope_Helsinki 0x6ab2975b /* Europe/Helsinki */
 #define kAtcZoneIdEurope_Istanbul 0x9e09d6e6 /* Europe/Istanbul */
 #define kAtcZoneIdEurope_Kaliningrad 0xd33b2f28 /* Europe/Kaliningrad */
-#define kAtcZoneIdEurope_Kiev 0xa2c19eb3 /* Europe/Kiev */
 #define kAtcZoneIdEurope_Kirov 0xfaf5abef /* Europe/Kirov */
+#define kAtcZoneIdEurope_Kyiv 0xa2c1e347 /* Europe/Kyiv */
 #define kAtcZoneIdEurope_Lisbon 0x5c00a70b /* Europe/Lisbon */
 #define kAtcZoneIdEurope_London 0x5c6a84ae /* Europe/London */
-#define kAtcZoneIdEurope_Luxembourg 0x1f8bc6ce /* Europe/Luxembourg */
 #define kAtcZoneIdEurope_Madrid 0x5dbd1535 /* Europe/Madrid */
 #define kAtcZoneIdEurope_Malta 0xfb1560f3 /* Europe/Malta */
 #define kAtcZoneIdEurope_Minsk 0xfb19cc66 /* Europe/Minsk */
-#define kAtcZoneIdEurope_Monaco 0x5ebf9f01 /* Europe/Monaco */
 #define kAtcZoneIdEurope_Moscow 0x5ec266fc /* Europe/Moscow */
-#define kAtcZoneIdEurope_Oslo 0xa2c3fba1 /* Europe/Oslo */
 #define kAtcZoneIdEurope_Paris 0xfb4bc2a3 /* Europe/Paris */
 #define kAtcZoneIdEurope_Prague 0x65ee5d48 /* Europe/Prague */
 #define kAtcZoneIdEurope_Riga 0xa2c57587 /* Europe/Riga */
@@ -743,7 +713,6 @@ extern const struct AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdEurope_Saratov 0xe4315da4 /* Europe/Saratov */
 #define kAtcZoneIdEurope_Simferopol 0xda9eb724 /* Europe/Simferopol */
 #define kAtcZoneIdEurope_Sofia 0xfb898656 /* Europe/Sofia */
-#define kAtcZoneIdEurope_Stockholm 0x5bf6fbb8 /* Europe/Stockholm */
 #define kAtcZoneIdEurope_Tallinn 0x30c4e096 /* Europe/Tallinn */
 #define kAtcZoneIdEurope_Tirane 0x6ea95b47 /* Europe/Tirane */
 #define kAtcZoneIdEurope_Ulyanovsk 0xe03783d0 /* Europe/Ulyanovsk */
@@ -756,13 +725,8 @@ extern const struct AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdEurope_Zurich 0x7d8195b9 /* Europe/Zurich */
 #define kAtcZoneIdHST 0x0b87f034 /* HST */
 #define kAtcZoneIdIndian_Chagos 0x456f7c3c /* Indian/Chagos */
-#define kAtcZoneIdIndian_Christmas 0x68c207d5 /* Indian/Christmas */
-#define kAtcZoneIdIndian_Cocos 0x021e86de /* Indian/Cocos */
-#define kAtcZoneIdIndian_Kerguelen 0x4351b389 /* Indian/Kerguelen */
-#define kAtcZoneIdIndian_Mahe 0x45e725e2 /* Indian/Mahe */
 #define kAtcZoneIdIndian_Maldives 0x9869681c /* Indian/Maldives */
 #define kAtcZoneIdIndian_Mauritius 0x7b09c02a /* Indian/Mauritius */
-#define kAtcZoneIdIndian_Reunion 0x7076c047 /* Indian/Reunion */
 #define kAtcZoneIdMET 0x0b8803ab /* MET */
 #define kAtcZoneIdMST 0x0b880579 /* MST */
 #define kAtcZoneIdMST7MDT 0xf2af9375 /* MST7MDT */
@@ -771,12 +735,10 @@ extern const struct AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdPacific_Auckland 0x25062f86 /* Pacific/Auckland */
 #define kAtcZoneIdPacific_Bougainville 0x5e10f7a4 /* Pacific/Bougainville */
 #define kAtcZoneIdPacific_Chatham 0x2f0de999 /* Pacific/Chatham */
-#define kAtcZoneIdPacific_Chuuk 0x8a090b23 /* Pacific/Chuuk */
 #define kAtcZoneIdPacific_Easter 0xcf54f7e7 /* Pacific/Easter */
 #define kAtcZoneIdPacific_Efate 0x8a2bce28 /* Pacific/Efate */
 #define kAtcZoneIdPacific_Fakaofo 0x06532bba /* Pacific/Fakaofo */
 #define kAtcZoneIdPacific_Fiji 0x23383ba5 /* Pacific/Fiji */
-#define kAtcZoneIdPacific_Funafuti 0xdb402d65 /* Pacific/Funafuti */
 #define kAtcZoneIdPacific_Galapagos 0xa952f752 /* Pacific/Galapagos */
 #define kAtcZoneIdPacific_Gambier 0x53720c3a /* Pacific/Gambier */
 #define kAtcZoneIdPacific_Guadalcanal 0xf4dd25f0 /* Pacific/Guadalcanal */
@@ -786,7 +748,6 @@ extern const struct AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdPacific_Kiritimati 0x8305073a /* Pacific/Kiritimati */
 #define kAtcZoneIdPacific_Kosrae 0xde5139a8 /* Pacific/Kosrae */
 #define kAtcZoneIdPacific_Kwajalein 0x8e216759 /* Pacific/Kwajalein */
-#define kAtcZoneIdPacific_Majuro 0xe1f95371 /* Pacific/Majuro */
 #define kAtcZoneIdPacific_Marquesas 0x57ca7135 /* Pacific/Marquesas */
 #define kAtcZoneIdPacific_Nauru 0x8acc41ae /* Pacific/Nauru */
 #define kAtcZoneIdPacific_Niue 0x233ca014 /* Pacific/Niue */
@@ -795,19 +756,16 @@ extern const struct AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdPacific_Pago_Pago 0x603aebd0 /* Pacific/Pago_Pago */
 #define kAtcZoneIdPacific_Palau 0x8af04a36 /* Pacific/Palau */
 #define kAtcZoneIdPacific_Pitcairn 0x8837d8bd /* Pacific/Pitcairn */
-#define kAtcZoneIdPacific_Pohnpei 0x28929f96 /* Pacific/Pohnpei */
 #define kAtcZoneIdPacific_Port_Moresby 0xa7ba7f68 /* Pacific/Port_Moresby */
 #define kAtcZoneIdPacific_Rarotonga 0x9981a3b0 /* Pacific/Rarotonga */
 #define kAtcZoneIdPacific_Tahiti 0xf24c2446 /* Pacific/Tahiti */
 #define kAtcZoneIdPacific_Tarawa 0xf2517e63 /* Pacific/Tarawa */
 #define kAtcZoneIdPacific_Tongatapu 0x262ca836 /* Pacific/Tongatapu */
-#define kAtcZoneIdPacific_Wake 0x23416c2b /* Pacific/Wake */
-#define kAtcZoneIdPacific_Wallis 0xf94ddb0f /* Pacific/Wallis */
 #define kAtcZoneIdWET 0x0b882e35 /* WET */
 
 
 //---------------------------------------------------------------------------
-// Supported links: 217
+// Supported links: 239
 //---------------------------------------------------------------------------
 
 extern const struct AtcZoneInfo kAtcZoneAfrica_Accra; // Africa/Accra -> Africa/Abidjan
@@ -892,10 +850,12 @@ extern const struct AtcZoneInfo kAtcZoneAntarctica_DumontDUrville; // Antarctica
 extern const struct AtcZoneInfo kAtcZoneAntarctica_McMurdo; // Antarctica/McMurdo -> Pacific/Auckland
 extern const struct AtcZoneInfo kAtcZoneAntarctica_South_Pole; // Antarctica/South_Pole -> Pacific/Auckland
 extern const struct AtcZoneInfo kAtcZoneAntarctica_Syowa; // Antarctica/Syowa -> Asia/Riyadh
-extern const struct AtcZoneInfo kAtcZoneArctic_Longyearbyen; // Arctic/Longyearbyen -> Europe/Oslo
+extern const struct AtcZoneInfo kAtcZoneAntarctica_Vostok; // Antarctica/Vostok -> Asia/Urumqi
+extern const struct AtcZoneInfo kAtcZoneArctic_Longyearbyen; // Arctic/Longyearbyen -> Europe/Berlin
 extern const struct AtcZoneInfo kAtcZoneAsia_Aden; // Asia/Aden -> Asia/Riyadh
 extern const struct AtcZoneInfo kAtcZoneAsia_Ashkhabad; // Asia/Ashkhabad -> Asia/Ashgabat
 extern const struct AtcZoneInfo kAtcZoneAsia_Bahrain; // Asia/Bahrain -> Asia/Qatar
+extern const struct AtcZoneInfo kAtcZoneAsia_Brunei; // Asia/Brunei -> Asia/Kuching
 extern const struct AtcZoneInfo kAtcZoneAsia_Calcutta; // Asia/Calcutta -> Asia/Kolkata
 extern const struct AtcZoneInfo kAtcZoneAsia_Chongqing; // Asia/Chongqing -> Asia/Shanghai
 extern const struct AtcZoneInfo kAtcZoneAsia_Chungking; // Asia/Chungking -> Asia/Shanghai
@@ -904,6 +864,7 @@ extern const struct AtcZoneInfo kAtcZoneAsia_Harbin; // Asia/Harbin -> Asia/Shan
 extern const struct AtcZoneInfo kAtcZoneAsia_Istanbul; // Asia/Istanbul -> Europe/Istanbul
 extern const struct AtcZoneInfo kAtcZoneAsia_Kashgar; // Asia/Kashgar -> Asia/Urumqi
 extern const struct AtcZoneInfo kAtcZoneAsia_Katmandu; // Asia/Katmandu -> Asia/Kathmandu
+extern const struct AtcZoneInfo kAtcZoneAsia_Kuala_Lumpur; // Asia/Kuala_Lumpur -> Asia/Singapore
 extern const struct AtcZoneInfo kAtcZoneAsia_Kuwait; // Asia/Kuwait -> Asia/Riyadh
 extern const struct AtcZoneInfo kAtcZoneAsia_Macao; // Asia/Macao -> Asia/Macau
 extern const struct AtcZoneInfo kAtcZoneAsia_Muscat; // Asia/Muscat -> Asia/Dubai
@@ -916,7 +877,8 @@ extern const struct AtcZoneInfo kAtcZoneAsia_Ujung_Pandang; // Asia/Ujung_Pandan
 extern const struct AtcZoneInfo kAtcZoneAsia_Ulan_Bator; // Asia/Ulan_Bator -> Asia/Ulaanbaatar
 extern const struct AtcZoneInfo kAtcZoneAsia_Vientiane; // Asia/Vientiane -> Asia/Bangkok
 extern const struct AtcZoneInfo kAtcZoneAtlantic_Faeroe; // Atlantic/Faeroe -> Atlantic/Faroe
-extern const struct AtcZoneInfo kAtcZoneAtlantic_Jan_Mayen; // Atlantic/Jan_Mayen -> Europe/Oslo
+extern const struct AtcZoneInfo kAtcZoneAtlantic_Jan_Mayen; // Atlantic/Jan_Mayen -> Europe/Berlin
+extern const struct AtcZoneInfo kAtcZoneAtlantic_Reykjavik; // Atlantic/Reykjavik -> Africa/Abidjan
 extern const struct AtcZoneInfo kAtcZoneAtlantic_St_Helena; // Atlantic/St_Helena -> Africa/Abidjan
 extern const struct AtcZoneInfo kAtcZoneAustralia_ACT; // Australia/ACT -> Australia/Sydney
 extern const struct AtcZoneInfo kAtcZoneAustralia_Canberra; // Australia/Canberra -> Australia/Sydney
@@ -954,19 +916,26 @@ extern const struct AtcZoneInfo kAtcZoneEtc_Greenwich; // Etc/Greenwich -> Etc/G
 extern const struct AtcZoneInfo kAtcZoneEtc_UCT; // Etc/UCT -> Etc/UTC
 extern const struct AtcZoneInfo kAtcZoneEtc_Universal; // Etc/Universal -> Etc/UTC
 extern const struct AtcZoneInfo kAtcZoneEtc_Zulu; // Etc/Zulu -> Etc/UTC
+extern const struct AtcZoneInfo kAtcZoneEurope_Amsterdam; // Europe/Amsterdam -> Europe/Brussels
 extern const struct AtcZoneInfo kAtcZoneEurope_Belfast; // Europe/Belfast -> Europe/London
 extern const struct AtcZoneInfo kAtcZoneEurope_Bratislava; // Europe/Bratislava -> Europe/Prague
 extern const struct AtcZoneInfo kAtcZoneEurope_Busingen; // Europe/Busingen -> Europe/Zurich
+extern const struct AtcZoneInfo kAtcZoneEurope_Copenhagen; // Europe/Copenhagen -> Europe/Berlin
 extern const struct AtcZoneInfo kAtcZoneEurope_Guernsey; // Europe/Guernsey -> Europe/London
 extern const struct AtcZoneInfo kAtcZoneEurope_Isle_of_Man; // Europe/Isle_of_Man -> Europe/London
 extern const struct AtcZoneInfo kAtcZoneEurope_Jersey; // Europe/Jersey -> Europe/London
+extern const struct AtcZoneInfo kAtcZoneEurope_Kiev; // Europe/Kiev -> Europe/Kyiv
 extern const struct AtcZoneInfo kAtcZoneEurope_Ljubljana; // Europe/Ljubljana -> Europe/Belgrade
+extern const struct AtcZoneInfo kAtcZoneEurope_Luxembourg; // Europe/Luxembourg -> Europe/Brussels
 extern const struct AtcZoneInfo kAtcZoneEurope_Mariehamn; // Europe/Mariehamn -> Europe/Helsinki
+extern const struct AtcZoneInfo kAtcZoneEurope_Monaco; // Europe/Monaco -> Europe/Paris
 extern const struct AtcZoneInfo kAtcZoneEurope_Nicosia; // Europe/Nicosia -> Asia/Nicosia
+extern const struct AtcZoneInfo kAtcZoneEurope_Oslo; // Europe/Oslo -> Europe/Berlin
 extern const struct AtcZoneInfo kAtcZoneEurope_Podgorica; // Europe/Podgorica -> Europe/Belgrade
 extern const struct AtcZoneInfo kAtcZoneEurope_San_Marino; // Europe/San_Marino -> Europe/Rome
 extern const struct AtcZoneInfo kAtcZoneEurope_Sarajevo; // Europe/Sarajevo -> Europe/Belgrade
 extern const struct AtcZoneInfo kAtcZoneEurope_Skopje; // Europe/Skopje -> Europe/Belgrade
+extern const struct AtcZoneInfo kAtcZoneEurope_Stockholm; // Europe/Stockholm -> Europe/Berlin
 extern const struct AtcZoneInfo kAtcZoneEurope_Tiraspol; // Europe/Tiraspol -> Europe/Chisinau
 extern const struct AtcZoneInfo kAtcZoneEurope_Vaduz; // Europe/Vaduz -> Europe/Zurich
 extern const struct AtcZoneInfo kAtcZoneEurope_Vatican; // Europe/Vatican -> Europe/Rome
@@ -979,10 +948,15 @@ extern const struct AtcZoneInfo kAtcZoneGMT_0; // GMT-0 -> Etc/GMT
 extern const struct AtcZoneInfo kAtcZoneGMT0; // GMT0 -> Etc/GMT
 extern const struct AtcZoneInfo kAtcZoneGreenwich; // Greenwich -> Etc/GMT
 extern const struct AtcZoneInfo kAtcZoneHongkong; // Hongkong -> Asia/Hong_Kong
-extern const struct AtcZoneInfo kAtcZoneIceland; // Iceland -> Atlantic/Reykjavik
+extern const struct AtcZoneInfo kAtcZoneIceland; // Iceland -> Africa/Abidjan
 extern const struct AtcZoneInfo kAtcZoneIndian_Antananarivo; // Indian/Antananarivo -> Africa/Nairobi
+extern const struct AtcZoneInfo kAtcZoneIndian_Christmas; // Indian/Christmas -> Asia/Bangkok
+extern const struct AtcZoneInfo kAtcZoneIndian_Cocos; // Indian/Cocos -> Asia/Yangon
 extern const struct AtcZoneInfo kAtcZoneIndian_Comoro; // Indian/Comoro -> Africa/Nairobi
+extern const struct AtcZoneInfo kAtcZoneIndian_Kerguelen; // Indian/Kerguelen -> Indian/Maldives
+extern const struct AtcZoneInfo kAtcZoneIndian_Mahe; // Indian/Mahe -> Asia/Dubai
 extern const struct AtcZoneInfo kAtcZoneIndian_Mayotte; // Indian/Mayotte -> Africa/Nairobi
+extern const struct AtcZoneInfo kAtcZoneIndian_Reunion; // Indian/Reunion -> Asia/Dubai
 extern const struct AtcZoneInfo kAtcZoneIran; // Iran -> Asia/Tehran
 extern const struct AtcZoneInfo kAtcZoneIsrael; // Israel -> Asia/Jerusalem
 extern const struct AtcZoneInfo kAtcZoneJamaica; // Jamaica -> America/Jamaica
@@ -996,14 +970,20 @@ extern const struct AtcZoneInfo kAtcZoneNZ; // NZ -> Pacific/Auckland
 extern const struct AtcZoneInfo kAtcZoneNZ_CHAT; // NZ-CHAT -> Pacific/Chatham
 extern const struct AtcZoneInfo kAtcZoneNavajo; // Navajo -> America/Denver
 extern const struct AtcZoneInfo kAtcZonePRC; // PRC -> Asia/Shanghai
+extern const struct AtcZoneInfo kAtcZonePacific_Chuuk; // Pacific/Chuuk -> Pacific/Port_Moresby
 extern const struct AtcZoneInfo kAtcZonePacific_Enderbury; // Pacific/Enderbury -> Pacific/Kanton
+extern const struct AtcZoneInfo kAtcZonePacific_Funafuti; // Pacific/Funafuti -> Pacific/Tarawa
 extern const struct AtcZoneInfo kAtcZonePacific_Johnston; // Pacific/Johnston -> Pacific/Honolulu
+extern const struct AtcZoneInfo kAtcZonePacific_Majuro; // Pacific/Majuro -> Pacific/Tarawa
 extern const struct AtcZoneInfo kAtcZonePacific_Midway; // Pacific/Midway -> Pacific/Pago_Pago
-extern const struct AtcZoneInfo kAtcZonePacific_Ponape; // Pacific/Ponape -> Pacific/Pohnpei
+extern const struct AtcZoneInfo kAtcZonePacific_Pohnpei; // Pacific/Pohnpei -> Pacific/Guadalcanal
+extern const struct AtcZoneInfo kAtcZonePacific_Ponape; // Pacific/Ponape -> Pacific/Guadalcanal
 extern const struct AtcZoneInfo kAtcZonePacific_Saipan; // Pacific/Saipan -> Pacific/Guam
 extern const struct AtcZoneInfo kAtcZonePacific_Samoa; // Pacific/Samoa -> Pacific/Pago_Pago
-extern const struct AtcZoneInfo kAtcZonePacific_Truk; // Pacific/Truk -> Pacific/Chuuk
-extern const struct AtcZoneInfo kAtcZonePacific_Yap; // Pacific/Yap -> Pacific/Chuuk
+extern const struct AtcZoneInfo kAtcZonePacific_Truk; // Pacific/Truk -> Pacific/Port_Moresby
+extern const struct AtcZoneInfo kAtcZonePacific_Wake; // Pacific/Wake -> Pacific/Tarawa
+extern const struct AtcZoneInfo kAtcZonePacific_Wallis; // Pacific/Wallis -> Pacific/Tarawa
+extern const struct AtcZoneInfo kAtcZonePacific_Yap; // Pacific/Yap -> Pacific/Port_Moresby
 extern const struct AtcZoneInfo kAtcZonePoland; // Poland -> Europe/Warsaw
 extern const struct AtcZoneInfo kAtcZonePortugal; // Portugal -> Europe/Lisbon
 extern const struct AtcZoneInfo kAtcZoneROC; // ROC -> Asia/Taipei
@@ -1113,10 +1093,12 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdAntarctica_McMurdo 0x6eeb5585 /* Antarctica/McMurdo */
 #define kAtcZoneIdAntarctica_South_Pole 0xcd96b290 /* Antarctica/South_Pole */
 #define kAtcZoneIdAntarctica_Syowa 0xe330c7e1 /* Antarctica/Syowa */
+#define kAtcZoneIdAntarctica_Vostok 0x4f966fd4 /* Antarctica/Vostok */
 #define kAtcZoneIdArctic_Longyearbyen 0xd23e7859 /* Arctic/Longyearbyen */
 #define kAtcZoneIdAsia_Aden 0x1fa7084a /* Asia/Aden */
 #define kAtcZoneIdAsia_Ashkhabad 0x15454f09 /* Asia/Ashkhabad */
 #define kAtcZoneIdAsia_Bahrain 0x9d078487 /* Asia/Bahrain */
+#define kAtcZoneIdAsia_Brunei 0xa8e595f7 /* Asia/Brunei */
 #define kAtcZoneIdAsia_Calcutta 0x328a44c3 /* Asia/Calcutta */
 #define kAtcZoneIdAsia_Chongqing 0xf937fb90 /* Asia/Chongqing */
 #define kAtcZoneIdAsia_Chungking 0xc7121dd0 /* Asia/Chungking */
@@ -1125,6 +1107,7 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdAsia_Istanbul 0x382e7894 /* Asia/Istanbul */
 #define kAtcZoneIdAsia_Kashgar 0x52955193 /* Asia/Kashgar */
 #define kAtcZoneIdAsia_Katmandu 0xa7ec12c7 /* Asia/Katmandu */
+#define kAtcZoneIdAsia_Kuala_Lumpur 0x014763c4 /* Asia/Kuala_Lumpur */
 #define kAtcZoneIdAsia_Kuwait 0xbe1b2f27 /* Asia/Kuwait */
 #define kAtcZoneIdAsia_Macao 0x155f88b3 /* Asia/Macao */
 #define kAtcZoneIdAsia_Muscat 0xc2c3565f /* Asia/Muscat */
@@ -1138,6 +1121,7 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdAsia_Vientiane 0x89d68d75 /* Asia/Vientiane */
 #define kAtcZoneIdAtlantic_Faeroe 0x031ec516 /* Atlantic/Faeroe */
 #define kAtcZoneIdAtlantic_Jan_Mayen 0x5a7535b6 /* Atlantic/Jan_Mayen */
+#define kAtcZoneIdAtlantic_Reykjavik 0x1c2b4f74 /* Atlantic/Reykjavik */
 #define kAtcZoneIdAtlantic_St_Helena 0x451fc5f7 /* Atlantic/St_Helena */
 #define kAtcZoneIdAustralia_ACT 0x8a970eb2 /* Australia/ACT */
 #define kAtcZoneIdAustralia_Canberra 0x2a09ae58 /* Australia/Canberra */
@@ -1175,19 +1159,26 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdEtc_UCT 0xd8e3189c /* Etc/UCT */
 #define kAtcZoneIdEtc_Universal 0x2f8cb9a9 /* Etc/Universal */
 #define kAtcZoneIdEtc_Zulu 0xf549c240 /* Etc/Zulu */
+#define kAtcZoneIdEurope_Amsterdam 0x109395c2 /* Europe/Amsterdam */
 #define kAtcZoneIdEurope_Belfast 0xd07dd1e5 /* Europe/Belfast */
 #define kAtcZoneIdEurope_Bratislava 0xda493bed /* Europe/Bratislava */
 #define kAtcZoneIdEurope_Busingen 0xc06d2cdf /* Europe/Busingen */
+#define kAtcZoneIdEurope_Copenhagen 0xe0ed30bc /* Europe/Copenhagen */
 #define kAtcZoneIdEurope_Guernsey 0x3db12c16 /* Europe/Guernsey */
 #define kAtcZoneIdEurope_Isle_of_Man 0xeaf84580 /* Europe/Isle_of_Man */
 #define kAtcZoneIdEurope_Jersey 0x570dae76 /* Europe/Jersey */
+#define kAtcZoneIdEurope_Kiev 0xa2c19eb3 /* Europe/Kiev */
 #define kAtcZoneIdEurope_Ljubljana 0xbd98cdb7 /* Europe/Ljubljana */
+#define kAtcZoneIdEurope_Luxembourg 0x1f8bc6ce /* Europe/Luxembourg */
 #define kAtcZoneIdEurope_Mariehamn 0x0caa6496 /* Europe/Mariehamn */
+#define kAtcZoneIdEurope_Monaco 0x5ebf9f01 /* Europe/Monaco */
 #define kAtcZoneIdEurope_Nicosia 0x74efab8a /* Europe/Nicosia */
+#define kAtcZoneIdEurope_Oslo 0xa2c3fba1 /* Europe/Oslo */
 #define kAtcZoneIdEurope_Podgorica 0x1c1a499c /* Europe/Podgorica */
 #define kAtcZoneIdEurope_San_Marino 0xcef7724b /* Europe/San_Marino */
 #define kAtcZoneIdEurope_Sarajevo 0x6a576c3f /* Europe/Sarajevo */
 #define kAtcZoneIdEurope_Skopje 0x6c76fdd0 /* Europe/Skopje */
+#define kAtcZoneIdEurope_Stockholm 0x5bf6fbb8 /* Europe/Stockholm */
 #define kAtcZoneIdEurope_Tiraspol 0xbe704472 /* Europe/Tiraspol */
 #define kAtcZoneIdEurope_Vaduz 0xfbb81bae /* Europe/Vaduz */
 #define kAtcZoneIdEurope_Vatican 0xcb485dca /* Europe/Vatican */
@@ -1202,8 +1193,13 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdHongkong 0x56d36560 /* Hongkong */
 #define kAtcZoneIdIceland 0xe56a35b5 /* Iceland */
 #define kAtcZoneIdIndian_Antananarivo 0x9ebf5289 /* Indian/Antananarivo */
+#define kAtcZoneIdIndian_Christmas 0x68c207d5 /* Indian/Christmas */
+#define kAtcZoneIdIndian_Cocos 0x021e86de /* Indian/Cocos */
 #define kAtcZoneIdIndian_Comoro 0x45f4deb6 /* Indian/Comoro */
+#define kAtcZoneIdIndian_Kerguelen 0x4351b389 /* Indian/Kerguelen */
+#define kAtcZoneIdIndian_Mahe 0x45e725e2 /* Indian/Mahe */
 #define kAtcZoneIdIndian_Mayotte 0xe6880bca /* Indian/Mayotte */
+#define kAtcZoneIdIndian_Reunion 0x7076c047 /* Indian/Reunion */
 #define kAtcZoneIdIran 0x7c87090f /* Iran */
 #define kAtcZoneIdIsrael 0xba88c9e5 /* Israel */
 #define kAtcZoneIdJamaica 0x2e44fdab /* Jamaica */
@@ -1217,13 +1213,19 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdNZ_CHAT 0x4d42afda /* NZ-CHAT */
 #define kAtcZoneIdNavajo 0xc4ef0e24 /* Navajo */
 #define kAtcZoneIdPRC 0x0b88120a /* PRC */
+#define kAtcZoneIdPacific_Chuuk 0x8a090b23 /* Pacific/Chuuk */
 #define kAtcZoneIdPacific_Enderbury 0x61599a93 /* Pacific/Enderbury */
+#define kAtcZoneIdPacific_Funafuti 0xdb402d65 /* Pacific/Funafuti */
 #define kAtcZoneIdPacific_Johnston 0xb15d7b36 /* Pacific/Johnston */
+#define kAtcZoneIdPacific_Majuro 0xe1f95371 /* Pacific/Majuro */
 #define kAtcZoneIdPacific_Midway 0xe286d38e /* Pacific/Midway */
+#define kAtcZoneIdPacific_Pohnpei 0x28929f96 /* Pacific/Pohnpei */
 #define kAtcZoneIdPacific_Ponape 0xe9f80086 /* Pacific/Ponape */
 #define kAtcZoneIdPacific_Saipan 0xeff7a35f /* Pacific/Saipan */
 #define kAtcZoneIdPacific_Samoa 0x8b2699b4 /* Pacific/Samoa */
 #define kAtcZoneIdPacific_Truk 0x234010a9 /* Pacific/Truk */
+#define kAtcZoneIdPacific_Wake 0x23416c2b /* Pacific/Wake */
+#define kAtcZoneIdPacific_Wallis 0xf94ddb0f /* Pacific/Wallis */
 #define kAtcZoneIdPacific_Yap 0xbb40138d /* Pacific/Yap */
 #define kAtcZoneIdPoland 0xca913b23 /* Poland */
 #define kAtcZoneIdPortugal 0xc3274593 /* Portugal */
@@ -1408,7 +1410,6 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeAntarctica_Palmer 5  /* Antarctica/Palmer in 2002 */
 #define kAtcZoneBufSizeAntarctica_Rothera 1  /* Antarctica/Rothera in 2000 */
 #define kAtcZoneBufSizeAntarctica_Troll 6  /* Antarctica/Troll in 2005 */
-#define kAtcZoneBufSizeAntarctica_Vostok 1  /* Antarctica/Vostok in 2000 */
 #define kAtcZoneBufSizeAsia_Almaty 5  /* Asia/Almaty in 2000 */
 #define kAtcZoneBufSizeAsia_Amman 6  /* Asia/Amman in 2014 */
 #define kAtcZoneBufSizeAsia_Anadyr 5  /* Asia/Anadyr in 2000 */
@@ -1422,7 +1423,6 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeAsia_Barnaul 5  /* Asia/Barnaul in 2000 */
 #define kAtcZoneBufSizeAsia_Beirut 5  /* Asia/Beirut in 2000 */
 #define kAtcZoneBufSizeAsia_Bishkek 5  /* Asia/Bishkek in 2000 */
-#define kAtcZoneBufSizeAsia_Brunei 1  /* Asia/Brunei in 2000 */
 #define kAtcZoneBufSizeAsia_Chita 5  /* Asia/Chita in 2000 */
 #define kAtcZoneBufSizeAsia_Choibalsan 5  /* Asia/Choibalsan in 2004 */
 #define kAtcZoneBufSizeAsia_Colombo 2  /* Asia/Colombo in 2006 */
@@ -1448,7 +1448,6 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeAsia_Khandyga 6  /* Asia/Khandyga in 2003 */
 #define kAtcZoneBufSizeAsia_Kolkata 1  /* Asia/Kolkata in 2000 */
 #define kAtcZoneBufSizeAsia_Krasnoyarsk 5  /* Asia/Krasnoyarsk in 2000 */
-#define kAtcZoneBufSizeAsia_Kuala_Lumpur 1  /* Asia/Kuala_Lumpur in 2000 */
 #define kAtcZoneBufSizeAsia_Kuching 1  /* Asia/Kuching in 2000 */
 #define kAtcZoneBufSizeAsia_Macau 2  /* Asia/Macau in 2000 */
 #define kAtcZoneBufSizeAsia_Magadan 5  /* Asia/Magadan in 2000 */
@@ -1492,7 +1491,6 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeAtlantic_Cape_Verde 1  /* Atlantic/Cape_Verde in 2000 */
 #define kAtcZoneBufSizeAtlantic_Faroe 5  /* Atlantic/Faroe in 2000 */
 #define kAtcZoneBufSizeAtlantic_Madeira 5  /* Atlantic/Madeira in 2000 */
-#define kAtcZoneBufSizeAtlantic_Reykjavik 1  /* Atlantic/Reykjavik in 2000 */
 #define kAtcZoneBufSizeAtlantic_South_Georgia 1  /* Atlantic/South_Georgia in 2000 */
 #define kAtcZoneBufSizeAtlantic_Stanley 4  /* Atlantic/Stanley in 2000 */
 #define kAtcZoneBufSizeAustralia_Adelaide 5  /* Australia/Adelaide in 2000 */
@@ -1539,7 +1537,6 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeEtc_GMT_8 1  /* Etc/GMT-8 in 2000 */
 #define kAtcZoneBufSizeEtc_GMT_9 1  /* Etc/GMT-9 in 2000 */
 #define kAtcZoneBufSizeEtc_UTC 1  /* Etc/UTC in 2000 */
-#define kAtcZoneBufSizeEurope_Amsterdam 5  /* Europe/Amsterdam in 2000 */
 #define kAtcZoneBufSizeEurope_Andorra 5  /* Europe/Andorra in 2000 */
 #define kAtcZoneBufSizeEurope_Astrakhan 5  /* Europe/Astrakhan in 2000 */
 #define kAtcZoneBufSizeEurope_Athens 5  /* Europe/Athens in 2000 */
@@ -1549,23 +1546,19 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeEurope_Bucharest 5  /* Europe/Bucharest in 2000 */
 #define kAtcZoneBufSizeEurope_Budapest 5  /* Europe/Budapest in 2000 */
 #define kAtcZoneBufSizeEurope_Chisinau 5  /* Europe/Chisinau in 2000 */
-#define kAtcZoneBufSizeEurope_Copenhagen 5  /* Europe/Copenhagen in 2000 */
 #define kAtcZoneBufSizeEurope_Dublin 5  /* Europe/Dublin in 2000 */
 #define kAtcZoneBufSizeEurope_Gibraltar 5  /* Europe/Gibraltar in 2000 */
 #define kAtcZoneBufSizeEurope_Helsinki 5  /* Europe/Helsinki in 2000 */
 #define kAtcZoneBufSizeEurope_Istanbul 7  /* Europe/Istanbul in 2011 */
 #define kAtcZoneBufSizeEurope_Kaliningrad 5  /* Europe/Kaliningrad in 2000 */
-#define kAtcZoneBufSizeEurope_Kiev 5  /* Europe/Kiev in 2000 */
 #define kAtcZoneBufSizeEurope_Kirov 5  /* Europe/Kirov in 2000 */
+#define kAtcZoneBufSizeEurope_Kyiv 5  /* Europe/Kyiv in 2000 */
 #define kAtcZoneBufSizeEurope_Lisbon 5  /* Europe/Lisbon in 2000 */
 #define kAtcZoneBufSizeEurope_London 5  /* Europe/London in 2000 */
-#define kAtcZoneBufSizeEurope_Luxembourg 5  /* Europe/Luxembourg in 2000 */
 #define kAtcZoneBufSizeEurope_Madrid 5  /* Europe/Madrid in 2000 */
 #define kAtcZoneBufSizeEurope_Malta 5  /* Europe/Malta in 2000 */
 #define kAtcZoneBufSizeEurope_Minsk 5  /* Europe/Minsk in 2000 */
-#define kAtcZoneBufSizeEurope_Monaco 5  /* Europe/Monaco in 2000 */
 #define kAtcZoneBufSizeEurope_Moscow 5  /* Europe/Moscow in 2000 */
-#define kAtcZoneBufSizeEurope_Oslo 5  /* Europe/Oslo in 2000 */
 #define kAtcZoneBufSizeEurope_Paris 5  /* Europe/Paris in 2000 */
 #define kAtcZoneBufSizeEurope_Prague 5  /* Europe/Prague in 2000 */
 #define kAtcZoneBufSizeEurope_Riga 6  /* Europe/Riga in 2001 */
@@ -1574,7 +1567,6 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeEurope_Saratov 5  /* Europe/Saratov in 2000 */
 #define kAtcZoneBufSizeEurope_Simferopol 5  /* Europe/Simferopol in 2000 */
 #define kAtcZoneBufSizeEurope_Sofia 5  /* Europe/Sofia in 2000 */
-#define kAtcZoneBufSizeEurope_Stockholm 5  /* Europe/Stockholm in 2000 */
 #define kAtcZoneBufSizeEurope_Tallinn 6  /* Europe/Tallinn in 2002 */
 #define kAtcZoneBufSizeEurope_Tirane 5  /* Europe/Tirane in 2000 */
 #define kAtcZoneBufSizeEurope_Ulyanovsk 5  /* Europe/Ulyanovsk in 2000 */
@@ -1587,13 +1579,8 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeEurope_Zurich 5  /* Europe/Zurich in 2000 */
 #define kAtcZoneBufSizeHST 1  /* HST in 2000 */
 #define kAtcZoneBufSizeIndian_Chagos 1  /* Indian/Chagos in 2000 */
-#define kAtcZoneBufSizeIndian_Christmas 1  /* Indian/Christmas in 2000 */
-#define kAtcZoneBufSizeIndian_Cocos 1  /* Indian/Cocos in 2000 */
-#define kAtcZoneBufSizeIndian_Kerguelen 1  /* Indian/Kerguelen in 2000 */
-#define kAtcZoneBufSizeIndian_Mahe 1  /* Indian/Mahe in 2000 */
 #define kAtcZoneBufSizeIndian_Maldives 1  /* Indian/Maldives in 2000 */
 #define kAtcZoneBufSizeIndian_Mauritius 3  /* Indian/Mauritius in 2008 */
-#define kAtcZoneBufSizeIndian_Reunion 1  /* Indian/Reunion in 2000 */
 #define kAtcZoneBufSizeMET 5  /* MET in 2000 */
 #define kAtcZoneBufSizeMST 1  /* MST in 2000 */
 #define kAtcZoneBufSizeMST7MDT 6  /* MST7MDT in 2008 */
@@ -1602,12 +1589,10 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizePacific_Auckland 5  /* Pacific/Auckland in 2000 */
 #define kAtcZoneBufSizePacific_Bougainville 2  /* Pacific/Bougainville in 2014 */
 #define kAtcZoneBufSizePacific_Chatham 5  /* Pacific/Chatham in 2000 */
-#define kAtcZoneBufSizePacific_Chuuk 1  /* Pacific/Chuuk in 2000 */
 #define kAtcZoneBufSizePacific_Easter 5  /* Pacific/Easter in 2002 */
 #define kAtcZoneBufSizePacific_Efate 2  /* Pacific/Efate in 2000 */
 #define kAtcZoneBufSizePacific_Fakaofo 2  /* Pacific/Fakaofo in 2011 */
 #define kAtcZoneBufSizePacific_Fiji 6  /* Pacific/Fiji in 2017 */
-#define kAtcZoneBufSizePacific_Funafuti 1  /* Pacific/Funafuti in 2000 */
 #define kAtcZoneBufSizePacific_Galapagos 2  /* Pacific/Galapagos in 2000 */
 #define kAtcZoneBufSizePacific_Gambier 1  /* Pacific/Gambier in 2000 */
 #define kAtcZoneBufSizePacific_Guadalcanal 1  /* Pacific/Guadalcanal in 2000 */
@@ -1617,7 +1602,6 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizePacific_Kiritimati 1  /* Pacific/Kiritimati in 2000 */
 #define kAtcZoneBufSizePacific_Kosrae 1  /* Pacific/Kosrae in 2000 */
 #define kAtcZoneBufSizePacific_Kwajalein 1  /* Pacific/Kwajalein in 2000 */
-#define kAtcZoneBufSizePacific_Majuro 1  /* Pacific/Majuro in 2000 */
 #define kAtcZoneBufSizePacific_Marquesas 1  /* Pacific/Marquesas in 2000 */
 #define kAtcZoneBufSizePacific_Nauru 1  /* Pacific/Nauru in 2000 */
 #define kAtcZoneBufSizePacific_Niue 1  /* Pacific/Niue in 2000 */
@@ -1626,14 +1610,11 @@ extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizePacific_Pago_Pago 1  /* Pacific/Pago_Pago in 2000 */
 #define kAtcZoneBufSizePacific_Palau 1  /* Pacific/Palau in 2000 */
 #define kAtcZoneBufSizePacific_Pitcairn 1  /* Pacific/Pitcairn in 2000 */
-#define kAtcZoneBufSizePacific_Pohnpei 1  /* Pacific/Pohnpei in 2000 */
 #define kAtcZoneBufSizePacific_Port_Moresby 1  /* Pacific/Port_Moresby in 2000 */
 #define kAtcZoneBufSizePacific_Rarotonga 2  /* Pacific/Rarotonga in 2000 */
 #define kAtcZoneBufSizePacific_Tahiti 1  /* Pacific/Tahiti in 2000 */
 #define kAtcZoneBufSizePacific_Tarawa 1  /* Pacific/Tarawa in 2000 */
 #define kAtcZoneBufSizePacific_Tongatapu 5  /* Pacific/Tongatapu in 2001 */
-#define kAtcZoneBufSizePacific_Wake 1  /* Pacific/Wake in 2000 */
-#define kAtcZoneBufSizePacific_Wallis 1  /* Pacific/Wallis in 2000 */
 #define kAtcZoneBufSizeWET 5  /* WET in 2000 */
 
 

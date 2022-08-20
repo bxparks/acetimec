@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/dev/tz
 //     --output_dir /home/brian/src/AceTimeC/src/ace_time_c/zonedb
-//     --tz_version 2022a
+//     --tz_version 2022b
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -23,13 +23,13 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022a
+// from https://github.com/eggert/tz/releases/tag/2022b
 //
 // Policies: 83
-// Rules: 554
+// Rules: 528
 // Letter Size (bytes): 23
-// Total Memory 8-bit (bytes): 5519
-// Total Memory 32-bit (bytes): 7691
+// Total Memory 8-bit (bytes): 5285
+// Total Memory 32-bit (bytes): 7379
 //
 // DO NOT EDIT
 
@@ -1445,9 +1445,9 @@ const struct AtcZonePolicy kAtcPolicyChatham ACE_TIME_C_PROGMEM = {
 
 //---------------------------------------------------------------------------
 // Policy name: Chile
-// Rules: 15
-// Memory (8-bit): 141
-// Memory (32-bit): 192
+// Rules: 17
+// Memory (8-bit): 159
+// Memory (32-bit): 216
 //---------------------------------------------------------------------------
 
 static const struct AtcZoneRule kAtcZoneRulesChile[] ACE_TIME_C_PROGMEM = {
@@ -1619,9 +1619,33 @@ static const struct AtcZoneRule kAtcZoneRulesChile[] ACE_TIME_C_PROGMEM = {
     4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
     '-' /*letter*/,
   },
-  // Rule    Chile    2019    max    -    Sep    Sun>=2    4:00u    1:00    -
+  // Rule    Chile    2019    2021    -    Sep    Sun>=2    4:00u    1:00    -
   {
     19 /*from_year_tiny*/,
+    21 /*to_year_tiny*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_code*/,
+    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
+    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Chile    2022    only    -    Sep    Sun>=9    4:00u    1:00    -
+  {
+    22 /*from_year_tiny*/,
+    22 /*to_year_tiny*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_code*/,
+    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
+    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Chile    2023    max    -    Sep    Sun>=2    4:00u    1:00    -
+  {
+    23 /*from_year_tiny*/,
     126 /*to_year_tiny*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
@@ -1639,7 +1663,7 @@ static const struct AtcZoneRule kAtcZoneRulesChile[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyChile ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesChile /*rules*/,
   NULL /*letters*/,
-  15 /*num_rules*/,
+  17 /*num_rules*/,
   0 /*num_letters*/,
 };
 
@@ -2945,9 +2969,9 @@ const struct AtcZonePolicy kAtcPolicyHond ACE_TIME_C_PROGMEM = {
 
 //---------------------------------------------------------------------------
 // Policy name: Iran
-// Rules: 55
-// Memory (8-bit): 501
-// Memory (32-bit): 672
+// Rules: 27
+// Memory (8-bit): 249
+// Memory (32-bit): 336
 //---------------------------------------------------------------------------
 
 static const struct AtcZoneRule kAtcZoneRulesIran[] ACE_TIME_C_PROGMEM = {
@@ -3251,10 +3275,10 @@ static const struct AtcZoneRule kAtcZoneRulesIran[] ACE_TIME_C_PROGMEM = {
     4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
     '-' /*letter*/,
   },
-  // Rule    Iran    2021    2023    -    Mar    21    24:00    1:00    -
+  // Rule    Iran    2021    2022    -    Mar    21    24:00    1:00    -
   {
     21 /*from_year_tiny*/,
-    23 /*to_year_tiny*/,
+    22 /*to_year_tiny*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3263,346 +3287,10 @@ static const struct AtcZoneRule kAtcZoneRulesIran[] ACE_TIME_C_PROGMEM = {
     8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
     '-' /*letter*/,
   },
-  // Rule    Iran    2021    2023    -    Sep    21    24:00    0    -
+  // Rule    Iran    2021    2022    -    Sep    21    24:00    0    -
   {
     21 /*from_year_tiny*/,
-    23 /*to_year_tiny*/,
-    9 /*in_month*/,
-    0 /*on_day_of_week*/,
-    21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2024    only    -    Mar    20    24:00    1:00    -
-  {
-    24 /*from_year_tiny*/,
-    24 /*to_year_tiny*/,
-    3 /*in_month*/,
-    0 /*on_day_of_week*/,
-    20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2024    only    -    Sep    20    24:00    0    -
-  {
-    24 /*from_year_tiny*/,
-    24 /*to_year_tiny*/,
-    9 /*in_month*/,
-    0 /*on_day_of_week*/,
-    20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2025    2027    -    Mar    21    24:00    1:00    -
-  {
-    25 /*from_year_tiny*/,
-    27 /*to_year_tiny*/,
-    3 /*in_month*/,
-    0 /*on_day_of_week*/,
-    21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2025    2027    -    Sep    21    24:00    0    -
-  {
-    25 /*from_year_tiny*/,
-    27 /*to_year_tiny*/,
-    9 /*in_month*/,
-    0 /*on_day_of_week*/,
-    21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2028    2029    -    Mar    20    24:00    1:00    -
-  {
-    28 /*from_year_tiny*/,
-    29 /*to_year_tiny*/,
-    3 /*in_month*/,
-    0 /*on_day_of_week*/,
-    20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2028    2029    -    Sep    20    24:00    0    -
-  {
-    28 /*from_year_tiny*/,
-    29 /*to_year_tiny*/,
-    9 /*in_month*/,
-    0 /*on_day_of_week*/,
-    20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2030    2031    -    Mar    21    24:00    1:00    -
-  {
-    30 /*from_year_tiny*/,
-    31 /*to_year_tiny*/,
-    3 /*in_month*/,
-    0 /*on_day_of_week*/,
-    21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2030    2031    -    Sep    21    24:00    0    -
-  {
-    30 /*from_year_tiny*/,
-    31 /*to_year_tiny*/,
-    9 /*in_month*/,
-    0 /*on_day_of_week*/,
-    21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2032    2033    -    Mar    20    24:00    1:00    -
-  {
-    32 /*from_year_tiny*/,
-    33 /*to_year_tiny*/,
-    3 /*in_month*/,
-    0 /*on_day_of_week*/,
-    20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2032    2033    -    Sep    20    24:00    0    -
-  {
-    32 /*from_year_tiny*/,
-    33 /*to_year_tiny*/,
-    9 /*in_month*/,
-    0 /*on_day_of_week*/,
-    20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2034    2035    -    Mar    21    24:00    1:00    -
-  {
-    34 /*from_year_tiny*/,
-    35 /*to_year_tiny*/,
-    3 /*in_month*/,
-    0 /*on_day_of_week*/,
-    21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2034    2035    -    Sep    21    24:00    0    -
-  {
-    34 /*from_year_tiny*/,
-    35 /*to_year_tiny*/,
-    9 /*in_month*/,
-    0 /*on_day_of_week*/,
-    21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2036    2037    -    Mar    20    24:00    1:00    -
-  {
-    36 /*from_year_tiny*/,
-    37 /*to_year_tiny*/,
-    3 /*in_month*/,
-    0 /*on_day_of_week*/,
-    20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2036    2037    -    Sep    20    24:00    0    -
-  {
-    36 /*from_year_tiny*/,
-    37 /*to_year_tiny*/,
-    9 /*in_month*/,
-    0 /*on_day_of_week*/,
-    20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2038    2039    -    Mar    21    24:00    1:00    -
-  {
-    38 /*from_year_tiny*/,
-    39 /*to_year_tiny*/,
-    3 /*in_month*/,
-    0 /*on_day_of_week*/,
-    21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2038    2039    -    Sep    21    24:00    0    -
-  {
-    38 /*from_year_tiny*/,
-    39 /*to_year_tiny*/,
-    9 /*in_month*/,
-    0 /*on_day_of_week*/,
-    21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2040    2041    -    Mar    20    24:00    1:00    -
-  {
-    40 /*from_year_tiny*/,
-    41 /*to_year_tiny*/,
-    3 /*in_month*/,
-    0 /*on_day_of_week*/,
-    20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2040    2041    -    Sep    20    24:00    0    -
-  {
-    40 /*from_year_tiny*/,
-    41 /*to_year_tiny*/,
-    9 /*in_month*/,
-    0 /*on_day_of_week*/,
-    20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2042    2043    -    Mar    21    24:00    1:00    -
-  {
-    42 /*from_year_tiny*/,
-    43 /*to_year_tiny*/,
-    3 /*in_month*/,
-    0 /*on_day_of_week*/,
-    21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2042    2043    -    Sep    21    24:00    0    -
-  {
-    42 /*from_year_tiny*/,
-    43 /*to_year_tiny*/,
-    9 /*in_month*/,
-    0 /*on_day_of_week*/,
-    21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2044    2045    -    Mar    20    24:00    1:00    -
-  {
-    44 /*from_year_tiny*/,
-    45 /*to_year_tiny*/,
-    3 /*in_month*/,
-    0 /*on_day_of_week*/,
-    20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2044    2045    -    Sep    20    24:00    0    -
-  {
-    44 /*from_year_tiny*/,
-    45 /*to_year_tiny*/,
-    9 /*in_month*/,
-    0 /*on_day_of_week*/,
-    20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2046    2047    -    Mar    21    24:00    1:00    -
-  {
-    46 /*from_year_tiny*/,
-    47 /*to_year_tiny*/,
-    3 /*in_month*/,
-    0 /*on_day_of_week*/,
-    21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2046    2047    -    Sep    21    24:00    0    -
-  {
-    46 /*from_year_tiny*/,
-    47 /*to_year_tiny*/,
-    9 /*in_month*/,
-    0 /*on_day_of_week*/,
-    21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2048    2049    -    Mar    20    24:00    1:00    -
-  {
-    48 /*from_year_tiny*/,
-    49 /*to_year_tiny*/,
-    3 /*in_month*/,
-    0 /*on_day_of_week*/,
-    20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2048    2049    -    Sep    20    24:00    0    -
-  {
-    48 /*from_year_tiny*/,
-    49 /*to_year_tiny*/,
-    9 /*in_month*/,
-    0 /*on_day_of_week*/,
-    20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2050    2051    -    Mar    21    24:00    1:00    -
-  {
-    50 /*from_year_tiny*/,
-    51 /*to_year_tiny*/,
-    3 /*in_month*/,
-    0 /*on_day_of_week*/,
-    21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Iran    2050    2051    -    Sep    21    24:00    0    -
-  {
-    50 /*from_year_tiny*/,
-    51 /*to_year_tiny*/,
+    22 /*to_year_tiny*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3619,7 +3307,7 @@ static const struct AtcZoneRule kAtcZoneRulesIran[] ACE_TIME_C_PROGMEM = {
 const struct AtcZonePolicy kAtcPolicyIran ACE_TIME_C_PROGMEM = {
   kAtcZoneRulesIran /*rules*/,
   NULL /*letters*/,
-  55 /*num_rules*/,
+  27 /*num_rules*/,
   0 /*num_letters*/,
 };
 
