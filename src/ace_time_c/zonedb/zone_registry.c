@@ -33,7 +33,7 @@
 //---------------------------------------------------------------------------
 // Zone Info registry. Sorted by zoneId.
 //---------------------------------------------------------------------------
-const struct AtcZoneInfo * const kAtcZoneRegistry[356] ACE_TIME_C_PROGMEM = {
+const struct AtcZoneInfo * const kAtcZoneRegistry[356]  = {
   &kAtcZoneAmerica_St_Johns, // 0x04b14e6e, America/St_Johns
   &kAtcZoneAmerica_North_Dakota_New_Salem, // 0x04f9958e, America/North_Dakota/New_Salem
   &kAtcZoneAsia_Jakarta, // 0x0506ab50, Asia/Jakarta
@@ -396,7 +396,7 @@ const struct AtcZoneInfo * const kAtcZoneRegistry[356] ACE_TIME_C_PROGMEM = {
 //---------------------------------------------------------------------------
 // Zone and Link (fat) Info registry. Sorted by zoneId. Links act like Zones.
 //---------------------------------------------------------------------------
-const struct AtcZoneInfo * const kAtcZoneAndLinkRegistry[595] ACE_TIME_C_PROGMEM = {
+const struct AtcZoneInfo * const kAtcZoneAndLinkRegistry[595]  = {
   &kAtcZoneGB, // 0x005973ae, GB -> Europe/London
   &kAtcZoneNZ, // 0x005974ad, NZ -> Pacific/Auckland
   &kAtcZoneAsia_Kuala_Lumpur, // 0x014763c4, Asia/Kuala_Lumpur -> Asia/Singapore
@@ -998,7 +998,7 @@ const struct AtcZoneInfo * const kAtcZoneAndLinkRegistry[595] ACE_TIME_C_PROGMEM
 //---------------------------------------------------------------------------
 // Link (thin) Entry registry. Sorted by linkId. Links are references to Zones.
 //---------------------------------------------------------------------------
-const struct AtcLinkEntry kAtcLinkRegistry[239] ACE_TIME_C_PROGMEM = {
+const struct AtcLinkEntry kAtcLinkRegistry[239]  = {
   { kAtcZoneIdGB, kAtcZoneIdEurope_London }, // 0x005973ae -> 0x5c6a84ae
   { kAtcZoneIdNZ, kAtcZoneIdPacific_Auckland }, // 0x005974ad -> 0x25062f86
   { kAtcZoneIdAsia_Kuala_Lumpur, kAtcZoneIdAsia_Singapore }, // 0x014763c4 -> 0xcf8581fa
