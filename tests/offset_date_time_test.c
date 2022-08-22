@@ -119,7 +119,7 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_with_offset)
 
 //---------------------------------------------------------------------------
 
-ACU_PARAMS();
+ACU_VARS();
 
 int main()
 {

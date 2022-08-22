@@ -88,7 +88,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_spring_forward)
 
 //---------------------------------------------------------------------------
 
-ACU_PARAMS();
+ACU_VARS();
 
 int main()
 {

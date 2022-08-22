@@ -69,7 +69,7 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2068)
 
 //---------------------------------------------------------------------------
 
-ACU_PARAMS();
+ACU_VARS();
 
 int main()
 {

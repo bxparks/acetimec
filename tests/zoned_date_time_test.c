@@ -481,7 +481,7 @@ ACU_TEST(test_zoned_date_time_from_components_after_overlap)
 
 //---------------------------------------------------------------------------
 
-ACU_PARAMS();
+ACU_VARS();
 
 int main()
 {

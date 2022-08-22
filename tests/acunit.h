@@ -48,16 +48,16 @@
  */
 extern int acu_test_status;
 
-/** Number of unit tests run. */
-extern int acu_tests_run;
+/** Number of unit tests that were executed. */
+extern int acu_tests_executed;
 
-/** Number of unit tests failed. */
+/** Number of unit tests that failed. */
 extern int acu_tests_failed;
 
-/** Define the global parameters required by ACUnit. */
-#define ACU_PARAMS() \
+/** Define the global variables required by ACUnit. */
+#define ACU_VARS() \
   int acu_test_status = 0; \
-  int acu_tests_run = 0; \
+  int acu_tests_executed = 0; \
   int acu_tests_failed = 0
 
 /** Define a test function that returns 0 on failure, 1 on success.. */
@@ -120,7 +120,7 @@ extern inline void acu_assertion(
   do { \
     acu_test_status = 1; \
     test(); \
-    acu_tests_run++; \
+    acu_tests_executed++; \
     printf("%s: %s\n", (acu_test_status ? "PASSED" : "FAILED"), #test); \
   } while (0)
 
@@ -129,9 +129,9 @@ extern inline void acu_assertion(
   do { \
     if (acu_tests_failed) { \
       printf("Summary: FAILED: %d failed out of %d test(s)\n", \
-          acu_tests_failed, acu_tests_run); \
+          acu_tests_failed, acu_tests_executed); \
     } else { \
-      printf("Summary: PASSED: %d tests(s)\n", acu_tests_run); \
+      printf("Summary: PASSED: %d tests(s)\n", acu_tests_executed); \
     } \
     return acu_tests_failed != 0; \
   } while (0)

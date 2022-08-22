@@ -174,7 +174,7 @@ ACU_TEST(test_decrement_one_day)
 
 //---------------------------------------------------------------------------
 
-ACU_PARAMS();
+ACU_VARS();
 
 int main()
 {

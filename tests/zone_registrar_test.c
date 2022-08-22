@@ -91,12 +91,12 @@ ACU_TEST(test_atc_registrar_find_by_name_unsorted)
       UNSORTED_SIZE,
       "should not exist",
       false);
-  ACU_ASSERT(info != NULL);
+  ACU_ASSERT(info == NULL);
 }
 
 //---------------------------------------------------------------------------
 
-ACU_PARAMS();
+ACU_VARS();
 
 int main()
 {
