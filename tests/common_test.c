@@ -15,8 +15,6 @@ ACU_TEST(test_atc_copy_replace_string_normal)
 
   atc_copy_replace_string(dst, dst_size, "E%T", '%', "");
   ACU_ASSERT(strcmp("ET", dst) == 0);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_copy_replace_string_out_of_bounds) {
@@ -25,8 +23,6 @@ ACU_TEST(test_atc_copy_replace_string_out_of_bounds) {
 
   atc_copy_replace_string(dst, dst_size, "E%T%Z", '%', "suv");
   ACU_ASSERT(strcmp("Es", dst) == 0);
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------
@@ -40,8 +36,6 @@ ACU_TEST(test_atc_djb2)
   ACU_ASSERT((uint32_t) 193485963 == atc_djb2("abc"));
   ACU_ASSERT((uint32_t) 2090069583 == atc_djb2("abcd"));
   ACU_ASSERT((uint32_t) 252819604 == atc_djb2("abcde"));
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------

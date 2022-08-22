@@ -5,7 +5,6 @@ ACU_TEST(test_iso_week_enum)
 {
   ACU_ASSERT(1 == kAtcIsoWeekdayMonday);
   ACU_ASSERT(7 == kAtcIsoWeekdaySunday);
-  ACU_PASS();
 }
 
 ACU_TEST(test_is_leap_year)
@@ -13,7 +12,6 @@ ACU_TEST(test_is_leap_year)
   ACU_ASSERT(atc_is_leap_year(2000));
   ACU_ASSERT(atc_is_leap_year(2004));
   ACU_ASSERT(!atc_is_leap_year(2100));
-  ACU_PASS();
 }
 
 // Do a round-trip of conversion atc_local_date_to_epoch_days() and
@@ -47,8 +45,6 @@ ACU_TEST(test_local_date_to_and_from_epoch_days)
       }
     }
   }
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_day_of_week)
@@ -68,8 +64,6 @@ ACU_TEST(test_day_of_week)
       }
     }
   }
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_increment_one_day)
@@ -123,8 +117,6 @@ ACU_TEST(test_increment_one_day)
   ACU_ASSERT(ld.year == 2004);
   ACU_ASSERT(ld.month == 2);
   ACU_ASSERT(ld.day == 29);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_decrement_one_day)
@@ -178,8 +170,6 @@ ACU_TEST(test_decrement_one_day)
   ACU_ASSERT(ld.year == 2000);
   ACU_ASSERT(ld.month == 2);
   ACU_ASSERT(ld.day == 28);
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------

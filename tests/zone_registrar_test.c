@@ -22,8 +22,6 @@ ACU_TEST(test_atc_registrar_is_registry_sorted)
       kUnsortedRegistry,
       UNSORTED_SIZE);
   ACU_ASSERT(is_sorted == false);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_registrar_find_by_id_sorted)
@@ -42,8 +40,6 @@ ACU_TEST(test_atc_registrar_find_by_id_sorted)
       should_not_exist,
       true);
   ACU_ASSERT(info == NULL);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_registrar_find_by_name_sorted)
@@ -61,8 +57,6 @@ ACU_TEST(test_atc_registrar_find_by_name_sorted)
       "should not exist",
       true);
   ACU_ASSERT(info == NULL);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_registrar_find_by_id_unsorted)
@@ -81,8 +75,6 @@ ACU_TEST(test_atc_registrar_find_by_id_unsorted)
       should_not_exist,
       false);
   ACU_ASSERT(info == NULL);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_registrar_find_by_name_unsorted)
@@ -99,9 +91,7 @@ ACU_TEST(test_atc_registrar_find_by_name_unsorted)
       UNSORTED_SIZE,
       "should not exist",
       false);
-  ACU_ASSERT(info == NULL);
-
-  ACU_PASS();
+  ACU_ASSERT(info != NULL);
 }
 
 //---------------------------------------------------------------------------

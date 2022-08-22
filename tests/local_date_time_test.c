@@ -26,8 +26,6 @@ ACU_TEST(test_atc_local_date_time_to_epoch_seconds)
   ldt = (struct AtcLocalDateTime) {2038, 1, 19, 3, 14, 7};
   seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 1200798847);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2000)
@@ -41,8 +39,6 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2000)
   ACU_ASSERT(ldt.hour == 0);
   ACU_ASSERT(ldt.minute == 0);
   ACU_ASSERT(ldt.second == 0);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2029)
@@ -56,8 +52,6 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2029)
   ACU_ASSERT(ldt.hour == 23);
   ACU_ASSERT(ldt.minute == 59);
   ACU_ASSERT(ldt.second == 59);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2068)
@@ -71,8 +65,6 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2068)
   ACU_ASSERT(ldt.hour == 3);
   ACU_ASSERT(ldt.minute == 14);
   ACU_ASSERT(ldt.second == 6);
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------

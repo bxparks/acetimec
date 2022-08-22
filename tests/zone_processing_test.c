@@ -18,15 +18,11 @@ ACU_TEST(test_atc_compare_era_to_year_month) {
   ACU_ASSERT(1 == atc_compare_era_to_year_month(&era, 0, 1));
   ACU_ASSERT(-1 == atc_compare_era_to_year_month(&era, 0, 2));
   ACU_ASSERT(-1 == atc_compare_era_to_year_month(&era, 0, 3));
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_compare_era_to_year_month_equal) {
   const struct AtcZoneEra era2 = {NULL, "", 0, 0, 0, 1, 0, 0, kAtcSuffixW};
-
   ACU_ASSERT(0 == atc_compare_era_to_year_month(&era2, 0, 1));
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------
@@ -118,8 +114,6 @@ ACU_TEST(test_atc_create_matching_era) {
   ACU_ASSERT(match3.until_dt.suffix == kAtcSuffixW);
   //
   ACU_ASSERT(match3.era == &era3);
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------
@@ -350,8 +344,6 @@ ACU_TEST(test_atc_processing_find_matches_simple) {
         (const struct AtcZoneEra *) kZoneAlmostLosAngeles.eras;
     ACU_ASSERT(matches[2].era == &eras[2]);
   }
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_processing_find_matches_named)
@@ -382,8 +374,6 @@ ACU_TEST(test_atc_processing_find_matches_named)
   const struct AtcZoneEra *eras =
       (const struct AtcZoneEra *) kZoneTestLosAngeles.eras;
   ACU_ASSERT(matches[0].era == &eras[0]);
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------
@@ -431,8 +421,6 @@ ACU_TEST(test_atc_calc_start_day_of_month) {
   monthDay = atc_processing_calc_start_day_of_month(2018, 3, 0, 30);
   ACU_ASSERT(3 == monthDay.month);
   ACU_ASSERT(30 == monthDay.day);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_processing_get_transition_time) {
@@ -455,8 +443,6 @@ ACU_TEST(test_atc_processing_get_transition_time) {
   ACU_ASSERT(dt.day == 3);
   ACU_ASSERT(dt.minutes == 15*8);
   ACU_ASSERT(dt.suffix == kAtcSuffixW);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_processing_create_transition_for_year) {
@@ -481,8 +467,6 @@ ACU_TEST(test_atc_processing_create_transition_for_year) {
   ACU_ASSERT(tt->day == 3);
   ACU_ASSERT(tt->minutes == 15*8);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------
@@ -524,8 +508,6 @@ ACU_TEST(test_atc_processing_calc_interior_years)
   ACU_ASSERT(0 == interior_years[0]);
   ACU_ASSERT(1 == interior_years[1]);
   ACU_ASSERT(2 == interior_years[2]);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_processing_get_most_recent_prior_year)
@@ -549,8 +531,6 @@ ACU_TEST(test_atc_processing_get_most_recent_prior_year)
 
   year_tiny = atc_processing_get_most_recent_prior_year(-1, 3, 0, 2);
   ACU_ASSERT(-1 == year_tiny);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_processing_find_candidate_transitions) {
@@ -617,8 +597,6 @@ ACU_TEST(test_atc_processing_find_candidate_transitions) {
   ACU_ASSERT(tt->day == 8);
   ACU_ASSERT(tt->minutes == 15*8);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------
@@ -720,8 +698,6 @@ ACU_TEST(test_atc_process_transition_match_status)
   atc_processing_process_transition_match_status(&transition3, &prior);
   ACU_ASSERT(kAtcMatchStatusFarFuture == transition3.match_status);
   ACU_ASSERT(prior == &transition1);
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------
@@ -771,8 +747,6 @@ ACU_TEST(test_atc_processing_create_transitions_from_named_match)
   ACU_ASSERT(tt->day == 3);
   ACU_ASSERT(tt->minutes == 15*8);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------
@@ -1002,9 +976,6 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
   };
   eps = atc_offset_date_time_to_epoch_seconds(&odt);
   ACU_ASSERT(eps == transition3->start_epoch_seconds);
-
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------
@@ -1053,8 +1024,6 @@ ACU_TEST(test_atc_processing_create_abbreviation)
   // test truncation to kDstSize
   atc_processing_create_abbreviation(dst, kDstSize, "P%T3456", 60, "DD");
   ACU_ASSERT(strcmp("PDDT3", dst) == 0);
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------

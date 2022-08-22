@@ -31,8 +31,6 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds)
 
   atc_time_t eps = atc_zoned_date_time_to_epoch_seconds(&zdt);
   ACU_ASSERT(eps == epoch_seconds);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_zoned_date_time_from_epoch_seconds_unix_max)
@@ -59,8 +57,6 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_unix_max)
 
   atc_time_t eps = atc_zoned_date_time_to_epoch_seconds(&zdt);
   ACU_ASSERT(eps == epoch_seconds);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_zoned_date_time_from_epoch_seconds_invalid)
@@ -77,8 +73,6 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_invalid)
     epoch_seconds,
     &zdt);
   ACU_ASSERT(status == false);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_zoned_date_time_from_epoch_seconds_fall_back)
@@ -142,8 +136,6 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_fall_back)
   ACU_ASSERT(0 == zdt.second);
   ACU_ASSERT(-8*60 == zdt.offset_minutes);
   ACU_ASSERT(0 == zdt.fold);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward)
@@ -188,8 +180,6 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward)
   ACU_ASSERT(0 == zdt.second);
   ACU_ASSERT(-7*60 == zdt.offset_minutes);
   ACU_ASSERT(0 == zdt.fold);
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------
@@ -232,8 +222,6 @@ ACU_TEST(test_zoned_date_time_from_components_epoch_0)
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 1);
   ACU_ASSERT(zdt.offset_minutes == -8*60);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_zoned_date_time_from_components_before_dst)
@@ -275,8 +263,6 @@ ACU_TEST(test_zoned_date_time_from_components_before_dst)
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 1);
   ACU_ASSERT(zdt.offset_minutes == -8*60);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_zoned_date_time_from_components_in_gap)
@@ -324,8 +310,6 @@ ACU_TEST(test_zoned_date_time_from_components_in_gap)
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0); // indicate the first transition
   ACU_ASSERT(zdt.offset_minutes == -8*60);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_zoned_date_time_from_components_in_dst)
@@ -367,8 +351,6 @@ ACU_TEST(test_zoned_date_time_from_components_in_dst)
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 1);
   ACU_ASSERT(zdt.offset_minutes == -7*60);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_zoned_date_time_from_components_before_sdt)
@@ -411,8 +393,6 @@ ACU_TEST(test_zoned_date_time_from_components_before_sdt)
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 1);
   ACU_ASSERT(zdt.offset_minutes == -7*60);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_zoned_date_time_from_components_in_overlap)
@@ -456,8 +436,6 @@ ACU_TEST(test_zoned_date_time_from_components_in_overlap)
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 1);
   ACU_ASSERT(zdt.offset_minutes == -8*60);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_zoned_date_time_from_components_after_overlap)
@@ -499,8 +477,6 @@ ACU_TEST(test_zoned_date_time_from_components_after_overlap)
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 1);
   ACU_ASSERT(zdt.offset_minutes == -8*60);
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------

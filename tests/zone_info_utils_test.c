@@ -23,8 +23,6 @@ ACU_TEST(test_zone_info)
         atc_zone_info_era(&kAtcZoneAmerica_Los_Angeles, i)
         == atc_zone_info_era(&kAtcZoneUS_Pacific, i));
   }
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_zone_era)
@@ -37,8 +35,6 @@ ACU_TEST(test_zone_era)
   ACU_ASSERT(0*60 == atc_zone_era_dst_offset_minutes(era));
   ACU_ASSERT(0 == atc_zone_era_until_minutes(era));
   ACU_ASSERT(kAtcSuffixW == atc_zone_era_until_suffix(era));
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_zone_rule)
@@ -52,8 +48,6 @@ ACU_TEST(test_zone_rule)
   ACU_ASSERT(2*60 == atc_zone_rule_at_minutes(rule));
   ACU_ASSERT(kAtcSuffixW == atc_zone_rule_at_suffix(rule));
   ACU_ASSERT(0 == atc_zone_rule_dst_offset_minutes(rule));
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------

@@ -32,8 +32,6 @@ ACU_TEST(test_offset_date_time_to_epoch_seconds)
     2068, 1, 19, 3, 14, 7, 0 /*fold*/, 0 /*offset*/
   };
   ACU_ASSERT(INT32_MAX == atc_offset_date_time_to_epoch_seconds(&odt));
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_offset_date_time_to_epoch_seconds_with_offset)
@@ -44,8 +42,6 @@ ACU_TEST(test_offset_date_time_to_epoch_seconds_with_offset)
   };
   ACU_ASSERT(offset_minutes * -60
       == atc_offset_date_time_to_epoch_seconds(&odt));
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_offset_date_time_to_epoch_seconds_invalid)
@@ -55,8 +51,6 @@ ACU_TEST(test_offset_date_time_to_epoch_seconds_invalid)
   };
   ACU_ASSERT(kAtcInvalidEpochSeconds
       == atc_offset_date_time_to_epoch_seconds(&odt));
-  
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------
@@ -70,8 +64,6 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_invalid)
   bool status = atc_offset_date_time_from_epoch_seconds(
       epoch_seconds, total_offset_minutes, &odt);
   ACU_ASSERT(status == false);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_offset_date_time_from_epoch_seconds_0)
@@ -89,8 +81,6 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_0)
   ACU_ASSERT(odt.hour == 0);
   ACU_ASSERT(odt.minute == 0);
   ACU_ASSERT(odt.second == 0);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_offset_date_time_from_epoch_seconds_3661)
@@ -108,8 +98,6 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_3661)
   ACU_ASSERT(odt.hour == 1);
   ACU_ASSERT(odt.minute == 1);
   ACU_ASSERT(odt.second == 1);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_offset_date_time_from_epoch_seconds_with_offset)
@@ -127,8 +115,6 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_with_offset)
   ACU_ASSERT(odt.hour == 16);
   ACU_ASSERT(odt.minute == 0);
   ACU_ASSERT(odt.second == 0);
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------

@@ -23,8 +23,6 @@ ACU_TEST(test_atc_date_tuple_compare)
 
   struct AtcDateTuple f = {1, 1, 1, 0, kAtcSuffixW};
   ACU_ASSERT(atc_date_tuple_compare(&a, &f) < 0);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_date_tuple_subtract)
@@ -56,8 +54,6 @@ ACU_TEST(test_atc_date_tuple_subtract)
     atc_time_t diff = atc_date_tuple_subtract(&dta, &dtb);
     ACU_ASSERT((int32_t) -86400 * 29 == diff); // Feb 2000 is leap, 29 days
   }
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_date_tuple_normalize)
@@ -115,8 +111,6 @@ ACU_TEST(test_atc_date_tuple_normalize)
   ACU_ASSERT(dt.day == 31);
   ACU_ASSERT(dt.minutes == -15);
   ACU_ASSERT(dt.suffix == kAtcSuffixW);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_date_tuple_expand)
@@ -190,8 +184,6 @@ ACU_TEST(test_atc_date_tuple_expand)
   ACU_ASSERT(ttu.day == 30);
   ACU_ASSERT(ttu.minutes == 15*4);
   ACU_ASSERT(ttu.suffix == kAtcSuffixU);
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------
@@ -286,8 +278,6 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
   };
   status = atc_transition_compare_to_match_fuzzy(&transition, &match);
   ACU_ASSERT(status == kAtcMatchStatusFarFuture);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_transition_compare_to_match)
@@ -380,8 +370,6 @@ ACU_TEST(test_atc_transition_compare_to_match)
 
   status = atc_transition_compare_to_match(&transition3, &match);
   ACU_ASSERT(status == kAtcMatchStatusFarFuture);
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------
@@ -417,8 +405,6 @@ ACU_TEST(test_atc_transition_storage_add_free_agent_to_active_pool) {
   ACU_ASSERT(4 == ts.index_candidate);
   ACU_ASSERT(4 == ts.index_prior);
   ACU_ASSERT(4 == ts.index_free);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_transition_storage_add_free_agent_to_candidate_pool) {
@@ -454,8 +440,6 @@ ACU_TEST(test_atc_transition_storage_add_free_agent_to_candidate_pool) {
   ACU_ASSERT(1 == ts.index_candidate);
   ACU_ASSERT(1 == ts.index_prior);
   ACU_ASSERT(4 == ts.index_free);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_transition_storage_reserve_prior) {
@@ -467,8 +451,6 @@ ACU_TEST(test_atc_transition_storage_reserve_prior) {
   ACU_ASSERT(0 == ts.index_prior);
   ACU_ASSERT(1 == ts.index_candidate);
   ACU_ASSERT(1 == ts.index_free);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_transition_storage_add_prior_to_candidate_pool) {
@@ -485,8 +467,6 @@ ACU_TEST(test_atc_transition_storage_add_prior_to_candidate_pool) {
   ACU_ASSERT(0 == ts.index_prior);
   ACU_ASSERT(0 == ts.index_candidate);
   ACU_ASSERT(1 == ts.index_free);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_transition_storage_set_free_agent_as_prior_if_valid) {
@@ -551,8 +531,6 @@ ACU_TEST(test_atc_transition_storage_set_free_agent_as_prior_if_valid) {
   ACU_ASSERT(free_agent->transition_time.day == 4);
   ACU_ASSERT(free_agent->transition_time.minutes == 0);
   ACU_ASSERT(free_agent->transition_time.suffix == kAtcSuffixW);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_transition_storage_add_active_candidates_to_active_pool) {
@@ -593,8 +571,6 @@ ACU_TEST(test_atc_transition_storage_add_active_candidates_to_active_pool) {
   ACU_ASSERT(-1 == ts.transitions[0]->transition_time.year_tiny);
   ACU_ASSERT(0 == ts.transitions[1]->transition_time.year_tiny);
   ACU_ASSERT(2 == ts.transitions[2]->transition_time.year_tiny);
-
-  ACU_PASS();
 }
 
 ACU_TEST(test_atc_transition_storage_reset_candidate_pool)
@@ -646,8 +622,6 @@ ACU_TEST(test_atc_transition_storage_reset_candidate_pool)
   ACU_ASSERT(2 == ts.index_prior);
   ACU_ASSERT(2 == ts.index_candidate);
   ACU_ASSERT(2 == ts.index_free);
-
-  ACU_PASS();
 }
 
 //---------------------------------------------------------------------------
