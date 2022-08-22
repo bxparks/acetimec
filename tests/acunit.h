@@ -124,7 +124,10 @@ extern inline void acu_assertion(
     printf("%s: %s\n", (acu_test_status ? "PASSED" : "FAILED"), #test); \
   } while (0)
 
-/** Print out the test summary. */
+/**
+ * Print out the test summary. Returns 1 if any test failed, which causes the
+ * `main()` function to return a non-zero exit status to indicate failure.
+ */
 #define ACU_SUMMARY() \
   do { \
     if (acu_tests_failed) { \
