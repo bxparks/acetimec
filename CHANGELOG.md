@@ -1,7 +1,7 @@
 # Changelog
 
 * Unreleased
-* 0.1.0 (2022-08-22, TZDB 2022b)
+* 0.1.0 (2022-08-23, TZDB 2022b)
     * Upgrade to TZDB 2022b.
     * Add unit testing using bxparks/ACUnit.
     * Add support for (symbolic) Link entries.
