@@ -5,7 +5,7 @@
 Time zone library for the C language, based on algorithms and techniques
 from [AceTime](https://github.com/bxparks/AceTime).
 
-**Version**: 0.0.0 (2022-04-08, TZDB version 2022a)
+**Version**: 0.1.0 (2022-08-22, TZDB version 2022b)
 
 **Changelog**: [CHANGELOG.md](CHANGELOG.md)
 

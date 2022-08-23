@@ -6,8 +6,9 @@
 #ifndef ACE_TIME_C_H
 #define ACE_TIME_C_H
 
-#define ACE_TIME_C_VERSION 0
-#define ACE_TIME_C_VERSION_STRING "0.0.0"
+/* Version format: xxyyzz == "xx.yy.zz" */
+#define ACE_TIME_C_VERSION 100
+#define ACE_TIME_C_VERSION_STRING "0.1.0"
 
 #include "ace_time_c/local_date.h"
 #include "ace_time_c/local_date_time.h"
