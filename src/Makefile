@@ -1,4 +1,4 @@
-CFLAGS := -Wall -Wextra -Werror -ansi -pedantic -std=c11
+CFLAGS := -std=c11 -Wall -Wextra -Werror -pedantic
 
 OBJS := \
 	ace_time_c/common.o \
