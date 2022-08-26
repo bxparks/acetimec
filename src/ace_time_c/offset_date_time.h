@@ -41,9 +41,10 @@ atc_time_t atc_offset_date_time_to_epoch_seconds(
 
 /**
  * Create the AtcOffsetDateTime from the epoch_seconds and total offset minutes.
- * Returns true upon success. The 'fold' parameter is explicitly set to 0.
+ * The 'fold' parameter is explicitly set to 0.
+ * Returns non-zero error code upon failure.
  */
-bool atc_offset_date_time_from_epoch_seconds(
+int8_t atc_offset_date_time_from_epoch_seconds(
     atc_time_t epoch_seconds,
     int16_t offset_minutes,
     struct AtcOffsetDateTime *odt);

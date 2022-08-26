@@ -7,7 +7,6 @@
 #define ACE_TIME_C_TRANSITION_H
 
 #include <stdint.h>
-#include <stdbool.h>
 #include "common.h" // atc_time_t
 
 //---------------------------------------------------------------------------

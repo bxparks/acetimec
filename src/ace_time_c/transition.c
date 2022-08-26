@@ -1,7 +1,9 @@
-#include "transition.h"
+#include <stdbool.h>
+#include "common.h" // atc_time_t
 #include "zone_info.h"
 #include "zone_info_utils.h"
 #include "local_date.h" // atc_local_date_to_epoch_days()
+#include "transition.h"
 
 //---------------------------------------------------------------------------
 

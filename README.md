@@ -63,26 +63,26 @@ void something() {
 
   // convert epoch seconds to date/time components for given time zone
   struct AtcZonedDateTime zdt;
-  bool status = atc_zoned_date_time_from_epoch_seconds(
+  int8_t err = atc_zoned_date_time_from_epoch_seconds(
     &los_angeles_processing,
     &kAtcZoneAmerica_Los_Angeles,
     seconds,
     &zdt);
-  if (! status) { /*error*/ }
+  if (err) { /*error*/ }
 
   // convert zoned_date_time to epoch seconds
   seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
   if (seconds == kAtcInvalidEpochSeconds) { /*error*/ }
 
   // convert components to zoned_date_time
-  status = atc_zoned_date_time_from_components(
+  err = atc_zoned_date_time_from_components(
     &los_angeles_processing,
     &kAtcZoneAmerica_Los_Angeles,
     year, month, day,
     hour, minute, second,
     fold,
     &zdt);
-  if (! status) { /*error*/ }
+  if (err) { /*error*/ }
 }
 ```
 
@@ -126,6 +126,10 @@ The header file must be included like this:
 
 A number of constants are provided by this library:
 
+* `kAtcErrOk` (0)
+    * indicates success of a function
+* `kAtcErrGeneric` (1)
+    * indicates a generic failure of a function
 * `kAtcInvalidYear`
     * `INT16_MIN` (-32736)
     * indicates an invalid year
@@ -133,13 +137,13 @@ A number of constants are provided by this library:
     * `INT32_MIN` (-2147483648)
     * indicates an invalid epoch seconds
 * ISO Weekdays
-    * `kAtcIsoWeekdayMonday` = 1
+    * `kAtcIsoWeekdayMonday` (1)
     * `kAtcIsoWeekdayTuesday`
     * `kAtcIsoWeekdayWednesday`
     * `kAtcIsoWeekdayThursday`
     * `kAtcIsoWeekdayFriday`
     * `kAtcIsoWeekdaySaturday`
-    * `kAtcIsoWeekdaySunday` = 7
+    * `kAtcIsoWeekdaySunday` (7)
 
 <a name="AtcTimeT"></a>
 ### `atc_time_t`
@@ -181,7 +185,7 @@ There are 2 functions which operate on this data type:
 atc_time_t atc_local_date_time_to_epoch_seconds(
     const struct AtcLocalDateTime *ldt);
 
-bool atc_local_date_time_from_epoch_seconds(
+int8_t atc_local_date_time_from_epoch_seconds(
   atc_time_t epoch_seconds,
   struct AtcLocalDateTime *ldt);
 ```
@@ -226,7 +230,7 @@ There are 2 functions that operate on the `AtcOffsetDateTime` object:
 atc_time_t atc_offset_date_time_to_epoch_seconds(
     const struct AtcOffsetDateTime *odt);
 
-bool atc_offset_date_time_from_epoch_seconds(
+int8_t atc_offset_date_time_from_epoch_seconds(
     atc_time_t epoch_seconds,
     int16_t offset_minutes,
     struct AtcOffsetDateTime *odt);
@@ -260,7 +264,7 @@ The initial memory layout of `AtcZonedDateTime` was designed to be identical to
 There are 4 functions which operate on the `AtcZonedDateTime`:
 
 ```C
-bool atc_zoned_date_time_from_epoch_seconds(
+int8_t atc_zoned_date_time_from_epoch_seconds(
     struct AtcZoneProcessing *processing,
     const struct AtcZoneInfo *zone_info,
     atc_time_t epoch_seconds,
@@ -269,7 +273,7 @@ bool atc_zoned_date_time_from_epoch_seconds(
 atc_time_t atc_zoned_date_time_to_epoch_seconds(
     const struct AtcZonedDateTime *zdt);
 
-bool atc_zoned_date_time_from_components(
+int8_t atc_zoned_date_time_from_components(
     struct AtcZoneProcessing *processing,
     const struct AtcZoneInfo *zone_info,
     int16_t year, uint8_t month, uint8_t day,
@@ -277,7 +281,7 @@ bool atc_zoned_date_time_from_components(
     uint8_t fold,
     struct AtcZonedDateTime *zdt);
 
-bool atc_zoned_date_time_normalize(
+int8_t atc_zoned_date_time_normalize(
     struct AtcZoneProcessing *processing,
     struct AtcZonedDateTime *zdt);
 ```
@@ -323,7 +327,7 @@ struct AtcZonedExtra {
 There is one function that populates this type given an `epoch_seconds`:
 
 ```C
-bool atc_zoned_extra_from_epoch_seconds(
+int8_t atc_zoned_extra_from_epoch_seconds(
     struct AtcZoneProcessing *processing,
     const struct AtcZoneInfo *zone_info,
     atc_time_t epoch_seconds,
@@ -383,8 +387,16 @@ registry is sorted by zone id. If it is, then the search functions (both
 performance. If the registry is not sorted, then the search functions must
 perform a linear search through the registry which is much slower.
 
-To retrieve the `AtcZoneInfo` pointer from the human readable zone name, the cod
-looks something like this:
+The execution complexity of `atc_registrar_is_registry_sorted()` is `O(N)`. In
+comparison, the search functions are `O(log(N))` if the registry is already
+sorted. Therefore, the `atc_registrar_is_registry_sorted()` should be called
+only once and the result saved in a shared variable and passed into the search
+functions. If the `atc_registrar_is_registry_sorted()` is called before every
+search function, then no performance improvement will be gained by using a
+binary search algorithm.
+
+To retrieve the `AtcZoneInfo` pointer from the human readable zone name, the
+code looks something like this:
 
 ```C
 #include <acetimec.h>

@@ -61,9 +61,9 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_invalid)
   int16_t total_offset_minutes = 0;
   atc_time_t epoch_seconds = kAtcInvalidEpochSeconds;
 
-  bool status = atc_offset_date_time_from_epoch_seconds(
+  int8_t err = atc_offset_date_time_from_epoch_seconds(
       epoch_seconds, total_offset_minutes, &odt);
-  ACU_ASSERT(status == false);
+  ACU_ASSERT(err == kAtcErrGeneric);
 }
 
 ACU_TEST(test_offset_date_time_from_epoch_seconds_0)
@@ -72,9 +72,9 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_0)
   int16_t total_offset_minutes = 0;
   atc_time_t epoch_seconds = 0; // 00:00:00
 
-  bool status = atc_offset_date_time_from_epoch_seconds(
+  int8_t err = atc_offset_date_time_from_epoch_seconds(
       epoch_seconds, total_offset_minutes, &odt);
-  ACU_ASSERT(status == true);
+  ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(odt.year == 2000);
   ACU_ASSERT(odt.month == 1);
   ACU_ASSERT(odt.day == 1);
@@ -89,9 +89,9 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_3661)
   int16_t total_offset_minutes = 0;
   atc_time_t epoch_seconds = 3661; // 01:01:01 later
 
-  bool status = atc_offset_date_time_from_epoch_seconds(
+  int8_t err = atc_offset_date_time_from_epoch_seconds(
       epoch_seconds, total_offset_minutes, &odt);
-  ACU_ASSERT(status == true);
+  ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(odt.year == 2000);
   ACU_ASSERT(odt.month == 1);
   ACU_ASSERT(odt.day == 1);
@@ -106,9 +106,9 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_with_offset)
   int16_t total_offset_minutes = -8*60; // UTC-08:00
   atc_time_t epoch_seconds = 0; // 00:00:00
 
-  bool status = atc_offset_date_time_from_epoch_seconds(
+  int8_t err = atc_offset_date_time_from_epoch_seconds(
       epoch_seconds, total_offset_minutes, &odt);
-  ACU_ASSERT(status == true);
+  ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(odt.year == 1999);
   ACU_ASSERT(odt.month == 12);
   ACU_ASSERT(odt.day == 31);

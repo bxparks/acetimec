@@ -6,6 +6,7 @@
 #ifndef ACE_TIME_C_ZONE_INFO_UTILS_H
 #define ACE_TIME_C_ZONE_INFO_UTILS_H
 
+#include <stdbool.h>
 #include <stdint.h>
 #include "zone_info.h"
 

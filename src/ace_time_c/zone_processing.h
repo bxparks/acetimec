@@ -7,7 +7,6 @@
 #define ACE_TIME_C_ZONE_PROCESSING_H
 
 #include <stdint.h>
-#include <stdbool.h>
 #include "common.h" // atc_time_t
 #include "local_date_time.h" // AtcLocalDateTime
 #include "offset_date_time.h" // AtcOffsetDateTime
@@ -116,29 +115,35 @@ struct AtcZoneProcessing {
 
 //---------------------------------------------------------------------------
 
-/** Initialize AtcZoneProcessing. Should be called once in the app. */
+/**
+ * Initialize AtcZoneProcessing data structure. This needs to be called only
+ * once for each instance of AtcZoneProcessing.
+ */
 void atc_processing_init(struct AtcZoneProcessing *processing);
 
-/** Initialize AtcZoneProcessing for the given zone_info and year. */
-bool atc_processing_init_for_year(
+/**
+ * Initialize AtcZoneProcessing for the given zone_info and year.
+ * Return non-zero error code upon failure.
+ */
+int8_t atc_processing_init_for_year(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   int16_t year);
 
 /**
  * Initialize AtcZoneProcessing for the given zone_info and epoch seconds.
- * Return true upon sucess.
+ * Return non-zero error code upon failure.
  */
-bool atc_processing_init_for_epoch_seconds(
+int8_t atc_processing_init_for_epoch_seconds(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds);
 
 /**
  * Convert epoch_seconds to an AtcOffsetDateTime using the given zone_info.
- * Return true upon success.
+ * Return non-zero error code upon failure.
  */
-bool atc_processing_offset_date_time_from_epoch_seconds(
+int8_t atc_processing_offset_date_time_from_epoch_seconds(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds,
@@ -146,9 +151,9 @@ bool atc_processing_offset_date_time_from_epoch_seconds(
 
 /**
  * Convert the LocalDateTime to OffsetDateTime using the given zone_info.
- * Return true upon success.
+ * Return non-zero error code upon failure.
  */
-bool atc_processing_offset_date_time_from_local_date_time(
+int8_t atc_processing_offset_date_time_from_local_date_time(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   const struct AtcLocalDateTime *ldt,
@@ -167,9 +172,9 @@ struct AtcTransitionInfo {
 /**
  * Find the AtcTransitionInfo (i.e. STD offset, DST offset, abbrev)
  * at the given epoch_seconds.
- * Return true on success, false if there's an error.
+ * Return non-zero error code upon failure.
  */
-bool atc_processing_transition_info_from_epoch_seconds(
+int8_t atc_processing_transition_info_from_epoch_seconds(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds,

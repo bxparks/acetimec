@@ -11,6 +11,14 @@
 typedef int32_t atc_time_t;
 
 enum {
+  /** Error code to indicate success. */
+  kAtcErrOk = 0,
+
+  /** Error code to indicate generic failure. */
+  kAtcErrGeneric = 1,
+};
+
+enum {
   /** Base year of the AceTimeC epoch. */
   kAtcEpochYear = 2000,
 
