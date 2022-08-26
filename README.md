@@ -214,6 +214,10 @@ from DST to Standard time in the fall. The wall clock "falls back" from 2:00am
 to 1:00am, which means that the time from 1:00am to 2:00am occurs twice. The
 `fold` parameter is 0 for the first occurrence, and 1 for the second occurrence.
 
+The meaning of the `fold` parameter is identical to the `fold` parameter in the
+AceTime library, which itself borrowed the concept from the [PEP
+495](https://www.python.org/dev/peps/pep-0495/) document in Python 3.6.
+
 There are 2 functions that operate on the `AtcOffsetDateTime` object:
 
 ```C
