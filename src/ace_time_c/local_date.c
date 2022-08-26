@@ -37,7 +37,7 @@ static const uint8_t atc_days_in_month[12] = {
   31 /*Dec=31*/,
 };
 
-bool atc_is_leap_year(uint16_t year)
+bool atc_is_leap_year(int16_t year)
 {
   return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
 }

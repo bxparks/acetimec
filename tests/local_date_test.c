@@ -9,9 +9,18 @@ ACU_TEST(test_iso_week_enum)
 
 ACU_TEST(test_is_leap_year)
 {
-  ACU_ASSERT(atc_is_leap_year(2000));
+  ACU_ASSERT(!atc_is_leap_year(1999));
+  ACU_ASSERT(atc_is_leap_year(2000)); // divisible by 400 => leap
+  ACU_ASSERT(!atc_is_leap_year(2001));
   ACU_ASSERT(atc_is_leap_year(2004));
-  ACU_ASSERT(!atc_is_leap_year(2100));
+  ACU_ASSERT(!atc_is_leap_year(2100)); // divisible by 100 => not leap
+  ACU_ASSERT(atc_is_leap_year(2400)); // divisible by 400 => leap
+
+  ACU_ASSERT(atc_is_leap_year(0)); // divisible by 400 => leap
+  ACU_ASSERT(!atc_is_leap_year(-1));
+  ACU_ASSERT(atc_is_leap_year(-4));
+  ACU_ASSERT(!atc_is_leap_year(-100)); // divisible by 100 => not leap
+  ACU_ASSERT(atc_is_leap_year(-400)); // divisible by 100 => not leap
 }
 
 // Do a round-trip of conversion atc_local_date_to_epoch_days() and

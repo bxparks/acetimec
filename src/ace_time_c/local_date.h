@@ -21,7 +21,7 @@ enum {
 };
 
 /** Return true if year is a leap year. */
-bool atc_is_leap_year(uint16_t year);
+bool atc_is_leap_year(int16_t year);
 
 /** Return the number of days in the month for the given year. */
 uint8_t atc_local_date_days_in_year_month(int16_t year, uint8_t month);
