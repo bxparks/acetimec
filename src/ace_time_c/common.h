@@ -4,6 +4,10 @@
 #include <stddef.h> // size_t
 #include <stdint.h> // INT32_MIN
 
+/**
+ * The number of seconds from the epoch of this library
+ * which will usually be 2000-01-01 00:00:00 UTC.
+ */
 typedef int32_t atc_time_t;
 
 enum {
