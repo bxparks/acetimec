@@ -184,16 +184,17 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward)
 
 //---------------------------------------------------------------------------
 
-ACU_TEST(test_zoned_date_time_from_components_epoch_0)
+ACU_TEST(test_zoned_date_time_from_local_date_time_epoch_0)
 {
   struct AtcZoneProcessing processing;
   atc_processing_init(&processing);
 
+  struct AtcLocalDateTime ldt = { 2000, 1, 1, 0, 0, 0 };
   struct AtcZonedDateTime zdt;
-  int8_t err = atc_zoned_date_time_from_components(
+  int8_t err = atc_zoned_date_time_from_local_date_time(
       &processing,
       &kAtcZoneAmerica_Los_Angeles,
-      2000, 1, 1, 0, 0, 0,
+      &ldt,
       0 /*fold*/,
       &zdt);
   ACU_ASSERT(err == kAtcErrOk);
@@ -207,10 +208,11 @@ ACU_TEST(test_zoned_date_time_from_components_epoch_0)
   ACU_ASSERT(zdt.offset_minutes == -8*60);
 
   // check that fold=1 gives identical results, while preserving fold
-  err = atc_zoned_date_time_from_components(
+  ldt = (struct AtcLocalDateTime) { 2000, 1, 1, 0, 0, 0 };
+  err = atc_zoned_date_time_from_local_date_time(
       &processing,
       &kAtcZoneAmerica_Los_Angeles,
-      2000, 1, 1, 0, 0, 0,
+      &ldt,
       1 /*fold*/,
       &zdt);
   ACU_ASSERT(err == kAtcErrOk);
@@ -224,17 +226,18 @@ ACU_TEST(test_zoned_date_time_from_components_epoch_0)
   ACU_ASSERT(zdt.offset_minutes == -8*60);
 }
 
-ACU_TEST(test_zoned_date_time_from_components_before_dst)
+ACU_TEST(test_zoned_date_time_from_local_date_time_before_dst)
 {
   struct AtcZoneProcessing processing;
   atc_processing_init(&processing);
 
   // 01:59 should resolve to 01:59-08:00
   struct AtcZonedDateTime zdt;
-  int8_t err = atc_zoned_date_time_from_components(
+  struct AtcLocalDateTime ldt = { 2018, 3, 11, 1, 59, 0 };
+  int8_t err = atc_zoned_date_time_from_local_date_time(
       &processing,
       &kAtcZoneAmerica_Los_Angeles,
-      2018, 3, 11, 1, 59, 0,
+      &ldt,
       0 /*fold*/,
       &zdt);
   ACU_ASSERT(err == kAtcErrOk);
@@ -248,10 +251,11 @@ ACU_TEST(test_zoned_date_time_from_components_before_dst)
   ACU_ASSERT(zdt.offset_minutes == -8*60);
 
   // check that fold=1 gives identical results, while preserving fold
-  err = atc_zoned_date_time_from_components(
+  ldt = (struct AtcLocalDateTime) { 2018, 3, 11, 1, 59, 0 };
+  err = atc_zoned_date_time_from_local_date_time(
       &processing,
       &kAtcZoneAmerica_Los_Angeles,
-      2018, 3, 11, 1, 59, 0,
+      &ldt,
       1 /*fold*/,
       &zdt);
   ACU_ASSERT(err == kAtcErrOk);
@@ -265,21 +269,21 @@ ACU_TEST(test_zoned_date_time_from_components_before_dst)
   ACU_ASSERT(zdt.offset_minutes == -8*60);
 }
 
-ACU_TEST(test_zoned_date_time_from_components_in_gap)
+ACU_TEST(test_zoned_date_time_from_local_date_time_in_gap)
 {
   struct AtcZoneProcessing processing;
   atc_processing_init(&processing);
 
   // 02:01 doesn't exist.
-
   // Setting (fold=0) causes the first transition to be selected, which has a
   // UTC offset of -08:00, so this is interpreted as 02:01-08:00 which gets
   // normalized to 03:01-07:00.
   struct AtcZonedDateTime zdt;
-  int8_t err = atc_zoned_date_time_from_components(
+  struct AtcLocalDateTime ldt = { 2018, 3, 11, 2, 1, 0 };
+  int8_t err = atc_zoned_date_time_from_local_date_time(
       &processing,
       &kAtcZoneAmerica_Los_Angeles,
-      2018, 3, 11, 2, 1, 0,
+      &ldt,
       0 /*fold*/,
       &zdt);
   ACU_ASSERT(err == kAtcErrOk);
@@ -295,10 +299,11 @@ ACU_TEST(test_zoned_date_time_from_components_in_gap)
   // Setting (fold=1) causes the second transition to be selected, which has a
   // UTC offset of -07:00, so this is interpreted as 02:01-07:00 which gets
   // normalized to 01:01-08:00.
-  err = atc_zoned_date_time_from_components(
+  ldt = (struct AtcLocalDateTime) { 2018, 3, 11, 2, 1, 0 };
+  err = atc_zoned_date_time_from_local_date_time(
       &processing,
       &kAtcZoneAmerica_Los_Angeles,
-      2018, 3, 11, 2, 1, 0,
+      &ldt,
       1 /*fold*/,
       &zdt);
   ACU_ASSERT(err == kAtcErrOk);
@@ -312,17 +317,18 @@ ACU_TEST(test_zoned_date_time_from_components_in_gap)
   ACU_ASSERT(zdt.offset_minutes == -8*60);
 }
 
-ACU_TEST(test_zoned_date_time_from_components_in_dst)
+ACU_TEST(test_zoned_date_time_from_local_date_time_in_dst)
 {
   struct AtcZoneProcessing processing;
   atc_processing_init(&processing);
 
   // 03:01 should resolve to 03:01-07:00.
+  struct AtcLocalDateTime ldt = { 2018, 3, 11, 3, 1, 0 };
   struct AtcZonedDateTime zdt;
-  int8_t err = atc_zoned_date_time_from_components(
+  int8_t err = atc_zoned_date_time_from_local_date_time(
       &processing,
       &kAtcZoneAmerica_Los_Angeles,
-      2018, 3, 11, 3, 1, 0,
+      &ldt,
       0 /*fold*/,
       &zdt);
   ACU_ASSERT(err == kAtcErrOk);
@@ -336,10 +342,11 @@ ACU_TEST(test_zoned_date_time_from_components_in_dst)
   ACU_ASSERT(zdt.offset_minutes == -7*60);
 
   // check that fold=1 gives identical results, while preserving fold
-  err = atc_zoned_date_time_from_components(
+  ldt = (struct AtcLocalDateTime) { 2018, 3, 11, 3, 1, 0 };
+  err = atc_zoned_date_time_from_local_date_time(
       &processing,
       &kAtcZoneAmerica_Los_Angeles,
-      2018, 3, 11, 3, 1, 0,
+      &ldt,
       1 /*fold*/,
       &zdt);
   ACU_ASSERT(err == kAtcErrOk);
@@ -353,7 +360,7 @@ ACU_TEST(test_zoned_date_time_from_components_in_dst)
   ACU_ASSERT(zdt.offset_minutes == -7*60);
 }
 
-ACU_TEST(test_zoned_date_time_from_components_before_sdt)
+ACU_TEST(test_zoned_date_time_from_local_date_time_before_sdt)
 {
   struct AtcZoneProcessing processing;
   atc_processing_init(&processing);
@@ -361,10 +368,11 @@ ACU_TEST(test_zoned_date_time_from_components_before_sdt)
   // 00:59 is an hour before the DST->STD transition, so should return
   // 00:59-07:00.
   struct AtcZonedDateTime zdt;
-  int8_t err = atc_zoned_date_time_from_components(
+  struct AtcLocalDateTime ldt = { 2018, 11, 4, 0, 59, 0 };
+  int8_t err = atc_zoned_date_time_from_local_date_time(
       &processing,
       &kAtcZoneAmerica_Los_Angeles,
-      2018, 11, 4, 0, 59, 0,
+      &ldt,
       0 /*fold*/,
       &zdt);
   ACU_ASSERT(err == kAtcErrOk);
@@ -378,10 +386,11 @@ ACU_TEST(test_zoned_date_time_from_components_before_sdt)
   ACU_ASSERT(zdt.offset_minutes == -7*60);
 
   // check that fold=1 gives identical results, while preserving fold
-  err = atc_zoned_date_time_from_components(
+  ldt = (struct AtcLocalDateTime) { 2018, 11, 4, 0, 59, 0 };
+  err = atc_zoned_date_time_from_local_date_time(
       &processing,
       &kAtcZoneAmerica_Los_Angeles,
-      2018, 11, 4, 0, 59, 0,
+      &ldt,
       1 /*fold*/,
       &zdt);
   ACU_ASSERT(err == kAtcErrOk);
@@ -395,7 +404,7 @@ ACU_TEST(test_zoned_date_time_from_components_before_sdt)
   ACU_ASSERT(zdt.offset_minutes == -7*60);
 }
 
-ACU_TEST(test_zoned_date_time_from_components_in_overlap)
+ACU_TEST(test_zoned_date_time_from_local_date_time_in_overlap)
 {
   struct AtcZoneProcessing processing;
   atc_processing_init(&processing);
@@ -404,10 +413,11 @@ ACU_TEST(test_zoned_date_time_from_components_in_overlap)
 
   // Setting (fold==0) selects the first instance, resolves to 01:01-07:00.
   struct AtcZonedDateTime zdt;
-  int8_t err = atc_zoned_date_time_from_components(
+  struct AtcLocalDateTime ldt = { 2018, 11, 4, 1, 1, 0 };
+  int8_t err = atc_zoned_date_time_from_local_date_time(
       &processing,
       &kAtcZoneAmerica_Los_Angeles,
-      2018, 11, 4, 1, 1, 0,
+      &ldt,
       0 /*fold*/,
       &zdt);
   ACU_ASSERT(err == kAtcErrOk);
@@ -421,10 +431,11 @@ ACU_TEST(test_zoned_date_time_from_components_in_overlap)
   ACU_ASSERT(zdt.offset_minutes == -7*60);
 
   // Setting (fold==1) selects the second instance, resolves to 01:01-08:00.
-  err = atc_zoned_date_time_from_components(
+  ldt = (struct AtcLocalDateTime) { 2018, 11, 4, 1, 1, 0 };
+  err = atc_zoned_date_time_from_local_date_time(
       &processing,
       &kAtcZoneAmerica_Los_Angeles,
-      2018, 11, 4, 1, 1, 0,
+      &ldt,
       1 /*fold*/,
       &zdt);
   ACU_ASSERT(err == kAtcErrOk);
@@ -438,17 +449,18 @@ ACU_TEST(test_zoned_date_time_from_components_in_overlap)
   ACU_ASSERT(zdt.offset_minutes == -8*60);
 }
 
-ACU_TEST(test_zoned_date_time_from_components_after_overlap)
+ACU_TEST(test_zoned_date_time_from_local_date_time_after_overlap)
 {
   struct AtcZoneProcessing processing;
   atc_processing_init(&processing);
 
   // 02:01 should resolve to 02:01-08:00
   struct AtcZonedDateTime zdt;
-  int8_t err = atc_zoned_date_time_from_components(
+  struct AtcLocalDateTime ldt = { 2018, 11, 4, 2, 1, 0 };
+  int8_t err = atc_zoned_date_time_from_local_date_time(
       &processing,
       &kAtcZoneAmerica_Los_Angeles,
-      2018, 11, 4, 2, 1, 0,
+      &ldt,
       0 /*fold*/,
       &zdt);
   ACU_ASSERT(err == kAtcErrOk);
@@ -462,10 +474,11 @@ ACU_TEST(test_zoned_date_time_from_components_after_overlap)
   ACU_ASSERT(zdt.offset_minutes == -8*60);
 
   // check that fold=1 gives identical results, while preserving fold
-  err = atc_zoned_date_time_from_components(
+  ldt = (struct AtcLocalDateTime) { 2018, 11, 4, 2, 1, 0 };
+  err = atc_zoned_date_time_from_local_date_time(
       &processing,
       &kAtcZoneAmerica_Los_Angeles,
-      2018, 11, 4, 2, 1, 0,
+      &ldt,
       1 /*fold*/,
       &zdt);
   ACU_ASSERT(err == kAtcErrOk);
@@ -490,11 +503,11 @@ int main()
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_invalid);
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_fall_back);
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward);
-  ACU_RUN_TEST(test_zoned_date_time_from_components_epoch_0);
-  ACU_RUN_TEST(test_zoned_date_time_from_components_before_dst);
-  ACU_RUN_TEST(test_zoned_date_time_from_components_in_gap);
-  ACU_RUN_TEST(test_zoned_date_time_from_components_in_dst);
-  ACU_RUN_TEST(test_zoned_date_time_from_components_before_sdt);
-  ACU_RUN_TEST(test_zoned_date_time_from_components_in_overlap);
+  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_epoch_0);
+  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_before_dst);
+  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_in_gap);
+  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_in_dst);
+  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_before_sdt);
+  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_in_overlap);
   ACU_SUMMARY();
 }

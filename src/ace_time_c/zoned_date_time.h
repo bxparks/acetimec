@@ -54,11 +54,10 @@ atc_time_t atc_zoned_date_time_to_epoch_seconds(
  * Create zoned date time from components and given time zone.
  * Return non-zero error code upon failure.
  */
-int8_t atc_zoned_date_time_from_components(
+int8_t atc_zoned_date_time_from_local_date_time(
     struct AtcZoneProcessing *processing,
     const struct AtcZoneInfo *zone_info,
-    int16_t year, uint8_t month, uint8_t day,
-    uint8_t hour, uint8_t minute, uint8_t second,
+    const struct AtcLocalDateTime *ldt,
     uint8_t fold,
     struct AtcZonedDateTime *zdt);
 

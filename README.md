@@ -69,20 +69,23 @@ void something() {
     seconds,
     &zdt);
   if (err) { /*error*/ }
+  ...
 
   // convert zoned_date_time to epoch seconds
   seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
   if (seconds == kAtcInvalidEpochSeconds) { /*error*/ }
+  ...
 
   // convert components to zoned_date_time
-  err = atc_zoned_date_time_from_components(
+  struct AtcLocalDateTime ldt = { year, month, day, hour, minute, second };
+  err = atc_zoned_date_time_from_local_date_time(
     &los_angeles_processing,
     &kAtcZoneAmerica_Los_Angeles,
-    year, month, day,
-    hour, minute, second,
+    &ldt,
     fold,
     &zdt);
   if (err) { /*error*/ }
+  ...
 }
 ```
 
@@ -273,11 +276,10 @@ int8_t atc_zoned_date_time_from_epoch_seconds(
 atc_time_t atc_zoned_date_time_to_epoch_seconds(
     const struct AtcZonedDateTime *zdt);
 
-int8_t atc_zoned_date_time_from_components(
+int8_t atc_zoned_date_time_from_local_date_time(
     struct AtcZoneProcessing *processing,
     const struct AtcZoneInfo *zone_info,
-    int16_t year, uint8_t month, uint8_t day,
-    uint8_t hour, uint8_t minute, uint8_t second,
+    const struct AtcLocalDateTime *ldt,
     uint8_t fold,
     struct AtcZonedDateTime *zdt);
 
