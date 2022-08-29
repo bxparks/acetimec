@@ -21,15 +21,12 @@ int8_t atc_zoned_date_time_from_epoch_seconds(
   atc_zoned_date_time_set_error(zdt);
   if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
 
-  int8_t err = atc_processing_offset_date_time_from_epoch_seconds(
+  zdt->zone_info = zone_info;
+  return atc_processing_offset_date_time_from_epoch_seconds(
       processing,
       zone_info,
       epoch_seconds,
       (struct AtcOffsetDateTime *) zdt);
-  if (err) return err;
-
-  zdt->zone_info = zone_info;
-  return kAtcErrOk;
 }
 
 atc_time_t atc_zoned_date_time_to_epoch_seconds(
@@ -46,6 +43,7 @@ int8_t atc_zoned_date_time_from_local_date_time(
     uint8_t fold,
     struct AtcZonedDateTime *zdt)
 {
+  zdt->zone_info = zone_info;
   return atc_processing_offset_date_time_from_local_date_time(
       processing,
       zone_info,
