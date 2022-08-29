@@ -55,10 +55,14 @@ The expected usage is something like this:
 
 struct AtcZoneProcessing los_angeles_processing;
 
-void something() {
-  // initialize the time zone processing workspace
+// initialize the time zone processing workspace
+void setup()
+{
   atc_processing_init(&los_angeles_processing);
+}
 
+void do_something()
+{
   atc_time_t seconds = 3432423;
 
   // convert epoch seconds to date/time components for given time zone
@@ -193,6 +197,14 @@ int8_t atc_local_date_time_from_epoch_seconds(
   struct AtcLocalDateTime *ldt);
 ```
 
+The `atc_local_date_time_to_epoch_seconds()` function converts the given
+`AtcLocalDateTime` into its `atc_time_t` epoch seconds. If an error occurs, the
+function returns `kAtcInvalidEpochSeconds`.
+
+The `atc_local_date_time_from_epoch_seconds()` function converts the given epoch
+seconds into the `AtcLocalDateTime` components. If an error occurs, the function
+returns `kAtcErrGeneric`, otherwise it returns `kAtcErrOk`.
+
 <a name="AtcOffsetDateTime"></a>
 ### AtcOffsetDateTime
 
@@ -239,6 +251,16 @@ int8_t atc_offset_date_time_from_epoch_seconds(
     struct AtcOffsetDateTime *odt);
 ```
 
+The `atc_offset_date_time_from_epoch_seconds()` function converts the given
+`AtcOffsetDateTime` into its `atc_time_t` epoch seconds, taking into account the
+`offset_minutes` field. If an error occurs, the function returns
+`kAtcInvalidEpochSeconds`. The `fold` parameter is ignored.
+
+The `atc_offset_date_time_from_epoch_seconds()` function converts the given
+`epoch_seconds` and `offset_minutes` into the `AtcOffsetDateTime` components. If
+an error occurs, the function returns `kAtcErrGeneric`, otherwise it returns
+`kAtcErrOk`. The `fold` parameter is ignored.
+
 <a name="AtcZonedDateTime"></a>
 ### AtcZonedDateTime
 
@@ -267,14 +289,14 @@ The initial memory layout of `AtcZonedDateTime` was designed to be identical to
 There are 4 functions which operate on the `AtcZonedDateTime`:
 
 ```C
+atc_time_t atc_zoned_date_time_to_epoch_seconds(
+    const struct AtcZonedDateTime *zdt);
+
 int8_t atc_zoned_date_time_from_epoch_seconds(
     struct AtcZoneProcessing *processing,
     const struct AtcZoneInfo *zone_info,
     atc_time_t epoch_seconds,
     struct AtcZonedDateTime *zdt);
-
-atc_time_t atc_zoned_date_time_to_epoch_seconds(
-    const struct AtcZonedDateTime *zdt);
 
 int8_t atc_zoned_date_time_from_local_date_time(
     struct AtcZoneProcessing *processing,
@@ -288,6 +310,48 @@ int8_t atc_zoned_date_time_normalize(
     struct AtcZonedDateTime *zdt);
 ```
 
+The `atc_zoned_date_time_to_epoch_seconds()` function converts the given
+`AtcZonedDateTime` into its `atc_time_t` epoch seconds, taking into account the
+time zone defined by the `zone_info` field inside the `AtcZonedDatetime`. If an
+error occurs, the function returns `kAtcInvalidEpochSeconds`.
+
+The `fold` parameter is ignored in most cases. However, there are situations for
+certain time zones, during certain parts of the year, when a range of local time
+is repeated during a DST time shift. For example, in North America, the time
+zone changes from DST to Standard time at 2am, which means that the wall clock
+from 01:00 to 02:00 are repeated. The `fold` parameter disambiguates the 2 sets
+of local time, so that `fold=0` indicates the first time it was seen, and
+`fold=1` indicates the second time it was seen.
+
+The `atc_offset_date_time_from_epoch_seconds()` function converts the given
+`epoch_seconds` and `zone_info` into the `AtcZonedDateTime` components. If an
+error occurs, the function returns `kAtcErrGeneric`, otherwise it returns
+`kAtcErrOk`. The `fold` parameter is usually 0. However, during a DST shift
+(described above), a `fold=0` indicates the first occurrence of the local wall
+clock, and `fold=1` indicates the second occurrence of the local wall clok.
+
+The `atc_zoned_date_time_from_local_date_time()` converts the date-time
+components defined by the `AtcLocalDateTime` to the `AtcZonedDateTime`, taking
+into account the time zone defined by `zone_info` and the `fold` parameter. In
+most cases, the `fold` parameter has no effect. But for cases where a local wall
+clock occurs twice (e.g. during a DST to Standard time shift), the `fold`
+parameter disambiguates the multiple occurrence of the local time.
+
+During a shift from Standard time to DST, it is possible that a particular local
+time does not exist (e.g. during a shift from 02:00 to 03:00, an entire hour
+does not exist in the local time). The `fold` parameter determines how to handle
+non-existent times.
+
+* When `fold=0`, the given local date time is assumed to be using the *earlier*
+  UTC offset, which causes the effective epoch seconds to be the *later* one,
+  which then gets normalized to the *later* `AtcZonedDateTime`.
+* When `fold=1`, the given local date time is assumed to be using the *later*
+  UTC offset, which causes the effective epoch seconds to be the *earlier* one,
+  which then gets normalized to the *earlier* `AtcZonedDateTime`.
+
+This convention is meant to be identical to the one described by the Python [PEP
+495](https://www.python.org/dev/peps/pep-0495/).
+
 <a name="AtcZoneProcessing"></a>
 ### AtcZoneProcessing
 
@@ -298,16 +362,41 @@ this data type should be created statically for each time zone used by the
 downstream application. (Another possibility is to create one on the heap at
 startup time, then never freed.)
 
+Each time zone should be assigned an instance of the `AtcZoneProcessing`. An
+instance of `AtcZoneProcessing` should be initialized only once, usually at the
+beginning of the application:
+
+```C
+struct AtcZoneProcessing los_angeles_processing;
+
+void setup()
+{
+  atc_processing_init(&los_angeles_processing);
+}
+```
+
+In the current implementation, the `AtcZoneProcessing` instance keeps a cache of
+UTC offset transitions spanning a year. Multiple calls to various
+`atc_zoned_date_time_XXX()` functions with the same `AtcZoneProcessing` instance
+within a given year will execute much faster than other years.
+
+If dynamic memory is tight, an `AtcZoneProcessing` instance could be used by
+multiple time zones (i.e. different `AtcZoneInfo`). However, each time the time
+zone changes, the internal cache of the `AtcZoneProcessing` instance is cleared
+and recalculated, so the execution speed may decrease significantly.
+
 <a name="AtcZoneInfo"></a>
 ### AtcZoneInfo
 
 The `AtcZoneInfo` type represents the DST transition rules of a single time
-zone. The `src/ace_time_c/zonedb/` directory contains the data collection for
-all time zones as generated by the
-[AceTimeTools](https://github.com/bxparks/AceTimeTools) scripts. For example,
-the `America/Los_Angeles` time zone is represented by
-`kAtcZoneAmerica_Los_Angeles`. A pointer to this data structure should be passed
-into function which expect a `const struct AtcZoneInfo *` pointer.
+zone. The `src/ace_time_c/zonedb/` directory contains the collection of
+`AtcZoneInfo` representing all time zones defined by the IANA TZ database. The C
+code under `zonedb/` is programmatically generated by scripts in the
+[AceTimeTools](https://github.com/bxparks/AceTimeTools) project. For example,
+the `America/Los_Angeles` time zone is represented by an instance of
+`AtcZoneInfo` named `kAtcZoneAmerica_Los_Angeles`. A pointer to this data
+structure should be passed into functions which expect a `const struct
+AtcZoneInfo *` pointer.
 
 The full list of Zones (and Links) supported by this library is given in the
 [src/zonedb/zone_info.h](src/ace_time_c/zonedb/zone_infos.h) header file.
@@ -326,7 +415,8 @@ struct AtcZonedExtra {
 };
 ```
 
-There is one function that populates this type given an `epoch_seconds`:
+There is one function that populates this type given an `epoch_seconds` and its
+`zone_info`:
 
 ```C
 int8_t atc_zoned_extra_from_epoch_seconds(
@@ -383,11 +473,17 @@ in the `USER_GUIDE.md` for AceTime. A 32-bit integer is often more convenient in
 an embedded environment than the human-readable zone name because the integer is
 a fixed size and can be stored and retrieved quickly.
 
+For example, instead of using the string `"America/Los_Angeles"`, this library
+defines the 32-bit number `kAtcZoneIdAmerica_Los_Angeles=0xb7f7e8f2` to this
+zone. This zone identifier can be passed into the `atc_registrar_find_by_id()`
+function to retrieve the corresopnding `AtcZoneInfo` object.
+
 The `atc_registrar_is_registry_sorted()` function determines whether or not the
 registry is sorted by zone id. If it is, then the search functions (both
-`find_by_name()` and `find_by_id()`) can use a binary search algorithm for
-performance. If the registry is not sorted, then the search functions must
-perform a linear search through the registry which is much slower.
+`find_by_name()` and `find_by_id()`) can use a much faster binary search
+algorithm for performance. If the registry is not sorted, then the search
+functions must perform a linear search through the registry which is much
+slower.
 
 The execution complexity of `atc_registrar_is_registry_sorted()` is `O(N)`. In
 comparison, the search functions are `O(log(N))` if the registry is already
@@ -414,20 +510,32 @@ void setup()
   ...
 }
 
-void do_time_zone_stuff()
+void retrieve_zone_info_by_name()
 {
   const char *name = "America/Los_Angeles";
-  const struct AtcZoneInfo *info = atc_registrar_find_by_name(
+  const struct AtcZoneInfo *zone_info = atc_registrar_find_by_name(
       kAtcZoneAndLinkRegistry,
       kAtcZoneAndLinkRegistrySize,
       name,
       is_sorted);
-  if (info == NULL) { /*error*/ }
+  if (zone_info == NULL) { /*error*/ }
+  ...
+}
+
+void retrieve_zone_info_by_id()
+{
+  uint32_t zone_id = kAtcZoneIdAmerica_Los_Angeles;
+  const struct AtcZoneInfo *zone_info = atc_registrar_find_by_id(
+      kAtcZoneAndLinkRegistry,
+      kAtcZoneAndLinkRegistrySize,
+      zone_id,
+      is_sorted);
+  if (zone_info == NULL) { /*error*/ }
   ...
 }
 ```
 
-A downstream application does not need to use the default zone registries
+The downstream application does not need to use the default zone registries
 (`kAtcZoneRegistry` or `kAtcZoneAndLinkRegistry`). It can create its own custom
 zone registry, and pass this custom registry into the
 `atc_registrar_find_by_name()` or `atc_registrar_find_by_id()` functions.
