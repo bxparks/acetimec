@@ -1,10 +1,28 @@
 #ifndef ACE_TIME_C_COMMON_H
 #define ACE_TIME_C_COMMON_H
 
+/**
+ * @file common.h
+ *
+ * Some common shared typedefs, constants, and functions.
+ */
+
 #include <stddef.h> // size_t
 #include <stdint.h> // INT32_MIN
 
+/**
+ * The number of seconds from the epoch of this library
+ * which will usually be 2000-01-01 00:00:00 UTC.
+ */
 typedef int32_t atc_time_t;
+
+enum {
+  /** Error code to indicate success. */
+  kAtcErrOk = 0,
+
+  /** Error code to indicate generic failure. */
+  kAtcErrGeneric = 1,
+};
 
 enum {
   /** Base year of the AceTimeC epoch. */

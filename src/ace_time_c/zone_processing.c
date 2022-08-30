@@ -614,7 +614,7 @@ bool atc_processing_is_filled_for_year(
   return processing->is_filled && (year == processing->year);
 }
 
-bool atc_processing_init_for_year(
+int8_t atc_processing_init_for_year(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   int16_t year)
@@ -623,14 +623,14 @@ bool atc_processing_init_for_year(
     atc_processing_init(processing);
     processing->zone_info = zone_info;
   }
-  if (atc_processing_is_filled_for_year(processing, year)) return true;
+  if (atc_processing_is_filled_for_year(processing, year)) return kAtcErrOk;
 
   processing->year = year;
   processing->num_matches = 0;
   atc_transition_storage_init(&processing->transition_storage);
   const struct AtcZoneContext *context = processing->zone_info->zone_context;
   if (year < context->start_year - 1 || context->until_year < year) {
-    return false;
+    return kAtcErrGeneric;
   }
   struct AtcYearMonth start_ym = { (int8_t) (year - kAtcEpochYear - 1), 12 };
   struct AtcYearMonth until_ym = { (int8_t) (year - kAtcEpochYear + 1), 2 };
@@ -661,10 +661,10 @@ bool atc_processing_init_for_year(
   // Step 5: Calc abbreviations.
   atc_processing_calc_abbreviations(begin, end);
 
-  return true;
+  return kAtcErrOk;
 }
 
-bool atc_processing_init_for_epoch_seconds(
+int8_t atc_processing_init_for_epoch_seconds(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds)
@@ -675,17 +675,20 @@ bool atc_processing_init_for_epoch_seconds(
   }
 
   struct AtcLocalDateTime ldt;
-  bool status = atc_local_date_time_from_epoch_seconds(epoch_seconds, &ldt);
-  if (! status) return status;
-
+  int8_t err = atc_local_date_time_from_epoch_seconds(epoch_seconds, &ldt);
+  if (err) return err;
   return atc_processing_init_for_year(processing, zone_info, ldt.year);
 }
 
 //---------------------------------------------------------------------------
 
+/** The Transition that matches the given epoch seconds or local date time. */
 struct AtcMatchingTransition {
+  /** The matching AtcTransition. */
   const struct AtcTransition *transition;
-  uint8_t fold; // 1 if in the overlap, otherwise 0
+
+  /** 1 if in the overlap, otherwise 0 */
+  uint8_t fold;
 };
 
 static uint8_t atc_processing_calculate_fold(
@@ -790,68 +793,68 @@ static struct AtcTransitionResult atc_processing_find_transition_for_date_time(
 
 //---------------------------------------------------------------------------
 
-bool atc_processing_offset_date_time_from_epoch_seconds(
+int8_t atc_processing_offset_date_time_from_epoch_seconds(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds,
   struct AtcOffsetDateTime *odt)
 {
-  bool status = atc_processing_init_for_epoch_seconds(
+  int8_t err = atc_processing_init_for_epoch_seconds(
       processing,
       zone_info,
       epoch_seconds);
-  if (! status) return status;
+  if (err) return err;
 
   struct AtcMatchingTransition mt = atc_processing_find_transition_for_seconds(
       &processing->transition_storage, epoch_seconds);
   const struct AtcTransition *t = mt.transition;
-  if (! t) return false;
+  if (! t) return kAtcErrGeneric;
 
   int16_t total_offset_minutes = t->offset_minutes + t->delta_minutes;
-  status = atc_offset_date_time_from_epoch_seconds(
+  err = atc_offset_date_time_from_epoch_seconds(
       epoch_seconds, total_offset_minutes, odt);
-  if (! status) return status;
+  if (err) return err;
 
   odt->fold = mt.fold;
-  return true;
+  return kAtcErrOk;
 }
 
-bool atc_processing_transition_info_from_epoch_seconds(
+int8_t atc_processing_transition_info_from_epoch_seconds(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds,
   struct AtcTransitionInfo *ti)
 {
-  bool status = atc_processing_init_for_epoch_seconds(
+  int8_t err = atc_processing_init_for_epoch_seconds(
       processing,
       zone_info,
       epoch_seconds);
-  if (! status) return status;
+  if (err) return err;
 
   struct AtcMatchingTransition mt = atc_processing_find_transition_for_seconds(
       &processing->transition_storage, epoch_seconds);
   const struct AtcTransition *t = mt.transition;
-  if (! t) return false;
+  if (! t) return kAtcErrGeneric;
 
   ti->std_offset_minutes = t->offset_minutes;
   ti->dst_offset_minutes = t->delta_minutes;
   strncpy(ti->abbrev, t->abbrev, kAtcAbbrevSize);
   ti->abbrev[kAtcAbbrevSize - 1] = '\0';
 
-  return true;
+  return kAtcErrOk;
 }
 
 // Adapted from ExtendedZoneProcessor::getOffsetDateTime(const LocalDatetime&)
 // from ExtendedZoneProcessor in AceTime.
-bool atc_processing_offset_date_time_from_local_date_time(
+int8_t atc_processing_offset_date_time_from_local_date_time(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   const struct AtcLocalDateTime *ldt,
   uint8_t fold,
   struct AtcOffsetDateTime *odt)
 {
-  bool status = atc_processing_init_for_year(processing, zone_info, ldt->year);
-  if (! status) return status;
+  int8_t err = atc_processing_init_for_year(processing, zone_info, ldt->year);
+  if (err) return err;
 
   struct AtcTransitionResult result =
       atc_processing_find_transition_for_date_time(
@@ -873,7 +876,7 @@ bool atc_processing_offset_date_time_from_local_date_time(
     }
   }
 
-  if (! t) return false;
+  if (! t) return kAtcErrGeneric;
 
   odt->year = ldt->year;
   odt->month = ldt->month;
@@ -895,11 +898,11 @@ bool atc_processing_offset_date_time_from_local_date_time(
     const struct AtcTransition *othert = (fold == 0)
         ? result.transition1
         : result.transition0;
-    bool status = atc_offset_date_time_from_epoch_seconds(
+    int8_t err = atc_offset_date_time_from_epoch_seconds(
         epoch_seconds,
         othert->offset_minutes + othert->delta_minutes,
         odt);
-    if (! status) return status;
+    if (err) return err;
 
     // Invert the fold.
     // 1) The normalization process causes the LocalDateTime to jump to the
@@ -909,5 +912,5 @@ bool atc_processing_offset_date_time_from_local_date_time(
     odt->fold = 1 - fold;
   }
 
-  return true;
+  return kAtcErrOk;
 }

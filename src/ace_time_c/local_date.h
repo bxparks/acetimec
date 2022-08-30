@@ -3,6 +3,14 @@
  * Copyright (c) 2022 Brian T. Park
  */
 
+/**
+ * @file local_date.h
+ *
+ * Low-level date functions, for example, for calculating leap years, day of
+ * week, number of days in a specific month, and converting epoch seconds to
+ * date-time components.
+ */
+
 #ifndef ACE_TIME_C_LOCAL_DATE_H
 #define ACE_TIME_C_LOCAL_DATE_H
 
@@ -21,7 +29,7 @@ enum {
 };
 
 /** Return true if year is a leap year. */
-bool atc_is_leap_year(uint16_t year);
+bool atc_is_leap_year(int16_t year);
 
 /** Return the number of days in the month for the given year. */
 uint8_t atc_local_date_days_in_year_month(int16_t year, uint8_t month);
@@ -59,8 +67,13 @@ void atc_local_date_from_epoch_days(
 
 /** Local Date struct. */
 struct AtcLocalDate {
+  /** year [0,9999] */
   int16_t year;
+
+  /** month [1,12] */
   uint8_t month;
+
+  /** day [1,31] */
   uint8_t day;
 };
 

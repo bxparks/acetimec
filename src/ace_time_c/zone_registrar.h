@@ -3,6 +3,13 @@
  * Copyright (c) 2022 Brian T. Park
  */
 
+/**
+ * @file zone_registrar.h
+ *
+ * Functions to find the AtcZoneInfo from the human readable zone name,
+ * or the 32-bit zone ID identifier.
+ */
+
 #ifndef ACE_TIME_C_ZONE_REGISTRAR_H
 #define ACE_TIME_C_ZONE_REGISTRAR_H
 

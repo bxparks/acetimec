@@ -1,7 +1,9 @@
+#include <string.h>
 #include <acunit.h>
 #include <acetimec.h>
 
-ACU_TEST(test_zone_info)
+// Check handling of LINK and ZONE entries.
+ACU_TEST(test_zone_info_link)
 {
   // Verify that US/Pacific is a link
   ACU_ASSERT(atc_zone_info_is_link(&kAtcZoneUS_Pacific));
@@ -23,6 +25,26 @@ ACU_TEST(test_zone_info)
         atc_zone_info_era(&kAtcZoneAmerica_Los_Angeles, i)
         == atc_zone_info_era(&kAtcZoneUS_Pacific, i));
   }
+}
+
+// Check handling of long and short names.
+ACU_TEST(test_zone_info_names)
+{
+  // Check that they point to different names though.
+  ACU_ASSERT(strcmp(
+      atc_zone_info_zone_name(&kAtcZoneAmerica_Los_Angeles),
+      "America/Los_Angeles") == 0);
+  ACU_ASSERT(strcmp(
+      atc_zone_info_zone_name(&kAtcZoneUS_Pacific),
+      "US/Pacific") == 0);
+
+  // Verify short names
+  ACU_ASSERT(strcmp(
+      atc_zone_info_short_name(&kAtcZoneAmerica_Los_Angeles),
+      "Los_Angeles") == 0);
+  ACU_ASSERT(strcmp(
+      atc_zone_info_short_name(&kAtcZoneUS_Pacific),
+      "Pacific") == 0);
 }
 
 ACU_TEST(test_zone_era)
@@ -56,7 +78,8 @@ ACU_VARS();
 
 int main()
 {
-  ACU_RUN_TEST(test_zone_info);
+  ACU_RUN_TEST(test_zone_info_link);
+  ACU_RUN_TEST(test_zone_info_names);
   ACU_RUN_TEST(test_zone_era);
   ACU_RUN_TEST(test_zone_rule);
   ACU_SUMMARY();

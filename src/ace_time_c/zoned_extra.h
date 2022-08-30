@@ -7,7 +7,6 @@
 #define ACE_TIME_C_ZONED_EXTRA_H
 
 #include <stdint.h>
-#include <stdbool.h>
 #include "common.h"
 #include "zone_info.h"
 #include "zone_processing.h"
@@ -18,8 +17,11 @@
  * Should be identical to AtcTransitionInfo.
  */
 struct AtcZonedExtra {
-  int16_t std_offset_minutes; // STD offset
-  int16_t dst_offset_minutes; // DST offset
+  /** STD offset */
+  int16_t std_offset_minutes;
+  /** DST offset */
+  int16_t dst_offset_minutes;
+  /** abbreviation (e.g. PST, PDT) */
   char abbrev[kAtcAbbrevSize];
 };
 
@@ -27,7 +29,7 @@ struct AtcZonedExtra {
  * Extract the extra zone information at given epoch_seconds.
  * Returns true upon success, false upon error.
  */
-bool atc_zoned_extra_from_epoch_seconds(
+int8_t atc_zoned_extra_from_epoch_seconds(
     struct AtcZoneProcessing *processing,
     const struct AtcZoneInfo *zone_info,
     atc_time_t epoch_seconds,

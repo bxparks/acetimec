@@ -1,4 +1,5 @@
 #include <stdbool.h>
+#include <string.h>
 #include "zone_info_utils.h"
 
 //---------------------------------------------------------------------------
@@ -30,6 +31,28 @@ const struct AtcZoneEra *atc_zone_info_era(
   const struct AtcZoneInfo *actual_info = atc_zone_info_actual_info(info);
   const struct AtcZoneEra *eras = (const struct AtcZoneEra *) actual_info->eras;
   return &eras[i];
+}
+
+const char *atc_zone_info_zone_name(
+    const struct AtcZoneInfo *info)
+{
+  return info->name;
+}
+
+const char *atc_zone_info_short_name(
+    const struct AtcZoneInfo *info)
+{
+  size_t len = strlen(info->name);
+  const char* begin = info->name + len;
+  while (len--) {
+    begin--;
+    char c = *begin;
+    if (c == '/') {
+      begin++;
+      break;
+    }
+  }
+  return begin;
 }
 
 //---------------------------------------------------------------------------

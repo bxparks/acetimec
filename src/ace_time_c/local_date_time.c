@@ -21,7 +21,7 @@ atc_time_t atc_local_date_time_to_epoch_seconds(
   return days * 86400 + seconds;
 }
 
-bool atc_local_date_time_from_epoch_seconds(
+int8_t atc_local_date_time_from_epoch_seconds(
   atc_time_t epoch_seconds,
   struct AtcLocalDateTime *ldt)
 {
@@ -33,7 +33,7 @@ bool atc_local_date_time_from_epoch_seconds(
     ldt->hour = 0;
     ldt->minute = 0;
     ldt->second = 0;
-    return false;
+    return kAtcErrGeneric;
   }
 
   // Integer floor-division towards -infinity
@@ -54,5 +54,5 @@ bool atc_local_date_time_from_epoch_seconds(
   ldt->minute = minutes % 60;
   ldt->hour = minutes / 60;
 
-  return true;
+  return kAtcErrOk;
 }

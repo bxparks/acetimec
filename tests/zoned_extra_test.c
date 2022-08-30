@@ -10,12 +10,12 @@ ACU_TEST(test_atc_zoned_extra_from_epoch_seconds_invalid)
   struct AtcZonedExtra zet;
   atc_time_t epoch_seconds = kAtcInvalidEpochSeconds;
 
-  bool status = atc_zoned_extra_from_epoch_seconds(
+  int8_t err = atc_zoned_extra_from_epoch_seconds(
     &processing,
     &kAtcZoneEtc_UTC,
     epoch_seconds,
     &zet);
-  ACU_ASSERT(status == false);
+  ACU_ASSERT(err == kAtcErrGeneric);
 }
 
 ACU_TEST(test_zoned_extra_from_epoch_seconds_fall_back)
@@ -29,24 +29,24 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_fall_back)
   atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(&odt);
 
   struct AtcZonedExtra zet;
-  bool status = atc_zoned_extra_from_epoch_seconds(
+  int8_t err = atc_zoned_extra_from_epoch_seconds(
     &processing,
     &kAtcZoneAmerica_Los_Angeles,
     epoch_seconds,
     &zet);
-  ACU_ASSERT(status == true);
+  ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
   ACU_ASSERT(1*60 == zet.dst_offset_minutes);
   ACU_ASSERT(strcmp(zet.abbrev, "PDT") == 0);
 
   // Go forward an hour. Should be 01:29:00-08:00.
   epoch_seconds += 3600;
-  status = atc_zoned_extra_from_epoch_seconds(
+  err = atc_zoned_extra_from_epoch_seconds(
     &processing,
     &kAtcZoneAmerica_Los_Angeles,
     epoch_seconds,
     &zet);
-  ACU_ASSERT(status == true);
+  ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
   ACU_ASSERT(0*60 == zet.dst_offset_minutes);
   ACU_ASSERT(strcmp(zet.abbrev, "PST") == 0);
@@ -63,24 +63,24 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_spring_forward)
   atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(&odt);
 
   struct AtcZonedExtra zet;
-  bool status = atc_zoned_extra_from_epoch_seconds(
+  int8_t err = atc_zoned_extra_from_epoch_seconds(
     &processing,
     &kAtcZoneAmerica_Los_Angeles,
     epoch_seconds,
     &zet);
-  ACU_ASSERT(status == true);
+  ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
   ACU_ASSERT(0*60 == zet.dst_offset_minutes);
   ACU_ASSERT(strcmp(zet.abbrev, "PST") == 0);
 
   // An hour later, we spring forward to 03:29:00-07:00.
   epoch_seconds += 3600;
-  status = atc_zoned_extra_from_epoch_seconds(
+  err = atc_zoned_extra_from_epoch_seconds(
     &processing,
     &kAtcZoneAmerica_Los_Angeles,
     epoch_seconds,
     &zet);
-  ACU_ASSERT(status == true);
+  ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
   ACU_ASSERT(1*60 == zet.dst_offset_minutes);
   ACU_ASSERT(strcmp(zet.abbrev, "PDT") == 0);

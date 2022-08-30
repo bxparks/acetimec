@@ -12,24 +12,21 @@ static void atc_zoned_date_time_set_error(struct AtcZonedDateTime *zdt)
   zdt->zone_info = NULL;
 }
 
-bool atc_zoned_date_time_from_epoch_seconds(
+int8_t atc_zoned_date_time_from_epoch_seconds(
     struct AtcZoneProcessing *processing,
     const struct AtcZoneInfo *zone_info,
     atc_time_t epoch_seconds,
     struct AtcZonedDateTime *zdt)
 {
   atc_zoned_date_time_set_error(zdt);
-  if (epoch_seconds == kAtcInvalidEpochSeconds) return false;
+  if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
 
-  bool status = atc_processing_offset_date_time_from_epoch_seconds(
+  zdt->zone_info = zone_info;
+  return atc_processing_offset_date_time_from_epoch_seconds(
       processing,
       zone_info,
       epoch_seconds,
       (struct AtcOffsetDateTime *) zdt);
-  if (! status) return false;
-
-  zdt->zone_info = zone_info;
-  return true;
 }
 
 atc_time_t atc_zoned_date_time_to_epoch_seconds(
@@ -39,26 +36,23 @@ atc_time_t atc_zoned_date_time_to_epoch_seconds(
       (const struct AtcOffsetDateTime*) zdt);
 }
 
-bool atc_zoned_date_time_from_components(
+int8_t atc_zoned_date_time_from_local_date_time(
     struct AtcZoneProcessing *processing,
     const struct AtcZoneInfo *zone_info,
-    int16_t year, uint8_t month, uint8_t day,
-    uint8_t hour, uint8_t minute, uint8_t second,
+    const struct AtcLocalDateTime *ldt,
     uint8_t fold,
     struct AtcZonedDateTime *zdt)
 {
-  struct AtcLocalDateTime ldt = {
-    year, month, day, hour, minute, second
-  };
+  zdt->zone_info = zone_info;
   return atc_processing_offset_date_time_from_local_date_time(
       processing,
       zone_info,
-      &ldt,
+      ldt,
       fold,
       (struct AtcOffsetDateTime *) zdt);
 }
 
-bool atc_zoned_date_time_normalize(
+int8_t atc_zoned_date_time_normalize(
     struct AtcZoneProcessing *processing,
     struct AtcZonedDateTime *zdt)
 {

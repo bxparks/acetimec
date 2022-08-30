@@ -7,7 +7,6 @@
 #define ACE_TIME_C_ZONE_PROCESSING_H
 
 #include <stdint.h>
-#include <stdbool.h>
 #include "common.h" // atc_time_t
 #include "local_date_time.h" // AtcLocalDateTime
 #include "offset_date_time.h" // AtcOffsetDateTime
@@ -18,8 +17,12 @@
 // Conversion and accessor utilities.
 //---------------------------------------------------------------------------
 
+/** A tuple of month and day. */
 struct AtcMonthDay {
+  /** month [1,12] */
   uint8_t month;
+
+  /** day [1,31] */
   uint8_t day;
 };
 
@@ -57,10 +60,19 @@ enum {
   kAtcSearchStatusOverlap = 2,
 };
 
+/**
+ * The transition search result at a particular epoch second or local date
+ * time.
+ */
 struct AtcTransitionResult {
-  const struct AtcTransition *transition0; // fold==0
-  const struct AtcTransition *transition1; // fold==1
-  int8_t search_status; // 0-gap, 1=exact, 2=overlap
+  /** Transition for fold==0 */
+  const struct AtcTransition *transition0;
+
+  /** Transition for fold==1 */
+  const struct AtcTransition *transition1;
+
+  /** Result of search: 0=gap, 1=exact, 2=overlap */
+  int8_t search_status;
 };
 
 /**
@@ -106,39 +118,56 @@ uint8_t atc_processing_calc_interior_years(
  * causes the internal cache to be wiped and recreated.
  */
 struct AtcZoneProcessing {
+  /** The time zone attached to this Processing workspace. */
   const struct AtcZoneInfo *zone_info;
-  int16_t year; // maybe create LocalDate::kInvalidYear?
+
+  /** Cache year [0,9999] */
+  int16_t year;
+
+  /** True if the cache is valid. */
   uint8_t is_filled;
-  uint8_t num_matches; // actual number of matches
+
+  /** Number of valid matches in the array. */
+  uint8_t num_matches;
+
+  /** The matching eras for the current zone and year. */
   struct AtcMatchingEra matches[kAtcMaxMatches];
+
+  /** Pool of transitions relevant for the current zone and year */
   struct AtcTransitionStorage transition_storage;
 };
 
 //---------------------------------------------------------------------------
 
-/** Initialize AtcZoneProcessing. Should be called once in the app. */
+/**
+ * Initialize AtcZoneProcessing data structure. This needs to be called only
+ * once for each instance of AtcZoneProcessing.
+ */
 void atc_processing_init(struct AtcZoneProcessing *processing);
 
-/** Initialize AtcZoneProcessing for the given zone_info and year. */
-bool atc_processing_init_for_year(
+/**
+ * Initialize AtcZoneProcessing for the given zone_info and year.
+ * Return non-zero error code upon failure.
+ */
+int8_t atc_processing_init_for_year(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   int16_t year);
 
 /**
  * Initialize AtcZoneProcessing for the given zone_info and epoch seconds.
- * Return true upon sucess.
+ * Return non-zero error code upon failure.
  */
-bool atc_processing_init_for_epoch_seconds(
+int8_t atc_processing_init_for_epoch_seconds(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds);
 
 /**
  * Convert epoch_seconds to an AtcOffsetDateTime using the given zone_info.
- * Return true upon success.
+ * Return non-zero error code upon failure.
  */
-bool atc_processing_offset_date_time_from_epoch_seconds(
+int8_t atc_processing_offset_date_time_from_epoch_seconds(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds,
@@ -146,9 +175,9 @@ bool atc_processing_offset_date_time_from_epoch_seconds(
 
 /**
  * Convert the LocalDateTime to OffsetDateTime using the given zone_info.
- * Return true upon success.
+ * Return non-zero error code upon failure.
  */
-bool atc_processing_offset_date_time_from_local_date_time(
+int8_t atc_processing_offset_date_time_from_local_date_time(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   const struct AtcLocalDateTime *ldt,
@@ -157,19 +186,25 @@ bool atc_processing_offset_date_time_from_local_date_time(
 
 //---------------------------------------------------------------------------
 
-/** Additional meta information about the transition. */
+/**
+ * Additional meta information about the transition. Should be identical to
+ * AtcZoneExtra.
+ */
 struct AtcTransitionInfo {
-  int16_t std_offset_minutes; // STD offset
-  int16_t dst_offset_minutes; // DST offset
+  /** STD offset */
+  int16_t std_offset_minutes;
+  /** DST offset */
+  int16_t dst_offset_minutes;
+  /** abbreviation (e.g. PST, PDT) */
   char abbrev[kAtcAbbrevSize];
 };
 
 /**
  * Find the AtcTransitionInfo (i.e. STD offset, DST offset, abbrev)
  * at the given epoch_seconds.
- * Return true on success, false if there's an error.
+ * Return non-zero error code upon failure.
  */
-bool atc_processing_transition_info_from_epoch_seconds(
+int8_t atc_processing_transition_info_from_epoch_seconds(
   struct AtcZoneProcessing *processing,
   const struct AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds,
@@ -181,7 +216,9 @@ bool atc_processing_transition_info_from_epoch_seconds(
 
 /** A tuple of (year_tiny, month). */
 struct AtcYearMonth {
+  /** (year-kEpochYear) [-126, 126] */
   int8_t year_tiny;
+  /** month [1,12] */
   uint8_t month;
 };
 

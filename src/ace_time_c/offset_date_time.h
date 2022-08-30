@@ -3,6 +3,14 @@
  * Copyright (c) 2022 Brian T. Park
  */
 
+/**
+ * @file offset_date_time.h
+ *
+ * Functions that relate to the local date time along with a UTC offset measured
+ * in minutes. For example, this can be used to represent a fixed offset from
+ * UTC, such as "2022-08-30 14:45:00-08:00".
+ */
+
 #ifndef ACE_TIME_C_OFFSET_DATE_TIME_H
 #define ACE_TIME_C_OFFSET_DATE_TIME_H
 
@@ -23,15 +31,23 @@
  * the parameter is exposed to the user only when the user needs.
  */
 struct AtcOffsetDateTime {
+  /** year [0,9999] */
   int16_t year;
+  /** month [1,12] */
   uint8_t month;
+  /** day [1,31] */
   uint8_t day;
 
+  /** hour [0-23] */
   uint8_t hour;
+  /** minute [0, 59] */
   uint8_t minute;
+  /** second [0, 59] */
   uint8_t second;
+  /** fold [0,1] */
   uint8_t fold;
 
+  /** offset_minutes [-840, 960] */
   int16_t offset_minutes;
 };
 
@@ -41,9 +57,10 @@ atc_time_t atc_offset_date_time_to_epoch_seconds(
 
 /**
  * Create the AtcOffsetDateTime from the epoch_seconds and total offset minutes.
- * Returns true upon success. The 'fold' parameter is explicitly set to 0.
+ * The 'fold' parameter is explicitly set to 0.
+ * Returns non-zero error code upon failure.
  */
-bool atc_offset_date_time_from_epoch_seconds(
+int8_t atc_offset_date_time_from_epoch_seconds(
     atc_time_t epoch_seconds,
     int16_t offset_minutes,
     struct AtcOffsetDateTime *odt);

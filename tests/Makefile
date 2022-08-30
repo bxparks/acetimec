@@ -1,4 +1,5 @@
-CFLAGS := -Wall -Wextra -Werror -ansi -pedantic -std=c11 -I../../ACUnit/src \
+CFLAGS := -std=c11 -Wall -Wextra -Werror -pedantic \
+	-I../../ACUnit/src \
 	-I../src
 
 TARGETS := \
