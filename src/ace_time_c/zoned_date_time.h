@@ -3,6 +3,13 @@
  * Copyright (c) 2022 Brian T. Park
  */
 
+/**
+ * @file zoned_date_time.h
+ *
+ * Functions that relate to the date time with a reference to a specific time
+ * zone. For example, "2022-08-30 14:45:00-08:00 [America/Los_Angeles]".
+ */
+
 #ifndef ACE_TIME_C_ZONED_DATE_TIME_H
 #define ACE_TIME_C_ZONED_DATE_TIME_H
 
@@ -18,17 +25,26 @@ struct AtcZoneInfo;
  *    * ZonedDateTime from AceTime library
  */
 struct AtcZonedDateTime {
+  /** year [0,9999] */
   int16_t year;
+  /** month [1,12] */
   uint8_t month;
+  /** day [1,31] */
   uint8_t day;
 
+  /** hour [0-23] */
   uint8_t hour;
+  /** minute [0, 59] */
   uint8_t minute;
+  /** second [0, 59] */
   uint8_t second;
+  /** fold [0,1] */
   uint8_t fold;
 
+  /** offset_minutes [-840, 960] */
   int16_t offset_minutes;
-  const struct AtcZoneInfo *zone_info; /* non-nullable */
+  /** Identifies the time zone. Non-nullable. */
+  const struct AtcZoneInfo *zone_info;
 };
 
 /**

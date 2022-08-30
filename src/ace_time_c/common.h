@@ -1,6 +1,12 @@
 #ifndef ACE_TIME_C_COMMON_H
 #define ACE_TIME_C_COMMON_H
 
+/**
+ * @file common.h
+ *
+ * Some common shared typedefs, constants, and functions.
+ */
+
 #include <stddef.h> // size_t
 #include <stdint.h> // INT32_MIN
 

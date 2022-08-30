@@ -3,6 +3,13 @@
  * Copyright (c) 2022 Brian T. Park
  */
 
+/**
+ * @file local_date_time.h
+ *
+ * Functions that relate to the local date time, without any reference to the
+ * time zone.
+ */
+
 #ifndef ACE_TIME_C_LOCAL_DATE_TIME_H
 #define ACE_TIME_C_LOCAL_DATE_TIME_H
 
@@ -14,11 +21,17 @@
  * struct holds the date time fields in UTC, but not always.
  */
 struct AtcLocalDateTime {
+  /** year [0,9999] */
   int16_t year;
+  /** month [1,12] */
   uint8_t month;
+  /** day [1,31] */
   uint8_t day;
+  /** hour [0-23] */
   uint8_t hour;
+  /** minute [0, 59] */
   uint8_t minute;
+  /** second [0, 59] */
   uint8_t second;
 };
 

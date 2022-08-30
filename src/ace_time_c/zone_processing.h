@@ -17,8 +17,12 @@
 // Conversion and accessor utilities.
 //---------------------------------------------------------------------------
 
+/** A tuple of month and day. */
 struct AtcMonthDay {
+  /** month [1,12] */
   uint8_t month;
+
+  /** day [1,31] */
   uint8_t day;
 };
 
@@ -56,10 +60,19 @@ enum {
   kAtcSearchStatusOverlap = 2,
 };
 
+/**
+ * The transition search result at a particular epoch second or local date
+ * time.
+ */
 struct AtcTransitionResult {
-  const struct AtcTransition *transition0; // fold==0
-  const struct AtcTransition *transition1; // fold==1
-  int8_t search_status; // 0-gap, 1=exact, 2=overlap
+  /** Transition for fold==0 */
+  const struct AtcTransition *transition0;
+
+  /** Transition for fold==1 */
+  const struct AtcTransition *transition1;
+
+  /** Result of search: 0=gap, 1=exact, 2=overlap */
+  int8_t search_status;
 };
 
 /**
@@ -105,11 +118,22 @@ uint8_t atc_processing_calc_interior_years(
  * causes the internal cache to be wiped and recreated.
  */
 struct AtcZoneProcessing {
+  /** The time zone attached to this Processing workspace. */
   const struct AtcZoneInfo *zone_info;
-  int16_t year; // maybe create LocalDate::kInvalidYear?
+
+  /** Cache year [0,9999] */
+  int16_t year;
+
+  /** True if the cache is valid. */
   uint8_t is_filled;
-  uint8_t num_matches; // actual number of matches
+
+  /** Number of valid matches in the array. */
+  uint8_t num_matches;
+
+  /** The matching eras for the current zone and year. */
   struct AtcMatchingEra matches[kAtcMaxMatches];
+
+  /** Pool of transitions relevant for the current zone and year */
   struct AtcTransitionStorage transition_storage;
 };
 
@@ -162,10 +186,16 @@ int8_t atc_processing_offset_date_time_from_local_date_time(
 
 //---------------------------------------------------------------------------
 
-/** Additional meta information about the transition. */
+/**
+ * Additional meta information about the transition. Should be identical to
+ * AtcZoneExtra.
+ */
 struct AtcTransitionInfo {
-  int16_t std_offset_minutes; // STD offset
-  int16_t dst_offset_minutes; // DST offset
+  /** STD offset */
+  int16_t std_offset_minutes;
+  /** DST offset */
+  int16_t dst_offset_minutes;
+  /** abbreviation (e.g. PST, PDT) */
   char abbrev[kAtcAbbrevSize];
 };
 
@@ -186,7 +216,9 @@ int8_t atc_processing_transition_info_from_epoch_seconds(
 
 /** A tuple of (year_tiny, month). */
 struct AtcYearMonth {
+  /** (year-kEpochYear) [-126, 126] */
   int8_t year_tiny;
+  /** month [1,12] */
   uint8_t month;
 };
 

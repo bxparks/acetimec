@@ -17,8 +17,11 @@
  * Should be identical to AtcTransitionInfo.
  */
 struct AtcZonedExtra {
-  int16_t std_offset_minutes; // STD offset
-  int16_t dst_offset_minutes; // DST offset
+  /** STD offset */
+  int16_t std_offset_minutes;
+  /** DST offset */
+  int16_t dst_offset_minutes;
+  /** abbreviation (e.g. PST, PDT) */
   char abbrev[kAtcAbbrevSize];
 };
 

@@ -26,11 +26,20 @@
  * does not change the overall sizeof(AtcDateTuple).
  */
 struct AtcDateTuple {
-  int8_t year_tiny; // [-127, 126], 127 will cause bugs
-  uint8_t month; // [1-12]
-  uint8_t day; // [1-31]
-  int16_t minutes; // negative values allowed
-  uint8_t suffix; // kAtcSuffixS, kAtcSuffixW, kAtcSuffixU
+  /** [-127, 126], 127 will cause bugs */
+  int8_t year_tiny;
+
+  /** [1-12] */
+  uint8_t month;
+
+  /** [1-31] */
+  uint8_t day;
+
+  /** negative values allowed */
+  int16_t minutes;
+
+  /** kAtcSuffixS, kAtcSuffixW, kAtcSuffixU */
+  uint8_t suffix;
 };
 
 /** Compare a to b, ignoring the suffix. */
@@ -108,6 +117,10 @@ struct AtcMatchingEra {
   int16_t last_delta_minutes;
 };
 
+/**
+ * A transition from one DST rule to another, and the time period which
+ * that rule is valid for.
+ */
 struct AtcTransition {
   /** The matching_era which generated this Transition. */
   const struct AtcMatchingEra *match;
@@ -199,10 +212,15 @@ struct AtcTransition {
 
 /** The list of transitions for a given time zone. */
 struct AtcTransitionStorage {
+  /** A pool of AtcTransition objects. */
   struct AtcTransition transition_pool[kAtcTransitionStorageSize];
+  /** Pointers into the pool of AtcTransition objects. */
   struct AtcTransition *transitions[kAtcTransitionStorageSize];
+  /** Index of the most recent prior transition [0,kAtcTransitionStorageSize) */
   uint8_t index_prior;
+  /** Index of the candidate pool [0,kAtcTransitionStorageSize) */
   uint8_t index_candidate;
+  /** Index of the free agent transition [0, kAtcTransitionStorageSize) */
   uint8_t index_free;
 
   /** Number of allocated transitions. */

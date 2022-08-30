@@ -682,9 +682,13 @@ int8_t atc_processing_init_for_epoch_seconds(
 
 //---------------------------------------------------------------------------
 
+/** The Transition that matches the given epoch seconds or local date time. */
 struct AtcMatchingTransition {
+  /** The matching AtcTransition. */
   const struct AtcTransition *transition;
-  uint8_t fold; // 1 if in the overlap, otherwise 0
+
+  /** 1 if in the overlap, otherwise 0 */
+  uint8_t fold;
 };
 
 static uint8_t atc_processing_calculate_fold(

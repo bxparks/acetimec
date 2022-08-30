@@ -3,6 +3,13 @@
  * Copyright (c) 2022 Brian T. Park
  */
 
+/**
+ * @file zone_info.h
+ *
+ * The data structures in the zone database, with the AtcZoneInfo representing
+ * a specific time zone.
+ */
+
 #ifndef ACE_TIME_C_ZONE_INFO_H
 #define ACE_TIME_C_ZONE_INFO_H
 
@@ -133,9 +140,16 @@ struct AtcZoneRule {
  * be an offset into this array of pointers.
  */
 struct AtcZonePolicy {
+  /** Pointer to array of rules. */
   const struct AtcZoneRule* const rules;
+
+  /** Pointer to an array of DST letters (e.g. "D", "S"). */
   const char* const* const letters;
+
+  /** Number of rules in array. */
   uint8_t const num_rules;
+
+  /** Number of letters in array. */
   uint8_t const num_letters;
 };
 
@@ -152,6 +166,7 @@ enum {
   kAtcSuffixU = 0x20,
 };
 
+/** Information about the zone database. */
 struct AtcZoneContext {
   /*
    * Epoch year. Currently always 2000 but could change in the future. We're
