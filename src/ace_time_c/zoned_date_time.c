@@ -53,6 +53,18 @@ int8_t atc_zoned_date_time_from_local_date_time(
       (struct AtcOffsetDateTime *) zdt);
 }
 
+int8_t atc_zoned_date_time_from_zoned_date_time(
+    struct AtcZoneProcessing *processing,
+    const struct AtcZoneInfo *zone_info,
+    const struct AtcZonedDateTime *src,
+    struct AtcZonedDateTime *dst)
+{
+  atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(src);
+  if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
+  return atc_zoned_date_time_from_epoch_seconds(
+      processing, zone_info, epoch_seconds, dst);
+}
+
 int8_t atc_zoned_date_time_normalize(
     struct AtcZoneProcessing *processing,
     struct AtcZonedDateTime *zdt)

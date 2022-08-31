@@ -78,7 +78,20 @@ int8_t atc_zoned_date_time_from_local_date_time(
     struct AtcZonedDateTime *zdt);
 
 /**
+ * Convert the source AtcZoneDateTime (src) into the destination
+ * AtcZonedDateTime (dst) using a different time zone. The src and dst is
+ * permitted to be the same instance. Returns kAtcErrGeneric upon failure.
+ */
+int8_t atc_zoned_date_time_from_zoned_date_time(
+    struct AtcZoneProcessing *processing,
+    const struct AtcZoneInfo *zone_info,
+    const struct AtcZonedDateTime *src,
+    struct AtcZonedDateTime *dst);
+
+/**
  * Normalize the date time components for given time zone.
+ * This is useful after performing arithmetic operations on the date or time
+ * components (e.g. incrementing the day by one).
  * Return non-zero error code upon failure.
  */
 int8_t atc_zoned_date_time_normalize(

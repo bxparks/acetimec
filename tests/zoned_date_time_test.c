@@ -515,6 +515,38 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_after_overlap)
 
 //---------------------------------------------------------------------------
 
+ACU_TEST(test_zoned_date_time_from_zoned_date_time)
+{
+  struct AtcZoneProcessing los_angeles;
+  struct AtcZoneProcessing new_york;
+
+  atc_processing_init(&los_angeles);
+  atc_processing_init(&new_york);
+
+  struct AtcLocalDateTime ldt = { 2022, 8, 30, 20, 0, 0 };
+  struct AtcZonedDateTime ladt;
+  int8_t err = atc_zoned_date_time_from_local_date_time(
+      &los_angeles, &kAtcZoneAmerica_Los_Angeles, &ldt, 0 /*fold*/, &ladt);
+  ACU_ASSERT(err == kAtcErrOk);
+
+  struct AtcZonedDateTime nydt;
+  atc_zoned_date_time_from_zoned_date_time(
+      &new_york, &kAtcZoneAmerica_New_York, &ladt, &nydt);
+
+  ACU_ASSERT(err == kAtcErrOk);
+  ACU_ASSERT(nydt.year == 2022);
+  ACU_ASSERT(nydt.month == 8);
+  ACU_ASSERT(nydt.day == 30);
+  ACU_ASSERT(nydt.hour == 23);
+  ACU_ASSERT(nydt.minute == 0);
+  ACU_ASSERT(nydt.second == 0);
+  ACU_ASSERT(nydt.fold == 0);
+  ACU_ASSERT(nydt.offset_minutes == -4*60);
+  ACU_ASSERT(nydt.zone_info == &kAtcZoneAmerica_New_York);
+}
+
+//---------------------------------------------------------------------------
+
 ACU_VARS();
 
 int main()
@@ -530,5 +562,6 @@ int main()
   ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_in_dst);
   ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_before_sdt);
   ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_in_overlap);
+  ACU_RUN_TEST(test_zoned_date_time_from_zoned_date_time);
   ACU_SUMMARY();
 }
