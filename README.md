@@ -55,11 +55,13 @@ The expected usage is something like this:
 #include <acetimec.h>
 
 struct AtcZoneProcessing los_angeles_processing;
+struct AtcZoneProcessing new_york_processing;
 
 // initialize the time zone processing workspace
 void setup()
 {
   atc_processing_init(&los_angeles_processing);
+  atc_processing_init(&new_york_processing);
 }
 
 void do_something()
@@ -87,10 +89,19 @@ void do_something()
     &los_angeles_processing,
     &kAtcZoneAmerica_Los_Angeles,
     &ldt,
-    fold,
+    0 /*fold*/,
     &zdt);
   if (err) { /*error*/ }
   ...
+
+  // convert America/Los_Angles to America/New_York
+  struct AtcZonedDateTime nydt;
+  err = atc_zoned_date_time_from_local_date_time(
+    &new_york_processing,
+    &kAtcZoneAmerica_New_York,
+    &zdt,
+    &nydt);
+  if (err) { /*error*/ }
 }
 ```
 
@@ -287,7 +298,7 @@ struct AtcZonedDateTime {
 The initial memory layout of `AtcZonedDateTime` was designed to be identical to
 `AtcOffsetDateTime`.
 
-There are 4 functions which operate on the `AtcZonedDateTime`:
+The following functions operate on the `AtcZonedDateTime`:
 
 ```C
 atc_time_t atc_zoned_date_time_to_epoch_seconds(
@@ -306,6 +317,12 @@ int8_t atc_zoned_date_time_from_local_date_time(
     uint8_t fold,
     struct AtcZonedDateTime *zdt);
 
+int8_t atc_zoned_date_time_from_zoned_date_time(
+    struct AtcZoneProcessing *dst_processing,
+    const struct AtcZoneInfo *dst_zone_info,
+    const struct AtcLocalDateTime *src,
+    struct AtcZonedDateTime *dst);
+
 int8_t atc_zoned_date_time_normalize(
     struct AtcZoneProcessing *processing,
     struct AtcZonedDateTime *zdt);
@@ -315,14 +332,6 @@ The `atc_zoned_date_time_to_epoch_seconds()` function converts the given
 `AtcZonedDateTime` into its `atc_time_t` epoch seconds, taking into account the
 time zone defined by the `zone_info` field inside the `AtcZonedDatetime`. If an
 error occurs, the function returns `kAtcInvalidEpochSeconds`.
-
-The `fold` parameter is ignored in most cases. However, there are situations for
-certain time zones, during certain parts of the year, when a range of local time
-is repeated during a DST time shift. For example, in North America, the time
-zone changes from DST to Standard time at 2am, which means that the wall clock
-from 01:00 to 02:00 are repeated. The `fold` parameter disambiguates the 2 sets
-of local time, so that `fold=0` indicates the first time it was seen, and
-`fold=1` indicates the second time it was seen.
 
 The `atc_offset_date_time_from_epoch_seconds()` function converts the given
 `epoch_seconds` and `zone_info` into the `AtcZonedDateTime` components. If an
@@ -338,20 +347,37 @@ most cases, the `fold` parameter has no effect. But for cases where a local wall
 clock occurs twice (e.g. during a DST to Standard time shift), the `fold`
 parameter disambiguates the multiple occurrence of the local time.
 
-During a shift from Standard time to DST, it is possible that a particular local
-time does not exist (e.g. during a shift from 02:00 to 03:00, an entire hour
-does not exist in the local time). The `fold` parameter determines how to handle
-non-existent times.
+The `atc_zoned_date_time_from_zoned_date_time()` function converts an
+`AtcZonedDateTime` instance from one time zone to another. The `src` instance
+contains the original time zone. The `dst` instance will contain the date-time
+of the time zone represented by `dst_zone_info`.
 
-* When `fold=0`, the given local date time is assumed to be using the *earlier*
-  UTC offset, which causes the effective epoch seconds to be the *later* one,
-  which then gets normalized to the *later* `AtcZonedDateTime`.
-* When `fold=1`, the given local date time is assumed to be using the *later*
-  UTC offset, which causes the effective epoch seconds to be the *earlier* one,
-  which then gets normalized to the *earlier* `AtcZonedDateTime`.
+The `fold` parameter occurs in 2 places, as an input parameter of one the above
+functions, and as an output parameter in the `AtcZonedDateTime` data structure.
+The `fold` parameter serves to disambiguate certain local date-time instances
+where the time occurs twice, or does not exist at all.
 
-This convention is meant to be identical to the one described by the Python [PEP
-495](https://www.python.org/dev/peps/pep-0495/).
+For example, in the autumn in North America, the wall clock changes from 02:00
+(DST) to 01:00 (Standard). This means means that the wall clock from 01:00 to
+02:00 occur twice. In the spring time, the wall clock changes from 02:00 to
+03:00, which means there is a gap where the times do not exist at all.
+
+During a repeat:
+
+* `fold=0` indicates the earlier of the 2 repeated time,
+* `fold=1` indicates the later of the 2 repeated time.
+
+During a gap:
+
+* `fold=0` indicates that the *earlier* UTC offset should be used, which causes
+  the effective epoch seconds to be the *later* one, which then gets normalized
+  to the *later* `AtcZonedDateTime`.
+* `fold=1` that the *later* UTC offset, which causes the effective epoch seconds
+  to be the *earlier* one, which then gets normalized to the *earlier*
+  `AtcZonedDateTime`.
+
+These conventions are meant to be identical to the one described by the Python
+[PEP 495](https://www.python.org/dev/peps/pep-0495/) document.
 
 <a name="AtcZoneProcessing"></a>
 ### AtcZoneProcessing
