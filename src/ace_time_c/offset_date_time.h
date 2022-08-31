@@ -16,6 +16,7 @@
 
 #include <stdint.h>
 #include "common.h" // atc_time_t
+#include "string_buffer.h"
 
 /**
  * Date and time fields with a UTC offset in minutes.
@@ -64,5 +65,10 @@ int8_t atc_offset_date_time_from_epoch_seconds(
     atc_time_t epoch_seconds,
     int16_t offset_minutes,
     struct AtcOffsetDateTime *odt);
+
+/** Print the offset date time in ISO 8601 format. */
+void atc_offset_date_time_print(
+    struct AtcStringBuffer *sb,
+    const struct AtcOffsetDateTime *odt);
 
 #endif

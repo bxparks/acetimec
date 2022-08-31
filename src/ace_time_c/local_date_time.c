@@ -56,3 +56,20 @@ int8_t atc_local_date_time_from_epoch_seconds(
 
   return kAtcErrOk;
 }
+
+void atc_local_date_time_print(
+    struct AtcStringBuffer *sb,
+    const struct AtcLocalDateTime *ldt)
+{
+  atc_print_uint16_pad4(sb, ldt->year);
+  atc_print_char(sb, '-');
+  atc_print_uint16_pad2(sb, ldt->month);
+  atc_print_char(sb, '-');
+  atc_print_uint16_pad2(sb, ldt->day);
+  atc_print_char(sb, 'T');
+  atc_print_uint16_pad2(sb, ldt->hour);
+  atc_print_char(sb, ':');
+  atc_print_uint16_pad2(sb, ldt->minute);
+  atc_print_char(sb, ':');
+  atc_print_uint16_pad2(sb, ldt->second);
+}

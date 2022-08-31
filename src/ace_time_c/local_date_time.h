@@ -15,6 +15,7 @@
 
 #include <stdint.h>
 #include "common.h"
+#include "string_buffer.h"
 
 /**
  * Date and time fields which are independent of the time zone. Often this
@@ -49,5 +50,10 @@ atc_time_t atc_local_date_time_to_epoch_seconds(
 int8_t atc_local_date_time_from_epoch_seconds(
   atc_time_t epoch_seconds,
   struct AtcLocalDateTime *ldt);
+
+/** Print the local date time in ISO 8601 format. */
+void atc_local_date_time_print(
+    struct AtcStringBuffer *sb,
+    const struct AtcLocalDateTime *ldt);
 
 #endif

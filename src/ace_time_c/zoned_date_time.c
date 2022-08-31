@@ -6,6 +6,7 @@
 #include "local_date_time.h"
 #include "zone_processing.h"
 #include "zoned_date_time.h"
+#include "zone_info_utils.h"
 
 static void atc_zoned_date_time_set_error(struct AtcZonedDateTime *zdt)
 {
@@ -71,4 +72,14 @@ int8_t atc_zoned_date_time_normalize(
       &ldt,
       zdt->fold,
       (struct AtcOffsetDateTime *) zdt);
+}
+
+void atc_zoned_date_time_print(
+    struct AtcStringBuffer *sb,
+    const struct AtcZonedDateTime *zdt)
+{
+  atc_offset_date_time_print(sb, (const struct AtcOffsetDateTime *) zdt);
+  atc_print_char(sb, '[');
+  atc_print_string(sb, atc_zone_info_zone_name(zdt->zone_info));
+  atc_print_char(sb, ']');
 }

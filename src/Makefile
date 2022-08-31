@@ -5,6 +5,7 @@ OBJS := \
 	ace_time_c/local_date.o \
 	ace_time_c/local_date_time.o \
 	ace_time_c/offset_date_time.o \
+	ace_time_c/string_buffer.o \
 	ace_time_c/transition.o \
 	ace_time_c/zone_info_utils.o \
 	ace_time_c/zone_processing.o \
