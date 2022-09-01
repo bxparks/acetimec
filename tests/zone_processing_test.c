@@ -12,7 +12,7 @@
 //---------------------------------------------------------------------------
 
 ACU_TEST(test_atc_compare_era_to_year_month) {
-  const struct AtcZoneEra era = {NULL, "", 0, 0, 0, 1, 2, 12, kAtcSuffixW};
+  const AtcZoneEra era = {NULL, "", 0, 0, 0, 1, 2, 12, kAtcSuffixW};
 
   ACU_ASSERT(1 == atc_compare_era_to_year_month(&era, 0, 1));
   ACU_ASSERT(1 == atc_compare_era_to_year_month(&era, 0, 1));
@@ -21,7 +21,7 @@ ACU_TEST(test_atc_compare_era_to_year_month) {
 }
 
 ACU_TEST(test_atc_compare_era_to_year_month_equal) {
-  const struct AtcZoneEra era2 = {NULL, "", 0, 0, 0, 1, 0, 0, kAtcSuffixW};
+  const AtcZoneEra era2 = {NULL, "", 0, 0, 0, 1, 0, 0, kAtcSuffixW};
   ACU_ASSERT(0 == atc_compare_era_to_year_month(&era2, 0, 1));
 }
 
@@ -29,26 +29,26 @@ ACU_TEST(test_atc_compare_era_to_year_month_equal) {
 
 ACU_TEST(test_atc_create_matching_era) {
   // 14-month interval, from 2000-12 until 2002-02
-  struct AtcYearMonth start_ym = {0, 12};
-  struct AtcYearMonth until_ym = {2, 2};
+  AtcYearMonth start_ym = {0, 12};
+  AtcYearMonth until_ym = {2, 2};
 
   // UNTIL = 2000-12-02 3:00
-  const struct AtcZoneEra era1 =
+  const AtcZoneEra era1 =
       {NULL, "", 0, 0, 0 /*y*/, 12/*m*/, 2/*d*/, 3*(60/15),
       kAtcSuffixW};
 
   // UNTIL = 2001-02-03 4:00
-  const struct AtcZoneEra era2 =
+  const AtcZoneEra era2 =
       {NULL, "", 0, 0, 1/*y*/, 2/*m*/, 3/*d*/, 4*(60/15),
       kAtcSuffixW};
 
   // UNTIL = 2002-10-11 4:00
-  const struct AtcZoneEra era3 =
+  const AtcZoneEra era3 =
       {NULL, "", 0, 0, 2/*y*/, 10/*m*/, 11/*d*/, 4*(60/15),
       kAtcSuffixW};
 
   // No previous matching era, so start_dt is set to start_ym.
-  struct AtcMatchingEra match1;
+  AtcMatchingEra match1;
   atc_create_matching_era(
       &match1,
       NULL /*prevMatch*/,
@@ -71,7 +71,7 @@ ACU_TEST(test_atc_create_matching_era) {
 
   // start_dt is set to the prevMatch.until_dt.
   // until_dt is < until_ym, so is retained.
-  struct AtcMatchingEra match2;
+  AtcMatchingEra match2;
   atc_create_matching_era(
       &match2,
       &match1,
@@ -94,7 +94,7 @@ ACU_TEST(test_atc_create_matching_era) {
 
   // start_dt is set to the prevMatch.until_dt.
   // until_dt is > until_ym so truncated to until_ym.
-  struct AtcMatchingEra match3;
+  AtcMatchingEra match3;
   atc_create_matching_era(
       &match3,
       &match2,
@@ -121,7 +121,7 @@ ACU_TEST(test_atc_create_matching_era) {
 // (i.e. no references to a ZonePolicy). Valid only for 2018.
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneContext kZoneContext = {
+static const AtcZoneContext kZoneContext = {
   2000 /*startYear*/,
   2020 /*untilYear*/,
   "testing" /*tzVersion*/,
@@ -130,7 +130,7 @@ static const struct AtcZoneContext kZoneContext = {
 };
 
 // Create simplified ZoneEras which approximate America/Los_Angeles
-static const struct AtcZoneEra kZoneEraAlmostLosAngeles[] = {
+static const AtcZoneEra kZoneEraAlmostLosAngeles[] = {
   {
     NULL,
     "PST" /*format*/,
@@ -166,7 +166,7 @@ static const struct AtcZoneEra kZoneEraAlmostLosAngeles[] = {
   },
 };
 
-static const struct AtcZoneInfo kZoneAlmostLosAngeles = {
+static const AtcZoneInfo kZoneAlmostLosAngeles = {
   "Almost_Los_Angeles" /*name*/,
   0x70166020 /*zoneId*/,
   &kZoneContext /*zoneContext*/,
@@ -178,7 +178,7 @@ static const struct AtcZoneInfo kZoneAlmostLosAngeles = {
 // A real ZoneInfo for America/Los_Angeles. Taken from zonedbx/zone_infos.cpp.
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kZoneRulesTestUS[] = {
+static const AtcZoneRule kZoneRulesTestUS[] = {
   // Rule    US    1967    2006    -    Oct    lastSun    2:00    0    S
   {
     -33 /*fromYearTiny*/,
@@ -242,14 +242,14 @@ static const struct AtcZoneRule kZoneRulesTestUS[] = {
 
 };
 
-static const struct AtcZonePolicy kPolicyTestUS = {
+static const AtcZonePolicy kPolicyTestUS = {
   kZoneRulesTestUS /*rules*/,
   NULL /* letters */,
   5 /*numRules*/,
   0 /* numLetters */,
 };
 
-static const struct AtcZoneEra kZoneEraTestLos_Angeles[] = {
+static const AtcZoneEra kZoneEraTestLos_Angeles[] = {
   //             -8:00    US    P%sT
   {
     &kPolicyTestUS /*zonePolicy*/,
@@ -265,7 +265,7 @@ static const struct AtcZoneEra kZoneEraTestLos_Angeles[] = {
 
 };
 
-static const struct AtcZoneInfo kZoneTestLosAngeles = {
+static const AtcZoneInfo kZoneTestLosAngeles = {
   "America/Los_Angeles" /*name*/,
   0xb7f7e8f2 /*zoneId*/,
   &kZoneContext /*zoneContext*/,
@@ -276,103 +276,103 @@ static const struct AtcZoneInfo kZoneTestLosAngeles = {
 //---------------------------------------------------------------------------
 
 ACU_TEST(test_atc_processing_find_matches_simple) {
-  struct AtcYearMonth start_ym = {18, 12};
-  struct AtcYearMonth until_ym = {20, 2};
+  AtcYearMonth start_ym = {18, 12};
+  AtcYearMonth until_ym = {20, 2};
   const uint8_t kMaxMatches = 4;
 
-  struct AtcMatchingEra matches[kMaxMatches];
+  AtcMatchingEra matches[kMaxMatches];
   uint8_t num_matches = atc_processing_find_matches(
       &kZoneAlmostLosAngeles, start_ym, until_ym, matches, kMaxMatches);
   ACU_ASSERT(3 == num_matches);
 
   {
-    struct AtcDateTuple *sdt = &matches[0].start_dt;
+    AtcDateTuple *sdt = &matches[0].start_dt;
     ACU_ASSERT(sdt->year_tiny == 18);
     ACU_ASSERT(sdt->month == 12);
     ACU_ASSERT(sdt->day == 1);
     ACU_ASSERT(sdt->minutes == 0);
     ACU_ASSERT(sdt->suffix == kAtcSuffixW);
     //
-    struct AtcDateTuple *udt = &matches[0].until_dt;
+    AtcDateTuple *udt = &matches[0].until_dt;
     ACU_ASSERT(udt->year_tiny == 19);
     ACU_ASSERT(udt->month == 3);
     ACU_ASSERT(udt->day == 10);
     ACU_ASSERT(udt->minutes == 15*8);
     ACU_ASSERT(udt->suffix == kAtcSuffixW);
     //
-    const struct AtcZoneEra *eras =
-        (const struct AtcZoneEra *) kZoneAlmostLosAngeles.eras;
+    const AtcZoneEra *eras =
+        (const AtcZoneEra *) kZoneAlmostLosAngeles.eras;
     ACU_ASSERT(matches[0].era == &eras[0]);
   }
 
   {
-    struct AtcDateTuple *sdt = &matches[1].start_dt;
+    AtcDateTuple *sdt = &matches[1].start_dt;
     ACU_ASSERT(sdt->year_tiny == 19);
     ACU_ASSERT(sdt->month == 3);
     ACU_ASSERT(sdt->day == 10);
     ACU_ASSERT(sdt->minutes == 15*8);
     ACU_ASSERT(sdt->suffix == kAtcSuffixW);
     //
-    struct AtcDateTuple *udt = &matches[1].until_dt;
+    AtcDateTuple *udt = &matches[1].until_dt;
     ACU_ASSERT(udt->year_tiny == 19);
     ACU_ASSERT(udt->month == 11);
     ACU_ASSERT(udt->day == 3);
     ACU_ASSERT(udt->minutes == 15*8);
     ACU_ASSERT(udt->suffix == kAtcSuffixW);
     //
-    const struct AtcZoneEra *eras =
-        (const struct AtcZoneEra *) kZoneAlmostLosAngeles.eras;
+    const AtcZoneEra *eras =
+        (const AtcZoneEra *) kZoneAlmostLosAngeles.eras;
     ACU_ASSERT(matches[1].era == &eras[1]);
   }
 
   {
-    struct AtcDateTuple *sdt = &matches[2].start_dt;
+    AtcDateTuple *sdt = &matches[2].start_dt;
     ACU_ASSERT(sdt->year_tiny == 19);
     ACU_ASSERT(sdt->month == 11);
     ACU_ASSERT(sdt->day == 3);
     ACU_ASSERT(sdt->minutes == 15*8);
     ACU_ASSERT(sdt->suffix == kAtcSuffixW);
     //
-    struct AtcDateTuple *udt = &matches[2].until_dt;
+    AtcDateTuple *udt = &matches[2].until_dt;
     ACU_ASSERT(udt->year_tiny == 20);
     ACU_ASSERT(udt->month == 2);
     ACU_ASSERT(udt->day == 1);
     ACU_ASSERT(udt->minutes == 0);
     ACU_ASSERT(udt->suffix == kAtcSuffixW);
     //
-    const struct AtcZoneEra *eras =
-        (const struct AtcZoneEra *) kZoneAlmostLosAngeles.eras;
+    const AtcZoneEra *eras =
+        (const AtcZoneEra *) kZoneAlmostLosAngeles.eras;
     ACU_ASSERT(matches[2].era == &eras[2]);
   }
 }
 
 ACU_TEST(test_atc_processing_find_matches_named)
 {
-  struct AtcYearMonth start_ym = {18, 12};
-  struct AtcYearMonth until_ym = {20, 2};
+  AtcYearMonth start_ym = {18, 12};
+  AtcYearMonth until_ym = {20, 2};
   const uint8_t kMaxMatches = 4;
 
-  struct AtcMatchingEra matches[kMaxMatches];
+  AtcMatchingEra matches[kMaxMatches];
   uint8_t num_matches = atc_processing_find_matches(
       &kZoneTestLosAngeles, start_ym, until_ym, matches, kMaxMatches);
   ACU_ASSERT(1 == num_matches);
 
-  struct AtcDateTuple *sdt = &matches[0].start_dt;
+  AtcDateTuple *sdt = &matches[0].start_dt;
   ACU_ASSERT(sdt->year_tiny == 18);
   ACU_ASSERT(sdt->month == 12);
   ACU_ASSERT(sdt->day == 1);
   ACU_ASSERT(sdt->minutes == 0);
   ACU_ASSERT(sdt->suffix == kAtcSuffixW);
 
-  struct AtcDateTuple *udt = &matches[0].until_dt;
+  AtcDateTuple *udt = &matches[0].until_dt;
   ACU_ASSERT(udt->year_tiny == 20);
   ACU_ASSERT(udt->month == 2);
   ACU_ASSERT(udt->day == 1);
   ACU_ASSERT(udt->minutes == 0);
   ACU_ASSERT(udt->suffix == kAtcSuffixW);
 
-  const struct AtcZoneEra *eras =
-      (const struct AtcZoneEra *) kZoneTestLosAngeles.eras;
+  const AtcZoneEra *eras =
+      (const AtcZoneEra *) kZoneTestLosAngeles.eras;
   ACU_ASSERT(matches[0].era == &eras[0]);
 }
 
@@ -382,7 +382,7 @@ ACU_TEST(test_atc_processing_find_matches_named)
 
 ACU_TEST(test_atc_calc_start_day_of_month) {
   // 2018-11, Sun>=1
-  struct AtcMonthDay monthDay = atc_processing_calc_start_day_of_month(
+  AtcMonthDay monthDay = atc_processing_calc_start_day_of_month(
       2018, 11, kAtcIsoWeekdaySunday, 1);
   ACU_ASSERT(11 == monthDay.month);
   ACU_ASSERT(4 == monthDay.day);
@@ -425,10 +425,10 @@ ACU_TEST(test_atc_calc_start_day_of_month) {
 
 ACU_TEST(test_atc_processing_get_transition_time) {
   // Nov Sun>=1
-  const struct AtcZoneRule *rule = &kZoneRulesTestUS[4];
+  const AtcZoneRule *rule = &kZoneRulesTestUS[4];
 
   // Nov 4 2018
-  struct AtcDateTuple dt;
+  AtcDateTuple dt;
   atc_processing_get_transition_time(18, rule, &dt);
   ACU_ASSERT(dt.year_tiny == 18);
   ACU_ASSERT(dt.month == 11);
@@ -446,7 +446,7 @@ ACU_TEST(test_atc_processing_get_transition_time) {
 }
 
 ACU_TEST(test_atc_processing_create_transition_for_year) {
-  const struct AtcMatchingEra match = {
+  const AtcMatchingEra match = {
     {18, 12, 1, 0, kAtcSuffixW},
     {20, 2, 1, 0, kAtcSuffixW},
     &kZoneEraTestLos_Angeles[0],
@@ -456,12 +456,12 @@ ACU_TEST(test_atc_processing_create_transition_for_year) {
   };
 
   // Nov Sun>=1
-  const struct AtcZoneRule *rule = &kZoneRulesTestUS[4];
-  struct AtcTransition t;
+  const AtcZoneRule *rule = &kZoneRulesTestUS[4];
+  AtcTransition t;
   atc_processing_create_transition_for_year(&t, 19, rule, &match);
   ACU_ASSERT(t.offset_minutes == -15*32);
   ACU_ASSERT(t.delta_minutes == 0);
-  const struct AtcDateTuple *tt = &t.transition_time;
+  const AtcDateTuple *tt = &t.transition_time;
   ACU_ASSERT(tt->year_tiny == 19);
   ACU_ASSERT(tt->month == 11);
   ACU_ASSERT(tt->day == 3);
@@ -534,7 +534,7 @@ ACU_TEST(test_atc_processing_get_most_recent_prior_year)
 }
 
 ACU_TEST(test_atc_processing_find_candidate_transitions) {
-  struct AtcMatchingEra match = {
+  AtcMatchingEra match = {
     {18, 12, 1, 0, kAtcSuffixW},
     {20, 2, 1, 0, kAtcSuffixW},
     &kZoneEraTestLos_Angeles[0],
@@ -544,7 +544,7 @@ ACU_TEST(test_atc_processing_find_candidate_transitions) {
   };
 
   // Reserve storage for the Transitions
-  struct AtcTransitionStorage storage;
+  AtcTransitionStorage storage;
   atc_transition_storage_init(&storage);
 
   // Verify compareTransitionToMatchFuzzy() elminates various transitions
@@ -556,14 +556,14 @@ ACU_TEST(test_atc_processing_find_candidate_transitions) {
   //    * 2020 Mar Sun>=8 (8)
   atc_transition_storage_reset_candidate_pool(&storage);
   atc_processing_find_candidate_transitions(&storage, &match);
-  struct AtcTransition **end =
+  AtcTransition **end =
       atc_transition_storage_get_candidate_pool_end(&storage);
-  struct AtcTransition **begin =
+  AtcTransition **begin =
       atc_transition_storage_get_candidate_pool_begin(&storage);
   ACU_ASSERT(5 == (int) (end - begin));
 
-  struct AtcTransition **t = &storage.transitions[storage.index_candidate];
-  struct AtcDateTuple *tt = &(*t++)->transition_time;
+  AtcTransition **t = &storage.transitions[storage.index_candidate];
+  AtcDateTuple *tt = &(*t++)->transition_time;
   ACU_ASSERT(tt->year_tiny == 18);
   ACU_ASSERT(tt->month == 3);
   ACU_ASSERT(tt->day == 11);
@@ -606,7 +606,7 @@ ACU_TEST(test_atc_processing_find_candidate_transitions) {
 ACU_TEST(test_atc_process_transition_match_status)
 {
   // UNTIL = 2002-01-02T03:00
-  const struct AtcZoneEra ERA = {
+  const AtcZoneEra ERA = {
       NULL /*zonePolicy*/,
       "" /*format*/,
       0 /*offsetCode*/,
@@ -619,8 +619,8 @@ ACU_TEST(test_atc_process_transition_match_status)
   };
 
   // [2000-01-01, 2001-01-01)
-  struct AtcTransition *prior = NULL;
-  const struct AtcMatchingEra match = {
+  AtcTransition *prior = NULL;
+  const AtcMatchingEra match = {
     {0, 1, 1, 0, kAtcSuffixW} /*startDateTime*/,
     {1, 1, 1, 0, kAtcSuffixW} /*untilDateTime*/,
     &ERA /*era*/,
@@ -631,7 +631,7 @@ ACU_TEST(test_atc_process_transition_match_status)
 
   // This transition occurs before the match, so prior should be filled.
   // transitionTime = 1999-12-31
-  struct AtcTransition transition0 = {
+  AtcTransition transition0 = {
     &match /*match*/,
     NULL /*rule*/,
     {-1, 12, 31, 0, kAtcSuffixW} /*transitionTime*/,
@@ -642,7 +642,7 @@ ACU_TEST(test_atc_process_transition_match_status)
 
   // This occurs at exactly match.startDateTime, so should replace the prior.
   // transitionTime = 2000-01-01
-  struct AtcTransition transition1 = {
+  AtcTransition transition1 = {
     &match /*match*/,
     NULL /*rule*/,
     {0, 1, 1, 0, kAtcSuffixW} /*transitionTime*/,
@@ -653,7 +653,7 @@ ACU_TEST(test_atc_process_transition_match_status)
 
   // An interior transition. Prior should not change.
   // transitionTime = 2000-01-02
-  struct AtcTransition transition2 = {
+  AtcTransition transition2 = {
     &match /*match*/,
     NULL /*rule*/,
     {0, 1, 2, 0, kAtcSuffixW} /*transitionTime*/,
@@ -664,7 +664,7 @@ ACU_TEST(test_atc_process_transition_match_status)
 
   // Occurs after match.untilDateTime, so should be rejected.
   // transitionTime = 2001-01-02
-  struct AtcTransition transition3 = {
+  AtcTransition transition3 = {
     &match /*match*/,
     NULL /*rule*/,
     {1, 1, 2, 0, kAtcSuffixW} /*transitionTime*/,
@@ -673,7 +673,7 @@ ACU_TEST(test_atc_process_transition_match_status)
     0, 0, 0, {0}, {0}, {0}
   };
 
-  struct AtcTransition *transitions[] = {
+  AtcTransition *transitions[] = {
     &transition0,
     &transition1,
     &transition2,
@@ -706,7 +706,7 @@ ACU_TEST(test_atc_process_transition_match_status)
 
 ACU_TEST(test_atc_processing_create_transitions_from_named_match)
 {
-  struct AtcMatchingEra match = {
+  AtcMatchingEra match = {
     {18, 12, 1, 0, kAtcSuffixW},
     {20, 2, 1, 0, kAtcSuffixW},
     &kZoneEraTestLos_Angeles[0],
@@ -716,18 +716,18 @@ ACU_TEST(test_atc_processing_create_transitions_from_named_match)
   };
 
   // Reserve storage for the Transitions
-  struct AtcTransitionStorage storage;
+  AtcTransitionStorage storage;
   atc_transition_storage_init(&storage);
 
   atc_processing_create_transitions_from_named_match(&storage, &match);
-  struct AtcTransition **end =
+  AtcTransition **end =
       atc_transition_storage_get_active_pool_end(&storage);
-  struct AtcTransition **begin =
+  AtcTransition **begin =
       atc_transition_storage_get_active_pool_begin(&storage);
   ACU_ASSERT(3 == (int) (end - begin));
   //
-  struct AtcTransition **t = &storage.transitions[0];
-  struct AtcDateTuple *tt = &(*t++)->transition_time;
+  AtcTransition **t = &storage.transitions[0];
+  AtcDateTuple *tt = &(*t++)->transition_time;
   ACU_ASSERT(tt->year_tiny == 18);
   ACU_ASSERT(tt->month == 12);
   ACU_ASSERT(tt->day == 1);
@@ -754,7 +754,7 @@ ACU_TEST(test_atc_processing_create_transitions_from_named_match)
 //---------------------------------------------------------------------------
 
 #if ENABLE_DEBUG >= 1
-static void print_date_tuple(const struct AtcDateTuple *dt)
+static void print_date_tuple(const AtcDateTuple *dt)
 {
   int16_t ms = dt->minutes;
   int16_t h = ms / 60;
@@ -772,7 +772,7 @@ static void print_date_tuple(const struct AtcDateTuple *dt)
       suffix);
 }
 
-static void print_transition(const struct AtcTransition *t)
+static void print_transition(const AtcTransition *t)
 {
   printf("tt=");
   print_date_tuple(&t->transition_time);
@@ -789,36 +789,36 @@ static void print_transition(const struct AtcTransition *t)
 ACU_TEST(test_fix_transition_times_generate_start_until_times)
 {
   // Create 3 matches for the AlmostLosAngeles test zone.
-  struct AtcYearMonth start_ym = {18, 12};
-  struct AtcYearMonth until_ym = {20, 2};
+  AtcYearMonth start_ym = {18, 12};
+  AtcYearMonth until_ym = {20, 2};
   const uint8_t kMaxMatches = 4;
-  struct AtcMatchingEra matches[kMaxMatches];
+  AtcMatchingEra matches[kMaxMatches];
   uint8_t num_matches = atc_processing_find_matches(
       &kZoneAlmostLosAngeles, start_ym, until_ym, matches, kMaxMatches);
   ACU_ASSERT(3 == num_matches);
 
   // Create a custom template instantiation to use a different SIZE than the
   // pre-defined typedef in ExtendedZoneProcess::TransitionStorage.
-  struct AtcTransitionStorage storage;
+  AtcTransitionStorage storage;
   atc_transition_storage_init(&storage);
 
   // Create 3 Transitions corresponding to the matches.
   // Implements ExtendedZoneProcessor::createTransitionsFromSimpleMatch().
-  struct AtcTransition *transition1 =
+  AtcTransition *transition1 =
       atc_transition_storage_get_free_agent(&storage);
   atc_processing_create_transition_for_year(
       transition1, 0 /*year, not used*/, NULL /*rule*/, &matches[0]);
   transition1->match_status = kAtcMatchStatusExactMatch; // synthetic example
   atc_transition_storage_add_free_agent_to_candidate_pool(&storage);
 
-  struct AtcTransition *transition2 =
+  AtcTransition *transition2 =
       atc_transition_storage_get_free_agent(&storage);
   atc_processing_create_transition_for_year(
       transition2, 0 /*year, not used*/, NULL /*rule*/, &matches[1]);
   transition2->match_status = kAtcMatchStatusWithinMatch; // synthetic example
   atc_transition_storage_add_free_agent_to_candidate_pool(&storage);
 
-  struct AtcTransition *transition3 =
+  AtcTransition *transition3 =
       atc_transition_storage_get_free_agent(&storage);
   atc_processing_create_transition_for_year(
       transition3, 0 /*year, not used*/, NULL /*rule*/, &matches[2]);
@@ -827,9 +827,9 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
 
   // Move actives to Active pool.
   atc_transition_storage_add_active_candidates_to_active_pool(&storage);
-  struct AtcTransition **begin =
+  AtcTransition **begin =
       atc_transition_storage_get_active_pool_begin(&storage);
-  struct AtcTransition **end =
+  AtcTransition **end =
       atc_transition_storage_get_active_pool_end(&storage);
   ACU_ASSERT(3 == (int) (end - begin));
   ACU_ASSERT(begin[0] == transition1);
@@ -851,19 +851,19 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
 #endif
 
   // Verify. The first Transition is extended to -infinity.
-  struct AtcDateTuple *tt = &transition1->transition_time;
+  AtcDateTuple *tt = &transition1->transition_time;
   ACU_ASSERT(tt->year_tiny == 18);
   ACU_ASSERT(tt->month == 12);
   ACU_ASSERT(tt->day == 1);
   ACU_ASSERT(tt->minutes == 0);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
-  struct AtcDateTuple *tts = &transition1->transition_time_s;
+  AtcDateTuple *tts = &transition1->transition_time_s;
   ACU_ASSERT(tts->year_tiny == 18);
   ACU_ASSERT(tts->month == 12);
   ACU_ASSERT(tts->day == 1);
   ACU_ASSERT(tts->minutes == 0);
   ACU_ASSERT(tts->suffix == kAtcSuffixS);
-  struct AtcDateTuple *ttu = &transition1->transition_time_u;
+  AtcDateTuple *ttu = &transition1->transition_time_u;
   ACU_ASSERT(ttu->year_tiny == 18);
   ACU_ASSERT(ttu->month == 12);
   ACU_ASSERT(ttu->day == 1);
@@ -915,21 +915,21 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
 
   // Verify. The first transition startTime should be the same as its
   // transitionTime.
-  struct AtcDateTuple *sdt = &transition1->start_dt;
+  AtcDateTuple *sdt = &transition1->start_dt;
   ACU_ASSERT(sdt->year_tiny == 18);
   ACU_ASSERT(sdt->month == 12);
   ACU_ASSERT(sdt->day == 1);
   ACU_ASSERT(sdt->minutes == 0);
   ACU_ASSERT(sdt->suffix == kAtcSuffixW);
   //
-  struct AtcDateTuple *udt = &transition1->until_dt;
+  AtcDateTuple *udt = &transition1->until_dt;
   ACU_ASSERT(udt->year_tiny == 19);
   ACU_ASSERT(udt->month == 3);
   ACU_ASSERT(udt->day == 10);
   ACU_ASSERT(udt->minutes == 15*8);
   ACU_ASSERT(udt->suffix == kAtcSuffixW);
   //
-  struct AtcOffsetDateTime odt = {
+  AtcOffsetDateTime odt = {
     2018, 12, 1, 0, 0, 0, 0 /*fold*/, -8*60 /*offset_minutes*/
   };
   atc_time_t eps = atc_offset_date_time_to_epoch_seconds(&odt);
@@ -950,7 +950,7 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
   ACU_ASSERT(udt->minutes == 15*8);
   ACU_ASSERT(udt->suffix == kAtcSuffixW);
   //
-  odt = (struct AtcOffsetDateTime) {
+  odt = (AtcOffsetDateTime) {
     2019, 3, 10, 3, 0, 0, 0 /*fold*/, -7*60 /*offset_minutes*/
   };
   eps = atc_offset_date_time_to_epoch_seconds(&odt);
@@ -971,7 +971,7 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
   ACU_ASSERT(udt->minutes == 0);
   ACU_ASSERT(udt->suffix == kAtcSuffixW);
   //
-  odt = (struct AtcOffsetDateTime) {
+  odt = (AtcOffsetDateTime) {
     2019, 11, 3, 1, 0, 0, 0 /*fold*/, -8*60 /*offset_minutes*/
   };
   eps = atc_offset_date_time_to_epoch_seconds(&odt);

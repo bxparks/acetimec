@@ -42,7 +42,7 @@
 // Memory (32-bit): 120
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesAN[]  = {
+static const AtcZoneRule kAtcZoneRulesAN[]  = {
   // Rule    AN    1987    1999    -    Oct    lastSun    2:00s    1:00    D
   {
     -13 /*from_year_tiny*/,
@@ -156,7 +156,7 @@ static const struct AtcZoneRule kAtcZoneRulesAN[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyAN  = {
+const AtcZonePolicy kAtcPolicyAN  = {
   kAtcZoneRulesAN /*rules*/,
   NULL /*letters*/,
   9 /*num_rules*/,
@@ -170,7 +170,7 @@ const struct AtcZonePolicy kAtcPolicyAN  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesAQ[]  = {
+static const AtcZoneRule kAtcZoneRulesAQ[]  = {
   // Rule    AQ    1990    1992    -    Mar    Sun>=1    2:00s    0    S
   {
     -10 /*from_year_tiny*/,
@@ -188,7 +188,7 @@ static const struct AtcZoneRule kAtcZoneRulesAQ[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyAQ  = {
+const AtcZonePolicy kAtcPolicyAQ  = {
   kAtcZoneRulesAQ /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -202,7 +202,7 @@ const struct AtcZonePolicy kAtcPolicyAQ  = {
 // Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesAS[]  = {
+static const AtcZoneRule kAtcZoneRulesAS[]  = {
   // Rule    AS    1987    2007    -    Oct    lastSun    2:00s    1:00    D
   {
     -13 /*from_year_tiny*/,
@@ -292,7 +292,7 @@ static const struct AtcZoneRule kAtcZoneRulesAS[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyAS  = {
+const AtcZonePolicy kAtcPolicyAS  = {
   kAtcZoneRulesAS /*rules*/,
   NULL /*letters*/,
   7 /*num_rules*/,
@@ -306,7 +306,7 @@ const struct AtcZonePolicy kAtcPolicyAS  = {
 // Memory (32-bit): 108
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesAT[]  = {
+static const AtcZoneRule kAtcZoneRulesAT[]  = {
   // Rule    AT    1988    1990    -    Oct    lastSun    2:00s    1:00    D
   {
     -12 /*from_year_tiny*/,
@@ -408,7 +408,7 @@ static const struct AtcZoneRule kAtcZoneRulesAT[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyAT  = {
+const AtcZonePolicy kAtcPolicyAT  = {
   kAtcZoneRulesAT /*rules*/,
   NULL /*letters*/,
   8 /*num_rules*/,
@@ -422,7 +422,7 @@ const struct AtcZonePolicy kAtcPolicyAT  = {
 // Memory (32-bit): 120
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesAV[]  = {
+static const AtcZoneRule kAtcZoneRulesAV[]  = {
   // Rule    AV    1988    1999    -    Oct    lastSun    2:00s    1:00    D
   {
     -12 /*from_year_tiny*/,
@@ -536,7 +536,7 @@ static const struct AtcZoneRule kAtcZoneRulesAV[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyAV  = {
+const AtcZonePolicy kAtcPolicyAV  = {
   kAtcZoneRulesAV /*rules*/,
   NULL /*letters*/,
   9 /*num_rules*/,
@@ -550,7 +550,7 @@ const struct AtcZonePolicy kAtcPolicyAV  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesAW[]  = {
+static const AtcZoneRule kAtcZoneRulesAW[]  = {
   // Rule    AW    1992    only    -    Mar    Sun>=1    2:00s    0    S
   {
     -8 /*from_year_tiny*/,
@@ -604,7 +604,7 @@ static const struct AtcZoneRule kAtcZoneRulesAW[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyAW  = {
+const AtcZonePolicy kAtcPolicyAW  = {
   kAtcZoneRulesAW /*rules*/,
   NULL /*letters*/,
   4 /*num_rules*/,
@@ -618,7 +618,7 @@ const struct AtcZonePolicy kAtcPolicyAW  = {
 // Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesArg[]  = {
+static const AtcZoneRule kAtcZoneRulesArg[]  = {
   // Rule    Arg    1989    1993    -    Mar    Sun>=1    0:00    0    -
   {
     -11 /*from_year_tiny*/,
@@ -696,7 +696,7 @@ static const struct AtcZoneRule kAtcZoneRulesArg[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyArg  = {
+const AtcZonePolicy kAtcPolicyArg  = {
   kAtcZoneRulesArg /*rules*/,
   NULL /*letters*/,
   6 /*num_rules*/,
@@ -710,7 +710,7 @@ const struct AtcZonePolicy kAtcPolicyArg  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesArmenia[]  = {
+static const AtcZoneRule kAtcZoneRulesArmenia[]  = {
   // Anchor: Rule Armenia    2011    only    -    Oct    lastSun     2:00s    0    -
   {
     -127 /*from_year_tiny*/,
@@ -752,7 +752,7 @@ static const struct AtcZoneRule kAtcZoneRulesArmenia[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyArmenia  = {
+const AtcZonePolicy kAtcPolicyArmenia  = {
   kAtcZoneRulesArmenia /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -766,7 +766,7 @@ const struct AtcZonePolicy kAtcPolicyArmenia  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesAus[]  = {
+static const AtcZoneRule kAtcZoneRulesAus[]  = {
   // Rule    Aus    1943    1944    -    Mar    lastSun    2:00s    0    S
   {
     -57 /*from_year_tiny*/,
@@ -784,7 +784,7 @@ static const struct AtcZoneRule kAtcZoneRulesAus[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyAus  = {
+const AtcZonePolicy kAtcPolicyAus  = {
   kAtcZoneRulesAus /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -798,7 +798,7 @@ const struct AtcZonePolicy kAtcPolicyAus  = {
 // Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesAzer[]  = {
+static const AtcZoneRule kAtcZoneRulesAzer[]  = {
   // Rule    Azer    1997    2015    -    Mar    lastSun     4:00    1:00    -
   {
     -3 /*from_year_tiny*/,
@@ -828,7 +828,7 @@ static const struct AtcZoneRule kAtcZoneRulesAzer[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyAzer  = {
+const AtcZonePolicy kAtcPolicyAzer  = {
   kAtcZoneRulesAzer /*rules*/,
   NULL /*letters*/,
   2 /*num_rules*/,
@@ -842,7 +842,7 @@ const struct AtcZonePolicy kAtcPolicyAzer  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesBarb[]  = {
+static const AtcZoneRule kAtcZoneRulesBarb[]  = {
   // Rule    Barb    1980    only    -    Sep    25    2:00    0    S
   {
     -20 /*from_year_tiny*/,
@@ -860,7 +860,7 @@ static const struct AtcZoneRule kAtcZoneRulesBarb[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyBarb  = {
+const AtcZonePolicy kAtcPolicyBarb  = {
   kAtcZoneRulesBarb /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -874,7 +874,7 @@ const struct AtcZonePolicy kAtcPolicyBarb  = {
 // Memory (32-bit): 32
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesBelize[]  = {
+static const AtcZoneRule kAtcZoneRulesBelize[]  = {
   // Rule    Belize    1983    only    -    Feb    12    0:00    0    CST
   {
     -17 /*from_year_tiny*/,
@@ -896,7 +896,7 @@ static const char * const kLettersBelize[]  = {
 };
 
 
-const struct AtcZonePolicy kAtcPolicyBelize  = {
+const AtcZonePolicy kAtcPolicyBelize  = {
   kAtcZoneRulesBelize /*rules*/,
   kLettersBelize /*letters*/,
   1 /*num_rules*/,
@@ -910,7 +910,7 @@ const struct AtcZonePolicy kAtcPolicyBelize  = {
 // Memory (32-bit): 252
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesBrazil[]  = {
+static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   // Rule    Brazil    1998    only    -    Oct    11     0:00    1:00    -
   {
     -2 /*from_year_tiny*/,
@@ -1156,7 +1156,7 @@ static const struct AtcZoneRule kAtcZoneRulesBrazil[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyBrazil  = {
+const AtcZonePolicy kAtcPolicyBrazil  = {
   kAtcZoneRulesBrazil /*rules*/,
   NULL /*letters*/,
   20 /*num_rules*/,
@@ -1170,7 +1170,7 @@ const struct AtcZonePolicy kAtcPolicyBrazil  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesC_Eur[]  = {
+static const AtcZoneRule kAtcZoneRulesC_Eur[]  = {
   // Rule    C-Eur    1979    1995    -    Sep    lastSun     2:00s    0    -
   {
     -21 /*from_year_tiny*/,
@@ -1212,7 +1212,7 @@ static const struct AtcZoneRule kAtcZoneRulesC_Eur[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyC_Eur  = {
+const AtcZonePolicy kAtcPolicyC_Eur  = {
   kAtcZoneRulesC_Eur /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -1226,7 +1226,7 @@ const struct AtcZonePolicy kAtcPolicyC_Eur  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesCO[]  = {
+static const AtcZoneRule kAtcZoneRulesCO[]  = {
   // Rule    CO    1993    only    -    Apr     4    0:00    0    -
   {
     -7 /*from_year_tiny*/,
@@ -1244,7 +1244,7 @@ static const struct AtcZoneRule kAtcZoneRulesCO[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyCO  = {
+const AtcZonePolicy kAtcPolicyCO  = {
   kAtcZoneRulesCO /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -1258,7 +1258,7 @@ const struct AtcZonePolicy kAtcPolicyCO  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesCR[]  = {
+static const AtcZoneRule kAtcZoneRulesCR[]  = {
   // Rule    CR    1992    only    -    Mar    15    0:00    0    S
   {
     -8 /*from_year_tiny*/,
@@ -1276,7 +1276,7 @@ static const struct AtcZoneRule kAtcZoneRulesCR[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyCR  = {
+const AtcZonePolicy kAtcPolicyCR  = {
   kAtcZoneRulesCR /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -1290,7 +1290,7 @@ const struct AtcZonePolicy kAtcPolicyCR  = {
 // Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesCanada[]  = {
+static const AtcZoneRule kAtcZoneRulesCanada[]  = {
   // Rule    Canada    1974    1986    -    Apr    lastSun    2:00    1:00    D
   {
     -26 /*from_year_tiny*/,
@@ -1356,7 +1356,7 @@ static const struct AtcZoneRule kAtcZoneRulesCanada[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyCanada  = {
+const AtcZonePolicy kAtcPolicyCanada  = {
   kAtcZoneRulesCanada /*rules*/,
   NULL /*letters*/,
   5 /*num_rules*/,
@@ -1370,7 +1370,7 @@ const struct AtcZonePolicy kAtcPolicyCanada  = {
 // Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesChatham[]  = {
+static const AtcZoneRule kAtcZoneRulesChatham[]  = {
   // Rule    Chatham    1989    only    -    Oct    Sun>=8    2:45s    1:00    -
   {
     -11 /*from_year_tiny*/,
@@ -1436,7 +1436,7 @@ static const struct AtcZoneRule kAtcZoneRulesChatham[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyChatham  = {
+const AtcZonePolicy kAtcPolicyChatham  = {
   kAtcZoneRulesChatham /*rules*/,
   NULL /*letters*/,
   5 /*num_rules*/,
@@ -1450,7 +1450,7 @@ const struct AtcZonePolicy kAtcPolicyChatham  = {
 // Memory (32-bit): 216
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesChile[]  = {
+static const AtcZoneRule kAtcZoneRulesChile[]  = {
   // Rule    Chile    1998    only    -    Sep    27    4:00u    1:00    -
   {
     -2 /*from_year_tiny*/,
@@ -1660,7 +1660,7 @@ static const struct AtcZoneRule kAtcZoneRulesChile[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyChile  = {
+const AtcZonePolicy kAtcPolicyChile  = {
   kAtcZoneRulesChile /*rules*/,
   NULL /*letters*/,
   17 /*num_rules*/,
@@ -1674,7 +1674,7 @@ const struct AtcZonePolicy kAtcPolicyChile  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesCook[]  = {
+static const AtcZoneRule kAtcZoneRulesCook[]  = {
   // Rule    Cook    1979    1991    -    Mar    Sun>=1    0:00    0    -
   {
     -21 /*from_year_tiny*/,
@@ -1692,7 +1692,7 @@ static const struct AtcZoneRule kAtcZoneRulesCook[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyCook  = {
+const AtcZonePolicy kAtcPolicyCook  = {
   kAtcZoneRulesCook /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -1706,7 +1706,7 @@ const struct AtcZonePolicy kAtcPolicyCook  = {
 // Memory (32-bit): 180
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesCuba[]  = {
+static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   // Rule    Cuba    1997    only    -    Oct    12    0:00s    0    S
   {
     -3 /*from_year_tiny*/,
@@ -1880,7 +1880,7 @@ static const struct AtcZoneRule kAtcZoneRulesCuba[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyCuba  = {
+const AtcZonePolicy kAtcPolicyCuba  = {
   kAtcZoneRulesCuba /*rules*/,
   NULL /*letters*/,
   14 /*num_rules*/,
@@ -1894,7 +1894,7 @@ const struct AtcZonePolicy kAtcPolicyCuba  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesDhaka[]  = {
+static const AtcZoneRule kAtcZoneRulesDhaka[]  = {
   // Anchor: Rule    Dhaka    2009    only    -    Dec    31    24:00    0    -
   {
     -127 /*from_year_tiny*/,
@@ -1936,7 +1936,7 @@ static const struct AtcZoneRule kAtcZoneRulesDhaka[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyDhaka  = {
+const AtcZonePolicy kAtcPolicyDhaka  = {
   kAtcZoneRulesDhaka /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -1950,7 +1950,7 @@ const struct AtcZonePolicy kAtcPolicyDhaka  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesE_EurAsia[]  = {
+static const AtcZoneRule kAtcZoneRulesE_EurAsia[]  = {
   // Rule E-EurAsia    1981    max    -    Mar    lastSun     0:00    1:00    -
   {
     -19 /*from_year_tiny*/,
@@ -1992,7 +1992,7 @@ static const struct AtcZoneRule kAtcZoneRulesE_EurAsia[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyE_EurAsia  = {
+const AtcZonePolicy kAtcPolicyE_EurAsia  = {
   kAtcZoneRulesE_EurAsia /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -2006,7 +2006,7 @@ const struct AtcZonePolicy kAtcPolicyE_EurAsia  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesEU[]  = {
+static const AtcZoneRule kAtcZoneRulesEU[]  = {
   // Rule    EU    1979    1995    -    Sep    lastSun     1:00u    0    -
   {
     -21 /*from_year_tiny*/,
@@ -2048,7 +2048,7 @@ static const struct AtcZoneRule kAtcZoneRulesEU[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyEU  = {
+const AtcZonePolicy kAtcPolicyEU  = {
   kAtcZoneRulesEU /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -2062,7 +2062,7 @@ const struct AtcZonePolicy kAtcPolicyEU  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesEUAsia[]  = {
+static const AtcZoneRule kAtcZoneRulesEUAsia[]  = {
   // Rule    EUAsia    1981    max    -    Mar    lastSun     1:00u    1:00    S
   {
     -19 /*from_year_tiny*/,
@@ -2104,7 +2104,7 @@ static const struct AtcZoneRule kAtcZoneRulesEUAsia[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyEUAsia  = {
+const AtcZonePolicy kAtcPolicyEUAsia  = {
   kAtcZoneRulesEUAsia /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -2118,7 +2118,7 @@ const struct AtcZonePolicy kAtcPolicyEUAsia  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesEcuador[]  = {
+static const AtcZoneRule kAtcZoneRulesEcuador[]  = {
   // Rule    Ecuador    1993    only    -    Feb     5    0:00    0    -
   {
     -7 /*from_year_tiny*/,
@@ -2136,7 +2136,7 @@ static const struct AtcZoneRule kAtcZoneRulesEcuador[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyEcuador  = {
+const AtcZonePolicy kAtcPolicyEcuador  = {
   kAtcZoneRulesEcuador /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -2150,7 +2150,7 @@ const struct AtcZonePolicy kAtcPolicyEcuador  = {
 // Memory (32-bit): 180
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesEgypt[]  = {
+static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
   // Rule    Egypt    1966    1994    -    Oct     1    3:00    0    -
   {
     -34 /*from_year_tiny*/,
@@ -2324,7 +2324,7 @@ static const struct AtcZoneRule kAtcZoneRulesEgypt[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyEgypt  = {
+const AtcZonePolicy kAtcPolicyEgypt  = {
   kAtcZoneRulesEgypt /*rules*/,
   NULL /*letters*/,
   14 /*num_rules*/,
@@ -2338,7 +2338,7 @@ const struct AtcZonePolicy kAtcPolicyEgypt  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesEire[]  = {
+static const AtcZoneRule kAtcZoneRulesEire[]  = {
   // Rule    Eire    1981    max    -    Mar    lastSun     1:00u    0    -
   {
     -19 /*from_year_tiny*/,
@@ -2380,7 +2380,7 @@ static const struct AtcZoneRule kAtcZoneRulesEire[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyEire  = {
+const AtcZonePolicy kAtcPolicyEire  = {
   kAtcZoneRulesEire /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -2394,7 +2394,7 @@ const struct AtcZonePolicy kAtcPolicyEire  = {
 // Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesFalk[]  = {
+static const AtcZoneRule kAtcZoneRulesFalk[]  = {
   // Rule    Falk    1984    1985    -    Apr    lastSun    0:00    0    -
   {
     -16 /*from_year_tiny*/,
@@ -2460,7 +2460,7 @@ static const struct AtcZoneRule kAtcZoneRulesFalk[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyFalk  = {
+const AtcZonePolicy kAtcPolicyFalk  = {
   kAtcZoneRulesFalk /*rules*/,
   NULL /*letters*/,
   5 /*num_rules*/,
@@ -2474,7 +2474,7 @@ const struct AtcZonePolicy kAtcPolicyFalk  = {
 // Memory (32-bit): 180
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesFiji[]  = {
+static const AtcZoneRule kAtcZoneRulesFiji[]  = {
   // Rule    Fiji    1998    1999    -    Nov    Sun>=1    2:00    1:00    -
   {
     -2 /*from_year_tiny*/,
@@ -2648,7 +2648,7 @@ static const struct AtcZoneRule kAtcZoneRulesFiji[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyFiji  = {
+const AtcZonePolicy kAtcPolicyFiji  = {
   kAtcZoneRulesFiji /*rules*/,
   NULL /*letters*/,
   14 /*num_rules*/,
@@ -2662,7 +2662,7 @@ const struct AtcZonePolicy kAtcPolicyFiji  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesGuam[]  = {
+static const AtcZoneRule kAtcZoneRulesGuam[]  = {
   // Rule    Guam    1977    only    -    Aug    28    2:00    0    S
   {
     -23 /*from_year_tiny*/,
@@ -2680,7 +2680,7 @@ static const struct AtcZoneRule kAtcZoneRulesGuam[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyGuam  = {
+const AtcZonePolicy kAtcPolicyGuam  = {
   kAtcZoneRulesGuam /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -2694,7 +2694,7 @@ const struct AtcZonePolicy kAtcPolicyGuam  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesGuat[]  = {
+static const AtcZoneRule kAtcZoneRulesGuat[]  = {
   // Rule    Guat    1991    only    -    Sep     7    0:00    0    S
   {
     -9 /*from_year_tiny*/,
@@ -2736,7 +2736,7 @@ static const struct AtcZoneRule kAtcZoneRulesGuat[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyGuat  = {
+const AtcZonePolicy kAtcPolicyGuat  = {
   kAtcZoneRulesGuat /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -2750,7 +2750,7 @@ const struct AtcZonePolicy kAtcPolicyGuat  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesHK[]  = {
+static const AtcZoneRule kAtcZoneRulesHK[]  = {
   // Rule    HK    1979    only    -    Oct    21    3:30    0    -
   {
     -21 /*from_year_tiny*/,
@@ -2768,7 +2768,7 @@ static const struct AtcZoneRule kAtcZoneRulesHK[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyHK  = {
+const AtcZonePolicy kAtcPolicyHK  = {
   kAtcZoneRulesHK /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -2782,7 +2782,7 @@ const struct AtcZonePolicy kAtcPolicyHK  = {
 // Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesHaiti[]  = {
+static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
   // Rule    Haiti    1988    1997    -    Oct    lastSun    1:00s    0    S
   {
     -12 /*from_year_tiny*/,
@@ -2872,7 +2872,7 @@ static const struct AtcZoneRule kAtcZoneRulesHaiti[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyHaiti  = {
+const AtcZonePolicy kAtcPolicyHaiti  = {
   kAtcZoneRulesHaiti /*rules*/,
   NULL /*letters*/,
   7 /*num_rules*/,
@@ -2886,7 +2886,7 @@ const struct AtcZonePolicy kAtcPolicyHaiti  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesHoliday[]  = {
+static const AtcZoneRule kAtcZoneRulesHoliday[]  = {
   // Rule    Holiday    1993    1994    -    Mar    Sun>=1    2:00s    0    S
   {
     -7 /*from_year_tiny*/,
@@ -2904,7 +2904,7 @@ static const struct AtcZoneRule kAtcZoneRulesHoliday[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyHoliday  = {
+const AtcZonePolicy kAtcPolicyHoliday  = {
   kAtcZoneRulesHoliday /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -2918,7 +2918,7 @@ const struct AtcZonePolicy kAtcPolicyHoliday  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesHond[]  = {
+static const AtcZoneRule kAtcZoneRulesHond[]  = {
   // Rule    Hond    1987    1988    -    Sep    lastSun    0:00    0    S
   {
     -13 /*from_year_tiny*/,
@@ -2960,7 +2960,7 @@ static const struct AtcZoneRule kAtcZoneRulesHond[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyHond  = {
+const AtcZonePolicy kAtcPolicyHond  = {
   kAtcZoneRulesHond /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -2974,7 +2974,7 @@ const struct AtcZonePolicy kAtcPolicyHond  = {
 // Memory (32-bit): 336
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesIran[]  = {
+static const AtcZoneRule kAtcZoneRulesIran[]  = {
   // Rule    Iran    1996    only    -    Sep    20    24:00    0    -
   {
     -4 /*from_year_tiny*/,
@@ -3304,7 +3304,7 @@ static const struct AtcZoneRule kAtcZoneRulesIran[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyIran  = {
+const AtcZonePolicy kAtcPolicyIran  = {
   kAtcZoneRulesIran /*rules*/,
   NULL /*letters*/,
   27 /*num_rules*/,
@@ -3318,7 +3318,7 @@ const struct AtcZonePolicy kAtcPolicyIran  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesIraq[]  = {
+static const AtcZoneRule kAtcZoneRulesIraq[]  = {
   // Rule    Iraq    1985    1990    -    Sep    lastSun    1:00s    0    -
   {
     -15 /*from_year_tiny*/,
@@ -3360,7 +3360,7 @@ static const struct AtcZoneRule kAtcZoneRulesIraq[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyIraq  = {
+const AtcZonePolicy kAtcPolicyIraq  = {
   kAtcZoneRulesIraq /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -3374,7 +3374,7 @@ const struct AtcZonePolicy kAtcPolicyIraq  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesJapan[]  = {
+static const AtcZoneRule kAtcZoneRulesJapan[]  = {
   // Rule    Japan    1948    1951    -    Sep    Sat>=8    25:00    0    S
   {
     -52 /*from_year_tiny*/,
@@ -3392,7 +3392,7 @@ static const struct AtcZoneRule kAtcZoneRulesJapan[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyJapan  = {
+const AtcZonePolicy kAtcPolicyJapan  = {
   kAtcZoneRulesJapan /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -3406,7 +3406,7 @@ const struct AtcZonePolicy kAtcPolicyJapan  = {
 // Memory (32-bit): 168
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesJordan[]  = {
+static const AtcZoneRule kAtcZoneRulesJordan[]  = {
   // Rule    Jordan    1995    1998    -    Sep    Fri>=15    0:00s    0    -
   {
     -5 /*from_year_tiny*/,
@@ -3568,7 +3568,7 @@ static const struct AtcZoneRule kAtcZoneRulesJordan[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyJordan  = {
+const AtcZonePolicy kAtcPolicyJordan  = {
   kAtcZoneRulesJordan /*rules*/,
   NULL /*letters*/,
   13 /*num_rules*/,
@@ -3582,7 +3582,7 @@ const struct AtcZonePolicy kAtcPolicyJordan  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesKyrgyz[]  = {
+static const AtcZoneRule kAtcZoneRulesKyrgyz[]  = {
   // Rule    Kyrgyz    1992    1996    -    Sep    lastSun    0:00    0    -
   {
     -8 /*from_year_tiny*/,
@@ -3624,7 +3624,7 @@ static const struct AtcZoneRule kAtcZoneRulesKyrgyz[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyKyrgyz  = {
+const AtcZonePolicy kAtcPolicyKyrgyz  = {
   kAtcZoneRulesKyrgyz /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -3638,7 +3638,7 @@ const struct AtcZonePolicy kAtcPolicyKyrgyz  = {
 // Memory (32-bit): 120
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesLH[]  = {
+static const AtcZoneRule kAtcZoneRulesLH[]  = {
   // Rule    LH    1987    1999    -    Oct    lastSun    2:00    0:30    -
   {
     -13 /*from_year_tiny*/,
@@ -3752,7 +3752,7 @@ static const struct AtcZoneRule kAtcZoneRulesLH[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyLH  = {
+const AtcZonePolicy kAtcPolicyLH  = {
   kAtcZoneRulesLH /*rules*/,
   NULL /*letters*/,
   9 /*num_rules*/,
@@ -3766,7 +3766,7 @@ const struct AtcZonePolicy kAtcPolicyLH  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesLebanon[]  = {
+static const AtcZoneRule kAtcZoneRulesLebanon[]  = {
   // Rule    Lebanon    1993    max    -    Mar    lastSun    0:00    1:00    S
   {
     -7 /*from_year_tiny*/,
@@ -3808,7 +3808,7 @@ static const struct AtcZoneRule kAtcZoneRulesLebanon[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyLebanon  = {
+const AtcZonePolicy kAtcPolicyLebanon  = {
   kAtcZoneRulesLebanon /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -3822,7 +3822,7 @@ const struct AtcZonePolicy kAtcPolicyLebanon  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesLibya[]  = {
+static const AtcZoneRule kAtcZoneRulesLibya[]  = {
   // Rule    Libya    1997    only    -    Oct     4    0:00    0    -
   {
     -3 /*from_year_tiny*/,
@@ -3864,7 +3864,7 @@ static const struct AtcZoneRule kAtcZoneRulesLibya[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyLibya  = {
+const AtcZonePolicy kAtcPolicyLibya  = {
   kAtcZoneRulesLibya /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -3878,7 +3878,7 @@ const struct AtcZonePolicy kAtcPolicyLibya  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesMacau[]  = {
+static const AtcZoneRule kAtcZoneRulesMacau[]  = {
   // Rule    Macau    1979    only    -    Oct    Sun>=16    03:30    0    S
   {
     -21 /*from_year_tiny*/,
@@ -3896,7 +3896,7 @@ static const struct AtcZoneRule kAtcZoneRulesMacau[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyMacau  = {
+const AtcZonePolicy kAtcPolicyMacau  = {
   kAtcZoneRulesMacau /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -3910,7 +3910,7 @@ const struct AtcZonePolicy kAtcPolicyMacau  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesMauritius[]  = {
+static const AtcZoneRule kAtcZoneRulesMauritius[]  = {
   // Rule Mauritius    1983    only    -    Mar    21    0:00    0    -
   {
     -17 /*from_year_tiny*/,
@@ -3952,7 +3952,7 @@ static const struct AtcZoneRule kAtcZoneRulesMauritius[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyMauritius  = {
+const AtcZonePolicy kAtcPolicyMauritius  = {
   kAtcZoneRulesMauritius /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -3966,7 +3966,7 @@ const struct AtcZonePolicy kAtcPolicyMauritius  = {
 // Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesMexico[]  = {
+static const AtcZoneRule kAtcZoneRulesMexico[]  = {
   // Rule    Mexico    1950    only    -    Jul    30    0:00    0    S
   {
     -50 /*from_year_tiny*/,
@@ -4056,7 +4056,7 @@ static const struct AtcZoneRule kAtcZoneRulesMexico[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyMexico  = {
+const AtcZonePolicy kAtcPolicyMexico  = {
   kAtcZoneRulesMexico /*rules*/,
   NULL /*letters*/,
   7 /*num_rules*/,
@@ -4070,7 +4070,7 @@ const struct AtcZonePolicy kAtcPolicyMexico  = {
 // Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesMoldova[]  = {
+static const AtcZoneRule kAtcZoneRulesMoldova[]  = {
   // Rule    Moldova    1997    max    -    Mar    lastSun     2:00    1:00    S
   {
     -3 /*from_year_tiny*/,
@@ -4100,7 +4100,7 @@ static const struct AtcZoneRule kAtcZoneRulesMoldova[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyMoldova  = {
+const AtcZonePolicy kAtcPolicyMoldova  = {
   kAtcZoneRulesMoldova /*rules*/,
   NULL /*letters*/,
   2 /*num_rules*/,
@@ -4114,7 +4114,7 @@ const struct AtcZonePolicy kAtcPolicyMoldova  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesMoncton[]  = {
+static const AtcZoneRule kAtcZoneRulesMoncton[]  = {
   // Rule    Moncton    1957    1972    -    Oct    lastSun    2:00    0    S
   {
     -43 /*from_year_tiny*/,
@@ -4156,7 +4156,7 @@ static const struct AtcZoneRule kAtcZoneRulesMoncton[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyMoncton  = {
+const AtcZonePolicy kAtcPolicyMoncton  = {
   kAtcZoneRulesMoncton /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -4170,7 +4170,7 @@ const struct AtcZonePolicy kAtcPolicyMoncton  = {
 // Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesMongol[]  = {
+static const AtcZoneRule kAtcZoneRulesMongol[]  = {
   // Rule    Mongol    1984    1998    -    Sep    lastSun    0:00    0    -
   {
     -16 /*from_year_tiny*/,
@@ -4248,7 +4248,7 @@ static const struct AtcZoneRule kAtcZoneRulesMongol[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyMongol  = {
+const AtcZonePolicy kAtcPolicyMongol  = {
   kAtcZoneRulesMongol /*rules*/,
   NULL /*letters*/,
   6 /*num_rules*/,
@@ -4262,7 +4262,7 @@ const struct AtcZonePolicy kAtcPolicyMongol  = {
 // Memory (32-bit): 1140
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesMorocco[]  = {
+static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   // Rule    Morocco    1978    only    -    Aug     4     0:00    0    -
   {
     -22 /*from_year_tiny*/,
@@ -5396,7 +5396,7 @@ static const struct AtcZoneRule kAtcZoneRulesMorocco[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyMorocco  = {
+const AtcZonePolicy kAtcPolicyMorocco  = {
   kAtcZoneRulesMorocco /*rules*/,
   NULL /*letters*/,
   94 /*num_rules*/,
@@ -5410,7 +5410,7 @@ const struct AtcZonePolicy kAtcPolicyMorocco  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesNC[]  = {
+static const AtcZoneRule kAtcZoneRulesNC[]  = {
   // Rule    NC    1997    only    -    Mar     2    2:00s    0    -
   {
     -3 /*from_year_tiny*/,
@@ -5428,7 +5428,7 @@ static const struct AtcZoneRule kAtcZoneRulesNC[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyNC  = {
+const AtcZonePolicy kAtcPolicyNC  = {
   kAtcZoneRulesNC /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -5442,7 +5442,7 @@ const struct AtcZonePolicy kAtcPolicyNC  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesNT_YK[]  = {
+static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
   // Rule    NT_YK    1980    1986    -    Apr    lastSun    2:00    1:00    D
   {
     -20 /*from_year_tiny*/,
@@ -5484,7 +5484,7 @@ static const struct AtcZoneRule kAtcZoneRulesNT_YK[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyNT_YK  = {
+const AtcZonePolicy kAtcPolicyNT_YK  = {
   kAtcZoneRulesNT_YK /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -5498,7 +5498,7 @@ const struct AtcZonePolicy kAtcPolicyNT_YK  = {
 // Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesNZ[]  = {
+static const AtcZoneRule kAtcZoneRulesNZ[]  = {
   // Rule    NZ    1989    only    -    Oct    Sun>=8    2:00s    1:00    D
   {
     -11 /*from_year_tiny*/,
@@ -5564,7 +5564,7 @@ static const struct AtcZoneRule kAtcZoneRulesNZ[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyNZ  = {
+const AtcZonePolicy kAtcPolicyNZ  = {
   kAtcZoneRulesNZ /*rules*/,
   NULL /*letters*/,
   5 /*num_rules*/,
@@ -5578,7 +5578,7 @@ const struct AtcZonePolicy kAtcPolicyNZ  = {
 // Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesNamibia[]  = {
+static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
   // Rule    Namibia    1994    only    -    Mar    21    0:00    -1:00    WAT
   {
     -6 /*from_year_tiny*/,
@@ -5625,7 +5625,7 @@ static const char * const kLettersNamibia[]  = {
 };
 
 
-const struct AtcZonePolicy kAtcPolicyNamibia  = {
+const AtcZonePolicy kAtcPolicyNamibia  = {
   kAtcZoneRulesNamibia /*rules*/,
   kLettersNamibia /*letters*/,
   3 /*num_rules*/,
@@ -5639,7 +5639,7 @@ const struct AtcZonePolicy kAtcPolicyNamibia  = {
 // Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesNic[]  = {
+static const AtcZoneRule kAtcZoneRulesNic[]  = {
   // Rule    Nic    1979    1980    -    Jun    Mon>=23    0:00    0    S
   {
     -21 /*from_year_tiny*/,
@@ -5705,7 +5705,7 @@ static const struct AtcZoneRule kAtcZoneRulesNic[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyNic  = {
+const AtcZonePolicy kAtcPolicyNic  = {
   kAtcZoneRulesNic /*rules*/,
   NULL /*letters*/,
   5 /*num_rules*/,
@@ -5719,7 +5719,7 @@ const struct AtcZonePolicy kAtcPolicyNic  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesPRC[]  = {
+static const AtcZoneRule kAtcZoneRulesPRC[]  = {
   // Rule    PRC    1986    1991    -    Sep    Sun>=11     2:00    0    S
   {
     -14 /*from_year_tiny*/,
@@ -5737,7 +5737,7 @@ static const struct AtcZoneRule kAtcZoneRulesPRC[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyPRC  = {
+const AtcZonePolicy kAtcPolicyPRC  = {
   kAtcZoneRulesPRC /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -5751,7 +5751,7 @@ const struct AtcZonePolicy kAtcPolicyPRC  = {
 // Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesPakistan[]  = {
+static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
   // Anchor: Rule Pakistan    2002    only    -    Oct    Sun>=2    0:00    0    -
   {
     -127 /*from_year_tiny*/,
@@ -5829,7 +5829,7 @@ static const struct AtcZoneRule kAtcZoneRulesPakistan[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyPakistan  = {
+const AtcZonePolicy kAtcPolicyPakistan  = {
   kAtcZoneRulesPakistan /*rules*/,
   NULL /*letters*/,
   6 /*num_rules*/,
@@ -5843,7 +5843,7 @@ const struct AtcZonePolicy kAtcPolicyPakistan  = {
 // Memory (32-bit): 384
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesPalestine[]  = {
+static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   // Anchor: Rule Palestine    1999    2003    -    Oct    Fri>=15    0:00    0    -
   {
     -127 /*from_year_tiny*/,
@@ -6221,7 +6221,7 @@ static const struct AtcZoneRule kAtcZoneRulesPalestine[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyPalestine  = {
+const AtcZonePolicy kAtcPolicyPalestine  = {
   kAtcZoneRulesPalestine /*rules*/,
   NULL /*letters*/,
   31 /*num_rules*/,
@@ -6235,7 +6235,7 @@ const struct AtcZonePolicy kAtcPolicyPalestine  = {
 // Memory (32-bit): 132
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesPara[]  = {
+static const AtcZoneRule kAtcZoneRulesPara[]  = {
   // Rule    Para    1996    2001    -    Oct    Sun>=1    0:00    1:00    -
   {
     -4 /*from_year_tiny*/,
@@ -6361,7 +6361,7 @@ static const struct AtcZoneRule kAtcZoneRulesPara[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyPara  = {
+const AtcZonePolicy kAtcPolicyPara  = {
   kAtcZoneRulesPara /*rules*/,
   NULL /*letters*/,
   10 /*num_rules*/,
@@ -6375,7 +6375,7 @@ const struct AtcZonePolicy kAtcPolicyPara  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesPeru[]  = {
+static const AtcZoneRule kAtcZoneRulesPeru[]  = {
   // Rule    Peru    1994    only    -    Apr     1    0:00    0    -
   {
     -6 /*from_year_tiny*/,
@@ -6393,7 +6393,7 @@ static const struct AtcZoneRule kAtcZoneRulesPeru[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyPeru  = {
+const AtcZonePolicy kAtcPolicyPeru  = {
   kAtcZoneRulesPeru /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -6407,7 +6407,7 @@ const struct AtcZonePolicy kAtcPolicyPeru  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesPhil[]  = {
+static const AtcZoneRule kAtcZoneRulesPhil[]  = {
   // Rule    Phil    1978    only    -    Sep    21    0:00    0    S
   {
     -22 /*from_year_tiny*/,
@@ -6425,7 +6425,7 @@ static const struct AtcZoneRule kAtcZoneRulesPhil[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyPhil  = {
+const AtcZonePolicy kAtcPolicyPhil  = {
   kAtcZoneRulesPhil /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -6439,7 +6439,7 @@ const struct AtcZonePolicy kAtcPolicyPhil  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesROK[]  = {
+static const AtcZoneRule kAtcZoneRulesROK[]  = {
   // Rule    ROK    1987    1988    -    Oct    Sun>=8     3:00    0    S
   {
     -13 /*from_year_tiny*/,
@@ -6457,7 +6457,7 @@ static const struct AtcZoneRule kAtcZoneRulesROK[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyROK  = {
+const AtcZonePolicy kAtcPolicyROK  = {
   kAtcZoneRulesROK /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -6471,7 +6471,7 @@ const struct AtcZonePolicy kAtcPolicyROK  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesRussia[]  = {
+static const AtcZoneRule kAtcZoneRulesRussia[]  = {
   // Rule    Russia    1984    1995    -    Sep    lastSun     2:00s    0    -
   {
     -16 /*from_year_tiny*/,
@@ -6513,7 +6513,7 @@ static const struct AtcZoneRule kAtcZoneRulesRussia[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyRussia  = {
+const AtcZonePolicy kAtcPolicyRussia  = {
   kAtcZoneRulesRussia /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -6527,7 +6527,7 @@ const struct AtcZonePolicy kAtcPolicyRussia  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesRussiaAsia[]  = {
+static const AtcZoneRule kAtcZoneRulesRussiaAsia[]  = {
   // Rule RussiaAsia    1984    1995    -    Sep    lastSun     2:00s    0    -
   {
     -16 /*from_year_tiny*/,
@@ -6569,7 +6569,7 @@ static const struct AtcZoneRule kAtcZoneRulesRussiaAsia[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyRussiaAsia  = {
+const AtcZonePolicy kAtcPolicyRussiaAsia  = {
   kAtcZoneRulesRussiaAsia /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -6583,7 +6583,7 @@ const struct AtcZonePolicy kAtcPolicyRussiaAsia  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesSA[]  = {
+static const AtcZoneRule kAtcZoneRulesSA[]  = {
   // Rule    SA    1943    1944    -    Mar    Sun>=15    2:00    0    -
   {
     -57 /*from_year_tiny*/,
@@ -6601,7 +6601,7 @@ static const struct AtcZoneRule kAtcZoneRulesSA[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicySA  = {
+const AtcZonePolicy kAtcPolicySA  = {
   kAtcZoneRulesSA /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -6615,7 +6615,7 @@ const struct AtcZonePolicy kAtcPolicySA  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesSalv[]  = {
+static const AtcZoneRule kAtcZoneRulesSalv[]  = {
   // Rule    Salv    1987    1988    -    Sep    lastSun    0:00    0    S
   {
     -13 /*from_year_tiny*/,
@@ -6633,7 +6633,7 @@ static const struct AtcZoneRule kAtcZoneRulesSalv[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicySalv  = {
+const AtcZonePolicy kAtcPolicySalv  = {
   kAtcZoneRulesSalv /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -6647,7 +6647,7 @@ const struct AtcZonePolicy kAtcPolicySalv  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesSanLuis[]  = {
+static const AtcZoneRule kAtcZoneRulesSanLuis[]  = {
   // Anchor: Rule    SanLuis    2008    2009    -    Mar    Sun>=8    0:00    0    -
   {
     -127 /*from_year_tiny*/,
@@ -6689,7 +6689,7 @@ static const struct AtcZoneRule kAtcZoneRulesSanLuis[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicySanLuis  = {
+const AtcZonePolicy kAtcPolicySanLuis  = {
   kAtcZoneRulesSanLuis /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -6703,7 +6703,7 @@ const struct AtcZonePolicy kAtcPolicySanLuis  = {
 // Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesStJohns[]  = {
+static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
   // Rule    StJohns    1987    2006    -    Oct    lastSun    0:01    0    S
   {
     -13 /*from_year_tiny*/,
@@ -6773,7 +6773,7 @@ static const char * const kLettersStJohns[]  = {
 };
 
 
-const struct AtcZonePolicy kAtcPolicyStJohns  = {
+const AtcZonePolicy kAtcPolicyStJohns  = {
   kAtcZoneRulesStJohns /*rules*/,
   kLettersStJohns /*letters*/,
   5 /*num_rules*/,
@@ -6787,7 +6787,7 @@ const struct AtcZonePolicy kAtcPolicyStJohns  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesSudan[]  = {
+static const AtcZoneRule kAtcZoneRulesSudan[]  = {
   // Rule    Sudan    1970    1985    -    Oct    15    0:00    0    -
   {
     -30 /*from_year_tiny*/,
@@ -6805,7 +6805,7 @@ static const struct AtcZoneRule kAtcZoneRulesSudan[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicySudan  = {
+const AtcZonePolicy kAtcPolicySudan  = {
   kAtcZoneRulesSudan /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -6819,7 +6819,7 @@ const struct AtcZonePolicy kAtcPolicySudan  = {
 // Memory (32-bit): 156
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesSyria[]  = {
+static const AtcZoneRule kAtcZoneRulesSyria[]  = {
   // Rule    Syria    1994    2005    -    Oct     1    0:00    0    -
   {
     -6 /*from_year_tiny*/,
@@ -6969,7 +6969,7 @@ static const struct AtcZoneRule kAtcZoneRulesSyria[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicySyria  = {
+const AtcZonePolicy kAtcPolicySyria  = {
   kAtcZoneRulesSyria /*rules*/,
   NULL /*letters*/,
   12 /*num_rules*/,
@@ -6983,7 +6983,7 @@ const struct AtcZonePolicy kAtcPolicySyria  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesTaiwan[]  = {
+static const AtcZoneRule kAtcZoneRulesTaiwan[]  = {
   // Rule    Taiwan    1979    only    -    Oct    1    0:00    0    S
   {
     -21 /*from_year_tiny*/,
@@ -7001,7 +7001,7 @@ static const struct AtcZoneRule kAtcZoneRulesTaiwan[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyTaiwan  = {
+const AtcZonePolicy kAtcPolicyTaiwan  = {
   kAtcZoneRulesTaiwan /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -7015,7 +7015,7 @@ const struct AtcZonePolicy kAtcPolicyTaiwan  = {
 // Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesThule[]  = {
+static const AtcZoneRule kAtcZoneRulesThule[]  = {
   // Rule    Thule    1991    1992    -    Sep    lastSun    2:00    0    S
   {
     -9 /*from_year_tiny*/,
@@ -7081,7 +7081,7 @@ static const struct AtcZoneRule kAtcZoneRulesThule[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyThule  = {
+const AtcZonePolicy kAtcPolicyThule  = {
   kAtcZoneRulesThule /*rules*/,
   NULL /*letters*/,
   5 /*num_rules*/,
@@ -7095,7 +7095,7 @@ const struct AtcZonePolicy kAtcPolicyThule  = {
 // Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesTonga[]  = {
+static const AtcZoneRule kAtcZoneRulesTonga[]  = {
   // Anchor: Rule    Tonga    2000    only    -    Mar    19    2:00s    0    -
   {
     -127 /*from_year_tiny*/,
@@ -7185,7 +7185,7 @@ static const struct AtcZoneRule kAtcZoneRulesTonga[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyTonga  = {
+const AtcZonePolicy kAtcPolicyTonga  = {
   kAtcZoneRulesTonga /*rules*/,
   NULL /*letters*/,
   7 /*num_rules*/,
@@ -7199,7 +7199,7 @@ const struct AtcZonePolicy kAtcPolicyTonga  = {
 // Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesTroll[]  = {
+static const AtcZoneRule kAtcZoneRulesTroll[]  = {
   // Anchor: Rule    Troll    2004    max    -    Oct    lastSun    1:00u    0:00    +00
   {
     -127 /*from_year_tiny*/,
@@ -7246,7 +7246,7 @@ static const char * const kLettersTroll[]  = {
 };
 
 
-const struct AtcZonePolicy kAtcPolicyTroll  = {
+const AtcZonePolicy kAtcPolicyTroll  = {
   kAtcZoneRulesTroll /*rules*/,
   kLettersTroll /*letters*/,
   3 /*num_rules*/,
@@ -7260,7 +7260,7 @@ const struct AtcZonePolicy kAtcPolicyTroll  = {
 // Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesTunisia[]  = {
+static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
   // Rule    Tunisia    1988    1990    -    Sep    lastSun     0:00s    0    -
   {
     -12 /*from_year_tiny*/,
@@ -7326,7 +7326,7 @@ static const struct AtcZoneRule kAtcZoneRulesTunisia[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyTunisia  = {
+const AtcZonePolicy kAtcPolicyTunisia  = {
   kAtcZoneRulesTunisia /*rules*/,
   NULL /*letters*/,
   5 /*num_rules*/,
@@ -7340,7 +7340,7 @@ const struct AtcZonePolicy kAtcPolicyTunisia  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesTurkey[]  = {
+static const AtcZoneRule kAtcZoneRulesTurkey[]  = {
   // Rule    Turkey    1986    1995    -    Sep    lastSun    1:00s    0    -
   {
     -14 /*from_year_tiny*/,
@@ -7382,7 +7382,7 @@ static const struct AtcZoneRule kAtcZoneRulesTurkey[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyTurkey  = {
+const AtcZonePolicy kAtcPolicyTurkey  = {
   kAtcZoneRulesTurkey /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -7396,7 +7396,7 @@ const struct AtcZonePolicy kAtcPolicyTurkey  = {
 // Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesUS[]  = {
+static const AtcZoneRule kAtcZoneRulesUS[]  = {
   // Rule    US    1967    2006    -    Oct    lastSun    2:00    0    S
   {
     -33 /*from_year_tiny*/,
@@ -7462,7 +7462,7 @@ static const struct AtcZoneRule kAtcZoneRulesUS[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyUS  = {
+const AtcZonePolicy kAtcPolicyUS  = {
   kAtcZoneRulesUS /*rules*/,
   NULL /*letters*/,
   5 /*num_rules*/,
@@ -7476,7 +7476,7 @@ const struct AtcZonePolicy kAtcPolicyUS  = {
 // Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesUruguay[]  = {
+static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
   // Rule    Uruguay    1993    only    -    Feb    28     0:00    0    -
   {
     -7 /*from_year_tiny*/,
@@ -7554,7 +7554,7 @@ static const struct AtcZoneRule kAtcZoneRulesUruguay[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyUruguay  = {
+const AtcZonePolicy kAtcPolicyUruguay  = {
   kAtcZoneRulesUruguay /*rules*/,
   NULL /*letters*/,
   6 /*num_rules*/,
@@ -7568,7 +7568,7 @@ const struct AtcZonePolicy kAtcPolicyUruguay  = {
 // Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesVanuatu[]  = {
+static const AtcZoneRule kAtcZoneRulesVanuatu[]  = {
   // Rule    Vanuatu    1992    1993    -    Jan    Sat>=22    24:00    0    -
   {
     -8 /*from_year_tiny*/,
@@ -7586,7 +7586,7 @@ static const struct AtcZoneRule kAtcZoneRulesVanuatu[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyVanuatu  = {
+const AtcZonePolicy kAtcPolicyVanuatu  = {
   kAtcZoneRulesVanuatu /*rules*/,
   NULL /*letters*/,
   1 /*num_rules*/,
@@ -7600,7 +7600,7 @@ const struct AtcZonePolicy kAtcPolicyVanuatu  = {
 // Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesWS[]  = {
+static const AtcZoneRule kAtcZoneRulesWS[]  = {
   // Anchor: Rule    WS    2011    only    -    Apr    Sat>=1    4:00    0    -
   {
     -127 /*from_year_tiny*/,
@@ -7678,7 +7678,7 @@ static const struct AtcZoneRule kAtcZoneRulesWS[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyWS  = {
+const AtcZonePolicy kAtcPolicyWS  = {
   kAtcZoneRulesWS /*rules*/,
   NULL /*letters*/,
   6 /*num_rules*/,
@@ -7692,7 +7692,7 @@ const struct AtcZonePolicy kAtcPolicyWS  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesWinn[]  = {
+static const AtcZoneRule kAtcZoneRulesWinn[]  = {
   // Rule    Winn    1966    1986    -    Apr    lastSun    2:00s    1:00    D
   {
     -34 /*from_year_tiny*/,
@@ -7734,7 +7734,7 @@ static const struct AtcZoneRule kAtcZoneRulesWinn[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyWinn  = {
+const AtcZonePolicy kAtcPolicyWinn  = {
   kAtcZoneRulesWinn /*rules*/,
   NULL /*letters*/,
   3 /*num_rules*/,
@@ -7748,7 +7748,7 @@ const struct AtcZonePolicy kAtcPolicyWinn  = {
 // Memory (32-bit): 300
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneRule kAtcZoneRulesZion[]  = {
+static const AtcZoneRule kAtcZoneRulesZion[]  = {
   // Rule    Zion    1998    only    -    Sep     6    0:00    0    S
   {
     -2 /*from_year_tiny*/,
@@ -8042,7 +8042,7 @@ static const struct AtcZoneRule kAtcZoneRulesZion[]  = {
 
 
 
-const struct AtcZonePolicy kAtcPolicyZion  = {
+const AtcZonePolicy kAtcPolicyZion  = {
   kAtcZoneRulesZion /*rules*/,
   NULL /*letters*/,
   24 /*num_rules*/,

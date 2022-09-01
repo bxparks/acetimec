@@ -7,13 +7,13 @@
 #include "zone_registrar.h"
 
 bool atc_registrar_is_registry_sorted(
-    const struct AtcZoneInfo * const * registry,
+    const AtcZoneInfo * const * registry,
     uint16_t size)
 {
   if (size == 0) return true;
-  const struct AtcZoneInfo *prev = registry[0];
+  const AtcZoneInfo *prev = registry[0];
   for (uint16_t i = 1; i < size; i++) {
-    const struct AtcZoneInfo *curr = registry[i];
+    const AtcZoneInfo *curr = registry[i];
     if (curr->zone_id < prev->zone_id) return false;
     prev = curr;
   }
@@ -25,7 +25,7 @@ bool atc_registrar_is_registry_sorted(
  * or UINT16_MAX if not found.
  */
 static uint16_t binary_search(
-    const struct AtcZoneInfo * const * registry,
+    const AtcZoneInfo * const * registry,
     uint16_t size,
     uint32_t zone_id)
 {
@@ -36,7 +36,7 @@ static uint16_t binary_search(
     if (diff == 0) break;
 
     uint16_t c = a + diff / 2;
-    const struct AtcZoneInfo *curr = registry[c];
+    const AtcZoneInfo *curr = registry[c];
     if (curr->zone_id == zone_id) return c;
     if (zone_id < curr->zone_id) {
       b = c;
@@ -48,25 +48,25 @@ static uint16_t binary_search(
 }
 
 static uint16_t linear_search(
-    const struct AtcZoneInfo * const * registry,
+    const AtcZoneInfo * const * registry,
     uint16_t size,
     uint32_t zone_id)
 {
   for (uint16_t i = 0; i < size; i++) {
-    const struct AtcZoneInfo *curr = registry[i];
+    const AtcZoneInfo *curr = registry[i];
     if (curr->zone_id == zone_id) return i;
   }
   return UINT16_MAX;
 }
 
-const struct AtcZoneInfo *atc_registrar_find_by_name(
-    const struct AtcZoneInfo * const * registry,
+const AtcZoneInfo *atc_registrar_find_by_name(
+    const AtcZoneInfo * const * registry,
     uint16_t size,
     const char *name,
     bool is_sorted)
 {
   uint32_t zone_id = atc_djb2(name);
-  const struct AtcZoneInfo *info = atc_registrar_find_by_id(
+  const AtcZoneInfo *info = atc_registrar_find_by_id(
       registry, size, zone_id, is_sorted);
   if (! info) return info;
 
@@ -76,8 +76,8 @@ const struct AtcZoneInfo *atc_registrar_find_by_name(
   return info;
 }
 
-const struct AtcZoneInfo *atc_registrar_find_by_id(
-    const struct AtcZoneInfo * const * registry,
+const AtcZoneInfo *atc_registrar_find_by_id(
+    const AtcZoneInfo * const * registry,
     uint16_t size,
     uint32_t zone_id,
     bool is_sorted)
@@ -86,6 +86,6 @@ const struct AtcZoneInfo *atc_registrar_find_by_id(
       ? binary_search(registry, size, zone_id)
       : linear_search(registry, size, zone_id);
   if (index == UINT16_MAX) return NULL;
-  const struct AtcZoneInfo *match = registry[index];
+  const AtcZoneInfo *match = registry[index];
   return match;
 }

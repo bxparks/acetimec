@@ -11,7 +11,7 @@ static atc_time_t hms_to_epoch_seconds(
 }
 
 atc_time_t atc_local_date_time_to_epoch_seconds(
-    const struct AtcLocalDateTime *ldt)
+    const AtcLocalDateTime *ldt)
 {
   if (ldt->year == kAtcInvalidYear) return kAtcInvalidEpochSeconds;
 
@@ -23,7 +23,7 @@ atc_time_t atc_local_date_time_to_epoch_seconds(
 
 int8_t atc_local_date_time_from_epoch_seconds(
   atc_time_t epoch_seconds,
-  struct AtcLocalDateTime *ldt)
+  AtcLocalDateTime *ldt)
 {
   // TODO: Check for epoch_seconds which generates year<-127 or year>127.
   if (epoch_seconds == kAtcInvalidEpochSeconds) {
@@ -55,4 +55,21 @@ int8_t atc_local_date_time_from_epoch_seconds(
   ldt->hour = minutes / 60;
 
   return kAtcErrOk;
+}
+
+void atc_local_date_time_print(
+    AtcStringBuffer *sb,
+    const AtcLocalDateTime *ldt)
+{
+  atc_print_uint16_pad4(sb, ldt->year);
+  atc_print_char(sb, '-');
+  atc_print_uint16_pad2(sb, ldt->month);
+  atc_print_char(sb, '-');
+  atc_print_uint16_pad2(sb, ldt->day);
+  atc_print_char(sb, 'T');
+  atc_print_uint16_pad2(sb, ldt->hour);
+  atc_print_char(sb, ':');
+  atc_print_uint16_pad2(sb, ldt->minute);
+  atc_print_char(sb, ':');
+  atc_print_uint16_pad2(sb, ldt->second);
 }

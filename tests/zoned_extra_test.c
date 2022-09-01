@@ -4,10 +4,10 @@
 
 ACU_TEST(test_atc_zoned_extra_from_epoch_seconds_invalid)
 {
-  struct AtcZoneProcessing processing;
+  AtcZoneProcessing processing;
   atc_processing_init(&processing);
 
-  struct AtcZonedExtra zet;
+  AtcZonedExtra zet;
   atc_time_t epoch_seconds = kAtcInvalidEpochSeconds;
 
   int8_t err = atc_zoned_extra_from_epoch_seconds(
@@ -20,15 +20,15 @@ ACU_TEST(test_atc_zoned_extra_from_epoch_seconds_invalid)
 
 ACU_TEST(test_zoned_extra_from_epoch_seconds_fall_back)
 {
-  struct AtcZoneProcessing processing;
+  AtcZoneProcessing processing;
   atc_processing_init(&processing);
 
   // Start our sampling at 01:29:00-07:00, which is 31 minutes before the DST
   // fall-back.
-  struct AtcOffsetDateTime odt = { 2022, 11, 6, 1, 29, 0, 0 /*fold*/, -7*60 };
+  AtcOffsetDateTime odt = { 2022, 11, 6, 1, 29, 0, 0 /*fold*/, -7*60 };
   atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(&odt);
 
-  struct AtcZonedExtra zet;
+  AtcZonedExtra zet;
   int8_t err = atc_zoned_extra_from_epoch_seconds(
     &processing,
     &kAtcZoneAmerica_Los_Angeles,
@@ -54,15 +54,15 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_fall_back)
 
 ACU_TEST(test_zoned_extra_from_epoch_seconds_spring_forward)
 {
-  struct AtcZoneProcessing processing;
+  AtcZoneProcessing processing;
   atc_processing_init(&processing);
 
   // Start our sampling at 01:29:00-08:00, which is 31 minutes before the DST
   // spring forward.
-  struct AtcOffsetDateTime odt = { 2022, 3, 13, 1, 29, 0, 0 /*fold*/, -8*60 };
+  AtcOffsetDateTime odt = { 2022, 3, 13, 1, 29, 0, 0 /*fold*/, -8*60 };
   atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(&odt);
 
-  struct AtcZonedExtra zet;
+  AtcZonedExtra zet;
   int8_t err = atc_zoned_extra_from_epoch_seconds(
     &processing,
     &kAtcZoneAmerica_Los_Angeles,

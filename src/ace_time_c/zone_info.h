@@ -43,7 +43,7 @@ enum {
  * rule that repeats on the given (month, day, hour) every year during the
  * interval [fromYear, toYear] inclusive.
  */
-struct AtcZoneRule {
+typedef struct AtcZoneRule {
 
   /** FROM year as an offset from year 2000 stored as a single byte. */
   int8_t const from_year_tiny;
@@ -127,7 +127,7 @@ struct AtcZoneRule {
    *  - Troll ('+00' '+02'; used by Antarctica/Troll)
    */
   uint8_t const letter;
-};
+} AtcZoneRule;
 
 /**
  * A collection of transition rules which describe the DST rules of a given
@@ -139,9 +139,9 @@ struct AtcZoneRule {
  * (const char*) pointers. Any ZoneRule.letter < 32 (i.e. non-printable) will
  * be an offset into this array of pointers.
  */
-struct AtcZonePolicy {
+typedef struct AtcZonePolicy {
   /** Pointer to array of rules. */
-  const struct AtcZoneRule* const rules;
+  const AtcZoneRule* const rules;
 
   /** Pointer to an array of DST letters (e.g. "D", "S"). */
   const char* const* const letters;
@@ -151,7 +151,7 @@ struct AtcZonePolicy {
 
   /** Number of letters in array. */
   uint8_t const num_letters;
-};
+} AtcZonePolicy;
 
 //---------------------------------------------------------------------------
 
@@ -167,7 +167,7 @@ enum {
 };
 
 /** Information about the zone database. */
-struct AtcZoneContext {
+typedef struct AtcZoneContext {
   /*
    * Epoch year. Currently always 2000 but could change in the future. We're
    * leaving this out for now because it's not clear how or if the various
@@ -190,7 +190,7 @@ struct AtcZoneContext {
 
   /** Zone Name fragment list. */
   const char * const *fragments;
-};
+} AtcZoneContext;
 
 /**
  * An entry in ZoneInfo which describes which ZonePolicy was being followed
@@ -206,12 +206,12 @@ struct AtcZoneContext {
  *    ZoneRule.delta_code of the ZoneRule which matches the time instant of
  *    interest.
  */
-struct AtcZoneEra {
+typedef struct AtcZoneEra {
   /**
    * Zone policy, determined by the RULES column. Set to nullptr if the RULES
    * column is '-' or an explicit DST shift in the form of 'hh:mm'.
    */
-  const struct AtcZonePolicy * const zone_policy;
+  const AtcZonePolicy * const zone_policy;
 
   /**
    * Zone abbreviations (e.g. PST, EST) determined by the FORMAT column. It has
@@ -296,13 +296,13 @@ struct AtcZoneEra {
    *    (until_time_modifier & 0x0f)).
    */
   uint8_t const until_time_modifier;
-};
+} AtcZoneEra;
 
 /**
  * Representation of a given time zone, implemented as an array of ZoneEra
  * records.
  */
-struct AtcZoneInfo {
+typedef struct AtcZoneInfo {
   /** Full name of zone (e.g. "America/Los_Angeles"). */
   const char * const name;
 
@@ -314,7 +314,7 @@ struct AtcZoneInfo {
   uint32_t const zone_id;
 
   /** ZoneContext metadata. */
-  const struct AtcZoneContext * const zone_context;
+  const AtcZoneContext * const zone_context;
 
   /** Number of ZoneEra entries. Set to 0 if this Zone is a actually a Link. */
   uint8_t const num_eras;
@@ -329,19 +329,19 @@ struct AtcZoneInfo {
    * ZoneEra entries.
    */
   const void * const eras;
-};
+} AtcZoneInfo;
 
 //---------------------------------------------------------------------------
 
 /**
  * A LINK to ZONE mapping, using the zoneId/linkId hash key.
  */
-struct AtcLinkEntry {
+typedef struct AtcLinkEntry {
   /** Hash id of the source LINK name (e.g. "US/Pacific"). */
   uint32_t const link_id;
 
   /** Hash id of the target ZONE name (e.g. "America/Los_Angeles"). */
   uint32_t const zone_id;
-};
+} AtcLinkEntry;
 
 #endif

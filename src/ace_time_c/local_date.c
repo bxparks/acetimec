@@ -114,7 +114,7 @@ void atc_local_date_from_epoch_days(
   *year_tiny = year_prime_tiny + ((*month <= 2) ? 1 : 0);
 }
 
-void atc_local_date_increment_one_day(struct AtcLocalDate *ld)
+void atc_local_date_increment_one_day(AtcLocalDate *ld)
 {
   uint8_t day = ld->day + 1;
   uint8_t month = ld->month;
@@ -133,7 +133,7 @@ void atc_local_date_increment_one_day(struct AtcLocalDate *ld)
   ld->year = year;
 }
 
-void atc_local_date_decrement_one_day(struct AtcLocalDate *ld)
+void atc_local_date_decrement_one_day(AtcLocalDate *ld)
 {
   uint8_t day = ld->day - 1;
   uint8_t month = ld->month;

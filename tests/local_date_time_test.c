@@ -3,34 +3,34 @@
 
 ACU_TEST(test_atc_local_date_time_to_epoch_seconds)
 {
-  struct AtcLocalDateTime ldt = {1931, 12, 13, 20, 45, 53};
+  AtcLocalDateTime ldt = {1931, 12, 13, 20, 45, 53};
   int32_t seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == INT32_MIN + 1);
 
-  ldt = (struct AtcLocalDateTime) {2000, 1, 1, 0, 0, 0};
+  ldt = (AtcLocalDateTime) {2000, 1, 1, 0, 0, 0};
   seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 0);
 
-  ldt = (struct AtcLocalDateTime) {2000, 1, 2, 0, 0, 0};
+  ldt = (AtcLocalDateTime) {2000, 1, 2, 0, 0, 0};
   seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 86400);
 
-  ldt = (struct AtcLocalDateTime) {2000, 2, 29, 0, 0, 0};
+  ldt = (AtcLocalDateTime) {2000, 2, 29, 0, 0, 0};
   seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 86400 * 59);
 
-  ldt = (struct AtcLocalDateTime) {2018, 1, 1, 0, 0, 0};
+  ldt = (AtcLocalDateTime) {2018, 1, 1, 0, 0, 0};
   seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 86400 * 6575);
 
-  ldt = (struct AtcLocalDateTime) {2038, 1, 19, 3, 14, 7};
+  ldt = (AtcLocalDateTime) {2038, 1, 19, 3, 14, 7};
   seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 1200798847);
 }
 
 ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2000)
 {
-  struct AtcLocalDateTime ldt;
+  AtcLocalDateTime ldt;
   int8_t err = atc_local_date_time_from_epoch_seconds(0, &ldt);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(ldt.year == 2000);
@@ -43,7 +43,7 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2000)
 
 ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2029)
 {
-  struct AtcLocalDateTime ldt;
+  AtcLocalDateTime ldt;
   int8_t err = atc_local_date_time_from_epoch_seconds(10958 * 86400 - 1, &ldt);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(ldt.year == 2029);
@@ -56,7 +56,7 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2029)
 
 ACU_TEST(test_atc_local_date_time_from_epoch_seconds_2068)
 {
-  struct AtcLocalDateTime ldt;
+  AtcLocalDateTime ldt;
   int8_t err = atc_local_date_time_from_epoch_seconds(INT32_MAX - 1, &ldt);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(ldt.year == 2068);

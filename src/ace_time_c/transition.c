@@ -8,8 +8,8 @@
 //---------------------------------------------------------------------------
 
 int8_t atc_date_tuple_compare(
-  const struct AtcDateTuple *a,
-  const struct AtcDateTuple *b)
+  const AtcDateTuple *a,
+  const AtcDateTuple *b)
 {
   if (a->year_tiny < b->year_tiny) return -1;
   if (a->year_tiny > b->year_tiny) return 1;
@@ -23,8 +23,8 @@ int8_t atc_date_tuple_compare(
 }
 
 atc_time_t atc_date_tuple_subtract(
-    const struct AtcDateTuple *a,
-    const struct AtcDateTuple *b)
+    const AtcDateTuple *a,
+    const AtcDateTuple *b)
 {
   int32_t eda = atc_local_date_to_epoch_days(a->year_tiny, a->month, a->day);
   int32_t esa = eda * 86400 + a->minutes * 60;
@@ -36,12 +36,13 @@ atc_time_t atc_date_tuple_subtract(
 }
 
 void atc_date_tuple_expand(
-    const struct AtcDateTuple *tt,
+    const AtcDateTuple *tt,
     int16_t offset_minutes,
     int16_t delta_minutes,
-    struct AtcDateTuple *ttw,
-    struct AtcDateTuple *tts,
-    struct AtcDateTuple *ttu) {
+    AtcDateTuple *ttw,
+    AtcDateTuple *tts,
+    AtcDateTuple *ttu)
+{
 
   if (tt->suffix == kAtcSuffixS) {
     *tts = *tt;
@@ -94,21 +95,19 @@ void atc_date_tuple_expand(
   atc_date_tuple_normalize(ttu);
 }
 
-void atc_date_tuple_normalize(struct AtcDateTuple *dt)
+void atc_date_tuple_normalize(AtcDateTuple *dt)
 {
   const int16_t kOneDayAsMinutes = 60 * 24;
 
   if (dt->minutes <= -kOneDayAsMinutes) {
-    struct AtcLocalDate ld = {
-        dt->year_tiny + kAtcEpochYear, dt->month, dt->day};
+    AtcLocalDate ld = { dt->year_tiny + kAtcEpochYear, dt->month, dt->day };
     atc_local_date_decrement_one_day(&ld);
     dt->year_tiny = ld.year - kAtcEpochYear;
     dt->month = ld.month;
     dt->day = ld.day;
     dt->minutes += kOneDayAsMinutes;
   } else if (kOneDayAsMinutes <= dt->minutes) {
-    struct AtcLocalDate ld = {
-        dt->year_tiny + kAtcEpochYear, dt->month, dt->day};
+    AtcLocalDate ld = { dt->year_tiny + kAtcEpochYear, dt->month, dt->day };
     atc_local_date_increment_one_day(&ld);
     dt->year_tiny = ld.year - kAtcEpochYear;
     dt->month = ld.month;
@@ -121,7 +120,7 @@ void atc_date_tuple_normalize(struct AtcDateTuple *dt)
 
 //---------------------------------------------------------------------------
 
-void atc_transition_storage_init(struct AtcTransitionStorage *ts)
+void atc_transition_storage_init(AtcTransitionStorage *ts)
 {
   for (int i = 0; i < kAtcTransitionStorageSize; i++) {
     ts->transitions[i] = &ts->transition_pool[i];
@@ -132,40 +131,40 @@ void atc_transition_storage_init(struct AtcTransitionStorage *ts)
   ts->alloc_size = 0;
 }
 
-struct AtcTransition **atc_transition_storage_get_candidate_pool_begin(
-    struct AtcTransitionStorage *ts)
+AtcTransition **atc_transition_storage_get_candidate_pool_begin(
+    AtcTransitionStorage *ts)
 {
   return &ts->transitions[ts->index_candidate];
 }
 
-struct AtcTransition **atc_transition_storage_get_candidate_pool_end(
-    struct AtcTransitionStorage *ts)
+AtcTransition **atc_transition_storage_get_candidate_pool_end(
+    AtcTransitionStorage *ts)
 {
   return &ts->transitions[ts->index_free];
 }
 
-struct AtcTransition **atc_transition_storage_get_active_pool_begin(
-    struct AtcTransitionStorage *ts)
+AtcTransition **atc_transition_storage_get_active_pool_begin(
+    AtcTransitionStorage *ts)
 {
   return &ts->transitions[0];
 }
 
-struct AtcTransition **atc_transition_storage_get_active_pool_end(
-    struct AtcTransitionStorage *ts)
+AtcTransition **atc_transition_storage_get_active_pool_end(
+    AtcTransitionStorage *ts)
 {
   // NOTE: I think this should be index_prior not index_free
   return &ts->transitions[ts->index_free];
 }
 
 void atc_transition_storage_reset_candidate_pool(
-    struct AtcTransitionStorage *ts)
+    AtcTransitionStorage *ts)
 {
   ts->index_candidate = ts->index_prior;
   ts->index_free = ts->index_prior;
 }
 
-struct AtcTransition *atc_transition_storage_get_free_agent(
-    struct AtcTransitionStorage *ts)
+AtcTransition *atc_transition_storage_get_free_agent(
+    AtcTransitionStorage *ts)
 {
   if (ts->index_free < kAtcTransitionStorageSize) {
     if (ts->index_free >= ts->alloc_size) {
@@ -183,7 +182,7 @@ struct AtcTransition *atc_transition_storage_get_free_agent(
 }
 
 void atc_transition_storage_add_free_agent_to_active_pool(
-    struct AtcTransitionStorage *ts)
+    AtcTransitionStorage *ts)
 {
   if (ts->index_free >= kAtcTransitionStorageSize) return;
   ts->index_free++;
@@ -191,8 +190,8 @@ void atc_transition_storage_add_free_agent_to_active_pool(
   ts->index_candidate = ts->index_free;
 }
 
-struct AtcTransition **atc_transition_storage_reserve_prior(
-    struct AtcTransitionStorage *ts)
+AtcTransition **atc_transition_storage_reserve_prior(
+    AtcTransitionStorage *ts)
 {
   (void) atc_transition_storage_get_free_agent(ts);
   ts->index_candidate++;
@@ -201,10 +200,10 @@ struct AtcTransition **atc_transition_storage_reserve_prior(
 }
 
 void atc_transition_storage_set_free_agent_as_prior_if_valid(
-    struct AtcTransitionStorage *ts)
+    AtcTransitionStorage *ts)
 {
-  struct AtcTransition *ft = ts->transitions[ts->index_free];
-  struct AtcTransition *prior = ts->transitions[ts->index_prior];
+  AtcTransition *ft = ts->transitions[ts->index_free];
+  AtcTransition *prior = ts->transitions[ts->index_prior];
   if ((prior->is_valid_prior
       && atc_date_tuple_compare(
           &prior->transition_time,
@@ -220,18 +219,18 @@ void atc_transition_storage_set_free_agent_as_prior_if_valid(
 }
 
 void atc_transition_storage_add_prior_to_candidate_pool(
-    struct AtcTransitionStorage *ts)
+    AtcTransitionStorage *ts)
 {
   ts->index_candidate--;
 }
 
 void atc_transition_storage_add_free_agent_to_candidate_pool(
-    struct AtcTransitionStorage *ts)
+    AtcTransitionStorage *ts)
 {
   if (ts->index_free >= kAtcTransitionStorageSize) return;
   for (uint8_t i = ts->index_free; i > ts->index_candidate; i--) {
-    struct AtcTransition *curr = ts->transitions[i];
-    struct AtcTransition *prev = ts->transitions[i - 1];
+    AtcTransition *curr = ts->transitions[i];
+    AtcTransition *prev = ts->transitions[i - 1];
     if (atc_date_tuple_compare(
         &curr->transition_time,
         &prev->transition_time) >= 0) break;
@@ -247,9 +246,8 @@ static bool is_match_status_active(uint8_t status) {
       || status == kAtcMatchStatusPrior;
 }
 
-struct AtcTransition *
-atc_transition_storage_add_active_candidates_to_active_pool(
-    struct AtcTransitionStorage *ts)
+AtcTransition *atc_transition_storage_add_active_candidates_to_active_pool(
+    AtcTransitionStorage *ts)
 {
   // Shift active candidates to the left into the Active pool.
   uint8_t i_active = ts->index_prior;
@@ -258,7 +256,7 @@ atc_transition_storage_add_active_candidates_to_active_pool(
     if (is_match_status_active(ts->transitions[i_candidate]->match_status)) {
       if (i_active != i_candidate) {
         // Perform swap of pointers to AtcTransition.
-        struct AtcTransition *tmp = ts->transitions[i_active];
+        AtcTransition *tmp = ts->transitions[i_active];
         ts->transitions[i_active] = ts->transitions[i_candidate];
         ts->transitions[i_candidate] = tmp;
       }
@@ -276,12 +274,12 @@ atc_transition_storage_add_active_candidates_to_active_pool(
 //---------------------------------------------------------------------------
 
 void atc_transition_fix_times(
-    struct AtcTransition **begin,
-    struct AtcTransition **end)
+    AtcTransition **begin,
+    AtcTransition **end)
 {
-  struct AtcTransition *prev = *begin;
-  for (struct AtcTransition **iter = begin; iter != end; ++iter) {
-    struct AtcTransition *curr = *iter;
+  AtcTransition *prev = *begin;
+  for (AtcTransition **iter = begin; iter != end; ++iter) {
+    AtcTransition *curr = *iter;
     atc_date_tuple_expand(
         &curr->transition_time,
         prev->offset_minutes,
@@ -293,7 +291,7 @@ void atc_transition_fix_times(
   }
 }
 
-const char *atc_transition_extract_letter(const struct AtcTransition *t)
+const char *atc_transition_extract_letter(const AtcTransition *t)
 {
   // RULES column is '-' or hh:mm, so return NULL to indicate this.
   if (t->rule == NULL) {
@@ -312,7 +310,7 @@ const char *atc_transition_extract_letter(const struct AtcTransition *t)
   // RULES points to a named rule, and the LETTER is a string. The
   // rule->letter is a non-printable number < 32, which is an index into
   // a list of strings given by match->era->zonePolicy->letters[].
-  const struct AtcZonePolicy *policy = t->match->era->zone_policy;
+  const AtcZonePolicy *policy = t->match->era->zone_policy;
   uint8_t num_letters = policy->num_letters;
   if (letter >= num_letters) {
     // This should never happen unless there is a programming error. If it
@@ -328,7 +326,7 @@ const char *atc_transition_extract_letter(const struct AtcTransition *t)
 //---------------------------------------------------------------------------
 
 uint8_t atc_transition_compare_to_match(
-    const struct AtcTransition *t, const struct AtcMatchingEra *match)
+    const AtcTransition *t, const AtcMatchingEra *match)
 {
   // Find the previous Match offsets.
   int16_t prev_match_offset_minutes;
@@ -342,9 +340,9 @@ uint8_t atc_transition_compare_to_match(
   }
 
   // Expand start times.
-  struct AtcDateTuple stw;
-  struct AtcDateTuple sts;
-  struct AtcDateTuple stu;
+  AtcDateTuple stw;
+  AtcDateTuple sts;
+  AtcDateTuple stu;
   atc_date_tuple_expand(
       &match->start_dt,
       prev_match_offset_minutes,
@@ -354,9 +352,9 @@ uint8_t atc_transition_compare_to_match(
       &stu);
 
   // Transition times.
-  const struct AtcDateTuple *ttw = &t->transition_time;
-  const struct AtcDateTuple *tts = &t->transition_time_s;
-  const struct AtcDateTuple *ttu = &t->transition_time_u;
+  const AtcDateTuple *ttw = &t->transition_time;
+  const AtcDateTuple *tts = &t->transition_time_s;
+  const AtcDateTuple *ttu = &t->transition_time_u;
 
   // Compare Transition to Match, where equality is assumed if *any* of the
   // 'w', 's', or 'u' versions of the DateTuple are equal. This prevents
@@ -376,8 +374,8 @@ uint8_t atc_transition_compare_to_match(
   // transitionTime of the current transition, so no complicated adjustments
   // are needed. We just make sure we compare 'w' with 'w', 's' with 's',
   // and 'u' with 'u'.
-  const struct AtcDateTuple *match_until = &match->until_dt;
-  const struct AtcDateTuple *transition_time;
+  const AtcDateTuple *match_until = &match->until_dt;
+  const AtcDateTuple *transition_time;
   if (match_until->suffix == kAtcSuffixS) {
     transition_time = tts;
   } else if (match_until->suffix == kAtcSuffixU) {
@@ -393,7 +391,7 @@ uint8_t atc_transition_compare_to_match(
 }
 
 uint8_t atc_transition_compare_to_match_fuzzy(
-    const struct AtcTransition *t, const struct AtcMatchingEra *match)
+    const AtcTransition *t, const AtcMatchingEra *match)
 {
   int16_t tt_months = t->transition_time.year_tiny * 12
       + t->transition_time.month;

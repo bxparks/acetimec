@@ -1,7 +1,7 @@
 #include <acunit.h>
 #include <acetimec.h>
 
-static const struct AtcZoneInfo * const kUnsortedRegistry[] = {
+static const AtcZoneInfo * const kUnsortedRegistry[] = {
   &kAtcZoneAmerica_Los_Angeles,
   &kAtcZoneAmerica_Denver,
   &kAtcZoneAmerica_Chicago,
@@ -9,7 +9,7 @@ static const struct AtcZoneInfo * const kUnsortedRegistry[] = {
 };
 
 #define UNSORTED_SIZE \
-    (sizeof(kUnsortedRegistry) / sizeof(const struct AtcZoneInfo *))
+    (sizeof(kUnsortedRegistry) / sizeof(const AtcZoneInfo *))
 
 ACU_TEST(test_atc_registrar_is_registry_sorted)
 {
@@ -26,7 +26,7 @@ ACU_TEST(test_atc_registrar_is_registry_sorted)
 
 ACU_TEST(test_atc_registrar_find_by_id_sorted)
 {
-  const struct AtcZoneInfo *info = atc_registrar_find_by_id(
+  const AtcZoneInfo *info = atc_registrar_find_by_id(
       kAtcZoneAndLinkRegistry,
       kAtcZoneAndLinkRegistrySize,
       0xb7f7e8f2,
@@ -44,7 +44,7 @@ ACU_TEST(test_atc_registrar_find_by_id_sorted)
 
 ACU_TEST(test_atc_registrar_find_by_name_sorted)
 {
-  const struct AtcZoneInfo *info = atc_registrar_find_by_name(
+  const AtcZoneInfo *info = atc_registrar_find_by_name(
       kAtcZoneAndLinkRegistry,
       kAtcZoneAndLinkRegistrySize,
       "America/Los_Angeles",
@@ -61,7 +61,7 @@ ACU_TEST(test_atc_registrar_find_by_name_sorted)
 
 ACU_TEST(test_atc_registrar_find_by_id_unsorted)
 {
-  const struct AtcZoneInfo *info = atc_registrar_find_by_id(
+  const AtcZoneInfo *info = atc_registrar_find_by_id(
       kUnsortedRegistry,
       UNSORTED_SIZE,
       0xb7f7e8f2,
@@ -79,7 +79,7 @@ ACU_TEST(test_atc_registrar_find_by_id_unsorted)
 
 ACU_TEST(test_atc_registrar_find_by_name_unsorted)
 {
-  const struct AtcZoneInfo *info = atc_registrar_find_by_name(
+  const AtcZoneInfo *info = atc_registrar_find_by_name(
       kUnsortedRegistry,
       UNSORTED_SIZE,
       "America/Los_Angeles",

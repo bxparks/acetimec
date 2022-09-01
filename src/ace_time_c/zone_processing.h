@@ -18,13 +18,13 @@
 //---------------------------------------------------------------------------
 
 /** A tuple of month and day. */
-struct AtcMonthDay {
+typedef struct AtcMonthDay {
   /** month [1,12] */
   uint8_t month;
 
   /** day [1,31] */
   uint8_t day;
-};
+} AtcMonthDay;
 
 /**
  * Extract the actual (month, day) pair from the expression used in the TZ
@@ -44,7 +44,7 @@ struct AtcMonthDay {
  * but not year boundaries (e.g. Jan to Dec of the previous year, or Dec to
  * Jan of the following year.)
  */
-struct AtcMonthDay atc_processing_calc_start_day_of_month(
+AtcMonthDay atc_processing_calc_start_day_of_month(
     int16_t year,
     uint8_t month,
     uint8_t on_day_of_week,
@@ -64,16 +64,16 @@ enum {
  * The transition search result at a particular epoch second or local date
  * time.
  */
-struct AtcTransitionResult {
+typedef struct AtcTransitionResult {
   /** Transition for fold==0 */
-  const struct AtcTransition *transition0;
+  const AtcTransition *transition0;
 
   /** Transition for fold==1 */
-  const struct AtcTransition *transition1;
+  const AtcTransition *transition1;
 
   /** Result of search: 0=gap, 1=exact, 2=overlap */
   int8_t search_status;
-};
+} AtcTransitionResult;
 
 /**
  * Return the most recent year from the Rule[fromYear, toYear] which is
@@ -117,9 +117,9 @@ uint8_t atc_processing_calc_interior_years(
  * timezone. It can be reused among multiple timezones but a change of timezone
  * causes the internal cache to be wiped and recreated.
  */
-struct AtcZoneProcessing {
+typedef struct AtcZoneProcessing {
   /** The time zone attached to this Processing workspace. */
-  const struct AtcZoneInfo *zone_info;
+  const AtcZoneInfo *zone_info;
 
   /** Cache year [0,9999] */
   int16_t year;
@@ -131,11 +131,11 @@ struct AtcZoneProcessing {
   uint8_t num_matches;
 
   /** The matching eras for the current zone and year. */
-  struct AtcMatchingEra matches[kAtcMaxMatches];
+  AtcMatchingEra matches[kAtcMaxMatches];
 
   /** Pool of transitions relevant for the current zone and year */
-  struct AtcTransitionStorage transition_storage;
-};
+  AtcTransitionStorage transition_storage;
+} AtcZoneProcessing;
 
 //---------------------------------------------------------------------------
 
@@ -143,15 +143,15 @@ struct AtcZoneProcessing {
  * Initialize AtcZoneProcessing data structure. This needs to be called only
  * once for each instance of AtcZoneProcessing.
  */
-void atc_processing_init(struct AtcZoneProcessing *processing);
+void atc_processing_init(AtcZoneProcessing *processing);
 
 /**
  * Initialize AtcZoneProcessing for the given zone_info and year.
  * Return non-zero error code upon failure.
  */
 int8_t atc_processing_init_for_year(
-  struct AtcZoneProcessing *processing,
-  const struct AtcZoneInfo *zone_info,
+  AtcZoneProcessing *processing,
+  const AtcZoneInfo *zone_info,
   int16_t year);
 
 /**
@@ -159,8 +159,8 @@ int8_t atc_processing_init_for_year(
  * Return non-zero error code upon failure.
  */
 int8_t atc_processing_init_for_epoch_seconds(
-  struct AtcZoneProcessing *processing,
-  const struct AtcZoneInfo *zone_info,
+  AtcZoneProcessing *processing,
+  const AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds);
 
 /**
@@ -168,21 +168,21 @@ int8_t atc_processing_init_for_epoch_seconds(
  * Return non-zero error code upon failure.
  */
 int8_t atc_processing_offset_date_time_from_epoch_seconds(
-  struct AtcZoneProcessing *processing,
-  const struct AtcZoneInfo *zone_info,
+  AtcZoneProcessing *processing,
+  const AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds,
-  struct AtcOffsetDateTime *odt);
+  AtcOffsetDateTime *odt);
 
 /**
  * Convert the LocalDateTime to OffsetDateTime using the given zone_info.
  * Return non-zero error code upon failure.
  */
 int8_t atc_processing_offset_date_time_from_local_date_time(
-  struct AtcZoneProcessing *processing,
-  const struct AtcZoneInfo *zone_info,
-  const struct AtcLocalDateTime *ldt,
+  AtcZoneProcessing *processing,
+  const AtcZoneInfo *zone_info,
+  const AtcLocalDateTime *ldt,
   uint8_t fold,
-  struct AtcOffsetDateTime *odt);
+  AtcOffsetDateTime *odt);
 
 //---------------------------------------------------------------------------
 
@@ -190,14 +190,14 @@ int8_t atc_processing_offset_date_time_from_local_date_time(
  * Additional meta information about the transition. Should be identical to
  * AtcZoneExtra.
  */
-struct AtcTransitionInfo {
+typedef struct AtcTransitionInfo {
   /** STD offset */
   int16_t std_offset_minutes;
   /** DST offset */
   int16_t dst_offset_minutes;
   /** abbreviation (e.g. PST, PDT) */
   char abbrev[kAtcAbbrevSize];
-};
+} AtcTransitionInfo;
 
 /**
  * Find the AtcTransitionInfo (i.e. STD offset, DST offset, abbrev)
@@ -205,68 +205,68 @@ struct AtcTransitionInfo {
  * Return non-zero error code upon failure.
  */
 int8_t atc_processing_transition_info_from_epoch_seconds(
-  struct AtcZoneProcessing *processing,
-  const struct AtcZoneInfo *zone_info,
+  AtcZoneProcessing *processing,
+  const AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds,
-  struct AtcTransitionInfo *ti);
+  AtcTransitionInfo *ti);
 
 //---------------------------------------------------------------------------
 // Functions and data structures exposed for testing.
 //---------------------------------------------------------------------------
 
 /** A tuple of (year_tiny, month). */
-struct AtcYearMonth {
+typedef struct AtcYearMonth {
   /** (year-kEpochYear) [-126, 126] */
   int8_t year_tiny;
   /** month [1,12] */
   uint8_t month;
-};
+} AtcYearMonth;
 
 uint8_t atc_processing_find_matches(
-  const struct AtcZoneInfo *zone_info,
-  struct AtcYearMonth start_ym,
-  struct AtcYearMonth until_ym,
-  struct AtcMatchingEra *matches,
+  const AtcZoneInfo *zone_info,
+  AtcYearMonth start_ym,
+  AtcYearMonth until_ym,
+  AtcMatchingEra *matches,
   uint8_t num_matches);
 
 int8_t atc_compare_era_to_year_month(
-    const struct AtcZoneEra *era,
+    const AtcZoneEra *era,
     int8_t year_tiny,
     uint8_t month);
 
 void atc_create_matching_era(
-    struct AtcMatchingEra *new_match,
-    struct AtcMatchingEra *prev_match,
-    const struct AtcZoneEra *era,
-    struct AtcYearMonth start_ym,
-    struct AtcYearMonth until_ym);
+    AtcMatchingEra *new_match,
+    AtcMatchingEra *prev_match,
+    const AtcZoneEra *era,
+    AtcYearMonth start_ym,
+    AtcYearMonth until_ym);
 
 void atc_processing_get_transition_time(
     int8_t year_tiny,
-    const struct AtcZoneRule* rule,
-    struct AtcDateTuple *dt);
+    const AtcZoneRule* rule,
+    AtcDateTuple *dt);
 
 void atc_processing_create_transition_for_year(
-    struct AtcTransition *t,
+    AtcTransition *t,
     int8_t year_tiny,
-    const struct AtcZoneRule *rule,
-    const struct AtcMatchingEra *match);
+    const AtcZoneRule *rule,
+    const AtcMatchingEra *match);
 
 void atc_processing_find_candidate_transitions(
-    struct AtcTransitionStorage *ts,
-    struct AtcMatchingEra *match);
+    AtcTransitionStorage *ts,
+    AtcMatchingEra *match);
 
 void atc_processing_process_transition_match_status(
-    struct AtcTransition *transition,
-    struct AtcTransition **prior);
+    AtcTransition *transition,
+    AtcTransition **prior);
 
 void atc_processing_create_transitions_from_named_match(
-    struct AtcTransitionStorage *ts,
-    struct AtcMatchingEra *match);
+    AtcTransitionStorage *ts,
+    AtcMatchingEra *match);
 
 void atc_processing_generate_start_until_times(
-    struct AtcTransition **begin,
-    struct AtcTransition **end);
+    AtcTransition **begin,
+    AtcTransition **end);
 
 void atc_processing_create_abbreviation(
     char* dest,
