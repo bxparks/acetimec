@@ -2,9 +2,9 @@
 #include "offset_date_time.h"
 
 atc_time_t atc_offset_date_time_to_epoch_seconds(
-    const struct AtcOffsetDateTime *odt)
+    const AtcOffsetDateTime *odt)
 {
-  const struct AtcLocalDateTime *ldt = (const struct AtcLocalDateTime *) odt;
+  const AtcLocalDateTime *ldt = (const AtcLocalDateTime *) odt;
   atc_time_t es = atc_local_date_time_to_epoch_seconds(ldt);
   if (es == kAtcInvalidEpochSeconds) return es;
   return es - odt->offset_minutes * 60;
@@ -13,13 +13,13 @@ atc_time_t atc_offset_date_time_to_epoch_seconds(
 int8_t atc_offset_date_time_from_epoch_seconds(
     atc_time_t epoch_seconds,
     int16_t offset_minutes,
-    struct AtcOffsetDateTime *odt)
+    AtcOffsetDateTime *odt)
 {
   if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
 
   epoch_seconds += offset_minutes * 60;
   int8_t err = atc_local_date_time_from_epoch_seconds(
-      epoch_seconds, (struct AtcLocalDateTime *) odt);
+      epoch_seconds, (AtcLocalDateTime *) odt);
   if (err) return err;
 
   odt->fold = 0;
@@ -27,8 +27,7 @@ int8_t atc_offset_date_time_from_epoch_seconds(
   return kAtcErrOk;
 }
 
-static void print_offset_minutes(
-    struct AtcStringBuffer *sb, uint16_t offset_minutes)
+static void print_offset_minutes(AtcStringBuffer *sb, uint16_t offset_minutes)
 {
   uint16_t hours = offset_minutes / 60;
   uint16_t minutes = offset_minutes % 60;
@@ -38,10 +37,10 @@ static void print_offset_minutes(
 }
 
 void atc_offset_date_time_print(
-    struct AtcStringBuffer *sb,
-    const struct AtcOffsetDateTime *odt)
+    AtcStringBuffer *sb,
+    const AtcOffsetDateTime *odt)
 {
-  atc_local_date_time_print(sb, (const struct AtcLocalDateTime *) odt);
+  atc_local_date_time_print(sb, (const AtcLocalDateTime *) odt);
   if (odt->offset_minutes < 0) {
     atc_print_char(sb, '-');
     print_offset_minutes(sb, -odt->offset_minutes);

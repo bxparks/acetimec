@@ -15,16 +15,15 @@
 
 #include <stdint.h>
 #include "common.h"
-
-struct AtcZoneProcessing;
-struct AtcZoneInfo;
+#include "zone_processing.h"
+#include "zone_info.h"
 
 /**
  * Date and time broken down into components. Similar to:
  *    * `struct tm` from the C library,
  *    * ZonedDateTime from AceTime library
  */
-struct AtcZonedDateTime {
+typedef struct AtcZonedDateTime {
   /** year [0,9999] */
   int16_t year;
   /** month [1,12] */
@@ -44,38 +43,38 @@ struct AtcZonedDateTime {
   /** offset_minutes [-840, 960] */
   int16_t offset_minutes;
   /** Identifies the time zone. Non-nullable. */
-  const struct AtcZoneInfo *zone_info;
-};
+  const AtcZoneInfo *zone_info;
+} AtcZonedDateTime;
 
 /**
- * Convert epoch seconds to struct AtcZonedDateTime using the time zone
+ * Convert epoch seconds to AtcZonedDateTime using the time zone
  * identified by zone_info.
  * Return non-zero error code upon failure.
  */
 int8_t atc_zoned_date_time_from_epoch_seconds(
-    struct AtcZoneProcessing *processing,
-    const struct AtcZoneInfo *zone_info,
+    AtcZoneProcessing *processing,
+    const AtcZoneInfo *zone_info,
     atc_time_t epoch_seconds,
-    struct AtcZonedDateTime *zdt);
+    AtcZonedDateTime *zdt);
 
 /**
- * Convert struct AtcZonedDateTime to epoch seconds using the time zone
+ * Convert AtcZonedDateTime to epoch seconds using the time zone
  * identified by the zone_info inside zdt.
  * Return kAtcInvalidEpochSeconds upon failure.
  */
 atc_time_t atc_zoned_date_time_to_epoch_seconds(
-    const struct AtcZonedDateTime *zdt);
+    const AtcZonedDateTime *zdt);
 
 /**
  * Create zoned date time from components and given time zone.
  * Return non-zero error code upon failure.
  */
 int8_t atc_zoned_date_time_from_local_date_time(
-    struct AtcZoneProcessing *processing,
-    const struct AtcZoneInfo *zone_info,
-    const struct AtcLocalDateTime *ldt,
+    AtcZoneProcessing *processing,
+    const AtcZoneInfo *zone_info,
+    const AtcLocalDateTime *ldt,
     uint8_t fold,
-    struct AtcZonedDateTime *zdt);
+    AtcZonedDateTime *zdt);
 
 /**
  * Convert the source AtcZoneDateTime (src) into the destination
@@ -83,10 +82,10 @@ int8_t atc_zoned_date_time_from_local_date_time(
  * permitted to be the same instance. Returns kAtcErrGeneric upon failure.
  */
 int8_t atc_zoned_date_time_from_zoned_date_time(
-    struct AtcZoneProcessing *processing,
-    const struct AtcZoneInfo *zone_info,
-    const struct AtcZonedDateTime *src,
-    struct AtcZonedDateTime *dst);
+    AtcZoneProcessing *processing,
+    const AtcZoneInfo *zone_info,
+    const AtcZonedDateTime *src,
+    AtcZonedDateTime *dst);
 
 /**
  * Normalize the date time components for given time zone.
@@ -95,12 +94,12 @@ int8_t atc_zoned_date_time_from_zoned_date_time(
  * Return non-zero error code upon failure.
  */
 int8_t atc_zoned_date_time_normalize(
-    struct AtcZoneProcessing *processing,
-    struct AtcZonedDateTime *zdt);
+    AtcZoneProcessing *processing,
+    AtcZonedDateTime *zdt);
 
 /** Print the zoned date time in ISO 8601 format. */
 void atc_zoned_date_time_print(
-    struct AtcStringBuffer *sb,
-    const struct AtcZonedDateTime *zdt);
+    AtcStringBuffer *sb,
+    const AtcZonedDateTime *zdt);
 
 #endif

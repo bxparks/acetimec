@@ -77,7 +77,7 @@ ACU_TEST(test_day_of_week)
 
 ACU_TEST(test_increment_one_day)
 {
-  struct AtcLocalDate ld;
+  AtcLocalDate ld;
 
   ld.year = 2000;
   ld.month = 2;
@@ -130,7 +130,7 @@ ACU_TEST(test_increment_one_day)
 
 ACU_TEST(test_decrement_one_day)
 {
-  struct AtcLocalDate ld;
+  AtcLocalDate ld;
 
   ld.year = 2004;
   ld.month = 2;

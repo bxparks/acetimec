@@ -8,6 +8,7 @@
 
 #include <stdint.h>
 #include "common.h" // atc_time_t
+#include "zone_info.h" // AtcZoneEra
 
 //---------------------------------------------------------------------------
 
@@ -25,7 +26,7 @@
  * already consumes 2 x 4-byte slots on 32-bit processors, so the new ordering
  * does not change the overall sizeof(AtcDateTuple).
  */
-struct AtcDateTuple {
+typedef struct AtcDateTuple {
   /** [-127, 126], 127 will cause bugs */
   int8_t year_tiny;
 
@@ -40,20 +41,20 @@ struct AtcDateTuple {
 
   /** kAtcSuffixS, kAtcSuffixW, kAtcSuffixU */
   uint8_t suffix;
-};
+} AtcDateTuple;
 
 /** Compare a to b, ignoring the suffix. */
 int8_t atc_date_tuple_compare(
-    const struct AtcDateTuple *a,
-    const struct AtcDateTuple *b);
+    const AtcDateTuple *a,
+    const AtcDateTuple *b);
 
 /** Return (a - b) in number of seconds, ignoring the suffix. */
 atc_time_t atc_date_tuple_subtract(
-    const struct AtcDateTuple *a,
-    const struct AtcDateTuple *b);
+    const AtcDateTuple *a,
+    const AtcDateTuple *b);
 
 /** Normalize AtcDateTuple::minutes if its magnitude is more than 24 hours. */
-void atc_date_tuple_normalize(struct AtcDateTuple *dt);
+void atc_date_tuple_normalize(AtcDateTuple *dt);
 
 /**
  * Convert the given 'tt', offsetMinutes, and deltaMinutes into the 'w', 's'
@@ -61,12 +62,12 @@ void atc_date_tuple_normalize(struct AtcDateTuple *dt);
  * of 'tt'.
  */
 void atc_date_tuple_expand(
-    const struct AtcDateTuple *tt,
+    const AtcDateTuple *tt,
     int16_t offset_minutes,
     int16_t delta_minutes,
-    struct AtcDateTuple *ttw,
-    struct AtcDateTuple *tts,
-    struct AtcDateTuple *ttu);
+    AtcDateTuple *ttw,
+    AtcDateTuple *tts,
+    AtcDateTuple *ttu);
 
 //---------------------------------------------------------------------------
 
@@ -94,18 +95,18 @@ enum {
 };
 
 /** A struct that represents a matching ZoneEra. */
-struct AtcMatchingEra {
+typedef struct AtcMatchingEra {
   /**
    * The effective start time of the matching ZoneEra, which uses the
    * UTC offsets of the previous matching era.
    */
-  struct AtcDateTuple start_dt;
+  AtcDateTuple start_dt;
 
   /** The effective until time of the matching ZoneEra. */
-  struct AtcDateTuple until_dt;
+  AtcDateTuple until_dt;
 
   /** The ZoneEra that matched the given year. NonNullable. */
-  const struct AtcZoneEra *era;
+  const AtcZoneEra *era;
 
   /** The previous MatchingEra, needed to interpret start_dt.  */
   struct AtcMatchingEra *prev_match;
@@ -115,22 +116,22 @@ struct AtcMatchingEra {
 
   /** The DST offset of the last Transition in this MatchingEra. */
   int16_t last_delta_minutes;
-};
+} AtcMatchingEra;
 
 /**
  * A transition from one DST rule to another, and the time period which
  * that rule is valid for.
  */
-struct AtcTransition {
+typedef struct AtcTransition {
   /** The matching_era which generated this Transition. */
-  const struct AtcMatchingEra *match;
+  const AtcMatchingEra *match;
 
   /**
    * The Zone transition rule that matched for the the given year. Set to
    * nullptr if the RULES column is '-', indicating that the MatchingEra was
    * a "simple" ZoneEra.
    */
-  const struct AtcZoneRule *rule;
+  const AtcZoneRule *rule;
 
   /**
    * The original transition time, usually 'w' but sometimes 's' or 'u'. After
@@ -138,7 +139,7 @@ struct AtcTransition {
    * remember that the transition_time* fields are expressed using the UTC
    * offset of the *previous* Transition.
    */
-  struct AtcDateTuple transition_time;
+  AtcDateTuple transition_time;
 
   union {
     /**
@@ -146,13 +147,13 @@ struct AtcTransition {
      * *previous* Transition. Valid before
      * ExtendedZoneProcessor::generateStartUntilTimes() is called.
      */
-    struct AtcDateTuple transition_time_s;
+    AtcDateTuple transition_time_s;
 
     /**
      * Start time expressed using the UTC offset of the current Transition.
      * Valid after ExtendedZoneProcessor::generateStartUntilTimes() is called.
      */
-    struct AtcDateTuple start_dt;
+    AtcDateTuple start_dt;
   };
 
   union {
@@ -161,13 +162,13 @@ struct AtcTransition {
      * *previous* transition. Valid before
      * ExtendedZoneProcessor::generateStartUntilTimes() is called.
      */
-    struct AtcDateTuple transition_time_u;
+    AtcDateTuple transition_time_u;
 
     /**
      * Until time expressed using the UTC offset of the current Transition.
      * Valid after ExtendedZoneProcessor::generateStartUntilTimes() is called.
      */
-    struct AtcDateTuple until_dt;
+    AtcDateTuple until_dt;
   };
 
   /** The calculated transition time of the given rule. */
@@ -206,16 +207,16 @@ struct AtcTransition {
      */
     uint8_t match_status;
   };
-};
+} AtcTransition;
 
 //---------------------------------------------------------------------------
 
 /** The list of transitions for a given time zone. */
-struct AtcTransitionStorage {
+typedef struct AtcTransitionStorage {
   /** A pool of AtcTransition objects. */
-  struct AtcTransition transition_pool[kAtcTransitionStorageSize];
+  AtcTransition transition_pool[kAtcTransitionStorageSize];
   /** Pointers into the pool of AtcTransition objects. */
-  struct AtcTransition *transitions[kAtcTransitionStorageSize];
+  AtcTransition *transitions[kAtcTransitionStorageSize];
   /** Index of the most recent prior transition [0,kAtcTransitionStorageSize) */
   uint8_t index_prior;
   /** Index of the candidate pool [0,kAtcTransitionStorageSize) */
@@ -225,30 +226,30 @@ struct AtcTransitionStorage {
 
   /** Number of allocated transitions. */
   uint8_t alloc_size;
-};
+} AtcTransitionStorage;
 
 /** Initialize the Transition Storage. Should be called once for a given app. */
-void atc_transition_storage_init(struct AtcTransitionStorage *ts);
+void atc_transition_storage_init(AtcTransitionStorage *ts);
 
-struct AtcTransition **atc_transition_storage_get_candidate_pool_begin(
-    struct AtcTransitionStorage *ts);
+AtcTransition **atc_transition_storage_get_candidate_pool_begin(
+    AtcTransitionStorage *ts);
 
-struct AtcTransition **atc_transition_storage_get_candidate_pool_end(
-    struct AtcTransitionStorage *ts);
+AtcTransition **atc_transition_storage_get_candidate_pool_end(
+    AtcTransitionStorage *ts);
 
-struct AtcTransition **atc_transition_storage_get_active_pool_begin(
-    struct AtcTransitionStorage *ts);
+AtcTransition **atc_transition_storage_get_active_pool_begin(
+    AtcTransitionStorage *ts);
 
-struct AtcTransition **atc_transition_storage_get_active_pool_end(
-    struct AtcTransitionStorage *ts);
+AtcTransition **atc_transition_storage_get_active_pool_end(
+    AtcTransitionStorage *ts);
 
 /**
  * Return a pointer to the first Transition in the free pool. If this
  * transition is not used, then it's ok to just drop it. The next time
  * getFreeAgent() is called, the same Transition will be returned.
  */
-struct AtcTransition *atc_transition_storage_get_free_agent(
-    struct AtcTransitionStorage *ts);
+AtcTransition *atc_transition_storage_get_free_agent(
+    AtcTransitionStorage *ts);
 
 /**
  * Immediately add the free agent Transition at index mIndexFree to the
@@ -258,7 +259,7 @@ struct AtcTransition *atc_transition_storage_get_free_agent(
  * pool.
  */
 void atc_transition_storage_add_free_agent_to_active_pool(
-    struct AtcTransitionStorage *ts);
+    AtcTransitionStorage *ts);
 
 /**
  * Empty the Candidate pool by resetting the various indexes.
@@ -269,7 +270,7 @@ void atc_transition_storage_add_free_agent_to_active_pool(
  * each iteration.
  */
 void atc_transition_storage_reset_candidate_pool(
-    struct AtcTransitionStorage *ts);
+    AtcTransitionStorage *ts);
 
 /**
  * Allocate a free Transition then add it to the Prior pool. This assumes
@@ -279,12 +280,12 @@ void atc_transition_storage_reset_candidate_pool(
  * Transition can be swapped with another Transition, while keeping the
  * handle valid.
  */
-struct AtcTransition **atc_transition_storage_reserve_prior(
-    struct AtcTransitionStorage *ts);
+AtcTransition **atc_transition_storage_reserve_prior(
+    AtcTransitionStorage *ts);
 
 /** Set the free agent transition as the most recent prior. */
 void atc_transition_storage_set_free_agent_as_prior_if_valid(
-    struct AtcTransitionStorage *ts);
+    AtcTransitionStorage *ts);
 
 /**
  * Add the free agent Transition at index mIndexFree to the Candidate pool,
@@ -293,7 +294,7 @@ void atc_transition_storage_set_free_agent_as_prior_if_valid(
  * keyed by the 'transitionTime' (ignoring the DateTuple.suffix).
  */
 void atc_transition_storage_add_free_agent_to_candidate_pool(
-    struct AtcTransitionStorage *ts);
+    AtcTransitionStorage *ts);
 
 /**
  * Add the current prior into the Candidates pool. Prior is always just
@@ -301,7 +302,7 @@ void atc_transition_storage_add_free_agent_to_candidate_pool(
  * the start index of the Candidate pool.
  */
 void atc_transition_storage_add_prior_to_candidate_pool(
-    struct AtcTransitionStorage *ts);
+    AtcTransitionStorage *ts);
 
 /**
  * Add active candidates into the Active pool, and collapse the Candidate
@@ -309,9 +310,8 @@ void atc_transition_storage_add_prior_to_candidate_pool(
  *
  * @return the last Transition that was added
  */
-struct AtcTransition *
-atc_transition_storage_add_active_candidates_to_active_pool(
-    struct AtcTransitionStorage *ts);
+AtcTransition *atc_transition_storage_add_active_candidates_to_active_pool(
+    AtcTransitionStorage *ts);
 
 //---------------------------------------------------------------------------
 
@@ -320,7 +320,7 @@ atc_transition_storage_add_active_candidates_to_active_pool(
  * since that means that the ZoneRule is not used, which means LETTER does
  * not exist. A LETTER of '-' is returned as an empty string "".
  */
-const char *atc_transition_extract_letter(const struct AtcTransition *t);
+const char *atc_transition_extract_letter(const AtcTransition *t);
 
 /**
  * Normalize the transition_time* fields of the array of Transition objects.
@@ -331,8 +331,8 @@ const char *atc_transition_extract_letter(const struct AtcTransition *t);
  * AtcTransition.
  */
 void atc_transition_fix_times(
-    struct AtcTransition **begin,
-    struct AtcTransition **end);
+    AtcTransition **begin,
+    AtcTransition **end);
 
 //---------------------------------------------------------------------------
 
@@ -357,7 +357,7 @@ enum {
  * of those parameters.
  */
 uint8_t atc_transition_compare_to_match(
-    const struct AtcTransition *t, const struct AtcMatchingEra *match);
+    const AtcTransition *t, const AtcMatchingEra *match);
 
 /**
  * Like compare_transition_to_match() except perform a fuzzy match within at
@@ -373,6 +373,6 @@ uint8_t atc_transition_compare_to_match(
  * Exported for testing.
  */
 uint8_t atc_transition_compare_to_match_fuzzy(
-    const struct AtcTransition *t, const struct AtcMatchingEra *match);
+    const AtcTransition *t, const AtcMatchingEra *match);
 
 #endif

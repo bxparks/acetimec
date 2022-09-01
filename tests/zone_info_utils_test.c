@@ -9,7 +9,7 @@ ACU_TEST(test_zone_info_link)
   ACU_ASSERT(atc_zone_info_is_link(&kAtcZoneUS_Pacific));
 
   // And points to America/Los_Angeles.
-  const struct AtcZoneInfo *actual_info = atc_zone_info_actual_info(
+  const AtcZoneInfo *actual_info = atc_zone_info_actual_info(
       &kAtcZoneUS_Pacific);
   ACU_ASSERT(actual_info == &kAtcZoneAmerica_Los_Angeles);
 
@@ -49,9 +49,9 @@ ACU_TEST(test_zone_info_names)
 
 ACU_TEST(test_zone_era)
 {
-  const struct AtcZoneEra *eras =
-      (const struct AtcZoneEra *) kAtcZoneAmerica_Los_Angeles.eras;
-  const struct AtcZoneEra *era = &eras[0];
+  const AtcZoneEra *eras =
+      (const AtcZoneEra *) kAtcZoneAmerica_Los_Angeles.eras;
+  const AtcZoneEra *era = &eras[0];
 
   ACU_ASSERT(-8*60 == atc_zone_era_std_offset_minutes(era));
   ACU_ASSERT(0*60 == atc_zone_era_dst_offset_minutes(era));
@@ -61,11 +61,11 @@ ACU_TEST(test_zone_era)
 
 ACU_TEST(test_zone_rule)
 {
-  const struct AtcZoneEra *eras =
-      (const struct AtcZoneEra *) kAtcZoneAmerica_Los_Angeles.eras;
-  const struct AtcZoneEra *era = &eras[0];
-  const struct AtcZonePolicy *policy = era->zone_policy;
-  const struct AtcZoneRule *rule = &policy->rules[0];
+  const AtcZoneEra *eras =
+      (const AtcZoneEra *) kAtcZoneAmerica_Los_Angeles.eras;
+  const AtcZoneEra *era = &eras[0];
+  const AtcZonePolicy *policy = era->zone_policy;
+  const AtcZoneRule *rule = &policy->rules[0];
 
   ACU_ASSERT(2*60 == atc_zone_rule_at_minutes(rule));
   ACU_ASSERT(kAtcSuffixW == atc_zone_rule_at_suffix(rule));

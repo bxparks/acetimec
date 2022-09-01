@@ -5,52 +5,52 @@
 
 ACU_TEST(test_atc_date_tuple_compare)
 {
-  struct AtcDateTuple a = {0, 1, 1, 0, kAtcSuffixW};
-  struct AtcDateTuple b = {0, 1, 1, 0, kAtcSuffixW};
+  AtcDateTuple a = {0, 1, 1, 0, kAtcSuffixW};
+  AtcDateTuple b = {0, 1, 1, 0, kAtcSuffixW};
   ACU_ASSERT(atc_date_tuple_compare(&a, &b) == 0);
 
-  struct AtcDateTuple bb = {0, 1, 1, 0, kAtcSuffixS};
+  AtcDateTuple bb = {0, 1, 1, 0, kAtcSuffixS};
   ACU_ASSERT(atc_date_tuple_compare(&a, &bb) == 0);
 
-  struct AtcDateTuple c = {0, 1, 1, 1, kAtcSuffixW};
+  AtcDateTuple c = {0, 1, 1, 1, kAtcSuffixW};
   ACU_ASSERT(atc_date_tuple_compare(&a, &c) < 0);
 
-  struct AtcDateTuple d = {0, 1, 2, 0, kAtcSuffixW};
+  AtcDateTuple d = {0, 1, 2, 0, kAtcSuffixW};
   ACU_ASSERT(atc_date_tuple_compare(&a, &d) < 0);
 
-  struct AtcDateTuple e = {0, 2, 1, 0, kAtcSuffixW};
+  AtcDateTuple e = {0, 2, 1, 0, kAtcSuffixW};
   ACU_ASSERT(atc_date_tuple_compare(&a, &e) < 0);
 
-  struct AtcDateTuple f = {1, 1, 1, 0, kAtcSuffixW};
+  AtcDateTuple f = {1, 1, 1, 0, kAtcSuffixW};
   ACU_ASSERT(atc_date_tuple_compare(&a, &f) < 0);
 }
 
 ACU_TEST(test_atc_date_tuple_subtract)
 {
   {
-    struct AtcDateTuple dta = {0, 1, 1, 0, kAtcSuffixW}; // 2000-01-01 00:00
-    struct AtcDateTuple dtb = {0, 1, 1, 1, kAtcSuffixW}; // 2000-01-01 00:01
+    AtcDateTuple dta = {0, 1, 1, 0, kAtcSuffixW}; // 2000-01-01 00:00
+    AtcDateTuple dtb = {0, 1, 1, 1, kAtcSuffixW}; // 2000-01-01 00:01
     atc_time_t diff = atc_date_tuple_subtract(&dta, &dtb);
     ACU_ASSERT(-60 == diff);
   }
 
   {
-    struct AtcDateTuple dta = {0, 1, 1, 0, kAtcSuffixW}; // 2000-01-01 00:00
-    struct AtcDateTuple dtb = {0, 1, 2, 0, kAtcSuffixW}; // 2000-01-02 00:00
+    AtcDateTuple dta = {0, 1, 1, 0, kAtcSuffixW}; // 2000-01-01 00:00
+    AtcDateTuple dtb = {0, 1, 2, 0, kAtcSuffixW}; // 2000-01-02 00:00
     atc_time_t diff = atc_date_tuple_subtract(&dta, &dtb);
     ACU_ASSERT((int32_t) -86400 == diff);
   }
 
   {
-    struct AtcDateTuple dta = {0, 1, 1, 0, kAtcSuffixW}; // 2000-01-01 00:00
-    struct AtcDateTuple dtb = {0, 2, 1, 0, kAtcSuffixW}; // 2000-02-01 00:00
+    AtcDateTuple dta = {0, 1, 1, 0, kAtcSuffixW}; // 2000-01-01 00:00
+    AtcDateTuple dtb = {0, 2, 1, 0, kAtcSuffixW}; // 2000-02-01 00:00
     atc_time_t diff = atc_date_tuple_subtract(&dta, &dtb);
     ACU_ASSERT((int32_t) -86400 * 31 == diff); // January has 31 days
   }
 
   {
-    struct AtcDateTuple dta = {0, 2, 1, 0, kAtcSuffixW}; // 2000-02-01 00:00
-    struct AtcDateTuple dtb = {0, 3, 1, 0, kAtcSuffixW}; // 2000-03-01 00:00
+    AtcDateTuple dta = {0, 2, 1, 0, kAtcSuffixW}; // 2000-02-01 00:00
+    AtcDateTuple dtb = {0, 3, 1, 0, kAtcSuffixW}; // 2000-03-01 00:00
     atc_time_t diff = atc_date_tuple_subtract(&dta, &dtb);
     ACU_ASSERT((int32_t) -86400 * 29 == diff); // Feb 2000 is leap, 29 days
   }
@@ -59,7 +59,7 @@ ACU_TEST(test_atc_date_tuple_subtract)
 ACU_TEST(test_atc_date_tuple_normalize)
 {
   // 00:00
-  struct AtcDateTuple dt = {0, 1, 1, 0, kAtcSuffixW};
+  AtcDateTuple dt = {0, 1, 1, 0, kAtcSuffixW};
   atc_date_tuple_normalize(&dt);
   ACU_ASSERT(dt.year_tiny == 0);
   ACU_ASSERT(dt.month == 1);
@@ -68,7 +68,7 @@ ACU_TEST(test_atc_date_tuple_normalize)
   ACU_ASSERT(dt.suffix == kAtcSuffixW);
 
   // 23:45
-  dt = (struct AtcDateTuple) {0, 1, 1, 15*95, kAtcSuffixW};
+  dt = (AtcDateTuple) {0, 1, 1, 15*95, kAtcSuffixW};
   atc_date_tuple_normalize(&dt);
   ACU_ASSERT(dt.year_tiny == 0);
   ACU_ASSERT(dt.month == 1);
@@ -77,7 +77,7 @@ ACU_TEST(test_atc_date_tuple_normalize)
   ACU_ASSERT(dt.suffix == kAtcSuffixW);
 
   // 24:00
-  dt = (struct AtcDateTuple) {0, 1, 1, 15*96, kAtcSuffixW};
+  dt = (AtcDateTuple) {0, 1, 1, 15*96, kAtcSuffixW};
   atc_date_tuple_normalize(&dt);
   ACU_ASSERT(dt.year_tiny == 0);
   ACU_ASSERT(dt.month == 1);
@@ -86,7 +86,7 @@ ACU_TEST(test_atc_date_tuple_normalize)
   ACU_ASSERT(dt.suffix == kAtcSuffixW);
 
   // 24:15
-  dt = (struct AtcDateTuple) {0, 1, 1, 15*97, kAtcSuffixW};
+  dt = (AtcDateTuple) {0, 1, 1, 15*97, kAtcSuffixW};
   atc_date_tuple_normalize(&dt);
   ACU_ASSERT(dt.year_tiny == 0);
   ACU_ASSERT(dt.month == 1);
@@ -95,7 +95,7 @@ ACU_TEST(test_atc_date_tuple_normalize)
   ACU_ASSERT(dt.suffix == kAtcSuffixW);
 
   // -24:00
-  dt = (struct AtcDateTuple) {0, 1, 1, -15*96, kAtcSuffixW};
+  dt = (AtcDateTuple) {0, 1, 1, -15*96, kAtcSuffixW};
   atc_date_tuple_normalize(&dt);
   ACU_ASSERT(dt.year_tiny == -1);
   ACU_ASSERT(dt.month == 12);
@@ -104,7 +104,7 @@ ACU_TEST(test_atc_date_tuple_normalize)
   ACU_ASSERT(dt.suffix == kAtcSuffixW);
 
   // -24:15
-  dt = (struct AtcDateTuple) {0, 1, 1, -15*97, kAtcSuffixW};
+  dt = (AtcDateTuple) {0, 1, 1, -15*97, kAtcSuffixW};
   atc_date_tuple_normalize(&dt);
   ACU_ASSERT(dt.year_tiny == -1);
   ACU_ASSERT(dt.month == 12);
@@ -115,14 +115,14 @@ ACU_TEST(test_atc_date_tuple_normalize)
 
 ACU_TEST(test_atc_date_tuple_expand)
 {
-  struct AtcDateTuple ttw;
-  struct AtcDateTuple tts;
-  struct AtcDateTuple ttu;
+  AtcDateTuple ttw;
+  AtcDateTuple tts;
+  AtcDateTuple ttu;
 
   int16_t offset_minutes = 2*60;
   int16_t delta_minutes = 1*60;
 
-  struct AtcDateTuple tt = {0, 1, 30, 15*16, kAtcSuffixW}; // 04:00
+  AtcDateTuple tt = {0, 1, 30, 15*16, kAtcSuffixW}; // 04:00
   atc_date_tuple_expand(
       &tt, offset_minutes, delta_minutes, &ttw, &tts, &ttu);
   ACU_ASSERT(ttw.year_tiny == 0);
@@ -143,7 +143,7 @@ ACU_TEST(test_atc_date_tuple_expand)
   ACU_ASSERT(ttu.minutes == 15*4);
   ACU_ASSERT(ttu.suffix == kAtcSuffixU);
 
-  tt = (struct AtcDateTuple) {0, 1, 30, 15*12, kAtcSuffixS};
+  tt = (AtcDateTuple) {0, 1, 30, 15*12, kAtcSuffixS};
   atc_date_tuple_expand(
       &tt, offset_minutes, delta_minutes, &ttw, &tts, &ttu);
   ACU_ASSERT(ttw.year_tiny == 0);
@@ -164,7 +164,7 @@ ACU_TEST(test_atc_date_tuple_expand)
   ACU_ASSERT(ttu.minutes == 15*4);
   ACU_ASSERT(ttu.suffix == kAtcSuffixU);
 
-  tt = (struct AtcDateTuple) {0, 1, 30, 15*4, kAtcSuffixU};
+  tt = (AtcDateTuple) {0, 1, 30, 15*4, kAtcSuffixU};
   atc_date_tuple_expand(
       &tt, offset_minutes, delta_minutes, &ttw, &tts, &ttu);
   ACU_ASSERT(ttw.year_tiny == 0);
@@ -190,7 +190,7 @@ ACU_TEST(test_atc_date_tuple_expand)
 
 ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
 {
-  const struct AtcMatchingEra match = {
+  const AtcMatchingEra match = {
     {0, 1, 1, 0, kAtcSuffixW} /* start_dt */,
     {1, 1, 1, 0, kAtcSuffixW} /* until_dt */,
     NULL /*era*/,
@@ -199,7 +199,7 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
     0 /*last_delta_minutes*/
   };
 
-  struct AtcTransition transition = {
+  AtcTransition transition = {
     &match /*match*/,
     NULL /*rule*/,
     {-1, 11, 1, 0, kAtcSuffixW} /*transition_time*/,
@@ -215,7 +215,7 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
   uint8_t status = atc_transition_compare_to_match_fuzzy(&transition, &match);
   ACU_ASSERT(status == kAtcMatchStatusPrior);
 
-  transition = (struct AtcTransition) {
+  transition = (AtcTransition) {
     &match /*match*/,
     NULL /*rule*/,
     {-1, 12, 1, 0, kAtcSuffixW} /*transition_time*/,
@@ -231,7 +231,7 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
   status = atc_transition_compare_to_match_fuzzy(&transition, &match);
   ACU_ASSERT(status == kAtcMatchStatusWithinMatch);
 
-  transition = (struct AtcTransition) {
+  transition = (AtcTransition) {
     &match /*match*/,
     NULL /*rule*/,
     {0, 1, 1, 0, kAtcSuffixW} /*transition_time*/,
@@ -247,7 +247,7 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
   status = atc_transition_compare_to_match_fuzzy(&transition, &match);
   ACU_ASSERT(status == kAtcMatchStatusWithinMatch);
 
-  transition = (struct AtcTransition) {
+  transition = (AtcTransition) {
     &match /*match*/,
     NULL /*rule*/,
     {1, 1, 1, 0, kAtcSuffixW} /*transition_time*/,
@@ -263,7 +263,7 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
   status = atc_transition_compare_to_match_fuzzy(&transition, &match);
   ACU_ASSERT(status == kAtcMatchStatusWithinMatch);
 
-  transition = (struct AtcTransition) {
+  transition = (AtcTransition) {
     &match /*match*/,
     NULL /*rule*/,
     {1, 3, 1, 0, kAtcSuffixW} /*transition_time*/,
@@ -283,7 +283,7 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
 ACU_TEST(test_atc_transition_compare_to_match)
 {
   // UNTIL = 2002-01-02T03:00
-  const struct AtcZoneEra ERA = {
+  const AtcZoneEra ERA = {
       NULL /*zonePolicy*/,
       "" /*format*/,
       0 /*offsetCode*/,
@@ -296,7 +296,7 @@ ACU_TEST(test_atc_transition_compare_to_match)
   };
 
   // MatchingEra=[2000-01-01, 2001-01-01)
-  const struct AtcMatchingEra match = {
+  const AtcMatchingEra match = {
     {0, 1, 1, 0, kAtcSuffixW} /*startDateTime*/,
     {1, 1, 1, 0, kAtcSuffixW} /*untilDateTime*/,
     &ERA /*era*/,
@@ -306,7 +306,7 @@ ACU_TEST(test_atc_transition_compare_to_match)
   };
 
   // transitionTime = 1999-12-31
-  struct AtcTransition transition0 = {
+  AtcTransition transition0 = {
     &match /*match*/,
     NULL /*rule*/,
     {-1, 12, 31, 0, kAtcSuffixW} /*transitionTime*/,
@@ -317,7 +317,7 @@ ACU_TEST(test_atc_transition_compare_to_match)
   };
 
   // transitionTime = 2000-01-01
-  struct AtcTransition transition1 = {
+  AtcTransition transition1 = {
     &match /*match*/,
     NULL /*rule*/,
     {0, 1, 1, 0, kAtcSuffixW} /*transitionTime*/,
@@ -328,7 +328,7 @@ ACU_TEST(test_atc_transition_compare_to_match)
   };
 
   // transitionTime = 2000-01-02
-  struct AtcTransition transition2 = {
+  AtcTransition transition2 = {
     &match /*match*/,
     NULL /*rule*/,
     {0, 1, 2, 0, kAtcSuffixW} /*transitionTime*/,
@@ -339,7 +339,7 @@ ACU_TEST(test_atc_transition_compare_to_match)
   };
 
   // transitionTime = 2001-02-03
-  struct AtcTransition transition3 = {
+  AtcTransition transition3 = {
     &match /*match*/,
     NULL /*rule*/,
     {1, 2, 3, 0, kAtcSuffixW} /*transitionTime*/,
@@ -349,7 +349,7 @@ ACU_TEST(test_atc_transition_compare_to_match)
     {0}
   };
 
-  struct AtcTransition *transitions[] = {
+  AtcTransition *transitions[] = {
     &transition0,
     &transition1,
     &transition2,
@@ -375,10 +375,10 @@ ACU_TEST(test_atc_transition_compare_to_match)
 //---------------------------------------------------------------------------
 
 ACU_TEST(test_atc_transition_storage_add_free_agent_to_active_pool) {
-  struct AtcTransitionStorage ts;
+  AtcTransitionStorage ts;
   atc_transition_storage_init(&ts);
 
-  struct AtcTransition *free_agent = atc_transition_storage_get_free_agent(&ts);
+  AtcTransition *free_agent = atc_transition_storage_get_free_agent(&ts);
   ACU_ASSERT(free_agent == &ts.transition_pool[0]);
   atc_transition_storage_add_free_agent_to_active_pool(&ts);
   ACU_ASSERT(1 == ts.index_candidate);
@@ -408,11 +408,11 @@ ACU_TEST(test_atc_transition_storage_add_free_agent_to_active_pool) {
 }
 
 ACU_TEST(test_atc_transition_storage_add_free_agent_to_candidate_pool) {
-  struct AtcTransitionStorage ts;
+  AtcTransitionStorage ts;
   atc_transition_storage_init(&ts);
 
   // Add the first one to active
-  struct AtcTransition *free_agent = atc_transition_storage_get_free_agent(&ts);
+  AtcTransition *free_agent = atc_transition_storage_get_free_agent(&ts);
   ACU_ASSERT(free_agent == &ts.transition_pool[0]);
   atc_transition_storage_add_free_agent_to_active_pool(&ts);
   ACU_ASSERT(1 == ts.index_candidate);
@@ -443,10 +443,10 @@ ACU_TEST(test_atc_transition_storage_add_free_agent_to_candidate_pool) {
 }
 
 ACU_TEST(test_atc_transition_storage_reserve_prior) {
-  struct AtcTransitionStorage ts;
+  AtcTransitionStorage ts;
   atc_transition_storage_init(&ts);
 
-  struct AtcTransition** prior = atc_transition_storage_reserve_prior(&ts);
+  AtcTransition** prior = atc_transition_storage_reserve_prior(&ts);
   ACU_ASSERT(prior == &ts.transitions[0]);
   ACU_ASSERT(0 == ts.index_prior);
   ACU_ASSERT(1 == ts.index_candidate);
@@ -454,10 +454,10 @@ ACU_TEST(test_atc_transition_storage_reserve_prior) {
 }
 
 ACU_TEST(test_atc_transition_storage_add_prior_to_candidate_pool) {
-  struct AtcTransitionStorage ts;
+  AtcTransitionStorage ts;
   atc_transition_storage_init(&ts);
 
-  struct AtcTransition** prior = atc_transition_storage_reserve_prior(&ts);
+  AtcTransition** prior = atc_transition_storage_reserve_prior(&ts);
   ACU_ASSERT(prior == &ts.transitions[0]);
   ACU_ASSERT(0 == ts.index_prior);
   ACU_ASSERT(1 == ts.index_candidate);
@@ -470,26 +470,26 @@ ACU_TEST(test_atc_transition_storage_add_prior_to_candidate_pool) {
 }
 
 ACU_TEST(test_atc_transition_storage_set_free_agent_as_prior_if_valid) {
-  struct AtcTransitionStorage ts;
+  AtcTransitionStorage ts;
   atc_transition_storage_init(&ts);
 
   // Initial prior
-  struct AtcTransition** prior_reservation =
+  AtcTransition** prior_reservation =
       atc_transition_storage_reserve_prior(&ts);
   (*prior_reservation)->is_valid_prior = false;
-  (*prior_reservation)->transition_time = (struct AtcDateTuple)
+  (*prior_reservation)->transition_time = (AtcDateTuple)
       {2, 3, 4, 5, kAtcSuffixW};
 
   // Candiate prior.
-  struct AtcTransition* free_agent = atc_transition_storage_get_free_agent(&ts);
+  AtcTransition* free_agent = atc_transition_storage_get_free_agent(&ts);
   free_agent->is_valid_prior = true;
-  free_agent->transition_time = (struct AtcDateTuple) {2, 3, 4, 0, kAtcSuffixW};
+  free_agent->transition_time = (AtcDateTuple) {2, 3, 4, 0, kAtcSuffixW};
 
   // Should swap because prior->is_valid_prior is false.
   atc_transition_storage_set_free_agent_as_prior_if_valid(&ts);
 
   // Verify that the two have been swapped.
-  struct AtcTransition* prior = ts.transitions[ts.index_prior];
+  AtcTransition* prior = ts.transitions[ts.index_prior];
   free_agent = atc_transition_storage_get_free_agent(&ts);
   ACU_ASSERT(prior->is_valid_prior == true);
   ACU_ASSERT(free_agent->is_valid_prior == false);
@@ -509,7 +509,7 @@ ACU_TEST(test_atc_transition_storage_set_free_agent_as_prior_if_valid) {
   // Another Candidate prior.
   free_agent = atc_transition_storage_get_free_agent(&ts);
   free_agent->is_valid_prior = true;
-  free_agent->transition_time = (struct AtcDateTuple) {2, 3, 4, 6, kAtcSuffixW};
+  free_agent->transition_time = (AtcDateTuple) {2, 3, 4, 6, kAtcSuffixW};
 
   // Should swap because the transition_time is newer
   atc_transition_storage_set_free_agent_as_prior_if_valid(&ts);
@@ -534,27 +534,27 @@ ACU_TEST(test_atc_transition_storage_set_free_agent_as_prior_if_valid) {
 }
 
 ACU_TEST(test_atc_transition_storage_add_active_candidates_to_active_pool) {
-  struct AtcTransitionStorage ts;
+  AtcTransitionStorage ts;
   atc_transition_storage_init(&ts);
 
   // create Prior to make it interesting
-  struct AtcTransition** prior = atc_transition_storage_reserve_prior(&ts);
-  (*prior)->transition_time = (struct AtcDateTuple) {-1, 0, 1, 2, kAtcSuffixW};
+  AtcTransition** prior = atc_transition_storage_reserve_prior(&ts);
+  (*prior)->transition_time = (AtcDateTuple) {-1, 0, 1, 2, kAtcSuffixW};
   (*prior)->match_status = kAtcMatchStatusWithinMatch;
 
   // Add 3 transitions to Candidate pool, 2 active, 1 inactive.
-  struct AtcTransition* free_agent = atc_transition_storage_get_free_agent(&ts);
-  free_agent->transition_time = (struct AtcDateTuple) {0, 1, 2, 3, kAtcSuffixW};
+  AtcTransition* free_agent = atc_transition_storage_get_free_agent(&ts);
+  free_agent->transition_time = (AtcDateTuple) {0, 1, 2, 3, kAtcSuffixW};
   free_agent->match_status = kAtcMatchStatusWithinMatch;
   atc_transition_storage_add_free_agent_to_candidate_pool(&ts);
 
   free_agent = atc_transition_storage_get_free_agent(&ts);
-  free_agent->transition_time = (struct AtcDateTuple) {2, 3, 4, 5, kAtcSuffixW};
+  free_agent->transition_time = (AtcDateTuple) {2, 3, 4, 5, kAtcSuffixW};
   free_agent->match_status = kAtcMatchStatusWithinMatch;
   atc_transition_storage_add_free_agent_to_candidate_pool(&ts);
 
   free_agent = atc_transition_storage_get_free_agent(&ts);
-  free_agent->transition_time = (struct AtcDateTuple) {1, 2, 3, 4, kAtcSuffixW};
+  free_agent->transition_time = (AtcDateTuple) {1, 2, 3, 4, kAtcSuffixW};
   free_agent->match_status = kAtcMatchStatusFarPast;
   atc_transition_storage_add_free_agent_to_candidate_pool(&ts);
 
@@ -575,12 +575,12 @@ ACU_TEST(test_atc_transition_storage_add_active_candidates_to_active_pool) {
 
 ACU_TEST(test_atc_transition_storage_reset_candidate_pool)
 {
-  struct AtcTransitionStorage ts;
+  AtcTransitionStorage ts;
   atc_transition_storage_init(&ts);
 
   // Add 2 transitions to Candidate pool, 2 active, 1 inactive.
-  struct AtcTransition* free_agent = atc_transition_storage_get_free_agent(&ts);
-  free_agent->transition_time = (struct AtcDateTuple) {0, 1, 2, 3, kAtcSuffixW};
+  AtcTransition* free_agent = atc_transition_storage_get_free_agent(&ts);
+  free_agent->transition_time = (AtcDateTuple) {0, 1, 2, 3, kAtcSuffixW};
   free_agent->match_status = kAtcMatchStatusWithinMatch;
   atc_transition_storage_add_free_agent_to_candidate_pool(&ts);
   ACU_ASSERT(0 == ts.index_prior);
@@ -588,7 +588,7 @@ ACU_TEST(test_atc_transition_storage_reset_candidate_pool)
   ACU_ASSERT(1 == ts.index_free);
 
   free_agent = atc_transition_storage_get_free_agent(&ts);
-  free_agent->transition_time = (struct AtcDateTuple) {2, 3, 4, 5, kAtcSuffixW};
+  free_agent->transition_time = (AtcDateTuple) {2, 3, 4, 5, kAtcSuffixW};
   free_agent->match_status = kAtcMatchStatusWithinMatch;
   atc_transition_storage_add_free_agent_to_candidate_pool(&ts);
   ACU_ASSERT(0 == ts.index_prior);
@@ -610,7 +610,7 @@ ACU_TEST(test_atc_transition_storage_reset_candidate_pool)
 
   // Non-active can be added to the candidate pool.
   free_agent = atc_transition_storage_get_free_agent(&ts);
-  free_agent->transition_time = (struct AtcDateTuple) {1, 2, 3, 4, kAtcSuffixW};
+  free_agent->transition_time = (AtcDateTuple) {1, 2, 3, 4, kAtcSuffixW};
   free_agent->match_status = kAtcMatchStatusFarPast;
   atc_transition_storage_add_free_agent_to_candidate_pool(&ts);
   ACU_ASSERT(2 == ts.index_prior);

@@ -3,7 +3,7 @@
 #include <acetimec.h>
 
 char buf[80];
-struct AtcStringBuffer sb;
+AtcStringBuffer sb;
 
 ACU_TEST(test_atc_print_char)
 {
