@@ -53,7 +53,7 @@ int8_t atc_zoned_date_time_from_local_date_time(
       (AtcOffsetDateTime *) zdt);
 }
 
-int8_t atc_zoned_date_time_from_zoned_date_time(
+int8_t atc_zoned_date_time_convert(
     AtcZoneProcessing *processing,
     const AtcZoneInfo *zone_info,
     const AtcZonedDateTime *src,

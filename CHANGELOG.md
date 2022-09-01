@@ -4,8 +4,9 @@
     * Add `string_buffer.h` which implements a simple string buffer and
       provides a collection of print functions for converting various date
       and time structures into human readable forms such as ISO8601.
-    * Add `atc_zoned_date_time_from_zoned_date_time()` function for converting
+    * Add `atc_zoned_date_time_convert()` function for converting
       a date time from one time zone to another.
+    * Create typedefs for `struct`, and remove unnecessary `struct` keyword.
 * 0.2.0 (2022-08-30, TZDB 2022b)
     * Add doxygen docs. Add docstrings to various functions and structures to
       eliminate all doxygen warnings.

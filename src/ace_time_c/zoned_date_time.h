@@ -81,7 +81,7 @@ int8_t atc_zoned_date_time_from_local_date_time(
  * AtcZonedDateTime (dst) using a different time zone. The src and dst is
  * permitted to be the same instance. Returns kAtcErrGeneric upon failure.
  */
-int8_t atc_zoned_date_time_from_zoned_date_time(
+int8_t atc_zoned_date_time_convert(
     AtcZoneProcessing *processing,
     const AtcZoneInfo *zone_info,
     const AtcZonedDateTime *src,

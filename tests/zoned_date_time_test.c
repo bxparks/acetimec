@@ -515,7 +515,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_after_overlap)
 
 //---------------------------------------------------------------------------
 
-ACU_TEST(test_zoned_date_time_from_zoned_date_time)
+ACU_TEST(test_zoned_date_time_convert)
 {
   AtcZoneProcessing los_angeles;
   AtcZoneProcessing new_york;
@@ -530,7 +530,7 @@ ACU_TEST(test_zoned_date_time_from_zoned_date_time)
   ACU_ASSERT(err == kAtcErrOk);
 
   AtcZonedDateTime nydt;
-  atc_zoned_date_time_from_zoned_date_time(
+  atc_zoned_date_time_convert(
       &new_york, &kAtcZoneAmerica_New_York, &ladt, &nydt);
 
   ACU_ASSERT(err == kAtcErrOk);
@@ -562,6 +562,6 @@ int main()
   ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_in_dst);
   ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_before_sdt);
   ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_in_overlap);
-  ACU_RUN_TEST(test_zoned_date_time_from_zoned_date_time);
+  ACU_RUN_TEST(test_zoned_date_time_convert);
   ACU_SUMMARY();
 }
