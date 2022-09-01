@@ -40,368 +40,368 @@
 extern const char kAtcTzDatabaseVersion[];
 
 // Metadata about the zonedb files.
-extern const struct AtcZoneContext kAtcZoneContext;
+extern const AtcZoneContext kAtcZoneContext;
 
 //---------------------------------------------------------------------------
 // Supported zones: 356
 //---------------------------------------------------------------------------
 
-extern const struct AtcZoneInfo kAtcZoneAfrica_Abidjan; // Africa/Abidjan
-extern const struct AtcZoneInfo kAtcZoneAfrica_Algiers; // Africa/Algiers
-extern const struct AtcZoneInfo kAtcZoneAfrica_Bissau; // Africa/Bissau
-extern const struct AtcZoneInfo kAtcZoneAfrica_Cairo; // Africa/Cairo
-extern const struct AtcZoneInfo kAtcZoneAfrica_Casablanca; // Africa/Casablanca
-extern const struct AtcZoneInfo kAtcZoneAfrica_Ceuta; // Africa/Ceuta
-extern const struct AtcZoneInfo kAtcZoneAfrica_El_Aaiun; // Africa/El_Aaiun
-extern const struct AtcZoneInfo kAtcZoneAfrica_Johannesburg; // Africa/Johannesburg
-extern const struct AtcZoneInfo kAtcZoneAfrica_Juba; // Africa/Juba
-extern const struct AtcZoneInfo kAtcZoneAfrica_Khartoum; // Africa/Khartoum
-extern const struct AtcZoneInfo kAtcZoneAfrica_Lagos; // Africa/Lagos
-extern const struct AtcZoneInfo kAtcZoneAfrica_Maputo; // Africa/Maputo
-extern const struct AtcZoneInfo kAtcZoneAfrica_Monrovia; // Africa/Monrovia
-extern const struct AtcZoneInfo kAtcZoneAfrica_Nairobi; // Africa/Nairobi
-extern const struct AtcZoneInfo kAtcZoneAfrica_Ndjamena; // Africa/Ndjamena
-extern const struct AtcZoneInfo kAtcZoneAfrica_Sao_Tome; // Africa/Sao_Tome
-extern const struct AtcZoneInfo kAtcZoneAfrica_Tripoli; // Africa/Tripoli
-extern const struct AtcZoneInfo kAtcZoneAfrica_Tunis; // Africa/Tunis
-extern const struct AtcZoneInfo kAtcZoneAfrica_Windhoek; // Africa/Windhoek
-extern const struct AtcZoneInfo kAtcZoneAmerica_Adak; // America/Adak
-extern const struct AtcZoneInfo kAtcZoneAmerica_Anchorage; // America/Anchorage
-extern const struct AtcZoneInfo kAtcZoneAmerica_Araguaina; // America/Araguaina
-extern const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Buenos_Aires; // America/Argentina/Buenos_Aires
-extern const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Catamarca; // America/Argentina/Catamarca
-extern const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Cordoba; // America/Argentina/Cordoba
-extern const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Jujuy; // America/Argentina/Jujuy
-extern const struct AtcZoneInfo kAtcZoneAmerica_Argentina_La_Rioja; // America/Argentina/La_Rioja
-extern const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Mendoza; // America/Argentina/Mendoza
-extern const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Rio_Gallegos; // America/Argentina/Rio_Gallegos
-extern const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Salta; // America/Argentina/Salta
-extern const struct AtcZoneInfo kAtcZoneAmerica_Argentina_San_Juan; // America/Argentina/San_Juan
-extern const struct AtcZoneInfo kAtcZoneAmerica_Argentina_San_Luis; // America/Argentina/San_Luis
-extern const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Tucuman; // America/Argentina/Tucuman
-extern const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Ushuaia; // America/Argentina/Ushuaia
-extern const struct AtcZoneInfo kAtcZoneAmerica_Asuncion; // America/Asuncion
-extern const struct AtcZoneInfo kAtcZoneAmerica_Bahia; // America/Bahia
-extern const struct AtcZoneInfo kAtcZoneAmerica_Bahia_Banderas; // America/Bahia_Banderas
-extern const struct AtcZoneInfo kAtcZoneAmerica_Barbados; // America/Barbados
-extern const struct AtcZoneInfo kAtcZoneAmerica_Belem; // America/Belem
-extern const struct AtcZoneInfo kAtcZoneAmerica_Belize; // America/Belize
-extern const struct AtcZoneInfo kAtcZoneAmerica_Boa_Vista; // America/Boa_Vista
-extern const struct AtcZoneInfo kAtcZoneAmerica_Bogota; // America/Bogota
-extern const struct AtcZoneInfo kAtcZoneAmerica_Boise; // America/Boise
-extern const struct AtcZoneInfo kAtcZoneAmerica_Cambridge_Bay; // America/Cambridge_Bay
-extern const struct AtcZoneInfo kAtcZoneAmerica_Campo_Grande; // America/Campo_Grande
-extern const struct AtcZoneInfo kAtcZoneAmerica_Cancun; // America/Cancun
-extern const struct AtcZoneInfo kAtcZoneAmerica_Caracas; // America/Caracas
-extern const struct AtcZoneInfo kAtcZoneAmerica_Cayenne; // America/Cayenne
-extern const struct AtcZoneInfo kAtcZoneAmerica_Chicago; // America/Chicago
-extern const struct AtcZoneInfo kAtcZoneAmerica_Chihuahua; // America/Chihuahua
-extern const struct AtcZoneInfo kAtcZoneAmerica_Costa_Rica; // America/Costa_Rica
-extern const struct AtcZoneInfo kAtcZoneAmerica_Cuiaba; // America/Cuiaba
-extern const struct AtcZoneInfo kAtcZoneAmerica_Danmarkshavn; // America/Danmarkshavn
-extern const struct AtcZoneInfo kAtcZoneAmerica_Dawson; // America/Dawson
-extern const struct AtcZoneInfo kAtcZoneAmerica_Dawson_Creek; // America/Dawson_Creek
-extern const struct AtcZoneInfo kAtcZoneAmerica_Denver; // America/Denver
-extern const struct AtcZoneInfo kAtcZoneAmerica_Detroit; // America/Detroit
-extern const struct AtcZoneInfo kAtcZoneAmerica_Edmonton; // America/Edmonton
-extern const struct AtcZoneInfo kAtcZoneAmerica_Eirunepe; // America/Eirunepe
-extern const struct AtcZoneInfo kAtcZoneAmerica_El_Salvador; // America/El_Salvador
-extern const struct AtcZoneInfo kAtcZoneAmerica_Fort_Nelson; // America/Fort_Nelson
-extern const struct AtcZoneInfo kAtcZoneAmerica_Fortaleza; // America/Fortaleza
-extern const struct AtcZoneInfo kAtcZoneAmerica_Glace_Bay; // America/Glace_Bay
-extern const struct AtcZoneInfo kAtcZoneAmerica_Goose_Bay; // America/Goose_Bay
-extern const struct AtcZoneInfo kAtcZoneAmerica_Grand_Turk; // America/Grand_Turk
-extern const struct AtcZoneInfo kAtcZoneAmerica_Guatemala; // America/Guatemala
-extern const struct AtcZoneInfo kAtcZoneAmerica_Guayaquil; // America/Guayaquil
-extern const struct AtcZoneInfo kAtcZoneAmerica_Guyana; // America/Guyana
-extern const struct AtcZoneInfo kAtcZoneAmerica_Halifax; // America/Halifax
-extern const struct AtcZoneInfo kAtcZoneAmerica_Havana; // America/Havana
-extern const struct AtcZoneInfo kAtcZoneAmerica_Hermosillo; // America/Hermosillo
-extern const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Indianapolis; // America/Indiana/Indianapolis
-extern const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Knox; // America/Indiana/Knox
-extern const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Marengo; // America/Indiana/Marengo
-extern const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Petersburg; // America/Indiana/Petersburg
-extern const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Tell_City; // America/Indiana/Tell_City
-extern const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Vevay; // America/Indiana/Vevay
-extern const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Vincennes; // America/Indiana/Vincennes
-extern const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Winamac; // America/Indiana/Winamac
-extern const struct AtcZoneInfo kAtcZoneAmerica_Inuvik; // America/Inuvik
-extern const struct AtcZoneInfo kAtcZoneAmerica_Iqaluit; // America/Iqaluit
-extern const struct AtcZoneInfo kAtcZoneAmerica_Jamaica; // America/Jamaica
-extern const struct AtcZoneInfo kAtcZoneAmerica_Juneau; // America/Juneau
-extern const struct AtcZoneInfo kAtcZoneAmerica_Kentucky_Louisville; // America/Kentucky/Louisville
-extern const struct AtcZoneInfo kAtcZoneAmerica_Kentucky_Monticello; // America/Kentucky/Monticello
-extern const struct AtcZoneInfo kAtcZoneAmerica_La_Paz; // America/La_Paz
-extern const struct AtcZoneInfo kAtcZoneAmerica_Lima; // America/Lima
-extern const struct AtcZoneInfo kAtcZoneAmerica_Los_Angeles; // America/Los_Angeles
-extern const struct AtcZoneInfo kAtcZoneAmerica_Maceio; // America/Maceio
-extern const struct AtcZoneInfo kAtcZoneAmerica_Managua; // America/Managua
-extern const struct AtcZoneInfo kAtcZoneAmerica_Manaus; // America/Manaus
-extern const struct AtcZoneInfo kAtcZoneAmerica_Martinique; // America/Martinique
-extern const struct AtcZoneInfo kAtcZoneAmerica_Matamoros; // America/Matamoros
-extern const struct AtcZoneInfo kAtcZoneAmerica_Mazatlan; // America/Mazatlan
-extern const struct AtcZoneInfo kAtcZoneAmerica_Menominee; // America/Menominee
-extern const struct AtcZoneInfo kAtcZoneAmerica_Merida; // America/Merida
-extern const struct AtcZoneInfo kAtcZoneAmerica_Metlakatla; // America/Metlakatla
-extern const struct AtcZoneInfo kAtcZoneAmerica_Mexico_City; // America/Mexico_City
-extern const struct AtcZoneInfo kAtcZoneAmerica_Miquelon; // America/Miquelon
-extern const struct AtcZoneInfo kAtcZoneAmerica_Moncton; // America/Moncton
-extern const struct AtcZoneInfo kAtcZoneAmerica_Monterrey; // America/Monterrey
-extern const struct AtcZoneInfo kAtcZoneAmerica_Montevideo; // America/Montevideo
-extern const struct AtcZoneInfo kAtcZoneAmerica_New_York; // America/New_York
-extern const struct AtcZoneInfo kAtcZoneAmerica_Nipigon; // America/Nipigon
-extern const struct AtcZoneInfo kAtcZoneAmerica_Nome; // America/Nome
-extern const struct AtcZoneInfo kAtcZoneAmerica_Noronha; // America/Noronha
-extern const struct AtcZoneInfo kAtcZoneAmerica_North_Dakota_Beulah; // America/North_Dakota/Beulah
-extern const struct AtcZoneInfo kAtcZoneAmerica_North_Dakota_Center; // America/North_Dakota/Center
-extern const struct AtcZoneInfo kAtcZoneAmerica_North_Dakota_New_Salem; // America/North_Dakota/New_Salem
-extern const struct AtcZoneInfo kAtcZoneAmerica_Nuuk; // America/Nuuk
-extern const struct AtcZoneInfo kAtcZoneAmerica_Ojinaga; // America/Ojinaga
-extern const struct AtcZoneInfo kAtcZoneAmerica_Panama; // America/Panama
-extern const struct AtcZoneInfo kAtcZoneAmerica_Pangnirtung; // America/Pangnirtung
-extern const struct AtcZoneInfo kAtcZoneAmerica_Paramaribo; // America/Paramaribo
-extern const struct AtcZoneInfo kAtcZoneAmerica_Phoenix; // America/Phoenix
-extern const struct AtcZoneInfo kAtcZoneAmerica_Port_au_Prince; // America/Port-au-Prince
-extern const struct AtcZoneInfo kAtcZoneAmerica_Porto_Velho; // America/Porto_Velho
-extern const struct AtcZoneInfo kAtcZoneAmerica_Puerto_Rico; // America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_Punta_Arenas; // America/Punta_Arenas
-extern const struct AtcZoneInfo kAtcZoneAmerica_Rainy_River; // America/Rainy_River
-extern const struct AtcZoneInfo kAtcZoneAmerica_Rankin_Inlet; // America/Rankin_Inlet
-extern const struct AtcZoneInfo kAtcZoneAmerica_Recife; // America/Recife
-extern const struct AtcZoneInfo kAtcZoneAmerica_Regina; // America/Regina
-extern const struct AtcZoneInfo kAtcZoneAmerica_Resolute; // America/Resolute
-extern const struct AtcZoneInfo kAtcZoneAmerica_Rio_Branco; // America/Rio_Branco
-extern const struct AtcZoneInfo kAtcZoneAmerica_Santarem; // America/Santarem
-extern const struct AtcZoneInfo kAtcZoneAmerica_Santiago; // America/Santiago
-extern const struct AtcZoneInfo kAtcZoneAmerica_Santo_Domingo; // America/Santo_Domingo
-extern const struct AtcZoneInfo kAtcZoneAmerica_Sao_Paulo; // America/Sao_Paulo
-extern const struct AtcZoneInfo kAtcZoneAmerica_Scoresbysund; // America/Scoresbysund
-extern const struct AtcZoneInfo kAtcZoneAmerica_Sitka; // America/Sitka
-extern const struct AtcZoneInfo kAtcZoneAmerica_St_Johns; // America/St_Johns
-extern const struct AtcZoneInfo kAtcZoneAmerica_Swift_Current; // America/Swift_Current
-extern const struct AtcZoneInfo kAtcZoneAmerica_Tegucigalpa; // America/Tegucigalpa
-extern const struct AtcZoneInfo kAtcZoneAmerica_Thule; // America/Thule
-extern const struct AtcZoneInfo kAtcZoneAmerica_Thunder_Bay; // America/Thunder_Bay
-extern const struct AtcZoneInfo kAtcZoneAmerica_Tijuana; // America/Tijuana
-extern const struct AtcZoneInfo kAtcZoneAmerica_Toronto; // America/Toronto
-extern const struct AtcZoneInfo kAtcZoneAmerica_Vancouver; // America/Vancouver
-extern const struct AtcZoneInfo kAtcZoneAmerica_Whitehorse; // America/Whitehorse
-extern const struct AtcZoneInfo kAtcZoneAmerica_Winnipeg; // America/Winnipeg
-extern const struct AtcZoneInfo kAtcZoneAmerica_Yakutat; // America/Yakutat
-extern const struct AtcZoneInfo kAtcZoneAmerica_Yellowknife; // America/Yellowknife
-extern const struct AtcZoneInfo kAtcZoneAntarctica_Casey; // Antarctica/Casey
-extern const struct AtcZoneInfo kAtcZoneAntarctica_Davis; // Antarctica/Davis
-extern const struct AtcZoneInfo kAtcZoneAntarctica_Macquarie; // Antarctica/Macquarie
-extern const struct AtcZoneInfo kAtcZoneAntarctica_Mawson; // Antarctica/Mawson
-extern const struct AtcZoneInfo kAtcZoneAntarctica_Palmer; // Antarctica/Palmer
-extern const struct AtcZoneInfo kAtcZoneAntarctica_Rothera; // Antarctica/Rothera
-extern const struct AtcZoneInfo kAtcZoneAntarctica_Troll; // Antarctica/Troll
-extern const struct AtcZoneInfo kAtcZoneAsia_Almaty; // Asia/Almaty
-extern const struct AtcZoneInfo kAtcZoneAsia_Amman; // Asia/Amman
-extern const struct AtcZoneInfo kAtcZoneAsia_Anadyr; // Asia/Anadyr
-extern const struct AtcZoneInfo kAtcZoneAsia_Aqtau; // Asia/Aqtau
-extern const struct AtcZoneInfo kAtcZoneAsia_Aqtobe; // Asia/Aqtobe
-extern const struct AtcZoneInfo kAtcZoneAsia_Ashgabat; // Asia/Ashgabat
-extern const struct AtcZoneInfo kAtcZoneAsia_Atyrau; // Asia/Atyrau
-extern const struct AtcZoneInfo kAtcZoneAsia_Baghdad; // Asia/Baghdad
-extern const struct AtcZoneInfo kAtcZoneAsia_Baku; // Asia/Baku
-extern const struct AtcZoneInfo kAtcZoneAsia_Bangkok; // Asia/Bangkok
-extern const struct AtcZoneInfo kAtcZoneAsia_Barnaul; // Asia/Barnaul
-extern const struct AtcZoneInfo kAtcZoneAsia_Beirut; // Asia/Beirut
-extern const struct AtcZoneInfo kAtcZoneAsia_Bishkek; // Asia/Bishkek
-extern const struct AtcZoneInfo kAtcZoneAsia_Chita; // Asia/Chita
-extern const struct AtcZoneInfo kAtcZoneAsia_Choibalsan; // Asia/Choibalsan
-extern const struct AtcZoneInfo kAtcZoneAsia_Colombo; // Asia/Colombo
-extern const struct AtcZoneInfo kAtcZoneAsia_Damascus; // Asia/Damascus
-extern const struct AtcZoneInfo kAtcZoneAsia_Dhaka; // Asia/Dhaka
-extern const struct AtcZoneInfo kAtcZoneAsia_Dili; // Asia/Dili
-extern const struct AtcZoneInfo kAtcZoneAsia_Dubai; // Asia/Dubai
-extern const struct AtcZoneInfo kAtcZoneAsia_Dushanbe; // Asia/Dushanbe
-extern const struct AtcZoneInfo kAtcZoneAsia_Famagusta; // Asia/Famagusta
-extern const struct AtcZoneInfo kAtcZoneAsia_Gaza; // Asia/Gaza
-extern const struct AtcZoneInfo kAtcZoneAsia_Hebron; // Asia/Hebron
-extern const struct AtcZoneInfo kAtcZoneAsia_Ho_Chi_Minh; // Asia/Ho_Chi_Minh
-extern const struct AtcZoneInfo kAtcZoneAsia_Hong_Kong; // Asia/Hong_Kong
-extern const struct AtcZoneInfo kAtcZoneAsia_Hovd; // Asia/Hovd
-extern const struct AtcZoneInfo kAtcZoneAsia_Irkutsk; // Asia/Irkutsk
-extern const struct AtcZoneInfo kAtcZoneAsia_Jakarta; // Asia/Jakarta
-extern const struct AtcZoneInfo kAtcZoneAsia_Jayapura; // Asia/Jayapura
-extern const struct AtcZoneInfo kAtcZoneAsia_Jerusalem; // Asia/Jerusalem
-extern const struct AtcZoneInfo kAtcZoneAsia_Kabul; // Asia/Kabul
-extern const struct AtcZoneInfo kAtcZoneAsia_Kamchatka; // Asia/Kamchatka
-extern const struct AtcZoneInfo kAtcZoneAsia_Karachi; // Asia/Karachi
-extern const struct AtcZoneInfo kAtcZoneAsia_Kathmandu; // Asia/Kathmandu
-extern const struct AtcZoneInfo kAtcZoneAsia_Khandyga; // Asia/Khandyga
-extern const struct AtcZoneInfo kAtcZoneAsia_Kolkata; // Asia/Kolkata
-extern const struct AtcZoneInfo kAtcZoneAsia_Krasnoyarsk; // Asia/Krasnoyarsk
-extern const struct AtcZoneInfo kAtcZoneAsia_Kuching; // Asia/Kuching
-extern const struct AtcZoneInfo kAtcZoneAsia_Macau; // Asia/Macau
-extern const struct AtcZoneInfo kAtcZoneAsia_Magadan; // Asia/Magadan
-extern const struct AtcZoneInfo kAtcZoneAsia_Makassar; // Asia/Makassar
-extern const struct AtcZoneInfo kAtcZoneAsia_Manila; // Asia/Manila
-extern const struct AtcZoneInfo kAtcZoneAsia_Nicosia; // Asia/Nicosia
-extern const struct AtcZoneInfo kAtcZoneAsia_Novokuznetsk; // Asia/Novokuznetsk
-extern const struct AtcZoneInfo kAtcZoneAsia_Novosibirsk; // Asia/Novosibirsk
-extern const struct AtcZoneInfo kAtcZoneAsia_Omsk; // Asia/Omsk
-extern const struct AtcZoneInfo kAtcZoneAsia_Oral; // Asia/Oral
-extern const struct AtcZoneInfo kAtcZoneAsia_Pontianak; // Asia/Pontianak
-extern const struct AtcZoneInfo kAtcZoneAsia_Pyongyang; // Asia/Pyongyang
-extern const struct AtcZoneInfo kAtcZoneAsia_Qatar; // Asia/Qatar
-extern const struct AtcZoneInfo kAtcZoneAsia_Qostanay; // Asia/Qostanay
-extern const struct AtcZoneInfo kAtcZoneAsia_Qyzylorda; // Asia/Qyzylorda
-extern const struct AtcZoneInfo kAtcZoneAsia_Riyadh; // Asia/Riyadh
-extern const struct AtcZoneInfo kAtcZoneAsia_Sakhalin; // Asia/Sakhalin
-extern const struct AtcZoneInfo kAtcZoneAsia_Samarkand; // Asia/Samarkand
-extern const struct AtcZoneInfo kAtcZoneAsia_Seoul; // Asia/Seoul
-extern const struct AtcZoneInfo kAtcZoneAsia_Shanghai; // Asia/Shanghai
-extern const struct AtcZoneInfo kAtcZoneAsia_Singapore; // Asia/Singapore
-extern const struct AtcZoneInfo kAtcZoneAsia_Srednekolymsk; // Asia/Srednekolymsk
-extern const struct AtcZoneInfo kAtcZoneAsia_Taipei; // Asia/Taipei
-extern const struct AtcZoneInfo kAtcZoneAsia_Tashkent; // Asia/Tashkent
-extern const struct AtcZoneInfo kAtcZoneAsia_Tbilisi; // Asia/Tbilisi
-extern const struct AtcZoneInfo kAtcZoneAsia_Tehran; // Asia/Tehran
-extern const struct AtcZoneInfo kAtcZoneAsia_Thimphu; // Asia/Thimphu
-extern const struct AtcZoneInfo kAtcZoneAsia_Tokyo; // Asia/Tokyo
-extern const struct AtcZoneInfo kAtcZoneAsia_Tomsk; // Asia/Tomsk
-extern const struct AtcZoneInfo kAtcZoneAsia_Ulaanbaatar; // Asia/Ulaanbaatar
-extern const struct AtcZoneInfo kAtcZoneAsia_Urumqi; // Asia/Urumqi
-extern const struct AtcZoneInfo kAtcZoneAsia_Ust_Nera; // Asia/Ust-Nera
-extern const struct AtcZoneInfo kAtcZoneAsia_Vladivostok; // Asia/Vladivostok
-extern const struct AtcZoneInfo kAtcZoneAsia_Yakutsk; // Asia/Yakutsk
-extern const struct AtcZoneInfo kAtcZoneAsia_Yangon; // Asia/Yangon
-extern const struct AtcZoneInfo kAtcZoneAsia_Yekaterinburg; // Asia/Yekaterinburg
-extern const struct AtcZoneInfo kAtcZoneAsia_Yerevan; // Asia/Yerevan
-extern const struct AtcZoneInfo kAtcZoneAtlantic_Azores; // Atlantic/Azores
-extern const struct AtcZoneInfo kAtcZoneAtlantic_Bermuda; // Atlantic/Bermuda
-extern const struct AtcZoneInfo kAtcZoneAtlantic_Canary; // Atlantic/Canary
-extern const struct AtcZoneInfo kAtcZoneAtlantic_Cape_Verde; // Atlantic/Cape_Verde
-extern const struct AtcZoneInfo kAtcZoneAtlantic_Faroe; // Atlantic/Faroe
-extern const struct AtcZoneInfo kAtcZoneAtlantic_Madeira; // Atlantic/Madeira
-extern const struct AtcZoneInfo kAtcZoneAtlantic_South_Georgia; // Atlantic/South_Georgia
-extern const struct AtcZoneInfo kAtcZoneAtlantic_Stanley; // Atlantic/Stanley
-extern const struct AtcZoneInfo kAtcZoneAustralia_Adelaide; // Australia/Adelaide
-extern const struct AtcZoneInfo kAtcZoneAustralia_Brisbane; // Australia/Brisbane
-extern const struct AtcZoneInfo kAtcZoneAustralia_Broken_Hill; // Australia/Broken_Hill
-extern const struct AtcZoneInfo kAtcZoneAustralia_Darwin; // Australia/Darwin
-extern const struct AtcZoneInfo kAtcZoneAustralia_Eucla; // Australia/Eucla
-extern const struct AtcZoneInfo kAtcZoneAustralia_Hobart; // Australia/Hobart
-extern const struct AtcZoneInfo kAtcZoneAustralia_Lindeman; // Australia/Lindeman
-extern const struct AtcZoneInfo kAtcZoneAustralia_Lord_Howe; // Australia/Lord_Howe
-extern const struct AtcZoneInfo kAtcZoneAustralia_Melbourne; // Australia/Melbourne
-extern const struct AtcZoneInfo kAtcZoneAustralia_Perth; // Australia/Perth
-extern const struct AtcZoneInfo kAtcZoneAustralia_Sydney; // Australia/Sydney
-extern const struct AtcZoneInfo kAtcZoneCET; // CET
-extern const struct AtcZoneInfo kAtcZoneCST6CDT; // CST6CDT
-extern const struct AtcZoneInfo kAtcZoneEET; // EET
-extern const struct AtcZoneInfo kAtcZoneEST; // EST
-extern const struct AtcZoneInfo kAtcZoneEST5EDT; // EST5EDT
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT; // Etc/GMT
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_1; // Etc/GMT+1
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_10; // Etc/GMT+10
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_11; // Etc/GMT+11
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_12; // Etc/GMT+12
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_2; // Etc/GMT+2
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_3; // Etc/GMT+3
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_4; // Etc/GMT+4
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_5; // Etc/GMT+5
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_6; // Etc/GMT+6
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_7; // Etc/GMT+7
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_8; // Etc/GMT+8
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_9; // Etc/GMT+9
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_1; // Etc/GMT-1
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_10; // Etc/GMT-10
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_11; // Etc/GMT-11
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_12; // Etc/GMT-12
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_13; // Etc/GMT-13
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_14; // Etc/GMT-14
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_2; // Etc/GMT-2
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_3; // Etc/GMT-3
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_4; // Etc/GMT-4
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_5; // Etc/GMT-5
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_6; // Etc/GMT-6
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_7; // Etc/GMT-7
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_8; // Etc/GMT-8
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_9; // Etc/GMT-9
-extern const struct AtcZoneInfo kAtcZoneEtc_UTC; // Etc/UTC
-extern const struct AtcZoneInfo kAtcZoneEurope_Andorra; // Europe/Andorra
-extern const struct AtcZoneInfo kAtcZoneEurope_Astrakhan; // Europe/Astrakhan
-extern const struct AtcZoneInfo kAtcZoneEurope_Athens; // Europe/Athens
-extern const struct AtcZoneInfo kAtcZoneEurope_Belgrade; // Europe/Belgrade
-extern const struct AtcZoneInfo kAtcZoneEurope_Berlin; // Europe/Berlin
-extern const struct AtcZoneInfo kAtcZoneEurope_Brussels; // Europe/Brussels
-extern const struct AtcZoneInfo kAtcZoneEurope_Bucharest; // Europe/Bucharest
-extern const struct AtcZoneInfo kAtcZoneEurope_Budapest; // Europe/Budapest
-extern const struct AtcZoneInfo kAtcZoneEurope_Chisinau; // Europe/Chisinau
-extern const struct AtcZoneInfo kAtcZoneEurope_Dublin; // Europe/Dublin
-extern const struct AtcZoneInfo kAtcZoneEurope_Gibraltar; // Europe/Gibraltar
-extern const struct AtcZoneInfo kAtcZoneEurope_Helsinki; // Europe/Helsinki
-extern const struct AtcZoneInfo kAtcZoneEurope_Istanbul; // Europe/Istanbul
-extern const struct AtcZoneInfo kAtcZoneEurope_Kaliningrad; // Europe/Kaliningrad
-extern const struct AtcZoneInfo kAtcZoneEurope_Kirov; // Europe/Kirov
-extern const struct AtcZoneInfo kAtcZoneEurope_Kyiv; // Europe/Kyiv
-extern const struct AtcZoneInfo kAtcZoneEurope_Lisbon; // Europe/Lisbon
-extern const struct AtcZoneInfo kAtcZoneEurope_London; // Europe/London
-extern const struct AtcZoneInfo kAtcZoneEurope_Madrid; // Europe/Madrid
-extern const struct AtcZoneInfo kAtcZoneEurope_Malta; // Europe/Malta
-extern const struct AtcZoneInfo kAtcZoneEurope_Minsk; // Europe/Minsk
-extern const struct AtcZoneInfo kAtcZoneEurope_Moscow; // Europe/Moscow
-extern const struct AtcZoneInfo kAtcZoneEurope_Paris; // Europe/Paris
-extern const struct AtcZoneInfo kAtcZoneEurope_Prague; // Europe/Prague
-extern const struct AtcZoneInfo kAtcZoneEurope_Riga; // Europe/Riga
-extern const struct AtcZoneInfo kAtcZoneEurope_Rome; // Europe/Rome
-extern const struct AtcZoneInfo kAtcZoneEurope_Samara; // Europe/Samara
-extern const struct AtcZoneInfo kAtcZoneEurope_Saratov; // Europe/Saratov
-extern const struct AtcZoneInfo kAtcZoneEurope_Simferopol; // Europe/Simferopol
-extern const struct AtcZoneInfo kAtcZoneEurope_Sofia; // Europe/Sofia
-extern const struct AtcZoneInfo kAtcZoneEurope_Tallinn; // Europe/Tallinn
-extern const struct AtcZoneInfo kAtcZoneEurope_Tirane; // Europe/Tirane
-extern const struct AtcZoneInfo kAtcZoneEurope_Ulyanovsk; // Europe/Ulyanovsk
-extern const struct AtcZoneInfo kAtcZoneEurope_Uzhgorod; // Europe/Uzhgorod
-extern const struct AtcZoneInfo kAtcZoneEurope_Vienna; // Europe/Vienna
-extern const struct AtcZoneInfo kAtcZoneEurope_Vilnius; // Europe/Vilnius
-extern const struct AtcZoneInfo kAtcZoneEurope_Volgograd; // Europe/Volgograd
-extern const struct AtcZoneInfo kAtcZoneEurope_Warsaw; // Europe/Warsaw
-extern const struct AtcZoneInfo kAtcZoneEurope_Zaporozhye; // Europe/Zaporozhye
-extern const struct AtcZoneInfo kAtcZoneEurope_Zurich; // Europe/Zurich
-extern const struct AtcZoneInfo kAtcZoneHST; // HST
-extern const struct AtcZoneInfo kAtcZoneIndian_Chagos; // Indian/Chagos
-extern const struct AtcZoneInfo kAtcZoneIndian_Maldives; // Indian/Maldives
-extern const struct AtcZoneInfo kAtcZoneIndian_Mauritius; // Indian/Mauritius
-extern const struct AtcZoneInfo kAtcZoneMET; // MET
-extern const struct AtcZoneInfo kAtcZoneMST; // MST
-extern const struct AtcZoneInfo kAtcZoneMST7MDT; // MST7MDT
-extern const struct AtcZoneInfo kAtcZonePST8PDT; // PST8PDT
-extern const struct AtcZoneInfo kAtcZonePacific_Apia; // Pacific/Apia
-extern const struct AtcZoneInfo kAtcZonePacific_Auckland; // Pacific/Auckland
-extern const struct AtcZoneInfo kAtcZonePacific_Bougainville; // Pacific/Bougainville
-extern const struct AtcZoneInfo kAtcZonePacific_Chatham; // Pacific/Chatham
-extern const struct AtcZoneInfo kAtcZonePacific_Easter; // Pacific/Easter
-extern const struct AtcZoneInfo kAtcZonePacific_Efate; // Pacific/Efate
-extern const struct AtcZoneInfo kAtcZonePacific_Fakaofo; // Pacific/Fakaofo
-extern const struct AtcZoneInfo kAtcZonePacific_Fiji; // Pacific/Fiji
-extern const struct AtcZoneInfo kAtcZonePacific_Galapagos; // Pacific/Galapagos
-extern const struct AtcZoneInfo kAtcZonePacific_Gambier; // Pacific/Gambier
-extern const struct AtcZoneInfo kAtcZonePacific_Guadalcanal; // Pacific/Guadalcanal
-extern const struct AtcZoneInfo kAtcZonePacific_Guam; // Pacific/Guam
-extern const struct AtcZoneInfo kAtcZonePacific_Honolulu; // Pacific/Honolulu
-extern const struct AtcZoneInfo kAtcZonePacific_Kanton; // Pacific/Kanton
-extern const struct AtcZoneInfo kAtcZonePacific_Kiritimati; // Pacific/Kiritimati
-extern const struct AtcZoneInfo kAtcZonePacific_Kosrae; // Pacific/Kosrae
-extern const struct AtcZoneInfo kAtcZonePacific_Kwajalein; // Pacific/Kwajalein
-extern const struct AtcZoneInfo kAtcZonePacific_Marquesas; // Pacific/Marquesas
-extern const struct AtcZoneInfo kAtcZonePacific_Nauru; // Pacific/Nauru
-extern const struct AtcZoneInfo kAtcZonePacific_Niue; // Pacific/Niue
-extern const struct AtcZoneInfo kAtcZonePacific_Norfolk; // Pacific/Norfolk
-extern const struct AtcZoneInfo kAtcZonePacific_Noumea; // Pacific/Noumea
-extern const struct AtcZoneInfo kAtcZonePacific_Pago_Pago; // Pacific/Pago_Pago
-extern const struct AtcZoneInfo kAtcZonePacific_Palau; // Pacific/Palau
-extern const struct AtcZoneInfo kAtcZonePacific_Pitcairn; // Pacific/Pitcairn
-extern const struct AtcZoneInfo kAtcZonePacific_Port_Moresby; // Pacific/Port_Moresby
-extern const struct AtcZoneInfo kAtcZonePacific_Rarotonga; // Pacific/Rarotonga
-extern const struct AtcZoneInfo kAtcZonePacific_Tahiti; // Pacific/Tahiti
-extern const struct AtcZoneInfo kAtcZonePacific_Tarawa; // Pacific/Tarawa
-extern const struct AtcZoneInfo kAtcZonePacific_Tongatapu; // Pacific/Tongatapu
-extern const struct AtcZoneInfo kAtcZoneWET; // WET
+extern const AtcZoneInfo kAtcZoneAfrica_Abidjan; // Africa/Abidjan
+extern const AtcZoneInfo kAtcZoneAfrica_Algiers; // Africa/Algiers
+extern const AtcZoneInfo kAtcZoneAfrica_Bissau; // Africa/Bissau
+extern const AtcZoneInfo kAtcZoneAfrica_Cairo; // Africa/Cairo
+extern const AtcZoneInfo kAtcZoneAfrica_Casablanca; // Africa/Casablanca
+extern const AtcZoneInfo kAtcZoneAfrica_Ceuta; // Africa/Ceuta
+extern const AtcZoneInfo kAtcZoneAfrica_El_Aaiun; // Africa/El_Aaiun
+extern const AtcZoneInfo kAtcZoneAfrica_Johannesburg; // Africa/Johannesburg
+extern const AtcZoneInfo kAtcZoneAfrica_Juba; // Africa/Juba
+extern const AtcZoneInfo kAtcZoneAfrica_Khartoum; // Africa/Khartoum
+extern const AtcZoneInfo kAtcZoneAfrica_Lagos; // Africa/Lagos
+extern const AtcZoneInfo kAtcZoneAfrica_Maputo; // Africa/Maputo
+extern const AtcZoneInfo kAtcZoneAfrica_Monrovia; // Africa/Monrovia
+extern const AtcZoneInfo kAtcZoneAfrica_Nairobi; // Africa/Nairobi
+extern const AtcZoneInfo kAtcZoneAfrica_Ndjamena; // Africa/Ndjamena
+extern const AtcZoneInfo kAtcZoneAfrica_Sao_Tome; // Africa/Sao_Tome
+extern const AtcZoneInfo kAtcZoneAfrica_Tripoli; // Africa/Tripoli
+extern const AtcZoneInfo kAtcZoneAfrica_Tunis; // Africa/Tunis
+extern const AtcZoneInfo kAtcZoneAfrica_Windhoek; // Africa/Windhoek
+extern const AtcZoneInfo kAtcZoneAmerica_Adak; // America/Adak
+extern const AtcZoneInfo kAtcZoneAmerica_Anchorage; // America/Anchorage
+extern const AtcZoneInfo kAtcZoneAmerica_Araguaina; // America/Araguaina
+extern const AtcZoneInfo kAtcZoneAmerica_Argentina_Buenos_Aires; // America/Argentina/Buenos_Aires
+extern const AtcZoneInfo kAtcZoneAmerica_Argentina_Catamarca; // America/Argentina/Catamarca
+extern const AtcZoneInfo kAtcZoneAmerica_Argentina_Cordoba; // America/Argentina/Cordoba
+extern const AtcZoneInfo kAtcZoneAmerica_Argentina_Jujuy; // America/Argentina/Jujuy
+extern const AtcZoneInfo kAtcZoneAmerica_Argentina_La_Rioja; // America/Argentina/La_Rioja
+extern const AtcZoneInfo kAtcZoneAmerica_Argentina_Mendoza; // America/Argentina/Mendoza
+extern const AtcZoneInfo kAtcZoneAmerica_Argentina_Rio_Gallegos; // America/Argentina/Rio_Gallegos
+extern const AtcZoneInfo kAtcZoneAmerica_Argentina_Salta; // America/Argentina/Salta
+extern const AtcZoneInfo kAtcZoneAmerica_Argentina_San_Juan; // America/Argentina/San_Juan
+extern const AtcZoneInfo kAtcZoneAmerica_Argentina_San_Luis; // America/Argentina/San_Luis
+extern const AtcZoneInfo kAtcZoneAmerica_Argentina_Tucuman; // America/Argentina/Tucuman
+extern const AtcZoneInfo kAtcZoneAmerica_Argentina_Ushuaia; // America/Argentina/Ushuaia
+extern const AtcZoneInfo kAtcZoneAmerica_Asuncion; // America/Asuncion
+extern const AtcZoneInfo kAtcZoneAmerica_Bahia; // America/Bahia
+extern const AtcZoneInfo kAtcZoneAmerica_Bahia_Banderas; // America/Bahia_Banderas
+extern const AtcZoneInfo kAtcZoneAmerica_Barbados; // America/Barbados
+extern const AtcZoneInfo kAtcZoneAmerica_Belem; // America/Belem
+extern const AtcZoneInfo kAtcZoneAmerica_Belize; // America/Belize
+extern const AtcZoneInfo kAtcZoneAmerica_Boa_Vista; // America/Boa_Vista
+extern const AtcZoneInfo kAtcZoneAmerica_Bogota; // America/Bogota
+extern const AtcZoneInfo kAtcZoneAmerica_Boise; // America/Boise
+extern const AtcZoneInfo kAtcZoneAmerica_Cambridge_Bay; // America/Cambridge_Bay
+extern const AtcZoneInfo kAtcZoneAmerica_Campo_Grande; // America/Campo_Grande
+extern const AtcZoneInfo kAtcZoneAmerica_Cancun; // America/Cancun
+extern const AtcZoneInfo kAtcZoneAmerica_Caracas; // America/Caracas
+extern const AtcZoneInfo kAtcZoneAmerica_Cayenne; // America/Cayenne
+extern const AtcZoneInfo kAtcZoneAmerica_Chicago; // America/Chicago
+extern const AtcZoneInfo kAtcZoneAmerica_Chihuahua; // America/Chihuahua
+extern const AtcZoneInfo kAtcZoneAmerica_Costa_Rica; // America/Costa_Rica
+extern const AtcZoneInfo kAtcZoneAmerica_Cuiaba; // America/Cuiaba
+extern const AtcZoneInfo kAtcZoneAmerica_Danmarkshavn; // America/Danmarkshavn
+extern const AtcZoneInfo kAtcZoneAmerica_Dawson; // America/Dawson
+extern const AtcZoneInfo kAtcZoneAmerica_Dawson_Creek; // America/Dawson_Creek
+extern const AtcZoneInfo kAtcZoneAmerica_Denver; // America/Denver
+extern const AtcZoneInfo kAtcZoneAmerica_Detroit; // America/Detroit
+extern const AtcZoneInfo kAtcZoneAmerica_Edmonton; // America/Edmonton
+extern const AtcZoneInfo kAtcZoneAmerica_Eirunepe; // America/Eirunepe
+extern const AtcZoneInfo kAtcZoneAmerica_El_Salvador; // America/El_Salvador
+extern const AtcZoneInfo kAtcZoneAmerica_Fort_Nelson; // America/Fort_Nelson
+extern const AtcZoneInfo kAtcZoneAmerica_Fortaleza; // America/Fortaleza
+extern const AtcZoneInfo kAtcZoneAmerica_Glace_Bay; // America/Glace_Bay
+extern const AtcZoneInfo kAtcZoneAmerica_Goose_Bay; // America/Goose_Bay
+extern const AtcZoneInfo kAtcZoneAmerica_Grand_Turk; // America/Grand_Turk
+extern const AtcZoneInfo kAtcZoneAmerica_Guatemala; // America/Guatemala
+extern const AtcZoneInfo kAtcZoneAmerica_Guayaquil; // America/Guayaquil
+extern const AtcZoneInfo kAtcZoneAmerica_Guyana; // America/Guyana
+extern const AtcZoneInfo kAtcZoneAmerica_Halifax; // America/Halifax
+extern const AtcZoneInfo kAtcZoneAmerica_Havana; // America/Havana
+extern const AtcZoneInfo kAtcZoneAmerica_Hermosillo; // America/Hermosillo
+extern const AtcZoneInfo kAtcZoneAmerica_Indiana_Indianapolis; // America/Indiana/Indianapolis
+extern const AtcZoneInfo kAtcZoneAmerica_Indiana_Knox; // America/Indiana/Knox
+extern const AtcZoneInfo kAtcZoneAmerica_Indiana_Marengo; // America/Indiana/Marengo
+extern const AtcZoneInfo kAtcZoneAmerica_Indiana_Petersburg; // America/Indiana/Petersburg
+extern const AtcZoneInfo kAtcZoneAmerica_Indiana_Tell_City; // America/Indiana/Tell_City
+extern const AtcZoneInfo kAtcZoneAmerica_Indiana_Vevay; // America/Indiana/Vevay
+extern const AtcZoneInfo kAtcZoneAmerica_Indiana_Vincennes; // America/Indiana/Vincennes
+extern const AtcZoneInfo kAtcZoneAmerica_Indiana_Winamac; // America/Indiana/Winamac
+extern const AtcZoneInfo kAtcZoneAmerica_Inuvik; // America/Inuvik
+extern const AtcZoneInfo kAtcZoneAmerica_Iqaluit; // America/Iqaluit
+extern const AtcZoneInfo kAtcZoneAmerica_Jamaica; // America/Jamaica
+extern const AtcZoneInfo kAtcZoneAmerica_Juneau; // America/Juneau
+extern const AtcZoneInfo kAtcZoneAmerica_Kentucky_Louisville; // America/Kentucky/Louisville
+extern const AtcZoneInfo kAtcZoneAmerica_Kentucky_Monticello; // America/Kentucky/Monticello
+extern const AtcZoneInfo kAtcZoneAmerica_La_Paz; // America/La_Paz
+extern const AtcZoneInfo kAtcZoneAmerica_Lima; // America/Lima
+extern const AtcZoneInfo kAtcZoneAmerica_Los_Angeles; // America/Los_Angeles
+extern const AtcZoneInfo kAtcZoneAmerica_Maceio; // America/Maceio
+extern const AtcZoneInfo kAtcZoneAmerica_Managua; // America/Managua
+extern const AtcZoneInfo kAtcZoneAmerica_Manaus; // America/Manaus
+extern const AtcZoneInfo kAtcZoneAmerica_Martinique; // America/Martinique
+extern const AtcZoneInfo kAtcZoneAmerica_Matamoros; // America/Matamoros
+extern const AtcZoneInfo kAtcZoneAmerica_Mazatlan; // America/Mazatlan
+extern const AtcZoneInfo kAtcZoneAmerica_Menominee; // America/Menominee
+extern const AtcZoneInfo kAtcZoneAmerica_Merida; // America/Merida
+extern const AtcZoneInfo kAtcZoneAmerica_Metlakatla; // America/Metlakatla
+extern const AtcZoneInfo kAtcZoneAmerica_Mexico_City; // America/Mexico_City
+extern const AtcZoneInfo kAtcZoneAmerica_Miquelon; // America/Miquelon
+extern const AtcZoneInfo kAtcZoneAmerica_Moncton; // America/Moncton
+extern const AtcZoneInfo kAtcZoneAmerica_Monterrey; // America/Monterrey
+extern const AtcZoneInfo kAtcZoneAmerica_Montevideo; // America/Montevideo
+extern const AtcZoneInfo kAtcZoneAmerica_New_York; // America/New_York
+extern const AtcZoneInfo kAtcZoneAmerica_Nipigon; // America/Nipigon
+extern const AtcZoneInfo kAtcZoneAmerica_Nome; // America/Nome
+extern const AtcZoneInfo kAtcZoneAmerica_Noronha; // America/Noronha
+extern const AtcZoneInfo kAtcZoneAmerica_North_Dakota_Beulah; // America/North_Dakota/Beulah
+extern const AtcZoneInfo kAtcZoneAmerica_North_Dakota_Center; // America/North_Dakota/Center
+extern const AtcZoneInfo kAtcZoneAmerica_North_Dakota_New_Salem; // America/North_Dakota/New_Salem
+extern const AtcZoneInfo kAtcZoneAmerica_Nuuk; // America/Nuuk
+extern const AtcZoneInfo kAtcZoneAmerica_Ojinaga; // America/Ojinaga
+extern const AtcZoneInfo kAtcZoneAmerica_Panama; // America/Panama
+extern const AtcZoneInfo kAtcZoneAmerica_Pangnirtung; // America/Pangnirtung
+extern const AtcZoneInfo kAtcZoneAmerica_Paramaribo; // America/Paramaribo
+extern const AtcZoneInfo kAtcZoneAmerica_Phoenix; // America/Phoenix
+extern const AtcZoneInfo kAtcZoneAmerica_Port_au_Prince; // America/Port-au-Prince
+extern const AtcZoneInfo kAtcZoneAmerica_Porto_Velho; // America/Porto_Velho
+extern const AtcZoneInfo kAtcZoneAmerica_Puerto_Rico; // America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Punta_Arenas; // America/Punta_Arenas
+extern const AtcZoneInfo kAtcZoneAmerica_Rainy_River; // America/Rainy_River
+extern const AtcZoneInfo kAtcZoneAmerica_Rankin_Inlet; // America/Rankin_Inlet
+extern const AtcZoneInfo kAtcZoneAmerica_Recife; // America/Recife
+extern const AtcZoneInfo kAtcZoneAmerica_Regina; // America/Regina
+extern const AtcZoneInfo kAtcZoneAmerica_Resolute; // America/Resolute
+extern const AtcZoneInfo kAtcZoneAmerica_Rio_Branco; // America/Rio_Branco
+extern const AtcZoneInfo kAtcZoneAmerica_Santarem; // America/Santarem
+extern const AtcZoneInfo kAtcZoneAmerica_Santiago; // America/Santiago
+extern const AtcZoneInfo kAtcZoneAmerica_Santo_Domingo; // America/Santo_Domingo
+extern const AtcZoneInfo kAtcZoneAmerica_Sao_Paulo; // America/Sao_Paulo
+extern const AtcZoneInfo kAtcZoneAmerica_Scoresbysund; // America/Scoresbysund
+extern const AtcZoneInfo kAtcZoneAmerica_Sitka; // America/Sitka
+extern const AtcZoneInfo kAtcZoneAmerica_St_Johns; // America/St_Johns
+extern const AtcZoneInfo kAtcZoneAmerica_Swift_Current; // America/Swift_Current
+extern const AtcZoneInfo kAtcZoneAmerica_Tegucigalpa; // America/Tegucigalpa
+extern const AtcZoneInfo kAtcZoneAmerica_Thule; // America/Thule
+extern const AtcZoneInfo kAtcZoneAmerica_Thunder_Bay; // America/Thunder_Bay
+extern const AtcZoneInfo kAtcZoneAmerica_Tijuana; // America/Tijuana
+extern const AtcZoneInfo kAtcZoneAmerica_Toronto; // America/Toronto
+extern const AtcZoneInfo kAtcZoneAmerica_Vancouver; // America/Vancouver
+extern const AtcZoneInfo kAtcZoneAmerica_Whitehorse; // America/Whitehorse
+extern const AtcZoneInfo kAtcZoneAmerica_Winnipeg; // America/Winnipeg
+extern const AtcZoneInfo kAtcZoneAmerica_Yakutat; // America/Yakutat
+extern const AtcZoneInfo kAtcZoneAmerica_Yellowknife; // America/Yellowknife
+extern const AtcZoneInfo kAtcZoneAntarctica_Casey; // Antarctica/Casey
+extern const AtcZoneInfo kAtcZoneAntarctica_Davis; // Antarctica/Davis
+extern const AtcZoneInfo kAtcZoneAntarctica_Macquarie; // Antarctica/Macquarie
+extern const AtcZoneInfo kAtcZoneAntarctica_Mawson; // Antarctica/Mawson
+extern const AtcZoneInfo kAtcZoneAntarctica_Palmer; // Antarctica/Palmer
+extern const AtcZoneInfo kAtcZoneAntarctica_Rothera; // Antarctica/Rothera
+extern const AtcZoneInfo kAtcZoneAntarctica_Troll; // Antarctica/Troll
+extern const AtcZoneInfo kAtcZoneAsia_Almaty; // Asia/Almaty
+extern const AtcZoneInfo kAtcZoneAsia_Amman; // Asia/Amman
+extern const AtcZoneInfo kAtcZoneAsia_Anadyr; // Asia/Anadyr
+extern const AtcZoneInfo kAtcZoneAsia_Aqtau; // Asia/Aqtau
+extern const AtcZoneInfo kAtcZoneAsia_Aqtobe; // Asia/Aqtobe
+extern const AtcZoneInfo kAtcZoneAsia_Ashgabat; // Asia/Ashgabat
+extern const AtcZoneInfo kAtcZoneAsia_Atyrau; // Asia/Atyrau
+extern const AtcZoneInfo kAtcZoneAsia_Baghdad; // Asia/Baghdad
+extern const AtcZoneInfo kAtcZoneAsia_Baku; // Asia/Baku
+extern const AtcZoneInfo kAtcZoneAsia_Bangkok; // Asia/Bangkok
+extern const AtcZoneInfo kAtcZoneAsia_Barnaul; // Asia/Barnaul
+extern const AtcZoneInfo kAtcZoneAsia_Beirut; // Asia/Beirut
+extern const AtcZoneInfo kAtcZoneAsia_Bishkek; // Asia/Bishkek
+extern const AtcZoneInfo kAtcZoneAsia_Chita; // Asia/Chita
+extern const AtcZoneInfo kAtcZoneAsia_Choibalsan; // Asia/Choibalsan
+extern const AtcZoneInfo kAtcZoneAsia_Colombo; // Asia/Colombo
+extern const AtcZoneInfo kAtcZoneAsia_Damascus; // Asia/Damascus
+extern const AtcZoneInfo kAtcZoneAsia_Dhaka; // Asia/Dhaka
+extern const AtcZoneInfo kAtcZoneAsia_Dili; // Asia/Dili
+extern const AtcZoneInfo kAtcZoneAsia_Dubai; // Asia/Dubai
+extern const AtcZoneInfo kAtcZoneAsia_Dushanbe; // Asia/Dushanbe
+extern const AtcZoneInfo kAtcZoneAsia_Famagusta; // Asia/Famagusta
+extern const AtcZoneInfo kAtcZoneAsia_Gaza; // Asia/Gaza
+extern const AtcZoneInfo kAtcZoneAsia_Hebron; // Asia/Hebron
+extern const AtcZoneInfo kAtcZoneAsia_Ho_Chi_Minh; // Asia/Ho_Chi_Minh
+extern const AtcZoneInfo kAtcZoneAsia_Hong_Kong; // Asia/Hong_Kong
+extern const AtcZoneInfo kAtcZoneAsia_Hovd; // Asia/Hovd
+extern const AtcZoneInfo kAtcZoneAsia_Irkutsk; // Asia/Irkutsk
+extern const AtcZoneInfo kAtcZoneAsia_Jakarta; // Asia/Jakarta
+extern const AtcZoneInfo kAtcZoneAsia_Jayapura; // Asia/Jayapura
+extern const AtcZoneInfo kAtcZoneAsia_Jerusalem; // Asia/Jerusalem
+extern const AtcZoneInfo kAtcZoneAsia_Kabul; // Asia/Kabul
+extern const AtcZoneInfo kAtcZoneAsia_Kamchatka; // Asia/Kamchatka
+extern const AtcZoneInfo kAtcZoneAsia_Karachi; // Asia/Karachi
+extern const AtcZoneInfo kAtcZoneAsia_Kathmandu; // Asia/Kathmandu
+extern const AtcZoneInfo kAtcZoneAsia_Khandyga; // Asia/Khandyga
+extern const AtcZoneInfo kAtcZoneAsia_Kolkata; // Asia/Kolkata
+extern const AtcZoneInfo kAtcZoneAsia_Krasnoyarsk; // Asia/Krasnoyarsk
+extern const AtcZoneInfo kAtcZoneAsia_Kuching; // Asia/Kuching
+extern const AtcZoneInfo kAtcZoneAsia_Macau; // Asia/Macau
+extern const AtcZoneInfo kAtcZoneAsia_Magadan; // Asia/Magadan
+extern const AtcZoneInfo kAtcZoneAsia_Makassar; // Asia/Makassar
+extern const AtcZoneInfo kAtcZoneAsia_Manila; // Asia/Manila
+extern const AtcZoneInfo kAtcZoneAsia_Nicosia; // Asia/Nicosia
+extern const AtcZoneInfo kAtcZoneAsia_Novokuznetsk; // Asia/Novokuznetsk
+extern const AtcZoneInfo kAtcZoneAsia_Novosibirsk; // Asia/Novosibirsk
+extern const AtcZoneInfo kAtcZoneAsia_Omsk; // Asia/Omsk
+extern const AtcZoneInfo kAtcZoneAsia_Oral; // Asia/Oral
+extern const AtcZoneInfo kAtcZoneAsia_Pontianak; // Asia/Pontianak
+extern const AtcZoneInfo kAtcZoneAsia_Pyongyang; // Asia/Pyongyang
+extern const AtcZoneInfo kAtcZoneAsia_Qatar; // Asia/Qatar
+extern const AtcZoneInfo kAtcZoneAsia_Qostanay; // Asia/Qostanay
+extern const AtcZoneInfo kAtcZoneAsia_Qyzylorda; // Asia/Qyzylorda
+extern const AtcZoneInfo kAtcZoneAsia_Riyadh; // Asia/Riyadh
+extern const AtcZoneInfo kAtcZoneAsia_Sakhalin; // Asia/Sakhalin
+extern const AtcZoneInfo kAtcZoneAsia_Samarkand; // Asia/Samarkand
+extern const AtcZoneInfo kAtcZoneAsia_Seoul; // Asia/Seoul
+extern const AtcZoneInfo kAtcZoneAsia_Shanghai; // Asia/Shanghai
+extern const AtcZoneInfo kAtcZoneAsia_Singapore; // Asia/Singapore
+extern const AtcZoneInfo kAtcZoneAsia_Srednekolymsk; // Asia/Srednekolymsk
+extern const AtcZoneInfo kAtcZoneAsia_Taipei; // Asia/Taipei
+extern const AtcZoneInfo kAtcZoneAsia_Tashkent; // Asia/Tashkent
+extern const AtcZoneInfo kAtcZoneAsia_Tbilisi; // Asia/Tbilisi
+extern const AtcZoneInfo kAtcZoneAsia_Tehran; // Asia/Tehran
+extern const AtcZoneInfo kAtcZoneAsia_Thimphu; // Asia/Thimphu
+extern const AtcZoneInfo kAtcZoneAsia_Tokyo; // Asia/Tokyo
+extern const AtcZoneInfo kAtcZoneAsia_Tomsk; // Asia/Tomsk
+extern const AtcZoneInfo kAtcZoneAsia_Ulaanbaatar; // Asia/Ulaanbaatar
+extern const AtcZoneInfo kAtcZoneAsia_Urumqi; // Asia/Urumqi
+extern const AtcZoneInfo kAtcZoneAsia_Ust_Nera; // Asia/Ust-Nera
+extern const AtcZoneInfo kAtcZoneAsia_Vladivostok; // Asia/Vladivostok
+extern const AtcZoneInfo kAtcZoneAsia_Yakutsk; // Asia/Yakutsk
+extern const AtcZoneInfo kAtcZoneAsia_Yangon; // Asia/Yangon
+extern const AtcZoneInfo kAtcZoneAsia_Yekaterinburg; // Asia/Yekaterinburg
+extern const AtcZoneInfo kAtcZoneAsia_Yerevan; // Asia/Yerevan
+extern const AtcZoneInfo kAtcZoneAtlantic_Azores; // Atlantic/Azores
+extern const AtcZoneInfo kAtcZoneAtlantic_Bermuda; // Atlantic/Bermuda
+extern const AtcZoneInfo kAtcZoneAtlantic_Canary; // Atlantic/Canary
+extern const AtcZoneInfo kAtcZoneAtlantic_Cape_Verde; // Atlantic/Cape_Verde
+extern const AtcZoneInfo kAtcZoneAtlantic_Faroe; // Atlantic/Faroe
+extern const AtcZoneInfo kAtcZoneAtlantic_Madeira; // Atlantic/Madeira
+extern const AtcZoneInfo kAtcZoneAtlantic_South_Georgia; // Atlantic/South_Georgia
+extern const AtcZoneInfo kAtcZoneAtlantic_Stanley; // Atlantic/Stanley
+extern const AtcZoneInfo kAtcZoneAustralia_Adelaide; // Australia/Adelaide
+extern const AtcZoneInfo kAtcZoneAustralia_Brisbane; // Australia/Brisbane
+extern const AtcZoneInfo kAtcZoneAustralia_Broken_Hill; // Australia/Broken_Hill
+extern const AtcZoneInfo kAtcZoneAustralia_Darwin; // Australia/Darwin
+extern const AtcZoneInfo kAtcZoneAustralia_Eucla; // Australia/Eucla
+extern const AtcZoneInfo kAtcZoneAustralia_Hobart; // Australia/Hobart
+extern const AtcZoneInfo kAtcZoneAustralia_Lindeman; // Australia/Lindeman
+extern const AtcZoneInfo kAtcZoneAustralia_Lord_Howe; // Australia/Lord_Howe
+extern const AtcZoneInfo kAtcZoneAustralia_Melbourne; // Australia/Melbourne
+extern const AtcZoneInfo kAtcZoneAustralia_Perth; // Australia/Perth
+extern const AtcZoneInfo kAtcZoneAustralia_Sydney; // Australia/Sydney
+extern const AtcZoneInfo kAtcZoneCET; // CET
+extern const AtcZoneInfo kAtcZoneCST6CDT; // CST6CDT
+extern const AtcZoneInfo kAtcZoneEET; // EET
+extern const AtcZoneInfo kAtcZoneEST; // EST
+extern const AtcZoneInfo kAtcZoneEST5EDT; // EST5EDT
+extern const AtcZoneInfo kAtcZoneEtc_GMT; // Etc/GMT
+extern const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_1; // Etc/GMT+1
+extern const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_10; // Etc/GMT+10
+extern const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_11; // Etc/GMT+11
+extern const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_12; // Etc/GMT+12
+extern const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_2; // Etc/GMT+2
+extern const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_3; // Etc/GMT+3
+extern const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_4; // Etc/GMT+4
+extern const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_5; // Etc/GMT+5
+extern const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_6; // Etc/GMT+6
+extern const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_7; // Etc/GMT+7
+extern const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_8; // Etc/GMT+8
+extern const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_9; // Etc/GMT+9
+extern const AtcZoneInfo kAtcZoneEtc_GMT_1; // Etc/GMT-1
+extern const AtcZoneInfo kAtcZoneEtc_GMT_10; // Etc/GMT-10
+extern const AtcZoneInfo kAtcZoneEtc_GMT_11; // Etc/GMT-11
+extern const AtcZoneInfo kAtcZoneEtc_GMT_12; // Etc/GMT-12
+extern const AtcZoneInfo kAtcZoneEtc_GMT_13; // Etc/GMT-13
+extern const AtcZoneInfo kAtcZoneEtc_GMT_14; // Etc/GMT-14
+extern const AtcZoneInfo kAtcZoneEtc_GMT_2; // Etc/GMT-2
+extern const AtcZoneInfo kAtcZoneEtc_GMT_3; // Etc/GMT-3
+extern const AtcZoneInfo kAtcZoneEtc_GMT_4; // Etc/GMT-4
+extern const AtcZoneInfo kAtcZoneEtc_GMT_5; // Etc/GMT-5
+extern const AtcZoneInfo kAtcZoneEtc_GMT_6; // Etc/GMT-6
+extern const AtcZoneInfo kAtcZoneEtc_GMT_7; // Etc/GMT-7
+extern const AtcZoneInfo kAtcZoneEtc_GMT_8; // Etc/GMT-8
+extern const AtcZoneInfo kAtcZoneEtc_GMT_9; // Etc/GMT-9
+extern const AtcZoneInfo kAtcZoneEtc_UTC; // Etc/UTC
+extern const AtcZoneInfo kAtcZoneEurope_Andorra; // Europe/Andorra
+extern const AtcZoneInfo kAtcZoneEurope_Astrakhan; // Europe/Astrakhan
+extern const AtcZoneInfo kAtcZoneEurope_Athens; // Europe/Athens
+extern const AtcZoneInfo kAtcZoneEurope_Belgrade; // Europe/Belgrade
+extern const AtcZoneInfo kAtcZoneEurope_Berlin; // Europe/Berlin
+extern const AtcZoneInfo kAtcZoneEurope_Brussels; // Europe/Brussels
+extern const AtcZoneInfo kAtcZoneEurope_Bucharest; // Europe/Bucharest
+extern const AtcZoneInfo kAtcZoneEurope_Budapest; // Europe/Budapest
+extern const AtcZoneInfo kAtcZoneEurope_Chisinau; // Europe/Chisinau
+extern const AtcZoneInfo kAtcZoneEurope_Dublin; // Europe/Dublin
+extern const AtcZoneInfo kAtcZoneEurope_Gibraltar; // Europe/Gibraltar
+extern const AtcZoneInfo kAtcZoneEurope_Helsinki; // Europe/Helsinki
+extern const AtcZoneInfo kAtcZoneEurope_Istanbul; // Europe/Istanbul
+extern const AtcZoneInfo kAtcZoneEurope_Kaliningrad; // Europe/Kaliningrad
+extern const AtcZoneInfo kAtcZoneEurope_Kirov; // Europe/Kirov
+extern const AtcZoneInfo kAtcZoneEurope_Kyiv; // Europe/Kyiv
+extern const AtcZoneInfo kAtcZoneEurope_Lisbon; // Europe/Lisbon
+extern const AtcZoneInfo kAtcZoneEurope_London; // Europe/London
+extern const AtcZoneInfo kAtcZoneEurope_Madrid; // Europe/Madrid
+extern const AtcZoneInfo kAtcZoneEurope_Malta; // Europe/Malta
+extern const AtcZoneInfo kAtcZoneEurope_Minsk; // Europe/Minsk
+extern const AtcZoneInfo kAtcZoneEurope_Moscow; // Europe/Moscow
+extern const AtcZoneInfo kAtcZoneEurope_Paris; // Europe/Paris
+extern const AtcZoneInfo kAtcZoneEurope_Prague; // Europe/Prague
+extern const AtcZoneInfo kAtcZoneEurope_Riga; // Europe/Riga
+extern const AtcZoneInfo kAtcZoneEurope_Rome; // Europe/Rome
+extern const AtcZoneInfo kAtcZoneEurope_Samara; // Europe/Samara
+extern const AtcZoneInfo kAtcZoneEurope_Saratov; // Europe/Saratov
+extern const AtcZoneInfo kAtcZoneEurope_Simferopol; // Europe/Simferopol
+extern const AtcZoneInfo kAtcZoneEurope_Sofia; // Europe/Sofia
+extern const AtcZoneInfo kAtcZoneEurope_Tallinn; // Europe/Tallinn
+extern const AtcZoneInfo kAtcZoneEurope_Tirane; // Europe/Tirane
+extern const AtcZoneInfo kAtcZoneEurope_Ulyanovsk; // Europe/Ulyanovsk
+extern const AtcZoneInfo kAtcZoneEurope_Uzhgorod; // Europe/Uzhgorod
+extern const AtcZoneInfo kAtcZoneEurope_Vienna; // Europe/Vienna
+extern const AtcZoneInfo kAtcZoneEurope_Vilnius; // Europe/Vilnius
+extern const AtcZoneInfo kAtcZoneEurope_Volgograd; // Europe/Volgograd
+extern const AtcZoneInfo kAtcZoneEurope_Warsaw; // Europe/Warsaw
+extern const AtcZoneInfo kAtcZoneEurope_Zaporozhye; // Europe/Zaporozhye
+extern const AtcZoneInfo kAtcZoneEurope_Zurich; // Europe/Zurich
+extern const AtcZoneInfo kAtcZoneHST; // HST
+extern const AtcZoneInfo kAtcZoneIndian_Chagos; // Indian/Chagos
+extern const AtcZoneInfo kAtcZoneIndian_Maldives; // Indian/Maldives
+extern const AtcZoneInfo kAtcZoneIndian_Mauritius; // Indian/Mauritius
+extern const AtcZoneInfo kAtcZoneMET; // MET
+extern const AtcZoneInfo kAtcZoneMST; // MST
+extern const AtcZoneInfo kAtcZoneMST7MDT; // MST7MDT
+extern const AtcZoneInfo kAtcZonePST8PDT; // PST8PDT
+extern const AtcZoneInfo kAtcZonePacific_Apia; // Pacific/Apia
+extern const AtcZoneInfo kAtcZonePacific_Auckland; // Pacific/Auckland
+extern const AtcZoneInfo kAtcZonePacific_Bougainville; // Pacific/Bougainville
+extern const AtcZoneInfo kAtcZonePacific_Chatham; // Pacific/Chatham
+extern const AtcZoneInfo kAtcZonePacific_Easter; // Pacific/Easter
+extern const AtcZoneInfo kAtcZonePacific_Efate; // Pacific/Efate
+extern const AtcZoneInfo kAtcZonePacific_Fakaofo; // Pacific/Fakaofo
+extern const AtcZoneInfo kAtcZonePacific_Fiji; // Pacific/Fiji
+extern const AtcZoneInfo kAtcZonePacific_Galapagos; // Pacific/Galapagos
+extern const AtcZoneInfo kAtcZonePacific_Gambier; // Pacific/Gambier
+extern const AtcZoneInfo kAtcZonePacific_Guadalcanal; // Pacific/Guadalcanal
+extern const AtcZoneInfo kAtcZonePacific_Guam; // Pacific/Guam
+extern const AtcZoneInfo kAtcZonePacific_Honolulu; // Pacific/Honolulu
+extern const AtcZoneInfo kAtcZonePacific_Kanton; // Pacific/Kanton
+extern const AtcZoneInfo kAtcZonePacific_Kiritimati; // Pacific/Kiritimati
+extern const AtcZoneInfo kAtcZonePacific_Kosrae; // Pacific/Kosrae
+extern const AtcZoneInfo kAtcZonePacific_Kwajalein; // Pacific/Kwajalein
+extern const AtcZoneInfo kAtcZonePacific_Marquesas; // Pacific/Marquesas
+extern const AtcZoneInfo kAtcZonePacific_Nauru; // Pacific/Nauru
+extern const AtcZoneInfo kAtcZonePacific_Niue; // Pacific/Niue
+extern const AtcZoneInfo kAtcZonePacific_Norfolk; // Pacific/Norfolk
+extern const AtcZoneInfo kAtcZonePacific_Noumea; // Pacific/Noumea
+extern const AtcZoneInfo kAtcZonePacific_Pago_Pago; // Pacific/Pago_Pago
+extern const AtcZoneInfo kAtcZonePacific_Palau; // Pacific/Palau
+extern const AtcZoneInfo kAtcZonePacific_Pitcairn; // Pacific/Pitcairn
+extern const AtcZoneInfo kAtcZonePacific_Port_Moresby; // Pacific/Port_Moresby
+extern const AtcZoneInfo kAtcZonePacific_Rarotonga; // Pacific/Rarotonga
+extern const AtcZoneInfo kAtcZonePacific_Tahiti; // Pacific/Tahiti
+extern const AtcZoneInfo kAtcZonePacific_Tarawa; // Pacific/Tarawa
+extern const AtcZoneInfo kAtcZonePacific_Tongatapu; // Pacific/Tongatapu
+extern const AtcZoneInfo kAtcZoneWET; // WET
 
 
 // Zone Ids
@@ -768,245 +768,245 @@ extern const struct AtcZoneInfo kAtcZoneWET; // WET
 // Supported links: 239
 //---------------------------------------------------------------------------
 
-extern const struct AtcZoneInfo kAtcZoneAfrica_Accra; // Africa/Accra -> Africa/Abidjan
-extern const struct AtcZoneInfo kAtcZoneAfrica_Addis_Ababa; // Africa/Addis_Ababa -> Africa/Nairobi
-extern const struct AtcZoneInfo kAtcZoneAfrica_Asmara; // Africa/Asmara -> Africa/Nairobi
-extern const struct AtcZoneInfo kAtcZoneAfrica_Asmera; // Africa/Asmera -> Africa/Nairobi
-extern const struct AtcZoneInfo kAtcZoneAfrica_Bamako; // Africa/Bamako -> Africa/Abidjan
-extern const struct AtcZoneInfo kAtcZoneAfrica_Bangui; // Africa/Bangui -> Africa/Lagos
-extern const struct AtcZoneInfo kAtcZoneAfrica_Banjul; // Africa/Banjul -> Africa/Abidjan
-extern const struct AtcZoneInfo kAtcZoneAfrica_Blantyre; // Africa/Blantyre -> Africa/Maputo
-extern const struct AtcZoneInfo kAtcZoneAfrica_Brazzaville; // Africa/Brazzaville -> Africa/Lagos
-extern const struct AtcZoneInfo kAtcZoneAfrica_Bujumbura; // Africa/Bujumbura -> Africa/Maputo
-extern const struct AtcZoneInfo kAtcZoneAfrica_Conakry; // Africa/Conakry -> Africa/Abidjan
-extern const struct AtcZoneInfo kAtcZoneAfrica_Dakar; // Africa/Dakar -> Africa/Abidjan
-extern const struct AtcZoneInfo kAtcZoneAfrica_Dar_es_Salaam; // Africa/Dar_es_Salaam -> Africa/Nairobi
-extern const struct AtcZoneInfo kAtcZoneAfrica_Djibouti; // Africa/Djibouti -> Africa/Nairobi
-extern const struct AtcZoneInfo kAtcZoneAfrica_Douala; // Africa/Douala -> Africa/Lagos
-extern const struct AtcZoneInfo kAtcZoneAfrica_Freetown; // Africa/Freetown -> Africa/Abidjan
-extern const struct AtcZoneInfo kAtcZoneAfrica_Gaborone; // Africa/Gaborone -> Africa/Maputo
-extern const struct AtcZoneInfo kAtcZoneAfrica_Harare; // Africa/Harare -> Africa/Maputo
-extern const struct AtcZoneInfo kAtcZoneAfrica_Kampala; // Africa/Kampala -> Africa/Nairobi
-extern const struct AtcZoneInfo kAtcZoneAfrica_Kigali; // Africa/Kigali -> Africa/Maputo
-extern const struct AtcZoneInfo kAtcZoneAfrica_Kinshasa; // Africa/Kinshasa -> Africa/Lagos
-extern const struct AtcZoneInfo kAtcZoneAfrica_Libreville; // Africa/Libreville -> Africa/Lagos
-extern const struct AtcZoneInfo kAtcZoneAfrica_Lome; // Africa/Lome -> Africa/Abidjan
-extern const struct AtcZoneInfo kAtcZoneAfrica_Luanda; // Africa/Luanda -> Africa/Lagos
-extern const struct AtcZoneInfo kAtcZoneAfrica_Lubumbashi; // Africa/Lubumbashi -> Africa/Maputo
-extern const struct AtcZoneInfo kAtcZoneAfrica_Lusaka; // Africa/Lusaka -> Africa/Maputo
-extern const struct AtcZoneInfo kAtcZoneAfrica_Malabo; // Africa/Malabo -> Africa/Lagos
-extern const struct AtcZoneInfo kAtcZoneAfrica_Maseru; // Africa/Maseru -> Africa/Johannesburg
-extern const struct AtcZoneInfo kAtcZoneAfrica_Mbabane; // Africa/Mbabane -> Africa/Johannesburg
-extern const struct AtcZoneInfo kAtcZoneAfrica_Mogadishu; // Africa/Mogadishu -> Africa/Nairobi
-extern const struct AtcZoneInfo kAtcZoneAfrica_Niamey; // Africa/Niamey -> Africa/Lagos
-extern const struct AtcZoneInfo kAtcZoneAfrica_Nouakchott; // Africa/Nouakchott -> Africa/Abidjan
-extern const struct AtcZoneInfo kAtcZoneAfrica_Ouagadougou; // Africa/Ouagadougou -> Africa/Abidjan
-extern const struct AtcZoneInfo kAtcZoneAfrica_Porto_Novo; // Africa/Porto-Novo -> Africa/Lagos
-extern const struct AtcZoneInfo kAtcZoneAfrica_Timbuktu; // Africa/Timbuktu -> Africa/Abidjan
-extern const struct AtcZoneInfo kAtcZoneAmerica_Anguilla; // America/Anguilla -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_Antigua; // America/Antigua -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_Argentina_ComodRivadavia; // America/Argentina/ComodRivadavia -> America/Argentina/Catamarca
-extern const struct AtcZoneInfo kAtcZoneAmerica_Aruba; // America/Aruba -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_Atikokan; // America/Atikokan -> America/Panama
-extern const struct AtcZoneInfo kAtcZoneAmerica_Atka; // America/Atka -> America/Adak
-extern const struct AtcZoneInfo kAtcZoneAmerica_Blanc_Sablon; // America/Blanc-Sablon -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_Buenos_Aires; // America/Buenos_Aires -> America/Argentina/Buenos_Aires
-extern const struct AtcZoneInfo kAtcZoneAmerica_Catamarca; // America/Catamarca -> America/Argentina/Catamarca
-extern const struct AtcZoneInfo kAtcZoneAmerica_Cayman; // America/Cayman -> America/Panama
-extern const struct AtcZoneInfo kAtcZoneAmerica_Coral_Harbour; // America/Coral_Harbour -> America/Panama
-extern const struct AtcZoneInfo kAtcZoneAmerica_Cordoba; // America/Cordoba -> America/Argentina/Cordoba
-extern const struct AtcZoneInfo kAtcZoneAmerica_Creston; // America/Creston -> America/Phoenix
-extern const struct AtcZoneInfo kAtcZoneAmerica_Curacao; // America/Curacao -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_Dominica; // America/Dominica -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_Ensenada; // America/Ensenada -> America/Tijuana
-extern const struct AtcZoneInfo kAtcZoneAmerica_Fort_Wayne; // America/Fort_Wayne -> America/Indiana/Indianapolis
-extern const struct AtcZoneInfo kAtcZoneAmerica_Godthab; // America/Godthab -> America/Nuuk
-extern const struct AtcZoneInfo kAtcZoneAmerica_Grenada; // America/Grenada -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_Guadeloupe; // America/Guadeloupe -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_Indianapolis; // America/Indianapolis -> America/Indiana/Indianapolis
-extern const struct AtcZoneInfo kAtcZoneAmerica_Jujuy; // America/Jujuy -> America/Argentina/Jujuy
-extern const struct AtcZoneInfo kAtcZoneAmerica_Knox_IN; // America/Knox_IN -> America/Indiana/Knox
-extern const struct AtcZoneInfo kAtcZoneAmerica_Kralendijk; // America/Kralendijk -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_Louisville; // America/Louisville -> America/Kentucky/Louisville
-extern const struct AtcZoneInfo kAtcZoneAmerica_Lower_Princes; // America/Lower_Princes -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_Marigot; // America/Marigot -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_Mendoza; // America/Mendoza -> America/Argentina/Mendoza
-extern const struct AtcZoneInfo kAtcZoneAmerica_Montreal; // America/Montreal -> America/Toronto
-extern const struct AtcZoneInfo kAtcZoneAmerica_Montserrat; // America/Montserrat -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_Nassau; // America/Nassau -> America/Toronto
-extern const struct AtcZoneInfo kAtcZoneAmerica_Port_of_Spain; // America/Port_of_Spain -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_Porto_Acre; // America/Porto_Acre -> America/Rio_Branco
-extern const struct AtcZoneInfo kAtcZoneAmerica_Rosario; // America/Rosario -> America/Argentina/Cordoba
-extern const struct AtcZoneInfo kAtcZoneAmerica_Santa_Isabel; // America/Santa_Isabel -> America/Tijuana
-extern const struct AtcZoneInfo kAtcZoneAmerica_Shiprock; // America/Shiprock -> America/Denver
-extern const struct AtcZoneInfo kAtcZoneAmerica_St_Barthelemy; // America/St_Barthelemy -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_St_Kitts; // America/St_Kitts -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_St_Lucia; // America/St_Lucia -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_St_Thomas; // America/St_Thomas -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_St_Vincent; // America/St_Vincent -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_Tortola; // America/Tortola -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAmerica_Virgin; // America/Virgin -> America/Puerto_Rico
-extern const struct AtcZoneInfo kAtcZoneAntarctica_DumontDUrville; // Antarctica/DumontDUrville -> Pacific/Port_Moresby
-extern const struct AtcZoneInfo kAtcZoneAntarctica_McMurdo; // Antarctica/McMurdo -> Pacific/Auckland
-extern const struct AtcZoneInfo kAtcZoneAntarctica_South_Pole; // Antarctica/South_Pole -> Pacific/Auckland
-extern const struct AtcZoneInfo kAtcZoneAntarctica_Syowa; // Antarctica/Syowa -> Asia/Riyadh
-extern const struct AtcZoneInfo kAtcZoneAntarctica_Vostok; // Antarctica/Vostok -> Asia/Urumqi
-extern const struct AtcZoneInfo kAtcZoneArctic_Longyearbyen; // Arctic/Longyearbyen -> Europe/Berlin
-extern const struct AtcZoneInfo kAtcZoneAsia_Aden; // Asia/Aden -> Asia/Riyadh
-extern const struct AtcZoneInfo kAtcZoneAsia_Ashkhabad; // Asia/Ashkhabad -> Asia/Ashgabat
-extern const struct AtcZoneInfo kAtcZoneAsia_Bahrain; // Asia/Bahrain -> Asia/Qatar
-extern const struct AtcZoneInfo kAtcZoneAsia_Brunei; // Asia/Brunei -> Asia/Kuching
-extern const struct AtcZoneInfo kAtcZoneAsia_Calcutta; // Asia/Calcutta -> Asia/Kolkata
-extern const struct AtcZoneInfo kAtcZoneAsia_Chongqing; // Asia/Chongqing -> Asia/Shanghai
-extern const struct AtcZoneInfo kAtcZoneAsia_Chungking; // Asia/Chungking -> Asia/Shanghai
-extern const struct AtcZoneInfo kAtcZoneAsia_Dacca; // Asia/Dacca -> Asia/Dhaka
-extern const struct AtcZoneInfo kAtcZoneAsia_Harbin; // Asia/Harbin -> Asia/Shanghai
-extern const struct AtcZoneInfo kAtcZoneAsia_Istanbul; // Asia/Istanbul -> Europe/Istanbul
-extern const struct AtcZoneInfo kAtcZoneAsia_Kashgar; // Asia/Kashgar -> Asia/Urumqi
-extern const struct AtcZoneInfo kAtcZoneAsia_Katmandu; // Asia/Katmandu -> Asia/Kathmandu
-extern const struct AtcZoneInfo kAtcZoneAsia_Kuala_Lumpur; // Asia/Kuala_Lumpur -> Asia/Singapore
-extern const struct AtcZoneInfo kAtcZoneAsia_Kuwait; // Asia/Kuwait -> Asia/Riyadh
-extern const struct AtcZoneInfo kAtcZoneAsia_Macao; // Asia/Macao -> Asia/Macau
-extern const struct AtcZoneInfo kAtcZoneAsia_Muscat; // Asia/Muscat -> Asia/Dubai
-extern const struct AtcZoneInfo kAtcZoneAsia_Phnom_Penh; // Asia/Phnom_Penh -> Asia/Bangkok
-extern const struct AtcZoneInfo kAtcZoneAsia_Rangoon; // Asia/Rangoon -> Asia/Yangon
-extern const struct AtcZoneInfo kAtcZoneAsia_Saigon; // Asia/Saigon -> Asia/Ho_Chi_Minh
-extern const struct AtcZoneInfo kAtcZoneAsia_Tel_Aviv; // Asia/Tel_Aviv -> Asia/Jerusalem
-extern const struct AtcZoneInfo kAtcZoneAsia_Thimbu; // Asia/Thimbu -> Asia/Thimphu
-extern const struct AtcZoneInfo kAtcZoneAsia_Ujung_Pandang; // Asia/Ujung_Pandang -> Asia/Makassar
-extern const struct AtcZoneInfo kAtcZoneAsia_Ulan_Bator; // Asia/Ulan_Bator -> Asia/Ulaanbaatar
-extern const struct AtcZoneInfo kAtcZoneAsia_Vientiane; // Asia/Vientiane -> Asia/Bangkok
-extern const struct AtcZoneInfo kAtcZoneAtlantic_Faeroe; // Atlantic/Faeroe -> Atlantic/Faroe
-extern const struct AtcZoneInfo kAtcZoneAtlantic_Jan_Mayen; // Atlantic/Jan_Mayen -> Europe/Berlin
-extern const struct AtcZoneInfo kAtcZoneAtlantic_Reykjavik; // Atlantic/Reykjavik -> Africa/Abidjan
-extern const struct AtcZoneInfo kAtcZoneAtlantic_St_Helena; // Atlantic/St_Helena -> Africa/Abidjan
-extern const struct AtcZoneInfo kAtcZoneAustralia_ACT; // Australia/ACT -> Australia/Sydney
-extern const struct AtcZoneInfo kAtcZoneAustralia_Canberra; // Australia/Canberra -> Australia/Sydney
-extern const struct AtcZoneInfo kAtcZoneAustralia_Currie; // Australia/Currie -> Australia/Hobart
-extern const struct AtcZoneInfo kAtcZoneAustralia_LHI; // Australia/LHI -> Australia/Lord_Howe
-extern const struct AtcZoneInfo kAtcZoneAustralia_NSW; // Australia/NSW -> Australia/Sydney
-extern const struct AtcZoneInfo kAtcZoneAustralia_North; // Australia/North -> Australia/Darwin
-extern const struct AtcZoneInfo kAtcZoneAustralia_Queensland; // Australia/Queensland -> Australia/Brisbane
-extern const struct AtcZoneInfo kAtcZoneAustralia_South; // Australia/South -> Australia/Adelaide
-extern const struct AtcZoneInfo kAtcZoneAustralia_Tasmania; // Australia/Tasmania -> Australia/Hobart
-extern const struct AtcZoneInfo kAtcZoneAustralia_Victoria; // Australia/Victoria -> Australia/Melbourne
-extern const struct AtcZoneInfo kAtcZoneAustralia_West; // Australia/West -> Australia/Perth
-extern const struct AtcZoneInfo kAtcZoneAustralia_Yancowinna; // Australia/Yancowinna -> Australia/Broken_Hill
-extern const struct AtcZoneInfo kAtcZoneBrazil_Acre; // Brazil/Acre -> America/Rio_Branco
-extern const struct AtcZoneInfo kAtcZoneBrazil_DeNoronha; // Brazil/DeNoronha -> America/Noronha
-extern const struct AtcZoneInfo kAtcZoneBrazil_East; // Brazil/East -> America/Sao_Paulo
-extern const struct AtcZoneInfo kAtcZoneBrazil_West; // Brazil/West -> America/Manaus
-extern const struct AtcZoneInfo kAtcZoneCanada_Atlantic; // Canada/Atlantic -> America/Halifax
-extern const struct AtcZoneInfo kAtcZoneCanada_Central; // Canada/Central -> America/Winnipeg
-extern const struct AtcZoneInfo kAtcZoneCanada_Eastern; // Canada/Eastern -> America/Toronto
-extern const struct AtcZoneInfo kAtcZoneCanada_Mountain; // Canada/Mountain -> America/Edmonton
-extern const struct AtcZoneInfo kAtcZoneCanada_Newfoundland; // Canada/Newfoundland -> America/St_Johns
-extern const struct AtcZoneInfo kAtcZoneCanada_Pacific; // Canada/Pacific -> America/Vancouver
-extern const struct AtcZoneInfo kAtcZoneCanada_Saskatchewan; // Canada/Saskatchewan -> America/Regina
-extern const struct AtcZoneInfo kAtcZoneCanada_Yukon; // Canada/Yukon -> America/Whitehorse
-extern const struct AtcZoneInfo kAtcZoneChile_Continental; // Chile/Continental -> America/Santiago
-extern const struct AtcZoneInfo kAtcZoneChile_EasterIsland; // Chile/EasterIsland -> Pacific/Easter
-extern const struct AtcZoneInfo kAtcZoneCuba; // Cuba -> America/Havana
-extern const struct AtcZoneInfo kAtcZoneEgypt; // Egypt -> Africa/Cairo
-extern const struct AtcZoneInfo kAtcZoneEire; // Eire -> Europe/Dublin
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_0; // Etc/GMT+0 -> Etc/GMT
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT_0; // Etc/GMT-0 -> Etc/GMT
-extern const struct AtcZoneInfo kAtcZoneEtc_GMT0; // Etc/GMT0 -> Etc/GMT
-extern const struct AtcZoneInfo kAtcZoneEtc_Greenwich; // Etc/Greenwich -> Etc/GMT
-extern const struct AtcZoneInfo kAtcZoneEtc_UCT; // Etc/UCT -> Etc/UTC
-extern const struct AtcZoneInfo kAtcZoneEtc_Universal; // Etc/Universal -> Etc/UTC
-extern const struct AtcZoneInfo kAtcZoneEtc_Zulu; // Etc/Zulu -> Etc/UTC
-extern const struct AtcZoneInfo kAtcZoneEurope_Amsterdam; // Europe/Amsterdam -> Europe/Brussels
-extern const struct AtcZoneInfo kAtcZoneEurope_Belfast; // Europe/Belfast -> Europe/London
-extern const struct AtcZoneInfo kAtcZoneEurope_Bratislava; // Europe/Bratislava -> Europe/Prague
-extern const struct AtcZoneInfo kAtcZoneEurope_Busingen; // Europe/Busingen -> Europe/Zurich
-extern const struct AtcZoneInfo kAtcZoneEurope_Copenhagen; // Europe/Copenhagen -> Europe/Berlin
-extern const struct AtcZoneInfo kAtcZoneEurope_Guernsey; // Europe/Guernsey -> Europe/London
-extern const struct AtcZoneInfo kAtcZoneEurope_Isle_of_Man; // Europe/Isle_of_Man -> Europe/London
-extern const struct AtcZoneInfo kAtcZoneEurope_Jersey; // Europe/Jersey -> Europe/London
-extern const struct AtcZoneInfo kAtcZoneEurope_Kiev; // Europe/Kiev -> Europe/Kyiv
-extern const struct AtcZoneInfo kAtcZoneEurope_Ljubljana; // Europe/Ljubljana -> Europe/Belgrade
-extern const struct AtcZoneInfo kAtcZoneEurope_Luxembourg; // Europe/Luxembourg -> Europe/Brussels
-extern const struct AtcZoneInfo kAtcZoneEurope_Mariehamn; // Europe/Mariehamn -> Europe/Helsinki
-extern const struct AtcZoneInfo kAtcZoneEurope_Monaco; // Europe/Monaco -> Europe/Paris
-extern const struct AtcZoneInfo kAtcZoneEurope_Nicosia; // Europe/Nicosia -> Asia/Nicosia
-extern const struct AtcZoneInfo kAtcZoneEurope_Oslo; // Europe/Oslo -> Europe/Berlin
-extern const struct AtcZoneInfo kAtcZoneEurope_Podgorica; // Europe/Podgorica -> Europe/Belgrade
-extern const struct AtcZoneInfo kAtcZoneEurope_San_Marino; // Europe/San_Marino -> Europe/Rome
-extern const struct AtcZoneInfo kAtcZoneEurope_Sarajevo; // Europe/Sarajevo -> Europe/Belgrade
-extern const struct AtcZoneInfo kAtcZoneEurope_Skopje; // Europe/Skopje -> Europe/Belgrade
-extern const struct AtcZoneInfo kAtcZoneEurope_Stockholm; // Europe/Stockholm -> Europe/Berlin
-extern const struct AtcZoneInfo kAtcZoneEurope_Tiraspol; // Europe/Tiraspol -> Europe/Chisinau
-extern const struct AtcZoneInfo kAtcZoneEurope_Vaduz; // Europe/Vaduz -> Europe/Zurich
-extern const struct AtcZoneInfo kAtcZoneEurope_Vatican; // Europe/Vatican -> Europe/Rome
-extern const struct AtcZoneInfo kAtcZoneEurope_Zagreb; // Europe/Zagreb -> Europe/Belgrade
-extern const struct AtcZoneInfo kAtcZoneGB; // GB -> Europe/London
-extern const struct AtcZoneInfo kAtcZoneGB_Eire; // GB-Eire -> Europe/London
-extern const struct AtcZoneInfo kAtcZoneGMT; // GMT -> Etc/GMT
-extern const struct AtcZoneInfo kAtcZoneGMT_PLUS_0; // GMT+0 -> Etc/GMT
-extern const struct AtcZoneInfo kAtcZoneGMT_0; // GMT-0 -> Etc/GMT
-extern const struct AtcZoneInfo kAtcZoneGMT0; // GMT0 -> Etc/GMT
-extern const struct AtcZoneInfo kAtcZoneGreenwich; // Greenwich -> Etc/GMT
-extern const struct AtcZoneInfo kAtcZoneHongkong; // Hongkong -> Asia/Hong_Kong
-extern const struct AtcZoneInfo kAtcZoneIceland; // Iceland -> Africa/Abidjan
-extern const struct AtcZoneInfo kAtcZoneIndian_Antananarivo; // Indian/Antananarivo -> Africa/Nairobi
-extern const struct AtcZoneInfo kAtcZoneIndian_Christmas; // Indian/Christmas -> Asia/Bangkok
-extern const struct AtcZoneInfo kAtcZoneIndian_Cocos; // Indian/Cocos -> Asia/Yangon
-extern const struct AtcZoneInfo kAtcZoneIndian_Comoro; // Indian/Comoro -> Africa/Nairobi
-extern const struct AtcZoneInfo kAtcZoneIndian_Kerguelen; // Indian/Kerguelen -> Indian/Maldives
-extern const struct AtcZoneInfo kAtcZoneIndian_Mahe; // Indian/Mahe -> Asia/Dubai
-extern const struct AtcZoneInfo kAtcZoneIndian_Mayotte; // Indian/Mayotte -> Africa/Nairobi
-extern const struct AtcZoneInfo kAtcZoneIndian_Reunion; // Indian/Reunion -> Asia/Dubai
-extern const struct AtcZoneInfo kAtcZoneIran; // Iran -> Asia/Tehran
-extern const struct AtcZoneInfo kAtcZoneIsrael; // Israel -> Asia/Jerusalem
-extern const struct AtcZoneInfo kAtcZoneJamaica; // Jamaica -> America/Jamaica
-extern const struct AtcZoneInfo kAtcZoneJapan; // Japan -> Asia/Tokyo
-extern const struct AtcZoneInfo kAtcZoneKwajalein; // Kwajalein -> Pacific/Kwajalein
-extern const struct AtcZoneInfo kAtcZoneLibya; // Libya -> Africa/Tripoli
-extern const struct AtcZoneInfo kAtcZoneMexico_BajaNorte; // Mexico/BajaNorte -> America/Tijuana
-extern const struct AtcZoneInfo kAtcZoneMexico_BajaSur; // Mexico/BajaSur -> America/Mazatlan
-extern const struct AtcZoneInfo kAtcZoneMexico_General; // Mexico/General -> America/Mexico_City
-extern const struct AtcZoneInfo kAtcZoneNZ; // NZ -> Pacific/Auckland
-extern const struct AtcZoneInfo kAtcZoneNZ_CHAT; // NZ-CHAT -> Pacific/Chatham
-extern const struct AtcZoneInfo kAtcZoneNavajo; // Navajo -> America/Denver
-extern const struct AtcZoneInfo kAtcZonePRC; // PRC -> Asia/Shanghai
-extern const struct AtcZoneInfo kAtcZonePacific_Chuuk; // Pacific/Chuuk -> Pacific/Port_Moresby
-extern const struct AtcZoneInfo kAtcZonePacific_Enderbury; // Pacific/Enderbury -> Pacific/Kanton
-extern const struct AtcZoneInfo kAtcZonePacific_Funafuti; // Pacific/Funafuti -> Pacific/Tarawa
-extern const struct AtcZoneInfo kAtcZonePacific_Johnston; // Pacific/Johnston -> Pacific/Honolulu
-extern const struct AtcZoneInfo kAtcZonePacific_Majuro; // Pacific/Majuro -> Pacific/Tarawa
-extern const struct AtcZoneInfo kAtcZonePacific_Midway; // Pacific/Midway -> Pacific/Pago_Pago
-extern const struct AtcZoneInfo kAtcZonePacific_Pohnpei; // Pacific/Pohnpei -> Pacific/Guadalcanal
-extern const struct AtcZoneInfo kAtcZonePacific_Ponape; // Pacific/Ponape -> Pacific/Guadalcanal
-extern const struct AtcZoneInfo kAtcZonePacific_Saipan; // Pacific/Saipan -> Pacific/Guam
-extern const struct AtcZoneInfo kAtcZonePacific_Samoa; // Pacific/Samoa -> Pacific/Pago_Pago
-extern const struct AtcZoneInfo kAtcZonePacific_Truk; // Pacific/Truk -> Pacific/Port_Moresby
-extern const struct AtcZoneInfo kAtcZonePacific_Wake; // Pacific/Wake -> Pacific/Tarawa
-extern const struct AtcZoneInfo kAtcZonePacific_Wallis; // Pacific/Wallis -> Pacific/Tarawa
-extern const struct AtcZoneInfo kAtcZonePacific_Yap; // Pacific/Yap -> Pacific/Port_Moresby
-extern const struct AtcZoneInfo kAtcZonePoland; // Poland -> Europe/Warsaw
-extern const struct AtcZoneInfo kAtcZonePortugal; // Portugal -> Europe/Lisbon
-extern const struct AtcZoneInfo kAtcZoneROC; // ROC -> Asia/Taipei
-extern const struct AtcZoneInfo kAtcZoneROK; // ROK -> Asia/Seoul
-extern const struct AtcZoneInfo kAtcZoneSingapore; // Singapore -> Asia/Singapore
-extern const struct AtcZoneInfo kAtcZoneTurkey; // Turkey -> Europe/Istanbul
-extern const struct AtcZoneInfo kAtcZoneUCT; // UCT -> Etc/UTC
-extern const struct AtcZoneInfo kAtcZoneUS_Alaska; // US/Alaska -> America/Anchorage
-extern const struct AtcZoneInfo kAtcZoneUS_Aleutian; // US/Aleutian -> America/Adak
-extern const struct AtcZoneInfo kAtcZoneUS_Arizona; // US/Arizona -> America/Phoenix
-extern const struct AtcZoneInfo kAtcZoneUS_Central; // US/Central -> America/Chicago
-extern const struct AtcZoneInfo kAtcZoneUS_East_Indiana; // US/East-Indiana -> America/Indiana/Indianapolis
-extern const struct AtcZoneInfo kAtcZoneUS_Eastern; // US/Eastern -> America/New_York
-extern const struct AtcZoneInfo kAtcZoneUS_Hawaii; // US/Hawaii -> Pacific/Honolulu
-extern const struct AtcZoneInfo kAtcZoneUS_Indiana_Starke; // US/Indiana-Starke -> America/Indiana/Knox
-extern const struct AtcZoneInfo kAtcZoneUS_Michigan; // US/Michigan -> America/Detroit
-extern const struct AtcZoneInfo kAtcZoneUS_Mountain; // US/Mountain -> America/Denver
-extern const struct AtcZoneInfo kAtcZoneUS_Pacific; // US/Pacific -> America/Los_Angeles
-extern const struct AtcZoneInfo kAtcZoneUS_Samoa; // US/Samoa -> Pacific/Pago_Pago
-extern const struct AtcZoneInfo kAtcZoneUTC; // UTC -> Etc/UTC
-extern const struct AtcZoneInfo kAtcZoneUniversal; // Universal -> Etc/UTC
-extern const struct AtcZoneInfo kAtcZoneW_SU; // W-SU -> Europe/Moscow
-extern const struct AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
+extern const AtcZoneInfo kAtcZoneAfrica_Accra; // Africa/Accra -> Africa/Abidjan
+extern const AtcZoneInfo kAtcZoneAfrica_Addis_Ababa; // Africa/Addis_Ababa -> Africa/Nairobi
+extern const AtcZoneInfo kAtcZoneAfrica_Asmara; // Africa/Asmara -> Africa/Nairobi
+extern const AtcZoneInfo kAtcZoneAfrica_Asmera; // Africa/Asmera -> Africa/Nairobi
+extern const AtcZoneInfo kAtcZoneAfrica_Bamako; // Africa/Bamako -> Africa/Abidjan
+extern const AtcZoneInfo kAtcZoneAfrica_Bangui; // Africa/Bangui -> Africa/Lagos
+extern const AtcZoneInfo kAtcZoneAfrica_Banjul; // Africa/Banjul -> Africa/Abidjan
+extern const AtcZoneInfo kAtcZoneAfrica_Blantyre; // Africa/Blantyre -> Africa/Maputo
+extern const AtcZoneInfo kAtcZoneAfrica_Brazzaville; // Africa/Brazzaville -> Africa/Lagos
+extern const AtcZoneInfo kAtcZoneAfrica_Bujumbura; // Africa/Bujumbura -> Africa/Maputo
+extern const AtcZoneInfo kAtcZoneAfrica_Conakry; // Africa/Conakry -> Africa/Abidjan
+extern const AtcZoneInfo kAtcZoneAfrica_Dakar; // Africa/Dakar -> Africa/Abidjan
+extern const AtcZoneInfo kAtcZoneAfrica_Dar_es_Salaam; // Africa/Dar_es_Salaam -> Africa/Nairobi
+extern const AtcZoneInfo kAtcZoneAfrica_Djibouti; // Africa/Djibouti -> Africa/Nairobi
+extern const AtcZoneInfo kAtcZoneAfrica_Douala; // Africa/Douala -> Africa/Lagos
+extern const AtcZoneInfo kAtcZoneAfrica_Freetown; // Africa/Freetown -> Africa/Abidjan
+extern const AtcZoneInfo kAtcZoneAfrica_Gaborone; // Africa/Gaborone -> Africa/Maputo
+extern const AtcZoneInfo kAtcZoneAfrica_Harare; // Africa/Harare -> Africa/Maputo
+extern const AtcZoneInfo kAtcZoneAfrica_Kampala; // Africa/Kampala -> Africa/Nairobi
+extern const AtcZoneInfo kAtcZoneAfrica_Kigali; // Africa/Kigali -> Africa/Maputo
+extern const AtcZoneInfo kAtcZoneAfrica_Kinshasa; // Africa/Kinshasa -> Africa/Lagos
+extern const AtcZoneInfo kAtcZoneAfrica_Libreville; // Africa/Libreville -> Africa/Lagos
+extern const AtcZoneInfo kAtcZoneAfrica_Lome; // Africa/Lome -> Africa/Abidjan
+extern const AtcZoneInfo kAtcZoneAfrica_Luanda; // Africa/Luanda -> Africa/Lagos
+extern const AtcZoneInfo kAtcZoneAfrica_Lubumbashi; // Africa/Lubumbashi -> Africa/Maputo
+extern const AtcZoneInfo kAtcZoneAfrica_Lusaka; // Africa/Lusaka -> Africa/Maputo
+extern const AtcZoneInfo kAtcZoneAfrica_Malabo; // Africa/Malabo -> Africa/Lagos
+extern const AtcZoneInfo kAtcZoneAfrica_Maseru; // Africa/Maseru -> Africa/Johannesburg
+extern const AtcZoneInfo kAtcZoneAfrica_Mbabane; // Africa/Mbabane -> Africa/Johannesburg
+extern const AtcZoneInfo kAtcZoneAfrica_Mogadishu; // Africa/Mogadishu -> Africa/Nairobi
+extern const AtcZoneInfo kAtcZoneAfrica_Niamey; // Africa/Niamey -> Africa/Lagos
+extern const AtcZoneInfo kAtcZoneAfrica_Nouakchott; // Africa/Nouakchott -> Africa/Abidjan
+extern const AtcZoneInfo kAtcZoneAfrica_Ouagadougou; // Africa/Ouagadougou -> Africa/Abidjan
+extern const AtcZoneInfo kAtcZoneAfrica_Porto_Novo; // Africa/Porto-Novo -> Africa/Lagos
+extern const AtcZoneInfo kAtcZoneAfrica_Timbuktu; // Africa/Timbuktu -> Africa/Abidjan
+extern const AtcZoneInfo kAtcZoneAmerica_Anguilla; // America/Anguilla -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Antigua; // America/Antigua -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Argentina_ComodRivadavia; // America/Argentina/ComodRivadavia -> America/Argentina/Catamarca
+extern const AtcZoneInfo kAtcZoneAmerica_Aruba; // America/Aruba -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Atikokan; // America/Atikokan -> America/Panama
+extern const AtcZoneInfo kAtcZoneAmerica_Atka; // America/Atka -> America/Adak
+extern const AtcZoneInfo kAtcZoneAmerica_Blanc_Sablon; // America/Blanc-Sablon -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Buenos_Aires; // America/Buenos_Aires -> America/Argentina/Buenos_Aires
+extern const AtcZoneInfo kAtcZoneAmerica_Catamarca; // America/Catamarca -> America/Argentina/Catamarca
+extern const AtcZoneInfo kAtcZoneAmerica_Cayman; // America/Cayman -> America/Panama
+extern const AtcZoneInfo kAtcZoneAmerica_Coral_Harbour; // America/Coral_Harbour -> America/Panama
+extern const AtcZoneInfo kAtcZoneAmerica_Cordoba; // America/Cordoba -> America/Argentina/Cordoba
+extern const AtcZoneInfo kAtcZoneAmerica_Creston; // America/Creston -> America/Phoenix
+extern const AtcZoneInfo kAtcZoneAmerica_Curacao; // America/Curacao -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Dominica; // America/Dominica -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Ensenada; // America/Ensenada -> America/Tijuana
+extern const AtcZoneInfo kAtcZoneAmerica_Fort_Wayne; // America/Fort_Wayne -> America/Indiana/Indianapolis
+extern const AtcZoneInfo kAtcZoneAmerica_Godthab; // America/Godthab -> America/Nuuk
+extern const AtcZoneInfo kAtcZoneAmerica_Grenada; // America/Grenada -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Guadeloupe; // America/Guadeloupe -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Indianapolis; // America/Indianapolis -> America/Indiana/Indianapolis
+extern const AtcZoneInfo kAtcZoneAmerica_Jujuy; // America/Jujuy -> America/Argentina/Jujuy
+extern const AtcZoneInfo kAtcZoneAmerica_Knox_IN; // America/Knox_IN -> America/Indiana/Knox
+extern const AtcZoneInfo kAtcZoneAmerica_Kralendijk; // America/Kralendijk -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Louisville; // America/Louisville -> America/Kentucky/Louisville
+extern const AtcZoneInfo kAtcZoneAmerica_Lower_Princes; // America/Lower_Princes -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Marigot; // America/Marigot -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Mendoza; // America/Mendoza -> America/Argentina/Mendoza
+extern const AtcZoneInfo kAtcZoneAmerica_Montreal; // America/Montreal -> America/Toronto
+extern const AtcZoneInfo kAtcZoneAmerica_Montserrat; // America/Montserrat -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Nassau; // America/Nassau -> America/Toronto
+extern const AtcZoneInfo kAtcZoneAmerica_Port_of_Spain; // America/Port_of_Spain -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Porto_Acre; // America/Porto_Acre -> America/Rio_Branco
+extern const AtcZoneInfo kAtcZoneAmerica_Rosario; // America/Rosario -> America/Argentina/Cordoba
+extern const AtcZoneInfo kAtcZoneAmerica_Santa_Isabel; // America/Santa_Isabel -> America/Tijuana
+extern const AtcZoneInfo kAtcZoneAmerica_Shiprock; // America/Shiprock -> America/Denver
+extern const AtcZoneInfo kAtcZoneAmerica_St_Barthelemy; // America/St_Barthelemy -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_St_Kitts; // America/St_Kitts -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_St_Lucia; // America/St_Lucia -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_St_Thomas; // America/St_Thomas -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_St_Vincent; // America/St_Vincent -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Tortola; // America/Tortola -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Virgin; // America/Virgin -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAntarctica_DumontDUrville; // Antarctica/DumontDUrville -> Pacific/Port_Moresby
+extern const AtcZoneInfo kAtcZoneAntarctica_McMurdo; // Antarctica/McMurdo -> Pacific/Auckland
+extern const AtcZoneInfo kAtcZoneAntarctica_South_Pole; // Antarctica/South_Pole -> Pacific/Auckland
+extern const AtcZoneInfo kAtcZoneAntarctica_Syowa; // Antarctica/Syowa -> Asia/Riyadh
+extern const AtcZoneInfo kAtcZoneAntarctica_Vostok; // Antarctica/Vostok -> Asia/Urumqi
+extern const AtcZoneInfo kAtcZoneArctic_Longyearbyen; // Arctic/Longyearbyen -> Europe/Berlin
+extern const AtcZoneInfo kAtcZoneAsia_Aden; // Asia/Aden -> Asia/Riyadh
+extern const AtcZoneInfo kAtcZoneAsia_Ashkhabad; // Asia/Ashkhabad -> Asia/Ashgabat
+extern const AtcZoneInfo kAtcZoneAsia_Bahrain; // Asia/Bahrain -> Asia/Qatar
+extern const AtcZoneInfo kAtcZoneAsia_Brunei; // Asia/Brunei -> Asia/Kuching
+extern const AtcZoneInfo kAtcZoneAsia_Calcutta; // Asia/Calcutta -> Asia/Kolkata
+extern const AtcZoneInfo kAtcZoneAsia_Chongqing; // Asia/Chongqing -> Asia/Shanghai
+extern const AtcZoneInfo kAtcZoneAsia_Chungking; // Asia/Chungking -> Asia/Shanghai
+extern const AtcZoneInfo kAtcZoneAsia_Dacca; // Asia/Dacca -> Asia/Dhaka
+extern const AtcZoneInfo kAtcZoneAsia_Harbin; // Asia/Harbin -> Asia/Shanghai
+extern const AtcZoneInfo kAtcZoneAsia_Istanbul; // Asia/Istanbul -> Europe/Istanbul
+extern const AtcZoneInfo kAtcZoneAsia_Kashgar; // Asia/Kashgar -> Asia/Urumqi
+extern const AtcZoneInfo kAtcZoneAsia_Katmandu; // Asia/Katmandu -> Asia/Kathmandu
+extern const AtcZoneInfo kAtcZoneAsia_Kuala_Lumpur; // Asia/Kuala_Lumpur -> Asia/Singapore
+extern const AtcZoneInfo kAtcZoneAsia_Kuwait; // Asia/Kuwait -> Asia/Riyadh
+extern const AtcZoneInfo kAtcZoneAsia_Macao; // Asia/Macao -> Asia/Macau
+extern const AtcZoneInfo kAtcZoneAsia_Muscat; // Asia/Muscat -> Asia/Dubai
+extern const AtcZoneInfo kAtcZoneAsia_Phnom_Penh; // Asia/Phnom_Penh -> Asia/Bangkok
+extern const AtcZoneInfo kAtcZoneAsia_Rangoon; // Asia/Rangoon -> Asia/Yangon
+extern const AtcZoneInfo kAtcZoneAsia_Saigon; // Asia/Saigon -> Asia/Ho_Chi_Minh
+extern const AtcZoneInfo kAtcZoneAsia_Tel_Aviv; // Asia/Tel_Aviv -> Asia/Jerusalem
+extern const AtcZoneInfo kAtcZoneAsia_Thimbu; // Asia/Thimbu -> Asia/Thimphu
+extern const AtcZoneInfo kAtcZoneAsia_Ujung_Pandang; // Asia/Ujung_Pandang -> Asia/Makassar
+extern const AtcZoneInfo kAtcZoneAsia_Ulan_Bator; // Asia/Ulan_Bator -> Asia/Ulaanbaatar
+extern const AtcZoneInfo kAtcZoneAsia_Vientiane; // Asia/Vientiane -> Asia/Bangkok
+extern const AtcZoneInfo kAtcZoneAtlantic_Faeroe; // Atlantic/Faeroe -> Atlantic/Faroe
+extern const AtcZoneInfo kAtcZoneAtlantic_Jan_Mayen; // Atlantic/Jan_Mayen -> Europe/Berlin
+extern const AtcZoneInfo kAtcZoneAtlantic_Reykjavik; // Atlantic/Reykjavik -> Africa/Abidjan
+extern const AtcZoneInfo kAtcZoneAtlantic_St_Helena; // Atlantic/St_Helena -> Africa/Abidjan
+extern const AtcZoneInfo kAtcZoneAustralia_ACT; // Australia/ACT -> Australia/Sydney
+extern const AtcZoneInfo kAtcZoneAustralia_Canberra; // Australia/Canberra -> Australia/Sydney
+extern const AtcZoneInfo kAtcZoneAustralia_Currie; // Australia/Currie -> Australia/Hobart
+extern const AtcZoneInfo kAtcZoneAustralia_LHI; // Australia/LHI -> Australia/Lord_Howe
+extern const AtcZoneInfo kAtcZoneAustralia_NSW; // Australia/NSW -> Australia/Sydney
+extern const AtcZoneInfo kAtcZoneAustralia_North; // Australia/North -> Australia/Darwin
+extern const AtcZoneInfo kAtcZoneAustralia_Queensland; // Australia/Queensland -> Australia/Brisbane
+extern const AtcZoneInfo kAtcZoneAustralia_South; // Australia/South -> Australia/Adelaide
+extern const AtcZoneInfo kAtcZoneAustralia_Tasmania; // Australia/Tasmania -> Australia/Hobart
+extern const AtcZoneInfo kAtcZoneAustralia_Victoria; // Australia/Victoria -> Australia/Melbourne
+extern const AtcZoneInfo kAtcZoneAustralia_West; // Australia/West -> Australia/Perth
+extern const AtcZoneInfo kAtcZoneAustralia_Yancowinna; // Australia/Yancowinna -> Australia/Broken_Hill
+extern const AtcZoneInfo kAtcZoneBrazil_Acre; // Brazil/Acre -> America/Rio_Branco
+extern const AtcZoneInfo kAtcZoneBrazil_DeNoronha; // Brazil/DeNoronha -> America/Noronha
+extern const AtcZoneInfo kAtcZoneBrazil_East; // Brazil/East -> America/Sao_Paulo
+extern const AtcZoneInfo kAtcZoneBrazil_West; // Brazil/West -> America/Manaus
+extern const AtcZoneInfo kAtcZoneCanada_Atlantic; // Canada/Atlantic -> America/Halifax
+extern const AtcZoneInfo kAtcZoneCanada_Central; // Canada/Central -> America/Winnipeg
+extern const AtcZoneInfo kAtcZoneCanada_Eastern; // Canada/Eastern -> America/Toronto
+extern const AtcZoneInfo kAtcZoneCanada_Mountain; // Canada/Mountain -> America/Edmonton
+extern const AtcZoneInfo kAtcZoneCanada_Newfoundland; // Canada/Newfoundland -> America/St_Johns
+extern const AtcZoneInfo kAtcZoneCanada_Pacific; // Canada/Pacific -> America/Vancouver
+extern const AtcZoneInfo kAtcZoneCanada_Saskatchewan; // Canada/Saskatchewan -> America/Regina
+extern const AtcZoneInfo kAtcZoneCanada_Yukon; // Canada/Yukon -> America/Whitehorse
+extern const AtcZoneInfo kAtcZoneChile_Continental; // Chile/Continental -> America/Santiago
+extern const AtcZoneInfo kAtcZoneChile_EasterIsland; // Chile/EasterIsland -> Pacific/Easter
+extern const AtcZoneInfo kAtcZoneCuba; // Cuba -> America/Havana
+extern const AtcZoneInfo kAtcZoneEgypt; // Egypt -> Africa/Cairo
+extern const AtcZoneInfo kAtcZoneEire; // Eire -> Europe/Dublin
+extern const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_0; // Etc/GMT+0 -> Etc/GMT
+extern const AtcZoneInfo kAtcZoneEtc_GMT_0; // Etc/GMT-0 -> Etc/GMT
+extern const AtcZoneInfo kAtcZoneEtc_GMT0; // Etc/GMT0 -> Etc/GMT
+extern const AtcZoneInfo kAtcZoneEtc_Greenwich; // Etc/Greenwich -> Etc/GMT
+extern const AtcZoneInfo kAtcZoneEtc_UCT; // Etc/UCT -> Etc/UTC
+extern const AtcZoneInfo kAtcZoneEtc_Universal; // Etc/Universal -> Etc/UTC
+extern const AtcZoneInfo kAtcZoneEtc_Zulu; // Etc/Zulu -> Etc/UTC
+extern const AtcZoneInfo kAtcZoneEurope_Amsterdam; // Europe/Amsterdam -> Europe/Brussels
+extern const AtcZoneInfo kAtcZoneEurope_Belfast; // Europe/Belfast -> Europe/London
+extern const AtcZoneInfo kAtcZoneEurope_Bratislava; // Europe/Bratislava -> Europe/Prague
+extern const AtcZoneInfo kAtcZoneEurope_Busingen; // Europe/Busingen -> Europe/Zurich
+extern const AtcZoneInfo kAtcZoneEurope_Copenhagen; // Europe/Copenhagen -> Europe/Berlin
+extern const AtcZoneInfo kAtcZoneEurope_Guernsey; // Europe/Guernsey -> Europe/London
+extern const AtcZoneInfo kAtcZoneEurope_Isle_of_Man; // Europe/Isle_of_Man -> Europe/London
+extern const AtcZoneInfo kAtcZoneEurope_Jersey; // Europe/Jersey -> Europe/London
+extern const AtcZoneInfo kAtcZoneEurope_Kiev; // Europe/Kiev -> Europe/Kyiv
+extern const AtcZoneInfo kAtcZoneEurope_Ljubljana; // Europe/Ljubljana -> Europe/Belgrade
+extern const AtcZoneInfo kAtcZoneEurope_Luxembourg; // Europe/Luxembourg -> Europe/Brussels
+extern const AtcZoneInfo kAtcZoneEurope_Mariehamn; // Europe/Mariehamn -> Europe/Helsinki
+extern const AtcZoneInfo kAtcZoneEurope_Monaco; // Europe/Monaco -> Europe/Paris
+extern const AtcZoneInfo kAtcZoneEurope_Nicosia; // Europe/Nicosia -> Asia/Nicosia
+extern const AtcZoneInfo kAtcZoneEurope_Oslo; // Europe/Oslo -> Europe/Berlin
+extern const AtcZoneInfo kAtcZoneEurope_Podgorica; // Europe/Podgorica -> Europe/Belgrade
+extern const AtcZoneInfo kAtcZoneEurope_San_Marino; // Europe/San_Marino -> Europe/Rome
+extern const AtcZoneInfo kAtcZoneEurope_Sarajevo; // Europe/Sarajevo -> Europe/Belgrade
+extern const AtcZoneInfo kAtcZoneEurope_Skopje; // Europe/Skopje -> Europe/Belgrade
+extern const AtcZoneInfo kAtcZoneEurope_Stockholm; // Europe/Stockholm -> Europe/Berlin
+extern const AtcZoneInfo kAtcZoneEurope_Tiraspol; // Europe/Tiraspol -> Europe/Chisinau
+extern const AtcZoneInfo kAtcZoneEurope_Vaduz; // Europe/Vaduz -> Europe/Zurich
+extern const AtcZoneInfo kAtcZoneEurope_Vatican; // Europe/Vatican -> Europe/Rome
+extern const AtcZoneInfo kAtcZoneEurope_Zagreb; // Europe/Zagreb -> Europe/Belgrade
+extern const AtcZoneInfo kAtcZoneGB; // GB -> Europe/London
+extern const AtcZoneInfo kAtcZoneGB_Eire; // GB-Eire -> Europe/London
+extern const AtcZoneInfo kAtcZoneGMT; // GMT -> Etc/GMT
+extern const AtcZoneInfo kAtcZoneGMT_PLUS_0; // GMT+0 -> Etc/GMT
+extern const AtcZoneInfo kAtcZoneGMT_0; // GMT-0 -> Etc/GMT
+extern const AtcZoneInfo kAtcZoneGMT0; // GMT0 -> Etc/GMT
+extern const AtcZoneInfo kAtcZoneGreenwich; // Greenwich -> Etc/GMT
+extern const AtcZoneInfo kAtcZoneHongkong; // Hongkong -> Asia/Hong_Kong
+extern const AtcZoneInfo kAtcZoneIceland; // Iceland -> Africa/Abidjan
+extern const AtcZoneInfo kAtcZoneIndian_Antananarivo; // Indian/Antananarivo -> Africa/Nairobi
+extern const AtcZoneInfo kAtcZoneIndian_Christmas; // Indian/Christmas -> Asia/Bangkok
+extern const AtcZoneInfo kAtcZoneIndian_Cocos; // Indian/Cocos -> Asia/Yangon
+extern const AtcZoneInfo kAtcZoneIndian_Comoro; // Indian/Comoro -> Africa/Nairobi
+extern const AtcZoneInfo kAtcZoneIndian_Kerguelen; // Indian/Kerguelen -> Indian/Maldives
+extern const AtcZoneInfo kAtcZoneIndian_Mahe; // Indian/Mahe -> Asia/Dubai
+extern const AtcZoneInfo kAtcZoneIndian_Mayotte; // Indian/Mayotte -> Africa/Nairobi
+extern const AtcZoneInfo kAtcZoneIndian_Reunion; // Indian/Reunion -> Asia/Dubai
+extern const AtcZoneInfo kAtcZoneIran; // Iran -> Asia/Tehran
+extern const AtcZoneInfo kAtcZoneIsrael; // Israel -> Asia/Jerusalem
+extern const AtcZoneInfo kAtcZoneJamaica; // Jamaica -> America/Jamaica
+extern const AtcZoneInfo kAtcZoneJapan; // Japan -> Asia/Tokyo
+extern const AtcZoneInfo kAtcZoneKwajalein; // Kwajalein -> Pacific/Kwajalein
+extern const AtcZoneInfo kAtcZoneLibya; // Libya -> Africa/Tripoli
+extern const AtcZoneInfo kAtcZoneMexico_BajaNorte; // Mexico/BajaNorte -> America/Tijuana
+extern const AtcZoneInfo kAtcZoneMexico_BajaSur; // Mexico/BajaSur -> America/Mazatlan
+extern const AtcZoneInfo kAtcZoneMexico_General; // Mexico/General -> America/Mexico_City
+extern const AtcZoneInfo kAtcZoneNZ; // NZ -> Pacific/Auckland
+extern const AtcZoneInfo kAtcZoneNZ_CHAT; // NZ-CHAT -> Pacific/Chatham
+extern const AtcZoneInfo kAtcZoneNavajo; // Navajo -> America/Denver
+extern const AtcZoneInfo kAtcZonePRC; // PRC -> Asia/Shanghai
+extern const AtcZoneInfo kAtcZonePacific_Chuuk; // Pacific/Chuuk -> Pacific/Port_Moresby
+extern const AtcZoneInfo kAtcZonePacific_Enderbury; // Pacific/Enderbury -> Pacific/Kanton
+extern const AtcZoneInfo kAtcZonePacific_Funafuti; // Pacific/Funafuti -> Pacific/Tarawa
+extern const AtcZoneInfo kAtcZonePacific_Johnston; // Pacific/Johnston -> Pacific/Honolulu
+extern const AtcZoneInfo kAtcZonePacific_Majuro; // Pacific/Majuro -> Pacific/Tarawa
+extern const AtcZoneInfo kAtcZonePacific_Midway; // Pacific/Midway -> Pacific/Pago_Pago
+extern const AtcZoneInfo kAtcZonePacific_Pohnpei; // Pacific/Pohnpei -> Pacific/Guadalcanal
+extern const AtcZoneInfo kAtcZonePacific_Ponape; // Pacific/Ponape -> Pacific/Guadalcanal
+extern const AtcZoneInfo kAtcZonePacific_Saipan; // Pacific/Saipan -> Pacific/Guam
+extern const AtcZoneInfo kAtcZonePacific_Samoa; // Pacific/Samoa -> Pacific/Pago_Pago
+extern const AtcZoneInfo kAtcZonePacific_Truk; // Pacific/Truk -> Pacific/Port_Moresby
+extern const AtcZoneInfo kAtcZonePacific_Wake; // Pacific/Wake -> Pacific/Tarawa
+extern const AtcZoneInfo kAtcZonePacific_Wallis; // Pacific/Wallis -> Pacific/Tarawa
+extern const AtcZoneInfo kAtcZonePacific_Yap; // Pacific/Yap -> Pacific/Port_Moresby
+extern const AtcZoneInfo kAtcZonePoland; // Poland -> Europe/Warsaw
+extern const AtcZoneInfo kAtcZonePortugal; // Portugal -> Europe/Lisbon
+extern const AtcZoneInfo kAtcZoneROC; // ROC -> Asia/Taipei
+extern const AtcZoneInfo kAtcZoneROK; // ROK -> Asia/Seoul
+extern const AtcZoneInfo kAtcZoneSingapore; // Singapore -> Asia/Singapore
+extern const AtcZoneInfo kAtcZoneTurkey; // Turkey -> Europe/Istanbul
+extern const AtcZoneInfo kAtcZoneUCT; // UCT -> Etc/UTC
+extern const AtcZoneInfo kAtcZoneUS_Alaska; // US/Alaska -> America/Anchorage
+extern const AtcZoneInfo kAtcZoneUS_Aleutian; // US/Aleutian -> America/Adak
+extern const AtcZoneInfo kAtcZoneUS_Arizona; // US/Arizona -> America/Phoenix
+extern const AtcZoneInfo kAtcZoneUS_Central; // US/Central -> America/Chicago
+extern const AtcZoneInfo kAtcZoneUS_East_Indiana; // US/East-Indiana -> America/Indiana/Indianapolis
+extern const AtcZoneInfo kAtcZoneUS_Eastern; // US/Eastern -> America/New_York
+extern const AtcZoneInfo kAtcZoneUS_Hawaii; // US/Hawaii -> Pacific/Honolulu
+extern const AtcZoneInfo kAtcZoneUS_Indiana_Starke; // US/Indiana-Starke -> America/Indiana/Knox
+extern const AtcZoneInfo kAtcZoneUS_Michigan; // US/Michigan -> America/Detroit
+extern const AtcZoneInfo kAtcZoneUS_Mountain; // US/Mountain -> America/Denver
+extern const AtcZoneInfo kAtcZoneUS_Pacific; // US/Pacific -> America/Los_Angeles
+extern const AtcZoneInfo kAtcZoneUS_Samoa; // US/Samoa -> Pacific/Pago_Pago
+extern const AtcZoneInfo kAtcZoneUTC; // UTC -> Etc/UTC
+extern const AtcZoneInfo kAtcZoneUniversal; // Universal -> Etc/UTC
+extern const AtcZoneInfo kAtcZoneW_SU; // W-SU -> Europe/Moscow
+extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 
 
 // Zone Ids

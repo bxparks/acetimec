@@ -34,14 +34,14 @@
 
 // Zones
 #define kAtcZoneRegistrySize 356
-extern const struct AtcZoneInfo * const kAtcZoneRegistry[356];
+extern const AtcZoneInfo * const kAtcZoneRegistry[356];
 
 // Zones and Links
 #define kAtcZoneAndLinkRegistrySize 595
-extern const struct AtcZoneInfo * const kAtcZoneAndLinkRegistry[595];
+extern const AtcZoneInfo * const kAtcZoneAndLinkRegistry[595];
 
 // Link Entries
 #define kAtcLinkRegistrySize 239
-extern const struct AtcLinkEntry kAtcLinkRegistry[239];
+extern const AtcLinkEntry kAtcLinkRegistry[239];
 
 #endif

@@ -70,7 +70,7 @@ const char * const kAtcFragments[] = {
 
 };
 
-const struct AtcZoneContext kAtcZoneContext = {
+const AtcZoneContext kAtcZoneContext = {
   2000 /*startYear*/,
   2050 /*untilYear*/,
   kAtcTzDatabaseVersion /*tzVersion*/,
@@ -90,7 +90,7 @@ const struct AtcZoneContext kAtcZoneContext = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Abidjan[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Abidjan[]  = {
   //              0:00    -    GMT
   {
     NULL /*zone_policy*/,
@@ -108,7 +108,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Abidjan[]  = {
 
 static const char kAtcZoneNameAfrica_Abidjan[]  = "Africa/Abidjan";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Abidjan  = {
+const AtcZoneInfo kAtcZoneAfrica_Abidjan  = {
   kAtcZoneNameAfrica_Abidjan /*name*/,
   0xc21305a3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -124,7 +124,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Abidjan  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Algiers[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Algiers[]  = {
   //             1:00    -    CET
   {
     NULL /*zone_policy*/,
@@ -142,7 +142,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Algiers[]  = {
 
 static const char kAtcZoneNameAfrica_Algiers[]  = "Africa/Algiers";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Algiers  = {
+const AtcZoneInfo kAtcZoneAfrica_Algiers  = {
   kAtcZoneNameAfrica_Algiers /*name*/,
   0xd94515c1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -158,7 +158,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Algiers  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Bissau[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Bissau[]  = {
   //              0:00    -    GMT
   {
     NULL /*zone_policy*/,
@@ -176,7 +176,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Bissau[]  = {
 
 static const char kAtcZoneNameAfrica_Bissau[]  = "Africa/Bissau";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Bissau  = {
+const AtcZoneInfo kAtcZoneAfrica_Bissau  = {
   kAtcZoneNameAfrica_Bissau /*name*/,
   0x75564141 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -192,7 +192,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Bissau  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Cairo[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Cairo[]  = {
   //             2:00    Egypt    EE%sT
   {
     &kAtcPolicyEgypt /*zone_policy*/,
@@ -210,7 +210,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Cairo[]  = {
 
 static const char kAtcZoneNameAfrica_Cairo[]  = "Africa/Cairo";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Cairo  = {
+const AtcZoneInfo kAtcZoneAfrica_Cairo  = {
   kAtcZoneNameAfrica_Cairo /*name*/,
   0x77f8e228 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -226,7 +226,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Cairo  = {
 // Memory (32-bit): 86
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Casablanca[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Casablanca[]  = {
   //              0:00    Morocco    +00/+01    2018 Oct 28  3:00
   {
     &kAtcPolicyMorocco /*zone_policy*/,
@@ -256,7 +256,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Casablanca[]  = {
 
 static const char kAtcZoneNameAfrica_Casablanca[]  = "Africa/Casablanca";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Casablanca  = {
+const AtcZoneInfo kAtcZoneAfrica_Casablanca  = {
   kAtcZoneNameAfrica_Casablanca /*name*/,
   0xc59f1b33 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -272,7 +272,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Casablanca  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Ceuta[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Ceuta[]  = {
   //              1:00    EU    CE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -290,7 +290,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Ceuta[]  = {
 
 static const char kAtcZoneNameAfrica_Ceuta[]  = "Africa/Ceuta";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Ceuta  = {
+const AtcZoneInfo kAtcZoneAfrica_Ceuta  = {
   kAtcZoneNameAfrica_Ceuta /*name*/,
   0x77fb46ec /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -306,7 +306,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Ceuta  = {
 // Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_El_Aaiun[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_El_Aaiun[]  = {
   //              0:00    Morocco    +00/+01    2018 Oct 28  3:00
   {
     &kAtcPolicyMorocco /*zone_policy*/,
@@ -336,7 +336,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_El_Aaiun[]  = {
 
 static const char kAtcZoneNameAfrica_El_Aaiun[]  = "Africa/El_Aaiun";
 
-const struct AtcZoneInfo kAtcZoneAfrica_El_Aaiun  = {
+const AtcZoneInfo kAtcZoneAfrica_El_Aaiun  = {
   kAtcZoneNameAfrica_El_Aaiun /*name*/,
   0x9d6fb118 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -352,7 +352,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_El_Aaiun  = {
 // Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Johannesburg[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Johannesburg[]  = {
   //             2:00    SA    SAST
   {
     &kAtcPolicySA /*zone_policy*/,
@@ -370,7 +370,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Johannesburg[]  = {
 
 static const char kAtcZoneNameAfrica_Johannesburg[]  = "Africa/Johannesburg";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Johannesburg  = {
+const AtcZoneInfo kAtcZoneAfrica_Johannesburg  = {
   kAtcZoneNameAfrica_Johannesburg /*name*/,
   0xd5d157a0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -386,7 +386,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Johannesburg  = {
 // Memory (32-bit): 93
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Juba[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Juba[]  = {
   //             2:00    Sudan    CA%sT    2000 Jan 15 12:00
   {
     &kAtcPolicySudan /*zone_policy*/,
@@ -428,7 +428,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Juba[]  = {
 
 static const char kAtcZoneNameAfrica_Juba[]  = "Africa/Juba";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Juba  = {
+const AtcZoneInfo kAtcZoneAfrica_Juba  = {
   kAtcZoneNameAfrica_Juba /*name*/,
   0xd51b395c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -444,7 +444,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Juba  = {
 // Memory (32-bit): 97
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Khartoum[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Khartoum[]  = {
   //             2:00    Sudan    CA%sT    2000 Jan 15 12:00
   {
     &kAtcPolicySudan /*zone_policy*/,
@@ -486,7 +486,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Khartoum[]  = {
 
 static const char kAtcZoneNameAfrica_Khartoum[]  = "Africa/Khartoum";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Khartoum  = {
+const AtcZoneInfo kAtcZoneAfrica_Khartoum  = {
   kAtcZoneNameAfrica_Khartoum /*name*/,
   0xfb3d4205 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -502,7 +502,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Khartoum  = {
 // Memory (32-bit): 53
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Lagos[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Lagos[]  = {
   //             1:00    -    WAT
   {
     NULL /*zone_policy*/,
@@ -520,7 +520,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Lagos[]  = {
 
 static const char kAtcZoneNameAfrica_Lagos[]  = "Africa/Lagos";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Lagos  = {
+const AtcZoneInfo kAtcZoneAfrica_Lagos  = {
   kAtcZoneNameAfrica_Lagos /*name*/,
   0x789bb5d0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -536,7 +536,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Lagos  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Maputo[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Maputo[]  = {
   //             2:00    -    CAT
   {
     NULL /*zone_policy*/,
@@ -554,7 +554,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Maputo[]  = {
 
 static const char kAtcZoneNameAfrica_Maputo[]  = "Africa/Maputo";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Maputo  = {
+const AtcZoneInfo kAtcZoneAfrica_Maputo  = {
   kAtcZoneNameAfrica_Maputo /*name*/,
   0x8e6ca1f0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -570,7 +570,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Maputo  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Monrovia[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Monrovia[]  = {
   //              0:00    -    GMT
   {
     NULL /*zone_policy*/,
@@ -588,7 +588,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Monrovia[]  = {
 
 static const char kAtcZoneNameAfrica_Monrovia[]  = "Africa/Monrovia";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Monrovia  = {
+const AtcZoneInfo kAtcZoneAfrica_Monrovia  = {
   kAtcZoneNameAfrica_Monrovia /*name*/,
   0x0ce90385 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -604,7 +604,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Monrovia  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Nairobi[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Nairobi[]  = {
   //             3:00    -    EAT
   {
     NULL /*zone_policy*/,
@@ -622,7 +622,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Nairobi[]  = {
 
 static const char kAtcZoneNameAfrica_Nairobi[]  = "Africa/Nairobi";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Nairobi  = {
+const AtcZoneInfo kAtcZoneAfrica_Nairobi  = {
   kAtcZoneNameAfrica_Nairobi /*name*/,
   0xa87ab57e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -638,7 +638,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Nairobi  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Ndjamena[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Ndjamena[]  = {
   //             1:00    -    WAT
   {
     NULL /*zone_policy*/,
@@ -656,7 +656,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Ndjamena[]  = {
 
 static const char kAtcZoneNameAfrica_Ndjamena[]  = "Africa/Ndjamena";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Ndjamena  = {
+const AtcZoneInfo kAtcZoneAfrica_Ndjamena  = {
   kAtcZoneNameAfrica_Ndjamena /*name*/,
   0x9fe09898 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -672,7 +672,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Ndjamena  = {
 // Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Sao_Tome[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Sao_Tome[]  = {
   //              0:00    -    GMT    2018 Jan  1 01:00
   {
     NULL /*zone_policy*/,
@@ -714,7 +714,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Sao_Tome[]  = {
 
 static const char kAtcZoneNameAfrica_Sao_Tome[]  = "Africa/Sao_Tome";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Sao_Tome  = {
+const AtcZoneInfo kAtcZoneAfrica_Sao_Tome  = {
   kAtcZoneNameAfrica_Sao_Tome /*name*/,
   0x61b319d1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -730,7 +730,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Sao_Tome  = {
 // Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Tripoli[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Tripoli[]  = {
   //             2:00    -    EET    2012 Nov 10  2:00
   {
     NULL /*zone_policy*/,
@@ -772,7 +772,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Tripoli[]  = {
 
 static const char kAtcZoneNameAfrica_Tripoli[]  = "Africa/Tripoli";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Tripoli  = {
+const AtcZoneInfo kAtcZoneAfrica_Tripoli  = {
   kAtcZoneNameAfrica_Tripoli /*name*/,
   0x9dfebd3d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -788,7 +788,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Tripoli  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Tunis[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Tunis[]  = {
   //             1:00    Tunisia    CE%sT
   {
     &kAtcPolicyTunisia /*zone_policy*/,
@@ -806,7 +806,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Tunis[]  = {
 
 static const char kAtcZoneNameAfrica_Tunis[]  = "Africa/Tunis";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Tunis  = {
+const AtcZoneInfo kAtcZoneAfrica_Tunis  = {
   kAtcZoneNameAfrica_Tunis /*name*/,
   0x79378e6d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -822,7 +822,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Tunis  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAfrica_Windhoek[]  = {
+static const AtcZoneEra kAtcZoneEraAfrica_Windhoek[]  = {
   //             2:00    Namibia    %s
   {
     &kAtcPolicyNamibia /*zone_policy*/,
@@ -840,7 +840,7 @@ static const struct AtcZoneEra kAtcZoneEraAfrica_Windhoek[]  = {
 
 static const char kAtcZoneNameAfrica_Windhoek[]  = "Africa/Windhoek";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Windhoek  = {
+const AtcZoneInfo kAtcZoneAfrica_Windhoek  = {
   kAtcZoneNameAfrica_Windhoek /*name*/,
   0x789c9bd3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -856,7 +856,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Windhoek  = {
 // Memory (32-bit): 53
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Adak[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Adak[]  = {
   //             -10:00    US    H%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -874,7 +874,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Adak[]  = {
 
 static const char kAtcZoneNameAmerica_Adak[]  = "America/Adak";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Adak  = {
+const AtcZoneInfo kAtcZoneAmerica_Adak  = {
   kAtcZoneNameAmerica_Adak /*name*/,
   0x97fe49d7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -890,7 +890,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Adak  = {
 // Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Anchorage[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Anchorage[]  = {
   //              -9:00    US    AK%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -908,7 +908,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Anchorage[]  = {
 
 static const char kAtcZoneNameAmerica_Anchorage[]  = "America/Anchorage";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Anchorage  = {
+const AtcZoneInfo kAtcZoneAmerica_Anchorage  = {
   kAtcZoneNameAmerica_Anchorage /*name*/,
   0x5a79260e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -924,7 +924,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Anchorage  = {
 // Memory (32-bit): 126
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Araguaina[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Araguaina[]  = {
   //             -3:00    Brazil    -03/-02    2003 Sep 24
   {
     &kAtcPolicyBrazil /*zone_policy*/,
@@ -978,7 +978,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Araguaina[]  = {
 
 static const char kAtcZoneNameAmerica_Araguaina[]  = "America/Araguaina";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Araguaina  = {
+const AtcZoneInfo kAtcZoneAmerica_Araguaina  = {
   kAtcZoneNameAmerica_Araguaina /*name*/,
   0x6f9a3aef /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -994,7 +994,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Araguaina  = {
 // Memory (32-bit): 123
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Buenos_Aires[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Buenos_Aires[]  = {
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcPolicyArg /*zone_policy*/,
@@ -1036,7 +1036,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Buenos_Aires[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Buenos_Aires[]  = "America/Argentina/Buenos_Aires";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Buenos_Aires  = {
+const AtcZoneInfo kAtcZoneAmerica_Argentina_Buenos_Aires  = {
   kAtcZoneNameAmerica_Argentina_Buenos_Aires /*name*/,
   0xd43b4c0d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -1052,7 +1052,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Buenos_Aires  = {
 // Memory (32-bit): 180
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Catamarca[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Catamarca[]  = {
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcPolicyArg /*zone_policy*/,
@@ -1130,7 +1130,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Catamarca[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Catamarca[]  = "America/Argentina/Catamarca";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Catamarca  = {
+const AtcZoneInfo kAtcZoneAmerica_Argentina_Catamarca  = {
   kAtcZoneNameAmerica_Argentina_Catamarca /*name*/,
   0x8d40986b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -1146,7 +1146,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Catamarca  = {
 // Memory (32-bit): 118
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Cordoba[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Cordoba[]  = {
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcPolicyArg /*zone_policy*/,
@@ -1188,7 +1188,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Cordoba[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Cordoba[]  = "America/Argentina/Cordoba";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Cordoba  = {
+const AtcZoneInfo kAtcZoneAmerica_Argentina_Cordoba  = {
   kAtcZoneNameAmerica_Argentina_Cordoba /*name*/,
   0xbfccc308 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -1204,7 +1204,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Cordoba  = {
 // Memory (32-bit): 136
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Jujuy[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Jujuy[]  = {
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcPolicyArg /*zone_policy*/,
@@ -1258,7 +1258,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Jujuy[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Jujuy[]  = "America/Argentina/Jujuy";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Jujuy  = {
+const AtcZoneInfo kAtcZoneAmerica_Argentina_Jujuy  = {
   kAtcZoneNameAmerica_Argentina_Jujuy /*name*/,
   0x5f2f46c5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -1274,7 +1274,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Jujuy  = {
 // Memory (32-bit): 179
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_La_Rioja[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Argentina_La_Rioja[]  = {
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcPolicyArg /*zone_policy*/,
@@ -1352,7 +1352,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_La_Rioja[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_La_Rioja[]  = "America/Argentina/La_Rioja";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Argentina_La_Rioja  = {
+const AtcZoneInfo kAtcZoneAmerica_Argentina_La_Rioja  = {
   kAtcZoneNameAmerica_Argentina_La_Rioja /*name*/,
   0xa46b7eef /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -1368,7 +1368,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Argentina_La_Rioja  = {
 // Memory (32-bit): 178
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Mendoza[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Mendoza[]  = {
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcPolicyArg /*zone_policy*/,
@@ -1446,7 +1446,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Mendoza[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Mendoza[]  = "America/Argentina/Mendoza";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Mendoza  = {
+const AtcZoneInfo kAtcZoneAmerica_Argentina_Mendoza  = {
   kAtcZoneNameAmerica_Argentina_Mendoza /*name*/,
   0xa9f72d5c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -1462,7 +1462,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Mendoza  = {
 // Memory (32-bit): 183
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Rio_Gallegos[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Rio_Gallegos[]  = {
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcPolicyArg /*zone_policy*/,
@@ -1540,7 +1540,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Rio_Gallegos[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Rio_Gallegos[]  = "America/Argentina/Rio_Gallegos";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Rio_Gallegos  = {
+const AtcZoneInfo kAtcZoneAmerica_Argentina_Rio_Gallegos  = {
   kAtcZoneNameAmerica_Argentina_Rio_Gallegos /*name*/,
   0xc5b0f565 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -1556,7 +1556,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Rio_Gallegos  = {
 // Memory (32-bit): 136
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Salta[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Salta[]  = {
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcPolicyArg /*zone_policy*/,
@@ -1610,7 +1610,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Salta[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Salta[]  = "America/Argentina/Salta";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Salta  = {
+const AtcZoneInfo kAtcZoneAmerica_Argentina_Salta  = {
   kAtcZoneNameAmerica_Argentina_Salta /*name*/,
   0x5fc73403 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -1626,7 +1626,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Salta  = {
 // Memory (32-bit): 179
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Juan[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Juan[]  = {
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcPolicyArg /*zone_policy*/,
@@ -1704,7 +1704,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Juan[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_San_Juan[]  = "America/Argentina/San_Juan";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Argentina_San_Juan  = {
+const AtcZoneInfo kAtcZoneAmerica_Argentina_San_Juan  = {
   kAtcZoneNameAmerica_Argentina_San_Juan /*name*/,
   0x3e1009bd /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -1720,7 +1720,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Argentina_San_Juan  = {
 // Memory (32-bit): 195
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Luis[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Luis[]  = {
   //             -3:00    -    -03    1999 Oct  3
   {
     NULL /*zone_policy*/,
@@ -1810,7 +1810,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Luis[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_San_Luis[]  = "America/Argentina/San_Luis";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Argentina_San_Luis  = {
+const AtcZoneInfo kAtcZoneAmerica_Argentina_San_Luis  = {
   kAtcZoneNameAmerica_Argentina_San_Luis /*name*/,
   0x3e11238c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -1826,7 +1826,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Argentina_San_Luis  = {
 // Memory (32-bit): 158
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Tucuman[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Tucuman[]  = {
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcPolicyArg /*zone_policy*/,
@@ -1892,7 +1892,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Tucuman[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Tucuman[]  = "America/Argentina/Tucuman";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Tucuman  = {
+const AtcZoneInfo kAtcZoneAmerica_Argentina_Tucuman  = {
   kAtcZoneNameAmerica_Argentina_Tucuman /*name*/,
   0xe96399eb /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -1908,7 +1908,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Tucuman  = {
 // Memory (32-bit): 178
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Ushuaia[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Ushuaia[]  = {
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcPolicyArg /*zone_policy*/,
@@ -1986,7 +1986,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Argentina_Ushuaia[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Ushuaia[]  = "America/Argentina/Ushuaia";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Ushuaia  = {
+const AtcZoneInfo kAtcZoneAmerica_Argentina_Ushuaia  = {
   kAtcZoneNameAmerica_Argentina_Ushuaia /*name*/,
   0x320dcdde /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2002,7 +2002,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Argentina_Ushuaia  = {
 // Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Asuncion[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Asuncion[]  = {
   //             -4:00    Para    -04/-03
   {
     &kAtcPolicyPara /*zone_policy*/,
@@ -2020,7 +2020,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Asuncion[]  = {
 
 static const char kAtcZoneNameAmerica_Asuncion[]  = "America/Asuncion";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Asuncion  = {
+const AtcZoneInfo kAtcZoneAmerica_Asuncion  = {
   kAtcZoneNameAmerica_Asuncion /*name*/,
   0x50ec79a6 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2036,7 +2036,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Asuncion  = {
 // Memory (32-bit): 122
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Bahia[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Bahia[]  = {
   //             -3:00    Brazil    -03/-02    2003 Sep 24
   {
     &kAtcPolicyBrazil /*zone_policy*/,
@@ -2090,7 +2090,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Bahia[]  = {
 
 static const char kAtcZoneNameAmerica_Bahia[]  = "America/Bahia";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Bahia  = {
+const AtcZoneInfo kAtcZoneAmerica_Bahia  = {
   kAtcZoneNameAmerica_Bahia /*name*/,
   0x97d815fb /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2106,7 +2106,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Bahia  = {
 // Memory (32-bit): 83
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Bahia_Banderas[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Bahia_Banderas[]  = {
   //             -7:00    Mexico    M%sT    2010 Apr  4  2:00
   {
     &kAtcPolicyMexico /*zone_policy*/,
@@ -2136,7 +2136,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Bahia_Banderas[]  = {
 
 static const char kAtcZoneNameAmerica_Bahia_Banderas[]  = "America/Bahia_Banderas";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Bahia_Banderas  = {
+const AtcZoneInfo kAtcZoneAmerica_Bahia_Banderas  = {
   kAtcZoneNameAmerica_Bahia_Banderas /*name*/,
   0x14f6329a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2152,7 +2152,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Bahia_Banderas  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Barbados[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Barbados[]  = {
   //             -4:00    Barb    A%sT
   {
     &kAtcPolicyBarb /*zone_policy*/,
@@ -2170,7 +2170,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Barbados[]  = {
 
 static const char kAtcZoneNameAmerica_Barbados[]  = "America/Barbados";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Barbados  = {
+const AtcZoneInfo kAtcZoneAmerica_Barbados  = {
   kAtcZoneNameAmerica_Barbados /*name*/,
   0xcbbc3b04 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2186,7 +2186,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Barbados  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Belem[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Belem[]  = {
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
@@ -2204,7 +2204,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Belem[]  = {
 
 static const char kAtcZoneNameAmerica_Belem[]  = "America/Belem";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Belem  = {
+const AtcZoneInfo kAtcZoneAmerica_Belem  = {
   kAtcZoneNameAmerica_Belem /*name*/,
   0x97da580b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2220,7 +2220,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Belem  = {
 // Memory (32-bit): 53
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Belize[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Belize[]  = {
   //             -6:00    Belize    %s
   {
     &kAtcPolicyBelize /*zone_policy*/,
@@ -2238,7 +2238,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Belize[]  = {
 
 static const char kAtcZoneNameAmerica_Belize[]  = "America/Belize";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Belize  = {
+const AtcZoneInfo kAtcZoneAmerica_Belize  = {
   kAtcZoneNameAmerica_Belize /*name*/,
   0x93256c81 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2254,7 +2254,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Belize  = {
 // Memory (32-bit): 102
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Boa_Vista[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Boa_Vista[]  = {
   //             -4:00    -    -04    1999 Sep 30
   {
     NULL /*zone_policy*/,
@@ -2296,7 +2296,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Boa_Vista[]  = {
 
 static const char kAtcZoneNameAmerica_Boa_Vista[]  = "America/Boa_Vista";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Boa_Vista  = {
+const AtcZoneInfo kAtcZoneAmerica_Boa_Vista  = {
   kAtcZoneNameAmerica_Boa_Vista /*name*/,
   0x0a7b7efe /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2312,7 +2312,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Boa_Vista  = {
 // Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Bogota[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Bogota[]  = {
   //             -5:00    CO    -05/-04
   {
     &kAtcPolicyCO /*zone_policy*/,
@@ -2330,7 +2330,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Bogota[]  = {
 
 static const char kAtcZoneNameAmerica_Bogota[]  = "America/Bogota";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Bogota  = {
+const AtcZoneInfo kAtcZoneAmerica_Bogota  = {
   kAtcZoneNameAmerica_Bogota /*name*/,
   0x93d7bc62 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2346,7 +2346,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Bogota  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Boise[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Boise[]  = {
   //             -7:00    US    M%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -2364,7 +2364,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Boise[]  = {
 
 static const char kAtcZoneNameAmerica_Boise[]  = "America/Boise";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Boise  = {
+const AtcZoneInfo kAtcZoneAmerica_Boise  = {
   kAtcZoneNameAmerica_Boise /*name*/,
   0x97dfc8d8 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2380,7 +2380,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Boise  = {
 // Memory (32-bit): 142
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Cambridge_Bay[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Cambridge_Bay[]  = {
   //             -7:00    NT_YK    M%sT    1999 Oct 31  2:00
   {
     &kAtcPolicyNT_YK /*zone_policy*/,
@@ -2446,7 +2446,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Cambridge_Bay[]  = {
 
 static const char kAtcZoneNameAmerica_Cambridge_Bay[]  = "America/Cambridge_Bay";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Cambridge_Bay  = {
+const AtcZoneInfo kAtcZoneAmerica_Cambridge_Bay  = {
   kAtcZoneNameAmerica_Cambridge_Bay /*name*/,
   0xd5a44aff /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2462,7 +2462,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Cambridge_Bay  = {
 // Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Campo_Grande[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Campo_Grande[]  = {
   //             -4:00    Brazil    -04/-03
   {
     &kAtcPolicyBrazil /*zone_policy*/,
@@ -2480,7 +2480,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Campo_Grande[]  = {
 
 static const char kAtcZoneNameAmerica_Campo_Grande[]  = "America/Campo_Grande";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Campo_Grande  = {
+const AtcZoneInfo kAtcZoneAmerica_Campo_Grande  = {
   kAtcZoneNameAmerica_Campo_Grande /*name*/,
   0xfec3e7a6 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2496,7 +2496,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Campo_Grande  = {
 // Memory (32-bit): 75
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Cancun[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Cancun[]  = {
   //             -6:00    Mexico    C%sT    2015 Feb  1  2:00
   {
     &kAtcPolicyMexico /*zone_policy*/,
@@ -2526,7 +2526,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Cancun[]  = {
 
 static const char kAtcZoneNameAmerica_Cancun[]  = "America/Cancun";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Cancun  = {
+const AtcZoneInfo kAtcZoneAmerica_Cancun  = {
   kAtcZoneNameAmerica_Cancun /*name*/,
   0x953331be /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2542,7 +2542,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Cancun  = {
 // Memory (32-bit): 98
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Caracas[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Caracas[]  = {
   //             -4:00    -    -04    2007 Dec  9  3:00
   {
     NULL /*zone_policy*/,
@@ -2584,7 +2584,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Caracas[]  = {
 
 static const char kAtcZoneNameAmerica_Caracas[]  = "America/Caracas";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Caracas  = {
+const AtcZoneInfo kAtcZoneAmerica_Caracas  = {
   kAtcZoneNameAmerica_Caracas /*name*/,
   0x3be064f4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2600,7 +2600,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Caracas  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Cayenne[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Cayenne[]  = {
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
@@ -2618,7 +2618,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Cayenne[]  = {
 
 static const char kAtcZoneNameAmerica_Cayenne[]  = "America/Cayenne";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Cayenne  = {
+const AtcZoneInfo kAtcZoneAmerica_Cayenne  = {
   kAtcZoneNameAmerica_Cayenne /*name*/,
   0x3c617269 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2634,7 +2634,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Cayenne  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Chicago[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Chicago[]  = {
   //             -6:00    US    C%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -2652,7 +2652,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Chicago[]  = {
 
 static const char kAtcZoneNameAmerica_Chicago[]  = "America/Chicago";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Chicago  = {
+const AtcZoneInfo kAtcZoneAmerica_Chicago  = {
   kAtcZoneNameAmerica_Chicago /*name*/,
   0x4b92b5d4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2668,7 +2668,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Chicago  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Chihuahua[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Chihuahua[]  = {
   //             -7:00    Mexico    M%sT
   {
     &kAtcPolicyMexico /*zone_policy*/,
@@ -2686,7 +2686,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Chihuahua[]  = {
 
 static const char kAtcZoneNameAmerica_Chihuahua[]  = "America/Chihuahua";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Chihuahua  = {
+const AtcZoneInfo kAtcZoneAmerica_Chihuahua  = {
   kAtcZoneNameAmerica_Chihuahua /*name*/,
   0x8827d776 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2702,7 +2702,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Chihuahua  = {
 // Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Costa_Rica[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Costa_Rica[]  = {
   //             -6:00    CR    C%sT
   {
     &kAtcPolicyCR /*zone_policy*/,
@@ -2720,7 +2720,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Costa_Rica[]  = {
 
 static const char kAtcZoneNameAmerica_Costa_Rica[]  = "America/Costa_Rica";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Costa_Rica  = {
+const AtcZoneInfo kAtcZoneAmerica_Costa_Rica  = {
   kAtcZoneNameAmerica_Costa_Rica /*name*/,
   0x63ff66be /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2736,7 +2736,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Costa_Rica  = {
 // Memory (32-bit): 103
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Cuiaba[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Cuiaba[]  = {
   //             -4:00    Brazil    -04/-03    2003 Sep 24
   {
     &kAtcPolicyBrazil /*zone_policy*/,
@@ -2778,7 +2778,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Cuiaba[]  = {
 
 static const char kAtcZoneNameAmerica_Cuiaba[]  = "America/Cuiaba";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Cuiaba  = {
+const AtcZoneInfo kAtcZoneAmerica_Cuiaba  = {
   kAtcZoneNameAmerica_Cuiaba /*name*/,
   0x969a52eb /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2794,7 +2794,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Cuiaba  = {
 // Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Danmarkshavn[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Danmarkshavn[]  = {
   //             0:00    -    GMT
   {
     NULL /*zone_policy*/,
@@ -2812,7 +2812,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Danmarkshavn[]  = {
 
 static const char kAtcZoneNameAmerica_Danmarkshavn[]  = "America/Danmarkshavn";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Danmarkshavn  = {
+const AtcZoneInfo kAtcZoneAmerica_Danmarkshavn  = {
   kAtcZoneNameAmerica_Danmarkshavn /*name*/,
   0xf554d204 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2828,7 +2828,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Danmarkshavn  = {
 // Memory (32-bit): 75
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Dawson[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Dawson[]  = {
   //             -8:00    Canada    P%sT    2020 Nov  1
   {
     &kAtcPolicyCanada /*zone_policy*/,
@@ -2858,7 +2858,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Dawson[]  = {
 
 static const char kAtcZoneNameAmerica_Dawson[]  = "America/Dawson";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Dawson  = {
+const AtcZoneInfo kAtcZoneAmerica_Dawson  = {
   kAtcZoneNameAmerica_Dawson /*name*/,
   0x978d8d12 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2874,7 +2874,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Dawson  = {
 // Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Dawson_Creek[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Dawson_Creek[]  = {
   //             -7:00    -    MST
   {
     NULL /*zone_policy*/,
@@ -2892,7 +2892,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Dawson_Creek[]  = {
 
 static const char kAtcZoneNameAmerica_Dawson_Creek[]  = "America/Dawson_Creek";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Dawson_Creek  = {
+const AtcZoneInfo kAtcZoneAmerica_Dawson_Creek  = {
   kAtcZoneNameAmerica_Dawson_Creek /*name*/,
   0x6cf24e5b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2908,7 +2908,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Dawson_Creek  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Denver[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Denver[]  = {
   //             -7:00    US    M%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -2926,7 +2926,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Denver[]  = {
 
 static const char kAtcZoneNameAmerica_Denver[]  = "America/Denver";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Denver  = {
+const AtcZoneInfo kAtcZoneAmerica_Denver  = {
   kAtcZoneNameAmerica_Denver /*name*/,
   0x97d10b2a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2942,7 +2942,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Denver  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Detroit[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Detroit[]  = {
   //             -5:00    US    E%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -2960,7 +2960,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Detroit[]  = {
 
 static const char kAtcZoneNameAmerica_Detroit[]  = "America/Detroit";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Detroit  = {
+const AtcZoneInfo kAtcZoneAmerica_Detroit  = {
   kAtcZoneNameAmerica_Detroit /*name*/,
   0x925cfbc1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -2976,7 +2976,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Detroit  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Edmonton[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Edmonton[]  = {
   //             -7:00    Canada    M%sT
   {
     &kAtcPolicyCanada /*zone_policy*/,
@@ -2994,7 +2994,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Edmonton[]  = {
 
 static const char kAtcZoneNameAmerica_Edmonton[]  = "America/Edmonton";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Edmonton  = {
+const AtcZoneInfo kAtcZoneAmerica_Edmonton  = {
   kAtcZoneNameAmerica_Edmonton /*name*/,
   0x6cb9484a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3010,7 +3010,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Edmonton  = {
 // Memory (32-bit): 97
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Eirunepe[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Eirunepe[]  = {
   //             -5:00    -    -05    2008 Jun 24  0:00
   {
     NULL /*zone_policy*/,
@@ -3052,7 +3052,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Eirunepe[]  = {
 
 static const char kAtcZoneNameAmerica_Eirunepe[]  = "America/Eirunepe";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Eirunepe  = {
+const AtcZoneInfo kAtcZoneAmerica_Eirunepe  = {
   kAtcZoneNameAmerica_Eirunepe /*name*/,
   0xf9b29683 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3068,7 +3068,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Eirunepe  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_El_Salvador[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_El_Salvador[]  = {
   //             -6:00    Salv    C%sT
   {
     &kAtcPolicySalv /*zone_policy*/,
@@ -3086,7 +3086,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_El_Salvador[]  = {
 
 static const char kAtcZoneNameAmerica_El_Salvador[]  = "America/El_Salvador";
 
-const struct AtcZoneInfo kAtcZoneAmerica_El_Salvador  = {
+const AtcZoneInfo kAtcZoneAmerica_El_Salvador  = {
   kAtcZoneNameAmerica_El_Salvador /*name*/,
   0x752ad652 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3102,7 +3102,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_El_Salvador  = {
 // Memory (32-bit): 80
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Fort_Nelson[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Fort_Nelson[]  = {
   //             -8:00    Canada    P%sT    2015 Mar  8  2:00
   {
     &kAtcPolicyCanada /*zone_policy*/,
@@ -3132,7 +3132,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Fort_Nelson[]  = {
 
 static const char kAtcZoneNameAmerica_Fort_Nelson[]  = "America/Fort_Nelson";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Fort_Nelson  = {
+const AtcZoneInfo kAtcZoneAmerica_Fort_Nelson  = {
   kAtcZoneNameAmerica_Fort_Nelson /*name*/,
   0x3f437e0f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3148,7 +3148,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Fort_Nelson  = {
 // Memory (32-bit): 146
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Fortaleza[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Fortaleza[]  = {
   //             -3:00    -    -03    1999 Sep 30
   {
     NULL /*zone_policy*/,
@@ -3214,7 +3214,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Fortaleza[]  = {
 
 static const char kAtcZoneNameAmerica_Fortaleza[]  = "America/Fortaleza";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Fortaleza  = {
+const AtcZoneInfo kAtcZoneAmerica_Fortaleza  = {
   kAtcZoneNameAmerica_Fortaleza /*name*/,
   0x2ad018ee /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3230,7 +3230,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Fortaleza  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Glace_Bay[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Glace_Bay[]  = {
   //             -4:00    Canada    A%sT
   {
     &kAtcPolicyCanada /*zone_policy*/,
@@ -3248,7 +3248,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Glace_Bay[]  = {
 
 static const char kAtcZoneNameAmerica_Glace_Bay[]  = "America/Glace_Bay";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Glace_Bay  = {
+const AtcZoneInfo kAtcZoneAmerica_Glace_Bay  = {
   kAtcZoneNameAmerica_Glace_Bay /*name*/,
   0x9681f8dd /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3264,7 +3264,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Glace_Bay  = {
 // Memory (32-bit): 78
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Goose_Bay[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Goose_Bay[]  = {
   //             -4:00    StJohns    A%sT    2011 Nov
   {
     &kAtcPolicyStJohns /*zone_policy*/,
@@ -3294,7 +3294,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Goose_Bay[]  = {
 
 static const char kAtcZoneNameAmerica_Goose_Bay[]  = "America/Goose_Bay";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Goose_Bay  = {
+const AtcZoneInfo kAtcZoneAmerica_Goose_Bay  = {
   kAtcZoneNameAmerica_Goose_Bay /*name*/,
   0xb649541e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3310,7 +3310,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Goose_Bay  = {
 // Memory (32-bit): 99
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Grand_Turk[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Grand_Turk[]  = {
   //             -5:00    US    E%sT    2015 Mar  8  2:00
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -3352,7 +3352,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Grand_Turk[]  = {
 
 static const char kAtcZoneNameAmerica_Grand_Turk[]  = "America/Grand_Turk";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Grand_Turk  = {
+const AtcZoneInfo kAtcZoneAmerica_Grand_Turk  = {
   kAtcZoneNameAmerica_Grand_Turk /*name*/,
   0x6e216197 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3368,7 +3368,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Grand_Turk  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Guatemala[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Guatemala[]  = {
   //             -6:00    Guat    C%sT
   {
     &kAtcPolicyGuat /*zone_policy*/,
@@ -3386,7 +3386,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Guatemala[]  = {
 
 static const char kAtcZoneNameAmerica_Guatemala[]  = "America/Guatemala";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Guatemala  = {
+const AtcZoneInfo kAtcZoneAmerica_Guatemala  = {
   kAtcZoneNameAmerica_Guatemala /*name*/,
   0x0c8259f7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3402,7 +3402,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Guatemala  = {
 // Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Guayaquil[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Guayaquil[]  = {
   //             -5:00    Ecuador    -05/-04
   {
     &kAtcPolicyEcuador /*zone_policy*/,
@@ -3420,7 +3420,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Guayaquil[]  = {
 
 static const char kAtcZoneNameAmerica_Guayaquil[]  = "America/Guayaquil";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Guayaquil  = {
+const AtcZoneInfo kAtcZoneAmerica_Guayaquil  = {
   kAtcZoneNameAmerica_Guayaquil /*name*/,
   0x17e64958 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3436,7 +3436,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Guayaquil  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Guyana[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Guyana[]  = {
   //             -4:00    -    -04
   {
     NULL /*zone_policy*/,
@@ -3454,7 +3454,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Guyana[]  = {
 
 static const char kAtcZoneNameAmerica_Guyana[]  = "America/Guyana";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Guyana  = {
+const AtcZoneInfo kAtcZoneAmerica_Guyana  = {
   kAtcZoneNameAmerica_Guyana /*name*/,
   0x9ff7bd0b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3470,7 +3470,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Guyana  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Halifax[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Halifax[]  = {
   //             -4:00    Canada    A%sT
   {
     &kAtcPolicyCanada /*zone_policy*/,
@@ -3488,7 +3488,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Halifax[]  = {
 
 static const char kAtcZoneNameAmerica_Halifax[]  = "America/Halifax";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Halifax  = {
+const AtcZoneInfo kAtcZoneAmerica_Halifax  = {
   kAtcZoneNameAmerica_Halifax /*name*/,
   0xbc5b7183 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3504,7 +3504,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Halifax  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Havana[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Havana[]  = {
   //             -5:00    Cuba    C%sT
   {
     &kAtcPolicyCuba /*zone_policy*/,
@@ -3522,7 +3522,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Havana[]  = {
 
 static const char kAtcZoneNameAmerica_Havana[]  = "America/Havana";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Havana  = {
+const AtcZoneInfo kAtcZoneAmerica_Havana  = {
   kAtcZoneNameAmerica_Havana /*name*/,
   0xa0e15675 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3538,7 +3538,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Havana  = {
 // Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Hermosillo[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Hermosillo[]  = {
   //             -7:00    Mexico    M%sT    1999
   {
     &kAtcPolicyMexico /*zone_policy*/,
@@ -3568,7 +3568,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Hermosillo[]  = {
 
 static const char kAtcZoneNameAmerica_Hermosillo[]  = "America/Hermosillo";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Hermosillo  = {
+const AtcZoneInfo kAtcZoneAmerica_Hermosillo  = {
   kAtcZoneNameAmerica_Hermosillo /*name*/,
   0x065d21c4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3584,7 +3584,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Hermosillo  = {
 // Memory (32-bit): 89
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Indiana_Indianapolis[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Indianapolis[]  = {
   //             -5:00    -    EST    2006
   {
     NULL /*zone_policy*/,
@@ -3614,7 +3614,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Indiana_Indianapolis[]  = {
 
 static const char kAtcZoneNameAmerica_Indiana_Indianapolis[]  = "America/Indiana/Indianapolis";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Indianapolis  = {
+const AtcZoneInfo kAtcZoneAmerica_Indiana_Indianapolis  = {
   kAtcZoneNameAmerica_Indiana_Indianapolis /*name*/,
   0x28a669a4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3630,7 +3630,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Indianapolis  = {
 // Memory (32-bit): 81
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Indiana_Knox[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Knox[]  = {
   //             -5:00    -    EST    2006 Apr  2  2:00
   {
     NULL /*zone_policy*/,
@@ -3660,7 +3660,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Indiana_Knox[]  = {
 
 static const char kAtcZoneNameAmerica_Indiana_Knox[]  = "America/Indiana/Knox";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Knox  = {
+const AtcZoneInfo kAtcZoneAmerica_Indiana_Knox  = {
   kAtcZoneNameAmerica_Indiana_Knox /*name*/,
   0x6554adc9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3676,7 +3676,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Knox  = {
 // Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Indiana_Marengo[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Marengo[]  = {
   //             -5:00    -    EST    2006
   {
     NULL /*zone_policy*/,
@@ -3706,7 +3706,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Indiana_Marengo[]  = {
 
 static const char kAtcZoneNameAmerica_Indiana_Marengo[]  = "America/Indiana/Marengo";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Marengo  = {
+const AtcZoneInfo kAtcZoneAmerica_Indiana_Marengo  = {
   kAtcZoneNameAmerica_Indiana_Marengo /*name*/,
   0x2feeee72 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3722,7 +3722,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Marengo  = {
 // Memory (32-bit): 107
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Indiana_Petersburg[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Petersburg[]  = {
   //             -5:00    -    EST    2006 Apr  2  2:00
   {
     NULL /*zone_policy*/,
@@ -3764,7 +3764,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Indiana_Petersburg[]  = {
 
 static const char kAtcZoneNameAmerica_Indiana_Petersburg[]  = "America/Indiana/Petersburg";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Petersburg  = {
+const AtcZoneInfo kAtcZoneAmerica_Indiana_Petersburg  = {
   kAtcZoneNameAmerica_Indiana_Petersburg /*name*/,
   0x94ac7acc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3780,7 +3780,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Petersburg  = {
 // Memory (32-bit): 86
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Indiana_Tell_City[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Tell_City[]  = {
   //             -5:00    -    EST    2006 Apr  2  2:00
   {
     NULL /*zone_policy*/,
@@ -3810,7 +3810,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Indiana_Tell_City[]  = {
 
 static const char kAtcZoneNameAmerica_Indiana_Tell_City[]  = "America/Indiana/Tell_City";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Tell_City  = {
+const AtcZoneInfo kAtcZoneAmerica_Indiana_Tell_City  = {
   kAtcZoneNameAmerica_Indiana_Tell_City /*name*/,
   0x09263612 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3826,7 +3826,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Tell_City  = {
 // Memory (32-bit): 82
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Indiana_Vevay[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vevay[]  = {
   //             -5:00    -    EST    2006
   {
     NULL /*zone_policy*/,
@@ -3856,7 +3856,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Indiana_Vevay[]  = {
 
 static const char kAtcZoneNameAmerica_Indiana_Vevay[]  = "America/Indiana/Vevay";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Vevay  = {
+const AtcZoneInfo kAtcZoneAmerica_Indiana_Vevay  = {
   kAtcZoneNameAmerica_Indiana_Vevay /*name*/,
   0x10aca054 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3872,7 +3872,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Vevay  = {
 // Memory (32-bit): 106
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Indiana_Vincennes[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vincennes[]  = {
   //             -5:00    -    EST    2006 Apr  2  2:00
   {
     NULL /*zone_policy*/,
@@ -3914,7 +3914,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Indiana_Vincennes[]  = {
 
 static const char kAtcZoneNameAmerica_Indiana_Vincennes[]  = "America/Indiana/Vincennes";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Vincennes  = {
+const AtcZoneInfo kAtcZoneAmerica_Indiana_Vincennes  = {
   kAtcZoneNameAmerica_Indiana_Vincennes /*name*/,
   0x28a0b212 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3930,7 +3930,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Vincennes  = {
 // Memory (32-bit): 104
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Indiana_Winamac[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Winamac[]  = {
   //             -5:00    -    EST    2006 Apr  2  2:00
   {
     NULL /*zone_policy*/,
@@ -3972,7 +3972,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Indiana_Winamac[]  = {
 
 static const char kAtcZoneNameAmerica_Indiana_Winamac[]  = "America/Indiana/Winamac";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Winamac  = {
+const AtcZoneInfo kAtcZoneAmerica_Indiana_Winamac  = {
   kAtcZoneNameAmerica_Indiana_Winamac /*name*/,
   0x4413fa69 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -3988,7 +3988,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Indiana_Winamac  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Inuvik[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Inuvik[]  = {
   //             -7:00    Canada    M%sT
   {
     &kAtcPolicyCanada /*zone_policy*/,
@@ -4006,7 +4006,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Inuvik[]  = {
 
 static const char kAtcZoneNameAmerica_Inuvik[]  = "America/Inuvik";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Inuvik  = {
+const AtcZoneInfo kAtcZoneAmerica_Inuvik  = {
   kAtcZoneNameAmerica_Inuvik /*name*/,
   0xa42189fc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4022,7 +4022,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Inuvik  = {
 // Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Iqaluit[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Iqaluit[]  = {
   //             -5:00    NT_YK    E%sT    1999 Oct 31  2:00
   {
     &kAtcPolicyNT_YK /*zone_policy*/,
@@ -4064,7 +4064,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Iqaluit[]  = {
 
 static const char kAtcZoneNameAmerica_Iqaluit[]  = "America/Iqaluit";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Iqaluit  = {
+const AtcZoneInfo kAtcZoneAmerica_Iqaluit  = {
   kAtcZoneNameAmerica_Iqaluit /*name*/,
   0x2de310bf /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4080,7 +4080,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Iqaluit  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Jamaica[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Jamaica[]  = {
   //             -5:00    -    EST
   {
     NULL /*zone_policy*/,
@@ -4098,7 +4098,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Jamaica[]  = {
 
 static const char kAtcZoneNameAmerica_Jamaica[]  = "America/Jamaica";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Jamaica  = {
+const AtcZoneInfo kAtcZoneAmerica_Jamaica  = {
   kAtcZoneNameAmerica_Jamaica /*name*/,
   0x565dad6c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4114,7 +4114,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Jamaica  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Juneau[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Juneau[]  = {
   //              -9:00    US    AK%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -4132,7 +4132,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Juneau[]  = {
 
 static const char kAtcZoneNameAmerica_Juneau[]  = "America/Juneau";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Juneau  = {
+const AtcZoneInfo kAtcZoneAmerica_Juneau  = {
   kAtcZoneNameAmerica_Juneau /*name*/,
   0xa6f13e2e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4148,7 +4148,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Juneau  = {
 // Memory (32-bit): 68
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Kentucky_Louisville[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Louisville[]  = {
   //             -5:00    US    E%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -4166,7 +4166,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Kentucky_Louisville[]  = {
 
 static const char kAtcZoneNameAmerica_Kentucky_Louisville[]  = "America/Kentucky/Louisville";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Kentucky_Louisville  = {
+const AtcZoneInfo kAtcZoneAmerica_Kentucky_Louisville  = {
   kAtcZoneNameAmerica_Kentucky_Louisville /*name*/,
   0x1a21024b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4182,7 +4182,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Kentucky_Louisville  = {
 // Memory (32-bit): 88
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Kentucky_Monticello[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Monticello[]  = {
   //             -6:00    US    C%sT    2000 Oct 29  2:00
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -4212,7 +4212,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Kentucky_Monticello[]  = {
 
 static const char kAtcZoneNameAmerica_Kentucky_Monticello[]  = "America/Kentucky/Monticello";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Kentucky_Monticello  = {
+const AtcZoneInfo kAtcZoneAmerica_Kentucky_Monticello  = {
   kAtcZoneNameAmerica_Kentucky_Monticello /*name*/,
   0xde71c439 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4228,7 +4228,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Kentucky_Monticello  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_La_Paz[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_La_Paz[]  = {
   //             -4:00    -    -04
   {
     NULL /*zone_policy*/,
@@ -4246,7 +4246,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_La_Paz[]  = {
 
 static const char kAtcZoneNameAmerica_La_Paz[]  = "America/La_Paz";
 
-const struct AtcZoneInfo kAtcZoneAmerica_La_Paz  = {
+const AtcZoneInfo kAtcZoneAmerica_La_Paz  = {
   kAtcZoneNameAmerica_La_Paz /*name*/,
   0xaa29125d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4262,7 +4262,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_La_Paz  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Lima[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Lima[]  = {
   //             -5:00    Peru    -05/-04
   {
     &kAtcPolicyPeru /*zone_policy*/,
@@ -4280,7 +4280,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Lima[]  = {
 
 static const char kAtcZoneNameAmerica_Lima[]  = "America/Lima";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Lima  = {
+const AtcZoneInfo kAtcZoneAmerica_Lima  = {
   kAtcZoneNameAmerica_Lima /*name*/,
   0x980468c9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4296,7 +4296,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Lima  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Los_Angeles[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Los_Angeles[]  = {
   //             -8:00    US    P%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -4314,7 +4314,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Los_Angeles[]  = {
 
 static const char kAtcZoneNameAmerica_Los_Angeles[]  = "America/Los_Angeles";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Los_Angeles  = {
+const AtcZoneInfo kAtcZoneAmerica_Los_Angeles  = {
   kAtcZoneNameAmerica_Los_Angeles /*name*/,
   0xb7f7e8f2 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4330,7 +4330,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Los_Angeles  = {
 // Memory (32-bit): 143
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Maceio[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Maceio[]  = {
   //             -3:00    -    -03    1999 Sep 30
   {
     NULL /*zone_policy*/,
@@ -4396,7 +4396,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Maceio[]  = {
 
 static const char kAtcZoneNameAmerica_Maceio[]  = "America/Maceio";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Maceio  = {
+const AtcZoneInfo kAtcZoneAmerica_Maceio  = {
   kAtcZoneNameAmerica_Maceio /*name*/,
   0xac80c6d4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4412,7 +4412,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Maceio  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Managua[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Managua[]  = {
   //             -6:00    Nic    C%sT
   {
     &kAtcPolicyNic /*zone_policy*/,
@@ -4430,7 +4430,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Managua[]  = {
 
 static const char kAtcZoneNameAmerica_Managua[]  = "America/Managua";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Managua  = {
+const AtcZoneInfo kAtcZoneAmerica_Managua  = {
   kAtcZoneNameAmerica_Managua /*name*/,
   0x3d5e7600 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4446,7 +4446,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Managua  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Manaus[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Manaus[]  = {
   //             -4:00    -    -04
   {
     NULL /*zone_policy*/,
@@ -4464,7 +4464,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Manaus[]  = {
 
 static const char kAtcZoneNameAmerica_Manaus[]  = "America/Manaus";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Manaus  = {
+const AtcZoneInfo kAtcZoneAmerica_Manaus  = {
   kAtcZoneNameAmerica_Manaus /*name*/,
   0xac86bf8b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4480,7 +4480,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Manaus  = {
 // Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Martinique[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Martinique[]  = {
   //             -4:00    -    AST
   {
     NULL /*zone_policy*/,
@@ -4498,7 +4498,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Martinique[]  = {
 
 static const char kAtcZoneNameAmerica_Martinique[]  = "America/Martinique";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Martinique  = {
+const AtcZoneInfo kAtcZoneAmerica_Martinique  = {
   kAtcZoneNameAmerica_Martinique /*name*/,
   0x551e84c5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4514,7 +4514,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Martinique  = {
 // Memory (32-bit): 78
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Matamoros[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Matamoros[]  = {
   //             -6:00    Mexico    C%sT    2010
   {
     &kAtcPolicyMexico /*zone_policy*/,
@@ -4544,7 +4544,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Matamoros[]  = {
 
 static const char kAtcZoneNameAmerica_Matamoros[]  = "America/Matamoros";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Matamoros  = {
+const AtcZoneInfo kAtcZoneAmerica_Matamoros  = {
   kAtcZoneNameAmerica_Matamoros /*name*/,
   0xdd1b0259 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4560,7 +4560,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Matamoros  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Mazatlan[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Mazatlan[]  = {
   //             -7:00    Mexico    M%sT
   {
     &kAtcPolicyMexico /*zone_policy*/,
@@ -4578,7 +4578,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Mazatlan[]  = {
 
 static const char kAtcZoneNameAmerica_Mazatlan[]  = "America/Mazatlan";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Mazatlan  = {
+const AtcZoneInfo kAtcZoneAmerica_Mazatlan  = {
   kAtcZoneNameAmerica_Mazatlan /*name*/,
   0x0532189e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4594,7 +4594,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Mazatlan  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Menominee[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Menominee[]  = {
   //             -6:00    US    C%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -4612,7 +4612,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Menominee[]  = {
 
 static const char kAtcZoneNameAmerica_Menominee[]  = "America/Menominee";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Menominee  = {
+const AtcZoneInfo kAtcZoneAmerica_Menominee  = {
   kAtcZoneNameAmerica_Menominee /*name*/,
   0xe0e9c583 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4628,7 +4628,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Menominee  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Merida[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Merida[]  = {
   //             -6:00    Mexico    C%sT
   {
     &kAtcPolicyMexico /*zone_policy*/,
@@ -4646,7 +4646,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Merida[]  = {
 
 static const char kAtcZoneNameAmerica_Merida[]  = "America/Merida";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Merida  = {
+const AtcZoneInfo kAtcZoneAmerica_Merida  = {
   kAtcZoneNameAmerica_Merida /*name*/,
   0xacd172d8 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4662,7 +4662,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Merida  = {
 // Memory (32-bit): 121
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Metlakatla[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Metlakatla[]  = {
   //              -8:00    -    PST    2015 Nov  1  2:00
   {
     NULL /*zone_policy*/,
@@ -4716,7 +4716,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Metlakatla[]  = {
 
 static const char kAtcZoneNameAmerica_Metlakatla[]  = "America/Metlakatla";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Metlakatla  = {
+const AtcZoneInfo kAtcZoneAmerica_Metlakatla  = {
   kAtcZoneNameAmerica_Metlakatla /*name*/,
   0x84de2686 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4732,7 +4732,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Metlakatla  = {
 // Memory (32-bit): 100
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Mexico_City[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Mexico_City[]  = {
   //             -6:00    Mexico    C%sT    2001 Sep 30  2:00
   {
     &kAtcPolicyMexico /*zone_policy*/,
@@ -4774,7 +4774,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Mexico_City[]  = {
 
 static const char kAtcZoneNameAmerica_Mexico_City[]  = "America/Mexico_City";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Mexico_City  = {
+const AtcZoneInfo kAtcZoneAmerica_Mexico_City  = {
   kAtcZoneNameAmerica_Mexico_City /*name*/,
   0xd0d93f43 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4790,7 +4790,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Mexico_City  = {
 // Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Miquelon[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Miquelon[]  = {
   //             -3:00    Canada    -03/-02
   {
     &kAtcPolicyCanada /*zone_policy*/,
@@ -4808,7 +4808,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Miquelon[]  = {
 
 static const char kAtcZoneNameAmerica_Miquelon[]  = "America/Miquelon";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Miquelon  = {
+const AtcZoneInfo kAtcZoneAmerica_Miquelon  = {
   kAtcZoneNameAmerica_Miquelon /*name*/,
   0x59674330 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4824,7 +4824,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Miquelon  = {
 // Memory (32-bit): 76
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Moncton[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Moncton[]  = {
   //             -4:00    Moncton    A%sT    2007
   {
     &kAtcPolicyMoncton /*zone_policy*/,
@@ -4854,7 +4854,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Moncton[]  = {
 
 static const char kAtcZoneNameAmerica_Moncton[]  = "America/Moncton";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Moncton  = {
+const AtcZoneInfo kAtcZoneAmerica_Moncton  = {
   kAtcZoneNameAmerica_Moncton /*name*/,
   0x5e07fe24 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4870,7 +4870,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Moncton  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Monterrey[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Monterrey[]  = {
   //             -6:00    Mexico    C%sT
   {
     &kAtcPolicyMexico /*zone_policy*/,
@@ -4888,7 +4888,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Monterrey[]  = {
 
 static const char kAtcZoneNameAmerica_Monterrey[]  = "America/Monterrey";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Monterrey  = {
+const AtcZoneInfo kAtcZoneAmerica_Monterrey  = {
   kAtcZoneNameAmerica_Monterrey /*name*/,
   0x269a1deb /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4904,7 +4904,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Monterrey  = {
 // Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Montevideo[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Montevideo[]  = {
   //             -3:00    Uruguay    -03/-02
   {
     &kAtcPolicyUruguay /*zone_policy*/,
@@ -4922,7 +4922,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Montevideo[]  = {
 
 static const char kAtcZoneNameAmerica_Montevideo[]  = "America/Montevideo";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Montevideo  = {
+const AtcZoneInfo kAtcZoneAmerica_Montevideo  = {
   kAtcZoneNameAmerica_Montevideo /*name*/,
   0xfa214780 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4938,7 +4938,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Montevideo  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_New_York[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_New_York[]  = {
   //             -5:00    US    E%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -4956,7 +4956,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_New_York[]  = {
 
 static const char kAtcZoneNameAmerica_New_York[]  = "America/New_York";
 
-const struct AtcZoneInfo kAtcZoneAmerica_New_York  = {
+const AtcZoneInfo kAtcZoneAmerica_New_York  = {
   kAtcZoneNameAmerica_New_York /*name*/,
   0x1e2a7654 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -4972,7 +4972,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_New_York  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Nipigon[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Nipigon[]  = {
   //             -5:00    Canada    E%sT
   {
     &kAtcPolicyCanada /*zone_policy*/,
@@ -4990,7 +4990,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Nipigon[]  = {
 
 static const char kAtcZoneNameAmerica_Nipigon[]  = "America/Nipigon";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Nipigon  = {
+const AtcZoneInfo kAtcZoneAmerica_Nipigon  = {
   kAtcZoneNameAmerica_Nipigon /*name*/,
   0x9d2a8b1a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5006,7 +5006,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Nipigon  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Nome[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Nome[]  = {
   //              -9:00    US    AK%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -5024,7 +5024,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Nome[]  = {
 
 static const char kAtcZoneNameAmerica_Nome[]  = "America/Nome";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Nome  = {
+const AtcZoneInfo kAtcZoneAmerica_Nome  = {
   kAtcZoneNameAmerica_Nome /*name*/,
   0x98059b15 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5040,7 +5040,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Nome  = {
 // Memory (32-bit): 144
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Noronha[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Noronha[]  = {
   //             -2:00    -    -02    1999 Sep 30
   {
     NULL /*zone_policy*/,
@@ -5106,7 +5106,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Noronha[]  = {
 
 static const char kAtcZoneNameAmerica_Noronha[]  = "America/Noronha";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Noronha  = {
+const AtcZoneInfo kAtcZoneAmerica_Noronha  = {
   kAtcZoneNameAmerica_Noronha /*name*/,
   0xab5116fb /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5122,7 +5122,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Noronha  = {
 // Memory (32-bit): 88
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Beulah[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Beulah[]  = {
   //             -7:00    US    M%sT    2010 Nov  7  2:00
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -5152,7 +5152,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Beulah[]  = {
 
 static const char kAtcZoneNameAmerica_North_Dakota_Beulah[]  = "America/North_Dakota/Beulah";
 
-const struct AtcZoneInfo kAtcZoneAmerica_North_Dakota_Beulah  = {
+const AtcZoneInfo kAtcZoneAmerica_North_Dakota_Beulah  = {
   kAtcZoneNameAmerica_North_Dakota_Beulah /*name*/,
   0x9b52b384 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5168,7 +5168,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_North_Dakota_Beulah  = {
 // Memory (32-bit): 68
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Center[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Center[]  = {
   //             -6:00    US    C%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -5186,7 +5186,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Center[]  = {
 
 static const char kAtcZoneNameAmerica_North_Dakota_Center[]  = "America/North_Dakota/Center";
 
-const struct AtcZoneInfo kAtcZoneAmerica_North_Dakota_Center  = {
+const AtcZoneInfo kAtcZoneAmerica_North_Dakota_Center  = {
   kAtcZoneNameAmerica_North_Dakota_Center /*name*/,
   0x9da42814 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5202,7 +5202,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_North_Dakota_Center  = {
 // Memory (32-bit): 91
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_North_Dakota_New_Salem[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_New_Salem[]  = {
   //             -7:00    US    M%sT    2003 Oct 26  2:00
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -5232,7 +5232,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_North_Dakota_New_Salem[]  = {
 
 static const char kAtcZoneNameAmerica_North_Dakota_New_Salem[]  = "America/North_Dakota/New_Salem";
 
-const struct AtcZoneInfo kAtcZoneAmerica_North_Dakota_New_Salem  = {
+const AtcZoneInfo kAtcZoneAmerica_North_Dakota_New_Salem  = {
   kAtcZoneNameAmerica_North_Dakota_New_Salem /*name*/,
   0x04f9958e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5248,7 +5248,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_North_Dakota_New_Salem  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Nuuk[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Nuuk[]  = {
   //             -3:00    EU    -03/-02
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -5266,7 +5266,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Nuuk[]  = {
 
 static const char kAtcZoneNameAmerica_Nuuk[]  = "America/Nuuk";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Nuuk  = {
+const AtcZoneInfo kAtcZoneAmerica_Nuuk  = {
   kAtcZoneNameAmerica_Nuuk /*name*/,
   0x9805b5a9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5282,7 +5282,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Nuuk  = {
 // Memory (32-bit): 76
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Ojinaga[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Ojinaga[]  = {
   //             -7:00    Mexico    M%sT    2010
   {
     &kAtcPolicyMexico /*zone_policy*/,
@@ -5312,7 +5312,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Ojinaga[]  = {
 
 static const char kAtcZoneNameAmerica_Ojinaga[]  = "America/Ojinaga";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Ojinaga  = {
+const AtcZoneInfo kAtcZoneAmerica_Ojinaga  = {
   kAtcZoneNameAmerica_Ojinaga /*name*/,
   0xebfde83f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5328,7 +5328,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Ojinaga  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Panama[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Panama[]  = {
   //             -5:00    -    EST
   {
     NULL /*zone_policy*/,
@@ -5346,7 +5346,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Panama[]  = {
 
 static const char kAtcZoneNameAmerica_Panama[]  = "America/Panama";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Panama  = {
+const AtcZoneInfo kAtcZoneAmerica_Panama  = {
   kAtcZoneNameAmerica_Panama /*name*/,
   0xb3863854 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5362,7 +5362,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Panama  = {
 // Memory (32-bit): 100
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Pangnirtung[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Pangnirtung[]  = {
   //             -5:00    Canada    E%sT    1999 Oct 31  2:00
   {
     &kAtcPolicyCanada /*zone_policy*/,
@@ -5404,7 +5404,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Pangnirtung[]  = {
 
 static const char kAtcZoneNameAmerica_Pangnirtung[]  = "America/Pangnirtung";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Pangnirtung  = {
+const AtcZoneInfo kAtcZoneAmerica_Pangnirtung  = {
   kAtcZoneNameAmerica_Pangnirtung /*name*/,
   0x2d999193 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5420,7 +5420,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Pangnirtung  = {
 // Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Paramaribo[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Paramaribo[]  = {
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
@@ -5438,7 +5438,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Paramaribo[]  = {
 
 static const char kAtcZoneNameAmerica_Paramaribo[]  = "America/Paramaribo";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Paramaribo  = {
+const AtcZoneInfo kAtcZoneAmerica_Paramaribo  = {
   kAtcZoneNameAmerica_Paramaribo /*name*/,
   0xb319e4c4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5454,7 +5454,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Paramaribo  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Phoenix[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Phoenix[]  = {
   //             -7:00    -    MST
   {
     NULL /*zone_policy*/,
@@ -5472,7 +5472,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Phoenix[]  = {
 
 static const char kAtcZoneNameAmerica_Phoenix[]  = "America/Phoenix";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Phoenix  = {
+const AtcZoneInfo kAtcZoneAmerica_Phoenix  = {
   kAtcZoneNameAmerica_Phoenix /*name*/,
   0x34b5af01 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5488,7 +5488,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Phoenix  = {
 // Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Port_au_Prince[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Port_au_Prince[]  = {
   //             -5:00    Haiti    E%sT
   {
     &kAtcPolicyHaiti /*zone_policy*/,
@@ -5506,7 +5506,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Port_au_Prince[]  = {
 
 static const char kAtcZoneNameAmerica_Port_au_Prince[]  = "America/Port-au-Prince";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Port_au_Prince  = {
+const AtcZoneInfo kAtcZoneAmerica_Port_au_Prince  = {
   kAtcZoneNameAmerica_Port_au_Prince /*name*/,
   0x8e4a7bdc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5522,7 +5522,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Port_au_Prince  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Porto_Velho[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Porto_Velho[]  = {
   //             -4:00    -    -04
   {
     NULL /*zone_policy*/,
@@ -5540,7 +5540,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Porto_Velho[]  = {
 
 static const char kAtcZoneNameAmerica_Porto_Velho[]  = "America/Porto_Velho";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Porto_Velho  = {
+const AtcZoneInfo kAtcZoneAmerica_Porto_Velho  = {
   kAtcZoneNameAmerica_Porto_Velho /*name*/,
   0x6b1aac77 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5556,7 +5556,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Porto_Velho  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Puerto_Rico[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Puerto_Rico[]  = {
   //             -4:00    -    AST
   {
     NULL /*zone_policy*/,
@@ -5574,7 +5574,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Puerto_Rico[]  = {
 
 static const char kAtcZoneNameAmerica_Puerto_Rico[]  = "America/Puerto_Rico";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Puerto_Rico  = {
+const AtcZoneInfo kAtcZoneAmerica_Puerto_Rico  = {
   kAtcZoneNameAmerica_Puerto_Rico /*name*/,
   0x6752ca31 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5590,7 +5590,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Puerto_Rico  = {
 // Memory (32-bit): 85
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Punta_Arenas[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Punta_Arenas[]  = {
   //             -4:00    Chile    -04/-03    2016 Dec  4
   {
     &kAtcPolicyChile /*zone_policy*/,
@@ -5620,7 +5620,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Punta_Arenas[]  = {
 
 static const char kAtcZoneNameAmerica_Punta_Arenas[]  = "America/Punta_Arenas";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Punta_Arenas  = {
+const AtcZoneInfo kAtcZoneAmerica_Punta_Arenas  = {
   kAtcZoneNameAmerica_Punta_Arenas /*name*/,
   0xc2c3bce7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5636,7 +5636,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Punta_Arenas  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Rainy_River[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Rainy_River[]  = {
   //             -6:00    Canada    C%sT
   {
     &kAtcPolicyCanada /*zone_policy*/,
@@ -5654,7 +5654,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Rainy_River[]  = {
 
 static const char kAtcZoneNameAmerica_Rainy_River[]  = "America/Rainy_River";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Rainy_River  = {
+const AtcZoneInfo kAtcZoneAmerica_Rainy_River  = {
   kAtcZoneNameAmerica_Rainy_River /*name*/,
   0x9cd58a10 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5670,7 +5670,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Rainy_River  = {
 // Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Rankin_Inlet[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Rankin_Inlet[]  = {
   //             -6:00    NT_YK    C%sT    2000 Oct 29  2:00
   {
     &kAtcPolicyNT_YK /*zone_policy*/,
@@ -5712,7 +5712,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Rankin_Inlet[]  = {
 
 static const char kAtcZoneNameAmerica_Rankin_Inlet[]  = "America/Rankin_Inlet";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Rankin_Inlet  = {
+const AtcZoneInfo kAtcZoneAmerica_Rankin_Inlet  = {
   kAtcZoneNameAmerica_Rankin_Inlet /*name*/,
   0xc8de4984 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5728,7 +5728,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Rankin_Inlet  = {
 // Memory (32-bit): 143
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Recife[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Recife[]  = {
   //             -3:00    -    -03    1999 Sep 30
   {
     NULL /*zone_policy*/,
@@ -5794,7 +5794,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Recife[]  = {
 
 static const char kAtcZoneNameAmerica_Recife[]  = "America/Recife";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Recife  = {
+const AtcZoneInfo kAtcZoneAmerica_Recife  = {
   kAtcZoneNameAmerica_Recife /*name*/,
   0xb8730494 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5810,7 +5810,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Recife  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Regina[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Regina[]  = {
   //             -6:00    -    CST
   {
     NULL /*zone_policy*/,
@@ -5828,7 +5828,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Regina[]  = {
 
 static const char kAtcZoneNameAmerica_Regina[]  = "America/Regina";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Regina  = {
+const AtcZoneInfo kAtcZoneAmerica_Regina  = {
   kAtcZoneNameAmerica_Regina /*name*/,
   0xb875371c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5844,7 +5844,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Regina  = {
 // Memory (32-bit): 137
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Resolute[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Resolute[]  = {
   //             -6:00    NT_YK    C%sT    2000 Oct 29  2:00
   {
     &kAtcPolicyNT_YK /*zone_policy*/,
@@ -5910,7 +5910,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Resolute[]  = {
 
 static const char kAtcZoneNameAmerica_Resolute[]  = "America/Resolute";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Resolute  = {
+const AtcZoneInfo kAtcZoneAmerica_Resolute  = {
   kAtcZoneNameAmerica_Resolute /*name*/,
   0xc7093459 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5926,7 +5926,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Resolute  = {
 // Memory (32-bit): 99
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Rio_Branco[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Rio_Branco[]  = {
   //             -5:00    -    -05    2008 Jun 24  0:00
   {
     NULL /*zone_policy*/,
@@ -5968,7 +5968,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Rio_Branco[]  = {
 
 static const char kAtcZoneNameAmerica_Rio_Branco[]  = "America/Rio_Branco";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Rio_Branco  = {
+const AtcZoneInfo kAtcZoneAmerica_Rio_Branco  = {
   kAtcZoneNameAmerica_Rio_Branco /*name*/,
   0x9d352764 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -5984,7 +5984,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Rio_Branco  = {
 // Memory (32-bit): 77
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Santarem[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Santarem[]  = {
   //             -4:00    -    -04    2008 Jun 24  0:00
   {
     NULL /*zone_policy*/,
@@ -6014,7 +6014,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Santarem[]  = {
 
 static const char kAtcZoneNameAmerica_Santarem[]  = "America/Santarem";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Santarem  = {
+const AtcZoneInfo kAtcZoneAmerica_Santarem  = {
   kAtcZoneNameAmerica_Santarem /*name*/,
   0x740caec1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6030,7 +6030,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Santarem  = {
 // Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Santiago[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Santiago[]  = {
   //             -4:00    Chile    -04/-03
   {
     &kAtcPolicyChile /*zone_policy*/,
@@ -6048,7 +6048,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Santiago[]  = {
 
 static const char kAtcZoneNameAmerica_Santiago[]  = "America/Santiago";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Santiago  = {
+const AtcZoneInfo kAtcZoneAmerica_Santiago  = {
   kAtcZoneNameAmerica_Santiago /*name*/,
   0x7410c9bc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6064,7 +6064,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Santiago  = {
 // Memory (32-bit): 102
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Santo_Domingo[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Santo_Domingo[]  = {
   //             -4:00    -    AST    2000 Oct 29  2:00
   {
     NULL /*zone_policy*/,
@@ -6106,7 +6106,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Santo_Domingo[]  = {
 
 static const char kAtcZoneNameAmerica_Santo_Domingo[]  = "America/Santo_Domingo";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Santo_Domingo  = {
+const AtcZoneInfo kAtcZoneAmerica_Santo_Domingo  = {
   kAtcZoneNameAmerica_Santo_Domingo /*name*/,
   0x75a0d177 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6122,7 +6122,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Santo_Domingo  = {
 // Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Sao_Paulo[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Sao_Paulo[]  = {
   //             -3:00    Brazil    -03/-02
   {
     &kAtcPolicyBrazil /*zone_policy*/,
@@ -6140,7 +6140,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Sao_Paulo[]  = {
 
 static const char kAtcZoneNameAmerica_Sao_Paulo[]  = "America/Sao_Paulo";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Sao_Paulo  = {
+const AtcZoneInfo kAtcZoneAmerica_Sao_Paulo  = {
   kAtcZoneNameAmerica_Sao_Paulo /*name*/,
   0x1063bfc9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6156,7 +6156,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Sao_Paulo  = {
 // Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Scoresbysund[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Scoresbysund[]  = {
   //             -1:00    EU    -01/+00
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -6174,7 +6174,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Scoresbysund[]  = {
 
 static const char kAtcZoneNameAmerica_Scoresbysund[]  = "America/Scoresbysund";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Scoresbysund  = {
+const AtcZoneInfo kAtcZoneAmerica_Scoresbysund  = {
   kAtcZoneNameAmerica_Scoresbysund /*name*/,
   0x123f8d2a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6190,7 +6190,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Scoresbysund  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Sitka[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Sitka[]  = {
   //              -9:00    US    AK%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -6208,7 +6208,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Sitka[]  = {
 
 static const char kAtcZoneNameAmerica_Sitka[]  = "America/Sitka";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Sitka  = {
+const AtcZoneInfo kAtcZoneAmerica_Sitka  = {
   kAtcZoneNameAmerica_Sitka /*name*/,
   0x99104ce2 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6224,7 +6224,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Sitka  = {
 // Memory (32-bit): 77
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_St_Johns[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_St_Johns[]  = {
   //             -3:30    StJohns    N%sT    2011 Nov
   {
     &kAtcPolicyStJohns /*zone_policy*/,
@@ -6254,7 +6254,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_St_Johns[]  = {
 
 static const char kAtcZoneNameAmerica_St_Johns[]  = "America/St_Johns";
 
-const struct AtcZoneInfo kAtcZoneAmerica_St_Johns  = {
+const AtcZoneInfo kAtcZoneAmerica_St_Johns  = {
   kAtcZoneNameAmerica_St_Johns /*name*/,
   0x04b14e6e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6270,7 +6270,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_St_Johns  = {
 // Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Swift_Current[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Swift_Current[]  = {
   //             -6:00    -    CST
   {
     NULL /*zone_policy*/,
@@ -6288,7 +6288,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Swift_Current[]  = {
 
 static const char kAtcZoneNameAmerica_Swift_Current[]  = "America/Swift_Current";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Swift_Current  = {
+const AtcZoneInfo kAtcZoneAmerica_Swift_Current  = {
   kAtcZoneNameAmerica_Swift_Current /*name*/,
   0xdef98e55 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6304,7 +6304,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Swift_Current  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Tegucigalpa[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Tegucigalpa[]  = {
   //             -6:00    Hond    C%sT
   {
     &kAtcPolicyHond /*zone_policy*/,
@@ -6322,7 +6322,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Tegucigalpa[]  = {
 
 static const char kAtcZoneNameAmerica_Tegucigalpa[]  = "America/Tegucigalpa";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Tegucigalpa  = {
+const AtcZoneInfo kAtcZoneAmerica_Tegucigalpa  = {
   kAtcZoneNameAmerica_Tegucigalpa /*name*/,
   0xbfd6fd4c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6338,7 +6338,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Tegucigalpa  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Thule[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Thule[]  = {
   //             -4:00    Thule    A%sT
   {
     &kAtcPolicyThule /*zone_policy*/,
@@ -6356,7 +6356,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Thule[]  = {
 
 static const char kAtcZoneNameAmerica_Thule[]  = "America/Thule";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Thule  = {
+const AtcZoneInfo kAtcZoneAmerica_Thule  = {
   kAtcZoneNameAmerica_Thule /*name*/,
   0x9921dd68 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6372,7 +6372,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Thule  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Thunder_Bay[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Thunder_Bay[]  = {
   //             -5:00    Canada    E%sT
   {
     &kAtcPolicyCanada /*zone_policy*/,
@@ -6390,7 +6390,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Thunder_Bay[]  = {
 
 static const char kAtcZoneNameAmerica_Thunder_Bay[]  = "America/Thunder_Bay";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Thunder_Bay  = {
+const AtcZoneInfo kAtcZoneAmerica_Thunder_Bay  = {
   kAtcZoneNameAmerica_Thunder_Bay /*name*/,
   0xf962e71b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6406,7 +6406,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Thunder_Bay  = {
 // Memory (32-bit): 116
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Tijuana[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Tijuana[]  = {
   //             -8:00    Mexico    P%sT    2001
   {
     &kAtcPolicyMexico /*zone_policy*/,
@@ -6460,7 +6460,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Tijuana[]  = {
 
 static const char kAtcZoneNameAmerica_Tijuana[]  = "America/Tijuana";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Tijuana  = {
+const AtcZoneInfo kAtcZoneAmerica_Tijuana  = {
   kAtcZoneNameAmerica_Tijuana /*name*/,
   0x6aa1df72 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6476,7 +6476,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Tijuana  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Toronto[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Toronto[]  = {
   //             -5:00    Canada    E%sT
   {
     &kAtcPolicyCanada /*zone_policy*/,
@@ -6494,7 +6494,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Toronto[]  = {
 
 static const char kAtcZoneNameAmerica_Toronto[]  = "America/Toronto";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Toronto  = {
+const AtcZoneInfo kAtcZoneAmerica_Toronto  = {
   kAtcZoneNameAmerica_Toronto /*name*/,
   0x792e851b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6510,7 +6510,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Toronto  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Vancouver[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Vancouver[]  = {
   //             -8:00    Canada    P%sT
   {
     &kAtcPolicyCanada /*zone_policy*/,
@@ -6528,7 +6528,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Vancouver[]  = {
 
 static const char kAtcZoneNameAmerica_Vancouver[]  = "America/Vancouver";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Vancouver  = {
+const AtcZoneInfo kAtcZoneAmerica_Vancouver  = {
   kAtcZoneNameAmerica_Vancouver /*name*/,
   0x2c6f6b1f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6544,7 +6544,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Vancouver  = {
 // Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Whitehorse[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Whitehorse[]  = {
   //             -8:00    Canada    P%sT    2020 Nov  1
   {
     &kAtcPolicyCanada /*zone_policy*/,
@@ -6574,7 +6574,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Whitehorse[]  = {
 
 static const char kAtcZoneNameAmerica_Whitehorse[]  = "America/Whitehorse";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Whitehorse  = {
+const AtcZoneInfo kAtcZoneAmerica_Whitehorse  = {
   kAtcZoneNameAmerica_Whitehorse /*name*/,
   0x54e0e3e8 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6590,7 +6590,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Whitehorse  = {
 // Memory (32-bit): 77
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Winnipeg[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Winnipeg[]  = {
   //             -6:00    Winn    C%sT    2006
   {
     &kAtcPolicyWinn /*zone_policy*/,
@@ -6620,7 +6620,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Winnipeg[]  = {
 
 static const char kAtcZoneNameAmerica_Winnipeg[]  = "America/Winnipeg";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Winnipeg  = {
+const AtcZoneInfo kAtcZoneAmerica_Winnipeg  = {
   kAtcZoneNameAmerica_Winnipeg /*name*/,
   0x8c7dafc7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6636,7 +6636,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Winnipeg  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Yakutat[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Yakutat[]  = {
   //              -9:00    US    AK%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -6654,7 +6654,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Yakutat[]  = {
 
 static const char kAtcZoneNameAmerica_Yakutat[]  = "America/Yakutat";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Yakutat  = {
+const AtcZoneInfo kAtcZoneAmerica_Yakutat  = {
   kAtcZoneNameAmerica_Yakutat /*name*/,
   0xd8ee31e9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6670,7 +6670,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Yakutat  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAmerica_Yellowknife[]  = {
+static const AtcZoneEra kAtcZoneEraAmerica_Yellowknife[]  = {
   //             -7:00    Canada    M%sT
   {
     &kAtcPolicyCanada /*zone_policy*/,
@@ -6688,7 +6688,7 @@ static const struct AtcZoneEra kAtcZoneEraAmerica_Yellowknife[]  = {
 
 static const char kAtcZoneNameAmerica_Yellowknife[]  = "America/Yellowknife";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Yellowknife  = {
+const AtcZoneInfo kAtcZoneAmerica_Yellowknife  = {
   kAtcZoneNameAmerica_Yellowknife /*name*/,
   0x0f76c76f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6704,7 +6704,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Yellowknife  = {
 // Memory (32-bit): 277
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAntarctica_Casey[]  = {
+static const AtcZoneEra kAtcZoneEraAntarctica_Casey[]  = {
   //              8:00    -    +08    2009 Oct 18  2:00
   {
     NULL /*zone_policy*/,
@@ -6854,7 +6854,7 @@ static const struct AtcZoneEra kAtcZoneEraAntarctica_Casey[]  = {
 
 static const char kAtcZoneNameAntarctica_Casey[]  = "Antarctica/Casey";
 
-const struct AtcZoneInfo kAtcZoneAntarctica_Casey  = {
+const AtcZoneInfo kAtcZoneAntarctica_Casey  = {
   kAtcZoneNameAntarctica_Casey /*name*/,
   0xe2022583 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6870,7 +6870,7 @@ const struct AtcZoneInfo kAtcZoneAntarctica_Casey  = {
 // Memory (32-bit): 137
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAntarctica_Davis[]  = {
+static const AtcZoneEra kAtcZoneEraAntarctica_Davis[]  = {
   //             7:00    -    +07    2009 Oct 18  2:00
   {
     NULL /*zone_policy*/,
@@ -6936,7 +6936,7 @@ static const struct AtcZoneEra kAtcZoneEraAntarctica_Davis[]  = {
 
 static const char kAtcZoneNameAntarctica_Davis[]  = "Antarctica/Davis";
 
-const struct AtcZoneInfo kAtcZoneAntarctica_Davis  = {
+const AtcZoneInfo kAtcZoneAntarctica_Davis  = {
   kAtcZoneNameAntarctica_Davis /*name*/,
   0xe2144b45 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -6952,7 +6952,7 @@ const struct AtcZoneInfo kAtcZoneAntarctica_Davis  = {
 // Memory (32-bit): 104
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAntarctica_Macquarie[]  = {
+static const AtcZoneEra kAtcZoneEraAntarctica_Macquarie[]  = {
   //             10:00    AT    AE%sT    2010
   {
     &kAtcPolicyAT /*zone_policy*/,
@@ -6994,7 +6994,7 @@ static const struct AtcZoneEra kAtcZoneEraAntarctica_Macquarie[]  = {
 
 static const char kAtcZoneNameAntarctica_Macquarie[]  = "Antarctica/Macquarie";
 
-const struct AtcZoneInfo kAtcZoneAntarctica_Macquarie  = {
+const AtcZoneInfo kAtcZoneAntarctica_Macquarie  = {
   kAtcZoneNameAntarctica_Macquarie /*name*/,
   0x92f47626 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7010,7 +7010,7 @@ const struct AtcZoneInfo kAtcZoneAntarctica_Macquarie  = {
 // Memory (32-bit): 78
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAntarctica_Mawson[]  = {
+static const AtcZoneEra kAtcZoneEraAntarctica_Mawson[]  = {
   //             6:00    -    +06    2009 Oct 18  2:00
   {
     NULL /*zone_policy*/,
@@ -7040,7 +7040,7 @@ static const struct AtcZoneEra kAtcZoneEraAntarctica_Mawson[]  = {
 
 static const char kAtcZoneNameAntarctica_Mawson[]  = "Antarctica/Mawson";
 
-const struct AtcZoneInfo kAtcZoneAntarctica_Mawson  = {
+const AtcZoneInfo kAtcZoneAntarctica_Mawson  = {
   kAtcZoneNameAntarctica_Mawson /*name*/,
   0x399cd863 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7056,7 +7056,7 @@ const struct AtcZoneInfo kAtcZoneAntarctica_Mawson  = {
 // Memory (32-bit): 82
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAntarctica_Palmer[]  = {
+static const AtcZoneEra kAtcZoneEraAntarctica_Palmer[]  = {
   //             -4:00    Chile    -04/-03    2016 Dec  4
   {
     &kAtcPolicyChile /*zone_policy*/,
@@ -7086,7 +7086,7 @@ static const struct AtcZoneEra kAtcZoneEraAntarctica_Palmer[]  = {
 
 static const char kAtcZoneNameAntarctica_Palmer[]  = "Antarctica/Palmer";
 
-const struct AtcZoneInfo kAtcZoneAntarctica_Palmer  = {
+const AtcZoneInfo kAtcZoneAntarctica_Palmer  = {
   kAtcZoneNameAntarctica_Palmer /*name*/,
   0x40962f4f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7102,7 +7102,7 @@ const struct AtcZoneInfo kAtcZoneAntarctica_Palmer  = {
 // Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAntarctica_Rothera[]  = {
+static const AtcZoneEra kAtcZoneEraAntarctica_Rothera[]  = {
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
@@ -7120,7 +7120,7 @@ static const struct AtcZoneEra kAtcZoneEraAntarctica_Rothera[]  = {
 
 static const char kAtcZoneNameAntarctica_Rothera[]  = "Antarctica/Rothera";
 
-const struct AtcZoneInfo kAtcZoneAntarctica_Rothera  = {
+const AtcZoneInfo kAtcZoneAntarctica_Rothera  = {
   kAtcZoneNameAntarctica_Rothera /*name*/,
   0x0e86d203 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7136,7 +7136,7 @@ const struct AtcZoneInfo kAtcZoneAntarctica_Rothera  = {
 // Memory (32-bit): 75
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAntarctica_Troll[]  = {
+static const AtcZoneEra kAtcZoneEraAntarctica_Troll[]  = {
   // 0 - -00 2005 Feb 12
   {
     NULL /*zone_policy*/,
@@ -7166,7 +7166,7 @@ static const struct AtcZoneEra kAtcZoneEraAntarctica_Troll[]  = {
 
 static const char kAtcZoneNameAntarctica_Troll[]  = "Antarctica/Troll";
 
-const struct AtcZoneInfo kAtcZoneAntarctica_Troll  = {
+const AtcZoneInfo kAtcZoneAntarctica_Troll  = {
   kAtcZoneNameAntarctica_Troll /*name*/,
   0xe33f085b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7182,7 +7182,7 @@ const struct AtcZoneInfo kAtcZoneAntarctica_Troll  = {
 // Memory (32-bit): 76
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Almaty[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Almaty[]  = {
   //             6:00 RussiaAsia    +06/+07    2004 Oct 31  2:00s
   {
     &kAtcPolicyRussiaAsia /*zone_policy*/,
@@ -7212,7 +7212,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Almaty[]  = {
 
 static const char kAtcZoneNameAsia_Almaty[]  = "Asia/Almaty";
 
-const struct AtcZoneInfo kAtcZoneAsia_Almaty  = {
+const AtcZoneInfo kAtcZoneAsia_Almaty  = {
   kAtcZoneNameAsia_Almaty /*name*/,
   0xa61f41fa /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7228,7 +7228,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Almaty  = {
 // Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Amman[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Amman[]  = {
   //             2:00    Jordan    EE%sT
   {
     &kAtcPolicyJordan /*zone_policy*/,
@@ -7246,7 +7246,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Amman[]  = {
 
 static const char kAtcZoneNameAsia_Amman[]  = "Asia/Amman";
 
-const struct AtcZoneInfo kAtcZoneAsia_Amman  = {
+const AtcZoneInfo kAtcZoneAsia_Amman  = {
   kAtcZoneNameAsia_Amman /*name*/,
   0x148d21bc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7262,7 +7262,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Amman  = {
 // Memory (32-bit): 100
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Anadyr[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Anadyr[]  = {
   //             12:00    Russia    +12/+13    2010 Mar 28  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -7304,7 +7304,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Anadyr[]  = {
 
 static const char kAtcZoneNameAsia_Anadyr[]  = "Asia/Anadyr";
 
-const struct AtcZoneInfo kAtcZoneAsia_Anadyr  = {
+const AtcZoneInfo kAtcZoneAsia_Anadyr  = {
   kAtcZoneNameAsia_Anadyr /*name*/,
   0xa63cebd1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7320,7 +7320,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Anadyr  = {
 // Memory (32-bit): 75
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Aqtau[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Aqtau[]  = {
   //             4:00 RussiaAsia    +04/+05    2004 Oct 31  2:00s
   {
     &kAtcPolicyRussiaAsia /*zone_policy*/,
@@ -7350,7 +7350,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Aqtau[]  = {
 
 static const char kAtcZoneNameAsia_Aqtau[]  = "Asia/Aqtau";
 
-const struct AtcZoneInfo kAtcZoneAsia_Aqtau  = {
+const AtcZoneInfo kAtcZoneAsia_Aqtau  = {
   kAtcZoneNameAsia_Aqtau /*name*/,
   0x148f710e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7366,7 +7366,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Aqtau  = {
 // Memory (32-bit): 76
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Aqtobe[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Aqtobe[]  = {
   //             5:00 RussiaAsia    +05/+06    2004 Oct 31  2:00s
   {
     &kAtcPolicyRussiaAsia /*zone_policy*/,
@@ -7396,7 +7396,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Aqtobe[]  = {
 
 static const char kAtcZoneNameAsia_Aqtobe[]  = "Asia/Aqtobe";
 
-const struct AtcZoneInfo kAtcZoneAsia_Aqtobe  = {
+const AtcZoneInfo kAtcZoneAsia_Aqtobe  = {
   kAtcZoneNameAsia_Aqtobe /*name*/,
   0xa67dcc4e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7412,7 +7412,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Aqtobe  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Ashgabat[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Ashgabat[]  = {
   //             5:00    -    +05
   {
     NULL /*zone_policy*/,
@@ -7430,7 +7430,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Ashgabat[]  = {
 
 static const char kAtcZoneNameAsia_Ashgabat[]  = "Asia/Ashgabat";
 
-const struct AtcZoneInfo kAtcZoneAsia_Ashgabat  = {
+const AtcZoneInfo kAtcZoneAsia_Ashgabat  = {
   kAtcZoneNameAsia_Ashgabat /*name*/,
   0xba87598d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7446,7 +7446,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Ashgabat  = {
 // Memory (32-bit): 100
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Atyrau[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Atyrau[]  = {
   //             5:00 RussiaAsia    +05/+06    1999 Mar 28  2:00s
   {
     &kAtcPolicyRussiaAsia /*zone_policy*/,
@@ -7488,7 +7488,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Atyrau[]  = {
 
 static const char kAtcZoneNameAsia_Atyrau[]  = "Asia/Atyrau";
 
-const struct AtcZoneInfo kAtcZoneAsia_Atyrau  = {
+const AtcZoneInfo kAtcZoneAsia_Atyrau  = {
   kAtcZoneNameAsia_Atyrau /*name*/,
   0xa6b6e068 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7504,7 +7504,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Atyrau  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Baghdad[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Baghdad[]  = {
   //             3:00    Iraq    +03/+04
   {
     &kAtcPolicyIraq /*zone_policy*/,
@@ -7522,7 +7522,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Baghdad[]  = {
 
 static const char kAtcZoneNameAsia_Baghdad[]  = "Asia/Baghdad";
 
-const struct AtcZoneInfo kAtcZoneAsia_Baghdad  = {
+const AtcZoneInfo kAtcZoneAsia_Baghdad  = {
   kAtcZoneNameAsia_Baghdad /*name*/,
   0x9ceffbed /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7538,7 +7538,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Baghdad  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Baku[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Baku[]  = {
   //             4:00    Azer    +04/+05
   {
     &kAtcPolicyAzer /*zone_policy*/,
@@ -7556,7 +7556,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Baku[]  = {
 
 static const char kAtcZoneNameAsia_Baku[]  = "Asia/Baku";
 
-const struct AtcZoneInfo kAtcZoneAsia_Baku  = {
+const AtcZoneInfo kAtcZoneAsia_Baku  = {
   kAtcZoneNameAsia_Baku /*name*/,
   0x1fa788b5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7572,7 +7572,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Baku  = {
 // Memory (32-bit): 53
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Bangkok[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Bangkok[]  = {
   //             7:00    -    +07
   {
     NULL /*zone_policy*/,
@@ -7590,7 +7590,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Bangkok[]  = {
 
 static const char kAtcZoneNameAsia_Bangkok[]  = "Asia/Bangkok";
 
-const struct AtcZoneInfo kAtcZoneAsia_Bangkok  = {
+const AtcZoneInfo kAtcZoneAsia_Bangkok  = {
   kAtcZoneNameAsia_Bangkok /*name*/,
   0x9d6e3aaf /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7606,7 +7606,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Bangkok  = {
 // Memory (32-bit): 117
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Barnaul[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Barnaul[]  = {
   //              6:00    Russia    +06/+07    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -7660,7 +7660,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Barnaul[]  = {
 
 static const char kAtcZoneNameAsia_Barnaul[]  = "Asia/Barnaul";
 
-const struct AtcZoneInfo kAtcZoneAsia_Barnaul  = {
+const AtcZoneInfo kAtcZoneAsia_Barnaul  = {
   kAtcZoneNameAsia_Barnaul /*name*/,
   0x9dba4997 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7676,7 +7676,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Barnaul  = {
 // Memory (32-bit): 53
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Beirut[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Beirut[]  = {
   //             2:00    Lebanon    EE%sT
   {
     &kAtcPolicyLebanon /*zone_policy*/,
@@ -7694,7 +7694,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Beirut[]  = {
 
 static const char kAtcZoneNameAsia_Beirut[]  = "Asia/Beirut";
 
-const struct AtcZoneInfo kAtcZoneAsia_Beirut  = {
+const AtcZoneInfo kAtcZoneAsia_Beirut  = {
   kAtcZoneNameAsia_Beirut /*name*/,
   0xa7f3d5fd /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7710,7 +7710,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Beirut  = {
 // Memory (32-bit): 77
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Bishkek[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Bishkek[]  = {
   //             5:00    Kyrgyz    +05/+06    2005 Aug 12
   {
     &kAtcPolicyKyrgyz /*zone_policy*/,
@@ -7740,7 +7740,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Bishkek[]  = {
 
 static const char kAtcZoneNameAsia_Bishkek[]  = "Asia/Bishkek";
 
-const struct AtcZoneInfo kAtcZoneAsia_Bishkek  = {
+const AtcZoneInfo kAtcZoneAsia_Bishkek  = {
   kAtcZoneNameAsia_Bishkek /*name*/,
   0xb0728553 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7756,7 +7756,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Bishkek  = {
 // Memory (32-bit): 115
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Chita[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Chita[]  = {
   //              9:00    Russia    +09/+10    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -7810,7 +7810,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Chita[]  = {
 
 static const char kAtcZoneNameAsia_Chita[]  = "Asia/Chita";
 
-const struct AtcZoneInfo kAtcZoneAsia_Chita  = {
+const AtcZoneInfo kAtcZoneAsia_Chita  = {
   kAtcZoneNameAsia_Chita /*name*/,
   0x14ae863b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7826,7 +7826,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Chita  = {
 // Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Choibalsan[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Choibalsan[]  = {
   //             9:00    Mongol    +09/+10    2008 Mar 31
   {
     &kAtcPolicyMongol /*zone_policy*/,
@@ -7856,7 +7856,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Choibalsan[]  = {
 
 static const char kAtcZoneNameAsia_Choibalsan[]  = "Asia/Choibalsan";
 
-const struct AtcZoneInfo kAtcZoneAsia_Choibalsan  = {
+const AtcZoneInfo kAtcZoneAsia_Choibalsan  = {
   kAtcZoneNameAsia_Choibalsan /*name*/,
   0x928aa4a6 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7872,7 +7872,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Choibalsan  = {
 // Memory (32-bit): 75
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Colombo[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Colombo[]  = {
   //             6:00    -    +06    2006 Apr 15  0:30
   {
     NULL /*zone_policy*/,
@@ -7902,7 +7902,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Colombo[]  = {
 
 static const char kAtcZoneNameAsia_Colombo[]  = "Asia/Colombo";
 
-const struct AtcZoneInfo kAtcZoneAsia_Colombo  = {
+const AtcZoneInfo kAtcZoneAsia_Colombo  = {
   kAtcZoneNameAsia_Colombo /*name*/,
   0x0af0e91d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7918,7 +7918,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Colombo  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Damascus[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Damascus[]  = {
   //             2:00    Syria    EE%sT
   {
     &kAtcPolicySyria /*zone_policy*/,
@@ -7936,7 +7936,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Damascus[]  = {
 
 static const char kAtcZoneNameAsia_Damascus[]  = "Asia/Damascus";
 
-const struct AtcZoneInfo kAtcZoneAsia_Damascus  = {
+const AtcZoneInfo kAtcZoneAsia_Damascus  = {
   kAtcZoneNameAsia_Damascus /*name*/,
   0x20fbb063 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7952,7 +7952,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Damascus  = {
 // Memory (32-bit): 75
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Dhaka[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Dhaka[]  = {
   //             6:00    -    +06    2009
   {
     NULL /*zone_policy*/,
@@ -7982,7 +7982,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Dhaka[]  = {
 
 static const char kAtcZoneNameAsia_Dhaka[]  = "Asia/Dhaka";
 
-const struct AtcZoneInfo kAtcZoneAsia_Dhaka  = {
+const AtcZoneInfo kAtcZoneAsia_Dhaka  = {
   kAtcZoneNameAsia_Dhaka /*name*/,
   0x14c07b8b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -7998,7 +7998,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Dhaka  = {
 // Memory (32-bit): 70
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Dili[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Dili[]  = {
   //             8:00    -    +08    2000 Sep 17  0:00
   {
     NULL /*zone_policy*/,
@@ -8028,7 +8028,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Dili[]  = {
 
 static const char kAtcZoneNameAsia_Dili[]  = "Asia/Dili";
 
-const struct AtcZoneInfo kAtcZoneAsia_Dili  = {
+const AtcZoneInfo kAtcZoneAsia_Dili  = {
   kAtcZoneNameAsia_Dili /*name*/,
   0x1fa8c394 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8044,7 +8044,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Dili  = {
 // Memory (32-bit): 51
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Dubai[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Dubai[]  = {
   //             4:00    -    +04
   {
     NULL /*zone_policy*/,
@@ -8062,7 +8062,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Dubai[]  = {
 
 static const char kAtcZoneNameAsia_Dubai[]  = "Asia/Dubai";
 
-const struct AtcZoneInfo kAtcZoneAsia_Dubai  = {
+const AtcZoneInfo kAtcZoneAsia_Dubai  = {
   kAtcZoneNameAsia_Dubai /*name*/,
   0x14c79f77 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8078,7 +8078,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Dubai  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Dushanbe[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Dushanbe[]  = {
   //             5:00    -    +05
   {
     NULL /*zone_policy*/,
@@ -8096,7 +8096,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Dushanbe[]  = {
 
 static const char kAtcZoneNameAsia_Dushanbe[]  = "Asia/Dushanbe";
 
-const struct AtcZoneInfo kAtcZoneAsia_Dushanbe  = {
+const AtcZoneInfo kAtcZoneAsia_Dushanbe  = {
   kAtcZoneNameAsia_Dushanbe /*name*/,
   0x32fc5c3c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8112,7 +8112,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Dushanbe  = {
 // Memory (32-bit): 97
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Famagusta[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Famagusta[]  = {
   //             2:00    EUAsia    EE%sT    2016 Sep  8
   {
     &kAtcPolicyEUAsia /*zone_policy*/,
@@ -8154,7 +8154,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Famagusta[]  = {
 
 static const char kAtcZoneNameAsia_Famagusta[]  = "Asia/Famagusta";
 
-const struct AtcZoneInfo kAtcZoneAsia_Famagusta  = {
+const AtcZoneInfo kAtcZoneAsia_Famagusta  = {
   kAtcZoneNameAsia_Famagusta /*name*/,
   0x289b4f8b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8170,7 +8170,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Famagusta  = {
 // Memory (32-bit): 195
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Gaza[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Gaza[]  = {
   //             2:00    Jordan    EE%sT    1999
   {
     &kAtcPolicyJordan /*zone_policy*/,
@@ -8272,7 +8272,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Gaza[]  = {
 
 static const char kAtcZoneNameAsia_Gaza[]  = "Asia/Gaza";
 
-const struct AtcZoneInfo kAtcZoneAsia_Gaza  = {
+const AtcZoneInfo kAtcZoneAsia_Gaza  = {
   kAtcZoneNameAsia_Gaza /*name*/,
   0x1faa4875 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8288,7 +8288,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Gaza  = {
 // Memory (32-bit): 74
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Hebron[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Hebron[]  = {
   //             2:00    Jordan    EE%sT    1999
   {
     &kAtcPolicyJordan /*zone_policy*/,
@@ -8318,7 +8318,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Hebron[]  = {
 
 static const char kAtcZoneNameAsia_Hebron[]  = "Asia/Hebron";
 
-const struct AtcZoneInfo kAtcZoneAsia_Hebron  = {
+const AtcZoneInfo kAtcZoneAsia_Hebron  = {
   kAtcZoneNameAsia_Hebron /*name*/,
   0xb5eef250 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8334,7 +8334,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Hebron  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Ho_Chi_Minh[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Ho_Chi_Minh[]  = {
   //             7:00    -    +07
   {
     NULL /*zone_policy*/,
@@ -8352,7 +8352,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Ho_Chi_Minh[]  = {
 
 static const char kAtcZoneNameAsia_Ho_Chi_Minh[]  = "Asia/Ho_Chi_Minh";
 
-const struct AtcZoneInfo kAtcZoneAsia_Ho_Chi_Minh  = {
+const AtcZoneInfo kAtcZoneAsia_Ho_Chi_Minh  = {
   kAtcZoneNameAsia_Ho_Chi_Minh /*name*/,
   0x20f2d127 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8368,7 +8368,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Ho_Chi_Minh  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Hong_Kong[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Hong_Kong[]  = {
   //             8:00    HK    HK%sT
   {
     &kAtcPolicyHK /*zone_policy*/,
@@ -8386,7 +8386,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Hong_Kong[]  = {
 
 static const char kAtcZoneNameAsia_Hong_Kong[]  = "Asia/Hong_Kong";
 
-const struct AtcZoneInfo kAtcZoneAsia_Hong_Kong  = {
+const AtcZoneInfo kAtcZoneAsia_Hong_Kong  = {
   kAtcZoneNameAsia_Hong_Kong /*name*/,
   0x577f28ac /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8402,7 +8402,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Hong_Kong  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Hovd[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Hovd[]  = {
   //             7:00    Mongol    +07/+08
   {
     &kAtcPolicyMongol /*zone_policy*/,
@@ -8420,7 +8420,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Hovd[]  = {
 
 static const char kAtcZoneNameAsia_Hovd[]  = "Asia/Hovd";
 
-const struct AtcZoneInfo kAtcZoneAsia_Hovd  = {
+const AtcZoneInfo kAtcZoneAsia_Hovd  = {
   kAtcZoneNameAsia_Hovd /*name*/,
   0x1fab0fe3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8436,7 +8436,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Hovd  = {
 // Memory (32-bit): 97
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Irkutsk[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Irkutsk[]  = {
   //              8:00    Russia    +08/+09    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -8478,7 +8478,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Irkutsk[]  = {
 
 static const char kAtcZoneNameAsia_Irkutsk[]  = "Asia/Irkutsk";
 
-const struct AtcZoneInfo kAtcZoneAsia_Irkutsk  = {
+const AtcZoneInfo kAtcZoneAsia_Irkutsk  = {
   kAtcZoneNameAsia_Irkutsk /*name*/,
   0xdfbf213f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8494,7 +8494,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Irkutsk  = {
 // Memory (32-bit): 53
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Jakarta[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Jakarta[]  = {
   //             7:00    -    WIB
   {
     NULL /*zone_policy*/,
@@ -8512,7 +8512,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Jakarta[]  = {
 
 static const char kAtcZoneNameAsia_Jakarta[]  = "Asia/Jakarta";
 
-const struct AtcZoneInfo kAtcZoneAsia_Jakarta  = {
+const AtcZoneInfo kAtcZoneAsia_Jakarta  = {
   kAtcZoneNameAsia_Jakarta /*name*/,
   0x0506ab50 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8528,7 +8528,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Jakarta  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Jayapura[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Jayapura[]  = {
   //             9:00    -    WIT
   {
     NULL /*zone_policy*/,
@@ -8546,7 +8546,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Jayapura[]  = {
 
 static const char kAtcZoneNameAsia_Jayapura[]  = "Asia/Jayapura";
 
-const struct AtcZoneInfo kAtcZoneAsia_Jayapura  = {
+const AtcZoneInfo kAtcZoneAsia_Jayapura  = {
   kAtcZoneNameAsia_Jayapura /*name*/,
   0xc6833c2f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8562,7 +8562,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Jayapura  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Jerusalem[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Jerusalem[]  = {
   //             2:00    Zion    I%sT
   {
     &kAtcPolicyZion /*zone_policy*/,
@@ -8580,7 +8580,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Jerusalem[]  = {
 
 static const char kAtcZoneNameAsia_Jerusalem[]  = "Asia/Jerusalem";
 
-const struct AtcZoneInfo kAtcZoneAsia_Jerusalem  = {
+const AtcZoneInfo kAtcZoneAsia_Jerusalem  = {
   kAtcZoneNameAsia_Jerusalem /*name*/,
   0x5becd23a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8596,7 +8596,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Jerusalem  = {
 // Memory (32-bit): 53
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Kabul[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Kabul[]  = {
   //             4:30    -    +0430
   {
     NULL /*zone_policy*/,
@@ -8614,7 +8614,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Kabul[]  = {
 
 static const char kAtcZoneNameAsia_Kabul[]  = "Asia/Kabul";
 
-const struct AtcZoneInfo kAtcZoneAsia_Kabul  = {
+const AtcZoneInfo kAtcZoneAsia_Kabul  = {
   kAtcZoneNameAsia_Kabul /*name*/,
   0x153b5601 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8630,7 +8630,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Kabul  = {
 // Memory (32-bit): 103
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Kamchatka[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Kamchatka[]  = {
   //             12:00    Russia    +12/+13    2010 Mar 28  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -8672,7 +8672,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Kamchatka[]  = {
 
 static const char kAtcZoneNameAsia_Kamchatka[]  = "Asia/Kamchatka";
 
-const struct AtcZoneInfo kAtcZoneAsia_Kamchatka  = {
+const AtcZoneInfo kAtcZoneAsia_Kamchatka  = {
   kAtcZoneNameAsia_Kamchatka /*name*/,
   0x73baf9d7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8688,7 +8688,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Kamchatka  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Karachi[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Karachi[]  = {
   //             5:00 Pakistan    PK%sT
   {
     &kAtcPolicyPakistan /*zone_policy*/,
@@ -8706,7 +8706,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Karachi[]  = {
 
 static const char kAtcZoneNameAsia_Karachi[]  = "Asia/Karachi";
 
-const struct AtcZoneInfo kAtcZoneAsia_Karachi  = {
+const AtcZoneInfo kAtcZoneAsia_Karachi  = {
   kAtcZoneNameAsia_Karachi /*name*/,
   0x527f5245 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8722,7 +8722,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Karachi  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Kathmandu[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Kathmandu[]  = {
   //             5:45    -    +0545
   {
     NULL /*zone_policy*/,
@@ -8740,7 +8740,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Kathmandu[]  = {
 
 static const char kAtcZoneNameAsia_Kathmandu[]  = "Asia/Kathmandu";
 
-const struct AtcZoneInfo kAtcZoneAsia_Kathmandu  = {
+const AtcZoneInfo kAtcZoneAsia_Kathmandu  = {
   kAtcZoneNameAsia_Kathmandu /*name*/,
   0x9a96ce6f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8756,7 +8756,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Kathmandu  = {
 // Memory (32-bit): 142
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Khandyga[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Khandyga[]  = {
   //              9:00    Russia    +09/+10    2004
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -8822,7 +8822,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Khandyga[]  = {
 
 static const char kAtcZoneNameAsia_Khandyga[]  = "Asia/Khandyga";
 
-const struct AtcZoneInfo kAtcZoneAsia_Khandyga  = {
+const AtcZoneInfo kAtcZoneAsia_Khandyga  = {
   kAtcZoneNameAsia_Khandyga /*name*/,
   0x9685a4d9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8838,7 +8838,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Khandyga  = {
 // Memory (32-bit): 53
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Kolkata[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Kolkata[]  = {
   //             5:30    -    IST
   {
     NULL /*zone_policy*/,
@@ -8856,7 +8856,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Kolkata[]  = {
 
 static const char kAtcZoneNameAsia_Kolkata[]  = "Asia/Kolkata";
 
-const struct AtcZoneInfo kAtcZoneAsia_Kolkata  = {
+const AtcZoneInfo kAtcZoneAsia_Kolkata  = {
   kAtcZoneNameAsia_Kolkata /*name*/,
   0x72c06cd9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8872,7 +8872,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Kolkata  = {
 // Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Krasnoyarsk[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Krasnoyarsk[]  = {
   //              7:00    Russia    +07/+08    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -8914,7 +8914,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Krasnoyarsk[]  = {
 
 static const char kAtcZoneNameAsia_Krasnoyarsk[]  = "Asia/Krasnoyarsk";
 
-const struct AtcZoneInfo kAtcZoneAsia_Krasnoyarsk  = {
+const AtcZoneInfo kAtcZoneAsia_Krasnoyarsk  = {
   kAtcZoneNameAsia_Krasnoyarsk /*name*/,
   0xd0376c6a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8930,7 +8930,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Krasnoyarsk  = {
 // Memory (32-bit): 53
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Kuching[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Kuching[]  = {
   //             8:00    -    +08
   {
     NULL /*zone_policy*/,
@@ -8948,7 +8948,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Kuching[]  = {
 
 static const char kAtcZoneNameAsia_Kuching[]  = "Asia/Kuching";
 
-const struct AtcZoneInfo kAtcZoneAsia_Kuching  = {
+const AtcZoneInfo kAtcZoneAsia_Kuching  = {
   kAtcZoneNameAsia_Kuching /*name*/,
   0x801b003b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8964,7 +8964,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Kuching  = {
 // Memory (32-bit): 51
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Macau[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Macau[]  = {
   //             8:00    Macau    C%sT
   {
     &kAtcPolicyMacau /*zone_policy*/,
@@ -8982,7 +8982,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Macau[]  = {
 
 static const char kAtcZoneNameAsia_Macau[]  = "Asia/Macau";
 
-const struct AtcZoneInfo kAtcZoneAsia_Macau  = {
+const AtcZoneInfo kAtcZoneAsia_Macau  = {
   kAtcZoneNameAsia_Macau /*name*/,
   0x155f88b9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -8998,7 +8998,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Macau  = {
 // Memory (32-bit): 117
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Magadan[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Magadan[]  = {
   //             11:00    Russia    +11/+12    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -9052,7 +9052,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Magadan[]  = {
 
 static const char kAtcZoneNameAsia_Magadan[]  = "Asia/Magadan";
 
-const struct AtcZoneInfo kAtcZoneAsia_Magadan  = {
+const AtcZoneInfo kAtcZoneAsia_Magadan  = {
   kAtcZoneNameAsia_Magadan /*name*/,
   0xebacc19b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9068,7 +9068,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Magadan  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Makassar[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Makassar[]  = {
   //             8:00    -    WITA
   {
     NULL /*zone_policy*/,
@@ -9086,7 +9086,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Makassar[]  = {
 
 static const char kAtcZoneNameAsia_Makassar[]  = "Asia/Makassar";
 
-const struct AtcZoneInfo kAtcZoneAsia_Makassar  = {
+const AtcZoneInfo kAtcZoneAsia_Makassar  = {
   kAtcZoneNameAsia_Makassar /*name*/,
   0x6aa21c85 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9102,7 +9102,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Makassar  = {
 // Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Manila[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Manila[]  = {
   //             8:00    Phil    P%sT
   {
     &kAtcPolicyPhil /*zone_policy*/,
@@ -9120,7 +9120,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Manila[]  = {
 
 static const char kAtcZoneNameAsia_Manila[]  = "Asia/Manila";
 
-const struct AtcZoneInfo kAtcZoneAsia_Manila  = {
+const AtcZoneInfo kAtcZoneAsia_Manila  = {
   kAtcZoneNameAsia_Manila /*name*/,
   0xc156c944 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9136,7 +9136,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Manila  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Nicosia[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Nicosia[]  = {
   //             2:00    EUAsia    EE%sT
   {
     &kAtcPolicyEUAsia /*zone_policy*/,
@@ -9154,7 +9154,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Nicosia[]  = {
 
 static const char kAtcZoneNameAsia_Nicosia[]  = "Asia/Nicosia";
 
-const struct AtcZoneInfo kAtcZoneAsia_Nicosia  = {
+const AtcZoneInfo kAtcZoneAsia_Nicosia  = {
   kAtcZoneNameAsia_Nicosia /*name*/,
   0x4b0fcf78 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9170,7 +9170,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Nicosia  = {
 // Memory (32-bit): 106
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Novokuznetsk[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Novokuznetsk[]  = {
   //              7:00    Russia    +07/+08    2010 Mar 28  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -9212,7 +9212,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Novokuznetsk[]  = {
 
 static const char kAtcZoneNameAsia_Novokuznetsk[]  = "Asia/Novokuznetsk";
 
-const struct AtcZoneInfo kAtcZoneAsia_Novokuznetsk  = {
+const AtcZoneInfo kAtcZoneAsia_Novokuznetsk  = {
   kAtcZoneNameAsia_Novokuznetsk /*name*/,
   0x69264f93 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9228,7 +9228,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Novokuznetsk  = {
 // Memory (32-bit): 121
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Novosibirsk[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Novosibirsk[]  = {
   //              6:00    Russia    +06/+07    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -9282,7 +9282,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Novosibirsk[]  = {
 
 static const char kAtcZoneNameAsia_Novosibirsk[]  = "Asia/Novosibirsk";
 
-const struct AtcZoneInfo kAtcZoneAsia_Novosibirsk  = {
+const AtcZoneInfo kAtcZoneAsia_Novosibirsk  = {
   kAtcZoneNameAsia_Novosibirsk /*name*/,
   0xa2a435cb /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9298,7 +9298,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Novosibirsk  = {
 // Memory (32-bit): 94
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Omsk[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Omsk[]  = {
   //              6:00    Russia    +06/+07    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -9340,7 +9340,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Omsk[]  = {
 
 static const char kAtcZoneNameAsia_Omsk[]  = "Asia/Omsk";
 
-const struct AtcZoneInfo kAtcZoneAsia_Omsk  = {
+const AtcZoneInfo kAtcZoneAsia_Omsk  = {
   kAtcZoneNameAsia_Omsk /*name*/,
   0x1faeddac /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9356,7 +9356,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Omsk  = {
 // Memory (32-bit): 74
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Oral[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Oral[]  = {
   //             4:00 RussiaAsia    +04/+05    2004 Oct 31  2:00s
   {
     &kAtcPolicyRussiaAsia /*zone_policy*/,
@@ -9386,7 +9386,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Oral[]  = {
 
 static const char kAtcZoneNameAsia_Oral[]  = "Asia/Oral";
 
-const struct AtcZoneInfo kAtcZoneAsia_Oral  = {
+const AtcZoneInfo kAtcZoneAsia_Oral  = {
   kAtcZoneNameAsia_Oral /*name*/,
   0x1faef0a0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9402,7 +9402,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Oral  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Pontianak[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Pontianak[]  = {
   //             7:00    -    WIB
   {
     NULL /*zone_policy*/,
@@ -9420,7 +9420,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Pontianak[]  = {
 
 static const char kAtcZoneNameAsia_Pontianak[]  = "Asia/Pontianak";
 
-const struct AtcZoneInfo kAtcZoneAsia_Pontianak  = {
+const AtcZoneInfo kAtcZoneAsia_Pontianak  = {
   kAtcZoneNameAsia_Pontianak /*name*/,
   0x1a76c057 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9436,7 +9436,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Pontianak  = {
 // Memory (32-bit): 95
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Pyongyang[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Pyongyang[]  = {
   //             9:00    -    KST    2015 Aug 15 00:00
   {
     NULL /*zone_policy*/,
@@ -9478,7 +9478,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Pyongyang[]  = {
 
 static const char kAtcZoneNameAsia_Pyongyang[]  = "Asia/Pyongyang";
 
-const struct AtcZoneInfo kAtcZoneAsia_Pyongyang  = {
+const AtcZoneInfo kAtcZoneAsia_Pyongyang  = {
   kAtcZoneNameAsia_Pyongyang /*name*/,
   0x93ed1c8e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9494,7 +9494,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Pyongyang  = {
 // Memory (32-bit): 51
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Qatar[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Qatar[]  = {
   //             3:00    -    +03
   {
     NULL /*zone_policy*/,
@@ -9512,7 +9512,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Qatar[]  = {
 
 static const char kAtcZoneNameAsia_Qatar[]  = "Asia/Qatar";
 
-const struct AtcZoneInfo kAtcZoneAsia_Qatar  = {
+const AtcZoneInfo kAtcZoneAsia_Qatar  = {
   kAtcZoneNameAsia_Qatar /*name*/,
   0x15a8330b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9528,7 +9528,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Qatar  = {
 // Memory (32-bit): 78
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Qostanay[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Qostanay[]  = {
   //             5:00 RussiaAsia    +05/+06    2004 Oct 31  2:00s
   {
     &kAtcPolicyRussiaAsia /*zone_policy*/,
@@ -9558,7 +9558,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Qostanay[]  = {
 
 static const char kAtcZoneNameAsia_Qostanay[]  = "Asia/Qostanay";
 
-const struct AtcZoneInfo kAtcZoneAsia_Qostanay  = {
+const AtcZoneInfo kAtcZoneAsia_Qostanay  = {
   kAtcZoneNameAsia_Qostanay /*name*/,
   0x654fe522 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9574,7 +9574,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Qostanay  = {
 // Memory (32-bit): 99
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Qyzylorda[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Qyzylorda[]  = {
   //             5:00 RussiaAsia    +05/+06    2004 Oct 31  2:00s
   {
     &kAtcPolicyRussiaAsia /*zone_policy*/,
@@ -9616,7 +9616,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Qyzylorda[]  = {
 
 static const char kAtcZoneNameAsia_Qyzylorda[]  = "Asia/Qyzylorda";
 
-const struct AtcZoneInfo kAtcZoneAsia_Qyzylorda  = {
+const AtcZoneInfo kAtcZoneAsia_Qyzylorda  = {
   kAtcZoneNameAsia_Qyzylorda /*name*/,
   0x71282e81 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9632,7 +9632,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Qyzylorda  = {
 // Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Riyadh[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Riyadh[]  = {
   //             3:00    -    +03
   {
     NULL /*zone_policy*/,
@@ -9650,7 +9650,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Riyadh[]  = {
 
 static const char kAtcZoneNameAsia_Riyadh[]  = "Asia/Riyadh";
 
-const struct AtcZoneInfo kAtcZoneAsia_Riyadh  = {
+const AtcZoneInfo kAtcZoneAsia_Riyadh  = {
   kAtcZoneNameAsia_Riyadh /*name*/,
   0xcd973d93 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9666,7 +9666,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Riyadh  = {
 // Memory (32-bit): 118
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Sakhalin[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Sakhalin[]  = {
   //             10:00    Russia    +10/+11    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -9720,7 +9720,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Sakhalin[]  = {
 
 static const char kAtcZoneNameAsia_Sakhalin[]  = "Asia/Sakhalin";
 
-const struct AtcZoneInfo kAtcZoneAsia_Sakhalin  = {
+const AtcZoneInfo kAtcZoneAsia_Sakhalin  = {
   kAtcZoneNameAsia_Sakhalin /*name*/,
   0xf4a1c9bd /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9736,7 +9736,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Sakhalin  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Samarkand[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Samarkand[]  = {
   //             5:00    -    +05
   {
     NULL /*zone_policy*/,
@@ -9754,7 +9754,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Samarkand[]  = {
 
 static const char kAtcZoneNameAsia_Samarkand[]  = "Asia/Samarkand";
 
-const struct AtcZoneInfo kAtcZoneAsia_Samarkand  = {
+const AtcZoneInfo kAtcZoneAsia_Samarkand  = {
   kAtcZoneNameAsia_Samarkand /*name*/,
   0x13ae5104 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9770,7 +9770,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Samarkand  = {
 // Memory (32-bit): 51
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Seoul[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Seoul[]  = {
   //             9:00    ROK    K%sT
   {
     &kAtcPolicyROK /*zone_policy*/,
@@ -9788,7 +9788,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Seoul[]  = {
 
 static const char kAtcZoneNameAsia_Seoul[]  = "Asia/Seoul";
 
-const struct AtcZoneInfo kAtcZoneAsia_Seoul  = {
+const AtcZoneInfo kAtcZoneAsia_Seoul  = {
   kAtcZoneNameAsia_Seoul /*name*/,
   0x15ce82da /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9804,7 +9804,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Seoul  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Shanghai[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Shanghai[]  = {
   //             8:00    PRC    C%sT
   {
     &kAtcPolicyPRC /*zone_policy*/,
@@ -9822,7 +9822,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Shanghai[]  = {
 
 static const char kAtcZoneNameAsia_Shanghai[]  = "Asia/Shanghai";
 
-const struct AtcZoneInfo kAtcZoneAsia_Shanghai  = {
+const AtcZoneInfo kAtcZoneAsia_Shanghai  = {
   kAtcZoneNameAsia_Shanghai /*name*/,
   0xf895a7f5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9838,7 +9838,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Shanghai  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Singapore[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Singapore[]  = {
   //             8:00    -    +08
   {
     NULL /*zone_policy*/,
@@ -9856,7 +9856,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Singapore[]  = {
 
 static const char kAtcZoneNameAsia_Singapore[]  = "Asia/Singapore";
 
-const struct AtcZoneInfo kAtcZoneAsia_Singapore  = {
+const AtcZoneInfo kAtcZoneAsia_Singapore  = {
   kAtcZoneNameAsia_Singapore /*name*/,
   0xcf8581fa /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9872,7 +9872,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Singapore  = {
 // Memory (32-bit): 103
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Srednekolymsk[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Srednekolymsk[]  = {
   //             11:00    Russia    +11/+12    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -9914,7 +9914,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Srednekolymsk[]  = {
 
 static const char kAtcZoneNameAsia_Srednekolymsk[]  = "Asia/Srednekolymsk";
 
-const struct AtcZoneInfo kAtcZoneAsia_Srednekolymsk  = {
+const AtcZoneInfo kAtcZoneAsia_Srednekolymsk  = {
   kAtcZoneNameAsia_Srednekolymsk /*name*/,
   0xbf8e337d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9930,7 +9930,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Srednekolymsk  = {
 // Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Taipei[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Taipei[]  = {
   //             8:00    Taiwan    C%sT
   {
     &kAtcPolicyTaiwan /*zone_policy*/,
@@ -9948,7 +9948,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Taipei[]  = {
 
 static const char kAtcZoneNameAsia_Taipei[]  = "Asia/Taipei";
 
-const struct AtcZoneInfo kAtcZoneAsia_Taipei  = {
+const AtcZoneInfo kAtcZoneAsia_Taipei  = {
   kAtcZoneNameAsia_Taipei /*name*/,
   0xd1a844ae /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9964,7 +9964,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Taipei  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Tashkent[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Tashkent[]  = {
   //             5:00    -    +05
   {
     NULL /*zone_policy*/,
@@ -9982,7 +9982,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Tashkent[]  = {
 
 static const char kAtcZoneNameAsia_Tashkent[]  = "Asia/Tashkent";
 
-const struct AtcZoneInfo kAtcZoneAsia_Tashkent  = {
+const AtcZoneInfo kAtcZoneAsia_Tashkent  = {
   kAtcZoneNameAsia_Tashkent /*name*/,
   0xf3924254 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -9998,7 +9998,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Tashkent  = {
 // Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Tbilisi[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Tbilisi[]  = {
   //             4:00 E-EurAsia    +04/+05    2004 Jun 27
   {
     &kAtcPolicyE_EurAsia /*zone_policy*/,
@@ -10040,7 +10040,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Tbilisi[]  = {
 
 static const char kAtcZoneNameAsia_Tbilisi[]  = "Asia/Tbilisi";
 
-const struct AtcZoneInfo kAtcZoneAsia_Tbilisi  = {
+const AtcZoneInfo kAtcZoneAsia_Tbilisi  = {
   kAtcZoneNameAsia_Tbilisi /*name*/,
   0x0903e442 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10056,7 +10056,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Tbilisi  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Tehran[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Tehran[]  = {
   //             3:30    Iran    +0330/+0430
   {
     &kAtcPolicyIran /*zone_policy*/,
@@ -10074,7 +10074,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Tehran[]  = {
 
 static const char kAtcZoneNameAsia_Tehran[]  = "Asia/Tehran";
 
-const struct AtcZoneInfo kAtcZoneAsia_Tehran  = {
+const AtcZoneInfo kAtcZoneAsia_Tehran  = {
   kAtcZoneNameAsia_Tehran /*name*/,
   0xd1f02254 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10090,7 +10090,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Tehran  = {
 // Memory (32-bit): 53
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Thimphu[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Thimphu[]  = {
   //             6:00    -    +06
   {
     NULL /*zone_policy*/,
@@ -10108,7 +10108,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Thimphu[]  = {
 
 static const char kAtcZoneNameAsia_Thimphu[]  = "Asia/Thimphu";
 
-const struct AtcZoneInfo kAtcZoneAsia_Thimphu  = {
+const AtcZoneInfo kAtcZoneAsia_Thimphu  = {
   kAtcZoneNameAsia_Thimphu /*name*/,
   0x170380d1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10124,7 +10124,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Thimphu  = {
 // Memory (32-bit): 51
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Tokyo[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Tokyo[]  = {
   //             9:00    Japan    J%sT
   {
     &kAtcPolicyJapan /*zone_policy*/,
@@ -10142,7 +10142,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Tokyo[]  = {
 
 static const char kAtcZoneNameAsia_Tokyo[]  = "Asia/Tokyo";
 
-const struct AtcZoneInfo kAtcZoneAsia_Tokyo  = {
+const AtcZoneInfo kAtcZoneAsia_Tokyo  = {
   kAtcZoneNameAsia_Tokyo /*name*/,
   0x15e606a8 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10158,7 +10158,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Tokyo  = {
 // Memory (32-bit): 139
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Tomsk[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Tomsk[]  = {
   //              7:00    Russia    +07/+08    2002 May  1  3:00
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -10224,7 +10224,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Tomsk[]  = {
 
 static const char kAtcZoneNameAsia_Tomsk[]  = "Asia/Tomsk";
 
-const struct AtcZoneInfo kAtcZoneAsia_Tomsk  = {
+const AtcZoneInfo kAtcZoneAsia_Tomsk  = {
   kAtcZoneNameAsia_Tomsk /*name*/,
   0x15e60e60 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10240,7 +10240,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Tomsk  = {
 // Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Ulaanbaatar[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Ulaanbaatar[]  = {
   //             8:00    Mongol    +08/+09
   {
     &kAtcPolicyMongol /*zone_policy*/,
@@ -10258,7 +10258,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Ulaanbaatar[]  = {
 
 static const char kAtcZoneNameAsia_Ulaanbaatar[]  = "Asia/Ulaanbaatar";
 
-const struct AtcZoneInfo kAtcZoneAsia_Ulaanbaatar  = {
+const AtcZoneInfo kAtcZoneAsia_Ulaanbaatar  = {
   kAtcZoneNameAsia_Ulaanbaatar /*name*/,
   0x30f0cc4e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10274,7 +10274,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Ulaanbaatar  = {
 // Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Urumqi[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Urumqi[]  = {
   //             6:00    -    +06
   {
     NULL /*zone_policy*/,
@@ -10292,7 +10292,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Urumqi[]  = {
 
 static const char kAtcZoneNameAsia_Urumqi[]  = "Asia/Urumqi";
 
-const struct AtcZoneInfo kAtcZoneAsia_Urumqi  = {
+const AtcZoneInfo kAtcZoneAsia_Urumqi  = {
   kAtcZoneNameAsia_Urumqi /*name*/,
   0xd5379735 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10308,7 +10308,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Urumqi  = {
 // Memory (32-bit): 118
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Ust_Nera[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Ust_Nera[]  = {
   //             11:00    Russia    +11/+12    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -10362,7 +10362,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Ust_Nera[]  = {
 
 static const char kAtcZoneNameAsia_Ust_Nera[]  = "Asia/Ust-Nera";
 
-const struct AtcZoneInfo kAtcZoneAsia_Ust_Nera  = {
+const AtcZoneInfo kAtcZoneAsia_Ust_Nera  = {
   kAtcZoneNameAsia_Ust_Nera /*name*/,
   0x4785f921 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10378,7 +10378,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Ust_Nera  = {
 // Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Vladivostok[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Vladivostok[]  = {
   //             10:00    Russia    +10/+11    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -10420,7 +10420,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Vladivostok[]  = {
 
 static const char kAtcZoneNameAsia_Vladivostok[]  = "Asia/Vladivostok";
 
-const struct AtcZoneInfo kAtcZoneAsia_Vladivostok  = {
+const AtcZoneInfo kAtcZoneAsia_Vladivostok  = {
   kAtcZoneNameAsia_Vladivostok /*name*/,
   0x29de34a8 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10436,7 +10436,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Vladivostok  = {
 // Memory (32-bit): 97
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Yakutsk[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Yakutsk[]  = {
   //              9:00    Russia    +09/+10    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -10478,7 +10478,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Yakutsk[]  = {
 
 static const char kAtcZoneNameAsia_Yakutsk[]  = "Asia/Yakutsk";
 
-const struct AtcZoneInfo kAtcZoneAsia_Yakutsk  = {
+const AtcZoneInfo kAtcZoneAsia_Yakutsk  = {
   kAtcZoneNameAsia_Yakutsk /*name*/,
   0x87bb3a9e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10494,7 +10494,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Yakutsk  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Yangon[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Yangon[]  = {
   //             6:30    -    +0630
   {
     NULL /*zone_policy*/,
@@ -10512,7 +10512,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Yangon[]  = {
 
 static const char kAtcZoneNameAsia_Yangon[]  = "Asia/Yangon";
 
-const struct AtcZoneInfo kAtcZoneAsia_Yangon  = {
+const AtcZoneInfo kAtcZoneAsia_Yangon  = {
   kAtcZoneNameAsia_Yangon /*name*/,
   0xdd54a8be /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10528,7 +10528,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Yangon  = {
 // Memory (32-bit): 103
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Yekaterinburg[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Yekaterinburg[]  = {
   //              5:00    Russia    +05/+06    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -10570,7 +10570,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Yekaterinburg[]  = {
 
 static const char kAtcZoneNameAsia_Yekaterinburg[]  = "Asia/Yekaterinburg";
 
-const struct AtcZoneInfo kAtcZoneAsia_Yekaterinburg  = {
+const AtcZoneInfo kAtcZoneAsia_Yekaterinburg  = {
   kAtcZoneNameAsia_Yekaterinburg /*name*/,
   0xfb544c6e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10586,7 +10586,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Yekaterinburg  = {
 // Memory (32-bit): 81
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAsia_Yerevan[]  = {
+static const AtcZoneEra kAtcZoneEraAsia_Yerevan[]  = {
   //             4:00 RussiaAsia    +04/+05    2011
   {
     &kAtcPolicyRussiaAsia /*zone_policy*/,
@@ -10616,7 +10616,7 @@ static const struct AtcZoneEra kAtcZoneEraAsia_Yerevan[]  = {
 
 static const char kAtcZoneNameAsia_Yerevan[]  = "Asia/Yerevan";
 
-const struct AtcZoneInfo kAtcZoneAsia_Yerevan  = {
+const AtcZoneInfo kAtcZoneAsia_Yerevan  = {
   kAtcZoneNameAsia_Yerevan /*name*/,
   0x9185c8cc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10632,7 +10632,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Yerevan  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAtlantic_Azores[]  = {
+static const AtcZoneEra kAtcZoneEraAtlantic_Azores[]  = {
   //             -1:00    EU    -01/+00
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -10650,7 +10650,7 @@ static const struct AtcZoneEra kAtcZoneEraAtlantic_Azores[]  = {
 
 static const char kAtcZoneNameAtlantic_Azores[]  = "Atlantic/Azores";
 
-const struct AtcZoneInfo kAtcZoneAtlantic_Azores  = {
+const AtcZoneInfo kAtcZoneAtlantic_Azores  = {
   kAtcZoneNameAtlantic_Azores /*name*/,
   0xf93ed918 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10666,7 +10666,7 @@ const struct AtcZoneInfo kAtcZoneAtlantic_Azores  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAtlantic_Bermuda[]  = {
+static const AtcZoneEra kAtcZoneEraAtlantic_Bermuda[]  = {
   //             -4:00    US    A%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -10684,7 +10684,7 @@ static const struct AtcZoneEra kAtcZoneEraAtlantic_Bermuda[]  = {
 
 static const char kAtcZoneNameAtlantic_Bermuda[]  = "Atlantic/Bermuda";
 
-const struct AtcZoneInfo kAtcZoneAtlantic_Bermuda  = {
+const AtcZoneInfo kAtcZoneAtlantic_Bermuda  = {
   kAtcZoneNameAtlantic_Bermuda /*name*/,
   0x3d4bb1c4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10700,7 +10700,7 @@ const struct AtcZoneInfo kAtcZoneAtlantic_Bermuda  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAtlantic_Canary[]  = {
+static const AtcZoneEra kAtcZoneEraAtlantic_Canary[]  = {
   //              0:00    EU    WE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -10718,7 +10718,7 @@ static const struct AtcZoneEra kAtcZoneEraAtlantic_Canary[]  = {
 
 static const char kAtcZoneNameAtlantic_Canary[]  = "Atlantic/Canary";
 
-const struct AtcZoneInfo kAtcZoneAtlantic_Canary  = {
+const AtcZoneInfo kAtcZoneAtlantic_Canary  = {
   kAtcZoneNameAtlantic_Canary /*name*/,
   0xfc23f2c2 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10734,7 +10734,7 @@ const struct AtcZoneInfo kAtcZoneAtlantic_Canary  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAtlantic_Cape_Verde[]  = {
+static const AtcZoneEra kAtcZoneEraAtlantic_Cape_Verde[]  = {
   //             -1:00    -    -01
   {
     NULL /*zone_policy*/,
@@ -10752,7 +10752,7 @@ static const struct AtcZoneEra kAtcZoneEraAtlantic_Cape_Verde[]  = {
 
 static const char kAtcZoneNameAtlantic_Cape_Verde[]  = "Atlantic/Cape_Verde";
 
-const struct AtcZoneInfo kAtcZoneAtlantic_Cape_Verde  = {
+const AtcZoneInfo kAtcZoneAtlantic_Cape_Verde  = {
   kAtcZoneNameAtlantic_Cape_Verde /*name*/,
   0x5c5e1772 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10768,7 +10768,7 @@ const struct AtcZoneInfo kAtcZoneAtlantic_Cape_Verde  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAtlantic_Faroe[]  = {
+static const AtcZoneEra kAtcZoneEraAtlantic_Faroe[]  = {
   //              0:00    EU    WE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -10786,7 +10786,7 @@ static const struct AtcZoneEra kAtcZoneEraAtlantic_Faroe[]  = {
 
 static const char kAtcZoneNameAtlantic_Faroe[]  = "Atlantic/Faroe";
 
-const struct AtcZoneInfo kAtcZoneAtlantic_Faroe  = {
+const AtcZoneInfo kAtcZoneAtlantic_Faroe  = {
   kAtcZoneNameAtlantic_Faroe /*name*/,
   0xe110a971 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10802,7 +10802,7 @@ const struct AtcZoneInfo kAtcZoneAtlantic_Faroe  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAtlantic_Madeira[]  = {
+static const AtcZoneEra kAtcZoneEraAtlantic_Madeira[]  = {
   //              0:00    EU    WE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -10820,7 +10820,7 @@ static const struct AtcZoneEra kAtcZoneEraAtlantic_Madeira[]  = {
 
 static const char kAtcZoneNameAtlantic_Madeira[]  = "Atlantic/Madeira";
 
-const struct AtcZoneInfo kAtcZoneAtlantic_Madeira  = {
+const AtcZoneInfo kAtcZoneAtlantic_Madeira  = {
   kAtcZoneNameAtlantic_Madeira /*name*/,
   0x81b5c037 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10836,7 +10836,7 @@ const struct AtcZoneInfo kAtcZoneAtlantic_Madeira  = {
 // Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAtlantic_South_Georgia[]  = {
+static const AtcZoneEra kAtcZoneEraAtlantic_South_Georgia[]  = {
   //             -2:00    -    -02
   {
     NULL /*zone_policy*/,
@@ -10854,7 +10854,7 @@ static const struct AtcZoneEra kAtcZoneEraAtlantic_South_Georgia[]  = {
 
 static const char kAtcZoneNameAtlantic_South_Georgia[]  = "Atlantic/South_Georgia";
 
-const struct AtcZoneInfo kAtcZoneAtlantic_South_Georgia  = {
+const AtcZoneInfo kAtcZoneAtlantic_South_Georgia  = {
   kAtcZoneNameAtlantic_South_Georgia /*name*/,
   0x33013174 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10870,7 +10870,7 @@ const struct AtcZoneInfo kAtcZoneAtlantic_South_Georgia  = {
 // Memory (32-bit): 81
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAtlantic_Stanley[]  = {
+static const AtcZoneEra kAtcZoneEraAtlantic_Stanley[]  = {
   //             -4:00    Falk    -04/-03    2010 Sep  5  2:00
   {
     &kAtcPolicyFalk /*zone_policy*/,
@@ -10900,7 +10900,7 @@ static const struct AtcZoneEra kAtcZoneEraAtlantic_Stanley[]  = {
 
 static const char kAtcZoneNameAtlantic_Stanley[]  = "Atlantic/Stanley";
 
-const struct AtcZoneInfo kAtcZoneAtlantic_Stanley  = {
+const AtcZoneInfo kAtcZoneAtlantic_Stanley  = {
   kAtcZoneNameAtlantic_Stanley /*name*/,
   0x7bb3e1c4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10916,7 +10916,7 @@ const struct AtcZoneInfo kAtcZoneAtlantic_Stanley  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAustralia_Adelaide[]  = {
+static const AtcZoneEra kAtcZoneEraAustralia_Adelaide[]  = {
   //             9:30    AS    AC%sT
   {
     &kAtcPolicyAS /*zone_policy*/,
@@ -10934,7 +10934,7 @@ static const struct AtcZoneEra kAtcZoneEraAustralia_Adelaide[]  = {
 
 static const char kAtcZoneNameAustralia_Adelaide[]  = "Australia/Adelaide";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Adelaide  = {
+const AtcZoneInfo kAtcZoneAustralia_Adelaide  = {
   kAtcZoneNameAustralia_Adelaide /*name*/,
   0x2428e8a3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10950,7 +10950,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Adelaide  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAustralia_Brisbane[]  = {
+static const AtcZoneEra kAtcZoneEraAustralia_Brisbane[]  = {
   //             10:00    AQ    AE%sT
   {
     &kAtcPolicyAQ /*zone_policy*/,
@@ -10968,7 +10968,7 @@ static const struct AtcZoneEra kAtcZoneEraAustralia_Brisbane[]  = {
 
 static const char kAtcZoneNameAustralia_Brisbane[]  = "Australia/Brisbane";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Brisbane  = {
+const AtcZoneInfo kAtcZoneAustralia_Brisbane  = {
   kAtcZoneNameAustralia_Brisbane /*name*/,
   0x4fedc9c0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -10984,7 +10984,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Brisbane  = {
 // Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAustralia_Broken_Hill[]  = {
+static const AtcZoneEra kAtcZoneEraAustralia_Broken_Hill[]  = {
   //             9:30    AN    AC%sT    2000
   {
     &kAtcPolicyAN /*zone_policy*/,
@@ -11014,7 +11014,7 @@ static const struct AtcZoneEra kAtcZoneEraAustralia_Broken_Hill[]  = {
 
 static const char kAtcZoneNameAustralia_Broken_Hill[]  = "Australia/Broken_Hill";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Broken_Hill  = {
+const AtcZoneInfo kAtcZoneAustralia_Broken_Hill  = {
   kAtcZoneNameAustralia_Broken_Hill /*name*/,
   0xb06eada3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11030,7 +11030,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Broken_Hill  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAustralia_Darwin[]  = {
+static const AtcZoneEra kAtcZoneEraAustralia_Darwin[]  = {
   //              9:30    Aus    AC%sT
   {
     &kAtcPolicyAus /*zone_policy*/,
@@ -11048,7 +11048,7 @@ static const struct AtcZoneEra kAtcZoneEraAustralia_Darwin[]  = {
 
 static const char kAtcZoneNameAustralia_Darwin[]  = "Australia/Darwin";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Darwin  = {
+const AtcZoneInfo kAtcZoneAustralia_Darwin  = {
   kAtcZoneNameAustralia_Darwin /*name*/,
   0x2876bdff /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11064,7 +11064,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Darwin  = {
 // Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAustralia_Eucla[]  = {
+static const AtcZoneEra kAtcZoneEraAustralia_Eucla[]  = {
   //              8:45    AW  +0845/+0945
   {
     &kAtcPolicyAW /*zone_policy*/,
@@ -11082,7 +11082,7 @@ static const struct AtcZoneEra kAtcZoneEraAustralia_Eucla[]  = {
 
 static const char kAtcZoneNameAustralia_Eucla[]  = "Australia/Eucla";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Eucla  = {
+const AtcZoneInfo kAtcZoneAustralia_Eucla  = {
   kAtcZoneNameAustralia_Eucla /*name*/,
   0x8cf99e44 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11098,7 +11098,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Eucla  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAustralia_Hobart[]  = {
+static const AtcZoneEra kAtcZoneEraAustralia_Hobart[]  = {
   //             10:00    AT    AE%sT
   {
     &kAtcPolicyAT /*zone_policy*/,
@@ -11116,7 +11116,7 @@ static const struct AtcZoneEra kAtcZoneEraAustralia_Hobart[]  = {
 
 static const char kAtcZoneNameAustralia_Hobart[]  = "Australia/Hobart";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Hobart  = {
+const AtcZoneInfo kAtcZoneAustralia_Hobart  = {
   kAtcZoneNameAustralia_Hobart /*name*/,
   0x32bf951a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11132,7 +11132,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Hobart  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAustralia_Lindeman[]  = {
+static const AtcZoneEra kAtcZoneEraAustralia_Lindeman[]  = {
   //             10:00    Holiday    AE%sT
   {
     &kAtcPolicyHoliday /*zone_policy*/,
@@ -11150,7 +11150,7 @@ static const struct AtcZoneEra kAtcZoneEraAustralia_Lindeman[]  = {
 
 static const char kAtcZoneNameAustralia_Lindeman[]  = "Australia/Lindeman";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Lindeman  = {
+const AtcZoneInfo kAtcZoneAustralia_Lindeman  = {
   kAtcZoneNameAustralia_Lindeman /*name*/,
   0xe05029e2 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11166,7 +11166,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Lindeman  = {
 // Memory (32-bit): 66
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAustralia_Lord_Howe[]  = {
+static const AtcZoneEra kAtcZoneEraAustralia_Lord_Howe[]  = {
   //             10:30    LH    +1030/+11
   {
     &kAtcPolicyLH /*zone_policy*/,
@@ -11184,7 +11184,7 @@ static const struct AtcZoneEra kAtcZoneEraAustralia_Lord_Howe[]  = {
 
 static const char kAtcZoneNameAustralia_Lord_Howe[]  = "Australia/Lord_Howe";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Lord_Howe  = {
+const AtcZoneInfo kAtcZoneAustralia_Lord_Howe  = {
   kAtcZoneNameAustralia_Lord_Howe /*name*/,
   0xa748b67d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11200,7 +11200,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Lord_Howe  = {
 // Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAustralia_Melbourne[]  = {
+static const AtcZoneEra kAtcZoneEraAustralia_Melbourne[]  = {
   //             10:00    AV    AE%sT
   {
     &kAtcPolicyAV /*zone_policy*/,
@@ -11218,7 +11218,7 @@ static const struct AtcZoneEra kAtcZoneEraAustralia_Melbourne[]  = {
 
 static const char kAtcZoneNameAustralia_Melbourne[]  = "Australia/Melbourne";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Melbourne  = {
+const AtcZoneInfo kAtcZoneAustralia_Melbourne  = {
   kAtcZoneNameAustralia_Melbourne /*name*/,
   0x0fe559a3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11234,7 +11234,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Melbourne  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAustralia_Perth[]  = {
+static const AtcZoneEra kAtcZoneEraAustralia_Perth[]  = {
   //              8:00    AW    AW%sT
   {
     &kAtcPolicyAW /*zone_policy*/,
@@ -11252,7 +11252,7 @@ static const struct AtcZoneEra kAtcZoneEraAustralia_Perth[]  = {
 
 static const char kAtcZoneNameAustralia_Perth[]  = "Australia/Perth";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Perth  = {
+const AtcZoneInfo kAtcZoneAustralia_Perth  = {
   kAtcZoneNameAustralia_Perth /*name*/,
   0x8db8269d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11268,7 +11268,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Perth  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraAustralia_Sydney[]  = {
+static const AtcZoneEra kAtcZoneEraAustralia_Sydney[]  = {
   //             10:00    AN    AE%sT
   {
     &kAtcPolicyAN /*zone_policy*/,
@@ -11286,7 +11286,7 @@ static const struct AtcZoneEra kAtcZoneEraAustralia_Sydney[]  = {
 
 static const char kAtcZoneNameAustralia_Sydney[]  = "Australia/Sydney";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Sydney  = {
+const AtcZoneInfo kAtcZoneAustralia_Sydney  = {
   kAtcZoneNameAustralia_Sydney /*name*/,
   0x4d1e9776 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11302,7 +11302,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Sydney  = {
 // Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraCET[]  = {
+static const AtcZoneEra kAtcZoneEraCET[]  = {
   // 1:00 C-Eur CE%sT
   {
     &kAtcPolicyC_Eur /*zone_policy*/,
@@ -11320,7 +11320,7 @@ static const struct AtcZoneEra kAtcZoneEraCET[]  = {
 
 static const char kAtcZoneNameCET[]  = "CET";
 
-const struct AtcZoneInfo kAtcZoneCET  = {
+const AtcZoneInfo kAtcZoneCET  = {
   kAtcZoneNameCET /*name*/,
   0x0b87d921 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11336,7 +11336,7 @@ const struct AtcZoneInfo kAtcZoneCET  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraCST6CDT[]  = {
+static const AtcZoneEra kAtcZoneEraCST6CDT[]  = {
   // -6:00 US C%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -11354,7 +11354,7 @@ static const struct AtcZoneEra kAtcZoneEraCST6CDT[]  = {
 
 static const char kAtcZoneNameCST6CDT[]  = "CST6CDT";
 
-const struct AtcZoneInfo kAtcZoneCST6CDT  = {
+const AtcZoneInfo kAtcZoneCST6CDT  = {
   kAtcZoneNameCST6CDT /*name*/,
   0xf0e87d00 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11370,7 +11370,7 @@ const struct AtcZoneInfo kAtcZoneCST6CDT  = {
 // Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEET[]  = {
+static const AtcZoneEra kAtcZoneEraEET[]  = {
   // 2:00 EU EE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -11388,7 +11388,7 @@ static const struct AtcZoneEra kAtcZoneEraEET[]  = {
 
 static const char kAtcZoneNameEET[]  = "EET";
 
-const struct AtcZoneInfo kAtcZoneEET  = {
+const AtcZoneInfo kAtcZoneEET  = {
   kAtcZoneNameEET /*name*/,
   0x0b87e1a3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11404,7 +11404,7 @@ const struct AtcZoneInfo kAtcZoneEET  = {
 // Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEST[]  = {
+static const AtcZoneEra kAtcZoneEraEST[]  = {
   // -5:00 - EST
   {
     NULL /*zone_policy*/,
@@ -11422,7 +11422,7 @@ static const struct AtcZoneEra kAtcZoneEraEST[]  = {
 
 static const char kAtcZoneNameEST[]  = "EST";
 
-const struct AtcZoneInfo kAtcZoneEST  = {
+const AtcZoneInfo kAtcZoneEST  = {
   kAtcZoneNameEST /*name*/,
   0x0b87e371 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11438,7 +11438,7 @@ const struct AtcZoneInfo kAtcZoneEST  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEST5EDT[]  = {
+static const AtcZoneEra kAtcZoneEraEST5EDT[]  = {
   // -5:00 US E%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -11456,7 +11456,7 @@ static const struct AtcZoneEra kAtcZoneEraEST5EDT[]  = {
 
 static const char kAtcZoneNameEST5EDT[]  = "EST5EDT";
 
-const struct AtcZoneInfo kAtcZoneEST5EDT  = {
+const AtcZoneInfo kAtcZoneEST5EDT  = {
   kAtcZoneNameEST5EDT /*name*/,
   0x8adc72a3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11472,7 +11472,7 @@ const struct AtcZoneInfo kAtcZoneEST5EDT  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT[]  = {
   // 0 - GMT
   {
     NULL /*zone_policy*/,
@@ -11490,7 +11490,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT[]  = {
 
 static const char kAtcZoneNameEtc_GMT[]  = "Etc/GMT";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT  = {
+const AtcZoneInfo kAtcZoneEtc_GMT  = {
   kAtcZoneNameEtc_GMT /*name*/,
   0xd8e2de58 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11506,7 +11506,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_1[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_1[]  = {
   // -1 - -01
   {
     NULL /*zone_policy*/,
@@ -11524,7 +11524,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_1[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_1[]  = "Etc/GMT+1";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_1  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_1  = {
   kAtcZoneNameEtc_GMT_PLUS_1 /*name*/,
   0x9d13da14 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11540,7 +11540,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_1  = {
 // Memory (32-bit): 51
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_10[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_10[]  = {
   // -10 - -10
   {
     NULL /*zone_policy*/,
@@ -11558,7 +11558,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_10[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_10[]  = "Etc/GMT+10";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_10  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_10  = {
   kAtcZoneNameEtc_GMT_PLUS_10 /*name*/,
   0x3f8f1cc4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11574,7 +11574,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_10  = {
 // Memory (32-bit): 51
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_11[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_11[]  = {
   // -11 - -11
   {
     NULL /*zone_policy*/,
@@ -11592,7 +11592,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_11[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_11[]  = "Etc/GMT+11";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_11  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_11  = {
   kAtcZoneNameEtc_GMT_PLUS_11 /*name*/,
   0x3f8f1cc5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11608,7 +11608,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_11  = {
 // Memory (32-bit): 51
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_12[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_12[]  = {
   // -12 - -12
   {
     NULL /*zone_policy*/,
@@ -11626,7 +11626,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_12[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_12[]  = "Etc/GMT+12";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_12  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_12  = {
   kAtcZoneNameEtc_GMT_PLUS_12 /*name*/,
   0x3f8f1cc6 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11642,7 +11642,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_12  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_2[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_2[]  = {
   // -2 - -02
   {
     NULL /*zone_policy*/,
@@ -11660,7 +11660,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_2[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_2[]  = "Etc/GMT+2";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_2  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_2  = {
   kAtcZoneNameEtc_GMT_PLUS_2 /*name*/,
   0x9d13da15 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11676,7 +11676,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_2  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_3[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_3[]  = {
   // -3 - -03
   {
     NULL /*zone_policy*/,
@@ -11694,7 +11694,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_3[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_3[]  = "Etc/GMT+3";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_3  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_3  = {
   kAtcZoneNameEtc_GMT_PLUS_3 /*name*/,
   0x9d13da16 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11710,7 +11710,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_3  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_4[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_4[]  = {
   // -4 - -04
   {
     NULL /*zone_policy*/,
@@ -11728,7 +11728,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_4[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_4[]  = "Etc/GMT+4";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_4  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_4  = {
   kAtcZoneNameEtc_GMT_PLUS_4 /*name*/,
   0x9d13da17 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11744,7 +11744,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_4  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_5[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_5[]  = {
   // -5 - -05
   {
     NULL /*zone_policy*/,
@@ -11762,7 +11762,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_5[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_5[]  = "Etc/GMT+5";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_5  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_5  = {
   kAtcZoneNameEtc_GMT_PLUS_5 /*name*/,
   0x9d13da18 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11778,7 +11778,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_5  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_6[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_6[]  = {
   // -6 - -06
   {
     NULL /*zone_policy*/,
@@ -11796,7 +11796,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_6[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_6[]  = "Etc/GMT+6";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_6  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_6  = {
   kAtcZoneNameEtc_GMT_PLUS_6 /*name*/,
   0x9d13da19 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11812,7 +11812,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_6  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_7[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_7[]  = {
   // -7 - -07
   {
     NULL /*zone_policy*/,
@@ -11830,7 +11830,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_7[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_7[]  = "Etc/GMT+7";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_7  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_7  = {
   kAtcZoneNameEtc_GMT_PLUS_7 /*name*/,
   0x9d13da1a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11846,7 +11846,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_7  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_8[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_8[]  = {
   // -8 - -08
   {
     NULL /*zone_policy*/,
@@ -11864,7 +11864,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_8[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_8[]  = "Etc/GMT+8";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_8  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_8  = {
   kAtcZoneNameEtc_GMT_PLUS_8 /*name*/,
   0x9d13da1b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11880,7 +11880,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_8  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_9[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_9[]  = {
   // -9 - -09
   {
     NULL /*zone_policy*/,
@@ -11898,7 +11898,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_9[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_9[]  = "Etc/GMT+9";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_9  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_9  = {
   kAtcZoneNameEtc_GMT_PLUS_9 /*name*/,
   0x9d13da1c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11914,7 +11914,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_9  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_1[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_1[]  = {
   // 1 - +01
   {
     NULL /*zone_policy*/,
@@ -11932,7 +11932,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_1[]  = {
 
 static const char kAtcZoneNameEtc_GMT_1[]  = "Etc/GMT-1";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_1  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_1  = {
   kAtcZoneNameEtc_GMT_1 /*name*/,
   0x9d13da56 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11948,7 +11948,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_1  = {
 // Memory (32-bit): 51
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_10[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_10[]  = {
   // 10 - +10
   {
     NULL /*zone_policy*/,
@@ -11966,7 +11966,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_10[]  = {
 
 static const char kAtcZoneNameEtc_GMT_10[]  = "Etc/GMT-10";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_10  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_10  = {
   kAtcZoneNameEtc_GMT_10 /*name*/,
   0x3f8f2546 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -11982,7 +11982,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_10  = {
 // Memory (32-bit): 51
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_11[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_11[]  = {
   // 11 - +11
   {
     NULL /*zone_policy*/,
@@ -12000,7 +12000,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_11[]  = {
 
 static const char kAtcZoneNameEtc_GMT_11[]  = "Etc/GMT-11";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_11  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_11  = {
   kAtcZoneNameEtc_GMT_11 /*name*/,
   0x3f8f2547 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12016,7 +12016,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_11  = {
 // Memory (32-bit): 51
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_12[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_12[]  = {
   // 12 - +12
   {
     NULL /*zone_policy*/,
@@ -12034,7 +12034,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_12[]  = {
 
 static const char kAtcZoneNameEtc_GMT_12[]  = "Etc/GMT-12";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_12  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_12  = {
   kAtcZoneNameEtc_GMT_12 /*name*/,
   0x3f8f2548 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12050,7 +12050,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_12  = {
 // Memory (32-bit): 51
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_13[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_13[]  = {
   // 13 - +13
   {
     NULL /*zone_policy*/,
@@ -12068,7 +12068,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_13[]  = {
 
 static const char kAtcZoneNameEtc_GMT_13[]  = "Etc/GMT-13";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_13  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_13  = {
   kAtcZoneNameEtc_GMT_13 /*name*/,
   0x3f8f2549 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12084,7 +12084,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_13  = {
 // Memory (32-bit): 51
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_14[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_14[]  = {
   // 14 - +14
   {
     NULL /*zone_policy*/,
@@ -12102,7 +12102,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_14[]  = {
 
 static const char kAtcZoneNameEtc_GMT_14[]  = "Etc/GMT-14";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_14  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_14  = {
   kAtcZoneNameEtc_GMT_14 /*name*/,
   0x3f8f254a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12118,7 +12118,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_14  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_2[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_2[]  = {
   // 2 - +02
   {
     NULL /*zone_policy*/,
@@ -12136,7 +12136,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_2[]  = {
 
 static const char kAtcZoneNameEtc_GMT_2[]  = "Etc/GMT-2";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_2  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_2  = {
   kAtcZoneNameEtc_GMT_2 /*name*/,
   0x9d13da57 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12152,7 +12152,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_2  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_3[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_3[]  = {
   // 3 - +03
   {
     NULL /*zone_policy*/,
@@ -12170,7 +12170,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_3[]  = {
 
 static const char kAtcZoneNameEtc_GMT_3[]  = "Etc/GMT-3";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_3  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_3  = {
   kAtcZoneNameEtc_GMT_3 /*name*/,
   0x9d13da58 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12186,7 +12186,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_3  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_4[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_4[]  = {
   // 4 - +04
   {
     NULL /*zone_policy*/,
@@ -12204,7 +12204,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_4[]  = {
 
 static const char kAtcZoneNameEtc_GMT_4[]  = "Etc/GMT-4";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_4  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_4  = {
   kAtcZoneNameEtc_GMT_4 /*name*/,
   0x9d13da59 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12220,7 +12220,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_4  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_5[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_5[]  = {
   // 5 - +05
   {
     NULL /*zone_policy*/,
@@ -12238,7 +12238,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_5[]  = {
 
 static const char kAtcZoneNameEtc_GMT_5[]  = "Etc/GMT-5";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_5  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_5  = {
   kAtcZoneNameEtc_GMT_5 /*name*/,
   0x9d13da5a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12254,7 +12254,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_5  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_6[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_6[]  = {
   // 6 - +06
   {
     NULL /*zone_policy*/,
@@ -12272,7 +12272,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_6[]  = {
 
 static const char kAtcZoneNameEtc_GMT_6[]  = "Etc/GMT-6";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_6  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_6  = {
   kAtcZoneNameEtc_GMT_6 /*name*/,
   0x9d13da5b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12288,7 +12288,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_6  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_7[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_7[]  = {
   // 7 - +07
   {
     NULL /*zone_policy*/,
@@ -12306,7 +12306,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_7[]  = {
 
 static const char kAtcZoneNameEtc_GMT_7[]  = "Etc/GMT-7";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_7  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_7  = {
   kAtcZoneNameEtc_GMT_7 /*name*/,
   0x9d13da5c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12322,7 +12322,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_7  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_8[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_8[]  = {
   // 8 - +08
   {
     NULL /*zone_policy*/,
@@ -12340,7 +12340,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_8[]  = {
 
 static const char kAtcZoneNameEtc_GMT_8[]  = "Etc/GMT-8";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_8  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_8  = {
   kAtcZoneNameEtc_GMT_8 /*name*/,
   0x9d13da5d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12356,7 +12356,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_8  = {
 // Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_GMT_9[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_GMT_9[]  = {
   // 9 - +09
   {
     NULL /*zone_policy*/,
@@ -12374,7 +12374,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_GMT_9[]  = {
 
 static const char kAtcZoneNameEtc_GMT_9[]  = "Etc/GMT-9";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_9  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_9  = {
   kAtcZoneNameEtc_GMT_9 /*name*/,
   0x9d13da5e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12390,7 +12390,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_9  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEtc_UTC[]  = {
+static const AtcZoneEra kAtcZoneEraEtc_UTC[]  = {
   // 0 - UTC
   {
     NULL /*zone_policy*/,
@@ -12408,7 +12408,7 @@ static const struct AtcZoneEra kAtcZoneEraEtc_UTC[]  = {
 
 static const char kAtcZoneNameEtc_UTC[]  = "Etc/UTC";
 
-const struct AtcZoneInfo kAtcZoneEtc_UTC  = {
+const AtcZoneInfo kAtcZoneEtc_UTC  = {
   kAtcZoneNameEtc_UTC /*name*/,
   0xd8e31abc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12424,7 +12424,7 @@ const struct AtcZoneInfo kAtcZoneEtc_UTC  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Andorra[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Andorra[]  = {
   //             1:00    EU    CE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -12442,7 +12442,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Andorra[]  = {
 
 static const char kAtcZoneNameEurope_Andorra[]  = "Europe/Andorra";
 
-const struct AtcZoneInfo kAtcZoneEurope_Andorra  = {
+const AtcZoneInfo kAtcZoneEurope_Andorra  = {
   kAtcZoneNameEurope_Andorra /*name*/,
   0x97f6764b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12458,7 +12458,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Andorra  = {
 // Memory (32-bit): 121
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Astrakhan[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Astrakhan[]  = {
   //              3:00    Russia    +03/+04    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -12512,7 +12512,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Astrakhan[]  = {
 
 static const char kAtcZoneNameEurope_Astrakhan[]  = "Europe/Astrakhan";
 
-const struct AtcZoneInfo kAtcZoneEurope_Astrakhan  = {
+const AtcZoneInfo kAtcZoneEurope_Astrakhan  = {
   kAtcZoneNameEurope_Astrakhan /*name*/,
   0xe22256e1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12528,7 +12528,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Astrakhan  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Athens[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Athens[]  = {
   //             2:00    EU    EE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -12546,7 +12546,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Athens[]  = {
 
 static const char kAtcZoneNameEurope_Athens[]  = "Europe/Athens";
 
-const struct AtcZoneInfo kAtcZoneEurope_Athens  = {
+const AtcZoneInfo kAtcZoneEurope_Athens  = {
   kAtcZoneNameEurope_Athens /*name*/,
   0x4318fa27 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12562,7 +12562,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Athens  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Belgrade[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Belgrade[]  = {
   //             1:00    EU    CE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -12580,7 +12580,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Belgrade[]  = {
 
 static const char kAtcZoneNameEurope_Belgrade[]  = "Europe/Belgrade";
 
-const struct AtcZoneInfo kAtcZoneEurope_Belgrade  = {
+const AtcZoneInfo kAtcZoneEurope_Belgrade  = {
   kAtcZoneNameEurope_Belgrade /*name*/,
   0xe0532b3a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12596,7 +12596,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Belgrade  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Berlin[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Berlin[]  = {
   //             1:00    EU    CE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -12614,7 +12614,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Berlin[]  = {
 
 static const char kAtcZoneNameEurope_Berlin[]  = "Europe/Berlin";
 
-const struct AtcZoneInfo kAtcZoneEurope_Berlin  = {
+const AtcZoneInfo kAtcZoneEurope_Berlin  = {
   kAtcZoneNameEurope_Berlin /*name*/,
   0x44644c20 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12630,7 +12630,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Berlin  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Brussels[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Brussels[]  = {
   //             1:00    EU    CE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -12648,7 +12648,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Brussels[]  = {
 
 static const char kAtcZoneNameEurope_Brussels[]  = "Europe/Brussels";
 
-const struct AtcZoneInfo kAtcZoneEurope_Brussels  = {
+const AtcZoneInfo kAtcZoneEurope_Brussels  = {
   kAtcZoneNameEurope_Brussels /*name*/,
   0xdee07337 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12664,7 +12664,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Brussels  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Bucharest[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Bucharest[]  = {
   //             2:00    EU    EE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -12682,7 +12682,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Bucharest[]  = {
 
 static const char kAtcZoneNameEurope_Bucharest[]  = "Europe/Bucharest";
 
-const struct AtcZoneInfo kAtcZoneEurope_Bucharest  = {
+const AtcZoneInfo kAtcZoneEurope_Bucharest  = {
   kAtcZoneNameEurope_Bucharest /*name*/,
   0xfb349ec5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12698,7 +12698,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Bucharest  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Budapest[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Budapest[]  = {
   //             1:00    EU    CE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -12716,7 +12716,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Budapest[]  = {
 
 static const char kAtcZoneNameEurope_Budapest[]  = "Europe/Budapest";
 
-const struct AtcZoneInfo kAtcZoneEurope_Budapest  = {
+const AtcZoneInfo kAtcZoneEurope_Budapest  = {
   kAtcZoneNameEurope_Budapest /*name*/,
   0x9ce0197c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12732,7 +12732,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Budapest  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Chisinau[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Chisinau[]  = {
   //             2:00    Moldova    EE%sT
   {
     &kAtcPolicyMoldova /*zone_policy*/,
@@ -12750,7 +12750,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Chisinau[]  = {
 
 static const char kAtcZoneNameEurope_Chisinau[]  = "Europe/Chisinau";
 
-const struct AtcZoneInfo kAtcZoneEurope_Chisinau  = {
+const AtcZoneInfo kAtcZoneEurope_Chisinau  = {
   kAtcZoneNameEurope_Chisinau /*name*/,
   0xad58aa18 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12766,7 +12766,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Chisinau  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Dublin[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Dublin[]  = {
   //              1:00    Eire    IST/GMT
   {
     &kAtcPolicyEire /*zone_policy*/,
@@ -12784,7 +12784,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Dublin[]  = {
 
 static const char kAtcZoneNameEurope_Dublin[]  = "Europe/Dublin";
 
-const struct AtcZoneInfo kAtcZoneEurope_Dublin  = {
+const AtcZoneInfo kAtcZoneEurope_Dublin  = {
   kAtcZoneNameEurope_Dublin /*name*/,
   0x4a275f62 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12800,7 +12800,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Dublin  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Gibraltar[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Gibraltar[]  = {
   //             1:00    EU    CE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -12818,7 +12818,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Gibraltar[]  = {
 
 static const char kAtcZoneNameEurope_Gibraltar[]  = "Europe/Gibraltar";
 
-const struct AtcZoneInfo kAtcZoneEurope_Gibraltar  = {
+const AtcZoneInfo kAtcZoneEurope_Gibraltar  = {
   kAtcZoneNameEurope_Gibraltar /*name*/,
   0xf8e325fc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12834,7 +12834,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Gibraltar  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Helsinki[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Helsinki[]  = {
   //             2:00    EU    EE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -12852,7 +12852,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Helsinki[]  = {
 
 static const char kAtcZoneNameEurope_Helsinki[]  = "Europe/Helsinki";
 
-const struct AtcZoneInfo kAtcZoneEurope_Helsinki  = {
+const AtcZoneInfo kAtcZoneEurope_Helsinki  = {
   kAtcZoneNameEurope_Helsinki /*name*/,
   0x6ab2975b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12868,7 +12868,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Helsinki  = {
 // Memory (32-bit): 222
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Istanbul[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Istanbul[]  = {
   //             2:00    Turkey    EE%sT    2007
   {
     &kAtcPolicyTurkey /*zone_policy*/,
@@ -12982,7 +12982,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Istanbul[]  = {
 
 static const char kAtcZoneNameEurope_Istanbul[]  = "Europe/Istanbul";
 
-const struct AtcZoneInfo kAtcZoneEurope_Istanbul  = {
+const AtcZoneInfo kAtcZoneEurope_Istanbul  = {
   kAtcZoneNameEurope_Istanbul /*name*/,
   0x9e09d6e6 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -12998,7 +12998,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Istanbul  = {
 // Memory (32-bit): 100
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Kaliningrad[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Kaliningrad[]  = {
   //              2:00    Russia    EE%sT    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -13040,7 +13040,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Kaliningrad[]  = {
 
 static const char kAtcZoneNameEurope_Kaliningrad[]  = "Europe/Kaliningrad";
 
-const struct AtcZoneInfo kAtcZoneEurope_Kaliningrad  = {
+const AtcZoneInfo kAtcZoneEurope_Kaliningrad  = {
   kAtcZoneNameEurope_Kaliningrad /*name*/,
   0xd33b2f28 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13056,7 +13056,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Kaliningrad  = {
 // Memory (32-bit): 97
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Kirov[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Kirov[]  = {
   //              3:00    Russia    +03/+04    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -13098,7 +13098,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Kirov[]  = {
 
 static const char kAtcZoneNameEurope_Kirov[]  = "Europe/Kirov";
 
-const struct AtcZoneInfo kAtcZoneEurope_Kirov  = {
+const AtcZoneInfo kAtcZoneEurope_Kirov  = {
   kAtcZoneNameEurope_Kirov /*name*/,
   0xfaf5abef /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13114,7 +13114,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Kirov  = {
 // Memory (32-bit): 53
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Kyiv[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Kyiv[]  = {
   //             2:00    EU    EE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -13132,7 +13132,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Kyiv[]  = {
 
 static const char kAtcZoneNameEurope_Kyiv[]  = "Europe/Kyiv";
 
-const struct AtcZoneInfo kAtcZoneEurope_Kyiv  = {
+const AtcZoneInfo kAtcZoneEurope_Kyiv  = {
   kAtcZoneNameEurope_Kyiv /*name*/,
   0xa2c1e347 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13148,7 +13148,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Kyiv  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Lisbon[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Lisbon[]  = {
   //              0:00    EU    WE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -13166,7 +13166,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Lisbon[]  = {
 
 static const char kAtcZoneNameEurope_Lisbon[]  = "Europe/Lisbon";
 
-const struct AtcZoneInfo kAtcZoneEurope_Lisbon  = {
+const AtcZoneInfo kAtcZoneEurope_Lisbon  = {
   kAtcZoneNameEurope_Lisbon /*name*/,
   0x5c00a70b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13182,7 +13182,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Lisbon  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_London[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_London[]  = {
   //              0:00    EU    GMT/BST
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -13200,7 +13200,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_London[]  = {
 
 static const char kAtcZoneNameEurope_London[]  = "Europe/London";
 
-const struct AtcZoneInfo kAtcZoneEurope_London  = {
+const AtcZoneInfo kAtcZoneEurope_London  = {
   kAtcZoneNameEurope_London /*name*/,
   0x5c6a84ae /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13216,7 +13216,7 @@ const struct AtcZoneInfo kAtcZoneEurope_London  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Madrid[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Madrid[]  = {
   //              1:00    EU    CE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -13234,7 +13234,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Madrid[]  = {
 
 static const char kAtcZoneNameEurope_Madrid[]  = "Europe/Madrid";
 
-const struct AtcZoneInfo kAtcZoneEurope_Madrid  = {
+const AtcZoneInfo kAtcZoneEurope_Madrid  = {
   kAtcZoneNameEurope_Madrid /*name*/,
   0x5dbd1535 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13250,7 +13250,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Madrid  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Malta[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Malta[]  = {
   //             1:00    EU    CE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -13268,7 +13268,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Malta[]  = {
 
 static const char kAtcZoneNameEurope_Malta[]  = "Europe/Malta";
 
-const struct AtcZoneInfo kAtcZoneEurope_Malta  = {
+const AtcZoneInfo kAtcZoneEurope_Malta  = {
   kAtcZoneNameEurope_Malta /*name*/,
   0xfb1560f3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13284,7 +13284,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Malta  = {
 // Memory (32-bit): 74
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Minsk[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Minsk[]  = {
   //             2:00    Russia    EE%sT    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -13314,7 +13314,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Minsk[]  = {
 
 static const char kAtcZoneNameEurope_Minsk[]  = "Europe/Minsk";
 
-const struct AtcZoneInfo kAtcZoneEurope_Minsk  = {
+const AtcZoneInfo kAtcZoneEurope_Minsk  = {
   kAtcZoneNameEurope_Minsk /*name*/,
   0xfb19cc66 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13330,7 +13330,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Minsk  = {
 // Memory (32-bit): 98
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Moscow[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Moscow[]  = {
   //              3:00    Russia    MSK/MSD    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -13372,7 +13372,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Moscow[]  = {
 
 static const char kAtcZoneNameEurope_Moscow[]  = "Europe/Moscow";
 
-const struct AtcZoneInfo kAtcZoneEurope_Moscow  = {
+const AtcZoneInfo kAtcZoneEurope_Moscow  = {
   kAtcZoneNameEurope_Moscow /*name*/,
   0x5ec266fc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13388,7 +13388,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Moscow  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Paris[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Paris[]  = {
   //             1:00    EU    CE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -13406,7 +13406,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Paris[]  = {
 
 static const char kAtcZoneNameEurope_Paris[]  = "Europe/Paris";
 
-const struct AtcZoneInfo kAtcZoneEurope_Paris  = {
+const AtcZoneInfo kAtcZoneEurope_Paris  = {
   kAtcZoneNameEurope_Paris /*name*/,
   0xfb4bc2a3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13422,7 +13422,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Paris  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Prague[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Prague[]  = {
   //             1:00    EU    CE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -13440,7 +13440,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Prague[]  = {
 
 static const char kAtcZoneNameEurope_Prague[]  = "Europe/Prague";
 
-const struct AtcZoneInfo kAtcZoneEurope_Prague  = {
+const AtcZoneInfo kAtcZoneEurope_Prague  = {
   kAtcZoneNameEurope_Prague /*name*/,
   0x65ee5d48 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13456,7 +13456,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Prague  = {
 // Memory (32-bit): 94
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Riga[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Riga[]  = {
   //             2:00    EU    EE%sT    2000 Feb 29
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -13498,7 +13498,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Riga[]  = {
 
 static const char kAtcZoneNameEurope_Riga[]  = "Europe/Riga";
 
-const struct AtcZoneInfo kAtcZoneEurope_Riga  = {
+const AtcZoneInfo kAtcZoneEurope_Riga  = {
   kAtcZoneNameEurope_Riga /*name*/,
   0xa2c57587 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13514,7 +13514,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Riga  = {
 // Memory (32-bit): 53
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Rome[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Rome[]  = {
   //             1:00    EU    CE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -13532,7 +13532,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Rome[]  = {
 
 static const char kAtcZoneNameEurope_Rome[]  = "Europe/Rome";
 
-const struct AtcZoneInfo kAtcZoneEurope_Rome  = {
+const AtcZoneInfo kAtcZoneEurope_Rome  = {
   kAtcZoneNameEurope_Rome /*name*/,
   0xa2c58fd7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13548,7 +13548,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Rome  = {
 // Memory (32-bit): 102
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Samara[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Samara[]  = {
   //              4:00    Russia    +04/+05    2010 Mar 28  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -13590,7 +13590,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Samara[]  = {
 
 static const char kAtcZoneNameEurope_Samara[]  = "Europe/Samara";
 
-const struct AtcZoneInfo kAtcZoneEurope_Samara  = {
+const AtcZoneInfo kAtcZoneEurope_Samara  = {
   kAtcZoneNameEurope_Samara /*name*/,
   0x6bc0b139 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13606,7 +13606,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Samara  = {
 // Memory (32-bit): 119
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Saratov[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Saratov[]  = {
   //              3:00    Russia    +03/+04    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -13660,7 +13660,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Saratov[]  = {
 
 static const char kAtcZoneNameEurope_Saratov[]  = "Europe/Saratov";
 
-const struct AtcZoneInfo kAtcZoneEurope_Saratov  = {
+const AtcZoneInfo kAtcZoneEurope_Saratov  = {
   kAtcZoneNameEurope_Saratov /*name*/,
   0xe4315da4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13676,7 +13676,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Saratov  = {
 // Memory (32-bit): 99
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Simferopol[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Simferopol[]  = {
   //              2:00    EU    EE%sT    2014 Mar 30  2:00
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -13718,7 +13718,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Simferopol[]  = {
 
 static const char kAtcZoneNameEurope_Simferopol[]  = "Europe/Simferopol";
 
-const struct AtcZoneInfo kAtcZoneEurope_Simferopol  = {
+const AtcZoneInfo kAtcZoneEurope_Simferopol  = {
   kAtcZoneNameEurope_Simferopol /*name*/,
   0xda9eb724 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13734,7 +13734,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Simferopol  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Sofia[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Sofia[]  = {
   //             2:00    EU    EE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -13752,7 +13752,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Sofia[]  = {
 
 static const char kAtcZoneNameEurope_Sofia[]  = "Europe/Sofia";
 
-const struct AtcZoneInfo kAtcZoneEurope_Sofia  = {
+const AtcZoneInfo kAtcZoneEurope_Sofia  = {
   kAtcZoneNameEurope_Sofia /*name*/,
   0xfb898656 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13768,7 +13768,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Sofia  = {
 // Memory (32-bit): 97
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Tallinn[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Tallinn[]  = {
   //             2:00    EU    EE%sT    1999 Oct 31  4:00
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -13810,7 +13810,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Tallinn[]  = {
 
 static const char kAtcZoneNameEurope_Tallinn[]  = "Europe/Tallinn";
 
-const struct AtcZoneInfo kAtcZoneEurope_Tallinn  = {
+const AtcZoneInfo kAtcZoneEurope_Tallinn  = {
   kAtcZoneNameEurope_Tallinn /*name*/,
   0x30c4e096 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13826,7 +13826,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Tallinn  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Tirane[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Tirane[]  = {
   //             1:00    EU    CE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -13844,7 +13844,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Tirane[]  = {
 
 static const char kAtcZoneNameEurope_Tirane[]  = "Europe/Tirane";
 
-const struct AtcZoneInfo kAtcZoneEurope_Tirane  = {
+const AtcZoneInfo kAtcZoneEurope_Tirane  = {
   kAtcZoneNameEurope_Tirane /*name*/,
   0x6ea95b47 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13860,7 +13860,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Tirane  = {
 // Memory (32-bit): 121
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Ulyanovsk[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Ulyanovsk[]  = {
   //              3:00    Russia    +03/+04    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -13914,7 +13914,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Ulyanovsk[]  = {
 
 static const char kAtcZoneNameEurope_Ulyanovsk[]  = "Europe/Ulyanovsk";
 
-const struct AtcZoneInfo kAtcZoneEurope_Ulyanovsk  = {
+const AtcZoneInfo kAtcZoneEurope_Ulyanovsk  = {
   kAtcZoneNameEurope_Ulyanovsk /*name*/,
   0xe03783d0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13930,7 +13930,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Ulyanovsk  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Uzhgorod[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Uzhgorod[]  = {
   //             2:00    EU    EE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -13948,7 +13948,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Uzhgorod[]  = {
 
 static const char kAtcZoneNameEurope_Uzhgorod[]  = "Europe/Uzhgorod";
 
-const struct AtcZoneInfo kAtcZoneEurope_Uzhgorod  = {
+const AtcZoneInfo kAtcZoneEurope_Uzhgorod  = {
   kAtcZoneNameEurope_Uzhgorod /*name*/,
   0xb066f5d6 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13964,7 +13964,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Uzhgorod  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Vienna[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Vienna[]  = {
   //             1:00    EU    CE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -13982,7 +13982,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Vienna[]  = {
 
 static const char kAtcZoneNameEurope_Vienna[]  = "Europe/Vienna";
 
-const struct AtcZoneInfo kAtcZoneEurope_Vienna  = {
+const AtcZoneInfo kAtcZoneEurope_Vienna  = {
   kAtcZoneNameEurope_Vienna /*name*/,
   0x734cc2e5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -13998,7 +13998,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Vienna  = {
 // Memory (32-bit): 97
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Vilnius[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Vilnius[]  = {
   //             1:00    EU    CE%sT    1999 Oct 31  1:00u
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -14040,7 +14040,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Vilnius[]  = {
 
 static const char kAtcZoneNameEurope_Vilnius[]  = "Europe/Vilnius";
 
-const struct AtcZoneInfo kAtcZoneEurope_Vilnius  = {
+const AtcZoneInfo kAtcZoneEurope_Vilnius  = {
   kAtcZoneNameEurope_Vilnius /*name*/,
   0xdd63b8ce /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14056,7 +14056,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Vilnius  = {
 // Memory (32-bit): 141
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Volgograd[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Volgograd[]  = {
   //              3:00    Russia    +03/+04    2011 Mar 27  2:00s
   {
     &kAtcPolicyRussia /*zone_policy*/,
@@ -14122,7 +14122,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Volgograd[]  = {
 
 static const char kAtcZoneNameEurope_Volgograd[]  = "Europe/Volgograd";
 
-const struct AtcZoneInfo kAtcZoneEurope_Volgograd  = {
+const AtcZoneInfo kAtcZoneEurope_Volgograd  = {
   kAtcZoneNameEurope_Volgograd /*name*/,
   0x3ed0f389 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14138,7 +14138,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Volgograd  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Warsaw[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Warsaw[]  = {
   //             1:00    EU    CE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -14156,7 +14156,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Warsaw[]  = {
 
 static const char kAtcZoneNameEurope_Warsaw[]  = "Europe/Warsaw";
 
-const struct AtcZoneInfo kAtcZoneEurope_Warsaw  = {
+const AtcZoneInfo kAtcZoneEurope_Warsaw  = {
   kAtcZoneNameEurope_Warsaw /*name*/,
   0x75185c19 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14172,7 +14172,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Warsaw  = {
 // Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Zaporozhye[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Zaporozhye[]  = {
   //             2:00    EU    EE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -14190,7 +14190,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Zaporozhye[]  = {
 
 static const char kAtcZoneNameEurope_Zaporozhye[]  = "Europe/Zaporozhye";
 
-const struct AtcZoneInfo kAtcZoneEurope_Zaporozhye  = {
+const AtcZoneInfo kAtcZoneEurope_Zaporozhye  = {
   kAtcZoneNameEurope_Zaporozhye /*name*/,
   0xeab9767f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14206,7 +14206,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Zaporozhye  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraEurope_Zurich[]  = {
+static const AtcZoneEra kAtcZoneEraEurope_Zurich[]  = {
   //             1:00    EU    CE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -14224,7 +14224,7 @@ static const struct AtcZoneEra kAtcZoneEraEurope_Zurich[]  = {
 
 static const char kAtcZoneNameEurope_Zurich[]  = "Europe/Zurich";
 
-const struct AtcZoneInfo kAtcZoneEurope_Zurich  = {
+const AtcZoneInfo kAtcZoneEurope_Zurich  = {
   kAtcZoneNameEurope_Zurich /*name*/,
   0x7d8195b9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14240,7 +14240,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Zurich  = {
 // Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraHST[]  = {
+static const AtcZoneEra kAtcZoneEraHST[]  = {
   // -10:00 - HST
   {
     NULL /*zone_policy*/,
@@ -14258,7 +14258,7 @@ static const struct AtcZoneEra kAtcZoneEraHST[]  = {
 
 static const char kAtcZoneNameHST[]  = "HST";
 
-const struct AtcZoneInfo kAtcZoneHST  = {
+const AtcZoneInfo kAtcZoneHST  = {
   kAtcZoneNameHST /*name*/,
   0x0b87f034 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14274,7 +14274,7 @@ const struct AtcZoneInfo kAtcZoneHST  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraIndian_Chagos[]  = {
+static const AtcZoneEra kAtcZoneEraIndian_Chagos[]  = {
   //             6:00    -    +06
   {
     NULL /*zone_policy*/,
@@ -14292,7 +14292,7 @@ static const struct AtcZoneEra kAtcZoneEraIndian_Chagos[]  = {
 
 static const char kAtcZoneNameIndian_Chagos[]  = "Indian/Chagos";
 
-const struct AtcZoneInfo kAtcZoneIndian_Chagos  = {
+const AtcZoneInfo kAtcZoneIndian_Chagos  = {
   kAtcZoneNameIndian_Chagos /*name*/,
   0x456f7c3c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14308,7 +14308,7 @@ const struct AtcZoneInfo kAtcZoneIndian_Chagos  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraIndian_Maldives[]  = {
+static const AtcZoneEra kAtcZoneEraIndian_Maldives[]  = {
   //             5:00    -    +05
   {
     NULL /*zone_policy*/,
@@ -14326,7 +14326,7 @@ static const struct AtcZoneEra kAtcZoneEraIndian_Maldives[]  = {
 
 static const char kAtcZoneNameIndian_Maldives[]  = "Indian/Maldives";
 
-const struct AtcZoneInfo kAtcZoneIndian_Maldives  = {
+const AtcZoneInfo kAtcZoneIndian_Maldives  = {
   kAtcZoneNameIndian_Maldives /*name*/,
   0x9869681c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14342,7 +14342,7 @@ const struct AtcZoneInfo kAtcZoneIndian_Maldives  = {
 // Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraIndian_Mauritius[]  = {
+static const AtcZoneEra kAtcZoneEraIndian_Mauritius[]  = {
   //             4:00 Mauritius    +04/+05
   {
     &kAtcPolicyMauritius /*zone_policy*/,
@@ -14360,7 +14360,7 @@ static const struct AtcZoneEra kAtcZoneEraIndian_Mauritius[]  = {
 
 static const char kAtcZoneNameIndian_Mauritius[]  = "Indian/Mauritius";
 
-const struct AtcZoneInfo kAtcZoneIndian_Mauritius  = {
+const AtcZoneInfo kAtcZoneIndian_Mauritius  = {
   kAtcZoneNameIndian_Mauritius /*name*/,
   0x7b09c02a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14376,7 +14376,7 @@ const struct AtcZoneInfo kAtcZoneIndian_Mauritius  = {
 // Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraMET[]  = {
+static const AtcZoneEra kAtcZoneEraMET[]  = {
   // 1:00 C-Eur ME%sT
   {
     &kAtcPolicyC_Eur /*zone_policy*/,
@@ -14394,7 +14394,7 @@ static const struct AtcZoneEra kAtcZoneEraMET[]  = {
 
 static const char kAtcZoneNameMET[]  = "MET";
 
-const struct AtcZoneInfo kAtcZoneMET  = {
+const AtcZoneInfo kAtcZoneMET  = {
   kAtcZoneNameMET /*name*/,
   0x0b8803ab /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14410,7 +14410,7 @@ const struct AtcZoneInfo kAtcZoneMET  = {
 // Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraMST[]  = {
+static const AtcZoneEra kAtcZoneEraMST[]  = {
   // -7:00 - MST
   {
     NULL /*zone_policy*/,
@@ -14428,7 +14428,7 @@ static const struct AtcZoneEra kAtcZoneEraMST[]  = {
 
 static const char kAtcZoneNameMST[]  = "MST";
 
-const struct AtcZoneInfo kAtcZoneMST  = {
+const AtcZoneInfo kAtcZoneMST  = {
   kAtcZoneNameMST /*name*/,
   0x0b880579 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14444,7 +14444,7 @@ const struct AtcZoneInfo kAtcZoneMST  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraMST7MDT[]  = {
+static const AtcZoneEra kAtcZoneEraMST7MDT[]  = {
   // -7:00 US M%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -14462,7 +14462,7 @@ static const struct AtcZoneEra kAtcZoneEraMST7MDT[]  = {
 
 static const char kAtcZoneNameMST7MDT[]  = "MST7MDT";
 
-const struct AtcZoneInfo kAtcZoneMST7MDT  = {
+const AtcZoneInfo kAtcZoneMST7MDT  = {
   kAtcZoneNameMST7MDT /*name*/,
   0xf2af9375 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14478,7 +14478,7 @@ const struct AtcZoneInfo kAtcZoneMST7MDT  = {
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPST8PDT[]  = {
+static const AtcZoneEra kAtcZoneEraPST8PDT[]  = {
   // -8:00 US P%sT
   {
     &kAtcPolicyUS /*zone_policy*/,
@@ -14496,7 +14496,7 @@ static const struct AtcZoneEra kAtcZoneEraPST8PDT[]  = {
 
 static const char kAtcZoneNamePST8PDT[]  = "PST8PDT";
 
-const struct AtcZoneInfo kAtcZonePST8PDT  = {
+const AtcZoneInfo kAtcZonePST8PDT  = {
   kAtcZoneNamePST8PDT /*name*/,
   0xd99ee2dc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14512,7 +14512,7 @@ const struct AtcZoneInfo kAtcZonePST8PDT  = {
 // Memory (32-bit): 81
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Apia[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Apia[]  = {
   //             -11:00    WS    -11/-10    2011 Dec 29 24:00
   {
     &kAtcPolicyWS /*zone_policy*/,
@@ -14542,7 +14542,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Apia[]  = {
 
 static const char kAtcZoneNamePacific_Apia[]  = "Pacific/Apia";
 
-const struct AtcZoneInfo kAtcZonePacific_Apia  = {
+const AtcZoneInfo kAtcZonePacific_Apia  = {
   kAtcZoneNamePacific_Apia /*name*/,
   0x23359b5e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14558,7 +14558,7 @@ const struct AtcZoneInfo kAtcZonePacific_Apia  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Auckland[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Auckland[]  = {
   //             12:00    NZ    NZ%sT
   {
     &kAtcPolicyNZ /*zone_policy*/,
@@ -14576,7 +14576,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Auckland[]  = {
 
 static const char kAtcZoneNamePacific_Auckland[]  = "Pacific/Auckland";
 
-const struct AtcZoneInfo kAtcZonePacific_Auckland  = {
+const AtcZoneInfo kAtcZonePacific_Auckland  = {
   kAtcZoneNamePacific_Auckland /*name*/,
   0x25062f86 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14592,7 +14592,7 @@ const struct AtcZoneInfo kAtcZonePacific_Auckland  = {
 // Memory (32-bit): 81
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Bougainville[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Bougainville[]  = {
   //             10:00    -    +10    2014 Dec 28  2:00
   {
     NULL /*zone_policy*/,
@@ -14622,7 +14622,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Bougainville[]  = {
 
 static const char kAtcZoneNamePacific_Bougainville[]  = "Pacific/Bougainville";
 
-const struct AtcZoneInfo kAtcZonePacific_Bougainville  = {
+const AtcZoneInfo kAtcZonePacific_Bougainville  = {
   kAtcZoneNamePacific_Bougainville /*name*/,
   0x5e10f7a4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14638,7 +14638,7 @@ const struct AtcZoneInfo kAtcZonePacific_Bougainville  = {
 // Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Chatham[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Chatham[]  = {
   //             12:45    Chatham    +1245/+1345
   {
     &kAtcPolicyChatham /*zone_policy*/,
@@ -14656,7 +14656,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Chatham[]  = {
 
 static const char kAtcZoneNamePacific_Chatham[]  = "Pacific/Chatham";
 
-const struct AtcZoneInfo kAtcZonePacific_Chatham  = {
+const AtcZoneInfo kAtcZonePacific_Chatham  = {
   kAtcZoneNamePacific_Chatham /*name*/,
   0x2f0de999 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14672,7 +14672,7 @@ const struct AtcZoneInfo kAtcZonePacific_Chatham  = {
 // Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Easter[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Easter[]  = {
   //             -6:00    Chile    -06/-05
   {
     &kAtcPolicyChile /*zone_policy*/,
@@ -14690,7 +14690,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Easter[]  = {
 
 static const char kAtcZoneNamePacific_Easter[]  = "Pacific/Easter";
 
-const struct AtcZoneInfo kAtcZonePacific_Easter  = {
+const AtcZoneInfo kAtcZonePacific_Easter  = {
   kAtcZoneNamePacific_Easter /*name*/,
   0xcf54f7e7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14706,7 +14706,7 @@ const struct AtcZoneInfo kAtcZonePacific_Easter  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Efate[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Efate[]  = {
   //             11:00    Vanuatu    +11/+12
   {
     &kAtcPolicyVanuatu /*zone_policy*/,
@@ -14724,7 +14724,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Efate[]  = {
 
 static const char kAtcZoneNamePacific_Efate[]  = "Pacific/Efate";
 
-const struct AtcZoneInfo kAtcZonePacific_Efate  = {
+const AtcZoneInfo kAtcZonePacific_Efate  = {
   kAtcZoneNamePacific_Efate /*name*/,
   0x8a2bce28 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14740,7 +14740,7 @@ const struct AtcZoneInfo kAtcZonePacific_Efate  = {
 // Memory (32-bit): 76
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Fakaofo[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Fakaofo[]  = {
   //             -11:00    -    -11    2011 Dec 30
   {
     NULL /*zone_policy*/,
@@ -14770,7 +14770,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Fakaofo[]  = {
 
 static const char kAtcZoneNamePacific_Fakaofo[]  = "Pacific/Fakaofo";
 
-const struct AtcZoneInfo kAtcZonePacific_Fakaofo  = {
+const AtcZoneInfo kAtcZonePacific_Fakaofo  = {
   kAtcZoneNamePacific_Fakaofo /*name*/,
   0x06532bba /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14786,7 +14786,7 @@ const struct AtcZoneInfo kAtcZonePacific_Fakaofo  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Fiji[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Fiji[]  = {
   //             12:00    Fiji    +12/+13
   {
     &kAtcPolicyFiji /*zone_policy*/,
@@ -14804,7 +14804,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Fiji[]  = {
 
 static const char kAtcZoneNamePacific_Fiji[]  = "Pacific/Fiji";
 
-const struct AtcZoneInfo kAtcZonePacific_Fiji  = {
+const AtcZoneInfo kAtcZonePacific_Fiji  = {
   kAtcZoneNamePacific_Fiji /*name*/,
   0x23383ba5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14820,7 +14820,7 @@ const struct AtcZoneInfo kAtcZonePacific_Fiji  = {
 // Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Galapagos[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Galapagos[]  = {
   //             -6:00    Ecuador    -06/-05
   {
     &kAtcPolicyEcuador /*zone_policy*/,
@@ -14838,7 +14838,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Galapagos[]  = {
 
 static const char kAtcZoneNamePacific_Galapagos[]  = "Pacific/Galapagos";
 
-const struct AtcZoneInfo kAtcZonePacific_Galapagos  = {
+const AtcZoneInfo kAtcZonePacific_Galapagos  = {
   kAtcZoneNamePacific_Galapagos /*name*/,
   0xa952f752 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14854,7 +14854,7 @@ const struct AtcZoneInfo kAtcZonePacific_Galapagos  = {
 // Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Gambier[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Gambier[]  = {
   //              -9:00    -    -09
   {
     NULL /*zone_policy*/,
@@ -14872,7 +14872,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Gambier[]  = {
 
 static const char kAtcZoneNamePacific_Gambier[]  = "Pacific/Gambier";
 
-const struct AtcZoneInfo kAtcZonePacific_Gambier  = {
+const AtcZoneInfo kAtcZonePacific_Gambier  = {
   kAtcZoneNamePacific_Gambier /*name*/,
   0x53720c3a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14888,7 +14888,7 @@ const struct AtcZoneInfo kAtcZonePacific_Gambier  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Guadalcanal[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Guadalcanal[]  = {
   //             11:00    -    +11
   {
     NULL /*zone_policy*/,
@@ -14906,7 +14906,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Guadalcanal[]  = {
 
 static const char kAtcZoneNamePacific_Guadalcanal[]  = "Pacific/Guadalcanal";
 
-const struct AtcZoneInfo kAtcZonePacific_Guadalcanal  = {
+const AtcZoneInfo kAtcZonePacific_Guadalcanal  = {
   kAtcZoneNamePacific_Guadalcanal /*name*/,
   0xf4dd25f0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14922,7 +14922,7 @@ const struct AtcZoneInfo kAtcZonePacific_Guadalcanal  = {
 // Memory (32-bit): 74
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Guam[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Guam[]  = {
   //             10:00    Guam    G%sT    2000 Dec 23
   {
     &kAtcPolicyGuam /*zone_policy*/,
@@ -14952,7 +14952,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Guam[]  = {
 
 static const char kAtcZoneNamePacific_Guam[]  = "Pacific/Guam";
 
-const struct AtcZoneInfo kAtcZonePacific_Guam  = {
+const AtcZoneInfo kAtcZonePacific_Guam  = {
   kAtcZoneNamePacific_Guam /*name*/,
   0x2338f9ed /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -14968,7 +14968,7 @@ const struct AtcZoneInfo kAtcZonePacific_Guam  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Honolulu[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Honolulu[]  = {
   //             -10:00    -    HST
   {
     NULL /*zone_policy*/,
@@ -14986,7 +14986,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Honolulu[]  = {
 
 static const char kAtcZoneNamePacific_Honolulu[]  = "Pacific/Honolulu";
 
-const struct AtcZoneInfo kAtcZonePacific_Honolulu  = {
+const AtcZoneInfo kAtcZonePacific_Honolulu  = {
   kAtcZoneNamePacific_Honolulu /*name*/,
   0xe6e70af9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15002,7 +15002,7 @@ const struct AtcZoneInfo kAtcZonePacific_Honolulu  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Kanton[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Kanton[]  = {
   //              13:00    -    +13
   {
     NULL /*zone_policy*/,
@@ -15020,7 +15020,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Kanton[]  = {
 
 static const char kAtcZoneNamePacific_Kanton[]  = "Pacific/Kanton";
 
-const struct AtcZoneInfo kAtcZonePacific_Kanton  = {
+const AtcZoneInfo kAtcZonePacific_Kanton  = {
   kAtcZoneNamePacific_Kanton /*name*/,
   0xdd512f0e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15036,7 +15036,7 @@ const struct AtcZoneInfo kAtcZonePacific_Kanton  = {
 // Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Kiritimati[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Kiritimati[]  = {
   //              14:00    -    +14
   {
     NULL /*zone_policy*/,
@@ -15054,7 +15054,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Kiritimati[]  = {
 
 static const char kAtcZoneNamePacific_Kiritimati[]  = "Pacific/Kiritimati";
 
-const struct AtcZoneInfo kAtcZonePacific_Kiritimati  = {
+const AtcZoneInfo kAtcZonePacific_Kiritimati  = {
   kAtcZoneNamePacific_Kiritimati /*name*/,
   0x8305073a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15070,7 +15070,7 @@ const struct AtcZoneInfo kAtcZonePacific_Kiritimati  = {
 // Memory (32-bit): 75
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Kosrae[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Kosrae[]  = {
   //              12:00    -    +12    1999
   {
     NULL /*zone_policy*/,
@@ -15100,7 +15100,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Kosrae[]  = {
 
 static const char kAtcZoneNamePacific_Kosrae[]  = "Pacific/Kosrae";
 
-const struct AtcZoneInfo kAtcZonePacific_Kosrae  = {
+const AtcZoneInfo kAtcZonePacific_Kosrae  = {
   kAtcZoneNamePacific_Kosrae /*name*/,
   0xde5139a8 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15116,7 +15116,7 @@ const struct AtcZoneInfo kAtcZonePacific_Kosrae  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Kwajalein[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Kwajalein[]  = {
   //              12:00    -    +12
   {
     NULL /*zone_policy*/,
@@ -15134,7 +15134,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Kwajalein[]  = {
 
 static const char kAtcZoneNamePacific_Kwajalein[]  = "Pacific/Kwajalein";
 
-const struct AtcZoneInfo kAtcZonePacific_Kwajalein  = {
+const AtcZoneInfo kAtcZonePacific_Kwajalein  = {
   kAtcZoneNamePacific_Kwajalein /*name*/,
   0x8e216759 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15150,7 +15150,7 @@ const struct AtcZoneInfo kAtcZonePacific_Kwajalein  = {
 // Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Marquesas[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Marquesas[]  = {
   //              -9:30    -    -0930
   {
     NULL /*zone_policy*/,
@@ -15168,7 +15168,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Marquesas[]  = {
 
 static const char kAtcZoneNamePacific_Marquesas[]  = "Pacific/Marquesas";
 
-const struct AtcZoneInfo kAtcZonePacific_Marquesas  = {
+const AtcZoneInfo kAtcZonePacific_Marquesas  = {
   kAtcZoneNamePacific_Marquesas /*name*/,
   0x57ca7135 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15184,7 +15184,7 @@ const struct AtcZoneInfo kAtcZonePacific_Marquesas  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Nauru[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Nauru[]  = {
   //             12:00    -    +12
   {
     NULL /*zone_policy*/,
@@ -15202,7 +15202,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Nauru[]  = {
 
 static const char kAtcZoneNamePacific_Nauru[]  = "Pacific/Nauru";
 
-const struct AtcZoneInfo kAtcZonePacific_Nauru  = {
+const AtcZoneInfo kAtcZonePacific_Nauru  = {
   kAtcZoneNamePacific_Nauru /*name*/,
   0x8acc41ae /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15218,7 +15218,7 @@ const struct AtcZoneInfo kAtcZonePacific_Nauru  = {
 // Memory (32-bit): 53
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Niue[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Niue[]  = {
   //             -11:00    -    -11
   {
     NULL /*zone_policy*/,
@@ -15236,7 +15236,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Niue[]  = {
 
 static const char kAtcZoneNamePacific_Niue[]  = "Pacific/Niue";
 
-const struct AtcZoneInfo kAtcZonePacific_Niue  = {
+const AtcZoneInfo kAtcZonePacific_Niue  = {
   kAtcZoneNamePacific_Niue /*name*/,
   0x233ca014 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15252,7 +15252,7 @@ const struct AtcZoneInfo kAtcZonePacific_Niue  = {
 // Memory (32-bit): 102
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Norfolk[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Norfolk[]  = {
   //             11:30    -    +1130    2015 Oct  4 02:00s
   {
     NULL /*zone_policy*/,
@@ -15294,7 +15294,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Norfolk[]  = {
 
 static const char kAtcZoneNamePacific_Norfolk[]  = "Pacific/Norfolk";
 
-const struct AtcZoneInfo kAtcZonePacific_Norfolk  = {
+const AtcZoneInfo kAtcZonePacific_Norfolk  = {
   kAtcZoneNamePacific_Norfolk /*name*/,
   0x8f4eb4be /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15310,7 +15310,7 @@ const struct AtcZoneInfo kAtcZonePacific_Norfolk  = {
 // Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Noumea[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Noumea[]  = {
   //             11:00    NC    +11/+12
   {
     &kAtcPolicyNC /*zone_policy*/,
@@ -15328,7 +15328,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Noumea[]  = {
 
 static const char kAtcZoneNamePacific_Noumea[]  = "Pacific/Noumea";
 
-const struct AtcZoneInfo kAtcZonePacific_Noumea  = {
+const AtcZoneInfo kAtcZonePacific_Noumea  = {
   kAtcZoneNamePacific_Noumea /*name*/,
   0xe551b788 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15344,7 +15344,7 @@ const struct AtcZoneInfo kAtcZonePacific_Noumea  = {
 // Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Pago_Pago[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Pago_Pago[]  = {
   //             -11:00    -    SST
   {
     NULL /*zone_policy*/,
@@ -15362,7 +15362,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Pago_Pago[]  = {
 
 static const char kAtcZoneNamePacific_Pago_Pago[]  = "Pacific/Pago_Pago";
 
-const struct AtcZoneInfo kAtcZonePacific_Pago_Pago  = {
+const AtcZoneInfo kAtcZonePacific_Pago_Pago  = {
   kAtcZoneNamePacific_Pago_Pago /*name*/,
   0x603aebd0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15378,7 +15378,7 @@ const struct AtcZoneInfo kAtcZonePacific_Pago_Pago  = {
 // Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Palau[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Palau[]  = {
   //               9:00    -    +09
   {
     NULL /*zone_policy*/,
@@ -15396,7 +15396,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Palau[]  = {
 
 static const char kAtcZoneNamePacific_Palau[]  = "Pacific/Palau";
 
-const struct AtcZoneInfo kAtcZonePacific_Palau  = {
+const AtcZoneInfo kAtcZonePacific_Palau  = {
   kAtcZoneNamePacific_Palau /*name*/,
   0x8af04a36 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15412,7 +15412,7 @@ const struct AtcZoneInfo kAtcZonePacific_Palau  = {
 // Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Pitcairn[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Pitcairn[]  = {
   //             -8:00    -    -08
   {
     NULL /*zone_policy*/,
@@ -15430,7 +15430,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Pitcairn[]  = {
 
 static const char kAtcZoneNamePacific_Pitcairn[]  = "Pacific/Pitcairn";
 
-const struct AtcZoneInfo kAtcZonePacific_Pitcairn  = {
+const AtcZoneInfo kAtcZonePacific_Pitcairn  = {
   kAtcZoneNamePacific_Pitcairn /*name*/,
   0x8837d8bd /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15446,7 +15446,7 @@ const struct AtcZoneInfo kAtcZonePacific_Pitcairn  = {
 // Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Port_Moresby[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Port_Moresby[]  = {
   //             10:00    -    +10
   {
     NULL /*zone_policy*/,
@@ -15464,7 +15464,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Port_Moresby[]  = {
 
 static const char kAtcZoneNamePacific_Port_Moresby[]  = "Pacific/Port_Moresby";
 
-const struct AtcZoneInfo kAtcZonePacific_Port_Moresby  = {
+const AtcZoneInfo kAtcZonePacific_Port_Moresby  = {
   kAtcZoneNamePacific_Port_Moresby /*name*/,
   0xa7ba7f68 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15480,7 +15480,7 @@ const struct AtcZoneInfo kAtcZonePacific_Port_Moresby  = {
 // Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Rarotonga[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Rarotonga[]  = {
   //             -10:00    Cook    -10/-0930
   {
     &kAtcPolicyCook /*zone_policy*/,
@@ -15498,7 +15498,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Rarotonga[]  = {
 
 static const char kAtcZoneNamePacific_Rarotonga[]  = "Pacific/Rarotonga";
 
-const struct AtcZoneInfo kAtcZonePacific_Rarotonga  = {
+const AtcZoneInfo kAtcZonePacific_Rarotonga  = {
   kAtcZoneNamePacific_Rarotonga /*name*/,
   0x9981a3b0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15514,7 +15514,7 @@ const struct AtcZoneInfo kAtcZonePacific_Rarotonga  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Tahiti[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Tahiti[]  = {
   //             -10:00    -    -10
   {
     NULL /*zone_policy*/,
@@ -15532,7 +15532,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Tahiti[]  = {
 
 static const char kAtcZoneNamePacific_Tahiti[]  = "Pacific/Tahiti";
 
-const struct AtcZoneInfo kAtcZonePacific_Tahiti  = {
+const AtcZoneInfo kAtcZonePacific_Tahiti  = {
   kAtcZoneNamePacific_Tahiti /*name*/,
   0xf24c2446 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15548,7 +15548,7 @@ const struct AtcZoneInfo kAtcZonePacific_Tahiti  = {
 // Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Tarawa[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Tarawa[]  = {
   //              12:00    -    +12
   {
     NULL /*zone_policy*/,
@@ -15566,7 +15566,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Tarawa[]  = {
 
 static const char kAtcZoneNamePacific_Tarawa[]  = "Pacific/Tarawa";
 
-const struct AtcZoneInfo kAtcZonePacific_Tarawa  = {
+const AtcZoneInfo kAtcZonePacific_Tarawa  = {
   kAtcZoneNamePacific_Tarawa /*name*/,
   0xf2517e63 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15582,7 +15582,7 @@ const struct AtcZoneInfo kAtcZonePacific_Tarawa  = {
 // Memory (32-bit): 82
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraPacific_Tongatapu[]  = {
+static const AtcZoneEra kAtcZoneEraPacific_Tongatapu[]  = {
   //             13:00    -    +13    1999
   {
     NULL /*zone_policy*/,
@@ -15612,7 +15612,7 @@ static const struct AtcZoneEra kAtcZoneEraPacific_Tongatapu[]  = {
 
 static const char kAtcZoneNamePacific_Tongatapu[]  = "Pacific/Tongatapu";
 
-const struct AtcZoneInfo kAtcZonePacific_Tongatapu  = {
+const AtcZoneInfo kAtcZonePacific_Tongatapu  = {
   kAtcZoneNamePacific_Tongatapu /*name*/,
   0x262ca836 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15628,7 +15628,7 @@ const struct AtcZoneInfo kAtcZonePacific_Tongatapu  = {
 // Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
-static const struct AtcZoneEra kAtcZoneEraWET[]  = {
+static const AtcZoneEra kAtcZoneEraWET[]  = {
   // 0:00 EU WE%sT
   {
     &kAtcPolicyEU /*zone_policy*/,
@@ -15646,7 +15646,7 @@ static const struct AtcZoneEra kAtcZoneEraWET[]  = {
 
 static const char kAtcZoneNameWET[]  = "WET";
 
-const struct AtcZoneInfo kAtcZoneWET  = {
+const AtcZoneInfo kAtcZoneWET  = {
   kAtcZoneNameWET /*name*/,
   0x0b882e35 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
@@ -15669,7 +15669,7 @@ const struct AtcZoneInfo kAtcZoneWET  = {
 
 static const char kAtcZoneNameAfrica_Accra[]  = "Africa/Accra";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Accra  = {
+const AtcZoneInfo kAtcZoneAfrica_Accra  = {
   kAtcZoneNameAfrica_Accra /*name*/,
   0x77d5b054 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15686,7 +15686,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Accra  = {
 
 static const char kAtcZoneNameAfrica_Addis_Ababa[]  = "Africa/Addis_Ababa";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Addis_Ababa  = {
+const AtcZoneInfo kAtcZoneAfrica_Addis_Ababa  = {
   kAtcZoneNameAfrica_Addis_Ababa /*name*/,
   0x05ae1e65 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15703,7 +15703,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Addis_Ababa  = {
 
 static const char kAtcZoneNameAfrica_Asmara[]  = "Africa/Asmara";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Asmara  = {
+const AtcZoneInfo kAtcZoneAfrica_Asmara  = {
   kAtcZoneNameAfrica_Asmara /*name*/,
   0x73b278ef /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15720,7 +15720,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Asmara  = {
 
 static const char kAtcZoneNameAfrica_Asmera[]  = "Africa/Asmera";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Asmera  = {
+const AtcZoneInfo kAtcZoneAfrica_Asmera  = {
   kAtcZoneNameAfrica_Asmera /*name*/,
   0x73b289f3 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15737,7 +15737,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Asmera  = {
 
 static const char kAtcZoneNameAfrica_Bamako[]  = "Africa/Bamako";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Bamako  = {
+const AtcZoneInfo kAtcZoneAfrica_Bamako  = {
   kAtcZoneNameAfrica_Bamako /*name*/,
   0x74c1e7a5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15754,7 +15754,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Bamako  = {
 
 static const char kAtcZoneNameAfrica_Bangui[]  = "Africa/Bangui";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Bangui  = {
+const AtcZoneInfo kAtcZoneAfrica_Bangui  = {
   kAtcZoneNameAfrica_Bangui /*name*/,
   0x74c28ed0 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15771,7 +15771,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Bangui  = {
 
 static const char kAtcZoneNameAfrica_Banjul[]  = "Africa/Banjul";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Banjul  = {
+const AtcZoneInfo kAtcZoneAfrica_Banjul  = {
   kAtcZoneNameAfrica_Banjul /*name*/,
   0x74c29b96 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15788,7 +15788,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Banjul  = {
 
 static const char kAtcZoneNameAfrica_Blantyre[]  = "Africa/Blantyre";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Blantyre  = {
+const AtcZoneInfo kAtcZoneAfrica_Blantyre  = {
   kAtcZoneNameAfrica_Blantyre /*name*/,
   0xe08d813b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15805,7 +15805,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Blantyre  = {
 
 static const char kAtcZoneNameAfrica_Brazzaville[]  = "Africa/Brazzaville";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Brazzaville  = {
+const AtcZoneInfo kAtcZoneAfrica_Brazzaville  = {
   kAtcZoneNameAfrica_Brazzaville /*name*/,
   0x39cda760 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15822,7 +15822,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Brazzaville  = {
 
 static const char kAtcZoneNameAfrica_Bujumbura[]  = "Africa/Bujumbura";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Bujumbura  = {
+const AtcZoneInfo kAtcZoneAfrica_Bujumbura  = {
   kAtcZoneNameAfrica_Bujumbura /*name*/,
   0x05232a47 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15839,7 +15839,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Bujumbura  = {
 
 static const char kAtcZoneNameAfrica_Conakry[]  = "Africa/Conakry";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Conakry  = {
+const AtcZoneInfo kAtcZoneAfrica_Conakry  = {
   kAtcZoneNameAfrica_Conakry /*name*/,
   0x7ab36b31 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15856,7 +15856,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Conakry  = {
 
 static const char kAtcZoneNameAfrica_Dakar[]  = "Africa/Dakar";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Dakar  = {
+const AtcZoneInfo kAtcZoneAfrica_Dakar  = {
   kAtcZoneNameAfrica_Dakar /*name*/,
   0x780b00fd /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15873,7 +15873,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Dakar  = {
 
 static const char kAtcZoneNameAfrica_Dar_es_Salaam[]  = "Africa/Dar_es_Salaam";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Dar_es_Salaam  = {
+const AtcZoneInfo kAtcZoneAfrica_Dar_es_Salaam  = {
   kAtcZoneNameAfrica_Dar_es_Salaam /*name*/,
   0xa04c47b6 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15890,7 +15890,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Dar_es_Salaam  = {
 
 static const char kAtcZoneNameAfrica_Djibouti[]  = "Africa/Djibouti";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Djibouti  = {
+const AtcZoneInfo kAtcZoneAfrica_Djibouti  = {
   kAtcZoneNameAfrica_Djibouti /*name*/,
   0x30ea01d4 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15907,7 +15907,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Djibouti  = {
 
 static const char kAtcZoneNameAfrica_Douala[]  = "Africa/Douala";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Douala  = {
+const AtcZoneInfo kAtcZoneAfrica_Douala  = {
   kAtcZoneNameAfrica_Douala /*name*/,
   0x7a6df310 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15924,7 +15924,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Douala  = {
 
 static const char kAtcZoneNameAfrica_Freetown[]  = "Africa/Freetown";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Freetown  = {
+const AtcZoneInfo kAtcZoneAfrica_Freetown  = {
   kAtcZoneNameAfrica_Freetown /*name*/,
   0x6823dd64 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15941,7 +15941,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Freetown  = {
 
 static const char kAtcZoneNameAfrica_Gaborone[]  = "Africa/Gaborone";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Gaborone  = {
+const AtcZoneInfo kAtcZoneAfrica_Gaborone  = {
   kAtcZoneNameAfrica_Gaborone /*name*/,
   0x317c0aa7 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15958,7 +15958,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Gaborone  = {
 
 static const char kAtcZoneNameAfrica_Harare[]  = "Africa/Harare";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Harare  = {
+const AtcZoneInfo kAtcZoneAfrica_Harare  = {
   kAtcZoneNameAfrica_Harare /*name*/,
   0x82c39a2d /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15975,7 +15975,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Harare  = {
 
 static const char kAtcZoneNameAfrica_Kampala[]  = "Africa/Kampala";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Kampala  = {
+const AtcZoneInfo kAtcZoneAfrica_Kampala  = {
   kAtcZoneNameAfrica_Kampala /*name*/,
   0xc1d30e31 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -15992,7 +15992,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Kampala  = {
 
 static const char kAtcZoneNameAfrica_Kigali[]  = "Africa/Kigali";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Kigali  = {
+const AtcZoneInfo kAtcZoneAfrica_Kigali  = {
   kAtcZoneNameAfrica_Kigali /*name*/,
   0x8a4dcf2b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16009,7 +16009,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Kigali  = {
 
 static const char kAtcZoneNameAfrica_Kinshasa[]  = "Africa/Kinshasa";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Kinshasa  = {
+const AtcZoneInfo kAtcZoneAfrica_Kinshasa  = {
   kAtcZoneNameAfrica_Kinshasa /*name*/,
   0x6695d70c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16026,7 +16026,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Kinshasa  = {
 
 static const char kAtcZoneNameAfrica_Libreville[]  = "Africa/Libreville";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Libreville  = {
+const AtcZoneInfo kAtcZoneAfrica_Libreville  = {
   kAtcZoneNameAfrica_Libreville /*name*/,
   0x01d96de4 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16043,7 +16043,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Libreville  = {
 
 static const char kAtcZoneNameAfrica_Lome[]  = "Africa/Lome";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Lome  = {
+const AtcZoneInfo kAtcZoneAfrica_Lome  = {
   kAtcZoneNameAfrica_Lome /*name*/,
   0xd51c3a07 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16060,7 +16060,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Lome  = {
 
 static const char kAtcZoneNameAfrica_Luanda[]  = "Africa/Luanda";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Luanda  = {
+const AtcZoneInfo kAtcZoneAfrica_Luanda  = {
   kAtcZoneNameAfrica_Luanda /*name*/,
   0x8d7909cf /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16077,7 +16077,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Luanda  = {
 
 static const char kAtcZoneNameAfrica_Lubumbashi[]  = "Africa/Lubumbashi";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Lubumbashi  = {
+const AtcZoneInfo kAtcZoneAfrica_Lubumbashi  = {
   kAtcZoneNameAfrica_Lubumbashi /*name*/,
   0x6fd88566 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16094,7 +16094,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Lubumbashi  = {
 
 static const char kAtcZoneNameAfrica_Lusaka[]  = "Africa/Lusaka";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Lusaka  = {
+const AtcZoneInfo kAtcZoneAfrica_Lusaka  = {
   kAtcZoneNameAfrica_Lusaka /*name*/,
   0x8d82b23b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16111,7 +16111,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Lusaka  = {
 
 static const char kAtcZoneNameAfrica_Malabo[]  = "Africa/Malabo";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Malabo  = {
+const AtcZoneInfo kAtcZoneAfrica_Malabo  = {
   kAtcZoneNameAfrica_Malabo /*name*/,
   0x8e6a1906 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16128,7 +16128,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Malabo  = {
 
 static const char kAtcZoneNameAfrica_Maseru[]  = "Africa/Maseru";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Maseru  = {
+const AtcZoneInfo kAtcZoneAfrica_Maseru  = {
   kAtcZoneNameAfrica_Maseru /*name*/,
   0x8e6e02c7 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16145,7 +16145,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Maseru  = {
 
 static const char kAtcZoneNameAfrica_Mbabane[]  = "Africa/Mbabane";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Mbabane  = {
+const AtcZoneInfo kAtcZoneAfrica_Mbabane  = {
   kAtcZoneNameAfrica_Mbabane /*name*/,
   0x5d3bdd40 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16162,7 +16162,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Mbabane  = {
 
 static const char kAtcZoneNameAfrica_Mogadishu[]  = "Africa/Mogadishu";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Mogadishu  = {
+const AtcZoneInfo kAtcZoneAfrica_Mogadishu  = {
   kAtcZoneNameAfrica_Mogadishu /*name*/,
   0x66bc159b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16179,7 +16179,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Mogadishu  = {
 
 static const char kAtcZoneNameAfrica_Niamey[]  = "Africa/Niamey";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Niamey  = {
+const AtcZoneInfo kAtcZoneAfrica_Niamey  = {
   kAtcZoneNameAfrica_Niamey /*name*/,
   0x914a30fd /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16196,7 +16196,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Niamey  = {
 
 static const char kAtcZoneNameAfrica_Nouakchott[]  = "Africa/Nouakchott";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Nouakchott  = {
+const AtcZoneInfo kAtcZoneAfrica_Nouakchott  = {
   kAtcZoneNameAfrica_Nouakchott /*name*/,
   0x3dc49dba /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16213,7 +16213,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Nouakchott  = {
 
 static const char kAtcZoneNameAfrica_Ouagadougou[]  = "Africa/Ouagadougou";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Ouagadougou  = {
+const AtcZoneInfo kAtcZoneAfrica_Ouagadougou  = {
   kAtcZoneNameAfrica_Ouagadougou /*name*/,
   0x04d7219a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16230,7 +16230,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Ouagadougou  = {
 
 static const char kAtcZoneNameAfrica_Porto_Novo[]  = "Africa/Porto-Novo";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Porto_Novo  = {
+const AtcZoneInfo kAtcZoneAfrica_Porto_Novo  = {
   kAtcZoneNameAfrica_Porto_Novo /*name*/,
   0x3d1bf95d /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16247,7 +16247,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Porto_Novo  = {
 
 static const char kAtcZoneNameAfrica_Timbuktu[]  = "Africa/Timbuktu";
 
-const struct AtcZoneInfo kAtcZoneAfrica_Timbuktu  = {
+const AtcZoneInfo kAtcZoneAfrica_Timbuktu  = {
   kAtcZoneNameAfrica_Timbuktu /*name*/,
   0xb164d56f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16264,7 +16264,7 @@ const struct AtcZoneInfo kAtcZoneAfrica_Timbuktu  = {
 
 static const char kAtcZoneNameAmerica_Anguilla[]  = "America/Anguilla";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Anguilla  = {
+const AtcZoneInfo kAtcZoneAmerica_Anguilla  = {
   kAtcZoneNameAmerica_Anguilla /*name*/,
   0xafe31333 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16281,7 +16281,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Anguilla  = {
 
 static const char kAtcZoneNameAmerica_Antigua[]  = "America/Antigua";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Antigua  = {
+const AtcZoneInfo kAtcZoneAmerica_Antigua  = {
   kAtcZoneNameAmerica_Antigua /*name*/,
   0xc067a32f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16298,7 +16298,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Antigua  = {
 
 static const char kAtcZoneNameAmerica_Argentina_ComodRivadavia[]  = "America/Argentina/ComodRivadavia";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Argentina_ComodRivadavia  = {
+const AtcZoneInfo kAtcZoneAmerica_Argentina_ComodRivadavia  = {
   kAtcZoneNameAmerica_Argentina_ComodRivadavia /*name*/,
   0x22758877 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16315,7 +16315,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Argentina_ComodRivadavia  = {
 
 static const char kAtcZoneNameAmerica_Aruba[]  = "America/Aruba";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Aruba  = {
+const AtcZoneInfo kAtcZoneAmerica_Aruba  = {
   kAtcZoneNameAmerica_Aruba /*name*/,
   0x97cf8651 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16332,7 +16332,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Aruba  = {
 
 static const char kAtcZoneNameAmerica_Atikokan[]  = "America/Atikokan";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Atikokan  = {
+const AtcZoneInfo kAtcZoneAmerica_Atikokan  = {
   kAtcZoneNameAmerica_Atikokan /*name*/,
   0x81b92098 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16349,7 +16349,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Atikokan  = {
 
 static const char kAtcZoneNameAmerica_Atka[]  = "America/Atka";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Atka  = {
+const AtcZoneInfo kAtcZoneAmerica_Atka  = {
   kAtcZoneNameAmerica_Atka /*name*/,
   0x97fe8f27 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16366,7 +16366,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Atka  = {
 
 static const char kAtcZoneNameAmerica_Blanc_Sablon[]  = "America/Blanc-Sablon";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Blanc_Sablon  = {
+const AtcZoneInfo kAtcZoneAmerica_Blanc_Sablon  = {
   kAtcZoneNameAmerica_Blanc_Sablon /*name*/,
   0x6e299892 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16383,7 +16383,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Blanc_Sablon  = {
 
 static const char kAtcZoneNameAmerica_Buenos_Aires[]  = "America/Buenos_Aires";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Buenos_Aires  = {
+const AtcZoneInfo kAtcZoneAmerica_Buenos_Aires  = {
   kAtcZoneNameAmerica_Buenos_Aires /*name*/,
   0x67d79a05 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16400,7 +16400,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Buenos_Aires  = {
 
 static const char kAtcZoneNameAmerica_Catamarca[]  = "America/Catamarca";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Catamarca  = {
+const AtcZoneInfo kAtcZoneAmerica_Catamarca  = {
   kAtcZoneNameAmerica_Catamarca /*name*/,
   0x5036e963 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16417,7 +16417,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Catamarca  = {
 
 static const char kAtcZoneNameAmerica_Cayman[]  = "America/Cayman";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Cayman  = {
+const AtcZoneInfo kAtcZoneAmerica_Cayman  = {
   kAtcZoneNameAmerica_Cayman /*name*/,
   0x953961df /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16434,7 +16434,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Cayman  = {
 
 static const char kAtcZoneNameAmerica_Coral_Harbour[]  = "America/Coral_Harbour";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Coral_Harbour  = {
+const AtcZoneInfo kAtcZoneAmerica_Coral_Harbour  = {
   kAtcZoneNameAmerica_Coral_Harbour /*name*/,
   0xabcb7569 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16451,7 +16451,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Coral_Harbour  = {
 
 static const char kAtcZoneNameAmerica_Cordoba[]  = "America/Cordoba";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Cordoba  = {
+const AtcZoneInfo kAtcZoneAmerica_Cordoba  = {
   kAtcZoneNameAmerica_Cordoba /*name*/,
   0x5c8a7600 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16468,7 +16468,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Cordoba  = {
 
 static const char kAtcZoneNameAmerica_Creston[]  = "America/Creston";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Creston  = {
+const AtcZoneInfo kAtcZoneAmerica_Creston  = {
   kAtcZoneNameAmerica_Creston /*name*/,
   0x62a70204 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16485,7 +16485,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Creston  = {
 
 static const char kAtcZoneNameAmerica_Curacao[]  = "America/Curacao";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Curacao  = {
+const AtcZoneInfo kAtcZoneAmerica_Curacao  = {
   kAtcZoneNameAmerica_Curacao /*name*/,
   0x6a879184 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16502,7 +16502,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Curacao  = {
 
 static const char kAtcZoneNameAmerica_Dominica[]  = "America/Dominica";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Dominica  = {
+const AtcZoneInfo kAtcZoneAmerica_Dominica  = {
   kAtcZoneNameAmerica_Dominica /*name*/,
   0xcecb4c4a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16519,7 +16519,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Dominica  = {
 
 static const char kAtcZoneNameAmerica_Ensenada[]  = "America/Ensenada";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Ensenada  = {
+const AtcZoneInfo kAtcZoneAmerica_Ensenada  = {
   kAtcZoneNameAmerica_Ensenada /*name*/,
   0x7bc95445 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16536,7 +16536,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Ensenada  = {
 
 static const char kAtcZoneNameAmerica_Fort_Wayne[]  = "America/Fort_Wayne";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Fort_Wayne  = {
+const AtcZoneInfo kAtcZoneAmerica_Fort_Wayne  = {
   kAtcZoneNameAmerica_Fort_Wayne /*name*/,
   0x7eaaaf24 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16553,7 +16553,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Fort_Wayne  = {
 
 static const char kAtcZoneNameAmerica_Godthab[]  = "America/Godthab";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Godthab  = {
+const AtcZoneInfo kAtcZoneAmerica_Godthab  = {
   kAtcZoneNameAmerica_Godthab /*name*/,
   0x8f7eba1f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16570,7 +16570,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Godthab  = {
 
 static const char kAtcZoneNameAmerica_Grenada[]  = "America/Grenada";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Grenada  = {
+const AtcZoneInfo kAtcZoneAmerica_Grenada  = {
   kAtcZoneNameAmerica_Grenada /*name*/,
   0x968ce4d8 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16587,7 +16587,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Grenada  = {
 
 static const char kAtcZoneNameAmerica_Guadeloupe[]  = "America/Guadeloupe";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Guadeloupe  = {
+const AtcZoneInfo kAtcZoneAmerica_Guadeloupe  = {
   kAtcZoneNameAmerica_Guadeloupe /*name*/,
   0xcd1f8a31 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16604,7 +16604,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Guadeloupe  = {
 
 static const char kAtcZoneNameAmerica_Indianapolis[]  = "America/Indianapolis";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Indianapolis  = {
+const AtcZoneInfo kAtcZoneAmerica_Indianapolis  = {
   kAtcZoneNameAmerica_Indianapolis /*name*/,
   0x6a009ae1 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16621,7 +16621,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Indianapolis  = {
 
 static const char kAtcZoneNameAmerica_Jujuy[]  = "America/Jujuy";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Jujuy  = {
+const AtcZoneInfo kAtcZoneAmerica_Jujuy  = {
   kAtcZoneNameAmerica_Jujuy /*name*/,
   0x9873dbbd /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16638,7 +16638,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Jujuy  = {
 
 static const char kAtcZoneNameAmerica_Knox_IN[]  = "America/Knox_IN";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Knox_IN  = {
+const AtcZoneInfo kAtcZoneAmerica_Knox_IN  = {
   kAtcZoneNameAmerica_Knox_IN /*name*/,
   0xc1db9a1c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16655,7 +16655,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Knox_IN  = {
 
 static const char kAtcZoneNameAmerica_Kralendijk[]  = "America/Kralendijk";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Kralendijk  = {
+const AtcZoneInfo kAtcZoneAmerica_Kralendijk  = {
   kAtcZoneNameAmerica_Kralendijk /*name*/,
   0xe7c456c5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16672,7 +16672,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Kralendijk  = {
 
 static const char kAtcZoneNameAmerica_Louisville[]  = "America/Louisville";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Louisville  = {
+const AtcZoneInfo kAtcZoneAmerica_Louisville  = {
   kAtcZoneNameAmerica_Louisville /*name*/,
   0x3dcb47ee /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16689,7 +16689,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Louisville  = {
 
 static const char kAtcZoneNameAmerica_Lower_Princes[]  = "America/Lower_Princes";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Lower_Princes  = {
+const AtcZoneInfo kAtcZoneAmerica_Lower_Princes  = {
   kAtcZoneNameAmerica_Lower_Princes /*name*/,
   0x6ae45b62 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16706,7 +16706,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Lower_Princes  = {
 
 static const char kAtcZoneNameAmerica_Marigot[]  = "America/Marigot";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Marigot  = {
+const AtcZoneInfo kAtcZoneAmerica_Marigot  = {
   kAtcZoneNameAmerica_Marigot /*name*/,
   0x3dab3a59 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16723,7 +16723,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Marigot  = {
 
 static const char kAtcZoneNameAmerica_Mendoza[]  = "America/Mendoza";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Mendoza  = {
+const AtcZoneInfo kAtcZoneAmerica_Mendoza  = {
   kAtcZoneNameAmerica_Mendoza /*name*/,
   0x46b4e054 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16740,7 +16740,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Mendoza  = {
 
 static const char kAtcZoneNameAmerica_Montreal[]  = "America/Montreal";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Montreal  = {
+const AtcZoneInfo kAtcZoneAmerica_Montreal  = {
   kAtcZoneNameAmerica_Montreal /*name*/,
   0x203a1ea8 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16757,7 +16757,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Montreal  = {
 
 static const char kAtcZoneNameAmerica_Montserrat[]  = "America/Montserrat";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Montserrat  = {
+const AtcZoneInfo kAtcZoneAmerica_Montserrat  = {
   kAtcZoneNameAmerica_Montserrat /*name*/,
   0x199b0a35 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16774,7 +16774,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Montserrat  = {
 
 static const char kAtcZoneNameAmerica_Nassau[]  = "America/Nassau";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Nassau  = {
+const AtcZoneInfo kAtcZoneAmerica_Nassau  = {
   kAtcZoneNameAmerica_Nassau /*name*/,
   0xaedef011 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16791,7 +16791,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Nassau  = {
 
 static const char kAtcZoneNameAmerica_Port_of_Spain[]  = "America/Port_of_Spain";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Port_of_Spain  = {
+const AtcZoneInfo kAtcZoneAmerica_Port_of_Spain  = {
   kAtcZoneNameAmerica_Port_of_Spain /*name*/,
   0xd8b28d59 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16808,7 +16808,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Port_of_Spain  = {
 
 static const char kAtcZoneNameAmerica_Porto_Acre[]  = "America/Porto_Acre";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Porto_Acre  = {
+const AtcZoneInfo kAtcZoneAmerica_Porto_Acre  = {
   kAtcZoneNameAmerica_Porto_Acre /*name*/,
   0xcce5bf54 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16825,7 +16825,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Porto_Acre  = {
 
 static const char kAtcZoneNameAmerica_Rosario[]  = "America/Rosario";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Rosario  = {
+const AtcZoneInfo kAtcZoneAmerica_Rosario  = {
   kAtcZoneNameAmerica_Rosario /*name*/,
   0xdf448665 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16842,7 +16842,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Rosario  = {
 
 static const char kAtcZoneNameAmerica_Santa_Isabel[]  = "America/Santa_Isabel";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Santa_Isabel  = {
+const AtcZoneInfo kAtcZoneAmerica_Santa_Isabel  = {
   kAtcZoneNameAmerica_Santa_Isabel /*name*/,
   0xfd18a56c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16859,7 +16859,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Santa_Isabel  = {
 
 static const char kAtcZoneNameAmerica_Shiprock[]  = "America/Shiprock";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Shiprock  = {
+const AtcZoneInfo kAtcZoneAmerica_Shiprock  = {
   kAtcZoneNameAmerica_Shiprock /*name*/,
   0x82fb7049 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16876,7 +16876,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Shiprock  = {
 
 static const char kAtcZoneNameAmerica_St_Barthelemy[]  = "America/St_Barthelemy";
 
-const struct AtcZoneInfo kAtcZoneAmerica_St_Barthelemy  = {
+const AtcZoneInfo kAtcZoneAmerica_St_Barthelemy  = {
   kAtcZoneNameAmerica_St_Barthelemy /*name*/,
   0x054e6a79 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16893,7 +16893,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_St_Barthelemy  = {
 
 static const char kAtcZoneNameAmerica_St_Kitts[]  = "America/St_Kitts";
 
-const struct AtcZoneInfo kAtcZoneAmerica_St_Kitts  = {
+const AtcZoneInfo kAtcZoneAmerica_St_Kitts  = {
   kAtcZoneNameAmerica_St_Kitts /*name*/,
   0x04c0507b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16910,7 +16910,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_St_Kitts  = {
 
 static const char kAtcZoneNameAmerica_St_Lucia[]  = "America/St_Lucia";
 
-const struct AtcZoneInfo kAtcZoneAmerica_St_Lucia  = {
+const AtcZoneInfo kAtcZoneAmerica_St_Lucia  = {
   kAtcZoneNameAmerica_St_Lucia /*name*/,
   0x04d8b3ba /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16927,7 +16927,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_St_Lucia  = {
 
 static const char kAtcZoneNameAmerica_St_Thomas[]  = "America/St_Thomas";
 
-const struct AtcZoneInfo kAtcZoneAmerica_St_Thomas  = {
+const AtcZoneInfo kAtcZoneAmerica_St_Thomas  = {
   kAtcZoneNameAmerica_St_Thomas /*name*/,
   0xb1b3d778 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16944,7 +16944,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_St_Thomas  = {
 
 static const char kAtcZoneNameAmerica_St_Vincent[]  = "America/St_Vincent";
 
-const struct AtcZoneInfo kAtcZoneAmerica_St_Vincent  = {
+const AtcZoneInfo kAtcZoneAmerica_St_Vincent  = {
   kAtcZoneNameAmerica_St_Vincent /*name*/,
   0x8460e523 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16961,7 +16961,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_St_Vincent  = {
 
 static const char kAtcZoneNameAmerica_Tortola[]  = "America/Tortola";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Tortola  = {
+const AtcZoneInfo kAtcZoneAmerica_Tortola  = {
   kAtcZoneNameAmerica_Tortola /*name*/,
   0x7931462b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16978,7 +16978,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Tortola  = {
 
 static const char kAtcZoneNameAmerica_Virgin[]  = "America/Virgin";
 
-const struct AtcZoneInfo kAtcZoneAmerica_Virgin  = {
+const AtcZoneInfo kAtcZoneAmerica_Virgin  = {
   kAtcZoneNameAmerica_Virgin /*name*/,
   0xc2183ab5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -16995,7 +16995,7 @@ const struct AtcZoneInfo kAtcZoneAmerica_Virgin  = {
 
 static const char kAtcZoneNameAntarctica_DumontDUrville[]  = "Antarctica/DumontDUrville";
 
-const struct AtcZoneInfo kAtcZoneAntarctica_DumontDUrville  = {
+const AtcZoneInfo kAtcZoneAntarctica_DumontDUrville  = {
   kAtcZoneNameAntarctica_DumontDUrville /*name*/,
   0x5a3c656c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17012,7 +17012,7 @@ const struct AtcZoneInfo kAtcZoneAntarctica_DumontDUrville  = {
 
 static const char kAtcZoneNameAntarctica_McMurdo[]  = "Antarctica/McMurdo";
 
-const struct AtcZoneInfo kAtcZoneAntarctica_McMurdo  = {
+const AtcZoneInfo kAtcZoneAntarctica_McMurdo  = {
   kAtcZoneNameAntarctica_McMurdo /*name*/,
   0x6eeb5585 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17029,7 +17029,7 @@ const struct AtcZoneInfo kAtcZoneAntarctica_McMurdo  = {
 
 static const char kAtcZoneNameAntarctica_South_Pole[]  = "Antarctica/South_Pole";
 
-const struct AtcZoneInfo kAtcZoneAntarctica_South_Pole  = {
+const AtcZoneInfo kAtcZoneAntarctica_South_Pole  = {
   kAtcZoneNameAntarctica_South_Pole /*name*/,
   0xcd96b290 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17046,7 +17046,7 @@ const struct AtcZoneInfo kAtcZoneAntarctica_South_Pole  = {
 
 static const char kAtcZoneNameAntarctica_Syowa[]  = "Antarctica/Syowa";
 
-const struct AtcZoneInfo kAtcZoneAntarctica_Syowa  = {
+const AtcZoneInfo kAtcZoneAntarctica_Syowa  = {
   kAtcZoneNameAntarctica_Syowa /*name*/,
   0xe330c7e1 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17063,7 +17063,7 @@ const struct AtcZoneInfo kAtcZoneAntarctica_Syowa  = {
 
 static const char kAtcZoneNameAntarctica_Vostok[]  = "Antarctica/Vostok";
 
-const struct AtcZoneInfo kAtcZoneAntarctica_Vostok  = {
+const AtcZoneInfo kAtcZoneAntarctica_Vostok  = {
   kAtcZoneNameAntarctica_Vostok /*name*/,
   0x4f966fd4 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17080,7 +17080,7 @@ const struct AtcZoneInfo kAtcZoneAntarctica_Vostok  = {
 
 static const char kAtcZoneNameArctic_Longyearbyen[]  = "Arctic/Longyearbyen";
 
-const struct AtcZoneInfo kAtcZoneArctic_Longyearbyen  = {
+const AtcZoneInfo kAtcZoneArctic_Longyearbyen  = {
   kAtcZoneNameArctic_Longyearbyen /*name*/,
   0xd23e7859 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17097,7 +17097,7 @@ const struct AtcZoneInfo kAtcZoneArctic_Longyearbyen  = {
 
 static const char kAtcZoneNameAsia_Aden[]  = "Asia/Aden";
 
-const struct AtcZoneInfo kAtcZoneAsia_Aden  = {
+const AtcZoneInfo kAtcZoneAsia_Aden  = {
   kAtcZoneNameAsia_Aden /*name*/,
   0x1fa7084a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17114,7 +17114,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Aden  = {
 
 static const char kAtcZoneNameAsia_Ashkhabad[]  = "Asia/Ashkhabad";
 
-const struct AtcZoneInfo kAtcZoneAsia_Ashkhabad  = {
+const AtcZoneInfo kAtcZoneAsia_Ashkhabad  = {
   kAtcZoneNameAsia_Ashkhabad /*name*/,
   0x15454f09 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17131,7 +17131,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Ashkhabad  = {
 
 static const char kAtcZoneNameAsia_Bahrain[]  = "Asia/Bahrain";
 
-const struct AtcZoneInfo kAtcZoneAsia_Bahrain  = {
+const AtcZoneInfo kAtcZoneAsia_Bahrain  = {
   kAtcZoneNameAsia_Bahrain /*name*/,
   0x9d078487 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17148,7 +17148,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Bahrain  = {
 
 static const char kAtcZoneNameAsia_Brunei[]  = "Asia/Brunei";
 
-const struct AtcZoneInfo kAtcZoneAsia_Brunei  = {
+const AtcZoneInfo kAtcZoneAsia_Brunei  = {
   kAtcZoneNameAsia_Brunei /*name*/,
   0xa8e595f7 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17165,7 +17165,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Brunei  = {
 
 static const char kAtcZoneNameAsia_Calcutta[]  = "Asia/Calcutta";
 
-const struct AtcZoneInfo kAtcZoneAsia_Calcutta  = {
+const AtcZoneInfo kAtcZoneAsia_Calcutta  = {
   kAtcZoneNameAsia_Calcutta /*name*/,
   0x328a44c3 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17182,7 +17182,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Calcutta  = {
 
 static const char kAtcZoneNameAsia_Chongqing[]  = "Asia/Chongqing";
 
-const struct AtcZoneInfo kAtcZoneAsia_Chongqing  = {
+const AtcZoneInfo kAtcZoneAsia_Chongqing  = {
   kAtcZoneNameAsia_Chongqing /*name*/,
   0xf937fb90 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17199,7 +17199,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Chongqing  = {
 
 static const char kAtcZoneNameAsia_Chungking[]  = "Asia/Chungking";
 
-const struct AtcZoneInfo kAtcZoneAsia_Chungking  = {
+const AtcZoneInfo kAtcZoneAsia_Chungking  = {
   kAtcZoneNameAsia_Chungking /*name*/,
   0xc7121dd0 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17216,7 +17216,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Chungking  = {
 
 static const char kAtcZoneNameAsia_Dacca[]  = "Asia/Dacca";
 
-const struct AtcZoneInfo kAtcZoneAsia_Dacca  = {
+const AtcZoneInfo kAtcZoneAsia_Dacca  = {
   kAtcZoneNameAsia_Dacca /*name*/,
   0x14bcac5e /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17233,7 +17233,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Dacca  = {
 
 static const char kAtcZoneNameAsia_Harbin[]  = "Asia/Harbin";
 
-const struct AtcZoneInfo kAtcZoneAsia_Harbin  = {
+const AtcZoneInfo kAtcZoneAsia_Harbin  = {
   kAtcZoneNameAsia_Harbin /*name*/,
   0xb5af1186 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17250,7 +17250,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Harbin  = {
 
 static const char kAtcZoneNameAsia_Istanbul[]  = "Asia/Istanbul";
 
-const struct AtcZoneInfo kAtcZoneAsia_Istanbul  = {
+const AtcZoneInfo kAtcZoneAsia_Istanbul  = {
   kAtcZoneNameAsia_Istanbul /*name*/,
   0x382e7894 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17267,7 +17267,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Istanbul  = {
 
 static const char kAtcZoneNameAsia_Kashgar[]  = "Asia/Kashgar";
 
-const struct AtcZoneInfo kAtcZoneAsia_Kashgar  = {
+const AtcZoneInfo kAtcZoneAsia_Kashgar  = {
   kAtcZoneNameAsia_Kashgar /*name*/,
   0x52955193 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17284,7 +17284,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Kashgar  = {
 
 static const char kAtcZoneNameAsia_Katmandu[]  = "Asia/Katmandu";
 
-const struct AtcZoneInfo kAtcZoneAsia_Katmandu  = {
+const AtcZoneInfo kAtcZoneAsia_Katmandu  = {
   kAtcZoneNameAsia_Katmandu /*name*/,
   0xa7ec12c7 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17301,7 +17301,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Katmandu  = {
 
 static const char kAtcZoneNameAsia_Kuala_Lumpur[]  = "Asia/Kuala_Lumpur";
 
-const struct AtcZoneInfo kAtcZoneAsia_Kuala_Lumpur  = {
+const AtcZoneInfo kAtcZoneAsia_Kuala_Lumpur  = {
   kAtcZoneNameAsia_Kuala_Lumpur /*name*/,
   0x014763c4 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17318,7 +17318,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Kuala_Lumpur  = {
 
 static const char kAtcZoneNameAsia_Kuwait[]  = "Asia/Kuwait";
 
-const struct AtcZoneInfo kAtcZoneAsia_Kuwait  = {
+const AtcZoneInfo kAtcZoneAsia_Kuwait  = {
   kAtcZoneNameAsia_Kuwait /*name*/,
   0xbe1b2f27 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17335,7 +17335,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Kuwait  = {
 
 static const char kAtcZoneNameAsia_Macao[]  = "Asia/Macao";
 
-const struct AtcZoneInfo kAtcZoneAsia_Macao  = {
+const AtcZoneInfo kAtcZoneAsia_Macao  = {
   kAtcZoneNameAsia_Macao /*name*/,
   0x155f88b3 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17352,7 +17352,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Macao  = {
 
 static const char kAtcZoneNameAsia_Muscat[]  = "Asia/Muscat";
 
-const struct AtcZoneInfo kAtcZoneAsia_Muscat  = {
+const AtcZoneInfo kAtcZoneAsia_Muscat  = {
   kAtcZoneNameAsia_Muscat /*name*/,
   0xc2c3565f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17369,7 +17369,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Muscat  = {
 
 static const char kAtcZoneNameAsia_Phnom_Penh[]  = "Asia/Phnom_Penh";
 
-const struct AtcZoneInfo kAtcZoneAsia_Phnom_Penh  = {
+const AtcZoneInfo kAtcZoneAsia_Phnom_Penh  = {
   kAtcZoneNameAsia_Phnom_Penh /*name*/,
   0xc224945e /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17386,7 +17386,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Phnom_Penh  = {
 
 static const char kAtcZoneNameAsia_Rangoon[]  = "Asia/Rangoon";
 
-const struct AtcZoneInfo kAtcZoneAsia_Rangoon  = {
+const AtcZoneInfo kAtcZoneAsia_Rangoon  = {
   kAtcZoneNameAsia_Rangoon /*name*/,
   0x6d1217c6 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17403,7 +17403,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Rangoon  = {
 
 static const char kAtcZoneNameAsia_Saigon[]  = "Asia/Saigon";
 
-const struct AtcZoneInfo kAtcZoneAsia_Saigon  = {
+const AtcZoneInfo kAtcZoneAsia_Saigon  = {
   kAtcZoneNameAsia_Saigon /*name*/,
   0xcf52f713 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17420,7 +17420,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Saigon  = {
 
 static const char kAtcZoneNameAsia_Tel_Aviv[]  = "Asia/Tel_Aviv";
 
-const struct AtcZoneInfo kAtcZoneAsia_Tel_Aviv  = {
+const AtcZoneInfo kAtcZoneAsia_Tel_Aviv  = {
   kAtcZoneNameAsia_Tel_Aviv /*name*/,
   0x166d7c2c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17437,7 +17437,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Tel_Aviv  = {
 
 static const char kAtcZoneNameAsia_Thimbu[]  = "Asia/Thimbu";
 
-const struct AtcZoneInfo kAtcZoneAsia_Thimbu  = {
+const AtcZoneInfo kAtcZoneAsia_Thimbu  = {
   kAtcZoneNameAsia_Thimbu /*name*/,
   0xd226e31b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17454,7 +17454,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Thimbu  = {
 
 static const char kAtcZoneNameAsia_Ujung_Pandang[]  = "Asia/Ujung_Pandang";
 
-const struct AtcZoneInfo kAtcZoneAsia_Ujung_Pandang  = {
+const AtcZoneInfo kAtcZoneAsia_Ujung_Pandang  = {
   kAtcZoneNameAsia_Ujung_Pandang /*name*/,
   0x5d001eb3 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17471,7 +17471,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Ujung_Pandang  = {
 
 static const char kAtcZoneNameAsia_Ulan_Bator[]  = "Asia/Ulan_Bator";
 
-const struct AtcZoneInfo kAtcZoneAsia_Ulan_Bator  = {
+const AtcZoneInfo kAtcZoneAsia_Ulan_Bator  = {
   kAtcZoneNameAsia_Ulan_Bator /*name*/,
   0x394db4d9 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17488,7 +17488,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Ulan_Bator  = {
 
 static const char kAtcZoneNameAsia_Vientiane[]  = "Asia/Vientiane";
 
-const struct AtcZoneInfo kAtcZoneAsia_Vientiane  = {
+const AtcZoneInfo kAtcZoneAsia_Vientiane  = {
   kAtcZoneNameAsia_Vientiane /*name*/,
   0x89d68d75 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17505,7 +17505,7 @@ const struct AtcZoneInfo kAtcZoneAsia_Vientiane  = {
 
 static const char kAtcZoneNameAtlantic_Faeroe[]  = "Atlantic/Faeroe";
 
-const struct AtcZoneInfo kAtcZoneAtlantic_Faeroe  = {
+const AtcZoneInfo kAtcZoneAtlantic_Faeroe  = {
   kAtcZoneNameAtlantic_Faeroe /*name*/,
   0x031ec516 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17522,7 +17522,7 @@ const struct AtcZoneInfo kAtcZoneAtlantic_Faeroe  = {
 
 static const char kAtcZoneNameAtlantic_Jan_Mayen[]  = "Atlantic/Jan_Mayen";
 
-const struct AtcZoneInfo kAtcZoneAtlantic_Jan_Mayen  = {
+const AtcZoneInfo kAtcZoneAtlantic_Jan_Mayen  = {
   kAtcZoneNameAtlantic_Jan_Mayen /*name*/,
   0x5a7535b6 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17539,7 +17539,7 @@ const struct AtcZoneInfo kAtcZoneAtlantic_Jan_Mayen  = {
 
 static const char kAtcZoneNameAtlantic_Reykjavik[]  = "Atlantic/Reykjavik";
 
-const struct AtcZoneInfo kAtcZoneAtlantic_Reykjavik  = {
+const AtcZoneInfo kAtcZoneAtlantic_Reykjavik  = {
   kAtcZoneNameAtlantic_Reykjavik /*name*/,
   0x1c2b4f74 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17556,7 +17556,7 @@ const struct AtcZoneInfo kAtcZoneAtlantic_Reykjavik  = {
 
 static const char kAtcZoneNameAtlantic_St_Helena[]  = "Atlantic/St_Helena";
 
-const struct AtcZoneInfo kAtcZoneAtlantic_St_Helena  = {
+const AtcZoneInfo kAtcZoneAtlantic_St_Helena  = {
   kAtcZoneNameAtlantic_St_Helena /*name*/,
   0x451fc5f7 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17573,7 +17573,7 @@ const struct AtcZoneInfo kAtcZoneAtlantic_St_Helena  = {
 
 static const char kAtcZoneNameAustralia_ACT[]  = "Australia/ACT";
 
-const struct AtcZoneInfo kAtcZoneAustralia_ACT  = {
+const AtcZoneInfo kAtcZoneAustralia_ACT  = {
   kAtcZoneNameAustralia_ACT /*name*/,
   0x8a970eb2 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17590,7 +17590,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_ACT  = {
 
 static const char kAtcZoneNameAustralia_Canberra[]  = "Australia/Canberra";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Canberra  = {
+const AtcZoneInfo kAtcZoneAustralia_Canberra  = {
   kAtcZoneNameAustralia_Canberra /*name*/,
   0x2a09ae58 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17607,7 +17607,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Canberra  = {
 
 static const char kAtcZoneNameAustralia_Currie[]  = "Australia/Currie";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Currie  = {
+const AtcZoneInfo kAtcZoneAustralia_Currie  = {
   kAtcZoneNameAustralia_Currie /*name*/,
   0x278b6a24 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17624,7 +17624,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Currie  = {
 
 static const char kAtcZoneNameAustralia_LHI[]  = "Australia/LHI";
 
-const struct AtcZoneInfo kAtcZoneAustralia_LHI  = {
+const AtcZoneInfo kAtcZoneAustralia_LHI  = {
   kAtcZoneNameAustralia_LHI /*name*/,
   0x8a973e17 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17641,7 +17641,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_LHI  = {
 
 static const char kAtcZoneNameAustralia_NSW[]  = "Australia/NSW";
 
-const struct AtcZoneInfo kAtcZoneAustralia_NSW  = {
+const AtcZoneInfo kAtcZoneAustralia_NSW  = {
   kAtcZoneNameAustralia_NSW /*name*/,
   0x8a974812 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17658,7 +17658,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_NSW  = {
 
 static const char kAtcZoneNameAustralia_North[]  = "Australia/North";
 
-const struct AtcZoneInfo kAtcZoneAustralia_North  = {
+const AtcZoneInfo kAtcZoneAustralia_North  = {
   kAtcZoneNameAustralia_North /*name*/,
   0x8d997165 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17675,7 +17675,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_North  = {
 
 static const char kAtcZoneNameAustralia_Queensland[]  = "Australia/Queensland";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Queensland  = {
+const AtcZoneInfo kAtcZoneAustralia_Queensland  = {
   kAtcZoneNameAustralia_Queensland /*name*/,
   0xd326ed0a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17692,7 +17692,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Queensland  = {
 
 static const char kAtcZoneNameAustralia_South[]  = "Australia/South";
 
-const struct AtcZoneInfo kAtcZoneAustralia_South  = {
+const AtcZoneInfo kAtcZoneAustralia_South  = {
   kAtcZoneNameAustralia_South /*name*/,
   0x8df3f8ad /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17709,7 +17709,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_South  = {
 
 static const char kAtcZoneNameAustralia_Tasmania[]  = "Australia/Tasmania";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Tasmania  = {
+const AtcZoneInfo kAtcZoneAustralia_Tasmania  = {
   kAtcZoneNameAustralia_Tasmania /*name*/,
   0xe6d76648 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17726,7 +17726,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Tasmania  = {
 
 static const char kAtcZoneNameAustralia_Victoria[]  = "Australia/Victoria";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Victoria  = {
+const AtcZoneInfo kAtcZoneAustralia_Victoria  = {
   kAtcZoneNameAustralia_Victoria /*name*/,
   0x0260d5db /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17743,7 +17743,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Victoria  = {
 
 static const char kAtcZoneNameAustralia_West[]  = "Australia/West";
 
-const struct AtcZoneInfo kAtcZoneAustralia_West  = {
+const AtcZoneInfo kAtcZoneAustralia_West  = {
   kAtcZoneNameAustralia_West /*name*/,
   0xdd858a5d /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17760,7 +17760,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_West  = {
 
 static const char kAtcZoneNameAustralia_Yancowinna[]  = "Australia/Yancowinna";
 
-const struct AtcZoneInfo kAtcZoneAustralia_Yancowinna  = {
+const AtcZoneInfo kAtcZoneAustralia_Yancowinna  = {
   kAtcZoneNameAustralia_Yancowinna /*name*/,
   0x90bac131 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17777,7 +17777,7 @@ const struct AtcZoneInfo kAtcZoneAustralia_Yancowinna  = {
 
 static const char kAtcZoneNameBrazil_Acre[]  = "Brazil/Acre";
 
-const struct AtcZoneInfo kAtcZoneBrazil_Acre  = {
+const AtcZoneInfo kAtcZoneBrazil_Acre  = {
   kAtcZoneNameBrazil_Acre /*name*/,
   0x66934f93 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17794,7 +17794,7 @@ const struct AtcZoneInfo kAtcZoneBrazil_Acre  = {
 
 static const char kAtcZoneNameBrazil_DeNoronha[]  = "Brazil/DeNoronha";
 
-const struct AtcZoneInfo kAtcZoneBrazil_DeNoronha  = {
+const AtcZoneInfo kAtcZoneBrazil_DeNoronha  = {
   kAtcZoneNameBrazil_DeNoronha /*name*/,
   0x9b4cb496 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17811,7 +17811,7 @@ const struct AtcZoneInfo kAtcZoneBrazil_DeNoronha  = {
 
 static const char kAtcZoneNameBrazil_East[]  = "Brazil/East";
 
-const struct AtcZoneInfo kAtcZoneBrazil_East  = {
+const AtcZoneInfo kAtcZoneBrazil_East  = {
   kAtcZoneNameBrazil_East /*name*/,
   0x669578c5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17828,7 +17828,7 @@ const struct AtcZoneInfo kAtcZoneBrazil_East  = {
 
 static const char kAtcZoneNameBrazil_West[]  = "Brazil/West";
 
-const struct AtcZoneInfo kAtcZoneBrazil_West  = {
+const AtcZoneInfo kAtcZoneBrazil_West  = {
   kAtcZoneNameBrazil_West /*name*/,
   0x669f689b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17845,7 +17845,7 @@ const struct AtcZoneInfo kAtcZoneBrazil_West  = {
 
 static const char kAtcZoneNameCanada_Atlantic[]  = "Canada/Atlantic";
 
-const struct AtcZoneInfo kAtcZoneCanada_Atlantic  = {
+const AtcZoneInfo kAtcZoneCanada_Atlantic  = {
   kAtcZoneNameCanada_Atlantic /*name*/,
   0x536b119c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17862,7 +17862,7 @@ const struct AtcZoneInfo kAtcZoneCanada_Atlantic  = {
 
 static const char kAtcZoneNameCanada_Central[]  = "Canada/Central";
 
-const struct AtcZoneInfo kAtcZoneCanada_Central  = {
+const AtcZoneInfo kAtcZoneCanada_Central  = {
   kAtcZoneNameCanada_Central /*name*/,
   0x626710f5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17879,7 +17879,7 @@ const struct AtcZoneInfo kAtcZoneCanada_Central  = {
 
 static const char kAtcZoneNameCanada_Eastern[]  = "Canada/Eastern";
 
-const struct AtcZoneInfo kAtcZoneCanada_Eastern  = {
+const AtcZoneInfo kAtcZoneCanada_Eastern  = {
   kAtcZoneNameCanada_Eastern /*name*/,
   0xf3612d5e /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17896,7 +17896,7 @@ const struct AtcZoneInfo kAtcZoneCanada_Eastern  = {
 
 static const char kAtcZoneNameCanada_Mountain[]  = "Canada/Mountain";
 
-const struct AtcZoneInfo kAtcZoneCanada_Mountain  = {
+const AtcZoneInfo kAtcZoneCanada_Mountain  = {
   kAtcZoneNameCanada_Mountain /*name*/,
   0xfb8a8217 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17913,7 +17913,7 @@ const struct AtcZoneInfo kAtcZoneCanada_Mountain  = {
 
 static const char kAtcZoneNameCanada_Newfoundland[]  = "Canada/Newfoundland";
 
-const struct AtcZoneInfo kAtcZoneCanada_Newfoundland  = {
+const AtcZoneInfo kAtcZoneCanada_Newfoundland  = {
   kAtcZoneNameCanada_Newfoundland /*name*/,
   0xb396e991 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17930,7 +17930,7 @@ const struct AtcZoneInfo kAtcZoneCanada_Newfoundland  = {
 
 static const char kAtcZoneNameCanada_Pacific[]  = "Canada/Pacific";
 
-const struct AtcZoneInfo kAtcZoneCanada_Pacific  = {
+const AtcZoneInfo kAtcZoneCanada_Pacific  = {
   kAtcZoneNameCanada_Pacific /*name*/,
   0x40fa3c7b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17947,7 +17947,7 @@ const struct AtcZoneInfo kAtcZoneCanada_Pacific  = {
 
 static const char kAtcZoneNameCanada_Saskatchewan[]  = "Canada/Saskatchewan";
 
-const struct AtcZoneInfo kAtcZoneCanada_Saskatchewan  = {
+const AtcZoneInfo kAtcZoneCanada_Saskatchewan  = {
   kAtcZoneNameCanada_Saskatchewan /*name*/,
   0x77311f49 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17964,7 +17964,7 @@ const struct AtcZoneInfo kAtcZoneCanada_Saskatchewan  = {
 
 static const char kAtcZoneNameCanada_Yukon[]  = "Canada/Yukon";
 
-const struct AtcZoneInfo kAtcZoneCanada_Yukon  = {
+const AtcZoneInfo kAtcZoneCanada_Yukon  = {
   kAtcZoneNameCanada_Yukon /*name*/,
   0x78dd35c2 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17981,7 +17981,7 @@ const struct AtcZoneInfo kAtcZoneCanada_Yukon  = {
 
 static const char kAtcZoneNameChile_Continental[]  = "Chile/Continental";
 
-const struct AtcZoneInfo kAtcZoneChile_Continental  = {
+const AtcZoneInfo kAtcZoneChile_Continental  = {
   kAtcZoneNameChile_Continental /*name*/,
   0x7e2bdb18 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -17998,7 +17998,7 @@ const struct AtcZoneInfo kAtcZoneChile_Continental  = {
 
 static const char kAtcZoneNameChile_EasterIsland[]  = "Chile/EasterIsland";
 
-const struct AtcZoneInfo kAtcZoneChile_EasterIsland  = {
+const AtcZoneInfo kAtcZoneChile_EasterIsland  = {
   kAtcZoneNameChile_EasterIsland /*name*/,
   0xb0982af8 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18015,7 +18015,7 @@ const struct AtcZoneInfo kAtcZoneChile_EasterIsland  = {
 
 static const char kAtcZoneNameCuba[]  = "Cuba";
 
-const struct AtcZoneInfo kAtcZoneCuba  = {
+const AtcZoneInfo kAtcZoneCuba  = {
   kAtcZoneNameCuba /*name*/,
   0x7c83cba0 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18032,7 +18032,7 @@ const struct AtcZoneInfo kAtcZoneCuba  = {
 
 static const char kAtcZoneNameEgypt[]  = "Egypt";
 
-const struct AtcZoneInfo kAtcZoneEgypt  = {
+const AtcZoneInfo kAtcZoneEgypt  = {
   kAtcZoneNameEgypt /*name*/,
   0x0d1a278e /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18049,7 +18049,7 @@ const struct AtcZoneInfo kAtcZoneEgypt  = {
 
 static const char kAtcZoneNameEire[]  = "Eire";
 
-const struct AtcZoneInfo kAtcZoneEire  = {
+const AtcZoneInfo kAtcZoneEire  = {
   kAtcZoneNameEire /*name*/,
   0x7c84b36a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18066,7 +18066,7 @@ const struct AtcZoneInfo kAtcZoneEire  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_0[]  = "Etc/GMT+0";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_0  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_0  = {
   kAtcZoneNameEtc_GMT_PLUS_0 /*name*/,
   0x9d13da13 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18083,7 +18083,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_PLUS_0  = {
 
 static const char kAtcZoneNameEtc_GMT_0[]  = "Etc/GMT-0";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT_0  = {
+const AtcZoneInfo kAtcZoneEtc_GMT_0  = {
   kAtcZoneNameEtc_GMT_0 /*name*/,
   0x9d13da55 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18100,7 +18100,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT_0  = {
 
 static const char kAtcZoneNameEtc_GMT0[]  = "Etc/GMT0";
 
-const struct AtcZoneInfo kAtcZoneEtc_GMT0  = {
+const AtcZoneInfo kAtcZoneEtc_GMT0  = {
   kAtcZoneNameEtc_GMT0 /*name*/,
   0xf53ea988 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18117,7 +18117,7 @@ const struct AtcZoneInfo kAtcZoneEtc_GMT0  = {
 
 static const char kAtcZoneNameEtc_Greenwich[]  = "Etc/Greenwich";
 
-const struct AtcZoneInfo kAtcZoneEtc_Greenwich  = {
+const AtcZoneInfo kAtcZoneEtc_Greenwich  = {
   kAtcZoneNameEtc_Greenwich /*name*/,
   0x26daa98c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18134,7 +18134,7 @@ const struct AtcZoneInfo kAtcZoneEtc_Greenwich  = {
 
 static const char kAtcZoneNameEtc_UCT[]  = "Etc/UCT";
 
-const struct AtcZoneInfo kAtcZoneEtc_UCT  = {
+const AtcZoneInfo kAtcZoneEtc_UCT  = {
   kAtcZoneNameEtc_UCT /*name*/,
   0xd8e3189c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18151,7 +18151,7 @@ const struct AtcZoneInfo kAtcZoneEtc_UCT  = {
 
 static const char kAtcZoneNameEtc_Universal[]  = "Etc/Universal";
 
-const struct AtcZoneInfo kAtcZoneEtc_Universal  = {
+const AtcZoneInfo kAtcZoneEtc_Universal  = {
   kAtcZoneNameEtc_Universal /*name*/,
   0x2f8cb9a9 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18168,7 +18168,7 @@ const struct AtcZoneInfo kAtcZoneEtc_Universal  = {
 
 static const char kAtcZoneNameEtc_Zulu[]  = "Etc/Zulu";
 
-const struct AtcZoneInfo kAtcZoneEtc_Zulu  = {
+const AtcZoneInfo kAtcZoneEtc_Zulu  = {
   kAtcZoneNameEtc_Zulu /*name*/,
   0xf549c240 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18185,7 +18185,7 @@ const struct AtcZoneInfo kAtcZoneEtc_Zulu  = {
 
 static const char kAtcZoneNameEurope_Amsterdam[]  = "Europe/Amsterdam";
 
-const struct AtcZoneInfo kAtcZoneEurope_Amsterdam  = {
+const AtcZoneInfo kAtcZoneEurope_Amsterdam  = {
   kAtcZoneNameEurope_Amsterdam /*name*/,
   0x109395c2 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18202,7 +18202,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Amsterdam  = {
 
 static const char kAtcZoneNameEurope_Belfast[]  = "Europe/Belfast";
 
-const struct AtcZoneInfo kAtcZoneEurope_Belfast  = {
+const AtcZoneInfo kAtcZoneEurope_Belfast  = {
   kAtcZoneNameEurope_Belfast /*name*/,
   0xd07dd1e5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18219,7 +18219,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Belfast  = {
 
 static const char kAtcZoneNameEurope_Bratislava[]  = "Europe/Bratislava";
 
-const struct AtcZoneInfo kAtcZoneEurope_Bratislava  = {
+const AtcZoneInfo kAtcZoneEurope_Bratislava  = {
   kAtcZoneNameEurope_Bratislava /*name*/,
   0xda493bed /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18236,7 +18236,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Bratislava  = {
 
 static const char kAtcZoneNameEurope_Busingen[]  = "Europe/Busingen";
 
-const struct AtcZoneInfo kAtcZoneEurope_Busingen  = {
+const AtcZoneInfo kAtcZoneEurope_Busingen  = {
   kAtcZoneNameEurope_Busingen /*name*/,
   0xc06d2cdf /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18253,7 +18253,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Busingen  = {
 
 static const char kAtcZoneNameEurope_Copenhagen[]  = "Europe/Copenhagen";
 
-const struct AtcZoneInfo kAtcZoneEurope_Copenhagen  = {
+const AtcZoneInfo kAtcZoneEurope_Copenhagen  = {
   kAtcZoneNameEurope_Copenhagen /*name*/,
   0xe0ed30bc /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18270,7 +18270,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Copenhagen  = {
 
 static const char kAtcZoneNameEurope_Guernsey[]  = "Europe/Guernsey";
 
-const struct AtcZoneInfo kAtcZoneEurope_Guernsey  = {
+const AtcZoneInfo kAtcZoneEurope_Guernsey  = {
   kAtcZoneNameEurope_Guernsey /*name*/,
   0x3db12c16 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18287,7 +18287,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Guernsey  = {
 
 static const char kAtcZoneNameEurope_Isle_of_Man[]  = "Europe/Isle_of_Man";
 
-const struct AtcZoneInfo kAtcZoneEurope_Isle_of_Man  = {
+const AtcZoneInfo kAtcZoneEurope_Isle_of_Man  = {
   kAtcZoneNameEurope_Isle_of_Man /*name*/,
   0xeaf84580 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18304,7 +18304,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Isle_of_Man  = {
 
 static const char kAtcZoneNameEurope_Jersey[]  = "Europe/Jersey";
 
-const struct AtcZoneInfo kAtcZoneEurope_Jersey  = {
+const AtcZoneInfo kAtcZoneEurope_Jersey  = {
   kAtcZoneNameEurope_Jersey /*name*/,
   0x570dae76 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18321,7 +18321,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Jersey  = {
 
 static const char kAtcZoneNameEurope_Kiev[]  = "Europe/Kiev";
 
-const struct AtcZoneInfo kAtcZoneEurope_Kiev  = {
+const AtcZoneInfo kAtcZoneEurope_Kiev  = {
   kAtcZoneNameEurope_Kiev /*name*/,
   0xa2c19eb3 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18338,7 +18338,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Kiev  = {
 
 static const char kAtcZoneNameEurope_Ljubljana[]  = "Europe/Ljubljana";
 
-const struct AtcZoneInfo kAtcZoneEurope_Ljubljana  = {
+const AtcZoneInfo kAtcZoneEurope_Ljubljana  = {
   kAtcZoneNameEurope_Ljubljana /*name*/,
   0xbd98cdb7 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18355,7 +18355,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Ljubljana  = {
 
 static const char kAtcZoneNameEurope_Luxembourg[]  = "Europe/Luxembourg";
 
-const struct AtcZoneInfo kAtcZoneEurope_Luxembourg  = {
+const AtcZoneInfo kAtcZoneEurope_Luxembourg  = {
   kAtcZoneNameEurope_Luxembourg /*name*/,
   0x1f8bc6ce /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18372,7 +18372,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Luxembourg  = {
 
 static const char kAtcZoneNameEurope_Mariehamn[]  = "Europe/Mariehamn";
 
-const struct AtcZoneInfo kAtcZoneEurope_Mariehamn  = {
+const AtcZoneInfo kAtcZoneEurope_Mariehamn  = {
   kAtcZoneNameEurope_Mariehamn /*name*/,
   0x0caa6496 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18389,7 +18389,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Mariehamn  = {
 
 static const char kAtcZoneNameEurope_Monaco[]  = "Europe/Monaco";
 
-const struct AtcZoneInfo kAtcZoneEurope_Monaco  = {
+const AtcZoneInfo kAtcZoneEurope_Monaco  = {
   kAtcZoneNameEurope_Monaco /*name*/,
   0x5ebf9f01 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18406,7 +18406,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Monaco  = {
 
 static const char kAtcZoneNameEurope_Nicosia[]  = "Europe/Nicosia";
 
-const struct AtcZoneInfo kAtcZoneEurope_Nicosia  = {
+const AtcZoneInfo kAtcZoneEurope_Nicosia  = {
   kAtcZoneNameEurope_Nicosia /*name*/,
   0x74efab8a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18423,7 +18423,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Nicosia  = {
 
 static const char kAtcZoneNameEurope_Oslo[]  = "Europe/Oslo";
 
-const struct AtcZoneInfo kAtcZoneEurope_Oslo  = {
+const AtcZoneInfo kAtcZoneEurope_Oslo  = {
   kAtcZoneNameEurope_Oslo /*name*/,
   0xa2c3fba1 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18440,7 +18440,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Oslo  = {
 
 static const char kAtcZoneNameEurope_Podgorica[]  = "Europe/Podgorica";
 
-const struct AtcZoneInfo kAtcZoneEurope_Podgorica  = {
+const AtcZoneInfo kAtcZoneEurope_Podgorica  = {
   kAtcZoneNameEurope_Podgorica /*name*/,
   0x1c1a499c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18457,7 +18457,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Podgorica  = {
 
 static const char kAtcZoneNameEurope_San_Marino[]  = "Europe/San_Marino";
 
-const struct AtcZoneInfo kAtcZoneEurope_San_Marino  = {
+const AtcZoneInfo kAtcZoneEurope_San_Marino  = {
   kAtcZoneNameEurope_San_Marino /*name*/,
   0xcef7724b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18474,7 +18474,7 @@ const struct AtcZoneInfo kAtcZoneEurope_San_Marino  = {
 
 static const char kAtcZoneNameEurope_Sarajevo[]  = "Europe/Sarajevo";
 
-const struct AtcZoneInfo kAtcZoneEurope_Sarajevo  = {
+const AtcZoneInfo kAtcZoneEurope_Sarajevo  = {
   kAtcZoneNameEurope_Sarajevo /*name*/,
   0x6a576c3f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18491,7 +18491,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Sarajevo  = {
 
 static const char kAtcZoneNameEurope_Skopje[]  = "Europe/Skopje";
 
-const struct AtcZoneInfo kAtcZoneEurope_Skopje  = {
+const AtcZoneInfo kAtcZoneEurope_Skopje  = {
   kAtcZoneNameEurope_Skopje /*name*/,
   0x6c76fdd0 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18508,7 +18508,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Skopje  = {
 
 static const char kAtcZoneNameEurope_Stockholm[]  = "Europe/Stockholm";
 
-const struct AtcZoneInfo kAtcZoneEurope_Stockholm  = {
+const AtcZoneInfo kAtcZoneEurope_Stockholm  = {
   kAtcZoneNameEurope_Stockholm /*name*/,
   0x5bf6fbb8 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18525,7 +18525,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Stockholm  = {
 
 static const char kAtcZoneNameEurope_Tiraspol[]  = "Europe/Tiraspol";
 
-const struct AtcZoneInfo kAtcZoneEurope_Tiraspol  = {
+const AtcZoneInfo kAtcZoneEurope_Tiraspol  = {
   kAtcZoneNameEurope_Tiraspol /*name*/,
   0xbe704472 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18542,7 +18542,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Tiraspol  = {
 
 static const char kAtcZoneNameEurope_Vaduz[]  = "Europe/Vaduz";
 
-const struct AtcZoneInfo kAtcZoneEurope_Vaduz  = {
+const AtcZoneInfo kAtcZoneEurope_Vaduz  = {
   kAtcZoneNameEurope_Vaduz /*name*/,
   0xfbb81bae /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18559,7 +18559,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Vaduz  = {
 
 static const char kAtcZoneNameEurope_Vatican[]  = "Europe/Vatican";
 
-const struct AtcZoneInfo kAtcZoneEurope_Vatican  = {
+const AtcZoneInfo kAtcZoneEurope_Vatican  = {
   kAtcZoneNameEurope_Vatican /*name*/,
   0xcb485dca /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18576,7 +18576,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Vatican  = {
 
 static const char kAtcZoneNameEurope_Zagreb[]  = "Europe/Zagreb";
 
-const struct AtcZoneInfo kAtcZoneEurope_Zagreb  = {
+const AtcZoneInfo kAtcZoneEurope_Zagreb  = {
   kAtcZoneNameEurope_Zagreb /*name*/,
   0x7c11c9ff /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18593,7 +18593,7 @@ const struct AtcZoneInfo kAtcZoneEurope_Zagreb  = {
 
 static const char kAtcZoneNameGB[]  = "GB";
 
-const struct AtcZoneInfo kAtcZoneGB  = {
+const AtcZoneInfo kAtcZoneGB  = {
   kAtcZoneNameGB /*name*/,
   0x005973ae /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18610,7 +18610,7 @@ const struct AtcZoneInfo kAtcZoneGB  = {
 
 static const char kAtcZoneNameGB_Eire[]  = "GB-Eire";
 
-const struct AtcZoneInfo kAtcZoneGB_Eire  = {
+const AtcZoneInfo kAtcZoneGB_Eire  = {
   kAtcZoneNameGB_Eire /*name*/,
   0xfa70e300 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18627,7 +18627,7 @@ const struct AtcZoneInfo kAtcZoneGB_Eire  = {
 
 static const char kAtcZoneNameGMT[]  = "GMT";
 
-const struct AtcZoneInfo kAtcZoneGMT  = {
+const AtcZoneInfo kAtcZoneGMT  = {
   kAtcZoneNameGMT /*name*/,
   0x0b87eb2d /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18644,7 +18644,7 @@ const struct AtcZoneInfo kAtcZoneGMT  = {
 
 static const char kAtcZoneNameGMT_PLUS_0[]  = "GMT+0";
 
-const struct AtcZoneInfo kAtcZoneGMT_PLUS_0  = {
+const AtcZoneInfo kAtcZoneGMT_PLUS_0  = {
   kAtcZoneNameGMT_PLUS_0 /*name*/,
   0x0d2f7028 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18661,7 +18661,7 @@ const struct AtcZoneInfo kAtcZoneGMT_PLUS_0  = {
 
 static const char kAtcZoneNameGMT_0[]  = "GMT-0";
 
-const struct AtcZoneInfo kAtcZoneGMT_0  = {
+const AtcZoneInfo kAtcZoneGMT_0  = {
   kAtcZoneNameGMT_0 /*name*/,
   0x0d2f706a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18678,7 +18678,7 @@ const struct AtcZoneInfo kAtcZoneGMT_0  = {
 
 static const char kAtcZoneNameGMT0[]  = "GMT0";
 
-const struct AtcZoneInfo kAtcZoneGMT0  = {
+const AtcZoneInfo kAtcZoneGMT0  = {
   kAtcZoneNameGMT0 /*name*/,
   0x7c8550fd /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18695,7 +18695,7 @@ const struct AtcZoneInfo kAtcZoneGMT0  = {
 
 static const char kAtcZoneNameGreenwich[]  = "Greenwich";
 
-const struct AtcZoneInfo kAtcZoneGreenwich  = {
+const AtcZoneInfo kAtcZoneGreenwich  = {
   kAtcZoneNameGreenwich /*name*/,
   0xc84d4221 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18712,7 +18712,7 @@ const struct AtcZoneInfo kAtcZoneGreenwich  = {
 
 static const char kAtcZoneNameHongkong[]  = "Hongkong";
 
-const struct AtcZoneInfo kAtcZoneHongkong  = {
+const AtcZoneInfo kAtcZoneHongkong  = {
   kAtcZoneNameHongkong /*name*/,
   0x56d36560 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18729,7 +18729,7 @@ const struct AtcZoneInfo kAtcZoneHongkong  = {
 
 static const char kAtcZoneNameIceland[]  = "Iceland";
 
-const struct AtcZoneInfo kAtcZoneIceland  = {
+const AtcZoneInfo kAtcZoneIceland  = {
   kAtcZoneNameIceland /*name*/,
   0xe56a35b5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18746,7 +18746,7 @@ const struct AtcZoneInfo kAtcZoneIceland  = {
 
 static const char kAtcZoneNameIndian_Antananarivo[]  = "Indian/Antananarivo";
 
-const struct AtcZoneInfo kAtcZoneIndian_Antananarivo  = {
+const AtcZoneInfo kAtcZoneIndian_Antananarivo  = {
   kAtcZoneNameIndian_Antananarivo /*name*/,
   0x9ebf5289 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18763,7 +18763,7 @@ const struct AtcZoneInfo kAtcZoneIndian_Antananarivo  = {
 
 static const char kAtcZoneNameIndian_Christmas[]  = "Indian/Christmas";
 
-const struct AtcZoneInfo kAtcZoneIndian_Christmas  = {
+const AtcZoneInfo kAtcZoneIndian_Christmas  = {
   kAtcZoneNameIndian_Christmas /*name*/,
   0x68c207d5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18780,7 +18780,7 @@ const struct AtcZoneInfo kAtcZoneIndian_Christmas  = {
 
 static const char kAtcZoneNameIndian_Cocos[]  = "Indian/Cocos";
 
-const struct AtcZoneInfo kAtcZoneIndian_Cocos  = {
+const AtcZoneInfo kAtcZoneIndian_Cocos  = {
   kAtcZoneNameIndian_Cocos /*name*/,
   0x021e86de /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18797,7 +18797,7 @@ const struct AtcZoneInfo kAtcZoneIndian_Cocos  = {
 
 static const char kAtcZoneNameIndian_Comoro[]  = "Indian/Comoro";
 
-const struct AtcZoneInfo kAtcZoneIndian_Comoro  = {
+const AtcZoneInfo kAtcZoneIndian_Comoro  = {
   kAtcZoneNameIndian_Comoro /*name*/,
   0x45f4deb6 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18814,7 +18814,7 @@ const struct AtcZoneInfo kAtcZoneIndian_Comoro  = {
 
 static const char kAtcZoneNameIndian_Kerguelen[]  = "Indian/Kerguelen";
 
-const struct AtcZoneInfo kAtcZoneIndian_Kerguelen  = {
+const AtcZoneInfo kAtcZoneIndian_Kerguelen  = {
   kAtcZoneNameIndian_Kerguelen /*name*/,
   0x4351b389 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18831,7 +18831,7 @@ const struct AtcZoneInfo kAtcZoneIndian_Kerguelen  = {
 
 static const char kAtcZoneNameIndian_Mahe[]  = "Indian/Mahe";
 
-const struct AtcZoneInfo kAtcZoneIndian_Mahe  = {
+const AtcZoneInfo kAtcZoneIndian_Mahe  = {
   kAtcZoneNameIndian_Mahe /*name*/,
   0x45e725e2 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18848,7 +18848,7 @@ const struct AtcZoneInfo kAtcZoneIndian_Mahe  = {
 
 static const char kAtcZoneNameIndian_Mayotte[]  = "Indian/Mayotte";
 
-const struct AtcZoneInfo kAtcZoneIndian_Mayotte  = {
+const AtcZoneInfo kAtcZoneIndian_Mayotte  = {
   kAtcZoneNameIndian_Mayotte /*name*/,
   0xe6880bca /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18865,7 +18865,7 @@ const struct AtcZoneInfo kAtcZoneIndian_Mayotte  = {
 
 static const char kAtcZoneNameIndian_Reunion[]  = "Indian/Reunion";
 
-const struct AtcZoneInfo kAtcZoneIndian_Reunion  = {
+const AtcZoneInfo kAtcZoneIndian_Reunion  = {
   kAtcZoneNameIndian_Reunion /*name*/,
   0x7076c047 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18882,7 +18882,7 @@ const struct AtcZoneInfo kAtcZoneIndian_Reunion  = {
 
 static const char kAtcZoneNameIran[]  = "Iran";
 
-const struct AtcZoneInfo kAtcZoneIran  = {
+const AtcZoneInfo kAtcZoneIran  = {
   kAtcZoneNameIran /*name*/,
   0x7c87090f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18899,7 +18899,7 @@ const struct AtcZoneInfo kAtcZoneIran  = {
 
 static const char kAtcZoneNameIsrael[]  = "Israel";
 
-const struct AtcZoneInfo kAtcZoneIsrael  = {
+const AtcZoneInfo kAtcZoneIsrael  = {
   kAtcZoneNameIsrael /*name*/,
   0xba88c9e5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18916,7 +18916,7 @@ const struct AtcZoneInfo kAtcZoneIsrael  = {
 
 static const char kAtcZoneNameJamaica[]  = "Jamaica";
 
-const struct AtcZoneInfo kAtcZoneJamaica  = {
+const AtcZoneInfo kAtcZoneJamaica  = {
   kAtcZoneNameJamaica /*name*/,
   0x2e44fdab /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18933,7 +18933,7 @@ const struct AtcZoneInfo kAtcZoneJamaica  = {
 
 static const char kAtcZoneNameJapan[]  = "Japan";
 
-const struct AtcZoneInfo kAtcZoneJapan  = {
+const AtcZoneInfo kAtcZoneJapan  = {
   kAtcZoneNameJapan /*name*/,
   0x0d712f8f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18950,7 +18950,7 @@ const struct AtcZoneInfo kAtcZoneJapan  = {
 
 static const char kAtcZoneNameKwajalein[]  = "Kwajalein";
 
-const struct AtcZoneInfo kAtcZoneKwajalein  = {
+const AtcZoneInfo kAtcZoneKwajalein  = {
   kAtcZoneNameKwajalein /*name*/,
   0x0e57afbb /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18967,7 +18967,7 @@ const struct AtcZoneInfo kAtcZoneKwajalein  = {
 
 static const char kAtcZoneNameLibya[]  = "Libya";
 
-const struct AtcZoneInfo kAtcZoneLibya  = {
+const AtcZoneInfo kAtcZoneLibya  = {
   kAtcZoneNameLibya /*name*/,
   0x0d998b16 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -18984,7 +18984,7 @@ const struct AtcZoneInfo kAtcZoneLibya  = {
 
 static const char kAtcZoneNameMexico_BajaNorte[]  = "Mexico/BajaNorte";
 
-const struct AtcZoneInfo kAtcZoneMexico_BajaNorte  = {
+const AtcZoneInfo kAtcZoneMexico_BajaNorte  = {
   kAtcZoneNameMexico_BajaNorte /*name*/,
   0xfcf7150f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19001,7 +19001,7 @@ const struct AtcZoneInfo kAtcZoneMexico_BajaNorte  = {
 
 static const char kAtcZoneNameMexico_BajaSur[]  = "Mexico/BajaSur";
 
-const struct AtcZoneInfo kAtcZoneMexico_BajaSur  = {
+const AtcZoneInfo kAtcZoneMexico_BajaSur  = {
   kAtcZoneNameMexico_BajaSur /*name*/,
   0x08ee3641 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19018,7 +19018,7 @@ const struct AtcZoneInfo kAtcZoneMexico_BajaSur  = {
 
 static const char kAtcZoneNameMexico_General[]  = "Mexico/General";
 
-const struct AtcZoneInfo kAtcZoneMexico_General  = {
+const AtcZoneInfo kAtcZoneMexico_General  = {
   kAtcZoneNameMexico_General /*name*/,
   0x93711d57 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19035,7 +19035,7 @@ const struct AtcZoneInfo kAtcZoneMexico_General  = {
 
 static const char kAtcZoneNameNZ[]  = "NZ";
 
-const struct AtcZoneInfo kAtcZoneNZ  = {
+const AtcZoneInfo kAtcZoneNZ  = {
   kAtcZoneNameNZ /*name*/,
   0x005974ad /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19052,7 +19052,7 @@ const struct AtcZoneInfo kAtcZoneNZ  = {
 
 static const char kAtcZoneNameNZ_CHAT[]  = "NZ-CHAT";
 
-const struct AtcZoneInfo kAtcZoneNZ_CHAT  = {
+const AtcZoneInfo kAtcZoneNZ_CHAT  = {
   kAtcZoneNameNZ_CHAT /*name*/,
   0x4d42afda /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19069,7 +19069,7 @@ const struct AtcZoneInfo kAtcZoneNZ_CHAT  = {
 
 static const char kAtcZoneNameNavajo[]  = "Navajo";
 
-const struct AtcZoneInfo kAtcZoneNavajo  = {
+const AtcZoneInfo kAtcZoneNavajo  = {
   kAtcZoneNameNavajo /*name*/,
   0xc4ef0e24 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19086,7 +19086,7 @@ const struct AtcZoneInfo kAtcZoneNavajo  = {
 
 static const char kAtcZoneNamePRC[]  = "PRC";
 
-const struct AtcZoneInfo kAtcZonePRC  = {
+const AtcZoneInfo kAtcZonePRC  = {
   kAtcZoneNamePRC /*name*/,
   0x0b88120a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19103,7 +19103,7 @@ const struct AtcZoneInfo kAtcZonePRC  = {
 
 static const char kAtcZoneNamePacific_Chuuk[]  = "Pacific/Chuuk";
 
-const struct AtcZoneInfo kAtcZonePacific_Chuuk  = {
+const AtcZoneInfo kAtcZonePacific_Chuuk  = {
   kAtcZoneNamePacific_Chuuk /*name*/,
   0x8a090b23 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19120,7 +19120,7 @@ const struct AtcZoneInfo kAtcZonePacific_Chuuk  = {
 
 static const char kAtcZoneNamePacific_Enderbury[]  = "Pacific/Enderbury";
 
-const struct AtcZoneInfo kAtcZonePacific_Enderbury  = {
+const AtcZoneInfo kAtcZonePacific_Enderbury  = {
   kAtcZoneNamePacific_Enderbury /*name*/,
   0x61599a93 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19137,7 +19137,7 @@ const struct AtcZoneInfo kAtcZonePacific_Enderbury  = {
 
 static const char kAtcZoneNamePacific_Funafuti[]  = "Pacific/Funafuti";
 
-const struct AtcZoneInfo kAtcZonePacific_Funafuti  = {
+const AtcZoneInfo kAtcZonePacific_Funafuti  = {
   kAtcZoneNamePacific_Funafuti /*name*/,
   0xdb402d65 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19154,7 +19154,7 @@ const struct AtcZoneInfo kAtcZonePacific_Funafuti  = {
 
 static const char kAtcZoneNamePacific_Johnston[]  = "Pacific/Johnston";
 
-const struct AtcZoneInfo kAtcZonePacific_Johnston  = {
+const AtcZoneInfo kAtcZonePacific_Johnston  = {
   kAtcZoneNamePacific_Johnston /*name*/,
   0xb15d7b36 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19171,7 +19171,7 @@ const struct AtcZoneInfo kAtcZonePacific_Johnston  = {
 
 static const char kAtcZoneNamePacific_Majuro[]  = "Pacific/Majuro";
 
-const struct AtcZoneInfo kAtcZonePacific_Majuro  = {
+const AtcZoneInfo kAtcZonePacific_Majuro  = {
   kAtcZoneNamePacific_Majuro /*name*/,
   0xe1f95371 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19188,7 +19188,7 @@ const struct AtcZoneInfo kAtcZonePacific_Majuro  = {
 
 static const char kAtcZoneNamePacific_Midway[]  = "Pacific/Midway";
 
-const struct AtcZoneInfo kAtcZonePacific_Midway  = {
+const AtcZoneInfo kAtcZonePacific_Midway  = {
   kAtcZoneNamePacific_Midway /*name*/,
   0xe286d38e /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19205,7 +19205,7 @@ const struct AtcZoneInfo kAtcZonePacific_Midway  = {
 
 static const char kAtcZoneNamePacific_Pohnpei[]  = "Pacific/Pohnpei";
 
-const struct AtcZoneInfo kAtcZonePacific_Pohnpei  = {
+const AtcZoneInfo kAtcZonePacific_Pohnpei  = {
   kAtcZoneNamePacific_Pohnpei /*name*/,
   0x28929f96 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19222,7 +19222,7 @@ const struct AtcZoneInfo kAtcZonePacific_Pohnpei  = {
 
 static const char kAtcZoneNamePacific_Ponape[]  = "Pacific/Ponape";
 
-const struct AtcZoneInfo kAtcZonePacific_Ponape  = {
+const AtcZoneInfo kAtcZonePacific_Ponape  = {
   kAtcZoneNamePacific_Ponape /*name*/,
   0xe9f80086 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19239,7 +19239,7 @@ const struct AtcZoneInfo kAtcZonePacific_Ponape  = {
 
 static const char kAtcZoneNamePacific_Saipan[]  = "Pacific/Saipan";
 
-const struct AtcZoneInfo kAtcZonePacific_Saipan  = {
+const AtcZoneInfo kAtcZonePacific_Saipan  = {
   kAtcZoneNamePacific_Saipan /*name*/,
   0xeff7a35f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19256,7 +19256,7 @@ const struct AtcZoneInfo kAtcZonePacific_Saipan  = {
 
 static const char kAtcZoneNamePacific_Samoa[]  = "Pacific/Samoa";
 
-const struct AtcZoneInfo kAtcZonePacific_Samoa  = {
+const AtcZoneInfo kAtcZonePacific_Samoa  = {
   kAtcZoneNamePacific_Samoa /*name*/,
   0x8b2699b4 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19273,7 +19273,7 @@ const struct AtcZoneInfo kAtcZonePacific_Samoa  = {
 
 static const char kAtcZoneNamePacific_Truk[]  = "Pacific/Truk";
 
-const struct AtcZoneInfo kAtcZonePacific_Truk  = {
+const AtcZoneInfo kAtcZonePacific_Truk  = {
   kAtcZoneNamePacific_Truk /*name*/,
   0x234010a9 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19290,7 +19290,7 @@ const struct AtcZoneInfo kAtcZonePacific_Truk  = {
 
 static const char kAtcZoneNamePacific_Wake[]  = "Pacific/Wake";
 
-const struct AtcZoneInfo kAtcZonePacific_Wake  = {
+const AtcZoneInfo kAtcZonePacific_Wake  = {
   kAtcZoneNamePacific_Wake /*name*/,
   0x23416c2b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19307,7 +19307,7 @@ const struct AtcZoneInfo kAtcZonePacific_Wake  = {
 
 static const char kAtcZoneNamePacific_Wallis[]  = "Pacific/Wallis";
 
-const struct AtcZoneInfo kAtcZonePacific_Wallis  = {
+const AtcZoneInfo kAtcZonePacific_Wallis  = {
   kAtcZoneNamePacific_Wallis /*name*/,
   0xf94ddb0f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19324,7 +19324,7 @@ const struct AtcZoneInfo kAtcZonePacific_Wallis  = {
 
 static const char kAtcZoneNamePacific_Yap[]  = "Pacific/Yap";
 
-const struct AtcZoneInfo kAtcZonePacific_Yap  = {
+const AtcZoneInfo kAtcZonePacific_Yap  = {
   kAtcZoneNamePacific_Yap /*name*/,
   0xbb40138d /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19341,7 +19341,7 @@ const struct AtcZoneInfo kAtcZonePacific_Yap  = {
 
 static const char kAtcZoneNamePoland[]  = "Poland";
 
-const struct AtcZoneInfo kAtcZonePoland  = {
+const AtcZoneInfo kAtcZonePoland  = {
   kAtcZoneNamePoland /*name*/,
   0xca913b23 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19358,7 +19358,7 @@ const struct AtcZoneInfo kAtcZonePoland  = {
 
 static const char kAtcZoneNamePortugal[]  = "Portugal";
 
-const struct AtcZoneInfo kAtcZonePortugal  = {
+const AtcZoneInfo kAtcZonePortugal  = {
   kAtcZoneNamePortugal /*name*/,
   0xc3274593 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19375,7 +19375,7 @@ const struct AtcZoneInfo kAtcZonePortugal  = {
 
 static const char kAtcZoneNameROC[]  = "ROC";
 
-const struct AtcZoneInfo kAtcZoneROC  = {
+const AtcZoneInfo kAtcZoneROC  = {
   kAtcZoneNameROC /*name*/,
   0x0b881a29 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19392,7 +19392,7 @@ const struct AtcZoneInfo kAtcZoneROC  = {
 
 static const char kAtcZoneNameROK[]  = "ROK";
 
-const struct AtcZoneInfo kAtcZoneROK  = {
+const AtcZoneInfo kAtcZoneROK  = {
   kAtcZoneNameROK /*name*/,
   0x0b881a31 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19409,7 +19409,7 @@ const struct AtcZoneInfo kAtcZoneROK  = {
 
 static const char kAtcZoneNameSingapore[]  = "Singapore";
 
-const struct AtcZoneInfo kAtcZoneSingapore  = {
+const AtcZoneInfo kAtcZoneSingapore  = {
   kAtcZoneNameSingapore /*name*/,
   0xa8598c8d /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19426,7 +19426,7 @@ const struct AtcZoneInfo kAtcZoneSingapore  = {
 
 static const char kAtcZoneNameTurkey[]  = "Turkey";
 
-const struct AtcZoneInfo kAtcZoneTurkey  = {
+const AtcZoneInfo kAtcZoneTurkey  = {
   kAtcZoneNameTurkey /*name*/,
   0xd455e469 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19443,7 +19443,7 @@ const struct AtcZoneInfo kAtcZoneTurkey  = {
 
 static const char kAtcZoneNameUCT[]  = "UCT";
 
-const struct AtcZoneInfo kAtcZoneUCT  = {
+const AtcZoneInfo kAtcZoneUCT  = {
   kAtcZoneNameUCT /*name*/,
   0x0b882571 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19460,7 +19460,7 @@ const struct AtcZoneInfo kAtcZoneUCT  = {
 
 static const char kAtcZoneNameUS_Alaska[]  = "US/Alaska";
 
-const struct AtcZoneInfo kAtcZoneUS_Alaska  = {
+const AtcZoneInfo kAtcZoneUS_Alaska  = {
   kAtcZoneNameUS_Alaska /*name*/,
   0xfa300bc9 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19477,7 +19477,7 @@ const struct AtcZoneInfo kAtcZoneUS_Alaska  = {
 
 static const char kAtcZoneNameUS_Aleutian[]  = "US/Aleutian";
 
-const struct AtcZoneInfo kAtcZoneUS_Aleutian  = {
+const AtcZoneInfo kAtcZoneUS_Aleutian  = {
   kAtcZoneNameUS_Aleutian /*name*/,
   0x4fe013ef /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19494,7 +19494,7 @@ const struct AtcZoneInfo kAtcZoneUS_Aleutian  = {
 
 static const char kAtcZoneNameUS_Arizona[]  = "US/Arizona";
 
-const struct AtcZoneInfo kAtcZoneUS_Arizona  = {
+const AtcZoneInfo kAtcZoneUS_Arizona  = {
   kAtcZoneNameUS_Arizona /*name*/,
   0x4ec52670 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19511,7 +19511,7 @@ const struct AtcZoneInfo kAtcZoneUS_Arizona  = {
 
 static const char kAtcZoneNameUS_Central[]  = "US/Central";
 
-const struct AtcZoneInfo kAtcZoneUS_Central  = {
+const AtcZoneInfo kAtcZoneUS_Central  = {
   kAtcZoneNameUS_Central /*name*/,
   0xcabdcb25 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19528,7 +19528,7 @@ const struct AtcZoneInfo kAtcZoneUS_Central  = {
 
 static const char kAtcZoneNameUS_East_Indiana[]  = "US/East-Indiana";
 
-const struct AtcZoneInfo kAtcZoneUS_East_Indiana  = {
+const AtcZoneInfo kAtcZoneUS_East_Indiana  = {
   kAtcZoneNameUS_East_Indiana /*name*/,
   0x6dcf558a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19545,7 +19545,7 @@ const struct AtcZoneInfo kAtcZoneUS_East_Indiana  = {
 
 static const char kAtcZoneNameUS_Eastern[]  = "US/Eastern";
 
-const struct AtcZoneInfo kAtcZoneUS_Eastern  = {
+const AtcZoneInfo kAtcZoneUS_Eastern  = {
   kAtcZoneNameUS_Eastern /*name*/,
   0x5bb7e78e /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19562,7 +19562,7 @@ const struct AtcZoneInfo kAtcZoneUS_Eastern  = {
 
 static const char kAtcZoneNameUS_Hawaii[]  = "US/Hawaii";
 
-const struct AtcZoneInfo kAtcZoneUS_Hawaii  = {
+const AtcZoneInfo kAtcZoneUS_Hawaii  = {
   kAtcZoneNameUS_Hawaii /*name*/,
   0x09c8de2f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19579,7 +19579,7 @@ const struct AtcZoneInfo kAtcZoneUS_Hawaii  = {
 
 static const char kAtcZoneNameUS_Indiana_Starke[]  = "US/Indiana-Starke";
 
-const struct AtcZoneInfo kAtcZoneUS_Indiana_Starke  = {
+const AtcZoneInfo kAtcZoneUS_Indiana_Starke  = {
   kAtcZoneNameUS_Indiana_Starke /*name*/,
   0x67977be7 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19596,7 +19596,7 @@ const struct AtcZoneInfo kAtcZoneUS_Indiana_Starke  = {
 
 static const char kAtcZoneNameUS_Michigan[]  = "US/Michigan";
 
-const struct AtcZoneInfo kAtcZoneUS_Michigan  = {
+const AtcZoneInfo kAtcZoneUS_Michigan  = {
   kAtcZoneNameUS_Michigan /*name*/,
   0x766bb7bc /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19613,7 +19613,7 @@ const struct AtcZoneInfo kAtcZoneUS_Michigan  = {
 
 static const char kAtcZoneNameUS_Mountain[]  = "US/Mountain";
 
-const struct AtcZoneInfo kAtcZoneUS_Mountain  = {
+const AtcZoneInfo kAtcZoneUS_Mountain  = {
   kAtcZoneNameUS_Mountain /*name*/,
   0x6eb88247 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19630,7 +19630,7 @@ const struct AtcZoneInfo kAtcZoneUS_Mountain  = {
 
 static const char kAtcZoneNameUS_Pacific[]  = "US/Pacific";
 
-const struct AtcZoneInfo kAtcZoneUS_Pacific  = {
+const AtcZoneInfo kAtcZoneUS_Pacific  = {
   kAtcZoneNameUS_Pacific /*name*/,
   0xa950f6ab /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19647,7 +19647,7 @@ const struct AtcZoneInfo kAtcZoneUS_Pacific  = {
 
 static const char kAtcZoneNameUS_Samoa[]  = "US/Samoa";
 
-const struct AtcZoneInfo kAtcZoneUS_Samoa  = {
+const AtcZoneInfo kAtcZoneUS_Samoa  = {
   kAtcZoneNameUS_Samoa /*name*/,
   0x566821cd /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19664,7 +19664,7 @@ const struct AtcZoneInfo kAtcZoneUS_Samoa  = {
 
 static const char kAtcZoneNameUTC[]  = "UTC";
 
-const struct AtcZoneInfo kAtcZoneUTC  = {
+const AtcZoneInfo kAtcZoneUTC  = {
   kAtcZoneNameUTC /*name*/,
   0x0b882791 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19681,7 +19681,7 @@ const struct AtcZoneInfo kAtcZoneUTC  = {
 
 static const char kAtcZoneNameUniversal[]  = "Universal";
 
-const struct AtcZoneInfo kAtcZoneUniversal  = {
+const AtcZoneInfo kAtcZoneUniversal  = {
   kAtcZoneNameUniversal /*name*/,
   0xd0ff523e /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19698,7 +19698,7 @@ const struct AtcZoneInfo kAtcZoneUniversal  = {
 
 static const char kAtcZoneNameW_SU[]  = "W-SU";
 
-const struct AtcZoneInfo kAtcZoneW_SU  = {
+const AtcZoneInfo kAtcZoneW_SU  = {
   kAtcZoneNameW_SU /*name*/,
   0x7c8d8ef1 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
@@ -19715,7 +19715,7 @@ const struct AtcZoneInfo kAtcZoneW_SU  = {
 
 static const char kAtcZoneNameZulu[]  = "Zulu";
 
-const struct AtcZoneInfo kAtcZoneZulu  = {
+const AtcZoneInfo kAtcZoneZulu  = {
   kAtcZoneNameZulu /*name*/,
   0x7c9069b5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
