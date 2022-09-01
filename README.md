@@ -54,8 +54,8 @@ The expected usage is something like this:
 ```C
 #include <acetimec.h>
 
-struct AtcZoneProcessing los_angeles_processing;
-struct AtcZoneProcessing new_york_processing;
+AtcZoneProcessing los_angeles_processing;
+AtcZoneProcessing new_york_processing;
 
 // initialize the time zone processing workspace
 void setup()
@@ -69,7 +69,7 @@ void do_something()
   atc_time_t seconds = 3432423;
 
   // convert epoch seconds to date/time components for given time zone
-  struct AtcZonedDateTime zdt;
+  AtcZonedDateTime zdt;
   int8_t err = atc_zoned_date_time_from_epoch_seconds(
     &los_angeles_processing,
     &kAtcZoneAmerica_Los_Angeles,
@@ -84,7 +84,7 @@ void do_something()
   ...
 
   // convert components to zoned_date_time
-  struct AtcLocalDateTime ldt = { year, month, day, hour, minute, second };
+  AtcLocalDateTime ldt = { year, month, day, hour, minute, second };
   err = atc_zoned_date_time_from_local_date_time(
     &los_angeles_processing,
     &kAtcZoneAmerica_Los_Angeles,
@@ -95,7 +95,7 @@ void do_something()
   ...
 
   // convert America/Los_Angles to America/New_York
-  struct AtcZonedDateTime nydt;
+  AtcZonedDateTime nydt;
   err = atc_zoned_date_time_from_local_date_time(
     &new_york_processing,
     &kAtcZoneAmerica_New_York,
@@ -188,25 +188,25 @@ The `AtcLocalDateTime` type represents the wall time, without any reference
 to a time zone:
 
 ```C
-struct AtcLocalDateTime {
+typedef struct AtcLocalDateTime {
   int16_t year;
   uint8_t month;
   uint8_t day;
   uint8_t hour;
   uint8_t minute;
   uint8_t second;
-};
+} AtcLocalDateTime;
 ```
 
 There are 2 functions which operate on this data type:
 
 ```C
 atc_time_t atc_local_date_time_to_epoch_seconds(
-    const struct AtcLocalDateTime *ldt);
+    const AtcLocalDateTime *ldt);
 
 int8_t atc_local_date_time_from_epoch_seconds(
   atc_time_t epoch_seconds,
-  struct AtcLocalDateTime *ldt);
+  AtcLocalDateTime *ldt);
 ```
 
 The `atc_local_date_time_to_epoch_seconds()` function converts the given
@@ -224,7 +224,7 @@ The `AtcOffsetDateTime` type represents a date-time with a fixed offset from
 UTC:
 
 ```C
-struct AtcOffsetDateTime {
+typedef struct AtcOffsetDateTime {
   int16_t year;
   uint8_t month;
   uint8_t day;
@@ -235,7 +235,7 @@ struct AtcOffsetDateTime {
   uint8_t fold;
 
   int16_t offset_minutes;
-};
+} AtcOffsetDateTime;
 ```
 
 The initial memory layout of `AtcOffsetDateTime` was designed to be identical to
@@ -255,12 +255,12 @@ There are 2 functions that operate on the `AtcOffsetDateTime` object:
 
 ```C
 atc_time_t atc_offset_date_time_to_epoch_seconds(
-    const struct AtcOffsetDateTime *odt);
+    const AtcOffsetDateTime *odt);
 
 int8_t atc_offset_date_time_from_epoch_seconds(
     atc_time_t epoch_seconds,
     int16_t offset_minutes,
-    struct AtcOffsetDateTime *odt);
+    AtcOffsetDateTime *odt);
 ```
 
 The `atc_offset_date_time_from_epoch_seconds()` function converts the given
@@ -280,7 +280,7 @@ An `AtcZonedDateTime` is an `AtcOffsetDateTime` which also contains a reference
 to the TZDB time zone.
 
 ```C
-struct AtcZonedDateTime {
+typedef struct AtcZonedDateTime {
   int16_t year;
   uint8_t month;
   uint8_t day;
@@ -291,8 +291,8 @@ struct AtcZonedDateTime {
   uint8_t fold;
 
   int16_t offset_minutes; /* possibly ignored */
-  const struct AtcZoneInfo *zone_info; /* nullable, possibly ignored */
-};
+  const AtcZoneInfo *zone_info; /* nullable, possibly ignored */
+} AtcZonedDateTime;
 ```
 
 The initial memory layout of `AtcZonedDateTime` was designed to be identical to
@@ -302,30 +302,30 @@ The following functions operate on the `AtcZonedDateTime`:
 
 ```C
 atc_time_t atc_zoned_date_time_to_epoch_seconds(
-    const struct AtcZonedDateTime *zdt);
+    const AtcZonedDateTime *zdt);
 
 int8_t atc_zoned_date_time_from_epoch_seconds(
-    struct AtcZoneProcessing *processing,
-    const struct AtcZoneInfo *zone_info,
+    AtcZoneProcessing *processing,
+    const AtcZoneInfo *zone_info,
     atc_time_t epoch_seconds,
-    struct AtcZonedDateTime *zdt);
+    AtcZonedDateTime *zdt);
 
 int8_t atc_zoned_date_time_from_local_date_time(
-    struct AtcZoneProcessing *processing,
-    const struct AtcZoneInfo *zone_info,
-    const struct AtcLocalDateTime *ldt,
+    AtcZoneProcessing *processing,
+    const AtcZoneInfo *zone_info,
+    const AtcLocalDateTime *ldt,
     uint8_t fold,
-    struct AtcZonedDateTime *zdt);
+    AtcZonedDateTime *zdt);
 
-int8_t atc_zoned_date_time_from_zoned_date_time(
-    struct AtcZoneProcessing *dst_processing,
-    const struct AtcZoneInfo *dst_zone_info,
-    const struct AtcLocalDateTime *src,
-    struct AtcZonedDateTime *dst);
+int8_t atc_zoned_date_time_convert(
+    AtcZoneProcessing *dst_processing,
+    const AtcZoneInfo *dst_zone_info,
+    const AtcLocalDateTime *src,
+    AtcZonedDateTime *dst);
 
 int8_t atc_zoned_date_time_normalize(
-    struct AtcZoneProcessing *processing,
-    struct AtcZonedDateTime *zdt);
+    AtcZoneProcessing *processing,
+    AtcZonedDateTime *zdt);
 ```
 
 The `atc_zoned_date_time_to_epoch_seconds()` function converts the given
@@ -347,10 +347,10 @@ most cases, the `fold` parameter has no effect. But for cases where a local wall
 clock occurs twice (e.g. during a DST to Standard time shift), the `fold`
 parameter disambiguates the multiple occurrence of the local time.
 
-The `atc_zoned_date_time_from_zoned_date_time()` function converts an
-`AtcZonedDateTime` instance from one time zone to another. The `src` instance
-contains the original time zone. The `dst` instance will contain the date-time
-of the time zone represented by `dst_zone_info`.
+The `atc_zoned_date_time_convert()` function converts an `AtcZonedDateTime`
+instance from one time zone to another. The `src` instance contains the original
+time zone. The `dst` instance will contain the date-time of the time zone
+represented by `dst_zone_info`.
 
 The `fold` parameter occurs in 2 places, as an input parameter of one the above
 functions, and as an output parameter in the `AtcZonedDateTime` data structure.
@@ -394,7 +394,7 @@ instance of `AtcZoneProcessing` should be initialized only once, usually at the
 beginning of the application:
 
 ```C
-struct AtcZoneProcessing los_angeles_processing;
+AtcZoneProcessing los_angeles_processing;
 
 void setup()
 {
@@ -423,11 +423,11 @@ fields are meant for internal consumption. There are 3 accessor functions which
 may be useful for end-users:
 
 ```C
-bool atc_zone_info_is_link(const struct AtcZoneInfo *info);
+bool atc_zone_info_is_link(const AtcZoneInfo *info);
 
-const char *atc_zone_info_zone_name(const struct AtcZoneInfo *info);
+const char *atc_zone_info_zone_name(const AtcZoneInfo *info);
 
-const char *atc_zone_info_short_name(const struct AtcZoneInfo *info);
+const char *atc_zone_info_short_name(const AtcZoneInfo *info);
 ```
 
 The `atc_zone_info_is_link()` function can determine whether a particular `info`
@@ -454,8 +454,8 @@ programmatically generated by scripts in the
 [AceTimeTools](https://github.com/bxparks/AceTimeTools) project. For example,
 the `America/Los_Angeles` time zone is represented by an instance of
 `AtcZoneInfo` named `kAtcZoneAmerica_Los_Angeles`. A pointer to this data
-structure should be passed into functions which expect a `const struct
-AtcZoneInfo *` pointer.
+structure should be passed into functions which expect a `const AtcZoneInfo *`
+pointer.
 
 The full list of Zones (and Links) supported by this library is given in the
 [zonedb/zone_infos.h](src/ace_time_c/zonedb/zone_infos.h) header file, which is
@@ -479,11 +479,11 @@ The `AtcZonedExtra` holds additional meta information about a particular time
 zone, usually at a particular epoch seconds:
 
 ```C
-struct AtcZonedExtra {
+typedef struct AtcZonedExtra {
   int16_t std_offset_minutes; // STD offset
   int16_t dst_offset_minutes; // DST offset
   char abbrev[kAtcAbbrevSize];
-};
+} AtcZonedExtra;
 ```
 
 There is one function that populates this type given an `epoch_seconds` and its
@@ -491,10 +491,10 @@ There is one function that populates this type given an `epoch_seconds` and its
 
 ```C
 int8_t atc_zoned_extra_from_epoch_seconds(
-    struct AtcZoneProcessing *processing,
-    const struct AtcZoneInfo *zone_info,
+    AtcZoneProcessing *processing,
+    const AtcZoneInfo *zone_info,
     atc_time_t epoch_seconds,
-    struct AtcZonedExtra *extra);
+    AtcZonedExtra *extra);
 ```
 
 This function returns `kAtcErrGeneric` if an error is encountered, otherwise it
@@ -513,28 +513,28 @@ As of TZDB 2022b, 2 zone registries are provided:
 ```C
 // Zones
 #define kAtcZoneRegistrySize 356
-extern const struct AtcZoneInfo * const kAtcZoneRegistry[356];
+extern const AtcZoneInfo * const kAtcZoneRegistry[356];
 
 // Zones and Links
 #define kAtcZoneAndLinkRegistrySize 595
-extern const struct AtcZoneInfo * const kAtcZoneAndLinkRegistry[595];
+extern const AtcZoneInfo * const kAtcZoneAndLinkRegistry[595];
 ```
 
 There are 3 registrar functions which can query the zone registry:
 
 ```C
 bool atc_registrar_is_registry_sorted(
-    const struct AtcZoneInfo * const * registry,
+    const AtcZoneInfo * const * registry,
     uint16_t size);
 
-const struct AtcZoneInfo *atc_registrar_find_by_name(
-    const struct AtcZoneInfo * const * registry,
+const AtcZoneInfo *atc_registrar_find_by_name(
+    const AtcZoneInfo * const * registry,
     uint16_t size,
     const char *name,
     bool is_sorted);
 
-const struct AtcZoneInfo *atc_registrar_find_by_id(
-    const struct AtcZoneInfo * const * registry,
+const AtcZoneInfo *atc_registrar_find_by_id(
+    const AtcZoneInfo * const * registry,
     uint16_t size,
     uint32_t zone_id,
     bool is_sorted);
@@ -587,7 +587,7 @@ void setup()
 void retrieve_zone_info_by_name()
 {
   const char *name = "America/Los_Angeles";
-  const struct AtcZoneInfo *zone_info = atc_registrar_find_by_name(
+  const AtcZoneInfo *zone_info = atc_registrar_find_by_name(
       kAtcZoneAndLinkRegistry,
       kAtcZoneAndLinkRegistrySize,
       name,
@@ -599,7 +599,7 @@ void retrieve_zone_info_by_name()
 void retrieve_zone_info_by_id()
 {
   uint32_t zone_id = kAtcZoneIdAmerica_Los_Angeles;
-  const struct AtcZoneInfo *zone_info = atc_registrar_find_by_id(
+  const AtcZoneInfo *zone_info = atc_registrar_find_by_id(
       kAtcZoneAndLinkRegistry,
       kAtcZoneAndLinkRegistrySize,
       zone_id,
