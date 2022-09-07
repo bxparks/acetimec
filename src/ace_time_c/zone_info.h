@@ -27,13 +27,13 @@
 /** Constants for entries in the zonedb files. */
 enum {
   /**
-   * The maximum value of ZoneRule::from_year_tiny and ZoneRule::to_year_tiny.
+   * The maximum value of ZoneRule::from_year and ZoneRule::to_year.
    * Must be < ZoneEra::kMaxUntilYear.
    */
-  kAtcMaxZoneRuleYearTiny = 126,
+  kAtcMaxZoneRuleYear = 9999,
 
-  /** The maximum value of ZoneEra::until_year_tiny. */
-  kAtcMaxZoneEraUntilYearTiny = kAtcMaxZoneRuleYearTiny + 1,
+  /** The maximum value of ZoneEra::until_year. */
+  kAtcMaxZoneEraUntilYear = kAtcMaxZoneRuleYear + 1,
 };
 
 //---------------------------------------------------------------------------
@@ -45,11 +45,11 @@ enum {
  */
 typedef struct AtcZoneRule {
 
-  /** FROM year as an offset from year 2000 stored as a single byte. */
-  int8_t const from_year_tiny;
+  /** FROM year. */
+  int16_t const from_year;
 
-  /** TO year as an offset from year 2000 stored as a single byte. */
-  int8_t const to_year_tiny;
+  /** TO year. */
+  int16_t const to_year;
 
   /** Determined by the IN column. 1=Jan, 12=Dec. */
   uint8_t const in_month;
@@ -168,14 +168,6 @@ enum {
 
 /** Information about the zone database. */
 typedef struct AtcZoneContext {
-  /*
-   * Epoch year. Currently always 2000 but could change in the future. We're
-   * leaving this out for now because it's not clear how or if the various
-   * AceTime classes can use this information since the value '2000' is often
-   * a compile-time constant instead of a runtime constant.
-   */
-  //int16_t epoch_year;
-
   /** Start year of the zone files. */
   int16_t start_year;
 
@@ -264,10 +256,9 @@ typedef struct AtcZoneEra {
   int8_t const delta_code;
 
   /**
-   * Era is valid until currentTime < untilYear. Stored as (year - 2000) in a
-   * single byte to save space. Comes from the UNTIL column.
+   * Era is valid until currentTime < untilYear. Comes from the UNTIL column.
    */
-  int8_t const until_year_tiny;
+  int16_t const until_year;
 
   /** The month field in UNTIL (1-12). Will never be 0. */
   uint8_t const until_month;

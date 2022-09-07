@@ -11,8 +11,8 @@ int8_t atc_date_tuple_compare(
   const AtcDateTuple *a,
   const AtcDateTuple *b)
 {
-  if (a->year_tiny < b->year_tiny) return -1;
-  if (a->year_tiny > b->year_tiny) return 1;
+  if (a->year < b->year) return -1;
+  if (a->year > b->year) return 1;
   if (a->month < b->month) return -1;
   if (a->month > b->month) return 1;
   if (a->day < b->day) return -1;
@@ -26,10 +26,10 @@ atc_time_t atc_date_tuple_subtract(
     const AtcDateTuple *a,
     const AtcDateTuple *b)
 {
-  int32_t eda = atc_local_date_to_epoch_days(a->year_tiny, a->month, a->day);
+  int32_t eda = atc_local_date_to_epoch_days(a->year, a->month, a->day);
   int32_t esa = eda * 86400 + a->minutes * 60;
 
-  int32_t edb = atc_local_date_to_epoch_days(b->year_tiny, b->month, b->day);
+  int32_t edb = atc_local_date_to_epoch_days(b->year, b->month, b->day);
   int32_t esb = edb * 86400 + b->minutes * 60;
 
   return esa - esb;
@@ -47,13 +47,13 @@ void atc_date_tuple_expand(
   if (tt->suffix == kAtcSuffixS) {
     *tts = *tt;
 
-    ttu->year_tiny = tt->year_tiny;
+    ttu->year = tt->year;
     ttu->month = tt->month;
     ttu->day = tt->day;
     ttu->minutes = (int16_t) (tt->minutes - offset_minutes);
     ttu->suffix = kAtcSuffixU;
 
-    ttw->year_tiny = tt->year_tiny;
+    ttw->year = tt->year;
     ttw->month = tt->month;
     ttw->day = tt->day;
     ttw->minutes = (int16_t) (tt->minutes + delta_minutes);
@@ -61,13 +61,13 @@ void atc_date_tuple_expand(
   } else if (tt->suffix == kAtcSuffixU) {
     *ttu = *tt;
 
-    tts->year_tiny = tt->year_tiny;
+    tts->year = tt->year;
     tts->month = tt->month;
     tts->day = tt->day;
     tts->minutes = (int16_t) (tt->minutes + offset_minutes);
     tts->suffix = kAtcSuffixS;
 
-    ttw->year_tiny = tt->year_tiny;
+    ttw->year = tt->year;
     ttw->month = tt->month;
     ttw->day = tt->day;
     ttw->minutes = (int16_t) (tt->minutes + (offset_minutes + delta_minutes));
@@ -77,13 +77,13 @@ void atc_date_tuple_expand(
     *ttw = *tt;
     ttw->suffix = kAtcSuffixW;
 
-    tts->year_tiny = tt->year_tiny;
+    tts->year = tt->year;
     tts->month = tt->month;
     tts->day = tt->day;
     tts->minutes = (int16_t) (tt->minutes - delta_minutes);
     tts->suffix = kAtcSuffixS;
 
-    ttu->year_tiny = tt->year_tiny;
+    ttu->year = tt->year;
     ttu->month = tt->month;
     ttu->day = tt->day;
     ttu->minutes = (int16_t) (tt->minutes - (delta_minutes + offset_minutes));
@@ -100,16 +100,16 @@ void atc_date_tuple_normalize(AtcDateTuple *dt)
   const int16_t kOneDayAsMinutes = 60 * 24;
 
   if (dt->minutes <= -kOneDayAsMinutes) {
-    AtcLocalDate ld = { dt->year_tiny + kAtcEpochYear, dt->month, dt->day };
+    AtcLocalDate ld = { dt->year, dt->month, dt->day };
     atc_local_date_decrement_one_day(&ld);
-    dt->year_tiny = ld.year - kAtcEpochYear;
+    dt->year = ld.year;
     dt->month = ld.month;
     dt->day = ld.day;
     dt->minutes += kOneDayAsMinutes;
   } else if (kOneDayAsMinutes <= dt->minutes) {
-    AtcLocalDate ld = { dt->year_tiny + kAtcEpochYear, dt->month, dt->day };
+    AtcLocalDate ld = { dt->year, dt->month, dt->day };
     atc_local_date_increment_one_day(&ld);
-    dt->year_tiny = ld.year - kAtcEpochYear;
+    dt->year = ld.year;
     dt->month = ld.month;
     dt->day = ld.day;
     dt->minutes -= kOneDayAsMinutes;
@@ -390,17 +390,20 @@ uint8_t atc_transition_compare_to_match(
   return kAtcMatchStatusFarFuture;
 }
 
+// FIXME: This function overflows its internal integer calculations when the
+// number of total months exceeds 2^15-1 (32767). In other words, in the
+// year 2730.
 uint8_t atc_transition_compare_to_match_fuzzy(
     const AtcTransition *t, const AtcMatchingEra *match)
 {
-  int16_t tt_months = t->transition_time.year_tiny * 12
+  int16_t tt_months = t->transition_time.year * 12
       + t->transition_time.month;
 
-  int16_t match_start_months = match->start_dt.year_tiny * 12
+  int16_t match_start_months = match->start_dt.year * 12
       + match->start_dt.month;
   if (tt_months < match_start_months - 1) return kAtcMatchStatusPrior;
 
-  int16_t match_until_months = match->until_dt.year_tiny * 12
+  int16_t match_until_months = match->until_dt.year * 12
       + match->until_dt.month;
   if (match_until_months + 2 <= tt_months) return kAtcMatchStatusFarFuture;
 

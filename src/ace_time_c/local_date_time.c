@@ -15,8 +15,8 @@ atc_time_t atc_local_date_time_to_epoch_seconds(
 {
   if (ldt->year == kAtcInvalidYear) return kAtcInvalidEpochSeconds;
 
-  int8_t year_tiny = ldt->year - kAtcEpochYear;
-  int32_t days = atc_local_date_to_epoch_days(year_tiny, ldt->month, ldt->day);
+  int32_t days = atc_local_date_to_epoch_days(
+      ldt->year, ldt->month, ldt->day);
   int32_t seconds = hms_to_epoch_seconds(ldt->hour, ldt->minute, ldt->second);
   return days * 86400 + seconds;
 }
@@ -43,9 +43,7 @@ int8_t atc_local_date_time_from_epoch_seconds(
   int32_t seconds = epoch_seconds - 86400 * days;
 
   // Extract (year, month day).
-  int8_t year_tiny;
-  atc_local_date_from_epoch_days(days, &year_tiny, &ldt->month, &ldt->day);
-  ldt->year = year_tiny + kAtcEpochYear;
+  atc_local_date_from_epoch_days(days, &ldt->year, &ldt->month, &ldt->day);
 
   // Extract (hour, minute, second). The compiler will combine the mod (%) and
   // division (/) operations into a single (dividend, remainder) function call.

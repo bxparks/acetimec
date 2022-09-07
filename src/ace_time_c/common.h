@@ -31,9 +31,6 @@ enum {
   /** Sentinel value for invalid year. */
   kAtcInvalidYear = INT16_MIN,
 
-  /** Sentinel value for invalid year. */
-  kAtcInvalidYearTiny = -128,
-
   /** Invalid epoch seconds. */
   kAtcInvalidEpochSeconds = INT32_MIN,
 };

@@ -28,24 +28,23 @@ ACU_TEST(test_is_leap_year)
 // inclusive.
 ACU_TEST(test_local_date_to_and_from_epoch_days)
 {
-  int32_t epoch_days = -46385; // 1873-01-01
-  for (int16_t year = 2000 - 127; year <= 2000 + 127; year++) {
-    int8_t year_tiny = year - 2000;
+  int32_t epoch_days = -730119; // 0001-01-01
+  for (int16_t year = 1; year <= 9999; year++) {
     for (uint8_t month = 1; month <= 12; month++) {
       uint8_t days_in_month = atc_local_date_days_in_year_month(year, month);
       for (uint8_t day = 1; day <= days_in_month; day++) {
         // Test atc_to_epoch_days()
         int32_t obs_epoch_days = atc_local_date_to_epoch_days(
-            year_tiny, month, day);
+            year, month, day);
         ACU_ASSERT(epoch_days == obs_epoch_days);
 
         // Test atc_from_epoch_days()
-        int8_t obs_year_tiny;
+        int16_t obs_year;
         uint8_t obs_month;
         uint8_t obs_day;
         atc_local_date_from_epoch_days(
-            epoch_days, &obs_year_tiny, &obs_month, &obs_day);
-        ACU_ASSERT(year_tiny == obs_year_tiny);
+            epoch_days, &obs_year, &obs_month, &obs_day);
+        ACU_ASSERT(year == obs_year);
         ACU_ASSERT(month == obs_month);
         ACU_ASSERT(day == obs_day);
 

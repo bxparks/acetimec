@@ -9,6 +9,9 @@
  * Low-level date functions, for example, for calculating leap years, day of
  * week, number of days in a specific month, and converting epoch seconds to
  * date-time components.
+ *
+ * Uses the algorithm described in
+ * https://howardhinnant.github.io/date_algorithms.html.
  */
 
 #ifndef ACE_TIME_C_LOCAL_DATE_H
@@ -42,32 +45,35 @@ uint8_t atc_local_date_days_in_year_month(int16_t year, uint8_t month);
 uint8_t atc_local_date_day_of_week(int16_t year, uint8_t month, uint8_t day);
 
 /**
- * Return the number of epoch days for the (year_tiny, month, day) triple.
+ * Return the number of epoch days for the (year, month, day) triple.
+ *
+ * @param year, [1,9999]
+ * @param month month integer, [1,12]
+ * @param day day of month integer, [1,31]
  */
 int32_t atc_local_date_to_epoch_days(
-    int8_t year_tiny, uint8_t month, uint8_t day);
+    int16_t year, uint8_t month, uint8_t day);
 
 /**
- * Extract the (year_tiny, month, day) fields from AceTime epoch_days.
+ * Extract the (year, month, day) fields from AceTime epoch_days.
  *
  * No input validation is performed. The behavior is undefined if the
  * parameters are outside their expected range.
  *
  * @param epoch_days number of days from AceTime Epoch of 2000-01-01
- * @param year_tiny year offset since 2000 [-127, 127], with -128 indicating
- *        an error condition
+ * @param year year [1,9999]
  * @param month month integer [1, 12]
  * @param day day of month integer[1, 31]
  */
 void atc_local_date_from_epoch_days(
     int32_t epoch_days,
-    int8_t *year_tiny,
+    int16_t *year,
     uint8_t *month,
     uint8_t *day);
 
 /** Local Date struct. */
 typedef struct AtcLocalDate {
-  /** year [0,9999] */
+  /** year [0,10000] */
   int16_t year;
 
   /** month [1,12] */

@@ -14,7 +14,7 @@
 
 /**
  * An internal simplified version of the AtcDateTime class that uses the
- * (year_tiny, month, day, minutes, suffix) fields.
+ * (year, month, day, minutes, suffix) fields.
  *
  * The order of 'minutes' and 'suffix' are reversed from the DateTuple class in
  * the AceTime library because C does not support constructors, so the
@@ -27,8 +27,8 @@
  * does not change the overall sizeof(AtcDateTuple).
  */
 typedef struct AtcDateTuple {
-  /** [-127, 126], 127 will cause bugs */
-  int8_t year_tiny;
+  /** [0,10000] */
+  int16_t year;
 
   /** [1-12] */
   uint8_t month;

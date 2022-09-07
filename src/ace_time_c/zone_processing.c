@@ -14,14 +14,14 @@
 
 //---------------------------------------------------------------------------
 
-/** Return (1, 0, -1) depending on how era compares to (year_tiny, month). */
+/** Return (1, 0, -1) depending on how era compares to (year, month). */
 int8_t atc_compare_era_to_year_month(
     const AtcZoneEra *era,
-    int8_t year_tiny,
+    int16_t year,
     uint8_t month)
 {
-  if (era->until_year_tiny < year_tiny) return -1;
-  if (era->until_year_tiny > year_tiny) return 1;
+  if (era->until_year < year) return -1;
+  if (era->until_year > year) return 1;
   if (era->until_month < month) return -1;
   if (era->until_month > month) return 1;
   if (era->until_day > 1) return 1;
@@ -48,9 +48,9 @@ static bool atc_era_overlaps_interval(
   AtcYearMonth until_ym)
 {
   return (prev_match == NULL || atc_compare_era_to_year_month(
-          prev_match->era, until_ym.year_tiny, until_ym.month) < 0)
+          prev_match->era, until_ym.year, until_ym.month) < 0)
       && atc_compare_era_to_year_month(
-          era, start_ym.year_tiny, start_ym.month) > 0;
+          era, start_ym.year, start_ym.month) > 0;
 }
 
 /**
@@ -70,20 +70,20 @@ void atc_create_matching_era(
   // ZoneEra.
   AtcDateTuple start_date;
   if (prev_match == NULL) {
-    start_date.year_tiny = kAtcInvalidYearTiny;
+    start_date.year = kAtcInvalidYear;
     start_date.month = 1;
     start_date.day = 1;
     start_date.minutes = 0;
     start_date.suffix = kAtcSuffixW;
   } else {
-    start_date.year_tiny = prev_match->era->until_year_tiny;
+    start_date.year = prev_match->era->until_year;
     start_date.month = prev_match->era->until_month;
     start_date.day = prev_match->era->until_day;
     start_date.minutes = atc_zone_era_until_minutes(prev_match->era);
     start_date.suffix = atc_zone_era_until_suffix(prev_match->era);
   }
   AtcDateTuple lower_bound = {
-    start_ym.year_tiny,
+    start_ym.year,
     start_ym.month,
     1,
     0,
@@ -94,14 +94,14 @@ void atc_create_matching_era(
   }
 
   AtcDateTuple until_date = {
-    era->until_year_tiny,
+    era->until_year,
     era->until_month,
     era->until_day,
     atc_zone_era_until_minutes(era),
     atc_zone_era_until_suffix(era),
   };
   AtcDateTuple upper_bound = {
-    until_ym.year_tiny,
+    until_ym.year,
     until_ym.month,
     1,
     0,
@@ -201,17 +201,17 @@ uint8_t atc_processing_find_matches(
 // ---------------------------------------------------------------------------
 
 void atc_processing_get_transition_time(
-    int8_t year_tiny,
+    int16_t year,
     const AtcZoneRule* rule,
     AtcDateTuple *dt)
 {
   AtcMonthDay md = atc_processing_calc_start_day_of_month(
-      year_tiny + kAtcEpochYear,
+      year,
       rule->in_month,
       rule->on_day_of_week,
       rule->on_day_of_month);
 
-  dt->year_tiny = year_tiny;
+  dt->year = year;
   dt->month = md.month;
   dt->day = md.day;
   dt->minutes = atc_zone_rule_at_minutes(rule);
@@ -220,7 +220,7 @@ void atc_processing_get_transition_time(
 
 void atc_processing_create_transition_for_year(
     AtcTransition *t,
-    int8_t year_tiny,
+    int16_t year,
     const AtcZoneRule *rule,
     const AtcMatchingEra *match)
 {
@@ -230,8 +230,7 @@ void atc_processing_create_transition_for_year(
   t->letter_buf[0] = '\0';
 
   if (rule) {
-    atc_processing_get_transition_time(
-        year_tiny, rule, &t->transition_time);
+    atc_processing_get_transition_time(year, rule, &t->transition_time);
     t->delta_minutes = atc_zone_rule_dst_offset_minutes(rule);
     char letter = rule->letter;
     if (letter >= 32) {
@@ -270,15 +269,15 @@ void atc_processing_create_transitions_from_simple_match(
 //---------------------------------------------------------------------------
 
 uint8_t atc_processing_calc_interior_years(
-    int8_t* interior_years,
+    int16_t* interior_years,
     uint8_t max_interior_years,
-    int8_t from_year,
-    int8_t to_year,
-    int8_t start_year,
-    int8_t end_year)
+    int16_t from_year,
+    int16_t to_year,
+    int16_t start_year,
+    int16_t end_year)
 {
   uint8_t i = 0;
-  for (int8_t year = start_year; year <= end_year; year++) {
+  for (int16_t year = start_year; year <= end_year; year++) {
     if (from_year <= year && year <= to_year) {
       interior_years[i] = year;
       i++;
@@ -288,9 +287,9 @@ uint8_t atc_processing_calc_interior_years(
   return i;
 }
 
-int8_t atc_processing_get_most_recent_prior_year(
-    int8_t from_year, int8_t to_year,
-    int8_t start_year, int8_t end_year)
+int16_t atc_processing_get_most_recent_prior_year(
+    int16_t from_year, int16_t to_year,
+    int16_t start_year, int16_t end_year)
 {
   (void) end_year; // disable compiler warnings
 
@@ -301,7 +300,7 @@ int8_t atc_processing_get_most_recent_prior_year(
       return start_year - 1;
     }
   } else {
-    return kAtcInvalidYearTiny;
+    return kAtcInvalidYear;
   }
 }
 
@@ -311,8 +310,8 @@ void atc_processing_find_candidate_transitions(
 {
   const AtcZonePolicy *policy = match->era->zone_policy;
   uint8_t num_rules = policy->num_rules;
-  int8_t start_year_tiny = match->start_dt.year_tiny;
-  int8_t end_year_tiny = match->until_dt.year_tiny;
+  int16_t start_year = match->start_dt.year;
+  int16_t end_year = match->until_dt.year;
 
   AtcTransition **prior = atc_transition_storage_reserve_prior(ts);
   (*prior)->is_valid_prior = false;
@@ -320,18 +319,18 @@ void atc_processing_find_candidate_transitions(
     const AtcZoneRule *rule = &policy->rules[r];
 
     // Add transitions for interior years
-    int8_t interior_years[kAtcMaxInteriorYears];
+    int16_t interior_years[kAtcMaxInteriorYears];
     uint8_t num_years = atc_processing_calc_interior_years(
         interior_years,
         kAtcMaxInteriorYears,
-        rule->from_year_tiny,
-        rule->to_year_tiny,
-        start_year_tiny,
-        end_year_tiny);
+        rule->from_year,
+        rule->to_year,
+        start_year,
+        end_year);
     for (uint8_t y = 0; y < num_years; y++) {
-      int8_t year_tiny = interior_years[y];
+      int16_t year = interior_years[y];
       AtcTransition *t = atc_transition_storage_get_free_agent(ts);
-      atc_processing_create_transition_for_year(t, year_tiny, rule, match);
+      atc_processing_create_transition_for_year(t, year, rule, match);
       uint8_t status = atc_transition_compare_to_match_fuzzy(t, match);
       if (status == kAtcMatchStatusPrior) {
         atc_transition_storage_set_free_agent_as_prior_if_valid(ts);
@@ -344,10 +343,10 @@ void atc_processing_find_candidate_transitions(
     }
 
     // Add Transition for prior year
-    int8_t prior_year = atc_processing_get_most_recent_prior_year(
-        rule->from_year_tiny, rule->to_year_tiny,
-        start_year_tiny, end_year_tiny);
-    if (prior_year != kAtcInvalidYearTiny) {
+    int16_t prior_year = atc_processing_get_most_recent_prior_year(
+        rule->from_year, rule->to_year,
+        start_year, end_year);
+    if (prior_year != kAtcInvalidYear) {
       AtcTransition *t = atc_transition_storage_get_free_agent(ts);
       atc_processing_create_transition_for_year(t, prior_year, rule, match);
       atc_transition_storage_set_free_agent_as_prior_if_valid(ts);
@@ -494,7 +493,7 @@ void atc_processing_generate_start_until_times(
     int16_t minutes = tt->minutes + (
         - prev->offset_minutes - prev->delta_minutes
         + t->offset_minutes + t->delta_minutes);
-    t->start_dt.year_tiny = tt->year_tiny;
+    t->start_dt.year = tt->year;
     t->start_dt.month = tt->month;
     t->start_dt.day = tt->day;
     t->start_dt.minutes = minutes;
@@ -515,7 +514,7 @@ void atc_processing_generate_start_until_times(
     const atc_time_t offset_seconds = (atc_time_t) 60
         * (st->minutes - (t->offset_minutes + t->delta_minutes));
     int32_t epoch_seconds = (int32_t) 86400 * atc_local_date_to_epoch_days(
-        st->year_tiny, st->month, st->day);
+        st->year, st->month, st->day);
     t->start_epoch_seconds = epoch_seconds + offset_seconds;
 
     prev = t;
@@ -632,8 +631,8 @@ int8_t atc_processing_init_for_year(
   if (year < context->start_year - 1 || context->until_year < year) {
     return kAtcErrGeneric;
   }
-  AtcYearMonth start_ym = { (int8_t) (year - kAtcEpochYear - 1), 12 };
-  AtcYearMonth until_ym = { (int8_t) (year - kAtcEpochYear + 1), 2 };
+  AtcYearMonth start_ym = { year - 1, 12 };
+  AtcYearMonth until_ym = { year + 1, 2 };
 
   // Step 1: Find matches.
   uint8_t num_matches = atc_processing_find_matches(
@@ -735,7 +734,7 @@ static AtcTransitionResult atc_processing_find_transition_for_date_time(
 {
   // Convert LocalDateTime to DateTuple.
   AtcDateTuple local_dt = {
-      ldt->year - kAtcEpochYear,
+      ldt->year,
       ldt->month,
       ldt->day,
       (int16_t) (ldt->hour * 60 + ldt->minute),
