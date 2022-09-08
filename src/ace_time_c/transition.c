@@ -118,6 +118,21 @@ void atc_date_tuple_normalize(AtcDateTuple *dt)
   }
 }
 
+uint8_t atc_date_tuple_compare_fuzzy(
+    const AtcDateTuple *t,
+    const AtcDateTuple *start,
+    const AtcDateTuple *until)
+{
+  // Use int32_t because a delta year of 2730 or greater will exceed
+  // the range of an int16_t.
+  int32_t t_months = t->year * (int32_t) 12 + t->month;
+  int32_t start_months = start->year * (int32_t) 12 + start->month;
+  if (t_months < start_months - 1) return kAtcMatchStatusPrior;
+  int32_t until_months = until->year * 12 + until->month;
+  if (until_months + 1 < t_months) return kAtcMatchStatusFarFuture;
+  return kAtcMatchStatusWithinMatch;
+}
+
 //---------------------------------------------------------------------------
 
 void atc_transition_storage_init(AtcTransitionStorage *ts)
@@ -390,22 +405,11 @@ uint8_t atc_transition_compare_to_match(
   return kAtcMatchStatusFarFuture;
 }
 
-// FIXME: This function overflows its internal integer calculations when the
-// number of total months exceeds 2^15-1 (32767). In other words, in the
-// year 2730.
 uint8_t atc_transition_compare_to_match_fuzzy(
     const AtcTransition *t, const AtcMatchingEra *match)
 {
-  int16_t tt_months = t->transition_time.year * 12
-      + t->transition_time.month;
-
-  int16_t match_start_months = match->start_dt.year * 12
-      + match->start_dt.month;
-  if (tt_months < match_start_months - 1) return kAtcMatchStatusPrior;
-
-  int16_t match_until_months = match->until_dt.year * 12
-      + match->until_dt.month;
-  if (match_until_months + 2 <= tt_months) return kAtcMatchStatusFarFuture;
-
-  return kAtcMatchStatusWithinMatch;
+  return atc_date_tuple_compare_fuzzy(
+      &t->transition_time,
+      &match->start_dt,
+      &match->until_dt);
 }

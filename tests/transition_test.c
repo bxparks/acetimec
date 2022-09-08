@@ -186,6 +186,49 @@ ACU_TEST(test_atc_date_tuple_expand)
   ACU_ASSERT(ttu.suffix == kAtcSuffixU);
 }
 
+ACU_TEST(test_atc_date_tuple_compare_fuzzy) {
+  ACU_ASSERT(kAtcMatchStatusPrior == atc_date_tuple_compare_fuzzy(
+      &(AtcDateTuple){2000, 10, 1, 1, 0},
+      &(AtcDateTuple){2000, 12, 1, 1, 0},
+      &(AtcDateTuple){2002, 2, 1, 1, 0}));
+
+  ACU_ASSERT(kAtcMatchStatusWithinMatch == atc_date_tuple_compare_fuzzy(
+      &(AtcDateTuple){2000, 11, 1, 1, 0},
+      &(AtcDateTuple){2000, 12, 1, 1, 0},
+      &(AtcDateTuple){2002, 2, 1, 1, 0}));
+
+  ACU_ASSERT(kAtcMatchStatusWithinMatch == atc_date_tuple_compare_fuzzy(
+      &(AtcDateTuple){2000, 12, 1, 1, 0},
+      &(AtcDateTuple){2000, 12, 1, 1, 0},
+      &(AtcDateTuple){2002, 2, 1, 1, 0}));
+
+  ACU_ASSERT(kAtcMatchStatusWithinMatch == atc_date_tuple_compare_fuzzy(
+      &(AtcDateTuple){2002, 2, 1, 1, 0},
+      &(AtcDateTuple){2000, 12, 1, 1, 0},
+      &(AtcDateTuple){2002, 2, 1, 1, 0}));
+
+  ACU_ASSERT(kAtcMatchStatusWithinMatch == atc_date_tuple_compare_fuzzy(
+      &(AtcDateTuple){2002, 3, 1, 1, 0},
+      &(AtcDateTuple){2000, 12, 1, 1, 0},
+      &(AtcDateTuple){2002, 2, 1, 1, 0}));
+
+  ACU_ASSERT(kAtcMatchStatusFarFuture == atc_date_tuple_compare_fuzzy(
+      &(AtcDateTuple){2002, 4, 1, 1, 0},
+      &(AtcDateTuple){2000, 12, 1, 1, 0},
+      &(AtcDateTuple){2002, 2, 1, 1, 0}));
+
+  // Verify dates whose delta months is greater than 32767. In
+  // other words, delta years is greater than 2730.
+  ACU_ASSERT(kAtcMatchStatusFarFuture == atc_date_tuple_compare_fuzzy(
+      &(AtcDateTuple){5000, 4, 1, 1, 0},
+      &(AtcDateTuple){2000, 12, 1, 1, 0},
+      &(AtcDateTuple){2002, 2, 1, 1, 0}));
+  ACU_ASSERT(kAtcMatchStatusPrior == atc_date_tuple_compare_fuzzy(
+      &(AtcDateTuple){1000, 4, 1, 1, 0},
+      &(AtcDateTuple){4000, 12, 1, 1, 0},
+      &(AtcDateTuple){4002, 2, 1, 1, 0}));
+}
+
 //---------------------------------------------------------------------------
 
 ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
@@ -634,6 +677,7 @@ int main()
   ACU_RUN_TEST(test_atc_date_tuple_subtract);
   ACU_RUN_TEST(test_atc_date_tuple_normalize);
   ACU_RUN_TEST(test_atc_date_tuple_expand);
+  ACU_RUN_TEST(test_atc_date_tuple_compare_fuzzy);
   ACU_RUN_TEST(test_atc_transition_compare_to_match_fuzzy);
   ACU_RUN_TEST(test_atc_transition_compare_to_match);
   ACU_RUN_TEST(test_atc_transition_storage_add_free_agent_to_active_pool);

@@ -69,6 +69,26 @@ void atc_date_tuple_expand(
     AtcDateTuple *tts,
     AtcDateTuple *ttu);
 
+/**
+ * Compare the given 't' with the interval defined by [start, until). The
+ * comparison is fuzzy, with a slop of about one month so that we can ignore the
+ * day and minutes fields.
+ *
+ * The following values are returned:
+ *
+ *  * kAtcMatchStatusPrior if 't' is less than 'start' by at least one month,
+ *  * kAtcMatchStatusFarFuture if 't' is greater than 'until' by at least one
+ *    month,
+ *  * kAtcMatchStatusWithinMatch if 't' is within [start, until) with a one
+ *    month slop,
+ *  * kAtcMatchStatusExactMatch is never returned.
+
+ */
+uint8_t atc_date_tuple_compare_fuzzy(
+    const AtcDateTuple *t,
+    const AtcDateTuple *start,
+    const AtcDateTuple *until);
+
 //---------------------------------------------------------------------------
 
 enum {
