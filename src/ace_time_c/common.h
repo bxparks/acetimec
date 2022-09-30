@@ -24,17 +24,6 @@ enum {
   kAtcErrGeneric = 1,
 };
 
-enum {
-  /** Base year of the AceTimeC epoch. */
-  kAtcEpochYear = 2000,
-
-  /** Sentinel value for invalid year. */
-  kAtcInvalidYear = INT16_MIN,
-
-  /** Invalid epoch seconds. */
-  kAtcInvalidEpochSeconds = INT32_MIN,
-};
-
 /**
  * Copy at most dst_size characters from src to dst, while replacing all
  * occurrence of old_char with new_string. If new_string is "", then replace

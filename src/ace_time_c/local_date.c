@@ -37,6 +37,22 @@ static const uint8_t atc_days_in_month[12] = {
   31 /*Dec=31*/,
 };
 
+int16_t atc_local_epoch_year = 2000;
+
+int32_t atc_days_to_local_epoch_from_base_epoch = 0;
+
+int16_t atc_get_local_epoch_year()
+{
+  return atc_local_epoch_year;
+}
+
+void atc_set_local_epoch_year(int16_t year)
+{
+  atc_local_epoch_year = year;
+  atc_days_to_local_epoch_from_base_epoch = atc_local_date_to_base_epoch_days(
+      year, 1, 1);
+}
+
 bool atc_is_leap_year(int16_t year)
 {
   return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);
@@ -64,9 +80,7 @@ static uint16_t atc_to_days_until_month_prime(uint8_t month_prime)
   return (153 * month_prime + 2) / 5;
 }
 
-// This algorithm corresponds to
-// AceTime/src/ace_time/internal/EpochConverterHinnant2.h.
-int32_t atc_local_date_to_epoch_days(
+int32_t atc_local_date_to_base_epoch_days(
     int16_t year, uint8_t month, uint8_t day)
 {
   int16_t year_prime = year - ((month <= 2) ? 1 : 0); // year begins on Mar 1
@@ -85,15 +99,18 @@ int32_t atc_local_date_to_epoch_days(
           + 60 /*shift relative to 2000-01-01, 2000 is a leap year*/;
 }
 
-// This algorithm corresponds to
-// AceTime/src/ace_time/internal/EpochConverterHinnant2.h.
-void atc_local_date_from_epoch_days(
+int32_t atc_local_date_to_epoch_days(
+    int16_t year, uint8_t month, uint8_t day)
+{
+  int32_t days = atc_local_date_to_base_epoch_days(year, month, day);
+}
+
+void atc_local_date_from_base_epoch_days(
     int32_t epoch_days,
     int16_t *year,
     uint8_t *month,
     uint8_t *day)
 {
-
   int32_t day_of_epoch_prime = epoch_days + (2000 / 400) * 146097 - 60;
   uint16_t era = (uint32_t) day_of_epoch_prime / 146097; // [0,24]
   uint32_t day_of_era = day_of_epoch_prime - 146097 * era; // [0,146096]
@@ -108,6 +125,16 @@ void atc_local_date_from_epoch_days(
   *day = day_of_year_prime - days_until_month_prime + 1; // [1,31]
   *month = (month_prime < 10) ? month_prime + 3 : month_prime - 9; // [1,12]
   *year = year_prime + ((*month <= 2) ? 1 : 0); // [1,9999]
+}
+
+void atc_local_date_from_epoch_days(
+    int32_t epoch_days,
+    int16_t *year,
+    uint8_t *month,
+    uint8_t *day)
+{
+  int32_t days = epoch_days + atc_days_to_local_epoch_from_base_epoch;
+  atc_local_date_from_base_epoch_days(days, year, month, day);
 }
 
 void atc_local_date_increment_one_day(AtcLocalDate *ld)
