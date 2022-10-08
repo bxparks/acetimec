@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/dev/tz
 //     --output_dir /home/brian/src/AceTimeC/src/ace_time_c/zonedb
-//     --tz_version 2022b
+//     --tz_version 2022d
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -23,22 +23,22 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022b
+// from https://github.com/eggert/tz/releases/tag/2022d
 //
-// Zones: 356
-// Links: 239
+// Zones: 354
+// Links: 241
 // kAtcZoneRegistry sizes (bytes):
-//   Names: 5607 (originally 5607)
+//   Names: 5573 (originally 5573)
 //   Formats: 597
 //   Fragments: 122
-//   Memory (8-bit): 18079
-//   Memory (32-bit): 25220
+//   Memory (8-bit): 17997
+//   Memory (32-bit): 25106
 // kAtcZoneAndLinkRegistry sizes (bytes):
 //   Names: 9054 (originally 9054)
 //   Formats: 597
 //   Fragments: 122
-//   Memory (8-bit): 24633
-//   Memory (32-bit): 34403
+//   Memory (8-bit): 24611
+//   Memory (32-bit): 34371
 //
 // DO NOT EDIT
 
@@ -49,7 +49,7 @@
 // ZoneContext (should not be in PROGMEM)
 //---------------------------------------------------------------------------
 
-const char kAtcTzDatabaseVersion[] = "2022b";
+const char kAtcTzDatabaseVersion[] = "2022d";
 
 const char * const kAtcFragments[] = {
 /*\x00*/ NULL,
@@ -79,7 +79,7 @@ const AtcZoneContext kAtcZoneContext = {
 };
 
 //---------------------------------------------------------------------------
-// Zones: 356
+// Zones: 354
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
@@ -13923,40 +13923,6 @@ const AtcZoneInfo kAtcZoneEurope_Ulyanovsk  = {
 };
 
 //---------------------------------------------------------------------------
-// Zone name: Europe/Uzhgorod
-// Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
-//---------------------------------------------------------------------------
-
-static const AtcZoneEra kAtcZoneEraEurope_Uzhgorod[]  = {
-  //             2:00    EU    EE%sT
-  {
-    &kAtcPolicyEU /*zone_policy*/,
-    "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameEurope_Uzhgorod[]  = "Europe/Uzhgorod";
-
-const AtcZoneInfo kAtcZoneEurope_Uzhgorod  = {
-  kAtcZoneNameEurope_Uzhgorod /*name*/,
-  0xb066f5d6 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraEurope_Uzhgorod /*eras*/,
-};
-
-//---------------------------------------------------------------------------
 // Zone name: Europe/Vienna
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
@@ -14162,40 +14128,6 @@ const AtcZoneInfo kAtcZoneEurope_Warsaw  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Warsaw /*eras*/,
-};
-
-//---------------------------------------------------------------------------
-// Zone name: Europe/Zaporozhye
-// Zone Eras: 1
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 45
-// Memory (32-bit): 59
-//---------------------------------------------------------------------------
-
-static const AtcZoneEra kAtcZoneEraEurope_Zaporozhye[]  = {
-  //             2:00    EU    EE%sT
-  {
-    &kAtcPolicyEU /*zone_policy*/,
-    "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameEurope_Zaporozhye[]  = "Europe/Zaporozhye";
-
-const AtcZoneInfo kAtcZoneEurope_Zaporozhye  = {
-  kAtcZoneNameEurope_Zaporozhye /*name*/,
-  0xeab9767f /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraEurope_Zaporozhye /*eras*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15657,7 +15589,7 @@ const AtcZoneInfo kAtcZoneWET  = {
 
 
 //---------------------------------------------------------------------------
-// Links: 239
+// Links: 241
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
@@ -18534,6 +18466,23 @@ const AtcZoneInfo kAtcZoneEurope_Tiraspol  = {
 };
 
 //---------------------------------------------------------------------------
+// Link name: Europe/Uzhgorod -> Europe/Kyiv
+// Strings (bytes): 16 (originally 16)
+// Memory (8-bit): 27
+// Memory (32-bit): 36
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameEurope_Uzhgorod[]  = "Europe/Uzhgorod";
+
+const AtcZoneInfo kAtcZoneEurope_Uzhgorod  = {
+  kAtcZoneNameEurope_Uzhgorod /*name*/,
+  0xb066f5d6 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneEurope_Kyiv /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
 // Link name: Europe/Vaduz -> Europe/Zurich
 // Strings (bytes): 13 (originally 13)
 // Memory (8-bit): 24
@@ -18582,6 +18531,23 @@ const AtcZoneInfo kAtcZoneEurope_Zagreb  = {
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
   &kAtcZoneEurope_Belgrade /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: Europe/Zaporozhye -> Europe/Kyiv
+// Strings (bytes): 18 (originally 18)
+// Memory (8-bit): 29
+// Memory (32-bit): 38
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameEurope_Zaporozhye[]  = "Europe/Zaporozhye";
+
+const AtcZoneInfo kAtcZoneEurope_Zaporozhye  = {
+  kAtcZoneNameEurope_Zaporozhye /*name*/,
+  0xeab9767f /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneEurope_Kyiv /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------

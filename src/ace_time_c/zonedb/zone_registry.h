@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/dev/tz
 //     --output_dir /home/brian/src/AceTimeC/src/ace_time_c/zonedb
-//     --tz_version 2022b
+//     --tz_version 2022d
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -23,7 +23,7 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022b
+// from https://github.com/eggert/tz/releases/tag/2022d
 //
 // DO NOT EDIT
 
@@ -33,15 +33,15 @@
 #include "../zone_info.h"
 
 // Zones
-#define kAtcZoneRegistrySize 356
-extern const AtcZoneInfo * const kAtcZoneRegistry[356];
+#define kAtcZoneRegistrySize 354
+extern const AtcZoneInfo * const kAtcZoneRegistry[354];
 
 // Zones and Links
 #define kAtcZoneAndLinkRegistrySize 595
 extern const AtcZoneInfo * const kAtcZoneAndLinkRegistry[595];
 
 // Link Entries
-#define kAtcLinkRegistrySize 239
-extern const AtcLinkEntry kAtcLinkRegistry[239];
+#define kAtcLinkRegistrySize 241
+extern const AtcLinkEntry kAtcLinkRegistry[241];
 
 #endif

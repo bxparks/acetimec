@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/dev/tz
 //     --output_dir /home/brian/src/AceTimeC/src/ace_time_c/zonedb
-//     --tz_version 2022b
+//     --tz_version 2022d
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -23,7 +23,7 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022b
+// from https://github.com/eggert/tz/releases/tag/2022d
 //
 // DO NOT EDIT
 
@@ -33,7 +33,7 @@
 //---------------------------------------------------------------------------
 // Zone Info registry. Sorted by zoneId.
 //---------------------------------------------------------------------------
-const AtcZoneInfo * const kAtcZoneRegistry[356]  = {
+const AtcZoneInfo * const kAtcZoneRegistry[354]  = {
   &kAtcZoneAmerica_St_Johns, // 0x04b14e6e, America/St_Johns
   &kAtcZoneAmerica_North_Dakota_New_Salem, // 0x04f9958e, America/North_Dakota/New_Salem
   &kAtcZoneAsia_Jakarta, // 0x0506ab50, Asia/Jakarta
@@ -298,7 +298,6 @@ const AtcZoneInfo * const kAtcZoneRegistry[356]  = {
   &kAtcZoneAmerica_Manaus, // 0xac86bf8b, America/Manaus
   &kAtcZoneAmerica_Merida, // 0xacd172d8, America/Merida
   &kAtcZoneEurope_Chisinau, // 0xad58aa18, Europe/Chisinau
-  &kAtcZoneEurope_Uzhgorod, // 0xb066f5d6, Europe/Uzhgorod
   &kAtcZoneAustralia_Broken_Hill, // 0xb06eada3, Australia/Broken_Hill
   &kAtcZoneAsia_Bishkek, // 0xb0728553, Asia/Bishkek
   &kAtcZoneAmerica_Paramaribo, // 0xb319e4c4, America/Paramaribo
@@ -363,7 +362,6 @@ const AtcZoneInfo * const kAtcZoneRegistry[356]  = {
   &kAtcZonePacific_Noumea, // 0xe551b788, Pacific/Noumea
   &kAtcZonePacific_Honolulu, // 0xe6e70af9, Pacific/Honolulu
   &kAtcZoneAmerica_Argentina_Tucuman, // 0xe96399eb, America/Argentina/Tucuman
-  &kAtcZoneEurope_Zaporozhye, // 0xeab9767f, Europe/Zaporozhye
   &kAtcZoneAsia_Magadan, // 0xebacc19b, Asia/Magadan
   &kAtcZoneAmerica_Ojinaga, // 0xebfde83f, America/Ojinaga
   &kAtcZoneCST6CDT, // 0xf0e87d00, CST6CDT
@@ -833,7 +831,7 @@ const AtcZoneInfo * const kAtcZoneAndLinkRegistry[595]  = {
   &kAtcZoneEurope_Chisinau, // 0xad58aa18, Europe/Chisinau
   &kAtcZoneAmerica_Nassau, // 0xaedef011, America/Nassau -> America/Toronto
   &kAtcZoneAmerica_Anguilla, // 0xafe31333, America/Anguilla -> America/Puerto_Rico
-  &kAtcZoneEurope_Uzhgorod, // 0xb066f5d6, Europe/Uzhgorod
+  &kAtcZoneEurope_Uzhgorod, // 0xb066f5d6, Europe/Uzhgorod -> Europe/Kyiv
   &kAtcZoneAustralia_Broken_Hill, // 0xb06eada3, Australia/Broken_Hill
   &kAtcZoneAsia_Bishkek, // 0xb0728553, Asia/Bishkek
   &kAtcZoneChile_EasterIsland, // 0xb0982af8, Chile/EasterIsland -> Pacific/Easter
@@ -952,7 +950,7 @@ const AtcZoneInfo * const kAtcZoneAndLinkRegistry[595]  = {
   &kAtcZoneAmerica_Kralendijk, // 0xe7c456c5, America/Kralendijk -> America/Puerto_Rico
   &kAtcZoneAmerica_Argentina_Tucuman, // 0xe96399eb, America/Argentina/Tucuman
   &kAtcZonePacific_Ponape, // 0xe9f80086, Pacific/Ponape -> Pacific/Guadalcanal
-  &kAtcZoneEurope_Zaporozhye, // 0xeab9767f, Europe/Zaporozhye
+  &kAtcZoneEurope_Zaporozhye, // 0xeab9767f, Europe/Zaporozhye -> Europe/Kyiv
   &kAtcZoneEurope_Isle_of_Man, // 0xeaf84580, Europe/Isle_of_Man -> Europe/London
   &kAtcZoneAsia_Magadan, // 0xebacc19b, Asia/Magadan
   &kAtcZoneAmerica_Ojinaga, // 0xebfde83f, America/Ojinaga
@@ -998,7 +996,7 @@ const AtcZoneInfo * const kAtcZoneAndLinkRegistry[595]  = {
 //---------------------------------------------------------------------------
 // Link (thin) Entry registry. Sorted by linkId. Links are references to Zones.
 //---------------------------------------------------------------------------
-const AtcLinkEntry kAtcLinkRegistry[239]  = {
+const AtcLinkEntry kAtcLinkRegistry[241]  = {
   { kAtcZoneIdGB, kAtcZoneIdEurope_London }, // 0x005973ae -> 0x5c6a84ae
   { kAtcZoneIdNZ, kAtcZoneIdPacific_Auckland }, // 0x005974ad -> 0x25062f86
   { kAtcZoneIdAsia_Kuala_Lumpur, kAtcZoneIdAsia_Singapore }, // 0x014763c4 -> 0xcf8581fa
@@ -1171,6 +1169,7 @@ const AtcLinkEntry kAtcLinkRegistry[239]  = {
   { kAtcZoneIdAmerica_Coral_Harbour, kAtcZoneIdAmerica_Panama }, // 0xabcb7569 -> 0xb3863854
   { kAtcZoneIdAmerica_Nassau, kAtcZoneIdAmerica_Toronto }, // 0xaedef011 -> 0x792e851b
   { kAtcZoneIdAmerica_Anguilla, kAtcZoneIdAmerica_Puerto_Rico }, // 0xafe31333 -> 0x6752ca31
+  { kAtcZoneIdEurope_Uzhgorod, kAtcZoneIdEurope_Kyiv }, // 0xb066f5d6 -> 0xa2c1e347
   { kAtcZoneIdChile_EasterIsland, kAtcZoneIdPacific_Easter }, // 0xb0982af8 -> 0xcf54f7e7
   { kAtcZoneIdPacific_Johnston, kAtcZoneIdPacific_Honolulu }, // 0xb15d7b36 -> 0xe6e70af9
   { kAtcZoneIdAfrica_Timbuktu, kAtcZoneIdAfrica_Abidjan }, // 0xb164d56f -> 0xc21305a3
@@ -1225,6 +1224,7 @@ const AtcLinkEntry kAtcLinkRegistry[239]  = {
   { kAtcZoneIdAustralia_Tasmania, kAtcZoneIdAustralia_Hobart }, // 0xe6d76648 -> 0x32bf951a
   { kAtcZoneIdAmerica_Kralendijk, kAtcZoneIdAmerica_Puerto_Rico }, // 0xe7c456c5 -> 0x6752ca31
   { kAtcZoneIdPacific_Ponape, kAtcZoneIdPacific_Guadalcanal }, // 0xe9f80086 -> 0xf4dd25f0
+  { kAtcZoneIdEurope_Zaporozhye, kAtcZoneIdEurope_Kyiv }, // 0xeab9767f -> 0xa2c1e347
   { kAtcZoneIdEurope_Isle_of_Man, kAtcZoneIdEurope_London }, // 0xeaf84580 -> 0x5c6a84ae
   { kAtcZoneIdPacific_Saipan, kAtcZoneIdPacific_Guam }, // 0xeff7a35f -> 0x2338f9ed
   { kAtcZoneIdCanada_Eastern, kAtcZoneIdAmerica_Toronto }, // 0xf3612d5e -> 0x792e851b

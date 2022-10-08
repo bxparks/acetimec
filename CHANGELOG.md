@@ -7,6 +7,16 @@
     * Add `atc_zoned_date_time_convert()` function for converting
       a date time from one time zone to another.
     * Create typedefs for `struct`, and remove unnecessary `struct` keyword.
+    * Upgrade TZDB from 2022b to 2022d
+        * 2022c
+            * https://mm.icann.org/pipermail/tz-announce/2022-August/000072.html
+                * Work around awk bug in FreeBSD, macOS, etc.
+                * Improve tzselect on intercontinental Zones.
+            * Skipped because there were no changes that affected AceTime.
+        * 2022d
+            * https://mm.icann.org/pipermail/tz-announce/2022-September/000073.html
+                * Palestine transitions are now Saturdays at 02:00.
+                * Simplify three Ukraine zones into one.
 * 0.2.0 (2022-08-30, TZDB 2022b)
     * Add doxygen docs. Add docstrings to various functions and structures to
       eliminate all doxygen warnings.
