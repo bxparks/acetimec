@@ -7,6 +7,7 @@
     * Add `atc_zoned_date_time_convert()` function for converting
       a date time from one time zone to another.
     * Create typedefs for `struct`, and remove unnecessary `struct` keyword.
+    * Change `year` fields from `int8_t` to `int16_t`.
     * Upgrade TZDB from 2022b to 2022d
         * 2022c
             * https://mm.icann.org/pipermail/tz-announce/2022-August/000072.html
