@@ -103,6 +103,7 @@ int32_t atc_local_date_to_epoch_days(
     int16_t year, uint8_t month, uint8_t day)
 {
   int32_t days = atc_local_date_to_base_epoch_days(year, month, day);
+  return days - atc_days_to_local_epoch_from_base_epoch;
 }
 
 void atc_local_date_from_base_epoch_days(
