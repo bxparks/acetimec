@@ -11,6 +11,7 @@ TARGETS := \
 	transition_test.out \
 	zone_info_utils_test.out \
 	zone_processing_test.out \
+	zone_processing_transition_test.out \
 	zone_registrar_test.out \
 	zoned_date_time_test.out \
 	zoned_extra_test.out \
@@ -44,6 +45,9 @@ zone_info_utils_test.out: zone_info_utils_test.o ../src/acetimec.a
 zone_processing_test.out: zone_processing_test.o ../src/acetimec.a
 	$(CC) -o $@ $^
 
+zone_processing_transition_test.out: zone_processing_transition_test.o ../src/acetimec.a
+	$(CC) -o $@ $^
+
 zone_registrar_test.out: zone_registrar_test.o ../src/acetimec.a
 	$(CC) -o $@ $^
 
@@ -73,6 +77,8 @@ transition_test.o: transition_test.c
 zone_info_utils_test.o: zone_info_utils_test.c
 
 zone_processing_test.o: zone_processing_test.c
+
+zone_processing_transition_test.o: zone_processing_transition_test.c
 
 zone_registrar_test.o: zone_registrar_test.c
 

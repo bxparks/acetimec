@@ -1,6 +1,6 @@
 /*
  * Unit tests for zone_processing.c. Much of this was adapted from
- * ExtendedZoneProcessingTest.ino from the AceTime library.
+ * ExtendedZoneProcessorTest.ino from the AceTime library.
  */
 
 #include <string.h>
