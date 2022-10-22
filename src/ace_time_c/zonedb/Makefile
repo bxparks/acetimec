@@ -4,7 +4,7 @@ TOOLS := $(abspath ../../../../AceTimeTools)
 
 TZ_VERSION := 2022d
 START_YEAR := 2000
-UNTIL_YEAR := 2050
+UNTIL_YEAR := 10000
 
 all:
 	$(TOOLS)/tzcompiler.sh \

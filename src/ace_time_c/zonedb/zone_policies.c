@@ -8,7 +8,7 @@
 //     --language c
 //     --scope extended
 //     --start_year 2000
-//     --until_year 2050
+//     --until_year 10000
 //     --nocompress
 //
 // using the TZ Database files
@@ -26,10 +26,10 @@
 // from https://github.com/eggert/tz/releases/tag/2022d
 //
 // Policies: 83
-// Rules: 530
+// Rules: 605
 // Letter Size (bytes): 23
-// Total Memory 8-bit (bytes): 5303
-// Total Memory 32-bit (bytes): 7403
+// Total Memory 8-bit (bytes): 5978
+// Total Memory 32-bit (bytes): 8303
 //
 // DO NOT EDIT
 
@@ -4257,9 +4257,9 @@ const AtcZonePolicy kAtcPolicyMongol  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Morocco
-// Rules: 94
-// Memory (8-bit): 852
-// Memory (32-bit): 1140
+// Rules: 169
+// Memory (8-bit): 1527
+// Memory (32-bit): 2040
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
@@ -5391,6 +5391,906 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
     '-' /*letter*/,
   },
+  // Rule    Morocco    2051    only    -    Jun    18     2:00    0    -
+  {
+    2051 /*from_year*/,
+    2051 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2052    only    -    Apr    28     3:00    -1:00    -
+  {
+    2052 /*from_year*/,
+    2052 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2052    only    -    Jun     2     2:00    0    -
+  {
+    2052 /*from_year*/,
+    2052 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2053    only    -    Apr    13     3:00    -1:00    -
+  {
+    2053 /*from_year*/,
+    2053 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2053    only    -    May    25     2:00    0    -
+  {
+    2053 /*from_year*/,
+    2053 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2054    only    -    Apr     5     3:00    -1:00    -
+  {
+    2054 /*from_year*/,
+    2054 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2054    only    -    May    17     2:00    0    -
+  {
+    2054 /*from_year*/,
+    2054 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2055    only    -    Mar    28     3:00    -1:00    -
+  {
+    2055 /*from_year*/,
+    2055 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2055    only    -    May     2     2:00    0    -
+  {
+    2055 /*from_year*/,
+    2055 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2056    only    -    Mar    12     3:00    -1:00    -
+  {
+    2056 /*from_year*/,
+    2056 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2056    only    -    Apr    23     2:00    0    -
+  {
+    2056 /*from_year*/,
+    2056 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2057    only    -    Mar     4     3:00    -1:00    -
+  {
+    2057 /*from_year*/,
+    2057 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2057    only    -    Apr     8     2:00    0    -
+  {
+    2057 /*from_year*/,
+    2057 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2058    only    -    Feb    17     3:00    -1:00    -
+  {
+    2058 /*from_year*/,
+    2058 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2058    only    -    Mar    31     2:00    0    -
+  {
+    2058 /*from_year*/,
+    2058 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2059    only    -    Feb     9     3:00    -1:00    -
+  {
+    2059 /*from_year*/,
+    2059 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2059    only    -    Mar    23     2:00    0    -
+  {
+    2059 /*from_year*/,
+    2059 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2060    only    -    Feb     1     3:00    -1:00    -
+  {
+    2060 /*from_year*/,
+    2060 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2060    only    -    Mar     7     2:00    0    -
+  {
+    2060 /*from_year*/,
+    2060 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2061    only    -    Jan    16     3:00    -1:00    -
+  {
+    2061 /*from_year*/,
+    2061 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2061    only    -    Feb    27     2:00    0    -
+  {
+    2061 /*from_year*/,
+    2061 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2062    only    -    Jan     8     3:00    -1:00    -
+  {
+    2062 /*from_year*/,
+    2062 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2062    only    -    Feb    19     2:00    0    -
+  {
+    2062 /*from_year*/,
+    2062 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2062    only    -    Dec    31     3:00    -1:00    -
+  {
+    2062 /*from_year*/,
+    2062 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2063    only    -    Feb     4     2:00    0    -
+  {
+    2063 /*from_year*/,
+    2063 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2063    only    -    Dec    16     3:00    -1:00    -
+  {
+    2063 /*from_year*/,
+    2063 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2064    only    -    Jan    27     2:00    0    -
+  {
+    2064 /*from_year*/,
+    2064 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2064    only    -    Dec     7     3:00    -1:00    -
+  {
+    2064 /*from_year*/,
+    2064 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2065    only    -    Jan    11     2:00    0    -
+  {
+    2065 /*from_year*/,
+    2065 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2065    only    -    Nov    22     3:00    -1:00    -
+  {
+    2065 /*from_year*/,
+    2065 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2066    only    -    Jan     3     2:00    0    -
+  {
+    2066 /*from_year*/,
+    2066 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2066    only    -    Nov    14     3:00    -1:00    -
+  {
+    2066 /*from_year*/,
+    2066 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2066    only    -    Dec    26     2:00    0    -
+  {
+    2066 /*from_year*/,
+    2066 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2067    only    -    Nov     6     3:00    -1:00    -
+  {
+    2067 /*from_year*/,
+    2067 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2067    only    -    Dec    11     2:00    0    -
+  {
+    2067 /*from_year*/,
+    2067 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2068    only    -    Oct    21     3:00    -1:00    -
+  {
+    2068 /*from_year*/,
+    2068 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2068    only    -    Dec     2     2:00    0    -
+  {
+    2068 /*from_year*/,
+    2068 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2069    only    -    Oct    13     3:00    -1:00    -
+  {
+    2069 /*from_year*/,
+    2069 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2069    only    -    Nov    24     2:00    0    -
+  {
+    2069 /*from_year*/,
+    2069 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2070    only    -    Oct     5     3:00    -1:00    -
+  {
+    2070 /*from_year*/,
+    2070 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2070    only    -    Nov     9     2:00    0    -
+  {
+    2070 /*from_year*/,
+    2070 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2071    only    -    Sep    20     3:00    -1:00    -
+  {
+    2071 /*from_year*/,
+    2071 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2071    only    -    Nov     1     2:00    0    -
+  {
+    2071 /*from_year*/,
+    2071 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2072    only    -    Sep    11     3:00    -1:00    -
+  {
+    2072 /*from_year*/,
+    2072 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2072    only    -    Oct    16     2:00    0    -
+  {
+    2072 /*from_year*/,
+    2072 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2073    only    -    Aug    27     3:00    -1:00    -
+  {
+    2073 /*from_year*/,
+    2073 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2073    only    -    Oct     8     2:00    0    -
+  {
+    2073 /*from_year*/,
+    2073 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2074    only    -    Aug    19     3:00    -1:00    -
+  {
+    2074 /*from_year*/,
+    2074 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2074    only    -    Sep    30     2:00    0    -
+  {
+    2074 /*from_year*/,
+    2074 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2075    only    -    Aug    11     3:00    -1:00    -
+  {
+    2075 /*from_year*/,
+    2075 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2075    only    -    Sep    15     2:00    0    -
+  {
+    2075 /*from_year*/,
+    2075 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2076    only    -    Jul    26     3:00    -1:00    -
+  {
+    2076 /*from_year*/,
+    2076 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2076    only    -    Sep     6     2:00    0    -
+  {
+    2076 /*from_year*/,
+    2076 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2077    only    -    Jul    18     3:00    -1:00    -
+  {
+    2077 /*from_year*/,
+    2077 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2077    only    -    Aug    29     2:00    0    -
+  {
+    2077 /*from_year*/,
+    2077 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2078    only    -    Jul    10     3:00    -1:00    -
+  {
+    2078 /*from_year*/,
+    2078 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2078    only    -    Aug    14     2:00    0    -
+  {
+    2078 /*from_year*/,
+    2078 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2079    only    -    Jun    25     3:00    -1:00    -
+  {
+    2079 /*from_year*/,
+    2079 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2079    only    -    Aug     6     2:00    0    -
+  {
+    2079 /*from_year*/,
+    2079 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2080    only    -    Jun    16     3:00    -1:00    -
+  {
+    2080 /*from_year*/,
+    2080 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2080    only    -    Jul    21     2:00    0    -
+  {
+    2080 /*from_year*/,
+    2080 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2081    only    -    Jun     1     3:00    -1:00    -
+  {
+    2081 /*from_year*/,
+    2081 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2081    only    -    Jul    13     2:00    0    -
+  {
+    2081 /*from_year*/,
+    2081 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2082    only    -    May    24     3:00    -1:00    -
+  {
+    2082 /*from_year*/,
+    2082 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2082    only    -    Jul     5     2:00    0    -
+  {
+    2082 /*from_year*/,
+    2082 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2083    only    -    May    16     3:00    -1:00    -
+  {
+    2083 /*from_year*/,
+    2083 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2083    only    -    Jun    20     2:00    0    -
+  {
+    2083 /*from_year*/,
+    2083 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2084    only    -    Apr    30     3:00    -1:00    -
+  {
+    2084 /*from_year*/,
+    2084 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2084    only    -    Jun    11     2:00    0    -
+  {
+    2084 /*from_year*/,
+    2084 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2085    only    -    Apr    22     3:00    -1:00    -
+  {
+    2085 /*from_year*/,
+    2085 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2085    only    -    Jun     3     2:00    0    -
+  {
+    2085 /*from_year*/,
+    2085 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2086    only    -    Apr    14     3:00    -1:00    -
+  {
+    2086 /*from_year*/,
+    2086 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2086    only    -    May    19     2:00    0    -
+  {
+    2086 /*from_year*/,
+    2086 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2087    only    -    Mar    30     3:00    -1:00    -
+  {
+    2087 /*from_year*/,
+    2087 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2087    only    -    May    11     2:00    0    -
+  {
+    2087 /*from_year*/,
+    2087 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
 
 };
 
@@ -5399,7 +6299,7 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
 const AtcZonePolicy kAtcPolicyMorocco  = {
   kAtcZoneRulesMorocco /*rules*/,
   NULL /*letters*/,
-  94 /*num_rules*/,
+  169 /*num_rules*/,
   0 /*num_letters*/,
 };
 

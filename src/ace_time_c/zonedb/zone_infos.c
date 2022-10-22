@@ -8,7 +8,7 @@
 //     --language c
 //     --scope extended
 //     --start_year 2000
-//     --until_year 2050
+//     --until_year 10000
 //     --nocompress
 //
 // using the TZ Database files
@@ -72,7 +72,7 @@ const char * const kAtcFragments[] = {
 
 const AtcZoneContext kAtcZoneContext = {
   2000 /*startYear*/,
-  2050 /*untilYear*/,
+  10000 /*untilYear*/,
   kAtcTzDatabaseVersion /*tzVersion*/,
   15 /*numFragments*/,
   kAtcFragments /*fragments*/,

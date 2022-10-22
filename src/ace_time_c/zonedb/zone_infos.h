@@ -8,7 +8,7 @@
 //     --language c
 //     --scope extended
 //     --start_year 2000
-//     --until_year 2050
+//     --until_year 10000
 //     --nocompress
 //
 // using the TZ Database files
