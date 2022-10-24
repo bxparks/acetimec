@@ -53,6 +53,16 @@ void atc_set_local_epoch_year(int16_t year)
       year, 1, 1);
 }
 
+int16_t atc_local_valid_year_lower()
+{
+  return atc_get_local_epoch_year() - 50;
+}
+
+int16_t atc_local_valid_year_upper()
+{
+  return atc_get_local_epoch_year() + 50;
+}
+
 bool atc_is_leap_year(int16_t year)
 {
   return ((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0);

@@ -180,6 +180,17 @@ ACU_TEST(test_decrement_one_day)
   ACU_ASSERT(ld.day == 28);
 }
 
+ACU_TEST(test_epoch_year_and_valid_years)
+{
+  int16_t saved_epoch_year = atc_get_local_epoch_year();
+
+  atc_set_local_epoch_year(2050);
+  ACU_ASSERT(2000 == atc_local_valid_year_lower());
+  ACU_ASSERT(2100 == atc_local_valid_year_upper());
+
+  atc_set_local_epoch_year(saved_epoch_year);
+}
+
 //---------------------------------------------------------------------------
 
 ACU_VARS();
@@ -192,5 +203,6 @@ int main()
   ACU_RUN_TEST(test_day_of_week);
   ACU_RUN_TEST(test_increment_one_day);
   ACU_RUN_TEST(test_decrement_one_day);
+  ACU_RUN_TEST(test_epoch_year_and_valid_years);
   ACU_SUMMARY();
 }
