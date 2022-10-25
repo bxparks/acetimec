@@ -1,6 +1,7 @@
 # Changelog
 
 * Unreleased
+* 0.3.0 (2022-08-30, TZDB 2022e)
     * Add `string_buffer.h` which implements a simple string buffer and
       provides a collection of print functions for converting various date
       and time structures into human readable forms such as ISO8601.
@@ -8,7 +9,10 @@
       a date time from one time zone to another.
     * Create typedefs for `struct`, and remove unnecessary `struct` keyword.
     * Change `year` fields from `int8_t` to `int16_t`.
-    * Upgrade TZDB from 2022b to 2022d
+    * Add `atc_local_valid_year_lower()` and `atc_local_valid_year_upper()`
+        * Defines the interval `lower <= year < upper` which is guaranteed
+          to produce valid transitions.
+    * Upgrade TZDB from 2022b to 2022e
         * 2022c
             * https://mm.icann.org/pipermail/tz-announce/2022-August/000072.html
                 * Work around awk bug in FreeBSD, macOS, etc.
@@ -18,6 +22,10 @@
             * https://mm.icann.org/pipermail/tz-announce/2022-September/000073.html
                 * Palestine transitions are now Saturdays at 02:00.
                 * Simplify three Ukraine zones into one.
+        * 2022e
+            * https://mm.icann.org/pipermail/tz-announce/2022-October/000074.html
+                * Jordan and Syria switch from +02/+03 with DST to year-round
+                  +03.
 * 0.2.0 (2022-08-30, TZDB 2022b)
     * Add doxygen docs. Add docstrings to various functions and structures to
       eliminate all doxygen warnings.
