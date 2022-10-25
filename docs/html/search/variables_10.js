@@ -1,7 +1,4 @@
 var searchData=
 [
-  ['zone_5fcontext_287',['zone_context',['../structAtcZoneInfo.html#af2cb289a3b311da477783dfb7d066f51',1,'AtcZoneInfo']]],
-  ['zone_5fid_288',['zone_id',['../structAtcZoneInfo.html#a49286aa4a0e811352fe3c4dae68ccf05',1,'AtcZoneInfo::zone_id()'],['../structAtcLinkEntry.html#a8f500d468c6d233d537485652b188267',1,'AtcLinkEntry::zone_id()']]],
-  ['zone_5finfo_289',['zone_info',['../structAtcZoneProcessing.html#a9818eb47eabf0b37fb94532fccb93684',1,'AtcZoneProcessing::zone_info()'],['../structAtcZonedDateTime.html#a70fa4c09553124c2b63de3aadc2ea3d4',1,'AtcZonedDateTime::zone_info()']]],
-  ['zone_5fpolicy_290',['zone_policy',['../structAtcZoneEra.html#aeda0623ee86dc3ff6b74132716459696',1,'AtcZoneEra']]]
+  ['year_331',['year',['../structAtcLocalDate.html#a985dd8fcb14e9d3105b97b71994aa1d9',1,'AtcLocalDate::year()'],['../structAtcLocalDateTime.html#aba6e5cfe7d8f47a5f4a5a173eca7af6c',1,'AtcLocalDateTime::year()'],['../structAtcOffsetDateTime.html#a200116207c51a7d6cd56d80ff7a118ac',1,'AtcOffsetDateTime::year()'],['../structAtcDateTuple.html#a1fc720ef351900686f795326ef2a942c',1,'AtcDateTuple::year()'],['../structAtcZoneProcessing.html#ad7db06a15cb7966887ee72dc3f66f38a',1,'AtcZoneProcessing::year()'],['../structAtcYearMonth.html#ae61d8a6b653f10ed02b3ce98f28ffaf2',1,'AtcYearMonth::year()'],['../structAtcZonedDateTime.html#acfc5da091b6417095edc2d5f91b4c067',1,'AtcZonedDateTime::year()']]]
 ];

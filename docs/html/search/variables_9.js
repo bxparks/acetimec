@@ -1,7 +1,9 @@
 var searchData=
 [
-  ['offset_5fcode_253',['offset_code',['../structAtcZoneEra.html#a685ac5ee88953be589c34f007f27bd98',1,'AtcZoneEra']]],
-  ['offset_5fminutes_254',['offset_minutes',['../structAtcOffsetDateTime.html#a116dc8fc3224ac59674f1f24b169ac6f',1,'AtcOffsetDateTime::offset_minutes()'],['../structAtcTransition.html#ab24c3175da82f04b42434ae05fbb8c01',1,'AtcTransition::offset_minutes()'],['../structAtcZonedDateTime.html#af3211e0b4fe33139aad8d3229ed83426',1,'AtcZonedDateTime::offset_minutes()']]],
-  ['on_5fday_5fof_5fmonth_255',['on_day_of_month',['../structAtcZoneRule.html#acc253b063a1c4b7d0df64bac9042e5f6',1,'AtcZoneRule']]],
-  ['on_5fday_5fof_5fweek_256',['on_day_of_week',['../structAtcZoneRule.html#adc4136768f13df72c5dbb73740abc628',1,'AtcZoneRule']]]
+  ['name_292',['name',['../structAtcZoneInfo.html#a9c0dbaea4041b917db1e3301d0b12283',1,'AtcZoneInfo']]],
+  ['num_5feras_293',['num_eras',['../structAtcZoneInfo.html#aa5f154d0fae04baa988b804493e575d9',1,'AtcZoneInfo']]],
+  ['num_5ffragments_294',['num_fragments',['../structAtcZoneContext.html#ae84e7e38f586fe6542a29eb68a85b006',1,'AtcZoneContext']]],
+  ['num_5fletters_295',['num_letters',['../structAtcZonePolicy.html#aa374ecee4ac6731a74be9c09b140e7f3',1,'AtcZonePolicy']]],
+  ['num_5fmatches_296',['num_matches',['../structAtcZoneProcessing.html#a6599bfb1db19fc5f6984a9e28ad42677',1,'AtcZoneProcessing']]],
+  ['num_5frules_297',['num_rules',['../structAtcZonePolicy.html#a6414bcc34bcafe20085127dc2da77de9',1,'AtcZonePolicy']]]
 ];

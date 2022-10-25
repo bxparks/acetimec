@@ -1,4 +1,7 @@
 var searchData=
 [
-  ['hour_228',['hour',['../structAtcLocalDateTime.html#aa1d95160c96a4429ac790a7e975b7063',1,'AtcLocalDateTime::hour()'],['../structAtcOffsetDateTime.html#a1eb9f86f5c9961debf34fad81635c377',1,'AtcOffsetDateTime::hour()'],['../structAtcZonedDateTime.html#ab1d6f8186a2decbb34ab6df46bd3aa0b',1,'AtcZonedDateTime::hour()']]]
+  ['fold_269',['fold',['../structAtcOffsetDateTime.html#a6ede44821779979e479a7d19718dab81',1,'AtcOffsetDateTime::fold()'],['../structAtcMatchingTransition.html#aa83492a43e97b71be3f6467ffed46602',1,'AtcMatchingTransition::fold()'],['../structAtcZonedDateTime.html#aec3c3d0be1b2fa27bd91752b4b0dbcb8',1,'AtcZonedDateTime::fold()']]],
+  ['format_270',['format',['../structAtcZoneEra.html#a4242f6211236aa265ea77d8a56e96bd6',1,'AtcZoneEra']]],
+  ['fragments_271',['fragments',['../structAtcZoneContext.html#a4b06c0da451ac5578b5a251e8902166f',1,'AtcZoneContext']]],
+  ['from_5fyear_272',['from_year',['../structAtcZoneRule.html#a3d0e03f6dc2138ec65e68223128912d5',1,'AtcZoneRule']]]
 ];

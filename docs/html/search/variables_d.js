@@ -1,14 +1,11 @@
 var searchData=
 [
-  ['to_5fyear_5ftiny_267',['to_year_tiny',['../structAtcZoneRule.html#a1ade8dbffa19cbad39c90f9066903e6e',1,'AtcZoneRule']]],
-  ['transition_268',['transition',['../structAtcMatchingTransition.html#a9411c906cdc01739bb5a6cb0e4bf9b3e',1,'AtcMatchingTransition']]],
-  ['transition0_269',['transition0',['../structAtcTransitionResult.html#ae30534fe000973a68cde4bf9ef9a1790',1,'AtcTransitionResult']]],
-  ['transition1_270',['transition1',['../structAtcTransitionResult.html#a37ce9ff993d835ee4478761751bf3e16',1,'AtcTransitionResult']]],
-  ['transition_5fpool_271',['transition_pool',['../structAtcTransitionStorage.html#a840abaab6285bd196ae19921106dc33c',1,'AtcTransitionStorage']]],
-  ['transition_5fstorage_272',['transition_storage',['../structAtcZoneProcessing.html#a984a013d0ec59a34b277f9eb332f01bd',1,'AtcZoneProcessing']]],
-  ['transition_5ftime_273',['transition_time',['../structAtcTransition.html#a8297110594d2cc0eed5696ba3b044e9c',1,'AtcTransition']]],
-  ['transition_5ftime_5fs_274',['transition_time_s',['../structAtcTransition.html#a3c75c362cd1ccf2788fde79f5f5ed211',1,'AtcTransition']]],
-  ['transition_5ftime_5fu_275',['transition_time_u',['../structAtcTransition.html#a2cd844d34b4b88eb16d5599ba04364f1',1,'AtcTransition']]],
-  ['transitions_276',['transitions',['../structAtcTransitionStorage.html#a98104689bf77eca767d091f88a2699bd',1,'AtcTransitionStorage']]],
-  ['tz_5fversion_277',['tz_version',['../structAtcZoneContext.html#a7bde796579a989d8c6be914bcf00331e',1,'AtcZoneContext']]]
+  ['search_5fstatus_306',['search_status',['../structAtcTransitionResult.html#acb7116da7b40f091d45920fbe4b2f7e6',1,'AtcTransitionResult']]],
+  ['second_307',['second',['../structAtcLocalDateTime.html#a9ef974bc8decc25b432421bbcce8864b',1,'AtcLocalDateTime::second()'],['../structAtcOffsetDateTime.html#ac33bae54d22036a16bed773074c2ec9f',1,'AtcOffsetDateTime::second()'],['../structAtcZonedDateTime.html#a357787ca5d5e61c81b3595fd69765b7f',1,'AtcZonedDateTime::second()']]],
+  ['size_308',['size',['../structAtcStringBuffer.html#a8e22e6352eae5b0ba199135263a38fce',1,'AtcStringBuffer']]],
+  ['start_5fdt_309',['start_dt',['../structAtcMatchingEra.html#a5342cfb82676444dd1b5efd9e5d84855',1,'AtcMatchingEra::start_dt()'],['../structAtcTransition.html#a6074ad52cb45a83d95f9fd11e834d266',1,'AtcTransition::start_dt()']]],
+  ['start_5fepoch_5fseconds_310',['start_epoch_seconds',['../structAtcTransition.html#ac7597f2523749351cc474a55fbf351ee',1,'AtcTransition']]],
+  ['start_5fyear_311',['start_year',['../structAtcZoneContext.html#abeddea10cf782c7d8cbaba6f426779dd',1,'AtcZoneContext']]],
+  ['std_5foffset_5fminutes_312',['std_offset_minutes',['../structAtcTransitionInfo.html#a7e995c5a2f8d6f7e9262246b7008435d',1,'AtcTransitionInfo::std_offset_minutes()'],['../structAtcZonedExtra.html#a904d87896bbdc5727cc36d3d26c847f1',1,'AtcZonedExtra::std_offset_minutes()']]],
+  ['suffix_313',['suffix',['../structAtcDateTuple.html#a5e4ad96fc2ee1d21bf77ea665bfec4f5',1,'AtcDateTuple']]]
 ];

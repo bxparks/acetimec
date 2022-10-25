@@ -1,10 +1,14 @@
 var searchData=
 [
-  ['until_5fday_278',['until_day',['../structAtcZoneEra.html#a792b37ac36b539290692a206d7ad8ed3',1,'AtcZoneEra']]],
-  ['until_5fdt_279',['until_dt',['../structAtcMatchingEra.html#a0edbba165a3c323f9671d8e10ef8ba56',1,'AtcMatchingEra::until_dt()'],['../structAtcTransition.html#aabac0650b71d395fa87fe84a05d53ed1',1,'AtcTransition::until_dt()']]],
-  ['until_5fmonth_280',['until_month',['../structAtcZoneEra.html#a492bc37702726539af3ba704c472749b',1,'AtcZoneEra']]],
-  ['until_5ftime_5fcode_281',['until_time_code',['../structAtcZoneEra.html#ac16fd5900613d5c50e30930f4fce4544',1,'AtcZoneEra']]],
-  ['until_5ftime_5fmodifier_282',['until_time_modifier',['../structAtcZoneEra.html#ac722c4368462906bec950f4bec0d0127',1,'AtcZoneEra']]],
-  ['until_5fyear_283',['until_year',['../structAtcZoneContext.html#a71994cbb6f06bebc6dc208e8d7ea1cfd',1,'AtcZoneContext']]],
-  ['until_5fyear_5ftiny_284',['until_year_tiny',['../structAtcZoneEra.html#ac65c6fff84f5a44a528febe6ffaff2c9',1,'AtcZoneEra']]]
+  ['to_5fyear_314',['to_year',['../structAtcZoneRule.html#a9266fa88b9b7ab65afd889fb9987530b',1,'AtcZoneRule']]],
+  ['transition_315',['transition',['../structAtcMatchingTransition.html#a2a9e68df4d9bbdb419ee82271a92cf99',1,'AtcMatchingTransition']]],
+  ['transition0_316',['transition0',['../structAtcTransitionResult.html#a970b44747d2b38c3fd42174c968c4c62',1,'AtcTransitionResult']]],
+  ['transition1_317',['transition1',['../structAtcTransitionResult.html#ac32af12771cbb18829c80ea5bcf5c16a',1,'AtcTransitionResult']]],
+  ['transition_5fpool_318',['transition_pool',['../structAtcTransitionStorage.html#a0cc7c99ac6cb08283981e64fad3be59c',1,'AtcTransitionStorage']]],
+  ['transition_5fstorage_319',['transition_storage',['../structAtcZoneProcessing.html#a8905d1476cb245cfc5026f82c419484a',1,'AtcZoneProcessing']]],
+  ['transition_5ftime_320',['transition_time',['../structAtcTransition.html#a7562951def69dfc562dd2f120f0b342e',1,'AtcTransition']]],
+  ['transition_5ftime_5fs_321',['transition_time_s',['../structAtcTransition.html#ae074aee1404bf4318ca19be950281e9e',1,'AtcTransition']]],
+  ['transition_5ftime_5fu_322',['transition_time_u',['../structAtcTransition.html#ae5ad0a197fedfb2a697635df1fb8e4a5',1,'AtcTransition']]],
+  ['transitions_323',['transitions',['../structAtcTransitionStorage.html#a18d92b33cc85e84d48e9478cf47006f7',1,'AtcTransitionStorage']]],
+  ['tz_5fversion_324',['tz_version',['../structAtcZoneContext.html#a7bde796579a989d8c6be914bcf00331e',1,'AtcZoneContext']]]
 ];

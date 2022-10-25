@@ -118,7 +118,7 @@ uint8_t atc_local_date_day_of_week(int16_t year, uint8_t month, uint8_t day);
  * This algorithm corresponds to
  * AceTime/src/ace_time/internal/EpochConverterHinnant.h.
  *
- * @param year, [1,9999]
+ * @param year [1,9999]
  * @param month month integer, [1,12]
  * @param day day of month integer, [1,31]
  */
@@ -129,7 +129,7 @@ int32_t atc_local_date_to_base_epoch_days(
  * Return the number of days from the current epoch year for the (year, month,
  * day) triple.
  *
- * @param year, [1,9999]
+ * @param year [1,9999]
  * @param month month integer, [1,12]
  * @param day day of month integer, [1,31]
  */
