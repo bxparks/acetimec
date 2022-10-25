@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/dev/tz
 //     --output_dir /home/brian/src/AceTimeC/src/ace_time_c/zonedb
-//     --tz_version 2022d
+//     --tz_version 2022e
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -24,7 +24,7 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022d
+// from https://github.com/eggert/tz/releases/tag/2022e
 //
 // Policies: 83
 // Rules: 605
@@ -3540,10 +3540,10 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
     'S' /*letter*/,
   },
-  // Rule    Jordan    2014    max    -    Oct    lastFri    0:00s    0    -
+  // Rule    Jordan    2014    2022    -    Oct    lastFri    0:00s    0    -
   {
     2014 /*from_year*/,
-    9999 /*to_year*/,
+    2022 /*to_year*/,
     10 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3552,10 +3552,10 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
     '-' /*letter*/,
   },
-  // Rule    Jordan    2022    max    -    Feb    lastThu    24:00    1:00    S
+  // Rule    Jordan    2022    only    -    Feb    lastThu    24:00    1:00    S
   {
     2022 /*from_year*/,
-    9999 /*to_year*/,
+    2022 /*to_year*/,
     2 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7865,10 +7865,10 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
     'S' /*letter*/,
   },
-  // Rule    Syria    2012    max    -    Mar    lastFri    0:00    1:00    S
+  // Rule    Syria    2012    2022    -    Mar    lastFri    0:00    1:00    S
   {
     2012 /*from_year*/,
-    9999 /*to_year*/,
+    2022 /*to_year*/,
     3 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7877,10 +7877,10 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
     'S' /*letter*/,
   },
-  // Rule    Syria    2009    max    -    Oct    lastFri    0:00    0    -
+  // Rule    Syria    2009    2022    -    Oct    lastFri    0:00    0    -
   {
     2009 /*from_year*/,
-    9999 /*to_year*/,
+    2022 /*to_year*/,
     10 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,

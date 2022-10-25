@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/dev/tz
 //     --output_dir /home/brian/src/AceTimeC/src/ace_time_c/zonedb
-//     --tz_version 2022d
+//     --tz_version 2022e
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -24,7 +24,7 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022d
+// from https://github.com/eggert/tz/releases/tag/2022e
 //
 // Zones: 354
 // Links: 241
@@ -32,14 +32,14 @@
 //   Names: 5573 (originally 5573)
 //   Formats: 597
 //   Fragments: 122
-//   Memory (8-bit): 17997
-//   Memory (32-bit): 25106
+//   Memory (8-bit): 18019
+//   Memory (32-bit): 25138
 // kAtcZoneAndLinkRegistry sizes (bytes):
 //   Names: 9054 (originally 9054)
 //   Formats: 597
 //   Fragments: 122
-//   Memory (8-bit): 24611
-//   Memory (32-bit): 34371
+//   Memory (8-bit): 24633
+//   Memory (32-bit): 34403
 //
 // DO NOT EDIT
 
@@ -50,7 +50,7 @@
 // ZoneContext (should not be in PROGMEM)
 //---------------------------------------------------------------------------
 
-const char kAtcTzDatabaseVersion[] = "2022d";
+const char kAtcTzDatabaseVersion[] = "2022e";
 
 const char * const kAtcFragments[] = {
 /*\x00*/ NULL,
@@ -7223,18 +7223,30 @@ const AtcZoneInfo kAtcZoneAsia_Almaty  = {
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Amman
-// Zone Eras: 1
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 38
-// Memory (32-bit): 52
+// Zone Eras: 2
+// Strings (bytes): 20 (originally 20)
+// Memory (8-bit): 53
+// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Amman[]  = {
-  //             2:00    Jordan    EE%sT
+  //             2:00    Jordan    EE%sT    2022 Oct 28 0:00s
   {
     &kAtcPolicyJordan /*zone_policy*/,
     "EE%T" /*format*/,
     8 /*offset_code*/,
+    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2022 /*until_year*/,
+    10 /*until_month*/,
+    28 /*until_day*/,
+    0 /*until_time_code*/,
+    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+  },
+  //             3:00    -    +03
+  {
+    NULL /*zone_policy*/,
+    "+03" /*format*/,
+    12 /*offset_code*/,
     4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
     10000 /*until_year*/,
     1 /*until_month*/,
@@ -7251,7 +7263,7 @@ const AtcZoneInfo kAtcZoneAsia_Amman  = {
   kAtcZoneNameAsia_Amman /*name*/,
   0x148d21bc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Amman /*eras*/,
 };
 
@@ -7913,18 +7925,30 @@ const AtcZoneInfo kAtcZoneAsia_Colombo  = {
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Damascus
-// Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Zone Eras: 2
+// Strings (bytes): 23 (originally 23)
+// Memory (8-bit): 56
+// Memory (32-bit): 75
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Damascus[]  = {
-  //             2:00    Syria    EE%sT
+  //             2:00    Syria    EE%sT    2022 Oct 28 0:00
   {
     &kAtcPolicySyria /*zone_policy*/,
     "EE%T" /*format*/,
     8 /*offset_code*/,
+    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2022 /*until_year*/,
+    10 /*until_month*/,
+    28 /*until_day*/,
+    0 /*until_time_code*/,
+    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+  },
+  //             3:00    -    +03
+  {
+    NULL /*zone_policy*/,
+    "+03" /*format*/,
+    12 /*offset_code*/,
     4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
     10000 /*until_year*/,
     1 /*until_month*/,
@@ -7941,7 +7965,7 @@ const AtcZoneInfo kAtcZoneAsia_Damascus  = {
   kAtcZoneNameAsia_Damascus /*name*/,
   0x20fbb063 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Damascus /*eras*/,
 };
 
