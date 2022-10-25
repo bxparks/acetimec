@@ -9,13 +9,8 @@
 
 //---------------------------------------------------------------------------
 
-static void check_sorted_transitions(AtcTransitionStorage *storage)
+static void check_sorted_transitions(AtcTransition **begin, AtcTransition **end)
 {
-  AtcTransition **begin =
-      atc_transition_storage_get_active_pool_begin(storage);
-  AtcTransition **end =
-      atc_transition_storage_get_active_pool_end(storage);
-
   AtcTransition *prev = NULL;
   for (AtcTransition **iter = begin; iter != end; iter++) {
     AtcTransition *t = *iter;
@@ -26,13 +21,8 @@ static void check_sorted_transitions(AtcTransitionStorage *storage)
   }
 }
 
-static void check_unique_transitions(AtcTransitionStorage *storage)
+static void check_unique_transitions(AtcTransition **begin, AtcTransition **end)
 {
-  AtcTransition **begin =
-      atc_transition_storage_get_active_pool_begin(storage);
-  AtcTransition **end =
-      atc_transition_storage_get_active_pool_end(storage);
-
   AtcTransition *prev = NULL;
   for (AtcTransition **iter = begin; iter != end; iter++) {
     AtcTransition *t = *iter;
@@ -52,8 +42,16 @@ static void validate_zone(
   for (int16_t year = start_year; year < until_year; year++) {
     atc_processing_init_for_year(processing, info, year);
     AtcTransitionStorage *storage = &processing->transition_storage;
-    ACU_ASSERT_NO_FATAL_FAILURE(check_sorted_transitions(storage));
-    ACU_ASSERT_NO_FATAL_FAILURE(check_unique_transitions(storage));
+    AtcTransition **begin =
+        atc_transition_storage_get_active_pool_begin(storage);
+    AtcTransition **end =
+        atc_transition_storage_get_active_pool_end(storage);
+
+    // Verify that every year produces at least one transition
+    ACU_ASSERT((end - begin) > 0);
+
+    ACU_ASSERT_NO_FATAL_FAILURE(check_sorted_transitions(begin, end));
+    ACU_ASSERT_NO_FATAL_FAILURE(check_unique_transitions(begin, end));
   }
 }
 
