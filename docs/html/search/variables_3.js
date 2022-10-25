@@ -1,7 +1,5 @@
 var searchData=
 [
-  ['fold_224',['fold',['../structAtcOffsetDateTime.html#a6ede44821779979e479a7d19718dab81',1,'AtcOffsetDateTime::fold()'],['../structAtcMatchingTransition.html#aa83492a43e97b71be3f6467ffed46602',1,'AtcMatchingTransition::fold()'],['../structAtcZonedDateTime.html#aec3c3d0be1b2fa27bd91752b4b0dbcb8',1,'AtcZonedDateTime::fold()']]],
-  ['format_225',['format',['../structAtcZoneEra.html#a4242f6211236aa265ea77d8a56e96bd6',1,'AtcZoneEra']]],
-  ['fragments_226',['fragments',['../structAtcZoneContext.html#aaaa941e2f14e61b5343cede5fceedd75',1,'AtcZoneContext']]],
-  ['from_5fyear_5ftiny_227',['from_year_tiny',['../structAtcZoneRule.html#a2323c7f3cde8d4650fe157587aa0b68b',1,'AtcZoneRule']]]
+  ['era_267',['era',['../structAtcMatchingEra.html#adf83fa404a3a9bc255021b7ea79b7e4a',1,'AtcMatchingEra']]],
+  ['eras_268',['eras',['../structAtcZoneInfo.html#a1555b721671a578f85f70674a574e051',1,'AtcZoneInfo']]]
 ];
