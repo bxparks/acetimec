@@ -3,15 +3,11 @@
  * Copyright (c) 2022 Brian T. Park
  */
 
+#include "local_date.h"
 #include "local_date_time.h"
 #include "zone_processing.h"
 #include "zoned_date_time.h"
 #include "zone_info_utils.h"
-
-static void atc_zoned_date_time_set_error(AtcZonedDateTime *zdt)
-{
-  zdt->zone_info = NULL;
-}
 
 int8_t atc_zoned_date_time_from_epoch_seconds(
     AtcZoneProcessing *processing,
@@ -19,7 +15,6 @@ int8_t atc_zoned_date_time_from_epoch_seconds(
     atc_time_t epoch_seconds,
     AtcZonedDateTime *zdt)
 {
-  atc_zoned_date_time_set_error(zdt);
   if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
 
   zdt->zone_info = zone_info;

@@ -2,9 +2,9 @@ TARGETS := zone_infos.c zone_infos.h zone_policies.c zone_policies.h
 
 TOOLS := $(abspath ../../../../AceTimeTools)
 
-TZ_VERSION := 2022b
+TZ_VERSION := 2022e
 START_YEAR := 2000
-UNTIL_YEAR := 2050
+UNTIL_YEAR := 10000
 
 all:
 	$(TOOLS)/tzcompiler.sh \
@@ -12,6 +12,7 @@ all:
 		--action zonedb \
 		--language c \
 		--scope extended \
+		--generate_int16_years \
 		--start_year $(START_YEAR) \
 		--until_year $(UNTIL_YEAR) \
 		--nocompress
@@ -22,5 +23,6 @@ zonedb.json:
 		--action zonedb \
 		--language json \
 		--scope extended \
+		--generate_int16_years \
 		--start_year $(START_YEAR) \
 		--until_year $(UNTIL_YEAR)

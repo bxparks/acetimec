@@ -3,12 +3,13 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/dev/tz
 //     --output_dir /home/brian/src/AceTimeC/src/ace_time_c/zonedb
-//     --tz_version 2022b
+//     --tz_version 2022e
 //     --action zonedb
 //     --language c
 //     --scope extended
+//     --generate_int16_years
 //     --start_year 2000
-//     --until_year 2050
+//     --until_year 10000
 //     --nocompress
 //
 // using the TZ Database files
@@ -23,7 +24,7 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022b
+// from https://github.com/eggert/tz/releases/tag/2022e
 //
 // DO NOT EDIT
 
@@ -43,7 +44,7 @@ extern const char kAtcTzDatabaseVersion[];
 extern const AtcZoneContext kAtcZoneContext;
 
 //---------------------------------------------------------------------------
-// Supported zones: 356
+// Supported zones: 354
 //---------------------------------------------------------------------------
 
 extern const AtcZoneInfo kAtcZoneAfrica_Abidjan; // Africa/Abidjan
@@ -356,12 +357,10 @@ extern const AtcZoneInfo kAtcZoneEurope_Sofia; // Europe/Sofia
 extern const AtcZoneInfo kAtcZoneEurope_Tallinn; // Europe/Tallinn
 extern const AtcZoneInfo kAtcZoneEurope_Tirane; // Europe/Tirane
 extern const AtcZoneInfo kAtcZoneEurope_Ulyanovsk; // Europe/Ulyanovsk
-extern const AtcZoneInfo kAtcZoneEurope_Uzhgorod; // Europe/Uzhgorod
 extern const AtcZoneInfo kAtcZoneEurope_Vienna; // Europe/Vienna
 extern const AtcZoneInfo kAtcZoneEurope_Vilnius; // Europe/Vilnius
 extern const AtcZoneInfo kAtcZoneEurope_Volgograd; // Europe/Volgograd
 extern const AtcZoneInfo kAtcZoneEurope_Warsaw; // Europe/Warsaw
-extern const AtcZoneInfo kAtcZoneEurope_Zaporozhye; // Europe/Zaporozhye
 extern const AtcZoneInfo kAtcZoneEurope_Zurich; // Europe/Zurich
 extern const AtcZoneInfo kAtcZoneHST; // HST
 extern const AtcZoneInfo kAtcZoneIndian_Chagos; // Indian/Chagos
@@ -716,12 +715,10 @@ extern const AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdEurope_Tallinn 0x30c4e096 /* Europe/Tallinn */
 #define kAtcZoneIdEurope_Tirane 0x6ea95b47 /* Europe/Tirane */
 #define kAtcZoneIdEurope_Ulyanovsk 0xe03783d0 /* Europe/Ulyanovsk */
-#define kAtcZoneIdEurope_Uzhgorod 0xb066f5d6 /* Europe/Uzhgorod */
 #define kAtcZoneIdEurope_Vienna 0x734cc2e5 /* Europe/Vienna */
 #define kAtcZoneIdEurope_Vilnius 0xdd63b8ce /* Europe/Vilnius */
 #define kAtcZoneIdEurope_Volgograd 0x3ed0f389 /* Europe/Volgograd */
 #define kAtcZoneIdEurope_Warsaw 0x75185c19 /* Europe/Warsaw */
-#define kAtcZoneIdEurope_Zaporozhye 0xeab9767f /* Europe/Zaporozhye */
 #define kAtcZoneIdEurope_Zurich 0x7d8195b9 /* Europe/Zurich */
 #define kAtcZoneIdHST 0x0b87f034 /* HST */
 #define kAtcZoneIdIndian_Chagos 0x456f7c3c /* Indian/Chagos */
@@ -765,7 +762,7 @@ extern const AtcZoneInfo kAtcZoneWET; // WET
 
 
 //---------------------------------------------------------------------------
-// Supported links: 239
+// Supported links: 241
 //---------------------------------------------------------------------------
 
 extern const AtcZoneInfo kAtcZoneAfrica_Accra; // Africa/Accra -> Africa/Abidjan
@@ -937,9 +934,11 @@ extern const AtcZoneInfo kAtcZoneEurope_Sarajevo; // Europe/Sarajevo -> Europe/B
 extern const AtcZoneInfo kAtcZoneEurope_Skopje; // Europe/Skopje -> Europe/Belgrade
 extern const AtcZoneInfo kAtcZoneEurope_Stockholm; // Europe/Stockholm -> Europe/Berlin
 extern const AtcZoneInfo kAtcZoneEurope_Tiraspol; // Europe/Tiraspol -> Europe/Chisinau
+extern const AtcZoneInfo kAtcZoneEurope_Uzhgorod; // Europe/Uzhgorod -> Europe/Kyiv
 extern const AtcZoneInfo kAtcZoneEurope_Vaduz; // Europe/Vaduz -> Europe/Zurich
 extern const AtcZoneInfo kAtcZoneEurope_Vatican; // Europe/Vatican -> Europe/Rome
 extern const AtcZoneInfo kAtcZoneEurope_Zagreb; // Europe/Zagreb -> Europe/Belgrade
+extern const AtcZoneInfo kAtcZoneEurope_Zaporozhye; // Europe/Zaporozhye -> Europe/Kyiv
 extern const AtcZoneInfo kAtcZoneGB; // GB -> Europe/London
 extern const AtcZoneInfo kAtcZoneGB_Eire; // GB-Eire -> Europe/London
 extern const AtcZoneInfo kAtcZoneGMT; // GMT -> Etc/GMT
@@ -1180,9 +1179,11 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdEurope_Skopje 0x6c76fdd0 /* Europe/Skopje */
 #define kAtcZoneIdEurope_Stockholm 0x5bf6fbb8 /* Europe/Stockholm */
 #define kAtcZoneIdEurope_Tiraspol 0xbe704472 /* Europe/Tiraspol */
+#define kAtcZoneIdEurope_Uzhgorod 0xb066f5d6 /* Europe/Uzhgorod */
 #define kAtcZoneIdEurope_Vaduz 0xfbb81bae /* Europe/Vaduz */
 #define kAtcZoneIdEurope_Vatican 0xcb485dca /* Europe/Vatican */
 #define kAtcZoneIdEurope_Zagreb 0x7c11c9ff /* Europe/Zagreb */
+#define kAtcZoneIdEurope_Zaporozhye 0xeab9767f /* Europe/Zaporozhye */
 #define kAtcZoneIdGB 0x005973ae /* GB */
 #define kAtcZoneIdGB_Eire 0xfa70e300 /* GB-Eire */
 #define kAtcZoneIdGMT 0x0b87eb2d /* GMT */
@@ -1570,12 +1571,10 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeEurope_Tallinn 6  /* Europe/Tallinn in 2002 */
 #define kAtcZoneBufSizeEurope_Tirane 5  /* Europe/Tirane in 2000 */
 #define kAtcZoneBufSizeEurope_Ulyanovsk 5  /* Europe/Ulyanovsk in 2000 */
-#define kAtcZoneBufSizeEurope_Uzhgorod 5  /* Europe/Uzhgorod in 2000 */
 #define kAtcZoneBufSizeEurope_Vienna 5  /* Europe/Vienna in 2000 */
 #define kAtcZoneBufSizeEurope_Vilnius 6  /* Europe/Vilnius in 2003 */
 #define kAtcZoneBufSizeEurope_Volgograd 5  /* Europe/Volgograd in 2000 */
 #define kAtcZoneBufSizeEurope_Warsaw 5  /* Europe/Warsaw in 2000 */
-#define kAtcZoneBufSizeEurope_Zaporozhye 5  /* Europe/Zaporozhye in 2000 */
 #define kAtcZoneBufSizeEurope_Zurich 5  /* Europe/Zurich in 2000 */
 #define kAtcZoneBufSizeHST 1  /* HST in 2000 */
 #define kAtcZoneBufSizeIndian_Chagos 1  /* Indian/Chagos in 2000 */

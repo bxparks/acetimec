@@ -79,8 +79,8 @@ typedef struct AtcTransitionResult {
  * Return the most recent year from the Rule[fromYear, toYear] which is
  * prior to the matching ZoneEra years of [startYear, endYear].
  *
- * Return LocalDate::kInvalidYearTiny (-128) if the rule[fromYear,
- * to_year] has no prior year to the MatchingEra[startYear, endYear].
+ * Return LocalDate::kInvalidYear if the rule[fromYear, to_year] has no prior
+ * year to the MatchingEra[startYear, endYear].
  *
  * Exported for testing.
  *
@@ -89,9 +89,9 @@ typedef struct AtcTransitionResult {
  * @param startYear start year of the matching ZoneEra
  * @param endYear until year of the matching ZoneEra (unused)
  */
-int8_t atc_processing_get_most_recent_prior_year(
-    int8_t from_year, int8_t to_year,
-    int8_t start_year, int8_t end_year);
+int16_t atc_processing_get_most_recent_prior_year(
+    int16_t from_year, int16_t to_year,
+    int16_t start_year, int16_t end_year);
 
 /**
  * Calculate interior years. Up to maxInteriorYears, usually 3 or 4.
@@ -100,12 +100,12 @@ int8_t atc_processing_get_most_recent_prior_year(
  * Exported for testing.
  */
 uint8_t atc_processing_calc_interior_years(
-    int8_t* interior_years,
+    int16_t* interior_years,
     uint8_t max_interior_years,
-    int8_t from_year,
-    int8_t to_year,
-    int8_t start_year,
-    int8_t end_year);
+    int16_t from_year,
+    int16_t to_year,
+    int16_t start_year,
+    int16_t end_year);
 
 //---------------------------------------------------------------------------
 // Externally exported API for converting between epoch seconds and
@@ -214,10 +214,10 @@ int8_t atc_processing_transition_info_from_epoch_seconds(
 // Functions and data structures exposed for testing.
 //---------------------------------------------------------------------------
 
-/** A tuple of (year_tiny, month). */
+/** A tuple of (year, month). */
 typedef struct AtcYearMonth {
-  /** (year-kEpochYear) [-126, 126] */
-  int8_t year_tiny;
+  /** year [0,10000] */
+  int16_t year;
   /** month [1,12] */
   uint8_t month;
 } AtcYearMonth;
@@ -231,7 +231,7 @@ uint8_t atc_processing_find_matches(
 
 int8_t atc_compare_era_to_year_month(
     const AtcZoneEra *era,
-    int8_t year_tiny,
+    int16_t year,
     uint8_t month);
 
 void atc_create_matching_era(
@@ -242,13 +242,13 @@ void atc_create_matching_era(
     AtcYearMonth until_ym);
 
 void atc_processing_get_transition_time(
-    int8_t year_tiny,
+    int16_t year,
     const AtcZoneRule* rule,
     AtcDateTuple *dt);
 
 void atc_processing_create_transition_for_year(
     AtcTransition *t,
-    int8_t year_tiny,
+    int16_t year,
     const AtcZoneRule *rule,
     const AtcMatchingEra *match);
 

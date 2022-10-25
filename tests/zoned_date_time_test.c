@@ -34,6 +34,38 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds)
   ACU_ASSERT(eps == epoch_seconds);
 }
 
+ACU_TEST(test_zoned_date_time_from_epoch_seconds_epoch2050)
+{
+  int16_t saved_epoch_year = atc_get_local_epoch_year();
+  atc_set_local_epoch_year(2050);
+
+  AtcZoneProcessing processing;
+  atc_processing_init(&processing);
+
+  AtcZonedDateTime zdt;
+  atc_time_t epoch_seconds = 0;
+
+  int8_t err = atc_zoned_date_time_from_epoch_seconds(
+    &processing,
+    &kAtcZoneAmerica_Los_Angeles,
+    epoch_seconds,
+    &zdt);
+  ACU_ASSERT(err == kAtcErrOk);
+  ACU_ASSERT(zdt.year == 2049);
+  ACU_ASSERT(zdt.month == 12);
+  ACU_ASSERT(zdt.day == 31);
+  ACU_ASSERT(zdt.hour == 16);
+  ACU_ASSERT(zdt.minute == 0);
+  ACU_ASSERT(zdt.second == 0);
+  ACU_ASSERT(zdt.fold == 0);
+  ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
+
+  atc_time_t eps = atc_zoned_date_time_to_epoch_seconds(&zdt);
+  ACU_ASSERT(eps == epoch_seconds);
+
+  atc_set_local_epoch_year(saved_epoch_year);
+}
+
 ACU_TEST(test_zoned_date_time_from_epoch_seconds_unix_max)
 {
   AtcZoneProcessing processing;
@@ -191,7 +223,7 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward)
 
 //---------------------------------------------------------------------------
 
-ACU_TEST(test_zoned_date_time_from_local_date_time_epoch_0)
+ACU_TEST(test_zoned_date_time_from_local_date_time)
 {
   AtcZoneProcessing processing;
   atc_processing_init(&processing);
@@ -214,6 +246,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_epoch_0)
   ACU_ASSERT(zdt.fold == 0);
   ACU_ASSERT(zdt.offset_minutes == -8*60);
   ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
+  ACU_ASSERT(8 * 60 * 60 == atc_zoned_date_time_to_epoch_seconds(&zdt));
 
   // check that fold=1 gives identical results, while preserving fold
   ldt = (AtcLocalDateTime) { 2000, 1, 1, 0, 0, 0 };
@@ -233,6 +266,58 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_epoch_0)
   ACU_ASSERT(zdt.fold == 1);
   ACU_ASSERT(zdt.offset_minutes == -8*60);
   ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
+  ACU_ASSERT(8 * 60 * 60 == atc_zoned_date_time_to_epoch_seconds(&zdt));
+}
+
+ACU_TEST(test_zoned_date_time_from_local_date_time_epoch2050)
+{
+  int16_t saved_epoch_year = atc_get_local_epoch_year();
+  atc_set_local_epoch_year(2050);
+
+  AtcZoneProcessing processing;
+  atc_processing_init(&processing);
+
+  AtcLocalDateTime ldt = { 2050, 1, 1, 0, 0, 0 };
+  AtcZonedDateTime zdt;
+  int8_t err = atc_zoned_date_time_from_local_date_time(
+      &processing,
+      &kAtcZoneAmerica_Los_Angeles,
+      &ldt,
+      0 /*fold*/,
+      &zdt);
+  ACU_ASSERT(err == kAtcErrOk);
+  ACU_ASSERT(zdt.year == 2050);
+  ACU_ASSERT(zdt.month == 1);
+  ACU_ASSERT(zdt.day == 1);
+  ACU_ASSERT(zdt.hour == 0);
+  ACU_ASSERT(zdt.minute == 0);
+  ACU_ASSERT(zdt.second == 0);
+  ACU_ASSERT(zdt.fold == 0);
+  ACU_ASSERT(zdt.offset_minutes == -8*60);
+  ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
+  ACU_ASSERT(8 * 60 * 60 == atc_zoned_date_time_to_epoch_seconds(&zdt));
+
+  // check that fold=1 gives identical results, while preserving fold
+  ldt = (AtcLocalDateTime) { 2050, 1, 1, 0, 0, 0 };
+  err = atc_zoned_date_time_from_local_date_time(
+      &processing,
+      &kAtcZoneAmerica_Los_Angeles,
+      &ldt,
+      1 /*fold*/,
+      &zdt);
+  ACU_ASSERT(err == kAtcErrOk);
+  ACU_ASSERT(zdt.year == 2050);
+  ACU_ASSERT(zdt.month == 1);
+  ACU_ASSERT(zdt.day == 1);
+  ACU_ASSERT(zdt.hour == 0);
+  ACU_ASSERT(zdt.minute == 0);
+  ACU_ASSERT(zdt.second == 0);
+  ACU_ASSERT(zdt.fold == 1);
+  ACU_ASSERT(zdt.offset_minutes == -8*60);
+  ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
+  ACU_ASSERT(8 * 60 * 60 == atc_zoned_date_time_to_epoch_seconds(&zdt));
+
+  atc_set_local_epoch_year(saved_epoch_year);
 }
 
 ACU_TEST(test_zoned_date_time_from_local_date_time_before_dst)
@@ -552,11 +637,13 @@ ACU_VARS();
 int main()
 {
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds);
+  ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_epoch2050);
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_unix_max);
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_invalid);
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_fall_back);
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward);
-  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_epoch_0);
+  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time);
+  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_epoch2050);
   ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_before_dst);
   ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_in_gap);
   ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_in_dst);

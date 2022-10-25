@@ -1,3 +1,4 @@
+#include "local_date.h"
 #include "local_date_time.h"
 #include "offset_date_time.h"
 

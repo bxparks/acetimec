@@ -14,7 +14,7 @@
 
 /**
  * An internal simplified version of the AtcDateTime class that uses the
- * (year_tiny, month, day, minutes, suffix) fields.
+ * (year, month, day, minutes, suffix) fields.
  *
  * The order of 'minutes' and 'suffix' are reversed from the DateTuple class in
  * the AceTime library because C does not support constructors, so the
@@ -27,8 +27,8 @@
  * does not change the overall sizeof(AtcDateTuple).
  */
 typedef struct AtcDateTuple {
-  /** [-127, 126], 127 will cause bugs */
-  int8_t year_tiny;
+  /** [0,10000] */
+  int16_t year;
 
   /** [1-12] */
   uint8_t month;
@@ -68,6 +68,26 @@ void atc_date_tuple_expand(
     AtcDateTuple *ttw,
     AtcDateTuple *tts,
     AtcDateTuple *ttu);
+
+/**
+ * Compare the given 't' with the interval defined by [start, until). The
+ * comparison is fuzzy, with a slop of about one month so that we can ignore the
+ * day and minutes fields.
+ *
+ * The following values are returned:
+ *
+ *  * kAtcMatchStatusPrior if 't' is less than 'start' by at least one month,
+ *  * kAtcMatchStatusFarFuture if 't' is greater than 'until' by at least one
+ *    month,
+ *  * kAtcMatchStatusWithinMatch if 't' is within [start, until) with a one
+ *    month slop,
+ *  * kAtcMatchStatusExactMatch is never returned.
+
+ */
+uint8_t atc_date_tuple_compare_fuzzy(
+    const AtcDateTuple *t,
+    const AtcDateTuple *start,
+    const AtcDateTuple *until);
 
 //---------------------------------------------------------------------------
 

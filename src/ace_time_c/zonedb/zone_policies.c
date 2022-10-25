@@ -3,12 +3,13 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/dev/tz
 //     --output_dir /home/brian/src/AceTimeC/src/ace_time_c/zonedb
-//     --tz_version 2022b
+//     --tz_version 2022e
 //     --action zonedb
 //     --language c
 //     --scope extended
+//     --generate_int16_years
 //     --start_year 2000
-//     --until_year 2050
+//     --until_year 10000
 //     --nocompress
 //
 // using the TZ Database files
@@ -23,13 +24,13 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022b
+// from https://github.com/eggert/tz/releases/tag/2022e
 //
 // Policies: 83
-// Rules: 528
+// Rules: 605
 // Letter Size (bytes): 23
-// Total Memory 8-bit (bytes): 5285
-// Total Memory 32-bit (bytes): 7379
+// Total Memory 8-bit (bytes): 5978
+// Total Memory 32-bit (bytes): 8303
 //
 // DO NOT EDIT
 
@@ -45,8 +46,8 @@
 static const AtcZoneRule kAtcZoneRulesAN[]  = {
   // Rule    AN    1987    1999    -    Oct    lastSun    2:00s    1:00    D
   {
-    -13 /*from_year_tiny*/,
-    -1 /*to_year_tiny*/,
+    1987 /*from_year*/,
+    1999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -57,8 +58,8 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
   },
   // Rule    AN    1990    1995    -    Mar    Sun>=1    2:00s    0    S
   {
-    -10 /*from_year_tiny*/,
-    -5 /*to_year_tiny*/,
+    1990 /*from_year*/,
+    1995 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -69,8 +70,8 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
   },
   // Rule    AN    1996    2005    -    Mar    lastSun    2:00s    0    S
   {
-    -4 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    1996 /*from_year*/,
+    2005 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -81,8 +82,8 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
   },
   // Rule    AN    2000    only    -    Aug    lastSun    2:00s    1:00    D
   {
-    0 /*from_year_tiny*/,
-    0 /*to_year_tiny*/,
+    2000 /*from_year*/,
+    2000 /*to_year*/,
     8 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -93,8 +94,8 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
   },
   // Rule    AN    2001    2007    -    Oct    lastSun    2:00s    1:00    D
   {
-    1 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2001 /*from_year*/,
+    2007 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -105,8 +106,8 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
   },
   // Rule    AN    2006    only    -    Apr    Sun>=1    2:00s    0    S
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -117,8 +118,8 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
   },
   // Rule    AN    2007    only    -    Mar    lastSun    2:00s    0    S
   {
-    7 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2007 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -129,8 +130,8 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
   },
   // Rule    AN    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
-    8 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    9999 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -141,8 +142,8 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
   },
   // Rule    AN    2008    max    -    Oct    Sun>=1    2:00s    1:00    D
   {
-    8 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    9999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -173,8 +174,8 @@ const AtcZonePolicy kAtcPolicyAN  = {
 static const AtcZoneRule kAtcZoneRulesAQ[]  = {
   // Rule    AQ    1990    1992    -    Mar    Sun>=1    2:00s    0    S
   {
-    -10 /*from_year_tiny*/,
-    -8 /*to_year_tiny*/,
+    1990 /*from_year*/,
+    1992 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -205,8 +206,8 @@ const AtcZonePolicy kAtcPolicyAQ  = {
 static const AtcZoneRule kAtcZoneRulesAS[]  = {
   // Rule    AS    1987    2007    -    Oct    lastSun    2:00s    1:00    D
   {
-    -13 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    1987 /*from_year*/,
+    2007 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -217,8 +218,8 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
   },
   // Rule    AS    1994    only    -    Mar    20    2:00s    0    S
   {
-    -6 /*from_year_tiny*/,
-    -6 /*to_year_tiny*/,
+    1994 /*from_year*/,
+    1994 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -229,8 +230,8 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
   },
   // Rule    AS    1995    2005    -    Mar    lastSun    2:00s    0    S
   {
-    -5 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    1995 /*from_year*/,
+    2005 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -241,8 +242,8 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
   },
   // Rule    AS    2006    only    -    Apr    2    2:00s    0    S
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -253,8 +254,8 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
   },
   // Rule    AS    2007    only    -    Mar    lastSun    2:00s    0    S
   {
-    7 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2007 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -265,8 +266,8 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
   },
   // Rule    AS    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
-    8 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    9999 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -277,8 +278,8 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
   },
   // Rule    AS    2008    max    -    Oct    Sun>=1    2:00s    1:00    D
   {
-    8 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    9999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -309,8 +310,8 @@ const AtcZonePolicy kAtcPolicyAS  = {
 static const AtcZoneRule kAtcZoneRulesAT[]  = {
   // Rule    AT    1988    1990    -    Oct    lastSun    2:00s    1:00    D
   {
-    -12 /*from_year_tiny*/,
-    -10 /*to_year_tiny*/,
+    1988 /*from_year*/,
+    1990 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -321,8 +322,8 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
   },
   // Rule    AT    1991    1999    -    Oct    Sun>=1    2:00s    1:00    D
   {
-    -9 /*from_year_tiny*/,
-    -1 /*to_year_tiny*/,
+    1991 /*from_year*/,
+    1999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -333,8 +334,8 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
   },
   // Rule    AT    1991    2005    -    Mar    lastSun    2:00s    0    S
   {
-    -9 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    1991 /*from_year*/,
+    2005 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -345,8 +346,8 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
   },
   // Rule    AT    2000    only    -    Aug    lastSun    2:00s    1:00    D
   {
-    0 /*from_year_tiny*/,
-    0 /*to_year_tiny*/,
+    2000 /*from_year*/,
+    2000 /*to_year*/,
     8 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -357,8 +358,8 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
   },
   // Rule    AT    2001    max    -    Oct    Sun>=1    2:00s    1:00    D
   {
-    1 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2001 /*from_year*/,
+    9999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -369,8 +370,8 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
   },
   // Rule    AT    2006    only    -    Apr    Sun>=1    2:00s    0    S
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -381,8 +382,8 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
   },
   // Rule    AT    2007    only    -    Mar    lastSun    2:00s    0    S
   {
-    7 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2007 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -393,8 +394,8 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
   },
   // Rule    AT    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
-    8 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    9999 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -425,8 +426,8 @@ const AtcZonePolicy kAtcPolicyAT  = {
 static const AtcZoneRule kAtcZoneRulesAV[]  = {
   // Rule    AV    1988    1999    -    Oct    lastSun    2:00s    1:00    D
   {
-    -12 /*from_year_tiny*/,
-    -1 /*to_year_tiny*/,
+    1988 /*from_year*/,
+    1999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -437,8 +438,8 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
   },
   // Rule    AV    1991    1994    -    Mar    Sun>=1    2:00s    0    S
   {
-    -9 /*from_year_tiny*/,
-    -6 /*to_year_tiny*/,
+    1991 /*from_year*/,
+    1994 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -449,8 +450,8 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
   },
   // Rule    AV    1995    2005    -    Mar    lastSun    2:00s    0    S
   {
-    -5 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    1995 /*from_year*/,
+    2005 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -461,8 +462,8 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
   },
   // Rule    AV    2000    only    -    Aug    lastSun    2:00s    1:00    D
   {
-    0 /*from_year_tiny*/,
-    0 /*to_year_tiny*/,
+    2000 /*from_year*/,
+    2000 /*to_year*/,
     8 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -473,8 +474,8 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
   },
   // Rule    AV    2001    2007    -    Oct    lastSun    2:00s    1:00    D
   {
-    1 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2001 /*from_year*/,
+    2007 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -485,8 +486,8 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
   },
   // Rule    AV    2006    only    -    Apr    Sun>=1    2:00s    0    S
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -497,8 +498,8 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
   },
   // Rule    AV    2007    only    -    Mar    lastSun    2:00s    0    S
   {
-    7 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2007 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -509,8 +510,8 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
   },
   // Rule    AV    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
-    8 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    9999 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -521,8 +522,8 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
   },
   // Rule    AV    2008    max    -    Oct    Sun>=1    2:00s    1:00    D
   {
-    8 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    9999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -553,8 +554,8 @@ const AtcZonePolicy kAtcPolicyAV  = {
 static const AtcZoneRule kAtcZoneRulesAW[]  = {
   // Rule    AW    1992    only    -    Mar    Sun>=1    2:00s    0    S
   {
-    -8 /*from_year_tiny*/,
-    -8 /*to_year_tiny*/,
+    1992 /*from_year*/,
+    1992 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -565,8 +566,8 @@ static const AtcZoneRule kAtcZoneRulesAW[]  = {
   },
   // Rule    AW    2006    only    -    Dec     3    2:00s    1:00    D
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     3 /*on_day_of_month*/,
@@ -577,8 +578,8 @@ static const AtcZoneRule kAtcZoneRulesAW[]  = {
   },
   // Rule    AW    2007    2009    -    Mar    lastSun    2:00s    0    S
   {
-    7 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2009 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -589,8 +590,8 @@ static const AtcZoneRule kAtcZoneRulesAW[]  = {
   },
   // Rule    AW    2007    2008    -    Oct    lastSun    2:00s    1:00    D
   {
-    7 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2008 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -621,8 +622,8 @@ const AtcZonePolicy kAtcPolicyAW  = {
 static const AtcZoneRule kAtcZoneRulesArg[]  = {
   // Rule    Arg    1989    1993    -    Mar    Sun>=1    0:00    0    -
   {
-    -11 /*from_year_tiny*/,
-    -7 /*to_year_tiny*/,
+    1989 /*from_year*/,
+    1993 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -633,8 +634,8 @@ static const AtcZoneRule kAtcZoneRulesArg[]  = {
   },
   // Rule    Arg    1999    only    -    Oct    Sun>=1    0:00    1:00    -
   {
-    -1 /*from_year_tiny*/,
-    -1 /*to_year_tiny*/,
+    1999 /*from_year*/,
+    1999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -645,8 +646,8 @@ static const AtcZoneRule kAtcZoneRulesArg[]  = {
   },
   // Rule    Arg    2000    only    -    Mar    3    0:00    0    -
   {
-    0 /*from_year_tiny*/,
-    0 /*to_year_tiny*/,
+    2000 /*from_year*/,
+    2000 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     3 /*on_day_of_month*/,
@@ -657,8 +658,8 @@ static const AtcZoneRule kAtcZoneRulesArg[]  = {
   },
   // Rule    Arg    2007    only    -    Dec    30    0:00    1:00    -
   {
-    7 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2007 /*to_year*/,
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
@@ -669,8 +670,8 @@ static const AtcZoneRule kAtcZoneRulesArg[]  = {
   },
   // Rule    Arg    2008    2009    -    Mar    Sun>=15    0:00    0    -
   {
-    8 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2009 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -681,8 +682,8 @@ static const AtcZoneRule kAtcZoneRulesArg[]  = {
   },
   // Rule    Arg    2008    only    -    Oct    Sun>=15    0:00    1:00    -
   {
-    8 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2008 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -713,8 +714,8 @@ const AtcZonePolicy kAtcPolicyArg  = {
 static const AtcZoneRule kAtcZoneRulesArmenia[]  = {
   // Anchor: Rule Armenia    2011    only    -    Oct    lastSun     2:00s    0    -
   {
-    -127 /*from_year_tiny*/,
-    -127 /*to_year_tiny*/,
+    0 /*from_year*/,
+    0 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -725,8 +726,8 @@ static const AtcZoneRule kAtcZoneRulesArmenia[]  = {
   },
   // Rule Armenia    2011    only    -    Mar    lastSun     2:00s    1:00    -
   {
-    11 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2011 /*from_year*/,
+    2011 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -737,8 +738,8 @@ static const AtcZoneRule kAtcZoneRulesArmenia[]  = {
   },
   // Rule Armenia    2011    only    -    Oct    lastSun     2:00s    0    -
   {
-    11 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2011 /*from_year*/,
+    2011 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -769,8 +770,8 @@ const AtcZonePolicy kAtcPolicyArmenia  = {
 static const AtcZoneRule kAtcZoneRulesAus[]  = {
   // Rule    Aus    1943    1944    -    Mar    lastSun    2:00s    0    S
   {
-    -57 /*from_year_tiny*/,
-    -56 /*to_year_tiny*/,
+    1943 /*from_year*/,
+    1944 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -801,8 +802,8 @@ const AtcZonePolicy kAtcPolicyAus  = {
 static const AtcZoneRule kAtcZoneRulesAzer[]  = {
   // Rule    Azer    1997    2015    -    Mar    lastSun     4:00    1:00    -
   {
-    -3 /*from_year_tiny*/,
-    15 /*to_year_tiny*/,
+    1997 /*from_year*/,
+    2015 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -813,8 +814,8 @@ static const AtcZoneRule kAtcZoneRulesAzer[]  = {
   },
   // Rule    Azer    1997    2015    -    Oct    lastSun     5:00    0    -
   {
-    -3 /*from_year_tiny*/,
-    15 /*to_year_tiny*/,
+    1997 /*from_year*/,
+    2015 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -845,8 +846,8 @@ const AtcZonePolicy kAtcPolicyAzer  = {
 static const AtcZoneRule kAtcZoneRulesBarb[]  = {
   // Rule    Barb    1980    only    -    Sep    25    2:00    0    S
   {
-    -20 /*from_year_tiny*/,
-    -20 /*to_year_tiny*/,
+    1980 /*from_year*/,
+    1980 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     25 /*on_day_of_month*/,
@@ -877,8 +878,8 @@ const AtcZonePolicy kAtcPolicyBarb  = {
 static const AtcZoneRule kAtcZoneRulesBelize[]  = {
   // Rule    Belize    1983    only    -    Feb    12    0:00    0    CST
   {
-    -17 /*from_year_tiny*/,
-    -17 /*to_year_tiny*/,
+    1983 /*from_year*/,
+    1983 /*to_year*/,
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     12 /*on_day_of_month*/,
@@ -913,8 +914,8 @@ const AtcZonePolicy kAtcPolicyBelize  = {
 static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   // Rule    Brazil    1998    only    -    Oct    11     0:00    1:00    -
   {
-    -2 /*from_year_tiny*/,
-    -2 /*to_year_tiny*/,
+    1998 /*from_year*/,
+    1998 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     11 /*on_day_of_month*/,
@@ -925,8 +926,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    1999    only    -    Feb    21     0:00    0    -
   {
-    -1 /*from_year_tiny*/,
-    -1 /*to_year_tiny*/,
+    1999 /*from_year*/,
+    1999 /*to_year*/,
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -937,8 +938,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    1999    only    -    Oct     3     0:00    1:00    -
   {
-    -1 /*from_year_tiny*/,
-    -1 /*to_year_tiny*/,
+    1999 /*from_year*/,
+    1999 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     3 /*on_day_of_month*/,
@@ -949,8 +950,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2000    only    -    Feb    27     0:00    0    -
   {
-    0 /*from_year_tiny*/,
-    0 /*to_year_tiny*/,
+    2000 /*from_year*/,
+    2000 /*to_year*/,
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     27 /*on_day_of_month*/,
@@ -961,8 +962,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2000    2001    -    Oct    Sun>=8     0:00    1:00    -
   {
-    0 /*from_year_tiny*/,
-    1 /*to_year_tiny*/,
+    2000 /*from_year*/,
+    2001 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -973,8 +974,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2001    2006    -    Feb    Sun>=15     0:00    0    -
   {
-    1 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2001 /*from_year*/,
+    2006 /*to_year*/,
     2 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -985,8 +986,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2002    only    -    Nov     3     0:00    1:00    -
   {
-    2 /*from_year_tiny*/,
-    2 /*to_year_tiny*/,
+    2002 /*from_year*/,
+    2002 /*to_year*/,
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     3 /*on_day_of_month*/,
@@ -997,8 +998,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2003    only    -    Oct    19     0:00    1:00    -
   {
-    3 /*from_year_tiny*/,
-    3 /*to_year_tiny*/,
+    2003 /*from_year*/,
+    2003 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
@@ -1009,8 +1010,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2004    only    -    Nov     2     0:00    1:00    -
   {
-    4 /*from_year_tiny*/,
-    4 /*to_year_tiny*/,
+    2004 /*from_year*/,
+    2004 /*to_year*/,
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -1021,8 +1022,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2005    only    -    Oct    16     0:00    1:00    -
   {
-    5 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    2005 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     16 /*on_day_of_month*/,
@@ -1033,8 +1034,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2006    only    -    Nov     5     0:00    1:00    -
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     5 /*on_day_of_month*/,
@@ -1045,8 +1046,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2007    only    -    Feb    25     0:00    0    -
   {
-    7 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2007 /*to_year*/,
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     25 /*on_day_of_month*/,
@@ -1057,8 +1058,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2007    only    -    Oct    Sun>=8     0:00    1:00    -
   {
-    7 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2007 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -1069,8 +1070,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2008    2017    -    Oct    Sun>=15    0:00    1:00    -
   {
-    8 /*from_year_tiny*/,
-    17 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2017 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -1081,8 +1082,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2008    2011    -    Feb    Sun>=15    0:00    0    -
   {
-    8 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2011 /*to_year*/,
     2 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -1093,8 +1094,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2012    only    -    Feb    Sun>=22    0:00    0    -
   {
-    12 /*from_year_tiny*/,
-    12 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2012 /*to_year*/,
     2 /*in_month*/,
     7 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
@@ -1105,8 +1106,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2013    2014    -    Feb    Sun>=15    0:00    0    -
   {
-    13 /*from_year_tiny*/,
-    14 /*to_year_tiny*/,
+    2013 /*from_year*/,
+    2014 /*to_year*/,
     2 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -1117,8 +1118,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2015    only    -    Feb    Sun>=22    0:00    0    -
   {
-    15 /*from_year_tiny*/,
-    15 /*to_year_tiny*/,
+    2015 /*from_year*/,
+    2015 /*to_year*/,
     2 /*in_month*/,
     7 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
@@ -1129,8 +1130,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2016    2019    -    Feb    Sun>=15    0:00    0    -
   {
-    16 /*from_year_tiny*/,
-    19 /*to_year_tiny*/,
+    2016 /*from_year*/,
+    2019 /*to_year*/,
     2 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -1141,8 +1142,8 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   },
   // Rule    Brazil    2018    only    -    Nov    Sun>=1    0:00    1:00    -
   {
-    18 /*from_year_tiny*/,
-    18 /*to_year_tiny*/,
+    2018 /*from_year*/,
+    2018 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1173,8 +1174,8 @@ const AtcZonePolicy kAtcPolicyBrazil  = {
 static const AtcZoneRule kAtcZoneRulesC_Eur[]  = {
   // Rule    C-Eur    1979    1995    -    Sep    lastSun     2:00s    0    -
   {
-    -21 /*from_year_tiny*/,
-    -5 /*to_year_tiny*/,
+    1979 /*from_year*/,
+    1995 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -1185,8 +1186,8 @@ static const AtcZoneRule kAtcZoneRulesC_Eur[]  = {
   },
   // Rule    C-Eur    1981    max    -    Mar    lastSun     2:00s    1:00    S
   {
-    -19 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    1981 /*from_year*/,
+    9999 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -1197,8 +1198,8 @@ static const AtcZoneRule kAtcZoneRulesC_Eur[]  = {
   },
   // Rule    C-Eur    1996    max    -    Oct    lastSun     2:00s    0    -
   {
-    -4 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    1996 /*from_year*/,
+    9999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -1229,8 +1230,8 @@ const AtcZonePolicy kAtcPolicyC_Eur  = {
 static const AtcZoneRule kAtcZoneRulesCO[]  = {
   // Rule    CO    1993    only    -    Apr     4    0:00    0    -
   {
-    -7 /*from_year_tiny*/,
-    -7 /*to_year_tiny*/,
+    1993 /*from_year*/,
+    1993 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
@@ -1261,8 +1262,8 @@ const AtcZonePolicy kAtcPolicyCO  = {
 static const AtcZoneRule kAtcZoneRulesCR[]  = {
   // Rule    CR    1992    only    -    Mar    15    0:00    0    S
   {
-    -8 /*from_year_tiny*/,
-    -8 /*to_year_tiny*/,
+    1992 /*from_year*/,
+    1992 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -1293,8 +1294,8 @@ const AtcZonePolicy kAtcPolicyCR  = {
 static const AtcZoneRule kAtcZoneRulesCanada[]  = {
   // Rule    Canada    1974    1986    -    Apr    lastSun    2:00    1:00    D
   {
-    -26 /*from_year_tiny*/,
-    -14 /*to_year_tiny*/,
+    1974 /*from_year*/,
+    1986 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -1305,8 +1306,8 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
   },
   // Rule    Canada    1974    2006    -    Oct    lastSun    2:00    0    S
   {
-    -26 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1974 /*from_year*/,
+    2006 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -1317,8 +1318,8 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
   },
   // Rule    Canada    1987    2006    -    Apr    Sun>=1    2:00    1:00    D
   {
-    -13 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1987 /*from_year*/,
+    2006 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1329,8 +1330,8 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
   },
   // Rule    Canada    2007    max    -    Mar    Sun>=8    2:00    1:00    D
   {
-    7 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    9999 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -1341,8 +1342,8 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
   },
   // Rule    Canada    2007    max    -    Nov    Sun>=1    2:00    0    S
   {
-    7 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    9999 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1373,8 +1374,8 @@ const AtcZonePolicy kAtcPolicyCanada  = {
 static const AtcZoneRule kAtcZoneRulesChatham[]  = {
   // Rule    Chatham    1989    only    -    Oct    Sun>=8    2:45s    1:00    -
   {
-    -11 /*from_year_tiny*/,
-    -11 /*to_year_tiny*/,
+    1989 /*from_year*/,
+    1989 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -1385,8 +1386,8 @@ static const AtcZoneRule kAtcZoneRulesChatham[]  = {
   },
   // Rule    Chatham    1990    2006    -    Oct    Sun>=1    2:45s    1:00    -
   {
-    -10 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1990 /*from_year*/,
+    2006 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1397,8 +1398,8 @@ static const AtcZoneRule kAtcZoneRulesChatham[]  = {
   },
   // Rule    Chatham    1990    2007    -    Mar    Sun>=15    2:45s    0    -
   {
-    -10 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    1990 /*from_year*/,
+    2007 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -1409,8 +1410,8 @@ static const AtcZoneRule kAtcZoneRulesChatham[]  = {
   },
   // Rule    Chatham    2007    max    -    Sep    lastSun    2:45s    1:00    -
   {
-    7 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    9999 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -1421,8 +1422,8 @@ static const AtcZoneRule kAtcZoneRulesChatham[]  = {
   },
   // Rule    Chatham    2008    max    -    Apr    Sun>=1    2:45s    0    -
   {
-    8 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    9999 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1453,8 +1454,8 @@ const AtcZonePolicy kAtcPolicyChatham  = {
 static const AtcZoneRule kAtcZoneRulesChile[]  = {
   // Rule    Chile    1998    only    -    Sep    27    4:00u    1:00    -
   {
-    -2 /*from_year_tiny*/,
-    -2 /*to_year_tiny*/,
+    1998 /*from_year*/,
+    1998 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     27 /*on_day_of_month*/,
@@ -1465,8 +1466,8 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   },
   // Rule    Chile    1999    only    -    Apr     4    3:00u    0    -
   {
-    -1 /*from_year_tiny*/,
-    -1 /*to_year_tiny*/,
+    1999 /*from_year*/,
+    1999 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
@@ -1477,8 +1478,8 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   },
   // Rule    Chile    1999    2010    -    Oct    Sun>=9    4:00u    1:00    -
   {
-    -1 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    1999 /*from_year*/,
+    2010 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
@@ -1489,8 +1490,8 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   },
   // Rule    Chile    2000    2007    -    Mar    Sun>=9    3:00u    0    -
   {
-    0 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2000 /*from_year*/,
+    2007 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
@@ -1501,8 +1502,8 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   },
   // Rule    Chile    2008    only    -    Mar    30    3:00u    0    -
   {
-    8 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2008 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
@@ -1513,8 +1514,8 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   },
   // Rule    Chile    2009    only    -    Mar    Sun>=9    3:00u    0    -
   {
-    9 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2009 /*from_year*/,
+    2009 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
@@ -1525,8 +1526,8 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   },
   // Rule    Chile    2010    only    -    Apr    Sun>=1    3:00u    0    -
   {
-    10 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    2010 /*from_year*/,
+    2010 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1537,8 +1538,8 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   },
   // Rule    Chile    2011    only    -    May    Sun>=2    3:00u    0    -
   {
-    11 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2011 /*from_year*/,
+    2011 /*to_year*/,
     5 /*in_month*/,
     7 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -1549,8 +1550,8 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   },
   // Rule    Chile    2011    only    -    Aug    Sun>=16    4:00u    1:00    -
   {
-    11 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2011 /*from_year*/,
+    2011 /*to_year*/,
     8 /*in_month*/,
     7 /*on_day_of_week*/,
     16 /*on_day_of_month*/,
@@ -1561,8 +1562,8 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   },
   // Rule    Chile    2012    2014    -    Apr    Sun>=23    3:00u    0    -
   {
-    12 /*from_year_tiny*/,
-    14 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2014 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
@@ -1573,8 +1574,8 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   },
   // Rule    Chile    2012    2014    -    Sep    Sun>=2    4:00u    1:00    -
   {
-    12 /*from_year_tiny*/,
-    14 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2014 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -1585,8 +1586,8 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   },
   // Rule    Chile    2016    2018    -    May    Sun>=9    3:00u    0    -
   {
-    16 /*from_year_tiny*/,
-    18 /*to_year_tiny*/,
+    2016 /*from_year*/,
+    2018 /*to_year*/,
     5 /*in_month*/,
     7 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
@@ -1597,8 +1598,8 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   },
   // Rule    Chile    2016    2018    -    Aug    Sun>=9    4:00u    1:00    -
   {
-    16 /*from_year_tiny*/,
-    18 /*to_year_tiny*/,
+    2016 /*from_year*/,
+    2018 /*to_year*/,
     8 /*in_month*/,
     7 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
@@ -1609,8 +1610,8 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   },
   // Rule    Chile    2019    max    -    Apr    Sun>=2    3:00u    0    -
   {
-    19 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2019 /*from_year*/,
+    9999 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -1621,8 +1622,8 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   },
   // Rule    Chile    2019    2021    -    Sep    Sun>=2    4:00u    1:00    -
   {
-    19 /*from_year_tiny*/,
-    21 /*to_year_tiny*/,
+    2019 /*from_year*/,
+    2021 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -1633,8 +1634,8 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   },
   // Rule    Chile    2022    only    -    Sep    Sun>=9    4:00u    1:00    -
   {
-    22 /*from_year_tiny*/,
-    22 /*to_year_tiny*/,
+    2022 /*from_year*/,
+    2022 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
@@ -1645,8 +1646,8 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   },
   // Rule    Chile    2023    max    -    Sep    Sun>=2    4:00u    1:00    -
   {
-    23 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2023 /*from_year*/,
+    9999 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -1677,8 +1678,8 @@ const AtcZonePolicy kAtcPolicyChile  = {
 static const AtcZoneRule kAtcZoneRulesCook[]  = {
   // Rule    Cook    1979    1991    -    Mar    Sun>=1    0:00    0    -
   {
-    -21 /*from_year_tiny*/,
-    -9 /*to_year_tiny*/,
+    1979 /*from_year*/,
+    1991 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1709,8 +1710,8 @@ const AtcZonePolicy kAtcPolicyCook  = {
 static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   // Rule    Cuba    1997    only    -    Oct    12    0:00s    0    S
   {
-    -3 /*from_year_tiny*/,
-    -3 /*to_year_tiny*/,
+    1997 /*from_year*/,
+    1997 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     12 /*on_day_of_month*/,
@@ -1721,8 +1722,8 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   },
   // Rule    Cuba    1998    1999    -    Mar    lastSun    0:00s    1:00    D
   {
-    -2 /*from_year_tiny*/,
-    -1 /*to_year_tiny*/,
+    1998 /*from_year*/,
+    1999 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -1733,8 +1734,8 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   },
   // Rule    Cuba    1998    2003    -    Oct    lastSun    0:00s    0    S
   {
-    -2 /*from_year_tiny*/,
-    3 /*to_year_tiny*/,
+    1998 /*from_year*/,
+    2003 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -1745,8 +1746,8 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   },
   // Rule    Cuba    2000    2003    -    Apr    Sun>=1    0:00s    1:00    D
   {
-    0 /*from_year_tiny*/,
-    3 /*to_year_tiny*/,
+    2000 /*from_year*/,
+    2003 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1757,8 +1758,8 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   },
   // Rule    Cuba    2004    only    -    Mar    lastSun    0:00s    1:00    D
   {
-    4 /*from_year_tiny*/,
-    4 /*to_year_tiny*/,
+    2004 /*from_year*/,
+    2004 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -1769,8 +1770,8 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   },
   // Rule    Cuba    2006    2010    -    Oct    lastSun    0:00s    0    S
   {
-    6 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2010 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -1781,8 +1782,8 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   },
   // Rule    Cuba    2007    only    -    Mar    Sun>=8    0:00s    1:00    D
   {
-    7 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2007 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -1793,8 +1794,8 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   },
   // Rule    Cuba    2008    only    -    Mar    Sun>=15    0:00s    1:00    D
   {
-    8 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2008 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -1805,8 +1806,8 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   },
   // Rule    Cuba    2009    2010    -    Mar    Sun>=8    0:00s    1:00    D
   {
-    9 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    2009 /*from_year*/,
+    2010 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -1817,8 +1818,8 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   },
   // Rule    Cuba    2011    only    -    Mar    Sun>=15    0:00s    1:00    D
   {
-    11 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2011 /*from_year*/,
+    2011 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -1829,8 +1830,8 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   },
   // Rule    Cuba    2011    only    -    Nov    13    0:00s    0    S
   {
-    11 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2011 /*from_year*/,
+    2011 /*to_year*/,
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     13 /*on_day_of_month*/,
@@ -1841,8 +1842,8 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   },
   // Rule    Cuba    2012    only    -    Apr    1    0:00s    1:00    D
   {
-    12 /*from_year_tiny*/,
-    12 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2012 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1853,8 +1854,8 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   },
   // Rule    Cuba    2012    max    -    Nov    Sun>=1    0:00s    0    S
   {
-    12 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    9999 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1865,8 +1866,8 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   },
   // Rule    Cuba    2013    max    -    Mar    Sun>=8    0:00s    1:00    D
   {
-    13 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2013 /*from_year*/,
+    9999 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -1897,8 +1898,8 @@ const AtcZonePolicy kAtcPolicyCuba  = {
 static const AtcZoneRule kAtcZoneRulesDhaka[]  = {
   // Anchor: Rule    Dhaka    2009    only    -    Dec    31    24:00    0    -
   {
-    -127 /*from_year_tiny*/,
-    -127 /*to_year_tiny*/,
+    0 /*from_year*/,
+    0 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1909,8 +1910,8 @@ static const AtcZoneRule kAtcZoneRulesDhaka[]  = {
   },
   // Rule    Dhaka    2009    only    -    Jun    19    23:00    1:00    -
   {
-    9 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2009 /*from_year*/,
+    2009 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
@@ -1921,8 +1922,8 @@ static const AtcZoneRule kAtcZoneRulesDhaka[]  = {
   },
   // Rule    Dhaka    2009    only    -    Dec    31    24:00    0    -
   {
-    9 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2009 /*from_year*/,
+    2009 /*to_year*/,
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     31 /*on_day_of_month*/,
@@ -1953,8 +1954,8 @@ const AtcZonePolicy kAtcPolicyDhaka  = {
 static const AtcZoneRule kAtcZoneRulesE_EurAsia[]  = {
   // Rule E-EurAsia    1981    max    -    Mar    lastSun     0:00    1:00    -
   {
-    -19 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    1981 /*from_year*/,
+    9999 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -1965,8 +1966,8 @@ static const AtcZoneRule kAtcZoneRulesE_EurAsia[]  = {
   },
   // Rule E-EurAsia    1979    1995    -    Sep    lastSun     0:00    0    -
   {
-    -21 /*from_year_tiny*/,
-    -5 /*to_year_tiny*/,
+    1979 /*from_year*/,
+    1995 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -1977,8 +1978,8 @@ static const AtcZoneRule kAtcZoneRulesE_EurAsia[]  = {
   },
   // Rule E-EurAsia    1996    max    -    Oct    lastSun     0:00    0    -
   {
-    -4 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    1996 /*from_year*/,
+    9999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2009,8 +2010,8 @@ const AtcZonePolicy kAtcPolicyE_EurAsia  = {
 static const AtcZoneRule kAtcZoneRulesEU[]  = {
   // Rule    EU    1979    1995    -    Sep    lastSun     1:00u    0    -
   {
-    -21 /*from_year_tiny*/,
-    -5 /*to_year_tiny*/,
+    1979 /*from_year*/,
+    1995 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2021,8 +2022,8 @@ static const AtcZoneRule kAtcZoneRulesEU[]  = {
   },
   // Rule    EU    1981    max    -    Mar    lastSun     1:00u    1:00    S
   {
-    -19 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    1981 /*from_year*/,
+    9999 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2033,8 +2034,8 @@ static const AtcZoneRule kAtcZoneRulesEU[]  = {
   },
   // Rule    EU    1996    max    -    Oct    lastSun     1:00u    0    -
   {
-    -4 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    1996 /*from_year*/,
+    9999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2065,8 +2066,8 @@ const AtcZonePolicy kAtcPolicyEU  = {
 static const AtcZoneRule kAtcZoneRulesEUAsia[]  = {
   // Rule    EUAsia    1981    max    -    Mar    lastSun     1:00u    1:00    S
   {
-    -19 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    1981 /*from_year*/,
+    9999 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2077,8 +2078,8 @@ static const AtcZoneRule kAtcZoneRulesEUAsia[]  = {
   },
   // Rule    EUAsia    1979    1995    -    Sep    lastSun     1:00u    0    -
   {
-    -21 /*from_year_tiny*/,
-    -5 /*to_year_tiny*/,
+    1979 /*from_year*/,
+    1995 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2089,8 +2090,8 @@ static const AtcZoneRule kAtcZoneRulesEUAsia[]  = {
   },
   // Rule    EUAsia    1996    max    -    Oct    lastSun     1:00u    0    -
   {
-    -4 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    1996 /*from_year*/,
+    9999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2121,8 +2122,8 @@ const AtcZonePolicy kAtcPolicyEUAsia  = {
 static const AtcZoneRule kAtcZoneRulesEcuador[]  = {
   // Rule    Ecuador    1993    only    -    Feb     5    0:00    0    -
   {
-    -7 /*from_year_tiny*/,
-    -7 /*to_year_tiny*/,
+    1993 /*from_year*/,
+    1993 /*to_year*/,
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     5 /*on_day_of_month*/,
@@ -2153,8 +2154,8 @@ const AtcZonePolicy kAtcPolicyEcuador  = {
 static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
   // Rule    Egypt    1966    1994    -    Oct     1    3:00    0    -
   {
-    -34 /*from_year_tiny*/,
-    -6 /*to_year_tiny*/,
+    1966 /*from_year*/,
+    1994 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2165,8 +2166,8 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
   },
   // Rule    Egypt    1995    2010    -    Apr    lastFri     0:00s    1:00    S
   {
-    -5 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    1995 /*from_year*/,
+    2010 /*to_year*/,
     4 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2177,8 +2178,8 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
   },
   // Rule    Egypt    1995    2005    -    Sep    lastThu    24:00    0    -
   {
-    -5 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    1995 /*from_year*/,
+    2005 /*to_year*/,
     9 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2189,8 +2190,8 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
   },
   // Rule    Egypt    2006    only    -    Sep    21    24:00    0    -
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -2201,8 +2202,8 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
   },
   // Rule    Egypt    2007    only    -    Sep    Thu>=1    24:00    0    -
   {
-    7 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2007 /*to_year*/,
     9 /*in_month*/,
     4 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2213,8 +2214,8 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
   },
   // Rule    Egypt    2008    only    -    Aug    lastThu    24:00    0    -
   {
-    8 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2008 /*to_year*/,
     8 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2225,8 +2226,8 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
   },
   // Rule    Egypt    2009    only    -    Aug    20    24:00    0    -
   {
-    9 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2009 /*from_year*/,
+    2009 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -2237,8 +2238,8 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
   },
   // Rule    Egypt    2010    only    -    Aug    10    24:00    0    -
   {
-    10 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    2010 /*from_year*/,
+    2010 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     10 /*on_day_of_month*/,
@@ -2249,8 +2250,8 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
   },
   // Rule    Egypt    2010    only    -    Sep     9    24:00    1:00    S
   {
-    10 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    2010 /*from_year*/,
+    2010 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
@@ -2261,8 +2262,8 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
   },
   // Rule    Egypt    2010    only    -    Sep    lastThu    24:00    0    -
   {
-    10 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    2010 /*from_year*/,
+    2010 /*to_year*/,
     9 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2273,8 +2274,8 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
   },
   // Rule    Egypt    2014    only    -    May    15    24:00    1:00    S
   {
-    14 /*from_year_tiny*/,
-    14 /*to_year_tiny*/,
+    2014 /*from_year*/,
+    2014 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -2285,8 +2286,8 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
   },
   // Rule    Egypt    2014    only    -    Jun    26    24:00    0    -
   {
-    14 /*from_year_tiny*/,
-    14 /*to_year_tiny*/,
+    2014 /*from_year*/,
+    2014 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     26 /*on_day_of_month*/,
@@ -2297,8 +2298,8 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
   },
   // Rule    Egypt    2014    only    -    Jul    31    24:00    1:00    S
   {
-    14 /*from_year_tiny*/,
-    14 /*to_year_tiny*/,
+    2014 /*from_year*/,
+    2014 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     31 /*on_day_of_month*/,
@@ -2309,8 +2310,8 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
   },
   // Rule    Egypt    2014    only    -    Sep    lastThu    24:00    0    -
   {
-    14 /*from_year_tiny*/,
-    14 /*to_year_tiny*/,
+    2014 /*from_year*/,
+    2014 /*to_year*/,
     9 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2341,8 +2342,8 @@ const AtcZonePolicy kAtcPolicyEgypt  = {
 static const AtcZoneRule kAtcZoneRulesEire[]  = {
   // Rule    Eire    1981    max    -    Mar    lastSun     1:00u    0    -
   {
-    -19 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    1981 /*from_year*/,
+    9999 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2353,8 +2354,8 @@ static const AtcZoneRule kAtcZoneRulesEire[]  = {
   },
   // Rule    Eire    1990    1995    -    Oct    Sun>=22     1:00u    -1:00    -
   {
-    -10 /*from_year_tiny*/,
-    -5 /*to_year_tiny*/,
+    1990 /*from_year*/,
+    1995 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
@@ -2365,8 +2366,8 @@ static const AtcZoneRule kAtcZoneRulesEire[]  = {
   },
   // Rule    Eire    1996    max    -    Oct    lastSun     1:00u    -1:00    -
   {
-    -4 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    1996 /*from_year*/,
+    9999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2397,8 +2398,8 @@ const AtcZonePolicy kAtcPolicyEire  = {
 static const AtcZoneRule kAtcZoneRulesFalk[]  = {
   // Rule    Falk    1984    1985    -    Apr    lastSun    0:00    0    -
   {
-    -16 /*from_year_tiny*/,
-    -15 /*to_year_tiny*/,
+    1984 /*from_year*/,
+    1985 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2409,8 +2410,8 @@ static const AtcZoneRule kAtcZoneRulesFalk[]  = {
   },
   // Rule    Falk    1985    2000    -    Sep    Sun>=9    0:00    1:00    -
   {
-    -15 /*from_year_tiny*/,
-    0 /*to_year_tiny*/,
+    1985 /*from_year*/,
+    2000 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
@@ -2421,8 +2422,8 @@ static const AtcZoneRule kAtcZoneRulesFalk[]  = {
   },
   // Rule    Falk    1986    2000    -    Apr    Sun>=16    0:00    0    -
   {
-    -14 /*from_year_tiny*/,
-    0 /*to_year_tiny*/,
+    1986 /*from_year*/,
+    2000 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     16 /*on_day_of_month*/,
@@ -2433,8 +2434,8 @@ static const AtcZoneRule kAtcZoneRulesFalk[]  = {
   },
   // Rule    Falk    2001    2010    -    Apr    Sun>=15    2:00    0    -
   {
-    1 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    2001 /*from_year*/,
+    2010 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -2445,8 +2446,8 @@ static const AtcZoneRule kAtcZoneRulesFalk[]  = {
   },
   // Rule    Falk    2001    2010    -    Sep    Sun>=1    2:00    1:00    -
   {
-    1 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    2001 /*from_year*/,
+    2010 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2477,8 +2478,8 @@ const AtcZonePolicy kAtcPolicyFalk  = {
 static const AtcZoneRule kAtcZoneRulesFiji[]  = {
   // Rule    Fiji    1998    1999    -    Nov    Sun>=1    2:00    1:00    -
   {
-    -2 /*from_year_tiny*/,
-    -1 /*to_year_tiny*/,
+    1998 /*from_year*/,
+    1999 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2489,8 +2490,8 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
   },
   // Rule    Fiji    1999    2000    -    Feb    lastSun    3:00    0    -
   {
-    -1 /*from_year_tiny*/,
-    0 /*to_year_tiny*/,
+    1999 /*from_year*/,
+    2000 /*to_year*/,
     2 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2501,8 +2502,8 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
   },
   // Rule    Fiji    2009    only    -    Nov    29    2:00    1:00    -
   {
-    9 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2009 /*from_year*/,
+    2009 /*to_year*/,
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     29 /*on_day_of_month*/,
@@ -2513,8 +2514,8 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
   },
   // Rule    Fiji    2010    only    -    Mar    lastSun    3:00    0    -
   {
-    10 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    2010 /*from_year*/,
+    2010 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2525,8 +2526,8 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
   },
   // Rule    Fiji    2010    2013    -    Oct    Sun>=21    2:00    1:00    -
   {
-    10 /*from_year_tiny*/,
-    13 /*to_year_tiny*/,
+    2010 /*from_year*/,
+    2013 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -2537,8 +2538,8 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
   },
   // Rule    Fiji    2011    only    -    Mar    Sun>=1    3:00    0    -
   {
-    11 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2011 /*from_year*/,
+    2011 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2549,8 +2550,8 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
   },
   // Rule    Fiji    2012    2013    -    Jan    Sun>=18    3:00    0    -
   {
-    12 /*from_year_tiny*/,
-    13 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2013 /*to_year*/,
     1 /*in_month*/,
     7 /*on_day_of_week*/,
     18 /*on_day_of_month*/,
@@ -2561,8 +2562,8 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
   },
   // Rule    Fiji    2014    only    -    Jan    Sun>=18    2:00    0    -
   {
-    14 /*from_year_tiny*/,
-    14 /*to_year_tiny*/,
+    2014 /*from_year*/,
+    2014 /*to_year*/,
     1 /*in_month*/,
     7 /*on_day_of_week*/,
     18 /*on_day_of_month*/,
@@ -2573,8 +2574,8 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
   },
   // Rule    Fiji    2014    2018    -    Nov    Sun>=1    2:00    1:00    -
   {
-    14 /*from_year_tiny*/,
-    18 /*to_year_tiny*/,
+    2014 /*from_year*/,
+    2018 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2585,8 +2586,8 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
   },
   // Rule    Fiji    2015    2021    -    Jan    Sun>=12    3:00    0    -
   {
-    15 /*from_year_tiny*/,
-    21 /*to_year_tiny*/,
+    2015 /*from_year*/,
+    2021 /*to_year*/,
     1 /*in_month*/,
     7 /*on_day_of_week*/,
     12 /*on_day_of_month*/,
@@ -2597,8 +2598,8 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
   },
   // Rule    Fiji    2019    only    -    Nov    Sun>=8    2:00    1:00    -
   {
-    19 /*from_year_tiny*/,
-    19 /*to_year_tiny*/,
+    2019 /*from_year*/,
+    2019 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -2609,8 +2610,8 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
   },
   // Rule    Fiji    2020    only    -    Dec    20    2:00    1:00    -
   {
-    20 /*from_year_tiny*/,
-    20 /*to_year_tiny*/,
+    2020 /*from_year*/,
+    2020 /*to_year*/,
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -2621,8 +2622,8 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
   },
   // Rule    Fiji    2022    max    -    Nov    Sun>=8    2:00    1:00    -
   {
-    22 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2022 /*from_year*/,
+    9999 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -2633,8 +2634,8 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
   },
   // Rule    Fiji    2023    max    -    Jan    Sun>=12    3:00    0    -
   {
-    23 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2023 /*from_year*/,
+    9999 /*to_year*/,
     1 /*in_month*/,
     7 /*on_day_of_week*/,
     12 /*on_day_of_month*/,
@@ -2665,8 +2666,8 @@ const AtcZonePolicy kAtcPolicyFiji  = {
 static const AtcZoneRule kAtcZoneRulesGuam[]  = {
   // Rule    Guam    1977    only    -    Aug    28    2:00    0    S
   {
-    -23 /*from_year_tiny*/,
-    -23 /*to_year_tiny*/,
+    1977 /*from_year*/,
+    1977 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
@@ -2697,8 +2698,8 @@ const AtcZonePolicy kAtcPolicyGuam  = {
 static const AtcZoneRule kAtcZoneRulesGuat[]  = {
   // Rule    Guat    1991    only    -    Sep     7    0:00    0    S
   {
-    -9 /*from_year_tiny*/,
-    -9 /*to_year_tiny*/,
+    1991 /*from_year*/,
+    1991 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
@@ -2709,8 +2710,8 @@ static const AtcZoneRule kAtcZoneRulesGuat[]  = {
   },
   // Rule    Guat    2006    only    -    Apr    30    0:00    1:00    D
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
@@ -2721,8 +2722,8 @@ static const AtcZoneRule kAtcZoneRulesGuat[]  = {
   },
   // Rule    Guat    2006    only    -    Oct     1    0:00    0    S
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2753,8 +2754,8 @@ const AtcZonePolicy kAtcPolicyGuat  = {
 static const AtcZoneRule kAtcZoneRulesHK[]  = {
   // Rule    HK    1979    only    -    Oct    21    3:30    0    -
   {
-    -21 /*from_year_tiny*/,
-    -21 /*to_year_tiny*/,
+    1979 /*from_year*/,
+    1979 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -2785,8 +2786,8 @@ const AtcZonePolicy kAtcPolicyHK  = {
 static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
   // Rule    Haiti    1988    1997    -    Oct    lastSun    1:00s    0    S
   {
-    -12 /*from_year_tiny*/,
-    -3 /*to_year_tiny*/,
+    1988 /*from_year*/,
+    1997 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2797,8 +2798,8 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
   },
   // Rule    Haiti    2005    2006    -    Apr    Sun>=1    0:00    1:00    D
   {
-    5 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    2006 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2809,8 +2810,8 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
   },
   // Rule    Haiti    2005    2006    -    Oct    lastSun    0:00    0    S
   {
-    5 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    2006 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2821,8 +2822,8 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
   },
   // Rule    Haiti    2012    2015    -    Mar    Sun>=8    2:00    1:00    D
   {
-    12 /*from_year_tiny*/,
-    15 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2015 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -2833,8 +2834,8 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
   },
   // Rule    Haiti    2012    2015    -    Nov    Sun>=1    2:00    0    S
   {
-    12 /*from_year_tiny*/,
-    15 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2015 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2845,8 +2846,8 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
   },
   // Rule    Haiti    2017    max    -    Mar    Sun>=8    2:00    1:00    D
   {
-    17 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2017 /*from_year*/,
+    9999 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -2857,8 +2858,8 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
   },
   // Rule    Haiti    2017    max    -    Nov    Sun>=1    2:00    0    S
   {
-    17 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2017 /*from_year*/,
+    9999 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2889,8 +2890,8 @@ const AtcZonePolicy kAtcPolicyHaiti  = {
 static const AtcZoneRule kAtcZoneRulesHoliday[]  = {
   // Rule    Holiday    1993    1994    -    Mar    Sun>=1    2:00s    0    S
   {
-    -7 /*from_year_tiny*/,
-    -6 /*to_year_tiny*/,
+    1993 /*from_year*/,
+    1994 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2921,8 +2922,8 @@ const AtcZonePolicy kAtcPolicyHoliday  = {
 static const AtcZoneRule kAtcZoneRulesHond[]  = {
   // Rule    Hond    1987    1988    -    Sep    lastSun    0:00    0    S
   {
-    -13 /*from_year_tiny*/,
-    -12 /*to_year_tiny*/,
+    1987 /*from_year*/,
+    1988 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2933,8 +2934,8 @@ static const AtcZoneRule kAtcZoneRulesHond[]  = {
   },
   // Rule    Hond    2006    only    -    May    Sun>=1    0:00    1:00    D
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     5 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2945,8 +2946,8 @@ static const AtcZoneRule kAtcZoneRulesHond[]  = {
   },
   // Rule    Hond    2006    only    -    Aug    Mon>=1    0:00    0    S
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     8 /*in_month*/,
     1 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2977,8 +2978,8 @@ const AtcZonePolicy kAtcPolicyHond  = {
 static const AtcZoneRule kAtcZoneRulesIran[]  = {
   // Rule    Iran    1996    only    -    Sep    20    24:00    0    -
   {
-    -4 /*from_year_tiny*/,
-    -4 /*to_year_tiny*/,
+    1996 /*from_year*/,
+    1996 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -2989,8 +2990,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    1997    1999    -    Mar    21    24:00    1:00    -
   {
-    -3 /*from_year_tiny*/,
-    -1 /*to_year_tiny*/,
+    1997 /*from_year*/,
+    1999 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3001,8 +3002,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    1997    1999    -    Sep    21    24:00    0    -
   {
-    -3 /*from_year_tiny*/,
-    -1 /*to_year_tiny*/,
+    1997 /*from_year*/,
+    1999 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3013,8 +3014,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2000    only    -    Mar    20    24:00    1:00    -
   {
-    0 /*from_year_tiny*/,
-    0 /*to_year_tiny*/,
+    2000 /*from_year*/,
+    2000 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -3025,8 +3026,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2000    only    -    Sep    20    24:00    0    -
   {
-    0 /*from_year_tiny*/,
-    0 /*to_year_tiny*/,
+    2000 /*from_year*/,
+    2000 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -3037,8 +3038,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2001    2003    -    Mar    21    24:00    1:00    -
   {
-    1 /*from_year_tiny*/,
-    3 /*to_year_tiny*/,
+    2001 /*from_year*/,
+    2003 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3049,8 +3050,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2001    2003    -    Sep    21    24:00    0    -
   {
-    1 /*from_year_tiny*/,
-    3 /*to_year_tiny*/,
+    2001 /*from_year*/,
+    2003 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3061,8 +3062,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2004    only    -    Mar    20    24:00    1:00    -
   {
-    4 /*from_year_tiny*/,
-    4 /*to_year_tiny*/,
+    2004 /*from_year*/,
+    2004 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -3073,8 +3074,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2004    only    -    Sep    20    24:00    0    -
   {
-    4 /*from_year_tiny*/,
-    4 /*to_year_tiny*/,
+    2004 /*from_year*/,
+    2004 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -3085,8 +3086,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2005    only    -    Mar    21    24:00    1:00    -
   {
-    5 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    2005 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3097,8 +3098,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2005    only    -    Sep    21    24:00    0    -
   {
-    5 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    2005 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3109,8 +3110,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2008    only    -    Mar    20    24:00    1:00    -
   {
-    8 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2008 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -3121,8 +3122,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2008    only    -    Sep    20    24:00    0    -
   {
-    8 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2008 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -3133,8 +3134,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2009    2011    -    Mar    21    24:00    1:00    -
   {
-    9 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2009 /*from_year*/,
+    2011 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3145,8 +3146,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2009    2011    -    Sep    21    24:00    0    -
   {
-    9 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2009 /*from_year*/,
+    2011 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3157,8 +3158,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2012    only    -    Mar    20    24:00    1:00    -
   {
-    12 /*from_year_tiny*/,
-    12 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2012 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -3169,8 +3170,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2012    only    -    Sep    20    24:00    0    -
   {
-    12 /*from_year_tiny*/,
-    12 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2012 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -3181,8 +3182,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2013    2015    -    Mar    21    24:00    1:00    -
   {
-    13 /*from_year_tiny*/,
-    15 /*to_year_tiny*/,
+    2013 /*from_year*/,
+    2015 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3193,8 +3194,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2013    2015    -    Sep    21    24:00    0    -
   {
-    13 /*from_year_tiny*/,
-    15 /*to_year_tiny*/,
+    2013 /*from_year*/,
+    2015 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3205,8 +3206,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2016    only    -    Mar    20    24:00    1:00    -
   {
-    16 /*from_year_tiny*/,
-    16 /*to_year_tiny*/,
+    2016 /*from_year*/,
+    2016 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -3217,8 +3218,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2016    only    -    Sep    20    24:00    0    -
   {
-    16 /*from_year_tiny*/,
-    16 /*to_year_tiny*/,
+    2016 /*from_year*/,
+    2016 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -3229,8 +3230,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2017    2019    -    Mar    21    24:00    1:00    -
   {
-    17 /*from_year_tiny*/,
-    19 /*to_year_tiny*/,
+    2017 /*from_year*/,
+    2019 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3241,8 +3242,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2017    2019    -    Sep    21    24:00    0    -
   {
-    17 /*from_year_tiny*/,
-    19 /*to_year_tiny*/,
+    2017 /*from_year*/,
+    2019 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3253,8 +3254,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2020    only    -    Mar    20    24:00    1:00    -
   {
-    20 /*from_year_tiny*/,
-    20 /*to_year_tiny*/,
+    2020 /*from_year*/,
+    2020 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -3265,8 +3266,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2020    only    -    Sep    20    24:00    0    -
   {
-    20 /*from_year_tiny*/,
-    20 /*to_year_tiny*/,
+    2020 /*from_year*/,
+    2020 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -3277,8 +3278,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2021    2022    -    Mar    21    24:00    1:00    -
   {
-    21 /*from_year_tiny*/,
-    22 /*to_year_tiny*/,
+    2021 /*from_year*/,
+    2022 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3289,8 +3290,8 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
   },
   // Rule    Iran    2021    2022    -    Sep    21    24:00    0    -
   {
-    21 /*from_year_tiny*/,
-    22 /*to_year_tiny*/,
+    2021 /*from_year*/,
+    2022 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3321,8 +3322,8 @@ const AtcZonePolicy kAtcPolicyIran  = {
 static const AtcZoneRule kAtcZoneRulesIraq[]  = {
   // Rule    Iraq    1985    1990    -    Sep    lastSun    1:00s    0    -
   {
-    -15 /*from_year_tiny*/,
-    -10 /*to_year_tiny*/,
+    1985 /*from_year*/,
+    1990 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3333,8 +3334,8 @@ static const AtcZoneRule kAtcZoneRulesIraq[]  = {
   },
   // Rule    Iraq    1991    2007    -    Apr     1    3:00s    1:00    -
   {
-    -9 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    1991 /*from_year*/,
+    2007 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -3345,8 +3346,8 @@ static const AtcZoneRule kAtcZoneRulesIraq[]  = {
   },
   // Rule    Iraq    1991    2007    -    Oct     1    3:00s    0    -
   {
-    -9 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    1991 /*from_year*/,
+    2007 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -3377,8 +3378,8 @@ const AtcZonePolicy kAtcPolicyIraq  = {
 static const AtcZoneRule kAtcZoneRulesJapan[]  = {
   // Rule    Japan    1948    1951    -    Sep    Sat>=8    25:00    0    S
   {
-    -52 /*from_year_tiny*/,
-    -49 /*to_year_tiny*/,
+    1948 /*from_year*/,
+    1951 /*to_year*/,
     9 /*in_month*/,
     6 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -3409,8 +3410,8 @@ const AtcZonePolicy kAtcPolicyJapan  = {
 static const AtcZoneRule kAtcZoneRulesJordan[]  = {
   // Rule    Jordan    1995    1998    -    Sep    Fri>=15    0:00s    0    -
   {
-    -5 /*from_year_tiny*/,
-    -2 /*to_year_tiny*/,
+    1995 /*from_year*/,
+    1998 /*to_year*/,
     9 /*in_month*/,
     5 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -3421,8 +3422,8 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
   },
   // Rule    Jordan    1999    only    -    Jul     1    0:00s    1:00    S
   {
-    -1 /*from_year_tiny*/,
-    -1 /*to_year_tiny*/,
+    1999 /*from_year*/,
+    1999 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -3433,8 +3434,8 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
   },
   // Rule    Jordan    1999    2002    -    Sep    lastFri    0:00s    0    -
   {
-    -1 /*from_year_tiny*/,
-    2 /*to_year_tiny*/,
+    1999 /*from_year*/,
+    2002 /*to_year*/,
     9 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3445,8 +3446,8 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
   },
   // Rule    Jordan    2000    2001    -    Mar    lastThu    0:00s    1:00    S
   {
-    0 /*from_year_tiny*/,
-    1 /*to_year_tiny*/,
+    2000 /*from_year*/,
+    2001 /*to_year*/,
     3 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3457,8 +3458,8 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
   },
   // Rule    Jordan    2002    2012    -    Mar    lastThu    24:00    1:00    S
   {
-    2 /*from_year_tiny*/,
-    12 /*to_year_tiny*/,
+    2002 /*from_year*/,
+    2012 /*to_year*/,
     3 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3469,8 +3470,8 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
   },
   // Rule    Jordan    2003    only    -    Oct    24    0:00s    0    -
   {
-    3 /*from_year_tiny*/,
-    3 /*to_year_tiny*/,
+    2003 /*from_year*/,
+    2003 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     24 /*on_day_of_month*/,
@@ -3481,8 +3482,8 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
   },
   // Rule    Jordan    2004    only    -    Oct    15    0:00s    0    -
   {
-    4 /*from_year_tiny*/,
-    4 /*to_year_tiny*/,
+    2004 /*from_year*/,
+    2004 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -3493,8 +3494,8 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
   },
   // Rule    Jordan    2005    only    -    Sep    lastFri    0:00s    0    -
   {
-    5 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    2005 /*to_year*/,
     9 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3505,8 +3506,8 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
   },
   // Rule    Jordan    2006    2011    -    Oct    lastFri    0:00s    0    -
   {
-    6 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2011 /*to_year*/,
     10 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3517,8 +3518,8 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
   },
   // Rule    Jordan    2013    only    -    Dec    20    0:00    0    -
   {
-    13 /*from_year_tiny*/,
-    13 /*to_year_tiny*/,
+    2013 /*from_year*/,
+    2013 /*to_year*/,
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -3529,8 +3530,8 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
   },
   // Rule    Jordan    2014    2021    -    Mar    lastThu    24:00    1:00    S
   {
-    14 /*from_year_tiny*/,
-    21 /*to_year_tiny*/,
+    2014 /*from_year*/,
+    2021 /*to_year*/,
     3 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3539,10 +3540,10 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
     'S' /*letter*/,
   },
-  // Rule    Jordan    2014    max    -    Oct    lastFri    0:00s    0    -
+  // Rule    Jordan    2014    2022    -    Oct    lastFri    0:00s    0    -
   {
-    14 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2014 /*from_year*/,
+    2022 /*to_year*/,
     10 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3551,10 +3552,10 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
     '-' /*letter*/,
   },
-  // Rule    Jordan    2022    max    -    Feb    lastThu    24:00    1:00    S
+  // Rule    Jordan    2022    only    -    Feb    lastThu    24:00    1:00    S
   {
-    22 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2022 /*from_year*/,
+    2022 /*to_year*/,
     2 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3585,8 +3586,8 @@ const AtcZonePolicy kAtcPolicyJordan  = {
 static const AtcZoneRule kAtcZoneRulesKyrgyz[]  = {
   // Rule    Kyrgyz    1992    1996    -    Sep    lastSun    0:00    0    -
   {
-    -8 /*from_year_tiny*/,
-    -4 /*to_year_tiny*/,
+    1992 /*from_year*/,
+    1996 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3597,8 +3598,8 @@ static const AtcZoneRule kAtcZoneRulesKyrgyz[]  = {
   },
   // Rule    Kyrgyz    1997    2005    -    Mar    lastSun    2:30    1:00    -
   {
-    -3 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    1997 /*from_year*/,
+    2005 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3609,8 +3610,8 @@ static const AtcZoneRule kAtcZoneRulesKyrgyz[]  = {
   },
   // Rule    Kyrgyz    1997    2004    -    Oct    lastSun    2:30    0    -
   {
-    -3 /*from_year_tiny*/,
-    4 /*to_year_tiny*/,
+    1997 /*from_year*/,
+    2004 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3641,8 +3642,8 @@ const AtcZonePolicy kAtcPolicyKyrgyz  = {
 static const AtcZoneRule kAtcZoneRulesLH[]  = {
   // Rule    LH    1987    1999    -    Oct    lastSun    2:00    0:30    -
   {
-    -13 /*from_year_tiny*/,
-    -1 /*to_year_tiny*/,
+    1987 /*from_year*/,
+    1999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3653,8 +3654,8 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
   },
   // Rule    LH    1990    1995    -    Mar    Sun>=1    2:00    0    -
   {
-    -10 /*from_year_tiny*/,
-    -5 /*to_year_tiny*/,
+    1990 /*from_year*/,
+    1995 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -3665,8 +3666,8 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
   },
   // Rule    LH    1996    2005    -    Mar    lastSun    2:00    0    -
   {
-    -4 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    1996 /*from_year*/,
+    2005 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3677,8 +3678,8 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
   },
   // Rule    LH    2000    only    -    Aug    lastSun    2:00    0:30    -
   {
-    0 /*from_year_tiny*/,
-    0 /*to_year_tiny*/,
+    2000 /*from_year*/,
+    2000 /*to_year*/,
     8 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3689,8 +3690,8 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
   },
   // Rule    LH    2001    2007    -    Oct    lastSun    2:00    0:30    -
   {
-    1 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2001 /*from_year*/,
+    2007 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3701,8 +3702,8 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
   },
   // Rule    LH    2006    only    -    Apr    Sun>=1    2:00    0    -
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -3713,8 +3714,8 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
   },
   // Rule    LH    2007    only    -    Mar    lastSun    2:00    0    -
   {
-    7 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2007 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3725,8 +3726,8 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
   },
   // Rule    LH    2008    max    -    Apr    Sun>=1    2:00    0    -
   {
-    8 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    9999 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -3737,8 +3738,8 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
   },
   // Rule    LH    2008    max    -    Oct    Sun>=1    2:00    0:30    -
   {
-    8 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    9999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -3769,8 +3770,8 @@ const AtcZonePolicy kAtcPolicyLH  = {
 static const AtcZoneRule kAtcZoneRulesLebanon[]  = {
   // Rule    Lebanon    1993    max    -    Mar    lastSun    0:00    1:00    S
   {
-    -7 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    1993 /*from_year*/,
+    9999 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3781,8 +3782,8 @@ static const AtcZoneRule kAtcZoneRulesLebanon[]  = {
   },
   // Rule    Lebanon    1993    1998    -    Sep    lastSun    0:00    0    -
   {
-    -7 /*from_year_tiny*/,
-    -2 /*to_year_tiny*/,
+    1993 /*from_year*/,
+    1998 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3793,8 +3794,8 @@ static const AtcZoneRule kAtcZoneRulesLebanon[]  = {
   },
   // Rule    Lebanon    1999    max    -    Oct    lastSun    0:00    0    -
   {
-    -1 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    1999 /*from_year*/,
+    9999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3825,8 +3826,8 @@ const AtcZonePolicy kAtcPolicyLebanon  = {
 static const AtcZoneRule kAtcZoneRulesLibya[]  = {
   // Rule    Libya    1997    only    -    Oct     4    0:00    0    -
   {
-    -3 /*from_year_tiny*/,
-    -3 /*to_year_tiny*/,
+    1997 /*from_year*/,
+    1997 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
@@ -3837,8 +3838,8 @@ static const AtcZoneRule kAtcZoneRulesLibya[]  = {
   },
   // Rule    Libya    2013    only    -    Mar    lastFri    1:00    1:00    S
   {
-    13 /*from_year_tiny*/,
-    13 /*to_year_tiny*/,
+    2013 /*from_year*/,
+    2013 /*to_year*/,
     3 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3849,8 +3850,8 @@ static const AtcZoneRule kAtcZoneRulesLibya[]  = {
   },
   // Rule    Libya    2013    only    -    Oct    lastFri    2:00    0    -
   {
-    13 /*from_year_tiny*/,
-    13 /*to_year_tiny*/,
+    2013 /*from_year*/,
+    2013 /*to_year*/,
     10 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3881,8 +3882,8 @@ const AtcZonePolicy kAtcPolicyLibya  = {
 static const AtcZoneRule kAtcZoneRulesMacau[]  = {
   // Rule    Macau    1979    only    -    Oct    Sun>=16    03:30    0    S
   {
-    -21 /*from_year_tiny*/,
-    -21 /*to_year_tiny*/,
+    1979 /*from_year*/,
+    1979 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     16 /*on_day_of_month*/,
@@ -3913,8 +3914,8 @@ const AtcZonePolicy kAtcPolicyMacau  = {
 static const AtcZoneRule kAtcZoneRulesMauritius[]  = {
   // Rule Mauritius    1983    only    -    Mar    21    0:00    0    -
   {
-    -17 /*from_year_tiny*/,
-    -17 /*to_year_tiny*/,
+    1983 /*from_year*/,
+    1983 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -3925,8 +3926,8 @@ static const AtcZoneRule kAtcZoneRulesMauritius[]  = {
   },
   // Rule Mauritius    2008    only    -    Oct    lastSun    2:00    1:00    -
   {
-    8 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2008 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3937,8 +3938,8 @@ static const AtcZoneRule kAtcZoneRulesMauritius[]  = {
   },
   // Rule Mauritius    2009    only    -    Mar    lastSun    2:00    0    -
   {
-    9 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2009 /*from_year*/,
+    2009 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -3969,8 +3970,8 @@ const AtcZonePolicy kAtcPolicyMauritius  = {
 static const AtcZoneRule kAtcZoneRulesMexico[]  = {
   // Rule    Mexico    1950    only    -    Jul    30    0:00    0    S
   {
-    -50 /*from_year_tiny*/,
-    -50 /*to_year_tiny*/,
+    1950 /*from_year*/,
+    1950 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
@@ -3981,8 +3982,8 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
   },
   // Rule    Mexico    1996    2000    -    Apr    Sun>=1    2:00    1:00    D
   {
-    -4 /*from_year_tiny*/,
-    0 /*to_year_tiny*/,
+    1996 /*from_year*/,
+    2000 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -3993,8 +3994,8 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
   },
   // Rule    Mexico    1996    2000    -    Oct    lastSun    2:00    0    S
   {
-    -4 /*from_year_tiny*/,
-    0 /*to_year_tiny*/,
+    1996 /*from_year*/,
+    2000 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4005,8 +4006,8 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
   },
   // Rule    Mexico    2001    only    -    May    Sun>=1    2:00    1:00    D
   {
-    1 /*from_year_tiny*/,
-    1 /*to_year_tiny*/,
+    2001 /*from_year*/,
+    2001 /*to_year*/,
     5 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -4017,8 +4018,8 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
   },
   // Rule    Mexico    2001    only    -    Sep    lastSun    2:00    0    S
   {
-    1 /*from_year_tiny*/,
-    1 /*to_year_tiny*/,
+    2001 /*from_year*/,
+    2001 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4029,8 +4030,8 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
   },
   // Rule    Mexico    2002    max    -    Apr    Sun>=1    2:00    1:00    D
   {
-    2 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2002 /*from_year*/,
+    9999 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -4041,8 +4042,8 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
   },
   // Rule    Mexico    2002    max    -    Oct    lastSun    2:00    0    S
   {
-    2 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2002 /*from_year*/,
+    9999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4073,8 +4074,8 @@ const AtcZonePolicy kAtcPolicyMexico  = {
 static const AtcZoneRule kAtcZoneRulesMoldova[]  = {
   // Rule    Moldova    1997    max    -    Mar    lastSun     2:00    1:00    S
   {
-    -3 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    1997 /*from_year*/,
+    9999 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4085,8 +4086,8 @@ static const AtcZoneRule kAtcZoneRulesMoldova[]  = {
   },
   // Rule    Moldova    1997    max    -    Oct    lastSun     3:00    0    -
   {
-    -3 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    1997 /*from_year*/,
+    9999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4117,8 +4118,8 @@ const AtcZonePolicy kAtcPolicyMoldova  = {
 static const AtcZoneRule kAtcZoneRulesMoncton[]  = {
   // Rule    Moncton    1957    1972    -    Oct    lastSun    2:00    0    S
   {
-    -43 /*from_year_tiny*/,
-    -28 /*to_year_tiny*/,
+    1957 /*from_year*/,
+    1972 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4129,8 +4130,8 @@ static const AtcZoneRule kAtcZoneRulesMoncton[]  = {
   },
   // Rule    Moncton    1993    2006    -    Apr    Sun>=1    0:01    1:00    D
   {
-    -7 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1993 /*from_year*/,
+    2006 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -4141,8 +4142,8 @@ static const AtcZoneRule kAtcZoneRulesMoncton[]  = {
   },
   // Rule    Moncton    1993    2006    -    Oct    lastSun    0:01    0    S
   {
-    -7 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1993 /*from_year*/,
+    2006 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4173,8 +4174,8 @@ const AtcZonePolicy kAtcPolicyMoncton  = {
 static const AtcZoneRule kAtcZoneRulesMongol[]  = {
   // Rule    Mongol    1984    1998    -    Sep    lastSun    0:00    0    -
   {
-    -16 /*from_year_tiny*/,
-    -2 /*to_year_tiny*/,
+    1984 /*from_year*/,
+    1998 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4185,8 +4186,8 @@ static const AtcZoneRule kAtcZoneRulesMongol[]  = {
   },
   // Rule    Mongol    2001    only    -    Apr    lastSat    2:00    1:00    -
   {
-    1 /*from_year_tiny*/,
-    1 /*to_year_tiny*/,
+    2001 /*from_year*/,
+    2001 /*to_year*/,
     4 /*in_month*/,
     6 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4197,8 +4198,8 @@ static const AtcZoneRule kAtcZoneRulesMongol[]  = {
   },
   // Rule    Mongol    2001    2006    -    Sep    lastSat    2:00    0    -
   {
-    1 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2001 /*from_year*/,
+    2006 /*to_year*/,
     9 /*in_month*/,
     6 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4209,8 +4210,8 @@ static const AtcZoneRule kAtcZoneRulesMongol[]  = {
   },
   // Rule    Mongol    2002    2006    -    Mar    lastSat    2:00    1:00    -
   {
-    2 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2002 /*from_year*/,
+    2006 /*to_year*/,
     3 /*in_month*/,
     6 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4221,8 +4222,8 @@ static const AtcZoneRule kAtcZoneRulesMongol[]  = {
   },
   // Rule    Mongol    2015    2016    -    Mar    lastSat    2:00    1:00    -
   {
-    15 /*from_year_tiny*/,
-    16 /*to_year_tiny*/,
+    2015 /*from_year*/,
+    2016 /*to_year*/,
     3 /*in_month*/,
     6 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4233,8 +4234,8 @@ static const AtcZoneRule kAtcZoneRulesMongol[]  = {
   },
   // Rule    Mongol    2015    2016    -    Sep    lastSat    0:00    0    -
   {
-    15 /*from_year_tiny*/,
-    16 /*to_year_tiny*/,
+    2015 /*from_year*/,
+    2016 /*to_year*/,
     9 /*in_month*/,
     6 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4257,16 +4258,16 @@ const AtcZonePolicy kAtcPolicyMongol  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Morocco
-// Rules: 94
-// Memory (8-bit): 852
-// Memory (32-bit): 1140
+// Rules: 169
+// Memory (8-bit): 1527
+// Memory (32-bit): 2040
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   // Rule    Morocco    1978    only    -    Aug     4     0:00    0    -
   {
-    -22 /*from_year_tiny*/,
-    -22 /*to_year_tiny*/,
+    1978 /*from_year*/,
+    1978 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
@@ -4277,8 +4278,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2008    only    -    Jun     1     0:00    1:00    -
   {
-    8 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2008 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -4289,8 +4290,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2008    only    -    Sep     1     0:00    0    -
   {
-    8 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2008 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -4301,8 +4302,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2009    only    -    Jun     1     0:00    1:00    -
   {
-    9 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2009 /*from_year*/,
+    2009 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -4313,8 +4314,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2009    only    -    Aug    21     0:00    0    -
   {
-    9 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2009 /*from_year*/,
+    2009 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -4325,8 +4326,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2010    only    -    May     2     0:00    1:00    -
   {
-    10 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    2010 /*from_year*/,
+    2010 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -4337,8 +4338,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2010    only    -    Aug     8     0:00    0    -
   {
-    10 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    2010 /*from_year*/,
+    2010 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -4349,8 +4350,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2011    only    -    Apr     3     0:00    1:00    -
   {
-    11 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2011 /*from_year*/,
+    2011 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     3 /*on_day_of_month*/,
@@ -4361,8 +4362,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2011    only    -    Jul    31     0:00    0    -
   {
-    11 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2011 /*from_year*/,
+    2011 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     31 /*on_day_of_month*/,
@@ -4373,8 +4374,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2012    2013    -    Apr    lastSun     2:00    1:00    -
   {
-    12 /*from_year_tiny*/,
-    13 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2013 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4385,8 +4386,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2012    only    -    Jul    20     3:00    0    -
   {
-    12 /*from_year_tiny*/,
-    12 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2012 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -4397,8 +4398,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2012    only    -    Aug    20     2:00    1:00    -
   {
-    12 /*from_year_tiny*/,
-    12 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2012 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -4409,8 +4410,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2012    only    -    Sep    30     3:00    0    -
   {
-    12 /*from_year_tiny*/,
-    12 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2012 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
@@ -4421,8 +4422,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2013    only    -    Jul     7     3:00    0    -
   {
-    13 /*from_year_tiny*/,
-    13 /*to_year_tiny*/,
+    2013 /*from_year*/,
+    2013 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
@@ -4433,8 +4434,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2013    only    -    Aug    10     2:00    1:00    -
   {
-    13 /*from_year_tiny*/,
-    13 /*to_year_tiny*/,
+    2013 /*from_year*/,
+    2013 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     10 /*on_day_of_month*/,
@@ -4445,8 +4446,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2013    2018    -    Oct    lastSun     3:00    0    -
   {
-    13 /*from_year_tiny*/,
-    18 /*to_year_tiny*/,
+    2013 /*from_year*/,
+    2018 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4457,8 +4458,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2014    2018    -    Mar    lastSun     2:00    1:00    -
   {
-    14 /*from_year_tiny*/,
-    18 /*to_year_tiny*/,
+    2014 /*from_year*/,
+    2018 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4469,8 +4470,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2014    only    -    Jun    28     3:00    0    -
   {
-    14 /*from_year_tiny*/,
-    14 /*to_year_tiny*/,
+    2014 /*from_year*/,
+    2014 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
@@ -4481,8 +4482,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2014    only    -    Aug     2     2:00    1:00    -
   {
-    14 /*from_year_tiny*/,
-    14 /*to_year_tiny*/,
+    2014 /*from_year*/,
+    2014 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -4493,8 +4494,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2015    only    -    Jun    14     3:00    0    -
   {
-    15 /*from_year_tiny*/,
-    15 /*to_year_tiny*/,
+    2015 /*from_year*/,
+    2015 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
@@ -4505,8 +4506,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2015    only    -    Jul    19     2:00    1:00    -
   {
-    15 /*from_year_tiny*/,
-    15 /*to_year_tiny*/,
+    2015 /*from_year*/,
+    2015 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
@@ -4517,8 +4518,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2016    only    -    Jun     5     3:00    0    -
   {
-    16 /*from_year_tiny*/,
-    16 /*to_year_tiny*/,
+    2016 /*from_year*/,
+    2016 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     5 /*on_day_of_month*/,
@@ -4529,8 +4530,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2016    only    -    Jul    10     2:00    1:00    -
   {
-    16 /*from_year_tiny*/,
-    16 /*to_year_tiny*/,
+    2016 /*from_year*/,
+    2016 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     10 /*on_day_of_month*/,
@@ -4541,8 +4542,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2017    only    -    May    21     3:00    0    -
   {
-    17 /*from_year_tiny*/,
-    17 /*to_year_tiny*/,
+    2017 /*from_year*/,
+    2017 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -4553,8 +4554,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2017    only    -    Jul     2     2:00    1:00    -
   {
-    17 /*from_year_tiny*/,
-    17 /*to_year_tiny*/,
+    2017 /*from_year*/,
+    2017 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -4565,8 +4566,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2018    only    -    May    13     3:00    0    -
   {
-    18 /*from_year_tiny*/,
-    18 /*to_year_tiny*/,
+    2018 /*from_year*/,
+    2018 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     13 /*on_day_of_month*/,
@@ -4577,8 +4578,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2018    only    -    Jun    17     2:00    1:00    -
   {
-    18 /*from_year_tiny*/,
-    18 /*to_year_tiny*/,
+    2018 /*from_year*/,
+    2018 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     17 /*on_day_of_month*/,
@@ -4589,8 +4590,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2019    only    -    May     5     3:00    -1:00    -
   {
-    19 /*from_year_tiny*/,
-    19 /*to_year_tiny*/,
+    2019 /*from_year*/,
+    2019 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     5 /*on_day_of_month*/,
@@ -4601,8 +4602,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2019    only    -    Jun     9     2:00    0    -
   {
-    19 /*from_year_tiny*/,
-    19 /*to_year_tiny*/,
+    2019 /*from_year*/,
+    2019 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
@@ -4613,8 +4614,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2020    only    -    Apr    19     3:00    -1:00    -
   {
-    20 /*from_year_tiny*/,
-    20 /*to_year_tiny*/,
+    2020 /*from_year*/,
+    2020 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
@@ -4625,8 +4626,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2020    only    -    May    31     2:00    0    -
   {
-    20 /*from_year_tiny*/,
-    20 /*to_year_tiny*/,
+    2020 /*from_year*/,
+    2020 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     31 /*on_day_of_month*/,
@@ -4637,8 +4638,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2021    only    -    Apr    11     3:00    -1:00    -
   {
-    21 /*from_year_tiny*/,
-    21 /*to_year_tiny*/,
+    2021 /*from_year*/,
+    2021 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     11 /*on_day_of_month*/,
@@ -4649,8 +4650,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2021    only    -    May    16     2:00    0    -
   {
-    21 /*from_year_tiny*/,
-    21 /*to_year_tiny*/,
+    2021 /*from_year*/,
+    2021 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     16 /*on_day_of_month*/,
@@ -4661,8 +4662,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2022    only    -    Mar    27     3:00    -1:00    -
   {
-    22 /*from_year_tiny*/,
-    22 /*to_year_tiny*/,
+    2022 /*from_year*/,
+    2022 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     27 /*on_day_of_month*/,
@@ -4673,8 +4674,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2022    only    -    May     8     2:00    0    -
   {
-    22 /*from_year_tiny*/,
-    22 /*to_year_tiny*/,
+    2022 /*from_year*/,
+    2022 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -4685,8 +4686,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2023    only    -    Mar    19     3:00    -1:00    -
   {
-    23 /*from_year_tiny*/,
-    23 /*to_year_tiny*/,
+    2023 /*from_year*/,
+    2023 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
@@ -4697,8 +4698,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2023    only    -    Apr    30     2:00    0    -
   {
-    23 /*from_year_tiny*/,
-    23 /*to_year_tiny*/,
+    2023 /*from_year*/,
+    2023 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
@@ -4709,8 +4710,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2024    only    -    Mar    10     3:00    -1:00    -
   {
-    24 /*from_year_tiny*/,
-    24 /*to_year_tiny*/,
+    2024 /*from_year*/,
+    2024 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     10 /*on_day_of_month*/,
@@ -4721,8 +4722,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2024    only    -    Apr    14     2:00    0    -
   {
-    24 /*from_year_tiny*/,
-    24 /*to_year_tiny*/,
+    2024 /*from_year*/,
+    2024 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
@@ -4733,8 +4734,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2025    only    -    Feb    23     3:00    -1:00    -
   {
-    25 /*from_year_tiny*/,
-    25 /*to_year_tiny*/,
+    2025 /*from_year*/,
+    2025 /*to_year*/,
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
@@ -4745,8 +4746,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2025    only    -    Apr     6     2:00    0    -
   {
-    25 /*from_year_tiny*/,
-    25 /*to_year_tiny*/,
+    2025 /*from_year*/,
+    2025 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     6 /*on_day_of_month*/,
@@ -4757,8 +4758,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2026    only    -    Feb    15     3:00    -1:00    -
   {
-    26 /*from_year_tiny*/,
-    26 /*to_year_tiny*/,
+    2026 /*from_year*/,
+    2026 /*to_year*/,
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -4769,8 +4770,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2026    only    -    Mar    22     2:00    0    -
   {
-    26 /*from_year_tiny*/,
-    26 /*to_year_tiny*/,
+    2026 /*from_year*/,
+    2026 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
@@ -4781,8 +4782,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2027    only    -    Feb     7     3:00    -1:00    -
   {
-    27 /*from_year_tiny*/,
-    27 /*to_year_tiny*/,
+    2027 /*from_year*/,
+    2027 /*to_year*/,
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
@@ -4793,8 +4794,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2027    only    -    Mar    14     2:00    0    -
   {
-    27 /*from_year_tiny*/,
-    27 /*to_year_tiny*/,
+    2027 /*from_year*/,
+    2027 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
@@ -4805,8 +4806,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2028    only    -    Jan    23     3:00    -1:00    -
   {
-    28 /*from_year_tiny*/,
-    28 /*to_year_tiny*/,
+    2028 /*from_year*/,
+    2028 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
@@ -4817,8 +4818,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2028    only    -    Mar     5     2:00    0    -
   {
-    28 /*from_year_tiny*/,
-    28 /*to_year_tiny*/,
+    2028 /*from_year*/,
+    2028 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     5 /*on_day_of_month*/,
@@ -4829,8 +4830,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2029    only    -    Jan    14     3:00    -1:00    -
   {
-    29 /*from_year_tiny*/,
-    29 /*to_year_tiny*/,
+    2029 /*from_year*/,
+    2029 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
@@ -4841,8 +4842,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2029    only    -    Feb    18     2:00    0    -
   {
-    29 /*from_year_tiny*/,
-    29 /*to_year_tiny*/,
+    2029 /*from_year*/,
+    2029 /*to_year*/,
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     18 /*on_day_of_month*/,
@@ -4853,8 +4854,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2029    only    -    Dec    30     3:00    -1:00    -
   {
-    29 /*from_year_tiny*/,
-    29 /*to_year_tiny*/,
+    2029 /*from_year*/,
+    2029 /*to_year*/,
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
@@ -4865,8 +4866,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2030    only    -    Feb    10     2:00    0    -
   {
-    30 /*from_year_tiny*/,
-    30 /*to_year_tiny*/,
+    2030 /*from_year*/,
+    2030 /*to_year*/,
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     10 /*on_day_of_month*/,
@@ -4877,8 +4878,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2030    only    -    Dec    22     3:00    -1:00    -
   {
-    30 /*from_year_tiny*/,
-    30 /*to_year_tiny*/,
+    2030 /*from_year*/,
+    2030 /*to_year*/,
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
@@ -4889,8 +4890,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2031    only    -    Feb     2     2:00    0    -
   {
-    31 /*from_year_tiny*/,
-    31 /*to_year_tiny*/,
+    2031 /*from_year*/,
+    2031 /*to_year*/,
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -4901,8 +4902,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2031    only    -    Dec    14     3:00    -1:00    -
   {
-    31 /*from_year_tiny*/,
-    31 /*to_year_tiny*/,
+    2031 /*from_year*/,
+    2031 /*to_year*/,
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
@@ -4913,8 +4914,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2032    only    -    Jan    18     2:00    0    -
   {
-    32 /*from_year_tiny*/,
-    32 /*to_year_tiny*/,
+    2032 /*from_year*/,
+    2032 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     18 /*on_day_of_month*/,
@@ -4925,8 +4926,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2032    only    -    Nov    28     3:00    -1:00    -
   {
-    32 /*from_year_tiny*/,
-    32 /*to_year_tiny*/,
+    2032 /*from_year*/,
+    2032 /*to_year*/,
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
@@ -4937,8 +4938,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2033    only    -    Jan     9     2:00    0    -
   {
-    33 /*from_year_tiny*/,
-    33 /*to_year_tiny*/,
+    2033 /*from_year*/,
+    2033 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
@@ -4949,8 +4950,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2033    only    -    Nov    20     3:00    -1:00    -
   {
-    33 /*from_year_tiny*/,
-    33 /*to_year_tiny*/,
+    2033 /*from_year*/,
+    2033 /*to_year*/,
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -4961,8 +4962,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2033    only    -    Dec    25     2:00    0    -
   {
-    33 /*from_year_tiny*/,
-    33 /*to_year_tiny*/,
+    2033 /*from_year*/,
+    2033 /*to_year*/,
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     25 /*on_day_of_month*/,
@@ -4973,8 +4974,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2034    only    -    Nov     5     3:00    -1:00    -
   {
-    34 /*from_year_tiny*/,
-    34 /*to_year_tiny*/,
+    2034 /*from_year*/,
+    2034 /*to_year*/,
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     5 /*on_day_of_month*/,
@@ -4985,8 +4986,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2034    only    -    Dec    17     2:00    0    -
   {
-    34 /*from_year_tiny*/,
-    34 /*to_year_tiny*/,
+    2034 /*from_year*/,
+    2034 /*to_year*/,
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     17 /*on_day_of_month*/,
@@ -4997,8 +4998,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2035    only    -    Oct    28     3:00    -1:00    -
   {
-    35 /*from_year_tiny*/,
-    35 /*to_year_tiny*/,
+    2035 /*from_year*/,
+    2035 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
@@ -5009,8 +5010,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2035    only    -    Dec     9     2:00    0    -
   {
-    35 /*from_year_tiny*/,
-    35 /*to_year_tiny*/,
+    2035 /*from_year*/,
+    2035 /*to_year*/,
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
@@ -5021,8 +5022,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2036    only    -    Oct    19     3:00    -1:00    -
   {
-    36 /*from_year_tiny*/,
-    36 /*to_year_tiny*/,
+    2036 /*from_year*/,
+    2036 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
@@ -5033,8 +5034,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2036    only    -    Nov    23     2:00    0    -
   {
-    36 /*from_year_tiny*/,
-    36 /*to_year_tiny*/,
+    2036 /*from_year*/,
+    2036 /*to_year*/,
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
@@ -5045,8 +5046,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2037    only    -    Oct     4     3:00    -1:00    -
   {
-    37 /*from_year_tiny*/,
-    37 /*to_year_tiny*/,
+    2037 /*from_year*/,
+    2037 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
@@ -5057,8 +5058,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2037    only    -    Nov    15     2:00    0    -
   {
-    37 /*from_year_tiny*/,
-    37 /*to_year_tiny*/,
+    2037 /*from_year*/,
+    2037 /*to_year*/,
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -5069,8 +5070,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2038    only    -    Sep    26     3:00    -1:00    -
   {
-    38 /*from_year_tiny*/,
-    38 /*to_year_tiny*/,
+    2038 /*from_year*/,
+    2038 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     26 /*on_day_of_month*/,
@@ -5081,8 +5082,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2038    only    -    Nov     7     2:00    0    -
   {
-    38 /*from_year_tiny*/,
-    38 /*to_year_tiny*/,
+    2038 /*from_year*/,
+    2038 /*to_year*/,
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
@@ -5093,8 +5094,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2039    only    -    Sep    18     3:00    -1:00    -
   {
-    39 /*from_year_tiny*/,
-    39 /*to_year_tiny*/,
+    2039 /*from_year*/,
+    2039 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     18 /*on_day_of_month*/,
@@ -5105,8 +5106,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2039    only    -    Oct    23     2:00    0    -
   {
-    39 /*from_year_tiny*/,
-    39 /*to_year_tiny*/,
+    2039 /*from_year*/,
+    2039 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
@@ -5117,8 +5118,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2040    only    -    Sep     2     3:00    -1:00    -
   {
-    40 /*from_year_tiny*/,
-    40 /*to_year_tiny*/,
+    2040 /*from_year*/,
+    2040 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -5129,8 +5130,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2040    only    -    Oct    14     2:00    0    -
   {
-    40 /*from_year_tiny*/,
-    40 /*to_year_tiny*/,
+    2040 /*from_year*/,
+    2040 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
@@ -5141,8 +5142,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2041    only    -    Aug    25     3:00    -1:00    -
   {
-    41 /*from_year_tiny*/,
-    41 /*to_year_tiny*/,
+    2041 /*from_year*/,
+    2041 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     25 /*on_day_of_month*/,
@@ -5153,8 +5154,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2041    only    -    Sep    29     2:00    0    -
   {
-    41 /*from_year_tiny*/,
-    41 /*to_year_tiny*/,
+    2041 /*from_year*/,
+    2041 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     29 /*on_day_of_month*/,
@@ -5165,8 +5166,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2042    only    -    Aug    10     3:00    -1:00    -
   {
-    42 /*from_year_tiny*/,
-    42 /*to_year_tiny*/,
+    2042 /*from_year*/,
+    2042 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     10 /*on_day_of_month*/,
@@ -5177,8 +5178,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2042    only    -    Sep    21     2:00    0    -
   {
-    42 /*from_year_tiny*/,
-    42 /*to_year_tiny*/,
+    2042 /*from_year*/,
+    2042 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -5189,8 +5190,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2043    only    -    Aug     2     3:00    -1:00    -
   {
-    43 /*from_year_tiny*/,
-    43 /*to_year_tiny*/,
+    2043 /*from_year*/,
+    2043 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -5201,8 +5202,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2043    only    -    Sep    13     2:00    0    -
   {
-    43 /*from_year_tiny*/,
-    43 /*to_year_tiny*/,
+    2043 /*from_year*/,
+    2043 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     13 /*on_day_of_month*/,
@@ -5213,8 +5214,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2044    only    -    Jul    24     3:00    -1:00    -
   {
-    44 /*from_year_tiny*/,
-    44 /*to_year_tiny*/,
+    2044 /*from_year*/,
+    2044 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     24 /*on_day_of_month*/,
@@ -5225,8 +5226,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2044    only    -    Aug    28     2:00    0    -
   {
-    44 /*from_year_tiny*/,
-    44 /*to_year_tiny*/,
+    2044 /*from_year*/,
+    2044 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
@@ -5237,8 +5238,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2045    only    -    Jul     9     3:00    -1:00    -
   {
-    45 /*from_year_tiny*/,
-    45 /*to_year_tiny*/,
+    2045 /*from_year*/,
+    2045 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
@@ -5249,8 +5250,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2045    only    -    Aug    20     2:00    0    -
   {
-    45 /*from_year_tiny*/,
-    45 /*to_year_tiny*/,
+    2045 /*from_year*/,
+    2045 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
@@ -5261,8 +5262,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2046    only    -    Jul     1     3:00    -1:00    -
   {
-    46 /*from_year_tiny*/,
-    46 /*to_year_tiny*/,
+    2046 /*from_year*/,
+    2046 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5273,8 +5274,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2046    only    -    Aug    12     2:00    0    -
   {
-    46 /*from_year_tiny*/,
-    46 /*to_year_tiny*/,
+    2046 /*from_year*/,
+    2046 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     12 /*on_day_of_month*/,
@@ -5285,8 +5286,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2047    only    -    Jun    23     3:00    -1:00    -
   {
-    47 /*from_year_tiny*/,
-    47 /*to_year_tiny*/,
+    2047 /*from_year*/,
+    2047 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
@@ -5297,8 +5298,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2047    only    -    Jul    28     2:00    0    -
   {
-    47 /*from_year_tiny*/,
-    47 /*to_year_tiny*/,
+    2047 /*from_year*/,
+    2047 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
@@ -5309,8 +5310,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2048    only    -    Jun     7     3:00    -1:00    -
   {
-    48 /*from_year_tiny*/,
-    48 /*to_year_tiny*/,
+    2048 /*from_year*/,
+    2048 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
@@ -5321,8 +5322,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2048    only    -    Jul    19     2:00    0    -
   {
-    48 /*from_year_tiny*/,
-    48 /*to_year_tiny*/,
+    2048 /*from_year*/,
+    2048 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
@@ -5333,8 +5334,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2049    only    -    May    30     3:00    -1:00    -
   {
-    49 /*from_year_tiny*/,
-    49 /*to_year_tiny*/,
+    2049 /*from_year*/,
+    2049 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
@@ -5345,8 +5346,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2049    only    -    Jul     4     2:00    0    -
   {
-    49 /*from_year_tiny*/,
-    49 /*to_year_tiny*/,
+    2049 /*from_year*/,
+    2049 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
@@ -5357,8 +5358,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2050    only    -    May    15     3:00    -1:00    -
   {
-    50 /*from_year_tiny*/,
-    50 /*to_year_tiny*/,
+    2050 /*from_year*/,
+    2050 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -5369,8 +5370,8 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2050    only    -    Jun    26     2:00    0    -
   {
-    50 /*from_year_tiny*/,
-    50 /*to_year_tiny*/,
+    2050 /*from_year*/,
+    2050 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     26 /*on_day_of_month*/,
@@ -5381,14 +5382,914 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   },
   // Rule    Morocco    2051    only    -    May     7     3:00    -1:00    -
   {
-    51 /*from_year_tiny*/,
-    51 /*to_year_tiny*/,
+    2051 /*from_year*/,
+    2051 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
     12 /*at_time_code*/,
     0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
     0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2051    only    -    Jun    18     2:00    0    -
+  {
+    2051 /*from_year*/,
+    2051 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2052    only    -    Apr    28     3:00    -1:00    -
+  {
+    2052 /*from_year*/,
+    2052 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2052    only    -    Jun     2     2:00    0    -
+  {
+    2052 /*from_year*/,
+    2052 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2053    only    -    Apr    13     3:00    -1:00    -
+  {
+    2053 /*from_year*/,
+    2053 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2053    only    -    May    25     2:00    0    -
+  {
+    2053 /*from_year*/,
+    2053 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2054    only    -    Apr     5     3:00    -1:00    -
+  {
+    2054 /*from_year*/,
+    2054 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2054    only    -    May    17     2:00    0    -
+  {
+    2054 /*from_year*/,
+    2054 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2055    only    -    Mar    28     3:00    -1:00    -
+  {
+    2055 /*from_year*/,
+    2055 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2055    only    -    May     2     2:00    0    -
+  {
+    2055 /*from_year*/,
+    2055 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2056    only    -    Mar    12     3:00    -1:00    -
+  {
+    2056 /*from_year*/,
+    2056 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2056    only    -    Apr    23     2:00    0    -
+  {
+    2056 /*from_year*/,
+    2056 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2057    only    -    Mar     4     3:00    -1:00    -
+  {
+    2057 /*from_year*/,
+    2057 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2057    only    -    Apr     8     2:00    0    -
+  {
+    2057 /*from_year*/,
+    2057 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2058    only    -    Feb    17     3:00    -1:00    -
+  {
+    2058 /*from_year*/,
+    2058 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2058    only    -    Mar    31     2:00    0    -
+  {
+    2058 /*from_year*/,
+    2058 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2059    only    -    Feb     9     3:00    -1:00    -
+  {
+    2059 /*from_year*/,
+    2059 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2059    only    -    Mar    23     2:00    0    -
+  {
+    2059 /*from_year*/,
+    2059 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2060    only    -    Feb     1     3:00    -1:00    -
+  {
+    2060 /*from_year*/,
+    2060 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2060    only    -    Mar     7     2:00    0    -
+  {
+    2060 /*from_year*/,
+    2060 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2061    only    -    Jan    16     3:00    -1:00    -
+  {
+    2061 /*from_year*/,
+    2061 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2061    only    -    Feb    27     2:00    0    -
+  {
+    2061 /*from_year*/,
+    2061 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2062    only    -    Jan     8     3:00    -1:00    -
+  {
+    2062 /*from_year*/,
+    2062 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2062    only    -    Feb    19     2:00    0    -
+  {
+    2062 /*from_year*/,
+    2062 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2062    only    -    Dec    31     3:00    -1:00    -
+  {
+    2062 /*from_year*/,
+    2062 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2063    only    -    Feb     4     2:00    0    -
+  {
+    2063 /*from_year*/,
+    2063 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2063    only    -    Dec    16     3:00    -1:00    -
+  {
+    2063 /*from_year*/,
+    2063 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2064    only    -    Jan    27     2:00    0    -
+  {
+    2064 /*from_year*/,
+    2064 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2064    only    -    Dec     7     3:00    -1:00    -
+  {
+    2064 /*from_year*/,
+    2064 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2065    only    -    Jan    11     2:00    0    -
+  {
+    2065 /*from_year*/,
+    2065 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2065    only    -    Nov    22     3:00    -1:00    -
+  {
+    2065 /*from_year*/,
+    2065 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2066    only    -    Jan     3     2:00    0    -
+  {
+    2066 /*from_year*/,
+    2066 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2066    only    -    Nov    14     3:00    -1:00    -
+  {
+    2066 /*from_year*/,
+    2066 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2066    only    -    Dec    26     2:00    0    -
+  {
+    2066 /*from_year*/,
+    2066 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2067    only    -    Nov     6     3:00    -1:00    -
+  {
+    2067 /*from_year*/,
+    2067 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2067    only    -    Dec    11     2:00    0    -
+  {
+    2067 /*from_year*/,
+    2067 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2068    only    -    Oct    21     3:00    -1:00    -
+  {
+    2068 /*from_year*/,
+    2068 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2068    only    -    Dec     2     2:00    0    -
+  {
+    2068 /*from_year*/,
+    2068 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2069    only    -    Oct    13     3:00    -1:00    -
+  {
+    2069 /*from_year*/,
+    2069 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2069    only    -    Nov    24     2:00    0    -
+  {
+    2069 /*from_year*/,
+    2069 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2070    only    -    Oct     5     3:00    -1:00    -
+  {
+    2070 /*from_year*/,
+    2070 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2070    only    -    Nov     9     2:00    0    -
+  {
+    2070 /*from_year*/,
+    2070 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2071    only    -    Sep    20     3:00    -1:00    -
+  {
+    2071 /*from_year*/,
+    2071 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2071    only    -    Nov     1     2:00    0    -
+  {
+    2071 /*from_year*/,
+    2071 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2072    only    -    Sep    11     3:00    -1:00    -
+  {
+    2072 /*from_year*/,
+    2072 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2072    only    -    Oct    16     2:00    0    -
+  {
+    2072 /*from_year*/,
+    2072 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2073    only    -    Aug    27     3:00    -1:00    -
+  {
+    2073 /*from_year*/,
+    2073 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2073    only    -    Oct     8     2:00    0    -
+  {
+    2073 /*from_year*/,
+    2073 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2074    only    -    Aug    19     3:00    -1:00    -
+  {
+    2074 /*from_year*/,
+    2074 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2074    only    -    Sep    30     2:00    0    -
+  {
+    2074 /*from_year*/,
+    2074 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2075    only    -    Aug    11     3:00    -1:00    -
+  {
+    2075 /*from_year*/,
+    2075 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2075    only    -    Sep    15     2:00    0    -
+  {
+    2075 /*from_year*/,
+    2075 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2076    only    -    Jul    26     3:00    -1:00    -
+  {
+    2076 /*from_year*/,
+    2076 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2076    only    -    Sep     6     2:00    0    -
+  {
+    2076 /*from_year*/,
+    2076 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2077    only    -    Jul    18     3:00    -1:00    -
+  {
+    2077 /*from_year*/,
+    2077 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2077    only    -    Aug    29     2:00    0    -
+  {
+    2077 /*from_year*/,
+    2077 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2078    only    -    Jul    10     3:00    -1:00    -
+  {
+    2078 /*from_year*/,
+    2078 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2078    only    -    Aug    14     2:00    0    -
+  {
+    2078 /*from_year*/,
+    2078 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2079    only    -    Jun    25     3:00    -1:00    -
+  {
+    2079 /*from_year*/,
+    2079 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2079    only    -    Aug     6     2:00    0    -
+  {
+    2079 /*from_year*/,
+    2079 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2080    only    -    Jun    16     3:00    -1:00    -
+  {
+    2080 /*from_year*/,
+    2080 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2080    only    -    Jul    21     2:00    0    -
+  {
+    2080 /*from_year*/,
+    2080 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2081    only    -    Jun     1     3:00    -1:00    -
+  {
+    2081 /*from_year*/,
+    2081 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2081    only    -    Jul    13     2:00    0    -
+  {
+    2081 /*from_year*/,
+    2081 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2082    only    -    May    24     3:00    -1:00    -
+  {
+    2082 /*from_year*/,
+    2082 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2082    only    -    Jul     5     2:00    0    -
+  {
+    2082 /*from_year*/,
+    2082 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2083    only    -    May    16     3:00    -1:00    -
+  {
+    2083 /*from_year*/,
+    2083 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2083    only    -    Jun    20     2:00    0    -
+  {
+    2083 /*from_year*/,
+    2083 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2084    only    -    Apr    30     3:00    -1:00    -
+  {
+    2084 /*from_year*/,
+    2084 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2084    only    -    Jun    11     2:00    0    -
+  {
+    2084 /*from_year*/,
+    2084 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2085    only    -    Apr    22     3:00    -1:00    -
+  {
+    2085 /*from_year*/,
+    2085 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2085    only    -    Jun     3     2:00    0    -
+  {
+    2085 /*from_year*/,
+    2085 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2086    only    -    Apr    14     3:00    -1:00    -
+  {
+    2086 /*from_year*/,
+    2086 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2086    only    -    May    19     2:00    0    -
+  {
+    2086 /*from_year*/,
+    2086 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2087    only    -    Mar    30     3:00    -1:00    -
+  {
+    2087 /*from_year*/,
+    2087 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    12 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule    Morocco    2087    only    -    May    11     2:00    0    -
+  {
+    2087 /*from_year*/,
+    2087 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
     '-' /*letter*/,
   },
 
@@ -5399,7 +6300,7 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
 const AtcZonePolicy kAtcPolicyMorocco  = {
   kAtcZoneRulesMorocco /*rules*/,
   NULL /*letters*/,
-  94 /*num_rules*/,
+  169 /*num_rules*/,
   0 /*num_letters*/,
 };
 
@@ -5413,8 +6314,8 @@ const AtcZonePolicy kAtcPolicyMorocco  = {
 static const AtcZoneRule kAtcZoneRulesNC[]  = {
   // Rule    NC    1997    only    -    Mar     2    2:00s    0    -
   {
-    -3 /*from_year_tiny*/,
-    -3 /*to_year_tiny*/,
+    1997 /*from_year*/,
+    1997 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -5445,8 +6346,8 @@ const AtcZonePolicy kAtcPolicyNC  = {
 static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
   // Rule    NT_YK    1980    1986    -    Apr    lastSun    2:00    1:00    D
   {
-    -20 /*from_year_tiny*/,
-    -14 /*to_year_tiny*/,
+    1980 /*from_year*/,
+    1986 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -5457,8 +6358,8 @@ static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
   },
   // Rule    NT_YK    1980    2006    -    Oct    lastSun    2:00    0    S
   {
-    -20 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1980 /*from_year*/,
+    2006 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -5469,8 +6370,8 @@ static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
   },
   // Rule    NT_YK    1987    2006    -    Apr    Sun>=1    2:00    1:00    D
   {
-    -13 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1987 /*from_year*/,
+    2006 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5501,8 +6402,8 @@ const AtcZonePolicy kAtcPolicyNT_YK  = {
 static const AtcZoneRule kAtcZoneRulesNZ[]  = {
   // Rule    NZ    1989    only    -    Oct    Sun>=8    2:00s    1:00    D
   {
-    -11 /*from_year_tiny*/,
-    -11 /*to_year_tiny*/,
+    1989 /*from_year*/,
+    1989 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -5513,8 +6414,8 @@ static const AtcZoneRule kAtcZoneRulesNZ[]  = {
   },
   // Rule    NZ    1990    2006    -    Oct    Sun>=1    2:00s    1:00    D
   {
-    -10 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1990 /*from_year*/,
+    2006 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5525,8 +6426,8 @@ static const AtcZoneRule kAtcZoneRulesNZ[]  = {
   },
   // Rule    NZ    1990    2007    -    Mar    Sun>=15    2:00s    0    S
   {
-    -10 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    1990 /*from_year*/,
+    2007 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -5537,8 +6438,8 @@ static const AtcZoneRule kAtcZoneRulesNZ[]  = {
   },
   // Rule    NZ    2007    max    -    Sep    lastSun    2:00s    1:00    D
   {
-    7 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    9999 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -5549,8 +6450,8 @@ static const AtcZoneRule kAtcZoneRulesNZ[]  = {
   },
   // Rule    NZ    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
-    8 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    9999 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5581,8 +6482,8 @@ const AtcZonePolicy kAtcPolicyNZ  = {
 static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
   // Rule    Namibia    1994    only    -    Mar    21    0:00    -1:00    WAT
   {
-    -6 /*from_year_tiny*/,
-    -6 /*to_year_tiny*/,
+    1994 /*from_year*/,
+    1994 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -5593,8 +6494,8 @@ static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
   },
   // Rule    Namibia    1994    2017    -    Sep    Sun>=1    2:00    0    CAT
   {
-    -6 /*from_year_tiny*/,
-    17 /*to_year_tiny*/,
+    1994 /*from_year*/,
+    2017 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5605,8 +6506,8 @@ static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
   },
   // Rule    Namibia    1995    2017    -    Apr    Sun>=1    2:00    -1:00    WAT
   {
-    -5 /*from_year_tiny*/,
-    17 /*to_year_tiny*/,
+    1995 /*from_year*/,
+    2017 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5642,8 +6543,8 @@ const AtcZonePolicy kAtcPolicyNamibia  = {
 static const AtcZoneRule kAtcZoneRulesNic[]  = {
   // Rule    Nic    1979    1980    -    Jun    Mon>=23    0:00    0    S
   {
-    -21 /*from_year_tiny*/,
-    -20 /*to_year_tiny*/,
+    1979 /*from_year*/,
+    1980 /*to_year*/,
     6 /*in_month*/,
     1 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
@@ -5654,8 +6555,8 @@ static const AtcZoneRule kAtcZoneRulesNic[]  = {
   },
   // Rule    Nic    2005    only    -    Apr    10    0:00    1:00    D
   {
-    5 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    2005 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     10 /*on_day_of_month*/,
@@ -5666,8 +6567,8 @@ static const AtcZoneRule kAtcZoneRulesNic[]  = {
   },
   // Rule    Nic    2005    only    -    Oct    Sun>=1    0:00    0    S
   {
-    5 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    2005 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5678,8 +6579,8 @@ static const AtcZoneRule kAtcZoneRulesNic[]  = {
   },
   // Rule    Nic    2006    only    -    Apr    30    2:00    1:00    D
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
@@ -5690,8 +6591,8 @@ static const AtcZoneRule kAtcZoneRulesNic[]  = {
   },
   // Rule    Nic    2006    only    -    Oct    Sun>=1    1:00    0    S
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5722,8 +6623,8 @@ const AtcZonePolicy kAtcPolicyNic  = {
 static const AtcZoneRule kAtcZoneRulesPRC[]  = {
   // Rule    PRC    1986    1991    -    Sep    Sun>=11     2:00    0    S
   {
-    -14 /*from_year_tiny*/,
-    -9 /*to_year_tiny*/,
+    1986 /*from_year*/,
+    1991 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     11 /*on_day_of_month*/,
@@ -5754,8 +6655,8 @@ const AtcZonePolicy kAtcPolicyPRC  = {
 static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
   // Anchor: Rule Pakistan    2002    only    -    Oct    Sun>=2    0:00    0    -
   {
-    -127 /*from_year_tiny*/,
-    -127 /*to_year_tiny*/,
+    0 /*from_year*/,
+    0 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5766,8 +6667,8 @@ static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
   },
   // Rule Pakistan    2002    only    -    Apr    Sun>=2    0:00    1:00    S
   {
-    2 /*from_year_tiny*/,
-    2 /*to_year_tiny*/,
+    2002 /*from_year*/,
+    2002 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -5778,8 +6679,8 @@ static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
   },
   // Rule Pakistan    2002    only    -    Oct    Sun>=2    0:00    0    -
   {
-    2 /*from_year_tiny*/,
-    2 /*to_year_tiny*/,
+    2002 /*from_year*/,
+    2002 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -5790,8 +6691,8 @@ static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
   },
   // Rule Pakistan    2008    only    -    Jun    1    0:00    1:00    S
   {
-    8 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2008 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5802,8 +6703,8 @@ static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
   },
   // Rule Pakistan    2008    2009    -    Nov    1    0:00    0    -
   {
-    8 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2009 /*to_year*/,
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5814,8 +6715,8 @@ static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
   },
   // Rule Pakistan    2009    only    -    Apr    15    0:00    1:00    S
   {
-    9 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2009 /*from_year*/,
+    2009 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -5838,16 +6739,16 @@ const AtcZonePolicy kAtcPolicyPakistan  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Palestine
-// Rules: 31
-// Memory (8-bit): 285
-// Memory (32-bit): 384
+// Rules: 33
+// Memory (8-bit): 303
+// Memory (32-bit): 408
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   // Anchor: Rule Palestine    1999    2003    -    Oct    Fri>=15    0:00    0    -
   {
-    -127 /*from_year_tiny*/,
-    -127 /*to_year_tiny*/,
+    0 /*from_year*/,
+    0 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5858,8 +6759,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    1999    2005    -    Apr    Fri>=15    0:00    1:00    S
   {
-    -1 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    1999 /*from_year*/,
+    2005 /*to_year*/,
     4 /*in_month*/,
     5 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -5870,8 +6771,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    1999    2003    -    Oct    Fri>=15    0:00    0    -
   {
-    -1 /*from_year_tiny*/,
-    3 /*to_year_tiny*/,
+    1999 /*from_year*/,
+    2003 /*to_year*/,
     10 /*in_month*/,
     5 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -5882,8 +6783,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2004    only    -    Oct     1    1:00    0    -
   {
-    4 /*from_year_tiny*/,
-    4 /*to_year_tiny*/,
+    2004 /*from_year*/,
+    2004 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5894,8 +6795,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2005    only    -    Oct     4    2:00    0    -
   {
-    5 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    2005 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
@@ -5906,8 +6807,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2006    2007    -    Apr     1    0:00    1:00    S
   {
-    6 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2007 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5918,8 +6819,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2006    only    -    Sep    22    0:00    0    -
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
@@ -5930,8 +6831,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2007    only    -    Sep    13    2:00    0    -
   {
-    7 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2007 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     13 /*on_day_of_month*/,
@@ -5942,8 +6843,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2008    2009    -    Mar    lastFri    0:00    1:00    S
   {
-    8 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2009 /*to_year*/,
     3 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -5954,8 +6855,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2008    only    -    Sep     1    0:00    0    -
   {
-    8 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2008 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5966,8 +6867,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2009    only    -    Sep     4    1:00    0    -
   {
-    9 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2009 /*from_year*/,
+    2009 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
@@ -5978,8 +6879,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2010    only    -    Mar    26    0:00    1:00    S
   {
-    10 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    2010 /*from_year*/,
+    2010 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     26 /*on_day_of_month*/,
@@ -5990,8 +6891,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2010    only    -    Aug    11    0:00    0    -
   {
-    10 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    2010 /*from_year*/,
+    2010 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     11 /*on_day_of_month*/,
@@ -6002,8 +6903,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2011    only    -    Apr     1    0:01    1:00    S
   {
-    11 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2011 /*from_year*/,
+    2011 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6014,8 +6915,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2011    only    -    Aug     1    0:00    0    -
   {
-    11 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2011 /*from_year*/,
+    2011 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6026,8 +6927,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2011    only    -    Aug    30    0:00    1:00    S
   {
-    11 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2011 /*from_year*/,
+    2011 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
@@ -6038,8 +6939,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2011    only    -    Sep    30    0:00    0    -
   {
-    11 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2011 /*from_year*/,
+    2011 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
@@ -6050,8 +6951,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2012    2014    -    Mar    lastThu    24:00    1:00    S
   {
-    12 /*from_year_tiny*/,
-    14 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2014 /*to_year*/,
     3 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6062,8 +6963,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2012    only    -    Sep    21    1:00    0    -
   {
-    12 /*from_year_tiny*/,
-    12 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2012 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -6074,8 +6975,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2013    only    -    Sep    27    0:00    0    -
   {
-    13 /*from_year_tiny*/,
-    13 /*to_year_tiny*/,
+    2013 /*from_year*/,
+    2013 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     27 /*on_day_of_month*/,
@@ -6086,8 +6987,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2014    only    -    Oct    24    0:00    0    -
   {
-    14 /*from_year_tiny*/,
-    14 /*to_year_tiny*/,
+    2014 /*from_year*/,
+    2014 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     24 /*on_day_of_month*/,
@@ -6098,8 +6999,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2015    only    -    Mar    28    0:00    1:00    S
   {
-    15 /*from_year_tiny*/,
-    15 /*to_year_tiny*/,
+    2015 /*from_year*/,
+    2015 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
@@ -6110,8 +7011,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2015    only    -    Oct    23    1:00    0    -
   {
-    15 /*from_year_tiny*/,
-    15 /*to_year_tiny*/,
+    2015 /*from_year*/,
+    2015 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
@@ -6120,25 +7021,25 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
     '-' /*letter*/,
   },
-  // Rule Palestine    2016    2018    -    Mar    Sat>=24    1:00    1:00    S
+  // Rule Palestine    2016    2018    -    Mar    Sat<=30    1:00    1:00    S
   {
-    16 /*from_year_tiny*/,
-    18 /*to_year_tiny*/,
+    2016 /*from_year*/,
+    2018 /*to_year*/,
     3 /*in_month*/,
     6 /*on_day_of_week*/,
-    24 /*on_day_of_month*/,
+    -30 /*on_day_of_month*/,
     4 /*at_time_code*/,
     0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
     8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
     'S' /*letter*/,
   },
-  // Rule Palestine    2016    2018    -    Oct    Sat>=24    1:00    0    -
+  // Rule Palestine    2016    2018    -    Oct    Sat<=30    1:00    0    -
   {
-    16 /*from_year_tiny*/,
-    18 /*to_year_tiny*/,
+    2016 /*from_year*/,
+    2018 /*to_year*/,
     10 /*in_month*/,
     6 /*on_day_of_week*/,
-    24 /*on_day_of_month*/,
+    -30 /*on_day_of_month*/,
     4 /*at_time_code*/,
     0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
     4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
@@ -6146,8 +7047,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2019    only    -    Mar    29    0:00    1:00    S
   {
-    19 /*from_year_tiny*/,
-    19 /*to_year_tiny*/,
+    2019 /*from_year*/,
+    2019 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     29 /*on_day_of_month*/,
@@ -6156,25 +7057,25 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
     'S' /*letter*/,
   },
-  // Rule Palestine    2019    only    -    Oct    Sat>=24    0:00    0    -
+  // Rule Palestine    2019    only    -    Oct    Sat<=30    0:00    0    -
   {
-    19 /*from_year_tiny*/,
-    19 /*to_year_tiny*/,
+    2019 /*from_year*/,
+    2019 /*to_year*/,
     10 /*in_month*/,
     6 /*on_day_of_week*/,
-    24 /*on_day_of_month*/,
+    -30 /*on_day_of_month*/,
     0 /*at_time_code*/,
     0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
     4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
     '-' /*letter*/,
   },
-  // Rule Palestine    2020    2021    -    Mar    Sat>=24    0:00    1:00    S
+  // Rule Palestine    2020    2021    -    Mar    Sat<=30    0:00    1:00    S
   {
-    20 /*from_year_tiny*/,
-    21 /*to_year_tiny*/,
+    2020 /*from_year*/,
+    2021 /*to_year*/,
     3 /*in_month*/,
     6 /*on_day_of_week*/,
-    24 /*on_day_of_month*/,
+    -30 /*on_day_of_month*/,
     0 /*at_time_code*/,
     0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
     8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
@@ -6182,8 +7083,8 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   },
   // Rule Palestine    2020    only    -    Oct    24    1:00    0    -
   {
-    20 /*from_year_tiny*/,
-    20 /*to_year_tiny*/,
+    2020 /*from_year*/,
+    2020 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     24 /*on_day_of_month*/,
@@ -6192,26 +7093,50 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
     '-' /*letter*/,
   },
-  // Rule Palestine    2021    max    -    Oct    Fri>=23    1:00    0    -
+  // Rule Palestine    2021    only    -    Oct    29    1:00    0    -
   {
-    21 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2021 /*from_year*/,
+    2021 /*to_year*/,
     10 /*in_month*/,
-    5 /*on_day_of_week*/,
-    23 /*on_day_of_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
     4 /*at_time_code*/,
     0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
     4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
     '-' /*letter*/,
   },
-  // Rule Palestine    2022    max    -    Mar    Sun>=25    0:00    1:00    S
+  // Rule Palestine    2022    only    -    Mar    27    0:00    1:00    S
   {
-    22 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2022 /*from_year*/,
+    2022 /*to_year*/,
     3 /*in_month*/,
-    7 /*on_day_of_week*/,
-    25 /*on_day_of_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
     0 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    'S' /*letter*/,
+  },
+  // Rule Palestine    2022    max    -    Oct    Sat<=30    2:00    0    -
+  {
+    2022 /*from_year*/,
+    9999 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    -30 /*on_day_of_month*/,
+    8 /*at_time_code*/,
+    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
+    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    '-' /*letter*/,
+  },
+  // Rule Palestine    2023    max    -    Mar    Sat<=30    2:00    1:00    S
+  {
+    2023 /*from_year*/,
+    9999 /*to_year*/,
+    3 /*in_month*/,
+    6 /*on_day_of_week*/,
+    -30 /*on_day_of_month*/,
+    8 /*at_time_code*/,
     0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
     8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
     'S' /*letter*/,
@@ -6224,7 +7149,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
 const AtcZonePolicy kAtcPolicyPalestine  = {
   kAtcZoneRulesPalestine /*rules*/,
   NULL /*letters*/,
-  31 /*num_rules*/,
+  33 /*num_rules*/,
   0 /*num_letters*/,
 };
 
@@ -6238,8 +7163,8 @@ const AtcZonePolicy kAtcPolicyPalestine  = {
 static const AtcZoneRule kAtcZoneRulesPara[]  = {
   // Rule    Para    1996    2001    -    Oct    Sun>=1    0:00    1:00    -
   {
-    -4 /*from_year_tiny*/,
-    1 /*to_year_tiny*/,
+    1996 /*from_year*/,
+    2001 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6250,8 +7175,8 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
   },
   // Rule    Para    1997    only    -    Feb    lastSun    0:00    0    -
   {
-    -3 /*from_year_tiny*/,
-    -3 /*to_year_tiny*/,
+    1997 /*from_year*/,
+    1997 /*to_year*/,
     2 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6262,8 +7187,8 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
   },
   // Rule    Para    1998    2001    -    Mar    Sun>=1    0:00    0    -
   {
-    -2 /*from_year_tiny*/,
-    1 /*to_year_tiny*/,
+    1998 /*from_year*/,
+    2001 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6274,8 +7199,8 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
   },
   // Rule    Para    2002    2004    -    Apr    Sun>=1    0:00    0    -
   {
-    2 /*from_year_tiny*/,
-    4 /*to_year_tiny*/,
+    2002 /*from_year*/,
+    2004 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6286,8 +7211,8 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
   },
   // Rule    Para    2002    2003    -    Sep    Sun>=1    0:00    1:00    -
   {
-    2 /*from_year_tiny*/,
-    3 /*to_year_tiny*/,
+    2002 /*from_year*/,
+    2003 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6298,8 +7223,8 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
   },
   // Rule    Para    2004    2009    -    Oct    Sun>=15    0:00    1:00    -
   {
-    4 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2004 /*from_year*/,
+    2009 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -6310,8 +7235,8 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
   },
   // Rule    Para    2005    2009    -    Mar    Sun>=8    0:00    0    -
   {
-    5 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    2009 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -6322,8 +7247,8 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
   },
   // Rule    Para    2010    max    -    Oct    Sun>=1    0:00    1:00    -
   {
-    10 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2010 /*from_year*/,
+    9999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6334,8 +7259,8 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
   },
   // Rule    Para    2010    2012    -    Apr    Sun>=8    0:00    0    -
   {
-    10 /*from_year_tiny*/,
-    12 /*to_year_tiny*/,
+    2010 /*from_year*/,
+    2012 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -6346,8 +7271,8 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
   },
   // Rule    Para    2013    max    -    Mar    Sun>=22    0:00    0    -
   {
-    13 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2013 /*from_year*/,
+    9999 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
@@ -6378,8 +7303,8 @@ const AtcZonePolicy kAtcPolicyPara  = {
 static const AtcZoneRule kAtcZoneRulesPeru[]  = {
   // Rule    Peru    1994    only    -    Apr     1    0:00    0    -
   {
-    -6 /*from_year_tiny*/,
-    -6 /*to_year_tiny*/,
+    1994 /*from_year*/,
+    1994 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6410,8 +7335,8 @@ const AtcZonePolicy kAtcPolicyPeru  = {
 static const AtcZoneRule kAtcZoneRulesPhil[]  = {
   // Rule    Phil    1978    only    -    Sep    21    0:00    0    S
   {
-    -22 /*from_year_tiny*/,
-    -22 /*to_year_tiny*/,
+    1978 /*from_year*/,
+    1978 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
@@ -6442,8 +7367,8 @@ const AtcZonePolicy kAtcPolicyPhil  = {
 static const AtcZoneRule kAtcZoneRulesROK[]  = {
   // Rule    ROK    1987    1988    -    Oct    Sun>=8     3:00    0    S
   {
-    -13 /*from_year_tiny*/,
-    -12 /*to_year_tiny*/,
+    1987 /*from_year*/,
+    1988 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -6474,8 +7399,8 @@ const AtcZonePolicy kAtcPolicyROK  = {
 static const AtcZoneRule kAtcZoneRulesRussia[]  = {
   // Rule    Russia    1984    1995    -    Sep    lastSun     2:00s    0    -
   {
-    -16 /*from_year_tiny*/,
-    -5 /*to_year_tiny*/,
+    1984 /*from_year*/,
+    1995 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6486,8 +7411,8 @@ static const AtcZoneRule kAtcZoneRulesRussia[]  = {
   },
   // Rule    Russia    1985    2010    -    Mar    lastSun     2:00s    1:00    S
   {
-    -15 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    1985 /*from_year*/,
+    2010 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6498,8 +7423,8 @@ static const AtcZoneRule kAtcZoneRulesRussia[]  = {
   },
   // Rule    Russia    1996    2010    -    Oct    lastSun     2:00s    0    -
   {
-    -4 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    1996 /*from_year*/,
+    2010 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6530,8 +7455,8 @@ const AtcZonePolicy kAtcPolicyRussia  = {
 static const AtcZoneRule kAtcZoneRulesRussiaAsia[]  = {
   // Rule RussiaAsia    1984    1995    -    Sep    lastSun     2:00s    0    -
   {
-    -16 /*from_year_tiny*/,
-    -5 /*to_year_tiny*/,
+    1984 /*from_year*/,
+    1995 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6542,8 +7467,8 @@ static const AtcZoneRule kAtcZoneRulesRussiaAsia[]  = {
   },
   // Rule RussiaAsia    1985    2010    -    Mar    lastSun     2:00s    1:00    -
   {
-    -15 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    1985 /*from_year*/,
+    2010 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6554,8 +7479,8 @@ static const AtcZoneRule kAtcZoneRulesRussiaAsia[]  = {
   },
   // Rule RussiaAsia    1996    2010    -    Oct    lastSun     2:00s    0    -
   {
-    -4 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    1996 /*from_year*/,
+    2010 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6586,8 +7511,8 @@ const AtcZonePolicy kAtcPolicyRussiaAsia  = {
 static const AtcZoneRule kAtcZoneRulesSA[]  = {
   // Rule    SA    1943    1944    -    Mar    Sun>=15    2:00    0    -
   {
-    -57 /*from_year_tiny*/,
-    -56 /*to_year_tiny*/,
+    1943 /*from_year*/,
+    1944 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -6618,8 +7543,8 @@ const AtcZonePolicy kAtcPolicySA  = {
 static const AtcZoneRule kAtcZoneRulesSalv[]  = {
   // Rule    Salv    1987    1988    -    Sep    lastSun    0:00    0    S
   {
-    -13 /*from_year_tiny*/,
-    -12 /*to_year_tiny*/,
+    1987 /*from_year*/,
+    1988 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6650,8 +7575,8 @@ const AtcZonePolicy kAtcPolicySalv  = {
 static const AtcZoneRule kAtcZoneRulesSanLuis[]  = {
   // Anchor: Rule    SanLuis    2008    2009    -    Mar    Sun>=8    0:00    0    -
   {
-    -127 /*from_year_tiny*/,
-    -127 /*to_year_tiny*/,
+    0 /*from_year*/,
+    0 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6662,8 +7587,8 @@ static const AtcZoneRule kAtcZoneRulesSanLuis[]  = {
   },
   // Rule    SanLuis    2008    2009    -    Mar    Sun>=8    0:00    0    -
   {
-    8 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2009 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -6674,8 +7599,8 @@ static const AtcZoneRule kAtcZoneRulesSanLuis[]  = {
   },
   // Rule    SanLuis    2007    2008    -    Oct    Sun>=8    0:00    1:00    -
   {
-    7 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2008 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -6706,8 +7631,8 @@ const AtcZonePolicy kAtcPolicySanLuis  = {
 static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
   // Rule    StJohns    1987    2006    -    Oct    lastSun    0:01    0    S
   {
-    -13 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1987 /*from_year*/,
+    2006 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6718,8 +7643,8 @@ static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
   },
   // Rule    StJohns    1988    only    -    Apr    Sun>=1    0:01    2:00    DD
   {
-    -12 /*from_year_tiny*/,
-    -12 /*to_year_tiny*/,
+    1988 /*from_year*/,
+    1988 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6730,8 +7655,8 @@ static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
   },
   // Rule    StJohns    1989    2006    -    Apr    Sun>=1    0:01    1:00    D
   {
-    -11 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1989 /*from_year*/,
+    2006 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6742,8 +7667,8 @@ static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
   },
   // Rule    StJohns    2007    2011    -    Mar    Sun>=8    0:01    1:00    D
   {
-    7 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2011 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -6754,8 +7679,8 @@ static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
   },
   // Rule    StJohns    2007    2010    -    Nov    Sun>=1    0:01    0    S
   {
-    7 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2010 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6790,8 +7715,8 @@ const AtcZonePolicy kAtcPolicyStJohns  = {
 static const AtcZoneRule kAtcZoneRulesSudan[]  = {
   // Rule    Sudan    1970    1985    -    Oct    15    0:00    0    -
   {
-    -30 /*from_year_tiny*/,
-    -15 /*to_year_tiny*/,
+    1970 /*from_year*/,
+    1985 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -6822,8 +7747,8 @@ const AtcZonePolicy kAtcPolicySudan  = {
 static const AtcZoneRule kAtcZoneRulesSyria[]  = {
   // Rule    Syria    1994    2005    -    Oct     1    0:00    0    -
   {
-    -6 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    1994 /*from_year*/,
+    2005 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6834,8 +7759,8 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
   },
   // Rule    Syria    1997    1998    -    Mar    lastMon    0:00    1:00    S
   {
-    -3 /*from_year_tiny*/,
-    -2 /*to_year_tiny*/,
+    1997 /*from_year*/,
+    1998 /*to_year*/,
     3 /*in_month*/,
     1 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6846,8 +7771,8 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
   },
   // Rule    Syria    1999    2006    -    Apr     1    0:00    1:00    S
   {
-    -1 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1999 /*from_year*/,
+    2006 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6858,8 +7783,8 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
   },
   // Rule    Syria    2006    only    -    Sep    22    0:00    0    -
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
@@ -6870,8 +7795,8 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
   },
   // Rule    Syria    2007    only    -    Mar    lastFri    0:00    1:00    S
   {
-    7 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2007 /*to_year*/,
     3 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6882,8 +7807,8 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
   },
   // Rule    Syria    2007    only    -    Nov     Fri>=1    0:00    0    -
   {
-    7 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2007 /*to_year*/,
     11 /*in_month*/,
     5 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6894,8 +7819,8 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
   },
   // Rule    Syria    2008    only    -    Apr    Fri>=1    0:00    1:00    S
   {
-    8 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2008 /*to_year*/,
     4 /*in_month*/,
     5 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6906,8 +7831,8 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
   },
   // Rule    Syria    2008    only    -    Nov    1    0:00    0    -
   {
-    8 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2008 /*to_year*/,
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6918,8 +7843,8 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
   },
   // Rule    Syria    2009    only    -    Mar    lastFri    0:00    1:00    S
   {
-    9 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2009 /*from_year*/,
+    2009 /*to_year*/,
     3 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6930,8 +7855,8 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
   },
   // Rule    Syria    2010    2011    -    Apr    Fri>=1    0:00    1:00    S
   {
-    10 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2010 /*from_year*/,
+    2011 /*to_year*/,
     4 /*in_month*/,
     5 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6940,10 +7865,10 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
     'S' /*letter*/,
   },
-  // Rule    Syria    2012    max    -    Mar    lastFri    0:00    1:00    S
+  // Rule    Syria    2012    2022    -    Mar    lastFri    0:00    1:00    S
   {
-    12 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2022 /*to_year*/,
     3 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6952,10 +7877,10 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
     'S' /*letter*/,
   },
-  // Rule    Syria    2009    max    -    Oct    lastFri    0:00    0    -
+  // Rule    Syria    2009    2022    -    Oct    lastFri    0:00    0    -
   {
-    9 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2009 /*from_year*/,
+    2022 /*to_year*/,
     10 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6986,8 +7911,8 @@ const AtcZonePolicy kAtcPolicySyria  = {
 static const AtcZoneRule kAtcZoneRulesTaiwan[]  = {
   // Rule    Taiwan    1979    only    -    Oct    1    0:00    0    S
   {
-    -21 /*from_year_tiny*/,
-    -21 /*to_year_tiny*/,
+    1979 /*from_year*/,
+    1979 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7018,8 +7943,8 @@ const AtcZonePolicy kAtcPolicyTaiwan  = {
 static const AtcZoneRule kAtcZoneRulesThule[]  = {
   // Rule    Thule    1991    1992    -    Sep    lastSun    2:00    0    S
   {
-    -9 /*from_year_tiny*/,
-    -8 /*to_year_tiny*/,
+    1991 /*from_year*/,
+    1992 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7030,8 +7955,8 @@ static const AtcZoneRule kAtcZoneRulesThule[]  = {
   },
   // Rule    Thule    1993    2006    -    Apr    Sun>=1    2:00    1:00    D
   {
-    -7 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1993 /*from_year*/,
+    2006 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7042,8 +7967,8 @@ static const AtcZoneRule kAtcZoneRulesThule[]  = {
   },
   // Rule    Thule    1993    2006    -    Oct    lastSun    2:00    0    S
   {
-    -7 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1993 /*from_year*/,
+    2006 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7054,8 +7979,8 @@ static const AtcZoneRule kAtcZoneRulesThule[]  = {
   },
   // Rule    Thule    2007    max    -    Mar    Sun>=8    2:00    1:00    D
   {
-    7 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    9999 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -7066,8 +7991,8 @@ static const AtcZoneRule kAtcZoneRulesThule[]  = {
   },
   // Rule    Thule    2007    max    -    Nov    Sun>=1    2:00    0    S
   {
-    7 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    9999 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7098,8 +8023,8 @@ const AtcZonePolicy kAtcPolicyThule  = {
 static const AtcZoneRule kAtcZoneRulesTonga[]  = {
   // Anchor: Rule    Tonga    2000    only    -    Mar    19    2:00s    0    -
   {
-    -127 /*from_year_tiny*/,
-    -127 /*to_year_tiny*/,
+    0 /*from_year*/,
+    0 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7110,8 +8035,8 @@ static const AtcZoneRule kAtcZoneRulesTonga[]  = {
   },
   // Rule    Tonga    1999    only    -    Oct     7    2:00s    1:00    -
   {
-    -1 /*from_year_tiny*/,
-    -1 /*to_year_tiny*/,
+    1999 /*from_year*/,
+    1999 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
@@ -7122,8 +8047,8 @@ static const AtcZoneRule kAtcZoneRulesTonga[]  = {
   },
   // Rule    Tonga    2000    only    -    Mar    19    2:00s    0    -
   {
-    0 /*from_year_tiny*/,
-    0 /*to_year_tiny*/,
+    2000 /*from_year*/,
+    2000 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
@@ -7134,8 +8059,8 @@ static const AtcZoneRule kAtcZoneRulesTonga[]  = {
   },
   // Rule    Tonga    2000    2001    -    Nov    Sun>=1    2:00    1:00    -
   {
-    0 /*from_year_tiny*/,
-    1 /*to_year_tiny*/,
+    2000 /*from_year*/,
+    2001 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7146,8 +8071,8 @@ static const AtcZoneRule kAtcZoneRulesTonga[]  = {
   },
   // Rule    Tonga    2001    2002    -    Jan    lastSun    2:00    0    -
   {
-    1 /*from_year_tiny*/,
-    2 /*to_year_tiny*/,
+    2001 /*from_year*/,
+    2002 /*to_year*/,
     1 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7158,8 +8083,8 @@ static const AtcZoneRule kAtcZoneRulesTonga[]  = {
   },
   // Rule    Tonga    2016    only    -    Nov    Sun>=1    2:00    1:00    -
   {
-    16 /*from_year_tiny*/,
-    16 /*to_year_tiny*/,
+    2016 /*from_year*/,
+    2016 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7170,8 +8095,8 @@ static const AtcZoneRule kAtcZoneRulesTonga[]  = {
   },
   // Rule    Tonga    2017    only    -    Jan    Sun>=15    3:00    0    -
   {
-    17 /*from_year_tiny*/,
-    17 /*to_year_tiny*/,
+    2017 /*from_year*/,
+    2017 /*to_year*/,
     1 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
@@ -7202,8 +8127,8 @@ const AtcZonePolicy kAtcPolicyTonga  = {
 static const AtcZoneRule kAtcZoneRulesTroll[]  = {
   // Anchor: Rule    Troll    2004    max    -    Oct    lastSun    1:00u    0:00    +00
   {
-    -127 /*from_year_tiny*/,
-    -127 /*to_year_tiny*/,
+    0 /*from_year*/,
+    0 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7214,8 +8139,8 @@ static const AtcZoneRule kAtcZoneRulesTroll[]  = {
   },
   // Rule    Troll    2005    max    -    Mar    lastSun    1:00u    2:00    +02
   {
-    5 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    9999 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7226,8 +8151,8 @@ static const AtcZoneRule kAtcZoneRulesTroll[]  = {
   },
   // Rule    Troll    2004    max    -    Oct    lastSun    1:00u    0:00    +00
   {
-    4 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2004 /*from_year*/,
+    9999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7263,8 +8188,8 @@ const AtcZonePolicy kAtcPolicyTroll  = {
 static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
   // Rule    Tunisia    1988    1990    -    Sep    lastSun     0:00s    0    -
   {
-    -12 /*from_year_tiny*/,
-    -10 /*to_year_tiny*/,
+    1988 /*from_year*/,
+    1990 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7275,8 +8200,8 @@ static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
   },
   // Rule    Tunisia    2005    only    -    May     1     0:00s    1:00    S
   {
-    5 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    2005 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7287,8 +8212,8 @@ static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
   },
   // Rule    Tunisia    2005    only    -    Sep    30     1:00s    0    -
   {
-    5 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    2005 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
@@ -7299,8 +8224,8 @@ static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
   },
   // Rule    Tunisia    2006    2008    -    Mar    lastSun     2:00s    1:00    S
   {
-    6 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2008 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7311,8 +8236,8 @@ static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
   },
   // Rule    Tunisia    2006    2008    -    Oct    lastSun     2:00s    0    -
   {
-    6 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2008 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7343,8 +8268,8 @@ const AtcZonePolicy kAtcPolicyTunisia  = {
 static const AtcZoneRule kAtcZoneRulesTurkey[]  = {
   // Rule    Turkey    1986    1995    -    Sep    lastSun    1:00s    0    -
   {
-    -14 /*from_year_tiny*/,
-    -5 /*to_year_tiny*/,
+    1986 /*from_year*/,
+    1995 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7355,8 +8280,8 @@ static const AtcZoneRule kAtcZoneRulesTurkey[]  = {
   },
   // Rule    Turkey    1995    2006    -    Mar    lastSun    1:00s    1:00    S
   {
-    -5 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1995 /*from_year*/,
+    2006 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7367,8 +8292,8 @@ static const AtcZoneRule kAtcZoneRulesTurkey[]  = {
   },
   // Rule    Turkey    1996    2006    -    Oct    lastSun    1:00s    0    -
   {
-    -4 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1996 /*from_year*/,
+    2006 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7399,8 +8324,8 @@ const AtcZonePolicy kAtcPolicyTurkey  = {
 static const AtcZoneRule kAtcZoneRulesUS[]  = {
   // Rule    US    1967    2006    -    Oct    lastSun    2:00    0    S
   {
-    -33 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1967 /*from_year*/,
+    2006 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7411,8 +8336,8 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
   },
   // Rule    US    1976    1986    -    Apr    lastSun    2:00    1:00    D
   {
-    -24 /*from_year_tiny*/,
-    -14 /*to_year_tiny*/,
+    1976 /*from_year*/,
+    1986 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7423,8 +8348,8 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
   },
   // Rule    US    1987    2006    -    Apr    Sun>=1    2:00    1:00    D
   {
-    -13 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    1987 /*from_year*/,
+    2006 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7435,8 +8360,8 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
   },
   // Rule    US    2007    max    -    Mar    Sun>=8    2:00    1:00    D
   {
-    7 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    9999 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -7447,8 +8372,8 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
   },
   // Rule    US    2007    max    -    Nov    Sun>=1    2:00    0    S
   {
-    7 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    9999 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7479,8 +8404,8 @@ const AtcZonePolicy kAtcPolicyUS  = {
 static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
   // Rule    Uruguay    1993    only    -    Feb    28     0:00    0    -
   {
-    -7 /*from_year_tiny*/,
-    -7 /*to_year_tiny*/,
+    1993 /*from_year*/,
+    1993 /*to_year*/,
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
@@ -7491,8 +8416,8 @@ static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
   },
   // Rule    Uruguay    2004    only    -    Sep    19     0:00    1:00    -
   {
-    4 /*from_year_tiny*/,
-    4 /*to_year_tiny*/,
+    2004 /*from_year*/,
+    2004 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
@@ -7503,8 +8428,8 @@ static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
   },
   // Rule    Uruguay    2005    only    -    Mar    27     2:00    0    -
   {
-    5 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    2005 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     27 /*on_day_of_month*/,
@@ -7515,8 +8440,8 @@ static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
   },
   // Rule    Uruguay    2005    only    -    Oct     9     2:00    1:00    -
   {
-    5 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    2005 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
@@ -7527,8 +8452,8 @@ static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
   },
   // Rule    Uruguay    2006    2015    -    Mar    Sun>=8     2:00    0    -
   {
-    6 /*from_year_tiny*/,
-    15 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2015 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -7539,8 +8464,8 @@ static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
   },
   // Rule    Uruguay    2006    2014    -    Oct    Sun>=1     2:00    1:00    -
   {
-    6 /*from_year_tiny*/,
-    14 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2014 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7571,8 +8496,8 @@ const AtcZonePolicy kAtcPolicyUruguay  = {
 static const AtcZoneRule kAtcZoneRulesVanuatu[]  = {
   // Rule    Vanuatu    1992    1993    -    Jan    Sat>=22    24:00    0    -
   {
-    -8 /*from_year_tiny*/,
-    -7 /*to_year_tiny*/,
+    1992 /*from_year*/,
+    1993 /*to_year*/,
     1 /*in_month*/,
     6 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
@@ -7603,8 +8528,8 @@ const AtcZonePolicy kAtcPolicyVanuatu  = {
 static const AtcZoneRule kAtcZoneRulesWS[]  = {
   // Anchor: Rule    WS    2011    only    -    Apr    Sat>=1    4:00    0    -
   {
-    -127 /*from_year_tiny*/,
-    -127 /*to_year_tiny*/,
+    0 /*from_year*/,
+    0 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7615,8 +8540,8 @@ static const AtcZoneRule kAtcZoneRulesWS[]  = {
   },
   // Rule    WS    2010    only    -    Sep    lastSun    0:00    1    -
   {
-    10 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    2010 /*from_year*/,
+    2010 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7627,8 +8552,8 @@ static const AtcZoneRule kAtcZoneRulesWS[]  = {
   },
   // Rule    WS    2011    only    -    Apr    Sat>=1    4:00    0    -
   {
-    11 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2011 /*from_year*/,
+    2011 /*to_year*/,
     4 /*in_month*/,
     6 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7639,8 +8564,8 @@ static const AtcZoneRule kAtcZoneRulesWS[]  = {
   },
   // Rule    WS    2011    only    -    Sep    lastSat    3:00    1    -
   {
-    11 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2011 /*from_year*/,
+    2011 /*to_year*/,
     9 /*in_month*/,
     6 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7651,8 +8576,8 @@ static const AtcZoneRule kAtcZoneRulesWS[]  = {
   },
   // Rule    WS    2012    2021    -    Apr    Sun>=1    4:00    0    -
   {
-    12 /*from_year_tiny*/,
-    21 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2021 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7663,8 +8588,8 @@ static const AtcZoneRule kAtcZoneRulesWS[]  = {
   },
   // Rule    WS    2012    2020    -    Sep    lastSun    3:00    1    -
   {
-    12 /*from_year_tiny*/,
-    20 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2020 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7695,8 +8620,8 @@ const AtcZonePolicy kAtcPolicyWS  = {
 static const AtcZoneRule kAtcZoneRulesWinn[]  = {
   // Rule    Winn    1966    1986    -    Apr    lastSun    2:00s    1:00    D
   {
-    -34 /*from_year_tiny*/,
-    -14 /*to_year_tiny*/,
+    1966 /*from_year*/,
+    1986 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7707,8 +8632,8 @@ static const AtcZoneRule kAtcZoneRulesWinn[]  = {
   },
   // Rule    Winn    1966    2005    -    Oct    lastSun    2:00s    0    S
   {
-    -34 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    1966 /*from_year*/,
+    2005 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7719,8 +8644,8 @@ static const AtcZoneRule kAtcZoneRulesWinn[]  = {
   },
   // Rule    Winn    1987    2005    -    Apr    Sun>=1    2:00s    1:00    D
   {
-    -13 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    1987 /*from_year*/,
+    2005 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7751,8 +8676,8 @@ const AtcZonePolicy kAtcPolicyWinn  = {
 static const AtcZoneRule kAtcZoneRulesZion[]  = {
   // Rule    Zion    1998    only    -    Sep     6    0:00    0    S
   {
-    -2 /*from_year_tiny*/,
-    -2 /*to_year_tiny*/,
+    1998 /*from_year*/,
+    1998 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     6 /*on_day_of_month*/,
@@ -7763,8 +8688,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    1999    only    -    Apr     2    2:00    1:00    D
   {
-    -1 /*from_year_tiny*/,
-    -1 /*to_year_tiny*/,
+    1999 /*from_year*/,
+    1999 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -7775,8 +8700,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    1999    only    -    Sep     3    2:00    0    S
   {
-    -1 /*from_year_tiny*/,
-    -1 /*to_year_tiny*/,
+    1999 /*from_year*/,
+    1999 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     3 /*on_day_of_month*/,
@@ -7787,8 +8712,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2000    only    -    Apr    14    2:00    1:00    D
   {
-    0 /*from_year_tiny*/,
-    0 /*to_year_tiny*/,
+    2000 /*from_year*/,
+    2000 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
@@ -7799,8 +8724,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2000    only    -    Oct     6    1:00    0    S
   {
-    0 /*from_year_tiny*/,
-    0 /*to_year_tiny*/,
+    2000 /*from_year*/,
+    2000 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     6 /*on_day_of_month*/,
@@ -7811,8 +8736,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2001    only    -    Apr     9    1:00    1:00    D
   {
-    1 /*from_year_tiny*/,
-    1 /*to_year_tiny*/,
+    2001 /*from_year*/,
+    2001 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
@@ -7823,8 +8748,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2001    only    -    Sep    24    1:00    0    S
   {
-    1 /*from_year_tiny*/,
-    1 /*to_year_tiny*/,
+    2001 /*from_year*/,
+    2001 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     24 /*on_day_of_month*/,
@@ -7835,8 +8760,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2002    only    -    Mar    29    1:00    1:00    D
   {
-    2 /*from_year_tiny*/,
-    2 /*to_year_tiny*/,
+    2002 /*from_year*/,
+    2002 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     29 /*on_day_of_month*/,
@@ -7847,8 +8772,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2002    only    -    Oct     7    1:00    0    S
   {
-    2 /*from_year_tiny*/,
-    2 /*to_year_tiny*/,
+    2002 /*from_year*/,
+    2002 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
@@ -7859,8 +8784,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2003    only    -    Mar    28    1:00    1:00    D
   {
-    3 /*from_year_tiny*/,
-    3 /*to_year_tiny*/,
+    2003 /*from_year*/,
+    2003 /*to_year*/,
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
@@ -7871,8 +8796,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2003    only    -    Oct     3    1:00    0    S
   {
-    3 /*from_year_tiny*/,
-    3 /*to_year_tiny*/,
+    2003 /*from_year*/,
+    2003 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     3 /*on_day_of_month*/,
@@ -7883,8 +8808,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2004    only    -    Apr     7    1:00    1:00    D
   {
-    4 /*from_year_tiny*/,
-    4 /*to_year_tiny*/,
+    2004 /*from_year*/,
+    2004 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
@@ -7895,8 +8820,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2004    only    -    Sep    22    1:00    0    S
   {
-    4 /*from_year_tiny*/,
-    4 /*to_year_tiny*/,
+    2004 /*from_year*/,
+    2004 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
@@ -7907,8 +8832,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2005    2012    -    Apr    Fri<=1    2:00    1:00    D
   {
-    5 /*from_year_tiny*/,
-    12 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    2012 /*to_year*/,
     4 /*in_month*/,
     5 /*on_day_of_week*/,
     -1 /*on_day_of_month*/,
@@ -7919,8 +8844,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2005    only    -    Oct     9    2:00    0    S
   {
-    5 /*from_year_tiny*/,
-    5 /*to_year_tiny*/,
+    2005 /*from_year*/,
+    2005 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
@@ -7931,8 +8856,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2006    only    -    Oct     1    2:00    0    S
   {
-    6 /*from_year_tiny*/,
-    6 /*to_year_tiny*/,
+    2006 /*from_year*/,
+    2006 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7943,8 +8868,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2007    only    -    Sep    16    2:00    0    S
   {
-    7 /*from_year_tiny*/,
-    7 /*to_year_tiny*/,
+    2007 /*from_year*/,
+    2007 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     16 /*on_day_of_month*/,
@@ -7955,8 +8880,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2008    only    -    Oct     5    2:00    0    S
   {
-    8 /*from_year_tiny*/,
-    8 /*to_year_tiny*/,
+    2008 /*from_year*/,
+    2008 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     5 /*on_day_of_month*/,
@@ -7967,8 +8892,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2009    only    -    Sep    27    2:00    0    S
   {
-    9 /*from_year_tiny*/,
-    9 /*to_year_tiny*/,
+    2009 /*from_year*/,
+    2009 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     27 /*on_day_of_month*/,
@@ -7979,8 +8904,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2010    only    -    Sep    12    2:00    0    S
   {
-    10 /*from_year_tiny*/,
-    10 /*to_year_tiny*/,
+    2010 /*from_year*/,
+    2010 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     12 /*on_day_of_month*/,
@@ -7991,8 +8916,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2011    only    -    Oct     2    2:00    0    S
   {
-    11 /*from_year_tiny*/,
-    11 /*to_year_tiny*/,
+    2011 /*from_year*/,
+    2011 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -8003,8 +8928,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2012    only    -    Sep    23    2:00    0    S
   {
-    12 /*from_year_tiny*/,
-    12 /*to_year_tiny*/,
+    2012 /*from_year*/,
+    2012 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
@@ -8015,8 +8940,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2013    max    -    Mar    Fri>=23    2:00    1:00    D
   {
-    13 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2013 /*from_year*/,
+    9999 /*to_year*/,
     3 /*in_month*/,
     5 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
@@ -8027,8 +8952,8 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   },
   // Rule    Zion    2013    max    -    Oct    lastSun    2:00    0    S
   {
-    13 /*from_year_tiny*/,
-    126 /*to_year_tiny*/,
+    2013 /*from_year*/,
+    9999 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
