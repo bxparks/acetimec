@@ -70,26 +70,30 @@ void atc_set_local_epoch_year(int16_t year);
 /**
  * The smallest year (inclusive) for which calculations involving the 32-bit
  * `epoch_seconds` and time zone transitions are guaranteed to be valid without
- * underflowing or overflowing. Valid years satisfy `year >=
+ * underflowing or overflowing. Valid years satisfy the condition `year >=
  * atc_local_valid_year_lower()`.
  *
- * A 32-bit integer has a range of about 136 years, so the actual lower limit is
- * probably close to `atc_get_local_epoch_year() - 68` but this function returns
- * `atc_get_local_epoch_year() - 50` to be conservative. It may return a smaller
- * value in the future if the internal calculations can be verified to avoid
- * underflow or overflow problems.
+ * A 32-bit integer has a range of about 136 years, so the half interval is 68
+ * years. But the algorithms to calculate transitions in `zone_processing.h` use
+ * a 3-year window straddling the current year, so the actual lower limit is
+ * probably closer to `atc_get_local_epoch_year() - 66`. To be conservative,
+ * this function returns `atc_get_local_epoch_year() - 50`. It may return a
+ * smaller value in the future if the internal calculations can be verified to
+ * avoid underflow or overflow problems.
  */
 int16_t atc_local_valid_year_lower();
 
 /**
  * The largest year (exclusive) for which calculations involving the 32-bit
  * `epoch_seconds` and time zone transitions are guaranteed to be valid without
- * underflowing or overflowing. Valid years satisfy `year <
+ * underflowing or overflowing. Valid years satisfy the condition `year <
  * atc_local_valid_year_upper()`.
  *
- * A 32-bit integer has a range of about 136 years, so the actual upper limit
- * probably close to `atc_getlocal_epoch_year() + 68` but this function returns
- * `atc_get_local_epoch_year() + 50` to be conservative. It may return a larger
+ * A 32-bit integer has a range of about 136 years, so the half interval is 68
+ * years. But the algorithms to calculate the transitions in `zone_processing.h`
+ * use a 3-year window straddling the current year, so actual upper limit is
+ * probably close to `atc_getlocal_epoch_year() + 66`. To be conservative, this
+ * function returns `atc_get_local_epoch_year() + 50`. It may return a larger
  * value in the future if the internal calculations can be verified to avoid
  * underflow or overflow problems.
  */
