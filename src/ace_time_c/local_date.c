@@ -37,30 +37,30 @@ static const uint8_t atc_days_in_month[12] = {
   31 /*Dec=31*/,
 };
 
-int16_t atc_local_epoch_year = 2000;
+int16_t atc_current_epoch_year = 2000;
 
-int32_t atc_days_to_local_epoch_from_base_epoch = 0;
+int32_t atc_days_to_current_epoch_from_base_epoch = 0;
 
-int16_t atc_get_local_epoch_year()
+int16_t atc_get_current_epoch_year()
 {
-  return atc_local_epoch_year;
+  return atc_current_epoch_year;
 }
 
-void atc_set_local_epoch_year(int16_t year)
+void atc_set_current_epoch_year(int16_t year)
 {
-  atc_local_epoch_year = year;
-  atc_days_to_local_epoch_from_base_epoch = atc_local_date_to_base_epoch_days(
+  atc_current_epoch_year = year;
+  atc_days_to_current_epoch_from_base_epoch = atc_local_date_to_base_epoch_days(
       year, 1, 1);
 }
 
 int16_t atc_local_valid_year_lower()
 {
-  return atc_get_local_epoch_year() - 50;
+  return atc_get_current_epoch_year() - 50;
 }
 
 int16_t atc_local_valid_year_upper()
 {
-  return atc_get_local_epoch_year() + 50;
+  return atc_get_current_epoch_year() + 50;
 }
 
 bool atc_is_leap_year(int16_t year)
@@ -113,7 +113,7 @@ int32_t atc_local_date_to_epoch_days(
     int16_t year, uint8_t month, uint8_t day)
 {
   int32_t days = atc_local_date_to_base_epoch_days(year, month, day);
-  return days - atc_days_to_local_epoch_from_base_epoch;
+  return days - atc_days_to_current_epoch_from_base_epoch;
 }
 
 void atc_local_date_from_base_epoch_days(
@@ -144,7 +144,7 @@ void atc_local_date_from_epoch_days(
     uint8_t *month,
     uint8_t *day)
 {
-  int32_t days = epoch_days + atc_days_to_local_epoch_from_base_epoch;
+  int32_t days = epoch_days + atc_days_to_current_epoch_from_base_epoch;
   atc_local_date_from_base_epoch_days(days, year, month, day);
 }
 

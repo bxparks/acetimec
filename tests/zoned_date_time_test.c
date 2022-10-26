@@ -36,8 +36,8 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds)
 
 ACU_TEST(test_zoned_date_time_from_epoch_seconds_epoch2050)
 {
-  int16_t saved_epoch_year = atc_get_local_epoch_year();
-  atc_set_local_epoch_year(2050);
+  int16_t saved_epoch_year = atc_get_current_epoch_year();
+  atc_set_current_epoch_year(2050);
 
   AtcZoneProcessing processing;
   atc_processing_init(&processing);
@@ -63,7 +63,7 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_epoch2050)
   atc_time_t eps = atc_zoned_date_time_to_epoch_seconds(&zdt);
   ACU_ASSERT(eps == epoch_seconds);
 
-  atc_set_local_epoch_year(saved_epoch_year);
+  atc_set_current_epoch_year(saved_epoch_year);
 }
 
 ACU_TEST(test_zoned_date_time_from_epoch_seconds_unix_max)
@@ -271,8 +271,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time)
 
 ACU_TEST(test_zoned_date_time_from_local_date_time_epoch2050)
 {
-  int16_t saved_epoch_year = atc_get_local_epoch_year();
-  atc_set_local_epoch_year(2050);
+  int16_t saved_epoch_year = atc_get_current_epoch_year();
+  atc_set_current_epoch_year(2050);
 
   AtcZoneProcessing processing;
   atc_processing_init(&processing);
@@ -317,7 +317,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_epoch2050)
   ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
   ACU_ASSERT(8 * 60 * 60 == atc_zoned_date_time_to_epoch_seconds(&zdt));
 
-  atc_set_local_epoch_year(saved_epoch_year);
+  atc_set_current_epoch_year(saved_epoch_year);
 }
 
 ACU_TEST(test_zoned_date_time_from_local_date_time_before_dst)

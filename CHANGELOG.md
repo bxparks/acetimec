@@ -1,6 +1,8 @@
 # Changelog
 
 * Unreleased
+    * Rename `atc_set_local_epoch_year()` and `atc_get_local_epoch_year()` to
+      `atc_set_current_epoch_year()` and `atc_get_current_epoch_year()`.
 * 0.3.0 (2022-08-30, TZDB 2022e)
     * Add `string_buffer.h` which implements a simple string buffer and
       provides a collection of print functions for converting various date
@@ -9,9 +11,11 @@
       a date time from one time zone to another.
     * Create typedefs for `struct`, and remove unnecessary `struct` keyword.
     * Change `year` fields from `int8_t` to `int16_t`.
-    * Add `atc_local_valid_year_lower()` and `atc_local_valid_year_upper()`
-        * Defines the interval `lower <= year < upper` which is guaranteed
-          to produce valid transitions.
+    * Adjustable current epoch year
+        * Add `atc_set_local_epoch_year()` and `atc_get_local_epoch_year()`
+        * Add `atc_local_valid_year_lower()` and `atc_local_valid_year_upper()`
+            * Defines the interval `lower <= year < upper` which is guaranteed
+            to produce valid transitions.
     * Upgrade TZDB from 2022b to 2022e
         * 2022c
             * https://mm.icann.org/pipermail/tz-announce/2022-August/000072.html

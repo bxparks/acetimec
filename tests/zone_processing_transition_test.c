@@ -56,7 +56,7 @@ static void validate_zone(
 }
 
 ACU_TEST(test_transitions_for_all_zones_all_years) {
-  int16_t saved_epoch_year = atc_get_local_epoch_year();
+  int16_t saved_epoch_year = atc_get_current_epoch_year();
   AtcZoneProcessing processing;
   atc_processing_init(&processing);
 
@@ -64,13 +64,13 @@ ACU_TEST(test_transitions_for_all_zones_all_years) {
     const AtcZoneInfo *info = kAtcZoneRegistry[i];
 
     // Loop from start_year to until_year, in chunks of 100 years, shifting
-    // the local_epoch_year by 100 years.
+    // the current_epoch_year by 100 years.
     for (
         int16_t start_year = kAtcZoneContext.start_year;
         start_year < kAtcZoneContext.until_year;
         start_year += 100) {
 
-      atc_set_local_epoch_year(start_year + 50);
+      atc_set_current_epoch_year(start_year + 50);
       int16_t until_year = start_year + 100;
       if (until_year > kAtcZoneContext.until_year) {
         until_year = kAtcZoneContext.until_year;
@@ -81,7 +81,7 @@ ACU_TEST(test_transitions_for_all_zones_all_years) {
     }
   }
 
-  atc_set_local_epoch_year(saved_epoch_year);
+  atc_set_current_epoch_year(saved_epoch_year);
 }
 
 //---------------------------------------------------------------------------

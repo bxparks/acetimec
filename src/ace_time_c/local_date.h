@@ -35,8 +35,8 @@ enum {
   /**
    * Base epoch year used by the lowest level epoch seconds converter.
    * This is an internal implementation detail and should not normally be needed
-   * by client applications. They should instead use atc_get_local_epoch_year()
-   * and atc_set_local_epoch_year().
+   * by client applications. They should instead use
+   * atc_get_current_epoch_year() and atc_set_current_epoch_year().
    */
   kAtcBaseEpochYear = 2000,
 
@@ -49,23 +49,23 @@ enum {
 
 /**
  * The epoch year which will be used to interpret the epoch seconds. By default,
- * the local epoch year is 2000, which means that the epoch is
+ * the current epoch year is 2000, which means that the epoch is
  * 2000-01-01T00:00:00, and the largest date that can be represented by an
  * `int32_t` epoch_seconds is 2068-01-19T03:14:07. To represents dates after
- * this, we would have to change the local epoch year. For example, changing the
- * local epoch year to 2100 allows the epoch_seconds to extend to
+ * this, we would have to change the current epoch year. For example, changing
+ * the current epoch year to 2100 allows the epoch_seconds to extend to
  * 2168-01-20T03:14:07.
  */
-extern int16_t atc_local_epoch_year;
+extern int16_t atc_current_epoch_year;
 
-/** Number of days from epoch converter base epoch to the local epoch. */
-extern int32_t atc_days_from_base_epoch_to_local_epoch;
+/** Number of days from epoch converter base epoch to the current epoch. */
+extern int32_t atc_days_from_base_epoch_to_current_epoch;
 
-/** Get the local epoch year. */
-int16_t atc_get_local_epoch_year();
+/** Get the current epoch year. */
+int16_t atc_get_current_epoch_year();
 
-/** Set the local epoch year. */
-void atc_set_local_epoch_year(int16_t year);
+/** Set the current epoch year. */
+void atc_set_current_epoch_year(int16_t year);
 
 /**
  * The smallest year (inclusive) for which calculations involving the 32-bit
@@ -76,8 +76,8 @@ void atc_set_local_epoch_year(int16_t year);
  * A 32-bit integer has a range of about 136 years, so the half interval is 68
  * years. But the algorithms to calculate transitions in `zone_processing.h` use
  * a 3-year window straddling the current year, so the actual lower limit is
- * probably closer to `atc_get_local_epoch_year() - 66`. To be conservative,
- * this function returns `atc_get_local_epoch_year() - 50`. It may return a
+ * probably closer to `atc_get_current_epoch_year() - 66`. To be conservative,
+ * this function returns `atc_get_current_epoch_year() - 50`. It may return a
  * smaller value in the future if the internal calculations can be verified to
  * avoid underflow or overflow problems.
  */
@@ -92,10 +92,10 @@ int16_t atc_local_valid_year_lower();
  * A 32-bit integer has a range of about 136 years, so the half interval is 68
  * years. But the algorithms to calculate the transitions in `zone_processing.h`
  * use a 3-year window straddling the current year, so actual upper limit is
- * probably close to `atc_getlocal_epoch_year() + 66`. To be conservative, this
- * function returns `atc_get_local_epoch_year() + 50`. It may return a larger
- * value in the future if the internal calculations can be verified to avoid
- * underflow or overflow problems.
+ * probably close to `atc_get_current_epoch_year() + 66`. To be conservative,
+ * this function returns `atc_get_current_epoch_year() + 50`. It may return a
+ * larger value in the future if the internal calculations can be verified to
+ * avoid underflow or overflow problems.
  */
 int16_t atc_local_valid_year_upper();
 
@@ -157,13 +157,13 @@ void atc_local_date_from_base_epoch_days(
     uint8_t *day);
 
 /**
- * Extract the (year, month, day) fields from the current local epoch year
- * defined by atc_set_local_epoch_year().
+ * Extract the (year, month, day) fields from the current epoch year
+ * defined by atc_set_current_epoch_year().
  *
  * No input validation is performed. The behavior is undefined if the
  * parameters are outside their expected range.
  *
- * @param epoch_days number of days from the local epoch year
+ * @param epoch_days number of days from the current epoch year
  * @param year year [1,9999]
  * @param month month integer [1, 12]
  * @param day day of month integer[1, 31]
