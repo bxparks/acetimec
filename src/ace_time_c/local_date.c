@@ -53,12 +53,12 @@ void atc_set_current_epoch_year(int16_t year)
       year, 1, 1);
 }
 
-int16_t atc_local_valid_year_lower()
+int16_t atc_epoch_valid_year_lower()
 {
   return atc_get_current_epoch_year() - 50;
 }
 
-int16_t atc_local_valid_year_upper()
+int16_t atc_epoch_valid_year_upper()
 {
   return atc_get_current_epoch_year() + 50;
 }

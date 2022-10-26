@@ -2,7 +2,11 @@
 
 * Unreleased
     * Rename `atc_set_local_epoch_year()` and `atc_get_local_epoch_year()` to
-      `atc_set_current_epoch_year()` and `atc_get_current_epoch_year()`.
+      `atc_set_current_epoch_year()` and `atc_get_current_epoch_year()`,
+      consistent with AceTime library.
+    * Rename `atc_local_valid_year_lower()` and `atc_local_valid_year_upper()`
+      to `atc_epoch_valid_year_lower()` and `atc_epoch_valid_year_uppper()`,
+      consistent with AceTime library.
 * 0.3.0 (2022-08-30, TZDB 2022e)
     * Add `string_buffer.h` which implements a simple string buffer and
       provides a collection of print functions for converting various date
