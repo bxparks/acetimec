@@ -238,7 +238,7 @@ typedef struct AtcZoneEra {
    * substitution is performed on the '%' character.
    *
    * This field will never be a 'nullptr' if it was derived from an actual
-   * entry from the TZ dtabase. There is an internal object named
+   * entry from the TZ database. There is an internal object named
    * `ExtendedZoneProcessor::kAnchorEra` which does set this field to nullptr.
    * Maybe it should be set to ""?
    */
