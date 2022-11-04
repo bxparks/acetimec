@@ -46,13 +46,13 @@ extern int16_t atc_current_epoch_year;
 extern int32_t atc_days_from_converter_epoch_to_current_epoch;
 
 /** Get the current epoch year. */
-int16_t atc_get_current_epoch_year();
+int16_t atc_get_current_epoch_year(void);
 
 /** Set the current epoch year. */
 void atc_set_current_epoch_year(int16_t year);
 
 /** Get number of days from converter epoch to current epoch. */
-int32_t atc_get_days_to_current_epoch_from_converter_epoch();
+int32_t atc_get_days_to_current_epoch_from_converter_epoch(void);
 
 /**
  * The smallest year (inclusive) for which calculations involving the 32-bit
@@ -68,7 +68,7 @@ int32_t atc_get_days_to_current_epoch_from_converter_epoch();
  * smaller value in the future if the internal calculations can be verified to
  * avoid underflow or overflow problems.
  */
-int16_t atc_epoch_valid_year_lower();
+int16_t atc_epoch_valid_year_lower(void);
 
 /**
  * The largest year (exclusive) for which calculations involving the 32-bit
@@ -84,7 +84,7 @@ int16_t atc_epoch_valid_year_lower();
  * larger value in the future if the internal calculations can be verified to
  * avoid underflow or overflow problems.
  */
-int16_t atc_epoch_valid_year_upper();
+int16_t atc_epoch_valid_year_upper(void);
 
 /**
  * Convert (year, month, day) triple to the number of days since the converter
