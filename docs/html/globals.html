@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.3.0</span>
+   &#160;<span id="projectnumber">0.4.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -69,17 +69,35 @@ $(function() {
 <li>ACE_TIME_C_PROGMEM
 : <a class="el" href="zone__info_8h.html#adb3a2765d325c3d57a967faa32c84c6d">zone_info.h</a>
 </li>
+<li>atc_convert_from_days()
+: <a class="el" href="epoch_8h.html#a45128050cfbce1409a563aca1db24238">epoch.h</a>
+</li>
+<li>atc_convert_to_days()
+: <a class="el" href="epoch_8h.html#afd8062e8c861203196883a0640e42d11">epoch.h</a>
+</li>
 <li>atc_copy_replace_string()
 : <a class="el" href="common_8h.html#a3524006cfa67e08e009187b670d667fe">common.h</a>
 </li>
-<li>atc_days_from_base_epoch_to_local_epoch
-: <a class="el" href="local__date_8h.html#aea7f9fa57cf80ab78215bd5c8948d8c9">local_date.h</a>
+<li>atc_current_epoch_year
+: <a class="el" href="epoch_8h.html#a9a4754dae713b24ca1246f058f16fe9c">epoch.h</a>
+</li>
+<li>atc_days_from_converter_epoch_to_current_epoch
+: <a class="el" href="epoch_8h.html#a1a39126d02a66915c3ec163c4e56b84e">epoch.h</a>
 </li>
 <li>atc_djb2()
 : <a class="el" href="common_8h.html#adf398a9b212b8331b21fc2becf8b720e">common.h</a>
 </li>
-<li>atc_get_local_epoch_year()
-: <a class="el" href="local__date_8h.html#ad3b952d1d7a7a890da38f54fa2bbf0fd">local_date.h</a>
+<li>atc_epoch_valid_year_lower()
+: <a class="el" href="epoch_8h.html#a7e4641222f86aa13bf1d8e39f3feeaac">epoch.h</a>
+</li>
+<li>atc_epoch_valid_year_upper()
+: <a class="el" href="epoch_8h.html#a8943d397916cf4784f7aa9e07b575859">epoch.h</a>
+</li>
+<li>atc_get_current_epoch_year()
+: <a class="el" href="epoch_8h.html#a98f734a9b080f1822125b86eebd28f34">epoch.h</a>
+</li>
+<li>atc_get_days_to_current_epoch_from_converter_epoch()
+: <a class="el" href="epoch_8h.html#a4a7d4978681214aaaed8b7509b6fbb13">epoch.h</a>
 </li>
 <li>atc_is_leap_year()
 : <a class="el" href="local__date_8h.html#ad56a9df5e994d20403b0261b5c62e069">local_date.h</a>
@@ -92,9 +110,6 @@ $(function() {
 </li>
 <li>atc_local_date_decrement_one_day()
 : <a class="el" href="local__date_8h.html#ad4f838f0f9cbc40da855bae87a20a1f6">local_date.h</a>
-</li>
-<li>atc_local_date_from_base_epoch_days()
-: <a class="el" href="local__date_8h.html#aca9ffb99d52a034bb8ce1027e4c043ea">local_date.h</a>
 </li>
 <li>atc_local_date_from_epoch_days()
 : <a class="el" href="local__date_8h.html#a385fcd84e9fb482f5b6da92a2800e383">local_date.h</a>
@@ -111,20 +126,8 @@ $(function() {
 <li>atc_local_date_time_to_epoch_seconds()
 : <a class="el" href="local__date__time_8h.html#a47ae8261528b13df61c1d2f270a5d185">local_date_time.h</a>
 </li>
-<li>atc_local_date_to_base_epoch_days()
-: <a class="el" href="local__date_8h.html#a16204ecf86adfb38dd5b8b0e43983cc9">local_date.h</a>
-</li>
 <li>atc_local_date_to_epoch_days()
 : <a class="el" href="local__date_8h.html#aa88cdfb5680791efd935b304877c953d">local_date.h</a>
-</li>
-<li>atc_local_epoch_year
-: <a class="el" href="local__date_8h.html#a00535e14b4df94f6e2b23ace2d86cb46">local_date.h</a>
-</li>
-<li>atc_local_valid_year_lower()
-: <a class="el" href="local__date_8h.html#a44536386f52d29de9ef41c7c04de9cd6">local_date.h</a>
-</li>
-<li>atc_local_valid_year_upper()
-: <a class="el" href="local__date_8h.html#aaf8bd446b91d70b5609f8e0da2458459">local_date.h</a>
 </li>
 <li>atc_offset_date_time_from_epoch_seconds()
 : <a class="el" href="offset__date__time_8h.html#a25dc3cf843a2201f070df4f5479984db">offset_date_time.h</a>
@@ -168,8 +171,8 @@ $(function() {
 <li>atc_registrar_is_registry_sorted()
 : <a class="el" href="zone__registrar_8h.html#a6ed701e8426e2b2e656ae2ccde29ed71">zone_registrar.h</a>
 </li>
-<li>atc_set_local_epoch_year()
-: <a class="el" href="local__date_8h.html#a886d0a7b72fda8f9d811c36573832450">local_date.h</a>
+<li>atc_set_current_epoch_year()
+: <a class="el" href="epoch_8h.html#a4263750f0b027e0a96d6baefd7f1ada1">epoch.h</a>
 </li>
 <li>atc_time_t
 : <a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">common.h</a>
@@ -268,8 +271,8 @@ $(function() {
 
 
 <h3><a id="index_k"></a>- k -</h3><ul>
-<li>kAtcBaseEpochYear
-: <a class="el" href="local__date_8h.html#a99fb83031ce9923c84392b4e92f956b5a585cbc66132db5689b16f80318693fdb">local_date.h</a>
+<li>kAtcConverterEpochYear
+: <a class="el" href="epoch_8h.html#adf764cbdea00d65edcd07bb9953ad2b7aec79c9fcf07937557893397d049eb850">epoch.h</a>
 </li>
 <li>kAtcErrGeneric
 : <a class="el" href="common_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba99ccc2843b8ff5cae20113ddbd42853e">common.h</a>
@@ -278,25 +281,28 @@ $(function() {
 : <a class="el" href="common_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad95f83b14b8d362a1290bca5e061566d">common.h</a>
 </li>
 <li>kAtcInvalidEpochSeconds
-: <a class="el" href="local__date_8h.html#a99fb83031ce9923c84392b4e92f956b5afb10cd3ddb3157ee07491ce67b70ac71">local_date.h</a>
+: <a class="el" href="local__date_8h.html#abc6126af1d45847bc59afa0aa3216b04afb10cd3ddb3157ee07491ce67b70ac71">local_date.h</a>
 </li>
 <li>kAtcInvalidYear
-: <a class="el" href="local__date_8h.html#a99fb83031ce9923c84392b4e92f956b5a4b9dc56529c3c997277aa3edebff7de0">local_date.h</a>
+: <a class="el" href="local__date_8h.html#abc6126af1d45847bc59afa0aa3216b04a4b9dc56529c3c997277aa3edebff7de0">local_date.h</a>
 </li>
 <li>kAtcMaxZoneEraUntilYear
-: <a class="el" href="zone__info_8h.html#abc5c98fcc1211af2b80116dd6e0a035da516a2896c00f03bd6ac34ec713c54ad0">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8a516a2896c00f03bd6ac34ec713c54ad0">zone_info.h</a>
 </li>
 <li>kAtcMaxZoneRuleYear
-: <a class="el" href="zone__info_8h.html#abc5c98fcc1211af2b80116dd6e0a035da020efc50d7fe1dfa04a417815a316e7e">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8a020efc50d7fe1dfa04a417815a316e7e">zone_info.h</a>
+</li>
+<li>kAtcMinZoneRuleYear
+: <a class="el" href="zone__info_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8afa4d2fca8a6cd40b22c7ef123a23cf12">zone_info.h</a>
 </li>
 <li>kAtcSuffixS
-: <a class="el" href="zone__info_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8a04280bfe4ef963779851e427e0c17b83">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#a05589fbab0657f08285ebdfe93f5ec9ea04280bfe4ef963779851e427e0c17b83">zone_info.h</a>
 </li>
 <li>kAtcSuffixU
-: <a class="el" href="zone__info_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8a128db30aed8e7e11cf8341574f7c0bea">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#a05589fbab0657f08285ebdfe93f5ec9ea128db30aed8e7e11cf8341574f7c0bea">zone_info.h</a>
 </li>
 <li>kAtcSuffixW
-: <a class="el" href="zone__info_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8a1d9d9152e8f121be37b8e743248cd2d8">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#a05589fbab0657f08285ebdfe93f5ec9ea1d9d9152e8f121be37b8e743248cd2d8">zone_info.h</a>
 </li>
 </ul>
 </div><!-- contents -->
