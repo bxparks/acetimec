@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/dev/tz
 //     --output_dir /home/brian/src/AceTimeC/src/ace_time_c/zonedb
-//     --tz_version 2022e
+//     --tz_version 2022f
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -24,7 +24,7 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022e
+// from https://github.com/eggert/tz/releases/tag/2022f
 //
 // DO NOT EDIT
 
@@ -34,7 +34,7 @@
 //---------------------------------------------------------------------------
 // Zone Info registry. Sorted by zoneId.
 //---------------------------------------------------------------------------
-const AtcZoneInfo * const kAtcZoneRegistry[354]  = {
+const AtcZoneInfo * const kAtcZoneRegistry[351]  = {
   &kAtcZoneAmerica_St_Johns, // 0x04b14e6e, America/St_Johns
   &kAtcZoneAmerica_North_Dakota_New_Salem, // 0x04f9958e, America/North_Dakota/New_Salem
   &kAtcZoneAsia_Jakarta, // 0x0506ab50, Asia/Jakarta
@@ -244,7 +244,6 @@ const AtcZoneInfo * const kAtcZoneRegistry[354]  = {
   &kAtcZonePacific_Rarotonga, // 0x9981a3b0, Pacific/Rarotonga
   &kAtcZoneAsia_Kathmandu, // 0x9a96ce6f, Asia/Kathmandu
   &kAtcZoneAmerica_North_Dakota_Beulah, // 0x9b52b384, America/North_Dakota/Beulah
-  &kAtcZoneAmerica_Rainy_River, // 0x9cd58a10, America/Rainy_River
   &kAtcZoneEurope_Budapest, // 0x9ce0197c, Europe/Budapest
   &kAtcZoneAsia_Baghdad, // 0x9ceffbed, Asia/Baghdad
   &kAtcZoneEtc_GMT_PLUS_1, // 0x9d13da14, Etc/GMT+1
@@ -265,7 +264,6 @@ const AtcZoneInfo * const kAtcZoneRegistry[354]  = {
   &kAtcZoneEtc_GMT_7, // 0x9d13da5c, Etc/GMT-7
   &kAtcZoneEtc_GMT_8, // 0x9d13da5d, Etc/GMT-8
   &kAtcZoneEtc_GMT_9, // 0x9d13da5e, Etc/GMT-9
-  &kAtcZoneAmerica_Nipigon, // 0x9d2a8b1a, America/Nipigon
   &kAtcZoneAmerica_Rio_Branco, // 0x9d352764, America/Rio_Branco
   &kAtcZoneAsia_Bangkok, // 0x9d6e3aaf, Asia/Bangkok
   &kAtcZoneAfrica_El_Aaiun, // 0x9d6fb118, Africa/El_Aaiun
@@ -376,7 +374,6 @@ const AtcZoneInfo * const kAtcZoneRegistry[354]  = {
   &kAtcZoneAsia_Shanghai, // 0xf895a7f5, Asia/Shanghai
   &kAtcZoneEurope_Gibraltar, // 0xf8e325fc, Europe/Gibraltar
   &kAtcZoneAtlantic_Azores, // 0xf93ed918, Atlantic/Azores
-  &kAtcZoneAmerica_Thunder_Bay, // 0xf962e71b, America/Thunder_Bay
   &kAtcZoneAmerica_Eirunepe, // 0xf9b29683, America/Eirunepe
   &kAtcZoneAmerica_Montevideo, // 0xfa214780, America/Montevideo
   &kAtcZoneEurope_Kirov, // 0xfaf5abef, Europe/Kirov
@@ -763,7 +760,7 @@ const AtcZoneInfo * const kAtcZoneAndLinkRegistry[595]  = {
   &kAtcZoneAsia_Kathmandu, // 0x9a96ce6f, Asia/Kathmandu
   &kAtcZoneBrazil_DeNoronha, // 0x9b4cb496, Brazil/DeNoronha -> America/Noronha
   &kAtcZoneAmerica_North_Dakota_Beulah, // 0x9b52b384, America/North_Dakota/Beulah
-  &kAtcZoneAmerica_Rainy_River, // 0x9cd58a10, America/Rainy_River
+  &kAtcZoneAmerica_Rainy_River, // 0x9cd58a10, America/Rainy_River -> America/Winnipeg
   &kAtcZoneEurope_Budapest, // 0x9ce0197c, Europe/Budapest
   &kAtcZoneAsia_Baghdad, // 0x9ceffbed, Asia/Baghdad
   &kAtcZoneAsia_Bahrain, // 0x9d078487, Asia/Bahrain -> Asia/Qatar
@@ -787,7 +784,7 @@ const AtcZoneInfo * const kAtcZoneAndLinkRegistry[595]  = {
   &kAtcZoneEtc_GMT_7, // 0x9d13da5c, Etc/GMT-7
   &kAtcZoneEtc_GMT_8, // 0x9d13da5d, Etc/GMT-8
   &kAtcZoneEtc_GMT_9, // 0x9d13da5e, Etc/GMT-9
-  &kAtcZoneAmerica_Nipigon, // 0x9d2a8b1a, America/Nipigon
+  &kAtcZoneAmerica_Nipigon, // 0x9d2a8b1a, America/Nipigon -> America/Toronto
   &kAtcZoneAmerica_Rio_Branco, // 0x9d352764, America/Rio_Branco
   &kAtcZoneAsia_Bangkok, // 0x9d6e3aaf, Asia/Bangkok
   &kAtcZoneAfrica_El_Aaiun, // 0x9d6fb118, Africa/El_Aaiun
@@ -972,7 +969,7 @@ const AtcZoneInfo * const kAtcZoneAndLinkRegistry[595]  = {
   &kAtcZoneAsia_Chongqing, // 0xf937fb90, Asia/Chongqing -> Asia/Shanghai
   &kAtcZoneAtlantic_Azores, // 0xf93ed918, Atlantic/Azores
   &kAtcZonePacific_Wallis, // 0xf94ddb0f, Pacific/Wallis -> Pacific/Tarawa
-  &kAtcZoneAmerica_Thunder_Bay, // 0xf962e71b, America/Thunder_Bay
+  &kAtcZoneAmerica_Thunder_Bay, // 0xf962e71b, America/Thunder_Bay -> America/Toronto
   &kAtcZoneAmerica_Eirunepe, // 0xf9b29683, America/Eirunepe
   &kAtcZoneAmerica_Montevideo, // 0xfa214780, America/Montevideo
   &kAtcZoneUS_Alaska, // 0xfa300bc9, US/Alaska -> America/Anchorage
@@ -997,7 +994,7 @@ const AtcZoneInfo * const kAtcZoneAndLinkRegistry[595]  = {
 //---------------------------------------------------------------------------
 // Link (thin) Entry registry. Sorted by linkId. Links are references to Zones.
 //---------------------------------------------------------------------------
-const AtcLinkEntry kAtcLinkRegistry[241]  = {
+const AtcLinkEntry kAtcLinkRegistry[244]  = {
   { kAtcZoneIdGB, kAtcZoneIdEurope_London }, // 0x005973ae -> 0x5c6a84ae
   { kAtcZoneIdNZ, kAtcZoneIdPacific_Auckland }, // 0x005974ad -> 0x25062f86
   { kAtcZoneIdAsia_Kuala_Lumpur, kAtcZoneIdAsia_Singapore }, // 0x014763c4 -> 0xcf8581fa
@@ -1156,9 +1153,11 @@ const AtcLinkEntry kAtcLinkRegistry[241]  = {
   { kAtcZoneIdAmerica_Atka, kAtcZoneIdAmerica_Adak }, // 0x97fe8f27 -> 0x97fe49d7
   { kAtcZoneIdAmerica_Jujuy, kAtcZoneIdAmerica_Argentina_Jujuy }, // 0x9873dbbd -> 0x5f2f46c5
   { kAtcZoneIdBrazil_DeNoronha, kAtcZoneIdAmerica_Noronha }, // 0x9b4cb496 -> 0xab5116fb
+  { kAtcZoneIdAmerica_Rainy_River, kAtcZoneIdAmerica_Winnipeg }, // 0x9cd58a10 -> 0x8c7dafc7
   { kAtcZoneIdAsia_Bahrain, kAtcZoneIdAsia_Qatar }, // 0x9d078487 -> 0x15a8330b
   { kAtcZoneIdEtc_GMT_PLUS_0, kAtcZoneIdEtc_GMT }, // 0x9d13da13 -> 0xd8e2de58
   { kAtcZoneIdEtc_GMT_0, kAtcZoneIdEtc_GMT }, // 0x9d13da55 -> 0xd8e2de58
+  { kAtcZoneIdAmerica_Nipigon, kAtcZoneIdAmerica_Toronto }, // 0x9d2a8b1a -> 0x792e851b
   { kAtcZoneIdIndian_Antananarivo, kAtcZoneIdAfrica_Nairobi }, // 0x9ebf5289 -> 0xa87ab57e
   { kAtcZoneIdAfrica_Dar_es_Salaam, kAtcZoneIdAfrica_Nairobi }, // 0xa04c47b6 -> 0xa87ab57e
   { kAtcZoneIdEurope_Kiev, kAtcZoneIdEurope_Kyiv }, // 0xa2c19eb3 -> 0xa2c1e347
@@ -1233,6 +1232,7 @@ const AtcLinkEntry kAtcLinkRegistry[241]  = {
   { kAtcZoneIdEtc_Zulu, kAtcZoneIdEtc_UTC }, // 0xf549c240 -> 0xd8e31abc
   { kAtcZoneIdAsia_Chongqing, kAtcZoneIdAsia_Shanghai }, // 0xf937fb90 -> 0xf895a7f5
   { kAtcZoneIdPacific_Wallis, kAtcZoneIdPacific_Tarawa }, // 0xf94ddb0f -> 0xf2517e63
+  { kAtcZoneIdAmerica_Thunder_Bay, kAtcZoneIdAmerica_Toronto }, // 0xf962e71b -> 0x792e851b
   { kAtcZoneIdUS_Alaska, kAtcZoneIdAmerica_Anchorage }, // 0xfa300bc9 -> 0x5a79260e
   { kAtcZoneIdGB_Eire, kAtcZoneIdEurope_London }, // 0xfa70e300 -> 0x5c6a84ae
   { kAtcZoneIdCanada_Mountain, kAtcZoneIdAmerica_Edmonton }, // 0xfb8a8217 -> 0x6cb9484a

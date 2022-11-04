@@ -7,6 +7,20 @@
     * Rename `atc_local_valid_year_lower()` and `atc_local_valid_year_upper()`
       to `atc_epoch_valid_year_lower()` and `atc_epoch_valid_year_uppper()`,
       consistent with AceTime library.
+    * Upgrade TZDB from 2022e to 2022f
+        * https://mm.icann.org/pipermail/tz-announce/2022-October/000075.html
+			* Mexico will no longer observe DST except near the US border.
+			* Chihuahua moves to year-round -06 on 2022-10-30.
+			* Fiji no longer observes DST.
+			* Move links to 'backward'.
+			* In vanguard form, GMT is now a Zone and Etc/GMT a link.
+			* zic now supports links to links, and vanguard form uses this.
+			* Simplify four Ontario zones.
+			* Fix a Y2438 bug when reading TZif data.
+			* Enable 64-bit time_t on 32-bit glibc platforms.
+			* Omit large-file support when no longer needed.
+			* In C code, use some C23 features if available.
+			* Remove no-longer-needed workaround for Qt bug 53071.
 * 0.3.0 (2022-08-30, TZDB 2022e)
     * Add `string_buffer.h` which implements a simple string buffer and
       provides a collection of print functions for converting various date
