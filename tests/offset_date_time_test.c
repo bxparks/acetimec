@@ -100,8 +100,11 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_invalid)
   ACU_ASSERT(err == kAtcErrGeneric);
 }
 
-ACU_TEST(test_offset_date_time_from_epoch_seconds)
+ACU_TEST(test_offset_date_time_from_epoch_seconds_epoch2000)
 {
+  int16_t saved_epoch_year = atc_get_current_epoch_year();
+  atc_set_current_epoch_year(2000);
+
   AtcOffsetDateTime odt;
   int8_t err;
   int16_t offset_minutes;
@@ -142,6 +145,8 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds)
   ACU_ASSERT(odt.hour == 16);
   ACU_ASSERT(odt.minute == 0);
   ACU_ASSERT(odt.second == 0);
+
+  atc_set_current_epoch_year(saved_epoch_year);
 }
 
 //---------------------------------------------------------------------------
@@ -206,7 +211,7 @@ int main()
   ACU_RUN_TEST(test_offset_date_time_to_epoch_seconds_invalid);
   ACU_RUN_TEST(test_offset_date_time_to_epoch_seconds_epoch2050);
   ACU_RUN_TEST(test_offset_date_time_from_epoch_seconds_invalid);
-  ACU_RUN_TEST(test_offset_date_time_from_epoch_seconds);
+  ACU_RUN_TEST(test_offset_date_time_from_epoch_seconds_epoch2000);
   ACU_RUN_TEST(test_offset_date_time_from_epoch_seconds_epoch2050);
   ACU_SUMMARY();
 }

@@ -2,6 +2,7 @@ CFLAGS := -std=c11 -Wall -Wextra -Werror -pedantic
 
 OBJS := \
 	ace_time_c/common.o \
+	ace_time_c/epoch.o \
 	ace_time_c/local_date.o \
 	ace_time_c/local_date_time.o \
 	ace_time_c/offset_date_time.o \
