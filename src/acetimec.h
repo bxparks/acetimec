@@ -7,8 +7,8 @@
 #define ACE_TIME_C_H
 
 /* Version format: xxyyzz == "xx.yy.zz" */
-#define ACE_TIME_C_VERSION 300
-#define ACE_TIME_C_VERSION_STRING "0.3.0"
+#define ACE_TIME_C_VERSION 400
+#define ACE_TIME_C_VERSION_STRING "0.4.0"
 
 #ifdef __cplusplus
 extern "C" {

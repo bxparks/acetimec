@@ -1,12 +1,16 @@
 # Changelog
 
 * Unreleased
-    * Rename `atc_set_local_epoch_year()` and `atc_get_local_epoch_year()` to
-      `atc_set_current_epoch_year()` and `atc_get_current_epoch_year()`,
-      consistent with AceTime library.
-    * Rename `atc_local_valid_year_lower()` and `atc_local_valid_year_upper()`
-      to `atc_epoch_valid_year_lower()` and `atc_epoch_valid_year_uppper()`,
-      consistent with AceTime library.
+* 0.4.0 (2022-11-04, TZDB 2022f)
+    * Configurable current epoch year
+        * Rename `atc_set_local_epoch_year()` and `atc_get_local_epoch_year()`
+          to `atc_set_current_epoch_year()` and `atc_get_current_epoch_year()`,
+          consistent with AceTime library.
+        * Rename `atc_local_valid_year_lower()` and
+          `atc_local_valid_year_upper()` to `atc_epoch_valid_year_lower()` and
+          `atc_epoch_valid_year_uppper()`, consistent with AceTime library.
+        * Create `epoch.h` for features related to current epoch year, and
+          epoch day converters.
     * Upgrade TZDB from 2022e to 2022f
         * https://mm.icann.org/pipermail/tz-announce/2022-October/000075.html
 			* Mexico will no longer observe DST except near the US border.
@@ -21,6 +25,8 @@
 			* Omit large-file support when no longer needed.
 			* In C code, use some C23 features if available.
 			* Remove no-longer-needed workaround for Qt bug 53071.
+    * Add skeleton `libraries.properties` to test the C library with an
+      Arduino board.
 * 0.3.0 (2022-08-30, TZDB 2022e)
     * Add `string_buffer.h` which implements a simple string buffer and
       provides a collection of print functions for converting various date
