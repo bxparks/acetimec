@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.3.0</span>
+   &#160;<span id="projectnumber">0.4.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -174,16 +174,17 @@ typedef struct <a class="el" href="structAtcLinkEntry.html">AtcLinkEntry</a>&#16
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:abc5c98fcc1211af2b80116dd6e0a035d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="zone__info_8h.html#abc5c98fcc1211af2b80116dd6e0a035da020efc50d7fe1dfa04a417815a316e7e">kAtcMaxZoneRuleYear</a> = 9999
-, <a class="el" href="zone__info_8h.html#abc5c98fcc1211af2b80116dd6e0a035da516a2896c00f03bd6ac34ec713c54ad0">kAtcMaxZoneEraUntilYear</a> = kAtcMaxZoneRuleYear + 1
+<tr class="memitem:ac36f475ca5b446f4fde4c9b90bec77c8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="zone__info_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8afa4d2fca8a6cd40b22c7ef123a23cf12">kAtcMinZoneRuleYear</a> = 0
+, <a class="el" href="zone__info_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8a020efc50d7fe1dfa04a417815a316e7e">kAtcMaxZoneRuleYear</a> = 9999
+, <a class="el" href="zone__info_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8a516a2896c00f03bd6ac34ec713c54ad0">kAtcMaxZoneEraUntilYear</a> = kAtcMaxZoneRuleYear + 1
  }</td></tr>
-<tr class="memdesc:abc5c98fcc1211af2b80116dd6e0a035d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constants for entries in the zonedb files.  <a href="zone__info_8h.html#abc5c98fcc1211af2b80116dd6e0a035d">More...</a><br /></td></tr>
-<tr class="separator:abc5c98fcc1211af2b80116dd6e0a035d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac36f475ca5b446f4fde4c9b90bec77c8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="zone__info_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8a1d9d9152e8f121be37b8e743248cd2d8">kAtcSuffixW</a> = 0x00
-, <a class="el" href="zone__info_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8a04280bfe4ef963779851e427e0c17b83">kAtcSuffixS</a> = 0x10
-, <a class="el" href="zone__info_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8a128db30aed8e7e11cf8341574f7c0bea">kAtcSuffixU</a> = 0x20
- }</td></tr>
+<tr class="memdesc:ac36f475ca5b446f4fde4c9b90bec77c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constants for entries in the zonedb files.  <a href="zone__info_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8">More...</a><br /></td></tr>
 <tr class="separator:ac36f475ca5b446f4fde4c9b90bec77c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05589fbab0657f08285ebdfe93f5ec9e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="zone__info_8h.html#a05589fbab0657f08285ebdfe93f5ec9ea1d9d9152e8f121be37b8e743248cd2d8">kAtcSuffixW</a> = 0x00
+, <a class="el" href="zone__info_8h.html#a05589fbab0657f08285ebdfe93f5ec9ea04280bfe4ef963779851e427e0c17b83">kAtcSuffixS</a> = 0x10
+, <a class="el" href="zone__info_8h.html#a05589fbab0657f08285ebdfe93f5ec9ea128db30aed8e7e11cf8341574f7c0bea">kAtcSuffixU</a> = 0x20
+ }</td></tr>
+<tr class="separator:a05589fbab0657f08285ebdfe93f5ec9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>The data structures in the zone database, with the <a class="el" href="structAtcZoneInfo.html" title="Representation of a given time zone, implemented as an array of ZoneEra records.">AtcZoneInfo</a> representing a specific time zone. </p>
@@ -264,8 +265,8 @@ Enumerations</h2></td></tr>
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="abc5c98fcc1211af2b80116dd6e0a035d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abc5c98fcc1211af2b80116dd6e0a035d">&#9670;&nbsp;</a></span>anonymous enum</h2>
+<a id="ac36f475ca5b446f4fde4c9b90bec77c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac36f475ca5b446f4fde4c9b90bec77c8">&#9670;&nbsp;</a></span>anonymous enum</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -278,10 +279,14 @@ Enumerations</h2></td></tr>
 
 <p>Constants for entries in the zonedb files. </p>
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="abc5c98fcc1211af2b80116dd6e0a035da020efc50d7fe1dfa04a417815a316e7e"></a>kAtcMaxZoneRuleYear&#160;</td><td class="fielddoc"><p>The maximum value of ZoneRule::from_year and ZoneRule::to_year. </p>
-<p>Must be &lt; ZoneEra::kMaxUntilYear. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac36f475ca5b446f4fde4c9b90bec77c8afa4d2fca8a6cd40b22c7ef123a23cf12"></a>kAtcMinZoneRuleYear&#160;</td><td class="fielddoc"><p>The minimum value of <a class="el" href="structAtcZoneRule.html#a3d0e03f6dc2138ec65e68223128912d5" title="FROM year.">AtcZoneRule::from_year</a> and <a class="el" href="structAtcZoneRule.html#a9266fa88b9b7ab65afd889fb9987530b" title="TO year.">AtcZoneRule::to_year</a>. </p>
+<p>Used by synthetic entries for certain zones, to guarantee that all zones have at least one transition. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="abc5c98fcc1211af2b80116dd6e0a035da516a2896c00f03bd6ac34ec713c54ad0"></a>kAtcMaxZoneEraUntilYear&#160;</td><td class="fielddoc"><p>The maximum value of ZoneEra::until_year. </p>
+<tr><td class="fieldname"><a id="ac36f475ca5b446f4fde4c9b90bec77c8a020efc50d7fe1dfa04a417815a316e7e"></a>kAtcMaxZoneRuleYear&#160;</td><td class="fielddoc"><p>The maximum value of <a class="el" href="structAtcZoneRule.html#a3d0e03f6dc2138ec65e68223128912d5" title="FROM year.">AtcZoneRule::from_year</a> and <a class="el" href="structAtcZoneRule.html#a9266fa88b9b7ab65afd889fb9987530b" title="TO year.">AtcZoneRule::to_year</a>, representing the sentinel value "max" in the TO and FROM columns of the TZDB files. </p>
+<p>Must be less than kAtcMaxZoneEraUntilYear. </p>
+</td></tr>
+<tr><td class="fieldname"><a id="ac36f475ca5b446f4fde4c9b90bec77c8a516a2896c00f03bd6ac34ec713c54ad0"></a>kAtcMaxZoneEraUntilYear&#160;</td><td class="fielddoc"><p>The maximum value of ZoneEra::until_year, representing the sentinel value "-" in the UNTIL column of the TZDB files. </p>
+<p>Must be greater than kAtcMaxZoneRuleYear. </p>
 </td></tr>
 </table>
 
@@ -289,8 +294,8 @@ Enumerations</h2></td></tr>
 
 </div>
 </div>
-<a id="ac36f475ca5b446f4fde4c9b90bec77c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac36f475ca5b446f4fde4c9b90bec77c8">&#9670;&nbsp;</a></span>anonymous enum</h2>
+<a id="a05589fbab0657f08285ebdfe93f5ec9e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05589fbab0657f08285ebdfe93f5ec9e">&#9670;&nbsp;</a></span>anonymous enum</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -301,15 +306,15 @@ Enumerations</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="ac36f475ca5b446f4fde4c9b90bec77c8a1d9d9152e8f121be37b8e743248cd2d8"></a>kAtcSuffixW&#160;</td><td class="fielddoc"><p>Represents 'w' or wall time. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a05589fbab0657f08285ebdfe93f5ec9ea1d9d9152e8f121be37b8e743248cd2d8"></a>kAtcSuffixW&#160;</td><td class="fielddoc"><p>Represents 'w' or wall time. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac36f475ca5b446f4fde4c9b90bec77c8a04280bfe4ef963779851e427e0c17b83"></a>kAtcSuffixS&#160;</td><td class="fielddoc"><p>Represents 's' or standard time. </p>
+<tr><td class="fieldname"><a id="a05589fbab0657f08285ebdfe93f5ec9ea04280bfe4ef963779851e427e0c17b83"></a>kAtcSuffixS&#160;</td><td class="fielddoc"><p>Represents 's' or standard time. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="ac36f475ca5b446f4fde4c9b90bec77c8a128db30aed8e7e11cf8341574f7c0bea"></a>kAtcSuffixU&#160;</td><td class="fielddoc"><p>Represents 'u' or UTC time. </p>
+<tr><td class="fieldname"><a id="a05589fbab0657f08285ebdfe93f5ec9ea128db30aed8e7e11cf8341574f7c0bea"></a>kAtcSuffixU&#160;</td><td class="fielddoc"><p>Represents 'u' or UTC time. </p>
 </td></tr>
 </table>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00158">158</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00170">170</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>

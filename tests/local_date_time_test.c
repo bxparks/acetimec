@@ -78,8 +78,8 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds)
 
 ACU_TEST(test_atc_local_date_time_to_epoch_seconds_epoch2050)
 {
-  int16_t saved_epoch_year = atc_get_local_epoch_year();
-  atc_set_local_epoch_year(2050);
+  int16_t saved_epoch_year = atc_get_current_epoch_year();
+  atc_set_current_epoch_year(2050);
 
   AtcLocalDateTime ldt = {1981, 12, 13, 20, 45, 53};
   int32_t seconds = atc_local_date_time_to_epoch_seconds(&ldt);
@@ -97,13 +97,13 @@ ACU_TEST(test_atc_local_date_time_to_epoch_seconds_epoch2050)
   seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == INT32_MAX);
 
-  atc_set_local_epoch_year(saved_epoch_year);
+  atc_set_current_epoch_year(saved_epoch_year);
 }
 
 ACU_TEST(test_atc_local_date_time_from_epoch_seconds_epoch2050)
 {
-  int16_t saved_epoch_year = atc_get_local_epoch_year();
-  atc_set_local_epoch_year(2050);
+  int16_t saved_epoch_year = atc_get_current_epoch_year();
+  atc_set_current_epoch_year(2050);
 
   AtcLocalDateTime ldt;
   int8_t err;
@@ -135,7 +135,7 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds_epoch2050)
   ACU_ASSERT(ldt.minute == 14);
   ACU_ASSERT(ldt.second == 6);
 
-  atc_set_local_epoch_year(saved_epoch_year);
+  atc_set_current_epoch_year(saved_epoch_year);
 }
 
 //---------------------------------------------------------------------------

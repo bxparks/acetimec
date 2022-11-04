@@ -27,12 +27,24 @@
 /** Constants for entries in the zonedb files. */
 enum {
   /**
-   * The maximum value of ZoneRule::from_year and ZoneRule::to_year.
-   * Must be < ZoneEra::kMaxUntilYear.
+   * The minimum value of AtcZoneRule::from_year and AtcZoneRule::to_year. Used
+   * by synthetic entries for certain zones, to guarantee that all zones have at
+   * least one transition.
+   */
+  kAtcMinZoneRuleYear = 0,
+
+  /**
+   * The maximum value of AtcZoneRule::from_year and AtcZoneRule::to_year,
+   * representing the sentinel value "max" in the TO and FROM columns of the
+   * TZDB files. Must be less than kAtcMaxZoneEraUntilYear.
    */
   kAtcMaxZoneRuleYear = 9999,
 
-  /** The maximum value of ZoneEra::until_year. */
+  /**
+   * The maximum value of ZoneEra::until_year, representing the sentinel value
+   * "-" in the UNTIL column of the TZDB files. Must be greater than
+   * kAtcMaxZoneRuleYear.
+   */
   kAtcMaxZoneEraUntilYear = kAtcMaxZoneRuleYear + 1,
 };
 
@@ -226,7 +238,7 @@ typedef struct AtcZoneEra {
    * substitution is performed on the '%' character.
    *
    * This field will never be a 'nullptr' if it was derived from an actual
-   * entry from the TZ dtabase. There is an internal object named
+   * entry from the TZ database. There is an internal object named
    * `ExtendedZoneProcessor::kAnchorEra` which does set this field to nullptr.
    * Maybe it should be set to ""?
    */

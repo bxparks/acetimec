@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/dev/tz
 //     --output_dir /home/brian/src/AceTimeC/src/ace_time_c/zonedb
-//     --tz_version 2022e
+//     --tz_version 2022f
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -24,22 +24,22 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022e
+// from https://github.com/eggert/tz/releases/tag/2022f
 //
-// Zones: 354
-// Links: 241
+// Zones: 351
+// Links: 244
 // kAtcZoneRegistry sizes (bytes):
-//   Names: 5573 (originally 5573)
+//   Names: 5517 (originally 5517)
 //   Formats: 597
 //   Fragments: 122
-//   Memory (8-bit): 18019
-//   Memory (32-bit): 25138
+//   Memory (8-bit): 17913
+//   Memory (32-bit): 24994
 // kAtcZoneAndLinkRegistry sizes (bytes):
 //   Names: 9054 (originally 9054)
 //   Formats: 597
 //   Fragments: 122
-//   Memory (8-bit): 24633
-//   Memory (32-bit): 34403
+//   Memory (8-bit): 24622
+//   Memory (32-bit): 34387
 //
 // DO NOT EDIT
 
@@ -50,7 +50,7 @@
 // ZoneContext (should not be in PROGMEM)
 //---------------------------------------------------------------------------
 
-const char kAtcTzDatabaseVersion[] = "2022e";
+const char kAtcTzDatabaseVersion[] = "2022f";
 
 const char * const kAtcFragments[] = {
 /*\x00*/ NULL,
@@ -80,7 +80,7 @@ const AtcZoneContext kAtcZoneContext = {
 };
 
 //---------------------------------------------------------------------------
-// Zones: 354
+// Zones: 351
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
@@ -2663,18 +2663,30 @@ const AtcZoneInfo kAtcZoneAmerica_Chicago  = {
 
 //---------------------------------------------------------------------------
 // Zone name: America/Chihuahua
-// Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Zone Eras: 2
+// Strings (bytes): 26 (originally 26)
+// Memory (8-bit): 59
+// Memory (32-bit): 78
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Chihuahua[]  = {
-  //             -7:00    Mexico    M%sT
+  //             -7:00    Mexico    M%sT    2022 Oct 30  2:00
   {
     &kAtcPolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
     -28 /*offset_code*/,
+    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2022 /*until_year*/,
+    10 /*until_month*/,
+    30 /*until_day*/,
+    8 /*until_time_code*/,
+    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+  },
+  //             -6:00    -    CST
+  {
+    NULL /*zone_policy*/,
+    "CST" /*format*/,
+    -24 /*offset_code*/,
     4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
     10000 /*until_year*/,
     1 /*until_month*/,
@@ -2691,7 +2703,7 @@ const AtcZoneInfo kAtcZoneAmerica_Chihuahua  = {
   kAtcZoneNameAmerica_Chihuahua /*name*/,
   0x8827d776 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Chihuahua /*eras*/,
 };
 
@@ -4966,40 +4978,6 @@ const AtcZoneInfo kAtcZoneAmerica_New_York  = {
 };
 
 //---------------------------------------------------------------------------
-// Zone name: America/Nipigon
-// Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
-//---------------------------------------------------------------------------
-
-static const AtcZoneEra kAtcZoneEraAmerica_Nipigon[]  = {
-  //             -5:00    Canada    E%sT
-  {
-    &kAtcPolicyCanada /*zone_policy*/,
-    "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameAmerica_Nipigon[]  = "America/Nipigon";
-
-const AtcZoneInfo kAtcZoneAmerica_Nipigon  = {
-  kAtcZoneNameAmerica_Nipigon /*name*/,
-  0x9d2a8b1a /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraAmerica_Nipigon /*eras*/,
-};
-
-//---------------------------------------------------------------------------
 // Zone name: America/Nome
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
@@ -5277,10 +5255,10 @@ const AtcZoneInfo kAtcZoneAmerica_Nuuk  = {
 
 //---------------------------------------------------------------------------
 // Zone name: America/Ojinaga
-// Zone Eras: 2
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 57
-// Memory (32-bit): 76
+// Zone Eras: 3
+// Strings (bytes): 28 (originally 28)
+// Memory (8-bit): 72
+// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Ojinaga[]  = {
@@ -5296,11 +5274,23 @@ static const AtcZoneEra kAtcZoneEraAmerica_Ojinaga[]  = {
     0 /*until_time_code*/,
     0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
   },
-  //             -7:00    US    M%sT
+  //             -7:00    US    M%sT    2022 Oct 30  2:00
   {
     &kAtcPolicyUS /*zone_policy*/,
     "M%T" /*format*/,
     -28 /*offset_code*/,
+    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2022 /*until_year*/,
+    10 /*until_month*/,
+    30 /*until_day*/,
+    8 /*until_time_code*/,
+    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+  },
+  //             -6:00    -    CST
+  {
+    NULL /*zone_policy*/,
+    "CST" /*format*/,
+    -24 /*offset_code*/,
     4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
     10000 /*until_year*/,
     1 /*until_month*/,
@@ -5317,7 +5307,7 @@ const AtcZoneInfo kAtcZoneAmerica_Ojinaga  = {
   kAtcZoneNameAmerica_Ojinaga /*name*/,
   0xebfde83f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Ojinaga /*eras*/,
 };
 
@@ -5627,40 +5617,6 @@ const AtcZoneInfo kAtcZoneAmerica_Punta_Arenas  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Punta_Arenas /*eras*/,
-};
-
-//---------------------------------------------------------------------------
-// Zone name: America/Rainy_River
-// Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 46
-// Memory (32-bit): 60
-//---------------------------------------------------------------------------
-
-static const AtcZoneEra kAtcZoneEraAmerica_Rainy_River[]  = {
-  //             -6:00    Canada    C%sT
-  {
-    &kAtcPolicyCanada /*zone_policy*/,
-    "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameAmerica_Rainy_River[]  = "America/Rainy_River";
-
-const AtcZoneInfo kAtcZoneAmerica_Rainy_River  = {
-  kAtcZoneNameAmerica_Rainy_River /*name*/,
-  0x9cd58a10 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraAmerica_Rainy_River /*eras*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6363,40 +6319,6 @@ const AtcZoneInfo kAtcZoneAmerica_Thule  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Thule /*eras*/,
-};
-
-//---------------------------------------------------------------------------
-// Zone name: America/Thunder_Bay
-// Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 46
-// Memory (32-bit): 60
-//---------------------------------------------------------------------------
-
-static const AtcZoneEra kAtcZoneEraAmerica_Thunder_Bay[]  = {
-  //             -5:00    Canada    E%sT
-  {
-    &kAtcPolicyCanada /*zone_policy*/,
-    "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameAmerica_Thunder_Bay[]  = "America/Thunder_Bay";
-
-const AtcZoneInfo kAtcZoneAmerica_Thunder_Bay  = {
-  kAtcZoneNameAmerica_Thunder_Bay /*name*/,
-  0xf962e71b /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraAmerica_Thunder_Bay /*eras*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15614,7 +15536,7 @@ const AtcZoneInfo kAtcZoneWET  = {
 
 
 //---------------------------------------------------------------------------
-// Links: 241
+// Links: 244
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
@@ -16740,6 +16662,23 @@ const AtcZoneInfo kAtcZoneAmerica_Nassau  = {
 };
 
 //---------------------------------------------------------------------------
+// Link name: America/Nipigon -> America/Toronto
+// Strings (bytes): 16 (originally 16)
+// Memory (8-bit): 27
+// Memory (32-bit): 36
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameAmerica_Nipigon[]  = "America/Nipigon";
+
+const AtcZoneInfo kAtcZoneAmerica_Nipigon  = {
+  kAtcZoneNameAmerica_Nipigon /*name*/,
+  0x9d2a8b1a /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneAmerica_Toronto /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
 // Link name: America/Port_of_Spain -> America/Puerto_Rico
 // Strings (bytes): 22 (originally 22)
 // Memory (8-bit): 33
@@ -16771,6 +16710,23 @@ const AtcZoneInfo kAtcZoneAmerica_Porto_Acre  = {
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
   &kAtcZoneAmerica_Rio_Branco /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: America/Rainy_River -> America/Winnipeg
+// Strings (bytes): 20 (originally 20)
+// Memory (8-bit): 31
+// Memory (32-bit): 40
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameAmerica_Rainy_River[]  = "America/Rainy_River";
+
+const AtcZoneInfo kAtcZoneAmerica_Rainy_River  = {
+  kAtcZoneNameAmerica_Rainy_River /*name*/,
+  0x9cd58a10 /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneAmerica_Winnipeg /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16907,6 +16863,23 @@ const AtcZoneInfo kAtcZoneAmerica_St_Vincent  = {
   &kAtcZoneContext /*zoneContext*/,
   0 /*numEras*/,
   &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: America/Thunder_Bay -> America/Toronto
+// Strings (bytes): 20 (originally 20)
+// Memory (8-bit): 31
+// Memory (32-bit): 40
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameAmerica_Thunder_Bay[]  = "America/Thunder_Bay";
+
+const AtcZoneInfo kAtcZoneAmerica_Thunder_Bay  = {
+  kAtcZoneNameAmerica_Thunder_Bay /*name*/,
+  0xf962e71b /*zoneId*/,
+  &kAtcZoneContext /*zoneContext*/,
+  0 /*numEras*/,
+  &kAtcZoneAmerica_Toronto /*eras(info)*/,
 };
 
 //---------------------------------------------------------------------------

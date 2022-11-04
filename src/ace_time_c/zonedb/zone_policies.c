@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/dev/tz
 //     --output_dir /home/brian/src/AceTimeC/src/ace_time_c/zonedb
-//     --tz_version 2022e
+//     --tz_version 2022f
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -24,13 +24,13 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022e
+// from https://github.com/eggert/tz/releases/tag/2022f
 //
 // Policies: 83
-// Rules: 605
+// Rules: 603
 // Letter Size (bytes): 23
-// Total Memory 8-bit (bytes): 5978
-// Total Memory 32-bit (bytes): 8303
+// Total Memory 8-bit (bytes): 5960
+// Total Memory 32-bit (bytes): 8279
 //
 // DO NOT EDIT
 
@@ -2470,9 +2470,9 @@ const AtcZonePolicy kAtcPolicyFalk  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Fiji
-// Rules: 14
-// Memory (8-bit): 132
-// Memory (32-bit): 180
+// Rules: 12
+// Memory (8-bit): 114
+// Memory (32-bit): 156
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesFiji[]  = {
@@ -2620,30 +2620,6 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
     8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
     '-' /*letter*/,
   },
-  // Rule    Fiji    2022    max    -    Nov    Sun>=8    2:00    1:00    -
-  {
-    2022 /*from_year*/,
-    9999 /*to_year*/,
-    11 /*in_month*/,
-    7 /*on_day_of_week*/,
-    8 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
-    '-' /*letter*/,
-  },
-  // Rule    Fiji    2023    max    -    Jan    Sun>=12    3:00    0    -
-  {
-    2023 /*from_year*/,
-    9999 /*to_year*/,
-    1 /*in_month*/,
-    7 /*on_day_of_week*/,
-    12 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
-    '-' /*letter*/,
-  },
 
 };
 
@@ -2652,7 +2628,7 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
 const AtcZonePolicy kAtcPolicyFiji  = {
   kAtcZoneRulesFiji /*rules*/,
   NULL /*letters*/,
-  14 /*num_rules*/,
+  12 /*num_rules*/,
   0 /*num_letters*/,
 };
 
@@ -4028,10 +4004,10 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
     'S' /*letter*/,
   },
-  // Rule    Mexico    2002    max    -    Apr    Sun>=1    2:00    1:00    D
+  // Rule    Mexico    2002    2022    -    Apr    Sun>=1    2:00    1:00    D
   {
     2002 /*from_year*/,
-    9999 /*to_year*/,
+    2022 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -4040,10 +4016,10 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
     'D' /*letter*/,
   },
-  // Rule    Mexico    2002    max    -    Oct    lastSun    2:00    0    S
+  // Rule    Mexico    2002    2022    -    Oct    lastSun    2:00    0    S
   {
     2002 /*from_year*/,
-    9999 /*to_year*/,
+    2022 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,

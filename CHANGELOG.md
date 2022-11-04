@@ -1,6 +1,32 @@
 # Changelog
 
 * Unreleased
+* 0.4.0 (2022-11-04, TZDB 2022f)
+    * Configurable current epoch year
+        * Rename `atc_set_local_epoch_year()` and `atc_get_local_epoch_year()`
+          to `atc_set_current_epoch_year()` and `atc_get_current_epoch_year()`,
+          consistent with AceTime library.
+        * Rename `atc_local_valid_year_lower()` and
+          `atc_local_valid_year_upper()` to `atc_epoch_valid_year_lower()` and
+          `atc_epoch_valid_year_uppper()`, consistent with AceTime library.
+        * Create `epoch.h` for features related to current epoch year, and
+          epoch day converters.
+    * Upgrade TZDB from 2022e to 2022f
+        * https://mm.icann.org/pipermail/tz-announce/2022-October/000075.html
+			* Mexico will no longer observe DST except near the US border.
+			* Chihuahua moves to year-round -06 on 2022-10-30.
+			* Fiji no longer observes DST.
+			* Move links to 'backward'.
+			* In vanguard form, GMT is now a Zone and Etc/GMT a link.
+			* zic now supports links to links, and vanguard form uses this.
+			* Simplify four Ontario zones.
+			* Fix a Y2438 bug when reading TZif data.
+			* Enable 64-bit time_t on 32-bit glibc platforms.
+			* Omit large-file support when no longer needed.
+			* In C code, use some C23 features if available.
+			* Remove no-longer-needed workaround for Qt bug 53071.
+    * Add skeleton `libraries.properties` to test the C library with an
+      Arduino board.
 * 0.3.0 (2022-08-30, TZDB 2022e)
     * Add `string_buffer.h` which implements a simple string buffer and
       provides a collection of print functions for converting various date
@@ -9,9 +35,11 @@
       a date time from one time zone to another.
     * Create typedefs for `struct`, and remove unnecessary `struct` keyword.
     * Change `year` fields from `int8_t` to `int16_t`.
-    * Add `atc_local_valid_year_lower()` and `atc_local_valid_year_upper()`
-        * Defines the interval `lower <= year < upper` which is guaranteed
-          to produce valid transitions.
+    * Adjustable current epoch year
+        * Add `atc_set_local_epoch_year()` and `atc_get_local_epoch_year()`
+        * Add `atc_local_valid_year_lower()` and `atc_local_valid_year_upper()`
+            * Defines the interval `lower <= year < upper` which is guaranteed
+            to produce valid transitions.
     * Upgrade TZDB from 2022b to 2022e
         * 2022c
             * https://mm.icann.org/pipermail/tz-announce/2022-August/000072.html
