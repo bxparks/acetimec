@@ -41,7 +41,7 @@ latter documents.
     * [AtcZoneInfo](#AtcZoneInfo)
     * [Zone Database](#ZoneDatabase)
     * [AtcZonedExtra](#AtcZonedExtra)
-    * [AtcZoneRegistry](#AtcZoneRegistry)
+    * [AtcZoneRegistrar](#AtcZoneRegistrar)
 * [License](#License)
 * [Feedback and Support](#FeedbackAndSupport)
 * [Authors](#Authors)
@@ -338,7 +338,7 @@ The `atc_offset_date_time_from_epoch_seconds()` function converts the given
 error occurs, the function returns `kAtcErrGeneric`, otherwise it returns
 `kAtcErrOk`. The `fold` parameter is usually 0. However, during a DST shift
 (described above), a `fold=0` indicates the first occurrence of the local wall
-clock, and `fold=1` indicates the second occurrence of the local wall clok.
+clock, and `fold=1` indicates the second occurrence of the local wall clock.
 
 The `atc_zoned_date_time_from_local_date_time()` converts the date-time
 components defined by the `AtcLocalDateTime` to the `AtcZonedDateTime`, taking
@@ -461,7 +461,7 @@ The full list of Zones (and Links) supported by this library is given in the
 [zonedb/zone_infos.h](src/ace_time_c/zonedb/zone_infos.h) header file, which is
 automatically included by the `acetime.h` header file.
 
-The IANA TZ database is often revisioned to track changes to the DST rules in
+The IANA TZ database is often updated to track changes to the DST rules in
 different countries and regions. The version of the TZ database that was used to
 generate the AceTimeC Zone database is given by:
 
@@ -500,8 +500,8 @@ int8_t atc_zoned_extra_from_epoch_seconds(
 This function returns `kAtcErrGeneric` if an error is encountered, otherwise it
 returns `kAtcErrOk`.
 
-<a name="AtcZoneRegistry"></a>
-## AtcZoneRegistry
+<a name="AtcZoneRegistrar"></a>
+## AtcZoneRegistrar
 
 The Zone Registry is the list of all Zones (and Links) supported by this
 library. It allows us to locate the `AtcZoneInfo` pointer using the
@@ -520,24 +520,67 @@ extern const AtcZoneInfo * const kAtcZoneRegistry[356];
 extern const AtcZoneInfo * const kAtcZoneAndLinkRegistry[595];
 ```
 
-There are 3 registrar functions which can query the zone registry:
+To use these registries, first we create and initialize an `AtcZoneRegistrar`
+data structure using the `atc_registrar_init()` function:
 
 ```C
-bool atc_registrar_is_registry_sorted(
+typedef struct AtcZoneRegistrar {
+  const AtcZoneInfo * const * registry;
+  uint16_t size;
+  bool is_sorted;
+} AtcZoneRegistrar;
+
+void atc_registrar_init(
+    AtcZoneRegistrar *registrar,
     const AtcZoneInfo * const * registry,
     uint16_t size);
+```
 
+Then we can query the registry using either the zoneId or its zone name:
+
+```C
 const AtcZoneInfo *atc_registrar_find_by_name(
-    const AtcZoneInfo * const * registry,
-    uint16_t size,
-    const char *name,
-    bool is_sorted);
+    const AtcZoneRegistrar *registrar,
+    const char *name);
 
 const AtcZoneInfo *atc_registrar_find_by_id(
-    const AtcZoneInfo * const * registry,
-    uint16_t size,
-    uint32_t zone_id,
-    bool is_sorted);
+    const AtcZoneRegistrar *registrar,
+    uint32_t zone_id);
+```
+
+To retrieve the `AtcZoneInfo` pointer from the human readable zone name, the
+code looks something like this:
+
+```C
+#include <acetimec.h>
+
+AtcZoneRegistrar registrar;
+
+// Perform this only once
+void setup()
+{
+  atc_registrar_init(
+      &registrar,
+      kAtcZoneAndLinkRegistry,
+      kAtcZoneAndLinkRegistrySize);
+  ...
+}
+
+void retrieve_zone_info_by_name()
+{
+  const char *name = "America/Los_Angeles";
+  const AtcZoneInfo *zone_info = atc_registrar_find_by_name(&registrar, name);
+  if (zone_info == NULL) { /*error*/ }
+  ...
+}
+
+void retrieve_zone_info_by_id()
+{
+  uint32_t zone_id = kAtcZoneIdAmerica_Los_Angeles;
+  const AtcZoneInfo *zone_info = atc_registrar_find_by_id(&registrar, zone_id);
+  if (zone_info == NULL) { /*error*/ }
+  ...
+}
 ```
 
 The zone identifier is a unique and stable 32-bit integer associated for each
@@ -548,66 +591,17 @@ an embedded environment than the human-readable zone name because the integer is
 a fixed size and can be stored and retrieved quickly.
 
 For example, instead of using the string `"America/Los_Angeles"`, this library
-defines the 32-bit number `kAtcZoneIdAmerica_Los_Angeles=0xb7f7e8f2` to this
+defines the 32-bit number `kAtcZoneIdAmerica_Los_Angeles=0xb7f7e8f2` for this
 zone. This zone identifier can be passed into the `atc_registrar_find_by_id()`
-function to retrieve the corresopnding `AtcZoneInfo` object.
+function to retrieve the corresponding `AtcZoneInfo` object.
 
-The `atc_registrar_is_registry_sorted()` function determines whether or not the
-registry is sorted by zone id. If it is, then the search functions (both
-`find_by_name()` and `find_by_id()`) can use a much faster binary search
-algorithm for performance. If the registry is not sorted, then the search
-functions must perform a linear search through the registry which is much
-slower.
-
-The execution complexity of `atc_registrar_is_registry_sorted()` is `O(N)`. In
-comparison, the search functions are `O(log(N))` if the registry is already
-sorted. Therefore, the `atc_registrar_is_registry_sorted()` should be called
-only once and the result saved in a shared variable and passed into the search
-functions. If the `atc_registrar_is_registry_sorted()` is called before every
-search function, then no performance improvement will be gained by using a
-binary search algorithm.
-
-To retrieve the `AtcZoneInfo` pointer from the human readable zone name, the
-code looks something like this:
-
-```C
-#include <acetimec.h>
-
-bool is_sorted;
-
-// Perform this only once
-void setup()
-{
-  is_sorted = atc_registrar_is_registry_sorted(
-      kAtcZoneAndLinkRegistry,
-      kAtcZoneAndLinkRegistrySize);
-  ...
-}
-
-void retrieve_zone_info_by_name()
-{
-  const char *name = "America/Los_Angeles";
-  const AtcZoneInfo *zone_info = atc_registrar_find_by_name(
-      kAtcZoneAndLinkRegistry,
-      kAtcZoneAndLinkRegistrySize,
-      name,
-      is_sorted);
-  if (zone_info == NULL) { /*error*/ }
-  ...
-}
-
-void retrieve_zone_info_by_id()
-{
-  uint32_t zone_id = kAtcZoneIdAmerica_Los_Angeles;
-  const AtcZoneInfo *zone_info = atc_registrar_find_by_id(
-      kAtcZoneAndLinkRegistry,
-      kAtcZoneAndLinkRegistrySize,
-      zone_id,
-      is_sorted);
-  if (zone_info == NULL) { /*error*/ }
-  ...
-}
-```
+The `atc_registrar_init()` function determines whether or not the registry is
+sorted by zone id. If it is, then the search functions (both `find_by_name()`
+and `find_by_id()`) will use binary search algorithm. If the registry is not
+sorted, then the search functions performs a linear search through the registry.
+The binary search algorithm is `O(log(N))` and the linear search of `O(N)`.
+The binary search will be far faster than the linear search if the registry
+contains more than about 5-10 entries.
 
 The downstream application does not need to use the default zone registries
 (`kAtcZoneRegistry` or `kAtcZoneAndLinkRegistry`). It can create its own custom

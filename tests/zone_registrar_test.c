@@ -26,71 +26,57 @@ ACU_TEST(test_atc_registrar_is_registry_sorted)
 
 ACU_TEST(test_atc_registrar_find_by_id_sorted)
 {
-  const AtcZoneInfo *info = atc_registrar_find_by_id(
-      kAtcZoneAndLinkRegistry,
-      kAtcZoneAndLinkRegistrySize,
-      0xb7f7e8f2,
-      true);
+  AtcZoneRegistrar registrar;
+  atc_registrar_init(
+      &registrar, kAtcZoneAndLinkRegistry, kAtcZoneAndLinkRegistrySize);
+
+  const AtcZoneInfo *info = atc_registrar_find_by_id(&registrar, 0xb7f7e8f2);
   ACU_ASSERT(info == &kAtcZoneAmerica_Los_Angeles);
 
   const uint32_t should_not_exist = 0x0;
-  info = atc_registrar_find_by_id(
-      kAtcZoneAndLinkRegistry,
-      kAtcZoneAndLinkRegistrySize,
-      should_not_exist,
-      true);
+  info = atc_registrar_find_by_id(&registrar, should_not_exist);
   ACU_ASSERT(info == NULL);
 }
 
 ACU_TEST(test_atc_registrar_find_by_name_sorted)
 {
+  AtcZoneRegistrar registrar;
+  atc_registrar_init(
+      &registrar, kAtcZoneAndLinkRegistry, kAtcZoneAndLinkRegistrySize);
+
   const AtcZoneInfo *info = atc_registrar_find_by_name(
-      kAtcZoneAndLinkRegistry,
-      kAtcZoneAndLinkRegistrySize,
-      "America/Los_Angeles",
-      true);
+      &registrar, "America/Los_Angeles");
   ACU_ASSERT(info == &kAtcZoneAmerica_Los_Angeles);
 
   info = atc_registrar_find_by_name(
-      kAtcZoneAndLinkRegistry,
-      kAtcZoneAndLinkRegistrySize,
-      "should not exist",
-      true);
+      &registrar, "should not exist");
   ACU_ASSERT(info == NULL);
 }
 
 ACU_TEST(test_atc_registrar_find_by_id_unsorted)
 {
-  const AtcZoneInfo *info = atc_registrar_find_by_id(
-      kUnsortedRegistry,
-      UNSORTED_SIZE,
-      0xb7f7e8f2,
-      false);
+  AtcZoneRegistrar registrar;
+  atc_registrar_init( &registrar, kUnsortedRegistry, UNSORTED_SIZE);
+
+  const AtcZoneInfo *info = atc_registrar_find_by_id(&registrar, 0xb7f7e8f2);
   ACU_ASSERT(info == &kAtcZoneAmerica_Los_Angeles);
 
   const uint32_t should_not_exist = 0x0;
-  info = atc_registrar_find_by_id(
-      kUnsortedRegistry,
-      UNSORTED_SIZE,
-      should_not_exist,
-      false);
+  info = atc_registrar_find_by_id(&registrar, should_not_exist);
   ACU_ASSERT(info == NULL);
 }
 
 ACU_TEST(test_atc_registrar_find_by_name_unsorted)
 {
+  AtcZoneRegistrar registrar;
+  atc_registrar_init(&registrar, kUnsortedRegistry, UNSORTED_SIZE);
+
   const AtcZoneInfo *info = atc_registrar_find_by_name(
-      kUnsortedRegistry,
-      UNSORTED_SIZE,
-      "America/Los_Angeles",
-      false);
+      &registrar, "America/Los_Angeles");
   ACU_ASSERT(info == &kAtcZoneAmerica_Los_Angeles);
 
   info = atc_registrar_find_by_name(
-      kUnsortedRegistry,
-      UNSORTED_SIZE,
-      "should not exist",
-      false);
+      &registrar, "should not exist");
   ACU_ASSERT(info == NULL);
 }
 

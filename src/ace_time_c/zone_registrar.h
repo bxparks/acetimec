@@ -18,6 +18,19 @@
 #include "zone_info.h"
 #include "common.h"
 
+/** Data structure used by the registrar to manage a given zone registry. */
+typedef struct AtcZoneRegistrar {
+  const AtcZoneInfo * const * registry;
+  uint16_t size;
+  bool is_sorted;
+} AtcZoneRegistrar;
+
+/**Initialize the given registrar data structure with the given registry. */
+void atc_registrar_init(
+    AtcZoneRegistrar *registrar,
+    const AtcZoneInfo * const * registry,
+    uint16_t size);
+
 /** Determine if the registry is sorted by zone id. */
 bool atc_registrar_is_registry_sorted(
     const AtcZoneInfo * const * registry,
@@ -28,19 +41,15 @@ bool atc_registrar_is_registry_sorted(
  * Return NULL if not found.
  */
 const AtcZoneInfo *atc_registrar_find_by_name(
-    const AtcZoneInfo * const * registry,
-    uint16_t size,
-    const char *name,
-    bool is_sorted);
+    const AtcZoneRegistrar *registrar,
+    const char *name);
 
 /**
  * Search the zone registry for the zone 'id'.
  * Return NULL if not found.
  */
 const AtcZoneInfo *atc_registrar_find_by_id(
-    const AtcZoneInfo * const * registry,
-    uint16_t size,
-    uint32_t zone_id,
-    bool is_sorted);
+    const AtcZoneRegistrar *registrar,
+    uint32_t zone_id);
 
 #endif
