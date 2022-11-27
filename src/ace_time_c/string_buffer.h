@@ -21,10 +21,10 @@ typedef struct AtcStringBuffer {
 } AtcStringBuffer;
 
 /** Initialize the AtcStringBuffer with its char pointer and capacity. */
-void atc_print_init(AtcStringBuffer *sb, char *p, uint8_t capacity);
+void atc_buf_init(AtcStringBuffer *sb, char *p, uint8_t capacity);
 
 /** Finalize the AtcStringBuffer by terminating the string with a NUL. */
-void atc_print_end(AtcStringBuffer *sb);
+void atc_buf_close(AtcStringBuffer *sb);
 
 /** Print one char into the AtcStringBuffer. */
 void atc_print_char(AtcStringBuffer *sb, char c);
