@@ -7,7 +7,11 @@ void atc_buf_init(AtcStringBuffer *sb, char *p, uint8_t capacity)
   sb->size = 0;
 }
 
-// Convert into a NUL terminated C-string.
+void atc_buf_reset(AtcStringBuffer *sb)
+{
+  sb->size = 0;
+}
+
 void atc_buf_close(AtcStringBuffer *sb)
 {
   if (sb->size >= sb->capacity) {

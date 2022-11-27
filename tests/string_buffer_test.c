@@ -16,6 +16,20 @@ ACU_TEST(test_atc_print_char)
   ACU_ASSERT(sb.p[1] == '\0');
 }
 
+ACU_TEST(test_atc_buf_reset)
+{
+  atc_buf_init(&sb, buf, 80);
+  atc_print_char(&sb, 'a');
+  atc_buf_close(&sb);
+
+  ACU_ASSERT(sb.size == 1);
+  ACU_ASSERT(sb.p[0] == 'a');
+  ACU_ASSERT(sb.p[1] == '\0');
+
+  atc_buf_reset(&sb);
+  ACU_ASSERT(sb.size == 0);
+}
+
 ACU_TEST(test_atc_print_string)
 {
   atc_buf_init(&sb, buf, 80);
@@ -107,6 +121,7 @@ ACU_VARS();
 int main()
 {
   ACU_RUN_TEST(test_atc_print_char);
+  ACU_RUN_TEST(test_atc_buf_reset);
   ACU_RUN_TEST(test_atc_print_string);
   ACU_RUN_TEST(test_atc_print_uint16);
   ACU_RUN_TEST(test_atc_print_uint16_pad2);

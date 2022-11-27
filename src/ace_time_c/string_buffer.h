@@ -23,6 +23,9 @@ typedef struct AtcStringBuffer {
 /** Initialize the AtcStringBuffer with its char pointer and capacity. */
 void atc_buf_init(AtcStringBuffer *sb, char *p, uint8_t capacity);
 
+/** Reset the buffer to zero length. */
+void atc_buf_reset(AtcStringBuffer *sb);
+
 /** Finalize the AtcStringBuffer by terminating the string with a NUL. */
 void atc_buf_close(AtcStringBuffer *sb);
 
