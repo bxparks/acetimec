@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.4.0</span>
+   &#160;<span id="projectnumber">0.5.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -105,17 +105,26 @@ Files</h2></td></tr>
 <tr class="memitem:string__buffer_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="string__buffer_8h.html">string_buffer.h</a> <a href="string__buffer_8h_source.html">[code]</a></td></tr>
 <tr class="memdesc:string__buffer_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">A simple set of integer to string conversion functions. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:transition_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transition_8h.html">transition.h</a> <a href="transition_8h_source.html">[code]</a></td></tr>
+<tr class="memdesc:transition_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structures and functions related to calculating DST transitions. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:zone__info_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info_8h.html">zone_info.h</a> <a href="zone__info_8h_source.html">[code]</a></td></tr>
 <tr class="memdesc:zone__info_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">The data structures in the zone database, with the <a class="el" href="structAtcZoneInfo.html" title="Representation of a given time zone, implemented as an array of ZoneEra records.">AtcZoneInfo</a> representing a specific time zone. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:zone__info__utils_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html">zone_info_utils.h</a> <a href="zone__info__utils_8h_source.html">[code]</a></td></tr>
 <tr class="memdesc:zone__info__utils_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Most fields in the zonedb database (defined by the data types in <a class="el" href="zone__info_8h.html" title="The data structures in the zone database, with the AtcZoneInfo representing a specific time zone.">zone_info.h</a>) are meant to be accessed directly through a raw pointer. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:zone__processing_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processing_8h.html">zone_processing.h</a> <a href="zone__processing_8h_source.html">[code]</a></td></tr>
+<tr class="memdesc:zone__processing_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structures and functions related to determining the UTC and DST offsets using the list of DST transitions encoded by the <a class="el" href="structAtcTransition.html" title="A transition from one DST rule to another, and the time period which that rule is valid for.">AtcTransition</a> objects. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:zone__registrar_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__registrar_8h.html">zone_registrar.h</a> <a href="zone__registrar_8h_source.html">[code]</a></td></tr>
-<tr class="memdesc:zone__registrar_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functions to find the <a class="el" href="structAtcZoneInfo.html" title="Representation of a given time zone, implemented as an array of ZoneEra records.">AtcZoneInfo</a> from the human readable zone name, or the 32-bit zone ID identifier. <br /></td></tr>
+<tr class="memdesc:zone__registrar_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functions that search for specific time zones by name or by ID over a given set of zones defined by a zone registry. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:zoned__date__time_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__date__time_8h.html">zoned_date_time.h</a> <a href="zoned__date__time_8h_source.html">[code]</a></td></tr>
 <tr class="memdesc:zoned__date__time_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Functions that relate to the date time with a reference to a specific time zone. <br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:zoned__extra_8h"><td class="memItemLeft" align="right" valign="top">file &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__extra_8h.html">zoned_extra.h</a> <a href="zoned__extra_8h_source.html">[code]</a></td></tr>
+<tr class="memdesc:zoned__extra_8h"><td class="mdescLeft">&#160;</td><td class="mdescRight">Additional information about a time zone such as the STD offset, the DST offset, and the abbreviation at a given epochSeconds. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 </div><!-- contents -->

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.4.0</span>
+   &#160;<span id="projectnumber">0.5.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -121,7 +121,7 @@ Public Attributes</h2></td></tr>
 <p>Corresponds to one line of the ZONE record in the TZ Database file ending with an UNTIL field. The ZonePolicy is determined by the RULES column in the TZ Database file.</p>
 <p>There are 2 types of ZoneEra: 1) zone_policy == nullptr. Then delta_code determines the additional offset from offset_code. A value of '-' in the TZ Database file is stored as 0. 2) zone_policy != nullptr. Then the delta_code offset is given by the ZoneRule.delta_code of the ZoneRule which matches the time instant of interest. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00213">213</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00217">217</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="afdc57d7832ca6af540d32c5971a39237"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#afdc57d7832ca6af540d32c5971a39237">&#9670;&nbsp;</a></span>delta_code</h2>
@@ -145,7 +145,7 @@ Public Attributes</h2></td></tr>
 </ul>
 <p>The extended::ZoneEraBroker::deltaMinutes() and offsetMinutes() know how to convert offset_code and delta_code into the appropriate minutes. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00268">268</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00272">272</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -168,7 +168,7 @@ Public Attributes</h2></td></tr>
 <p>The TZ DB files use 's' to indicate the substitution, but for simplicity, AceTime replaces the "%s" with just a '' character with no loss of functionality. This also makes the string-replacement code a little simpler. For example, 'EsT' is stored as 'ET', and the LETTER substitution is performed on the '' character.</p>
 <p>This field will never be a 'nullptr' if it was derived from an actual entry from the TZ database. There is an internal object named <code>ExtendedZoneProcessor::kAnchorEra</code> which does set this field to nullptr. Maybe it should be set to ""? </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00245">245</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00249">249</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -187,7 +187,7 @@ Public Attributes</h2></td></tr>
 <p>UTC offset in 15 min increments. </p>
 <p>Determined by the STDOFF column. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00248">248</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00252">252</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -206,7 +206,7 @@ Public Attributes</h2></td></tr>
 <p>The day field in UNTIL (1-31). </p>
 <p>Will never be 0. Also, there's no need for untilDayOfWeek, because the database generator will resolve the exact day of month based on the known year and month. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00283">283</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00287">287</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -225,7 +225,7 @@ Public Attributes</h2></td></tr>
 <p>The month field in UNTIL (1-12). </p>
 <p>Will never be 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00276">276</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00280">280</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -244,7 +244,7 @@ Public Attributes</h2></td></tr>
 <p>The time field of UNTIL field in 15-minute increments. </p>
 <p>A range of 00:00 to 25:00 corresponds to 0-100. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00289">289</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00293">293</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -266,7 +266,7 @@ Public Attributes</h2></td></tr>
 <li>The lower 4 bits represent the remaining 0-14 minutes of the UNTIL field after truncation into untilTimeCode. In other words, the full UNTIL field in one-minute resolution is (15 * untilTimeCode + (until_time_modifier &amp; 0x0f)). </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00301">301</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00305">305</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -285,7 +285,7 @@ Public Attributes</h2></td></tr>
 <p>Era is valid until currentTime &lt; untilYear. </p>
 <p>Comes from the UNTIL column. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00273">273</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00277">277</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -304,7 +304,7 @@ Public Attributes</h2></td></tr>
 <p>Zone policy, determined by the RULES column. </p>
 <p>Set to nullptr if the RULES column is '-' or an explicit DST shift in the form of 'hh:mm'. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00218">218</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00222">222</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>

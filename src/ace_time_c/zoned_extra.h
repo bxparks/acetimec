@@ -3,8 +3,19 @@
  * Copyright (c) 2022 Brian T. Park
  */
 
+/**
+ * @file zoned_extra.h
+ *
+ * Additional information about a time zone such as the STD offset, the DST
+ * offset, and the abbreviation at a given epochSeconds.
+ */
+
 #ifndef ACE_TIME_C_ZONED_EXTRA_H
 #define ACE_TIME_C_ZONED_EXTRA_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 #include <stdint.h>
 #include "common.h"
@@ -34,5 +45,9 @@ int8_t atc_zoned_extra_from_epoch_seconds(
     const AtcZoneInfo *zone_info,
     atc_time_t epoch_seconds,
     AtcZonedExtra *extra);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

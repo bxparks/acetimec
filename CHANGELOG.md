@@ -1,6 +1,15 @@
 # Changelog
 
 * Unreleased
+* 0.5.0 (2022-12-04, TZDB 2022g)
+    * Upgrade to TZDB 2022g
+    * Add `extern "C"` to all header files.
+    * Rename `string_buffer.h` functions to `atc_buf_init()` and
+      `atc_buf_close()`. Add `atc_buf_reset()`.
+    * Create `AtcZoneRegistrar` data structure for the various
+      `atc_registrar_xxx()` functions.
+    * Add `examples/arduino/HelloTextClock` to test compilation under Arduino
+      environment.
 * 0.4.0 (2022-11-04, TZDB 2022f)
     * Configurable current epoch year
         * Rename `atc_set_local_epoch_year()` and `atc_get_local_epoch_year()`

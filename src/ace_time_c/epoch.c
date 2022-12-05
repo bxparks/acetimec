@@ -10,7 +10,7 @@ int16_t atc_current_epoch_year = 2050;
 
 int32_t atc_days_to_current_epoch_from_converter_epoch = 0;
 
-int16_t atc_get_current_epoch_year()
+int16_t atc_get_current_epoch_year(void)
 {
   return atc_current_epoch_year;
 }
@@ -22,17 +22,17 @@ void atc_set_current_epoch_year(int16_t year)
       atc_convert_to_days(year, 1, 1);
 }
 
-int32_t atc_get_days_to_current_epoch_from_converter_epoch()
+int32_t atc_get_days_to_current_epoch_from_converter_epoch(void)
 {
   return atc_days_to_current_epoch_from_converter_epoch;
 }
 
-int16_t atc_epoch_valid_year_lower()
+int16_t atc_epoch_valid_year_lower(void)
 {
   return atc_get_current_epoch_year() - 50;
 }
 
-int16_t atc_epoch_valid_year_upper()
+int16_t atc_epoch_valid_year_upper(void)
 {
   return atc_get_current_epoch_year() + 50;
 }

@@ -1,14 +1,18 @@
 #include "string_buffer.h"
 
-void atc_print_init(AtcStringBuffer *sb, char *p, uint8_t capacity)
+void atc_buf_init(AtcStringBuffer *sb, char *p, uint8_t capacity)
 {
   sb->p = p;
   sb->capacity = capacity;
   sb->size = 0;
 }
 
-// Convert into a NUL terminated C-string.
-void atc_print_end(AtcStringBuffer *sb)
+void atc_buf_reset(AtcStringBuffer *sb)
+{
+  sb->size = 0;
+}
+
+void atc_buf_close(AtcStringBuffer *sb)
 {
   if (sb->size >= sb->capacity) {
     sb->size = sb->capacity - 1;

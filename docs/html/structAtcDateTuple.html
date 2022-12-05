@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.4.0</span>
+   &#160;<span id="projectnumber">0.5.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -104,7 +104,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <p>The order of 'minutes' and 'suffix' are reversed from the DateTuple class in the AceTime library because C does not support constructors, so the initializer list must be in the same order as the field order. But I have a bunch of code ported from the C++ code in AceTime which assumes that 'minutes' comes before 'suffix'. So it is easier to fix the ordering here.</p>
 <p>This causes the field alignment to be slightly less than ideal, but the class already consumes 2 x 4-byte slots on 32-bit processors, so the new ordering does not change the overall sizeof(AtcDateTuple). </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00029">29</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00039">39</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/home/brian/src/AceTimeC/src/ace_time_c/<a class="el" href="transition_8h_source.html">transition.h</a></li>
 </ul>

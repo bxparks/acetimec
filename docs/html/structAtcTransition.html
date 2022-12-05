@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.4.0</span>
+   &#160;<span id="projectnumber">0.5.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -132,7 +132,7 @@ union {</td></tr>
 int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcTransition.html#aa8cf01685e509002040f84d220c4b0ee">delta_minutes</a></td></tr>
 <tr class="memdesc:aa8cf01685e509002040f84d220c4b0ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">The DST delta minutes. <br /></td></tr>
 <tr class="separator:aa8cf01685e509002040f84d220c4b0ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10c2c555236e8a50eb717a6002d64fa0"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcTransition.html#a10c2c555236e8a50eb717a6002d64fa0">abbrev</a> [kAtcAbbrevSize]</td></tr>
+<tr class="memitem:a10c2c555236e8a50eb717a6002d64fa0"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcTransition.html#a10c2c555236e8a50eb717a6002d64fa0">abbrev</a> [<a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06ca9262981dc217adabd9b160f3b8e29c80">kAtcAbbrevSize</a>]</td></tr>
 <tr class="memdesc:a10c2c555236e8a50eb717a6002d64fa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">The calculated effective time zone abbreviation, e.g.  <a href="structAtcTransition.html#a10c2c555236e8a50eb717a6002d64fa0">More...</a><br /></td></tr>
 <tr class="separator:a10c2c555236e8a50eb717a6002d64fa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acaa896714fdbe780c7b61dbcd91e0256"><td class="memItemLeft" align="right" valign="top"><a id="acaa896714fdbe780c7b61dbcd91e0256"></a>
@@ -154,7 +154,7 @@ union {</td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A transition from one DST rule to another, and the time period which that rule is valid for. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00145">145</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00155">155</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a10c2c555236e8a50eb717a6002d64fa0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a10c2c555236e8a50eb717a6002d64fa0">&#9670;&nbsp;</a></span>abbrev</h2>
@@ -163,7 +163,7 @@ union {</td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char AtcTransition::abbrev[kAtcAbbrevSize]</td>
+          <td class="memname">char AtcTransition::abbrev[<a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06ca9262981dc217adabd9b160f3b8e29c80">kAtcAbbrevSize</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -171,7 +171,7 @@ union {</td></tr>
 <p>The calculated effective time zone abbreviation, e.g. </p>
 <p>"PST" or "PDT". </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00210">210</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00220">220</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
 
 </div>
 </div>
@@ -190,7 +190,7 @@ union {</td></tr>
 <p>During findCandidateTransitions(), this flag indicates whether the current transition is a valid "prior" transition that occurs before other transitions. </p>
 <p>It is set by setFreeAgentAsPriorIfValid() if the transition is a prior transition. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00222">222</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00232">232</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
 
 </div>
 </div>
@@ -211,7 +211,7 @@ union {</td></tr>
 <li>deltaMinutes) but it does not seem worth making that change right now.) </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00204">204</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00214">214</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
 
 </div>
 </div>
@@ -230,7 +230,7 @@ union {</td></tr>
 <p>The Zone transition rule that matched for the the given year. </p>
 <p>Set to nullptr if the RULES column is '-', indicating that the MatchingEra was a "simple" ZoneEra. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00154">154</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00164">164</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
 
 </div>
 </div>
@@ -249,7 +249,7 @@ union {</td></tr>
 <p>Start time expressed using the UTC offset of the current Transition. </p>
 <p>Valid after ExtendedZoneProcessor::generateStartUntilTimes() is called. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00176">176</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00186">186</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
 
 </div>
 </div>
@@ -268,7 +268,7 @@ union {</td></tr>
 <p>The original transition time, usually 'w' but sometimes 's' or 'u'. </p>
 <p>After expandDateTuple() is called, this field will definitely be a 'w'. We must remember that the transition_time* fields are expressed using the UTC offset of the <em>previous</em> Transition. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00162">162</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00172">172</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
 
 </div>
 </div>
@@ -287,7 +287,7 @@ union {</td></tr>
 <p>Version of transition_time in 's' mode, using the UTC offset of the <em>previous</em> Transition. </p>
 <p>Valid before ExtendedZoneProcessor::generateStartUntilTimes() is called. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00170">170</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00180">180</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
 
 </div>
 </div>
@@ -306,7 +306,7 @@ union {</td></tr>
 <p>Version of transition_time in 'u' mode, using the UTC offset of the <em>previous</em> transition. </p>
 <p>Valid before ExtendedZoneProcessor::generateStartUntilTimes() is called. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00185">185</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00195">195</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
 
 </div>
 </div>
@@ -325,7 +325,7 @@ union {</td></tr>
 <p>Until time expressed using the UTC offset of the current Transition. </p>
 <p>Valid after ExtendedZoneProcessor::generateStartUntilTimes() is called. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00191">191</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00201">201</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
 
 </div>
 </div>

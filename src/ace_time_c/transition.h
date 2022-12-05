@@ -3,12 +3,22 @@
  * Copyright (c) 2022 Brian T. Park
  */
 
+/**
+ * @file transition.h
+ *
+ * Data structures and functions related to calculating DST transitions.
+ */
+
 #ifndef ACE_TIME_C_TRANSITION_H
 #define ACE_TIME_C_TRANSITION_H
 
 #include <stdint.h>
 #include "common.h" // atc_time_t
 #include "zone_info.h" // AtcZoneEra
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 //---------------------------------------------------------------------------
 
@@ -394,5 +404,11 @@ uint8_t atc_transition_compare_to_match(
  */
 uint8_t atc_transition_compare_to_match_fuzzy(
     const AtcTransition *t, const AtcMatchingEra *match);
+
+//---------------------------------------------------------------------------
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

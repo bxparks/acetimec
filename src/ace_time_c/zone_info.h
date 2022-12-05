@@ -16,6 +16,10 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 //---------------------------------------------------------------------------
 
 /**
@@ -346,5 +350,11 @@ typedef struct AtcLinkEntry {
   /** Hash id of the target ZONE name (e.g. "America/Los_Angeles"). */
   uint32_t const zone_id;
 } AtcLinkEntry;
+
+//---------------------------------------------------------------------------
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

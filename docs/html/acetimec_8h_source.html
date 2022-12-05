@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.4.0</span>
+   &#160;<span id="projectnumber">0.5.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -80,44 +80,39 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define ACE_TIME_C_H</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/* Version format: xxyyzz == &quot;xx.yy.zz&quot; */</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define ACE_TIME_C_VERSION 400</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define ACE_TIME_C_VERSION_STRING &quot;0.4.0&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define ACE_TIME_C_VERSION 500</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define ACE_TIME_C_VERSION_STRING &quot;0.5.0&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
-<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
-<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="string__buffer_8h.html">ace_time_c/string_buffer.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="epoch_8h.html">ace_time_c/epoch.h</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="local__date_8h.html">ace_time_c/local_date.h</a>&quot;</span></div>
-<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="local__date__time_8h.html">ace_time_c/local_date_time.h</a>&quot;</span></div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="offset__date__time_8h.html">ace_time_c/offset_date_time.h</a>&quot;</span></div>
-<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;ace_time_c/transition.h&quot;</span></div>
-<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;ace_time_c/zone_processing.h&quot;</span></div>
-<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zone__info_8h.html">ace_time_c/zone_info.h</a>&quot;</span></div>
-<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zone__info__utils_8h.html">ace_time_c/zone_info_utils.h</a>&quot;</span></div>
-<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;ace_time_c/zone_processing.h&quot;</span></div>
-<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zoned__date__time_8h.html">ace_time_c/zoned_date_time.h</a>&quot;</span></div>
-<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;ace_time_c/zonedb/zone_infos.h&quot;</span></div>
-<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;ace_time_c/zonedb/zone_policies.h&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;ace_time_c/zonedb/zone_registry.h&quot;</span></div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zone__registrar_8h.html">ace_time_c/zone_registrar.h</a>&quot;</span></div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;ace_time_c/zoned_extra.h&quot;</span></div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;}</div>
-<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="string__buffer_8h.html">ace_time_c/string_buffer.h</a>&quot;</span></div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="epoch_8h.html">ace_time_c/epoch.h</a>&quot;</span></div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="local__date_8h.html">ace_time_c/local_date.h</a>&quot;</span></div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="local__date__time_8h.html">ace_time_c/local_date_time.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="offset__date__time_8h.html">ace_time_c/offset_date_time.h</a>&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="transition_8h.html">ace_time_c/transition.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zone__processing_8h.html">ace_time_c/zone_processing.h</a>&quot;</span></div>
+<div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zone__info_8h.html">ace_time_c/zone_info.h</a>&quot;</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zone__info__utils_8h.html">ace_time_c/zone_info_utils.h</a>&quot;</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zone__processing_8h.html">ace_time_c/zone_processing.h</a>&quot;</span></div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zoned__date__time_8h.html">ace_time_c/zoned_date_time.h</a>&quot;</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160;<span class="preprocessor">#include &quot;ace_time_c/zonedb/zone_infos.h&quot;</span></div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="preprocessor">#include &quot;ace_time_c/zonedb/zone_policies.h&quot;</span></div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;<span class="preprocessor">#include &quot;ace_time_c/zonedb/zone_registry.h&quot;</span></div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zone__registrar_8h.html">ace_time_c/zone_registrar.h</a>&quot;</span></div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zoned__extra_8h.html">ace_time_c/zoned_extra.h</a>&quot;</span></div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160; </div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aepoch_8h_html"><div class="ttname"><a href="epoch_8h.html">epoch.h</a></div><div class="ttdoc">Function related to configuring the &quot;current epoch&quot; of the library.</div></div>
 <div class="ttc" id="alocal__date_8h_html"><div class="ttname"><a href="local__date_8h.html">local_date.h</a></div><div class="ttdoc">Low-level date functions, for example, for calculating leap years, day of week, number of days in a s...</div></div>
 <div class="ttc" id="alocal__date__time_8h_html"><div class="ttname"><a href="local__date__time_8h.html">local_date_time.h</a></div><div class="ttdoc">Functions that relate to the local date time, without any reference to the time zone.</div></div>
 <div class="ttc" id="aoffset__date__time_8h_html"><div class="ttname"><a href="offset__date__time_8h.html">offset_date_time.h</a></div><div class="ttdoc">Functions that relate to the local date time along with a UTC offset measured in minutes.</div></div>
 <div class="ttc" id="astring__buffer_8h_html"><div class="ttname"><a href="string__buffer_8h.html">string_buffer.h</a></div><div class="ttdoc">A simple set of integer to string conversion functions.</div></div>
+<div class="ttc" id="atransition_8h_html"><div class="ttname"><a href="transition_8h.html">transition.h</a></div><div class="ttdoc">Data structures and functions related to calculating DST transitions.</div></div>
 <div class="ttc" id="azone__info_8h_html"><div class="ttname"><a href="zone__info_8h.html">zone_info.h</a></div><div class="ttdoc">The data structures in the zone database, with the AtcZoneInfo representing a specific time zone.</div></div>
 <div class="ttc" id="azone__info__utils_8h_html"><div class="ttname"><a href="zone__info__utils_8h.html">zone_info_utils.h</a></div><div class="ttdoc">Most fields in the zonedb database (defined by the data types in zone_info.h) are meant to be accesse...</div></div>
-<div class="ttc" id="azone__registrar_8h_html"><div class="ttname"><a href="zone__registrar_8h.html">zone_registrar.h</a></div><div class="ttdoc">Functions to find the AtcZoneInfo from the human readable zone name, or the 32-bit zone ID identifier...</div></div>
+<div class="ttc" id="azone__processing_8h_html"><div class="ttname"><a href="zone__processing_8h.html">zone_processing.h</a></div><div class="ttdoc">Data structures and functions related to determining the UTC and DST offsets using the list of DST tr...</div></div>
+<div class="ttc" id="azone__registrar_8h_html"><div class="ttname"><a href="zone__registrar_8h.html">zone_registrar.h</a></div><div class="ttdoc">Functions that search for specific time zones by name or by ID over a given set of zones defined by a...</div></div>
 <div class="ttc" id="azoned__date__time_8h_html"><div class="ttname"><a href="zoned__date__time_8h.html">zoned_date_time.h</a></div><div class="ttdoc">Functions that relate to the date time with a reference to a specific time zone.</div></div>
+<div class="ttc" id="azoned__extra_8h_html"><div class="ttname"><a href="zoned__extra_8h.html">zoned_extra.h</a></div><div class="ttdoc">Additional information about a time zone such as the STD offset, the DST offset, and the abbreviation...</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -18,6 +18,10 @@
 #include "common.h" // atc_time_t
 #include "string_buffer.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 /**
  * Date and time fields with a UTC offset in minutes.
  *
@@ -70,5 +74,9 @@ int8_t atc_offset_date_time_from_epoch_seconds(
 void atc_offset_date_time_print(
     AtcStringBuffer *sb,
     const AtcOffsetDateTime *odt);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

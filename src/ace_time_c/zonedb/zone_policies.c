@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/dev/tz
 //     --output_dir /home/brian/src/AceTimeC/src/ace_time_c/zonedb
-//     --tz_version 2022f
+//     --tz_version 2022g
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -24,7 +24,7 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022f
+// from https://github.com/eggert/tz/releases/tag/2022g
 //
 // Policies: 83
 // Rules: 603
@@ -1228,14 +1228,14 @@ const AtcZonePolicy kAtcPolicyC_Eur  = {
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCO[]  = {
-  // Rule    CO    1993    only    -    Apr     4    0:00    0    -
+  // Rule    CO    1993    only    -    Feb     6    24:00    0    -
   {
     1993 /*from_year*/,
     1993 /*to_year*/,
-    4 /*in_month*/,
+    2 /*in_month*/,
     0 /*on_day_of_week*/,
-    4 /*on_day_of_month*/,
-    0 /*at_time_code*/,
+    6 /*on_day_of_month*/,
+    96 /*at_time_code*/,
     0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
     4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
     '-' /*letter*/,
@@ -6320,9 +6320,9 @@ const AtcZonePolicy kAtcPolicyNC  = {
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
-  // Rule    NT_YK    1980    1986    -    Apr    lastSun    2:00    1:00    D
+  // Rule    NT_YK    1972    1986    -    Apr    lastSun    2:00    1:00    D
   {
-    1980 /*from_year*/,
+    1972 /*from_year*/,
     1986 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
@@ -6332,9 +6332,9 @@ static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
     8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
     'D' /*letter*/,
   },
-  // Rule    NT_YK    1980    2006    -    Oct    lastSun    2:00    0    S
+  // Rule    NT_YK    1972    2006    -    Oct    lastSun    2:00    0    S
   {
-    1980 /*from_year*/,
+    1972 /*from_year*/,
     2006 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,

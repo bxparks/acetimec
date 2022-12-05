@@ -7,12 +7,8 @@
 #define ACE_TIME_C_H
 
 /* Version format: xxyyzz == "xx.yy.zz" */
-#define ACE_TIME_C_VERSION 400
-#define ACE_TIME_C_VERSION_STRING "0.4.0"
-
-#ifdef __cplusplus
-extern "C" {
-#endif
+#define ACE_TIME_C_VERSION 500
+#define ACE_TIME_C_VERSION_STRING "0.5.0"
 
 #include "ace_time_c/string_buffer.h"
 #include "ace_time_c/epoch.h"
@@ -30,9 +26,5 @@ extern "C" {
 #include "ace_time_c/zonedb/zone_registry.h"
 #include "ace_time_c/zone_registrar.h"
 #include "ace_time_c/zoned_extra.h"
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

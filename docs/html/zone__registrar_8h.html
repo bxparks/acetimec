@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.4.0</span>
+   &#160;<span id="projectnumber">0.5.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -68,13 +68,15 @@ $(function() {
 </div><!-- top -->
 <div class="header">
   <div class="summary">
+<a href="#nested-classes">Classes</a> &#124;
+<a href="#typedef-members">Typedefs</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">zone_registrar.h File Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p>Functions to find the <a class="el" href="structAtcZoneInfo.html" title="Representation of a given time zone, implemented as an array of ZoneEra records.">AtcZoneInfo</a> from the human readable zone name, or the 32-bit zone ID identifier.  
+<p>Functions that search for specific time zones by name or by ID over a given set of zones defined by a zone registry.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;stdbool.h&gt;</code><br />
@@ -85,7 +87,7 @@ Include dependency graph for zone_registrar.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="zone__registrar_8h__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2zone__registrar_8h" alt=""/></div>
 <map name="a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2zone__registrar_8h" id="a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2zone__registrar_8h">
-<area shape="rect" title="Functions to find the AtcZoneInfo from the human readable zone name, or the 32&#45;bit zone ID identifier..." alt="" coords="15,5,245,47"/>
+<area shape="rect" title="Functions that search for specific time zones by name or by ID over a given set of zones defined by a..." alt="" coords="15,5,245,47"/>
 <area shape="rect" title=" " alt="" coords="36,169,107,196"/>
 <area shape="rect" title=" " alt="" coords="259,95,342,121"/>
 <area shape="rect" href="zone__info_8h.html" title="The data structures in the zone database, with the AtcZoneInfo representing a specific time zone." alt="" coords="23,95,120,121"/>
@@ -98,7 +100,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="zone__registrar_8h__dep__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2zone__registrar_8hdep" alt=""/></div>
 <map name="a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2zone__registrar_8hdep" id="a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2zone__registrar_8hdep">
-<area shape="rect" title="Functions to find the AtcZoneInfo from the human readable zone name, or the 32&#45;bit zone ID identifier..." alt="" coords="123,5,353,47"/>
+<area shape="rect" title="Functions that search for specific time zones by name or by ID over a given set of zones defined by a..." alt="" coords="123,5,353,47"/>
 <area shape="rect" href="zone__registrar_8c_source.html" title=" " alt="" coords="5,95,236,136"/>
 <area shape="rect" href="acetimec_8h_source.html" title=" " alt="" coords="260,95,453,136"/>
 </map>
@@ -106,26 +108,43 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 <p><a href="zone__registrar_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
+Classes</h2></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneRegistrar.html">AtcZoneRegistrar</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure used by the registrar to manage a given zone registry.  <a href="structAtcZoneRegistrar.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
+Typedefs</h2></td></tr>
+<tr class="memitem:af1608058716ea352d8b74beb7b54b10f"><td class="memItemLeft" align="right" valign="top"><a id="af1608058716ea352d8b74beb7b54b10f"></a>
+typedef struct <a class="el" href="structAtcZoneRegistrar.html">AtcZoneRegistrar</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__registrar_8h.html#af1608058716ea352d8b74beb7b54b10f">AtcZoneRegistrar</a></td></tr>
+<tr class="memdesc:af1608058716ea352d8b74beb7b54b10f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure used by the registrar to manage a given zone registry. <br /></td></tr>
+<tr class="separator:af1608058716ea352d8b74beb7b54b10f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:ae72a96118013f32cf82264dcb5a2108c"><td class="memItemLeft" align="right" valign="top"><a id="ae72a96118013f32cf82264dcb5a2108c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__registrar_8h.html#ae72a96118013f32cf82264dcb5a2108c">atc_registrar_init</a> (<a class="el" href="structAtcZoneRegistrar.html">AtcZoneRegistrar</a> *registrar, const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *const *registry, uint16_t size)</td></tr>
+<tr class="memdesc:ae72a96118013f32cf82264dcb5a2108c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the given registrar data structure with the given registry. <br /></td></tr>
+<tr class="separator:ae72a96118013f32cf82264dcb5a2108c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ed701e8426e2b2e656ae2ccde29ed71"><td class="memItemLeft" align="right" valign="top"><a id="a6ed701e8426e2b2e656ae2ccde29ed71"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__registrar_8h.html#a6ed701e8426e2b2e656ae2ccde29ed71">atc_registrar_is_registry_sorted</a> (const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *const *registry, uint16_t size)</td></tr>
 <tr class="memdesc:a6ed701e8426e2b2e656ae2ccde29ed71"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determine if the registry is sorted by zone id. <br /></td></tr>
 <tr class="separator:a6ed701e8426e2b2e656ae2ccde29ed71"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0e6739004f0e448e2cf7b8553bd124aa"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__registrar_8h.html#a0e6739004f0e448e2cf7b8553bd124aa">atc_registrar_find_by_name</a> (const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *const *registry, uint16_t size, const char *name, bool is_sorted)</td></tr>
-<tr class="memdesc:a0e6739004f0e448e2cf7b8553bd124aa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search the zone registry for the zone 'name'.  <a href="zone__registrar_8h.html#a0e6739004f0e448e2cf7b8553bd124aa">More...</a><br /></td></tr>
-<tr class="separator:a0e6739004f0e448e2cf7b8553bd124aa"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a78ffa7475664b8863fcdc68c40933be0"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__registrar_8h.html#a78ffa7475664b8863fcdc68c40933be0">atc_registrar_find_by_id</a> (const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *const *registry, uint16_t size, uint32_t zone_id, bool is_sorted)</td></tr>
-<tr class="memdesc:a78ffa7475664b8863fcdc68c40933be0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search the zone registry for the zone 'id'.  <a href="zone__registrar_8h.html#a78ffa7475664b8863fcdc68c40933be0">More...</a><br /></td></tr>
-<tr class="separator:a78ffa7475664b8863fcdc68c40933be0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab0d1dc9f903b09f538b0d16d725b14fd"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__registrar_8h.html#ab0d1dc9f903b09f538b0d16d725b14fd">atc_registrar_find_by_name</a> (const <a class="el" href="structAtcZoneRegistrar.html">AtcZoneRegistrar</a> *registrar, const char *name)</td></tr>
+<tr class="memdesc:ab0d1dc9f903b09f538b0d16d725b14fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search the zone registry for the zone 'name'.  <a href="zone__registrar_8h.html#ab0d1dc9f903b09f538b0d16d725b14fd">More...</a><br /></td></tr>
+<tr class="separator:ab0d1dc9f903b09f538b0d16d725b14fd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7210fa6e3ac93f970dc062a61e7f511b"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__registrar_8h.html#a7210fa6e3ac93f970dc062a61e7f511b">atc_registrar_find_by_id</a> (const <a class="el" href="structAtcZoneRegistrar.html">AtcZoneRegistrar</a> *registrar, uint32_t zone_id)</td></tr>
+<tr class="memdesc:a7210fa6e3ac93f970dc062a61e7f511b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Search the zone registry for the zone 'id'.  <a href="zone__registrar_8h.html#a7210fa6e3ac93f970dc062a61e7f511b">More...</a><br /></td></tr>
+<tr class="separator:a7210fa6e3ac93f970dc062a61e7f511b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Functions to find the <a class="el" href="structAtcZoneInfo.html" title="Representation of a given time zone, implemented as an array of ZoneEra records.">AtcZoneInfo</a> from the human readable zone name, or the 32-bit zone ID identifier. </p>
+<div class="textblock"><p>Functions that search for specific time zones by name or by ID over a given set of zones defined by a zone registry. </p>
 
 <p class="definition">Definition in file <a class="el" href="zone__registrar_8h_source.html">zone_registrar.h</a>.</p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a78ffa7475664b8863fcdc68c40933be0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a78ffa7475664b8863fcdc68c40933be0">&#9670;&nbsp;</a></span>atc_registrar_find_by_id()</h2>
+<a id="a7210fa6e3ac93f970dc062a61e7f511b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7210fa6e3ac93f970dc062a61e7f511b">&#9670;&nbsp;</a></span>atc_registrar_find_by_id()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -133,26 +152,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
         <tr>
           <td class="memname">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a>* atc_registrar_find_by_id </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *const *&#160;</td>
-          <td class="paramname"><em>registry</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
+          <td class="paramtype">const <a class="el" href="structAtcZoneRegistrar.html">AtcZoneRegistrar</a> *&#160;</td>
+          <td class="paramname"><em>registrar</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">uint32_t&#160;</td>
-          <td class="paramname"><em>zone_id</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>is_sorted</em>&#160;</td>
+          <td class="paramname"><em>zone_id</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -165,12 +172,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 <p>Search the zone registry for the zone 'id'. </p>
 <p>Return NULL if not found. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__registrar_8c_source.html#l00079">79</a> of file <a class="el" href="zone__registrar_8c_source.html">zone_registrar.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__registrar_8c_source.html#l00086">86</a> of file <a class="el" href="zone__registrar_8c_source.html">zone_registrar.c</a>.</p>
 
 </div>
 </div>
-<a id="a0e6739004f0e448e2cf7b8553bd124aa"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0e6739004f0e448e2cf7b8553bd124aa">&#9670;&nbsp;</a></span>atc_registrar_find_by_name()</h2>
+<a id="ab0d1dc9f903b09f538b0d16d725b14fd"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab0d1dc9f903b09f538b0d16d725b14fd">&#9670;&nbsp;</a></span>atc_registrar_find_by_name()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -178,26 +185,14 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
         <tr>
           <td class="memname">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a>* atc_registrar_find_by_name </td>
           <td>(</td>
-          <td class="paramtype">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *const *&#160;</td>
-          <td class="paramname"><em>registry</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">uint16_t&#160;</td>
-          <td class="paramname"><em>size</em>, </td>
+          <td class="paramtype">const <a class="el" href="structAtcZoneRegistrar.html">AtcZoneRegistrar</a> *&#160;</td>
+          <td class="paramname"><em>registrar</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const char *&#160;</td>
-          <td class="paramname"><em>name</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">bool&#160;</td>
-          <td class="paramname"><em>is_sorted</em>&#160;</td>
+          <td class="paramname"><em>name</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -210,7 +205,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 <p>Search the zone registry for the zone 'name'. </p>
 <p>Return NULL if not found. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__registrar_8c_source.html#l00062">62</a> of file <a class="el" href="zone__registrar_8c_source.html">zone_registrar.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__registrar_8c_source.html#l00072">72</a> of file <a class="el" href="zone__registrar_8c_source.html">zone_registrar.c</a>.</p>
 
 </div>
 </div>
