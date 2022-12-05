@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.4.0</span>
+   &#160;<span id="projectnumber">0.5.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -112,7 +112,7 @@ int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <div class="textblock"><p>A time zone transition rule. </p>
 <p>It is useful to think of this as a transition rule that repeats on the given (month, day, hour) every year during the interval [fromYear, toYear] inclusive. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00058">58</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00062">62</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a48ee481906333ba876b553a178daff5a"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a48ee481906333ba876b553a178daff5a">&#9670;&nbsp;</a></span>at_time_code</h2>
@@ -129,7 +129,7 @@ int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <p>Determined by the AT column in units of 15-minutes from 00:00. </p>
 <p>The range is (0 - 100) corresponding to 00:00 to 25:00. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00091">91</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00095">95</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -151,7 +151,7 @@ int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <li>The lower 4 bits represent the remaining 0-14 minutes of the AT field after truncation into at_time_code. In other words, the full AT field in one-minute resolution is (15 * at_time_code + (at_time_modifier &amp; 0x0f)). </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00103">103</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00107">107</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -170,7 +170,7 @@ int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <p>Determined by the SAVE column, containing the offset from UTC, in 15-min increments. </p>
 <p>If the '&ndash;scope extended' flag is given to tzcompiler.py, this field should be interpreted as an uint8_t field, whose lower 4-bits hold a slightly modified value of offset_code equal to (originalDeltaCode + 4). This allows the 4-bits to represent DST offsets from -1:00 to 2:45 in 15-minute increments. This is the same algorithm used by ZoneEra::delta_code field for consistency. The extended::ZonePolicyBroker::deltaMinutes() method knows how to convert this field into minutes. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00118">118</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00122">122</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -189,7 +189,7 @@ int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <p>Determined by the IN column. </p>
 <p>1=Jan, 12=Dec. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00067">67</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00071">71</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -216,7 +216,7 @@ int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <li>Troll ('+00' '+02'; used by Antarctica/Troll) </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00141">141</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00145">145</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -235,7 +235,7 @@ int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <p>Determined by the ON column. </p>
 <p>Used with on_day_of_week. Possible values are: 0, 1-31, or its corresponding negative values. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00085">85</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00089">89</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -257,7 +257,7 @@ int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 * on_day_of_week=1-7, on_day_of_month=-(1-31): day_of_week&lt;=on_day_of_month
 * on_day_of_week=1-7, on_day_of_month=0: last{day_of_week}
 * </pre> 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00079">79</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00083">83</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>

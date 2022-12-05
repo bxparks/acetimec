@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.4.0</span>
+   &#160;<span id="projectnumber">0.5.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -82,43 +82,50 @@ $(function() {
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &lt;stdbool.h&gt;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160; </div>
-<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="epoch_8h.html#adf764cbdea00d65edcd07bb9953ad2b7aec79c9fcf07937557893397d049eb850">   31</a></span>&#160;  <a class="code" href="epoch_8h.html#adf764cbdea00d65edcd07bb9953ad2b7aec79c9fcf07937557893397d049eb850">kAtcConverterEpochYear</a> = 2000,</div>
-<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;};</div>
-<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;<span class="keyword">extern</span> int16_t <a class="code" href="epoch_8h.html#a9a4754dae713b24ca1246f058f16fe9c">atc_current_epoch_year</a>;</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160; </div>
-<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;<span class="keyword">extern</span> int32_t <a class="code" href="epoch_8h.html#a1a39126d02a66915c3ec163c4e56b84e">atc_days_from_converter_epoch_to_current_epoch</a>;</div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160; </div>
-<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;int16_t <a class="code" href="epoch_8h.html#a98f734a9b080f1822125b86eebd28f34">atc_get_current_epoch_year</a>();</div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
-<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;<span class="keywordtype">void</span> <a class="code" href="epoch_8h.html#a4263750f0b027e0a96d6baefd7f1ada1">atc_set_current_epoch_year</a>(int16_t year);</div>
-<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160; </div>
-<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;int32_t <a class="code" href="epoch_8h.html#a4a7d4978681214aaaed8b7509b6fbb13">atc_get_days_to_current_epoch_from_converter_epoch</a>();</div>
-<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160; </div>
-<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;int16_t <a class="code" href="epoch_8h.html#a7e4641222f86aa13bf1d8e39f3feeaac">atc_epoch_valid_year_lower</a>();</div>
-<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160; </div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;int16_t <a class="code" href="epoch_8h.html#a8943d397916cf4784f7aa9e07b575859">atc_epoch_valid_year_upper</a>();</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;int32_t <a class="code" href="epoch_8h.html#afd8062e8c861203196883a0640e42d11">atc_convert_to_days</a>(int16_t year, uint8_t month, uint8_t day);</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160; </div>
-<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;<span class="keywordtype">void</span> <a class="code" href="epoch_8h.html#a45128050cfbce1409a563aca1db24238">atc_convert_from_days</a>(</div>
-<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;    int32_t epoch_days,</div>
-<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160;    int16_t *year,</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;    uint8_t *month,</div>
-<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;    uint8_t *day);</div>
-<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
-<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160; </div>
-<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00024"></a><span class="lineno">   24</span>&#160; </div>
+<div class="line"><a name="l00025"></a><span class="lineno">   25</span>&#160;<span class="keyword">enum</span> {</div>
+<div class="line"><a name="l00035"></a><span class="lineno"><a class="line" href="epoch_8h.html#adf764cbdea00d65edcd07bb9953ad2b7aec79c9fcf07937557893397d049eb850">   35</a></span>&#160;  <a class="code" href="epoch_8h.html#adf764cbdea00d65edcd07bb9953ad2b7aec79c9fcf07937557893397d049eb850">kAtcConverterEpochYear</a> = 2000,</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keyword">extern</span> int16_t <a class="code" href="epoch_8h.html#a9a4754dae713b24ca1246f058f16fe9c">atc_current_epoch_year</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;<span class="keyword">extern</span> int32_t <a class="code" href="epoch_8h.html#a1a39126d02a66915c3ec163c4e56b84e">atc_days_from_converter_epoch_to_current_epoch</a>;</div>
+<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;int16_t <a class="code" href="epoch_8h.html#a4e1dda5b76ff50e2afdc336e83b0cd6a">atc_get_current_epoch_year</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00054"></a><span class="lineno">   54</span>&#160; </div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;<span class="keywordtype">void</span> <a class="code" href="epoch_8h.html#a4263750f0b027e0a96d6baefd7f1ada1">atc_set_current_epoch_year</a>(int16_t year);</div>
+<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;int32_t <a class="code" href="epoch_8h.html#a51cc82a7217092194f356ebd6aae85e6">atc_get_days_to_current_epoch_from_converter_epoch</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;int16_t <a class="code" href="epoch_8h.html#a0f7b5d41a49fc1a0d00416f87dc2cd48">atc_epoch_valid_year_lower</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160; </div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;int16_t <a class="code" href="epoch_8h.html#af0d989f4bf7e5064e50b67a46d6d472d">atc_epoch_valid_year_upper</a>(<span class="keywordtype">void</span>);</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160; </div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;int32_t <a class="code" href="epoch_8h.html#afd8062e8c861203196883a0640e42d11">atc_convert_to_days</a>(int16_t year, uint8_t month, uint8_t day);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno">  120</span>&#160;<span class="keywordtype">void</span> <a class="code" href="epoch_8h.html#a45128050cfbce1409a563aca1db24238">atc_convert_from_days</a>(</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160;    int32_t epoch_days,</div>
+<div class="line"><a name="l00122"></a><span class="lineno">  122</span>&#160;    int16_t *year,</div>
+<div class="line"><a name="l00123"></a><span class="lineno">  123</span>&#160;    uint8_t *month,</div>
+<div class="line"><a name="l00124"></a><span class="lineno">  124</span>&#160;    uint8_t *day);</div>
+<div class="line"><a name="l00125"></a><span class="lineno">  125</span>&#160; </div>
+<div class="line"><a name="l00126"></a><span class="lineno">  126</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00127"></a><span class="lineno">  127</span>&#160;}</div>
+<div class="line"><a name="l00128"></a><span class="lineno">  128</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00129"></a><span class="lineno">  129</span>&#160; </div>
+<div class="line"><a name="l00130"></a><span class="lineno">  130</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="aepoch_8h_html_a0f7b5d41a49fc1a0d00416f87dc2cd48"><div class="ttname"><a href="epoch_8h.html#a0f7b5d41a49fc1a0d00416f87dc2cd48">atc_epoch_valid_year_lower</a></div><div class="ttdeci">int16_t atc_epoch_valid_year_lower(void)</div><div class="ttdoc">The smallest year (inclusive) for which calculations involving the 32-bit epoch_seconds and time zone...</div><div class="ttdef"><b>Definition:</b> <a href="epoch_8c_source.html#l00030">epoch.c:30</a></div></div>
 <div class="ttc" id="aepoch_8h_html_a1a39126d02a66915c3ec163c4e56b84e"><div class="ttname"><a href="epoch_8h.html#a1a39126d02a66915c3ec163c4e56b84e">atc_days_from_converter_epoch_to_current_epoch</a></div><div class="ttdeci">int32_t atc_days_from_converter_epoch_to_current_epoch</div><div class="ttdoc">Number of days from epoch converter epoch to the current epoch.</div></div>
 <div class="ttc" id="aepoch_8h_html_a4263750f0b027e0a96d6baefd7f1ada1"><div class="ttname"><a href="epoch_8h.html#a4263750f0b027e0a96d6baefd7f1ada1">atc_set_current_epoch_year</a></div><div class="ttdeci">void atc_set_current_epoch_year(int16_t year)</div><div class="ttdoc">Set the current epoch year.</div><div class="ttdef"><b>Definition:</b> <a href="epoch_8c_source.html#l00018">epoch.c:18</a></div></div>
 <div class="ttc" id="aepoch_8h_html_a45128050cfbce1409a563aca1db24238"><div class="ttname"><a href="epoch_8h.html#a45128050cfbce1409a563aca1db24238">atc_convert_from_days</a></div><div class="ttdeci">void atc_convert_from_days(int32_t epoch_days, int16_t *year, uint8_t *month, uint8_t *day)</div><div class="ttdoc">Convert the days from converter epoch (2000-01-01) into (year, month, day) fields.</div><div class="ttdef"><b>Definition:</b> <a href="epoch_8c_source.html#l00066">epoch.c:66</a></div></div>
-<div class="ttc" id="aepoch_8h_html_a4a7d4978681214aaaed8b7509b6fbb13"><div class="ttname"><a href="epoch_8h.html#a4a7d4978681214aaaed8b7509b6fbb13">atc_get_days_to_current_epoch_from_converter_epoch</a></div><div class="ttdeci">int32_t atc_get_days_to_current_epoch_from_converter_epoch()</div><div class="ttdoc">Get number of days from converter epoch to current epoch.</div><div class="ttdef"><b>Definition:</b> <a href="epoch_8c_source.html#l00025">epoch.c:25</a></div></div>
-<div class="ttc" id="aepoch_8h_html_a7e4641222f86aa13bf1d8e39f3feeaac"><div class="ttname"><a href="epoch_8h.html#a7e4641222f86aa13bf1d8e39f3feeaac">atc_epoch_valid_year_lower</a></div><div class="ttdeci">int16_t atc_epoch_valid_year_lower()</div><div class="ttdoc">The smallest year (inclusive) for which calculations involving the 32-bit epoch_seconds and time zone...</div><div class="ttdef"><b>Definition:</b> <a href="epoch_8c_source.html#l00030">epoch.c:30</a></div></div>
-<div class="ttc" id="aepoch_8h_html_a8943d397916cf4784f7aa9e07b575859"><div class="ttname"><a href="epoch_8h.html#a8943d397916cf4784f7aa9e07b575859">atc_epoch_valid_year_upper</a></div><div class="ttdeci">int16_t atc_epoch_valid_year_upper()</div><div class="ttdoc">The largest year (exclusive) for which calculations involving the 32-bit epoch_seconds and time zone ...</div><div class="ttdef"><b>Definition:</b> <a href="epoch_8c_source.html#l00035">epoch.c:35</a></div></div>
-<div class="ttc" id="aepoch_8h_html_a98f734a9b080f1822125b86eebd28f34"><div class="ttname"><a href="epoch_8h.html#a98f734a9b080f1822125b86eebd28f34">atc_get_current_epoch_year</a></div><div class="ttdeci">int16_t atc_get_current_epoch_year()</div><div class="ttdoc">Get the current epoch year.</div><div class="ttdef"><b>Definition:</b> <a href="epoch_8c_source.html#l00013">epoch.c:13</a></div></div>
+<div class="ttc" id="aepoch_8h_html_a4e1dda5b76ff50e2afdc336e83b0cd6a"><div class="ttname"><a href="epoch_8h.html#a4e1dda5b76ff50e2afdc336e83b0cd6a">atc_get_current_epoch_year</a></div><div class="ttdeci">int16_t atc_get_current_epoch_year(void)</div><div class="ttdoc">Get the current epoch year.</div><div class="ttdef"><b>Definition:</b> <a href="epoch_8c_source.html#l00013">epoch.c:13</a></div></div>
+<div class="ttc" id="aepoch_8h_html_a51cc82a7217092194f356ebd6aae85e6"><div class="ttname"><a href="epoch_8h.html#a51cc82a7217092194f356ebd6aae85e6">atc_get_days_to_current_epoch_from_converter_epoch</a></div><div class="ttdeci">int32_t atc_get_days_to_current_epoch_from_converter_epoch(void)</div><div class="ttdoc">Get number of days from converter epoch to current epoch.</div><div class="ttdef"><b>Definition:</b> <a href="epoch_8c_source.html#l00025">epoch.c:25</a></div></div>
 <div class="ttc" id="aepoch_8h_html_a9a4754dae713b24ca1246f058f16fe9c"><div class="ttname"><a href="epoch_8h.html#a9a4754dae713b24ca1246f058f16fe9c">atc_current_epoch_year</a></div><div class="ttdeci">int16_t atc_current_epoch_year</div><div class="ttdoc">The epoch year which will be used to interpret the epoch seconds.</div><div class="ttdef"><b>Definition:</b> <a href="epoch_8c_source.html#l00009">epoch.c:9</a></div></div>
-<div class="ttc" id="aepoch_8h_html_adf764cbdea00d65edcd07bb9953ad2b7aec79c9fcf07937557893397d049eb850"><div class="ttname"><a href="epoch_8h.html#adf764cbdea00d65edcd07bb9953ad2b7aec79c9fcf07937557893397d049eb850">kAtcConverterEpochYear</a></div><div class="ttdeci">@ kAtcConverterEpochYear</div><div class="ttdoc">Epoch year used by the epoch days converter functions atc_convert_to_days() and atc_convert_from_days...</div><div class="ttdef"><b>Definition:</b> <a href="epoch_8h_source.html#l00031">epoch.h:31</a></div></div>
+<div class="ttc" id="aepoch_8h_html_adf764cbdea00d65edcd07bb9953ad2b7aec79c9fcf07937557893397d049eb850"><div class="ttname"><a href="epoch_8h.html#adf764cbdea00d65edcd07bb9953ad2b7aec79c9fcf07937557893397d049eb850">kAtcConverterEpochYear</a></div><div class="ttdeci">@ kAtcConverterEpochYear</div><div class="ttdoc">Epoch year used by the epoch days converter functions atc_convert_to_days() and atc_convert_from_days...</div><div class="ttdef"><b>Definition:</b> <a href="epoch_8h_source.html#l00035">epoch.h:35</a></div></div>
+<div class="ttc" id="aepoch_8h_html_af0d989f4bf7e5064e50b67a46d6d472d"><div class="ttname"><a href="epoch_8h.html#af0d989f4bf7e5064e50b67a46d6d472d">atc_epoch_valid_year_upper</a></div><div class="ttdeci">int16_t atc_epoch_valid_year_upper(void)</div><div class="ttdoc">The largest year (exclusive) for which calculations involving the 32-bit epoch_seconds and time zone ...</div><div class="ttdef"><b>Definition:</b> <a href="epoch_8c_source.html#l00035">epoch.c:35</a></div></div>
 <div class="ttc" id="aepoch_8h_html_afd8062e8c861203196883a0640e42d11"><div class="ttname"><a href="epoch_8h.html#afd8062e8c861203196883a0640e42d11">atc_convert_to_days</a></div><div class="ttdeci">int32_t atc_convert_to_days(int16_t year, uint8_t month, uint8_t day)</div><div class="ttdoc">Convert (year, month, day) triple to the number of days since the converter epoch (2000-01-01).</div><div class="ttdef"><b>Definition:</b> <a href="epoch_8c_source.html#l00046">epoch.c:46</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
