@@ -18,7 +18,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -123,7 +123,7 @@ void atc_convert_from_days(
     uint8_t *month,
     uint8_t *day);
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 }
 #endif
 

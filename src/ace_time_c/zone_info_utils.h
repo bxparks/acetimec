@@ -20,7 +20,7 @@
 #include <stdint.h>
 #include "zone_info.h"
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -72,7 +72,7 @@ uint8_t atc_zone_rule_at_suffix(const AtcZoneRule *rule);
 /** Return the DST offset in minutes. */
 int16_t atc_zone_rule_dst_offset_minutes(const AtcZoneRule *rule);
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 }
 #endif
 

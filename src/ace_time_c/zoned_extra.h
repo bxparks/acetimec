@@ -13,7 +13,7 @@
 #ifndef ACE_TIME_C_ZONED_EXTRA_H
 #define ACE_TIME_C_ZONED_EXTRA_H
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -46,8 +46,8 @@ int8_t atc_zoned_extra_from_epoch_seconds(
     atc_time_t epoch_seconds,
     AtcZonedExtra *extra);
 
-#ifdef __cpluscplus
-extern "C" {
+#ifdef __cplusplus
+}
 #endif
 
 #endif

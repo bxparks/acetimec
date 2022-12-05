@@ -18,7 +18,7 @@
 #include "common.h" // atc_time_t
 #include "string_buffer.h"
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -75,7 +75,7 @@ void atc_offset_date_time_print(
     AtcStringBuffer *sb,
     const AtcOffsetDateTime *odt);
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 }
 #endif
 

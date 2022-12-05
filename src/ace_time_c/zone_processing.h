@@ -21,7 +21,7 @@
 #include "zone_info.h"
 #include "transition.h" // AtcTransition, AtcTransitionStorage
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -289,7 +289,7 @@ void atc_processing_create_abbreviation(
 
 //---------------------------------------------------------------------------
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 }
 #endif
 

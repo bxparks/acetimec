@@ -18,7 +18,7 @@
 #include "zone_info.h"
 #include "common.h"
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -56,7 +56,7 @@ const AtcZoneInfo *atc_registrar_find_by_id(
     const AtcZoneRegistrar *registrar,
     uint32_t zone_id);
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 }
 #endif
 

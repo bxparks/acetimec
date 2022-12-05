@@ -33,7 +33,7 @@
 
 #include "../zone_info.h"
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -222,7 +222,7 @@ extern const AtcZonePolicy kAtcPolicyZion;
 
 //---------------------------------------------------------------------------
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 }
 #endif
 

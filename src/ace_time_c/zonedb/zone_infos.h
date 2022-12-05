@@ -33,7 +33,7 @@
 
 #include "../zone_info.h"
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -1729,7 +1729,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 
 //---------------------------------------------------------------------------
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 }
 #endif
 

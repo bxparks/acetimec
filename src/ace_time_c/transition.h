@@ -16,7 +16,7 @@
 #include "common.h" // atc_time_t
 #include "zone_info.h" // AtcZoneEra
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -407,7 +407,7 @@ uint8_t atc_transition_compare_to_match_fuzzy(
 
 //---------------------------------------------------------------------------
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 }
 #endif
 

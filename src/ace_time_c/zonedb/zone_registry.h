@@ -33,7 +33,7 @@
 
 #include "../zone_info.h"
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -49,7 +49,7 @@ extern const AtcZoneInfo * const kAtcZoneAndLinkRegistry[596];
 #define kAtcLinkRegistrySize 245
 extern const AtcLinkEntry kAtcLinkRegistry[245];
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 }
 #endif
 

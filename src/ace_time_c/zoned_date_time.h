@@ -18,7 +18,7 @@
 #include "zone_processing.h"
 #include "zone_info.h"
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -106,7 +106,7 @@ void atc_zoned_date_time_print(
     AtcStringBuffer *sb,
     const AtcZonedDateTime *zdt);
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 }
 #endif
 

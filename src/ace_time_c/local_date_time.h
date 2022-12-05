@@ -17,7 +17,7 @@
 #include "common.h"
 #include "string_buffer.h"
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -60,7 +60,7 @@ void atc_local_date_time_print(
     AtcStringBuffer *sb,
     const AtcLocalDateTime *ldt);
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 }
 #endif
 

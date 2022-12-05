@@ -16,7 +16,7 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -353,7 +353,7 @@ typedef struct AtcLinkEntry {
 
 //---------------------------------------------------------------------------
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 }
 #endif
 

@@ -15,7 +15,7 @@
 #include <stddef.h> // size_t
 #include <stdint.h> // INT32_MIN
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -48,7 +48,7 @@ void atc_copy_replace_string(char *dst, size_t dst_size, const char *src,
  */
 uint32_t atc_djb2(const char *s);
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 }
 #endif
 

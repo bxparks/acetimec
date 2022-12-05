@@ -20,7 +20,7 @@
 #include <stdbool.h>
 #include <stdint.h>
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
@@ -103,7 +103,7 @@ void atc_local_date_increment_one_day(AtcLocalDate *ld);
 /** Decrement given AtcLocalDate by one day. */
 void atc_local_date_decrement_one_day(AtcLocalDate *ld);
 
-#ifdef __cpluscplus
+#ifdef __cplusplus
 }
 #endif
 
