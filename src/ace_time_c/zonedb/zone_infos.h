@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/dev/tz
 //     --output_dir /home/brian/src/AceTimeC/src/ace_time_c/zonedb
-//     --tz_version 2022f
+//     --tz_version 2022g
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -24,7 +24,7 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022f
+// from https://github.com/eggert/tz/releases/tag/2022g
 //
 // DO NOT EDIT
 
@@ -32,6 +32,10 @@
 #define ACE_TIME_C_ZONEDBX_ZONE_INFOS_H
 
 #include "../zone_info.h"
+
+#ifdef __cpluscplus
+extern "C" {
+#endif
 
 //---------------------------------------------------------------------------
 // ZoneContext (should not be in PROGMEM)
@@ -97,6 +101,7 @@ extern const AtcZoneInfo kAtcZoneAmerica_Caracas; // America/Caracas
 extern const AtcZoneInfo kAtcZoneAmerica_Cayenne; // America/Cayenne
 extern const AtcZoneInfo kAtcZoneAmerica_Chicago; // America/Chicago
 extern const AtcZoneInfo kAtcZoneAmerica_Chihuahua; // America/Chihuahua
+extern const AtcZoneInfo kAtcZoneAmerica_Ciudad_Juarez; // America/Ciudad_Juarez
 extern const AtcZoneInfo kAtcZoneAmerica_Costa_Rica; // America/Costa_Rica
 extern const AtcZoneInfo kAtcZoneAmerica_Cuiaba; // America/Cuiaba
 extern const AtcZoneInfo kAtcZoneAmerica_Danmarkshavn; // America/Danmarkshavn
@@ -158,7 +163,6 @@ extern const AtcZoneInfo kAtcZoneAmerica_North_Dakota_New_Salem; // America/Nort
 extern const AtcZoneInfo kAtcZoneAmerica_Nuuk; // America/Nuuk
 extern const AtcZoneInfo kAtcZoneAmerica_Ojinaga; // America/Ojinaga
 extern const AtcZoneInfo kAtcZoneAmerica_Panama; // America/Panama
-extern const AtcZoneInfo kAtcZoneAmerica_Pangnirtung; // America/Pangnirtung
 extern const AtcZoneInfo kAtcZoneAmerica_Paramaribo; // America/Paramaribo
 extern const AtcZoneInfo kAtcZoneAmerica_Phoenix; // America/Phoenix
 extern const AtcZoneInfo kAtcZoneAmerica_Port_au_Prince; // America/Port-au-Prince
@@ -452,6 +456,7 @@ extern const AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdAmerica_Cayenne 0x3c617269 /* America/Cayenne */
 #define kAtcZoneIdAmerica_Chicago 0x4b92b5d4 /* America/Chicago */
 #define kAtcZoneIdAmerica_Chihuahua 0x8827d776 /* America/Chihuahua */
+#define kAtcZoneIdAmerica_Ciudad_Juarez 0x7347fc60 /* America/Ciudad_Juarez */
 #define kAtcZoneIdAmerica_Costa_Rica 0x63ff66be /* America/Costa_Rica */
 #define kAtcZoneIdAmerica_Cuiaba 0x969a52eb /* America/Cuiaba */
 #define kAtcZoneIdAmerica_Danmarkshavn 0xf554d204 /* America/Danmarkshavn */
@@ -513,7 +518,6 @@ extern const AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdAmerica_Nuuk 0x9805b5a9 /* America/Nuuk */
 #define kAtcZoneIdAmerica_Ojinaga 0xebfde83f /* America/Ojinaga */
 #define kAtcZoneIdAmerica_Panama 0xb3863854 /* America/Panama */
-#define kAtcZoneIdAmerica_Pangnirtung 0x2d999193 /* America/Pangnirtung */
 #define kAtcZoneIdAmerica_Paramaribo 0xb319e4c4 /* America/Paramaribo */
 #define kAtcZoneIdAmerica_Phoenix 0x34b5af01 /* America/Phoenix */
 #define kAtcZoneIdAmerica_Port_au_Prince 0x8e4a7bdc /* America/Port-au-Prince */
@@ -756,7 +760,7 @@ extern const AtcZoneInfo kAtcZoneWET; // WET
 
 
 //---------------------------------------------------------------------------
-// Supported links: 244
+// Supported links: 245
 //---------------------------------------------------------------------------
 
 extern const AtcZoneInfo kAtcZoneAfrica_Accra; // Africa/Accra -> Africa/Abidjan
@@ -826,6 +830,7 @@ extern const AtcZoneInfo kAtcZoneAmerica_Montreal; // America/Montreal -> Americ
 extern const AtcZoneInfo kAtcZoneAmerica_Montserrat; // America/Montserrat -> America/Puerto_Rico
 extern const AtcZoneInfo kAtcZoneAmerica_Nassau; // America/Nassau -> America/Toronto
 extern const AtcZoneInfo kAtcZoneAmerica_Nipigon; // America/Nipigon -> America/Toronto
+extern const AtcZoneInfo kAtcZoneAmerica_Pangnirtung; // America/Pangnirtung -> America/Iqaluit
 extern const AtcZoneInfo kAtcZoneAmerica_Port_of_Spain; // America/Port_of_Spain -> America/Puerto_Rico
 extern const AtcZoneInfo kAtcZoneAmerica_Porto_Acre; // America/Porto_Acre -> America/Rio_Branco
 extern const AtcZoneInfo kAtcZoneAmerica_Rainy_River; // America/Rainy_River -> America/Winnipeg
@@ -1074,6 +1079,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdAmerica_Montserrat 0x199b0a35 /* America/Montserrat */
 #define kAtcZoneIdAmerica_Nassau 0xaedef011 /* America/Nassau */
 #define kAtcZoneIdAmerica_Nipigon 0x9d2a8b1a /* America/Nipigon */
+#define kAtcZoneIdAmerica_Pangnirtung 0x2d999193 /* America/Pangnirtung */
 #define kAtcZoneIdAmerica_Port_of_Spain 0xd8b28d59 /* America/Port_of_Spain */
 #define kAtcZoneIdAmerica_Porto_Acre 0xcce5bf54 /* America/Porto_Acre */
 #define kAtcZoneIdAmerica_Rainy_River 0x9cd58a10 /* America/Rainy_River */
@@ -1311,6 +1317,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeAmerica_Cayenne 1  /* America/Cayenne in 1999 */
 #define kAtcZoneBufSizeAmerica_Chicago 6  /* America/Chicago in 2008 */
 #define kAtcZoneBufSizeAmerica_Chihuahua 4  /* America/Chihuahua in 1999 */
+#define kAtcZoneBufSizeAmerica_Ciudad_Juarez 7  /* America/Ciudad_Juarez in 2022 */
 #define kAtcZoneBufSizeAmerica_Costa_Rica 2  /* America/Costa_Rica in 1999 */
 #define kAtcZoneBufSizeAmerica_Cuiaba 6  /* America/Cuiaba in 2005 */
 #define kAtcZoneBufSizeAmerica_Danmarkshavn 1  /* America/Danmarkshavn in 1999 */
@@ -1370,9 +1377,8 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeAmerica_North_Dakota_Center 6  /* America/North_Dakota/Center in 2008 */
 #define kAtcZoneBufSizeAmerica_North_Dakota_New_Salem 6  /* America/North_Dakota/New_Salem in 2008 */
 #define kAtcZoneBufSizeAmerica_Nuuk 5  /* America/Nuuk in 1999 */
-#define kAtcZoneBufSizeAmerica_Ojinaga 6  /* America/Ojinaga in 2009 */
+#define kAtcZoneBufSizeAmerica_Ojinaga 7  /* America/Ojinaga in 2022 */
 #define kAtcZoneBufSizeAmerica_Panama 1  /* America/Panama in 1999 */
-#define kAtcZoneBufSizeAmerica_Pangnirtung 6  /* America/Pangnirtung in 2008 */
 #define kAtcZoneBufSizeAmerica_Paramaribo 1  /* America/Paramaribo in 1999 */
 #define kAtcZoneBufSizeAmerica_Phoenix 1  /* America/Phoenix in 1999 */
 #define kAtcZoneBufSizeAmerica_Port_au_Prince 6  /* America/Port-au-Prince in 2013 */
@@ -1624,12 +1630,89 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 // Notable zones: 6
 //---------------------------------------------------------------------------
 
-// Africa/Johannesburg (RULES not fixed but FORMAT is missing '%' or '/')
-// Antarctica/Casey (UNTIL '0:01' not on 15-minute boundary)
-// Asia/Gaza (UNTIL '0:01' not on 15-minute boundary)
-// Asia/Kathmandu (STDOFF (5:45) not at :00 or :30 mark)
-// Australia/Eucla (STDOFF (8:45) not at :00 or :30 mark)
-// Pacific/Chatham (STDOFF (12:45) not at :00 or :30 mark)
+// Africa/Casablanca {
+//   Morocco {SAVE (delta_offset) '-1:00' different from 1:00}
+// }
+// Africa/El_Aaiun {
+//   Morocco {SAVE (delta_offset) '-1:00' different from 1:00}
+// }
+// Africa/Johannesburg {RULES not fixed but FORMAT is missing '%' or '/'}
+// Africa/Windhoek {
+//   Namibia {
+//     LETTER 'CAT' not single character,
+//     LETTER 'WAT' not single character,
+//     SAVE (delta_offset) '-1:00' different from 1:00,
+//   }
+// }
+// America/Argentina/San_Luis {
+//   SanLuis {Added anchor rule at year 0}
+// }
+// America/Belize {
+//   Belize {LETTER 'CST' not single character}
+// }
+// America/Goose_Bay {
+//   StJohns {
+//     AT '0:01' not on 15-minute boundary,
+//     LETTER 'DD' not single character,
+//     SAVE (delta_offset) '2:00' different from 1:00,
+//   }
+// }
+// America/Moncton {
+//   Moncton {AT '0:01' not on 15-minute boundary}
+// }
+// America/St_Johns {
+//   StJohns {
+//     AT '0:01' not on 15-minute boundary,
+//     LETTER 'DD' not single character,
+//     SAVE (delta_offset) '2:00' different from 1:00,
+//   }
+// }
+// Antarctica/Casey {UNTIL '0:01' not on 15-minute boundary}
+// Antarctica/Troll {
+//   Troll {
+//     Added anchor rule at year 0,
+//     LETTER '+00' not single character,
+//     LETTER '+02' not single character,
+//     SAVE (delta_offset) '2:00' different from 1:00,
+//   }
+// }
+// Asia/Dhaka {
+//   Dhaka {Added anchor rule at year 0}
+// }
+// Asia/Gaza {
+//   UNTIL '0:01' not on 15-minute boundary,
+//   Palestine {
+//     AT '0:01' not on 15-minute boundary,
+//     Added anchor rule at year 0,
+//   }
+// }
+// Asia/Hebron {
+//   Palestine {
+//     AT '0:01' not on 15-minute boundary,
+//     Added anchor rule at year 0,
+//   }
+// }
+// Asia/Karachi {
+//   Pakistan {Added anchor rule at year 0}
+// }
+// Asia/Kathmandu {STDOFF (5:45) not at :00 or :30 mark}
+// Asia/Yerevan {
+//   Armenia {Added anchor rule at year 0}
+// }
+// Australia/Eucla {STDOFF (8:45) not at :00 or :30 mark}
+// Australia/Lord_Howe {
+//   LH {SAVE (delta_offset) '0:30' different from 1:00}
+// }
+// Europe/Dublin {
+//   Eire {SAVE (delta_offset) '-1:00' different from 1:00}
+// }
+// Pacific/Apia {
+//   WS {Added anchor rule at year 0}
+// }
+// Pacific/Chatham {STDOFF (12:45) not at :00 or :30 mark}
+// Pacific/Tongatapu {
+//   Tonga {Added anchor rule at year 0}
+// }
 
 
 //---------------------------------------------------------------------------
@@ -1643,5 +1726,11 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //---------------------------------------------------------------------------
 
 
+
+//---------------------------------------------------------------------------
+
+#ifdef __cpluscplus
+}
+#endif
 
 #endif
