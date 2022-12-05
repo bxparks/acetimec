@@ -18,6 +18,10 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#ifdef __cpluscplus
+extern "C" {
+#endif
+
 enum {
   /**
    * Epoch year used by the epoch days converter functions
@@ -119,5 +123,8 @@ void atc_convert_from_days(
     uint8_t *month,
     uint8_t *day);
 
+#ifdef __cpluscplus
+}
+#endif
 
 #endif

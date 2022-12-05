@@ -17,6 +17,10 @@
 #include "common.h"
 #include "string_buffer.h"
 
+#ifdef __cpluscplus
+extern "C" {
+#endif
+
 /**
  * Date and time fields which are independent of the time zone. Often this
  * struct holds the date time fields in UTC, but not always.
@@ -55,5 +59,9 @@ int8_t atc_local_date_time_from_epoch_seconds(
 void atc_local_date_time_print(
     AtcStringBuffer *sb,
     const AtcLocalDateTime *ldt);
+
+#ifdef __cpluscplus
+}
+#endif
 
 #endif

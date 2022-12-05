@@ -10,10 +10,6 @@
 #define ACE_TIME_C_VERSION 400
 #define ACE_TIME_C_VERSION_STRING "0.4.0"
 
-#ifdef __cplusplus
-extern "C" {
-#endif
-
 #include "ace_time_c/string_buffer.h"
 #include "ace_time_c/epoch.h"
 #include "ace_time_c/local_date.h"
@@ -30,9 +26,5 @@ extern "C" {
 #include "ace_time_c/zonedb/zone_registry.h"
 #include "ace_time_c/zone_registrar.h"
 #include "ace_time_c/zoned_extra.h"
-
-#ifdef __cplusplus
-}
-#endif
 
 #endif

@@ -20,6 +20,10 @@
 #include <stdbool.h>
 #include <stdint.h>
 
+#ifdef __cpluscplus
+extern "C" {
+#endif
+
 /** ISO Weekday numbers. Monday=1, Sunday=7. */
 enum {
   kAtcIsoWeekdayMonday = 1,
@@ -98,5 +102,9 @@ void atc_local_date_increment_one_day(AtcLocalDate *ld);
 
 /** Decrement given AtcLocalDate by one day. */
 void atc_local_date_decrement_one_day(AtcLocalDate *ld);
+
+#ifdef __cpluscplus
+}
+#endif
 
 #endif

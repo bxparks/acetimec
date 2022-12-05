@@ -1,5 +1,7 @@
-#ifndef ACE_TIME_C_COMMON_H
-#define ACE_TIME_C_COMMON_H
+/*
+ * MIT License
+ * Copyright (c) 2022 Brian T. Park
+ */
 
 /**
  * @file common.h
@@ -7,8 +9,15 @@
  * Some common shared typedefs, constants, and functions.
  */
 
+#ifndef ACE_TIME_C_COMMON_H
+#define ACE_TIME_C_COMMON_H
+
 #include <stddef.h> // size_t
 #include <stdint.h> // INT32_MIN
+
+#ifdef __cpluscplus
+extern "C" {
+#endif
 
 /**
  * The number of seconds from the epoch of this library
@@ -38,5 +47,9 @@ void atc_copy_replace_string(char *dst, size_t dst_size, const char *src,
  * http://www.cse.yorku.ca/~oz/hash.html.
  */
 uint32_t atc_djb2(const char *s);
+
+#ifdef __cpluscplus
+}
+#endif
 
 #endif

@@ -6,8 +6,8 @@
 /**
  * @file zone_registrar.h
  *
- * Functions to find the AtcZoneInfo from the human readable zone name,
- * or the 32-bit zone ID identifier.
+ * Functions that search for specific time zones by name or by ID over a given
+ * set of zones defined by a zone registry.
  */
 
 #ifndef ACE_TIME_C_ZONE_REGISTRAR_H
@@ -17,6 +17,10 @@
 #include <stdbool.h>
 #include "zone_info.h"
 #include "common.h"
+
+#ifdef __cpluscplus
+extern "C" {
+#endif
 
 /** Data structure used by the registrar to manage a given zone registry. */
 typedef struct AtcZoneRegistrar {
@@ -51,5 +55,9 @@ const AtcZoneInfo *atc_registrar_find_by_name(
 const AtcZoneInfo *atc_registrar_find_by_id(
     const AtcZoneRegistrar *registrar,
     uint32_t zone_id);
+
+#ifdef __cpluscplus
+}
+#endif
 
 #endif

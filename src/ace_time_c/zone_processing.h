@@ -3,6 +3,14 @@
  * Copyright (c) 2022 Brian T. Park
  */
 
+/**
+ * @file zone_processing.h
+ *
+ * Data structures and functions related to determining the UTC and DST
+ * offsets using the list of DST transitions encoded by the AtcTransition
+ * objects.
+ */
+
 #ifndef ACE_TIME_C_ZONE_PROCESSING_H
 #define ACE_TIME_C_ZONE_PROCESSING_H
 
@@ -12,6 +20,10 @@
 #include "offset_date_time.h" // AtcOffsetDateTime
 #include "zone_info.h"
 #include "transition.h" // AtcTransition, AtcTransitionStorage
+
+#ifdef __cpluscplus
+extern "C" {
+#endif
 
 //---------------------------------------------------------------------------
 // Conversion and accessor utilities.
@@ -274,5 +286,11 @@ void atc_processing_create_abbreviation(
     const char* format,
     uint16_t delta_minutes,
     const char* letter_string);
+
+//---------------------------------------------------------------------------
+
+#ifdef __cpluscplus
+}
+#endif
 
 #endif

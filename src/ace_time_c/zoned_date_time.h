@@ -18,6 +18,10 @@
 #include "zone_processing.h"
 #include "zone_info.h"
 
+#ifdef __cpluscplus
+extern "C" {
+#endif
+
 /**
  * Date and time broken down into components. Similar to:
  *    * `struct tm` from the C library,
@@ -101,5 +105,9 @@ int8_t atc_zoned_date_time_normalize(
 void atc_zoned_date_time_print(
     AtcStringBuffer *sb,
     const AtcZonedDateTime *zdt);
+
+#ifdef __cpluscplus
+}
+#endif
 
 #endif
