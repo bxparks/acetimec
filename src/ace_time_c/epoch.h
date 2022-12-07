@@ -37,9 +37,9 @@ enum {
 
 /**
  * The epoch year which will be used to interpret the epoch seconds. By default,
- * the current epoch year is 2000, which means that the epoch is
- * 2000-01-01T00:00:00, and the largest date that can be represented by an
- * `int32_t` epoch_seconds is 2068-01-19T03:14:07. To represents dates after
+ * the current epoch year is 2050, which means that the epoch is
+ * 2050-01-01T00:00:00, and the largest date that can be represented by an
+ * `int32_t` epoch_seconds is 2118-01-20T03:14:07. To represents dates after
  * this, we would have to change the current epoch year. For example, changing
  * the current epoch year to 2100 allows the epoch_seconds to extend to
  * 2168-01-20T03:14:07.

@@ -20,8 +20,9 @@ extern "C" {
 #endif
 
 /**
- * The number of seconds from the epoch of this library
- * which will usually be 2000-01-01 00:00:00 UTC.
+ * The number of seconds from the current epoch. The current epoch is
+ * 2050-01-01 00:00:00 UTC by default, but can be adjusted using
+ * `atc_set_current_epoch_year()`.
  */
 typedef int32_t atc_time_t;
 
