@@ -34,6 +34,8 @@ latter documents.
     * [Header File](#HeaderFile)
     * [Constants](#Constants)
     * [atc_time_t](#AtcTimeT)
+    * [Epoch](#Epoch)
+    * [AtcLocalDate](#AtcLocalDate)
     * [AtcLocalDateTime](#AtcLocalDateTime)
     * [AtcOffsetDateTime](#AtcOffsetDateTime)
     * [AtcZonedDateTime](#AtcZonedDateTime)
@@ -177,9 +179,39 @@ typedef int32_t atc_time_t;
 ```
 
 It is a signed, 32-bit integer that counts the number of POSIX seconds from the
-epoch of this library. That epoch will normally be 2000-01-01 00:00:00 UTC,
+epoch of this library. That epoch will normally be 2050-01-01 00:00:00 UTC,
 instead of the POSIX standard of 1970-01-01 00:00:00 UTC. That means that
-largest date that can be represented by `atc_time_t` is 2068-01-19 03:14:07 UTC.
+largest date that can be represented by `atc_time_t` is 2118-01-20 03:14:07 UTC.
+
+The current epoch year can be changed using the `atc_set_current_epoch_year()`
+as described in the next section.
+
+<a name="Epoch"></a>
+### Epoch
+
+TODO: Add documentation for:
+
+* `atc_get_current_epoch_year()`
+* `atc_set_current_epoch_year(year)`
+* `atc_convert_to_days(year, month, day)`
+* `atc_convert_from_days(days, year, month, day)`
+* `atc_epoch_valid_year_lower()`
+* `atc_epoch_valid_year_upper()`
+
+<a name="AtcLocalDate"></a>
+### AtcLocalDate
+
+TODO: Add documentation for:
+
+* `atc_is_leap_year()`
+* `atc_local_date_days_in_year_month()`
+* `atc_local_date_day_of_week()`
+* `atc_local_date_to_epoch_days()`
+* `atc_local_date_from_epoch_days()`
+
+* `struct AtcLocalDate`
+* `atc_local_date_increment_one_day()`
+* `atc_local_date_decrement_one_day()`
 
 <a name="AtcLocalDateTime"></a>
 ### AtcLocalDateTime
@@ -508,7 +540,7 @@ library. It allows us to locate the `AtcZoneInfo` pointer using the
 human readable zone name (e.g. `"America/Los_Angeles"`) or its 32-bit
 zone identifier (e.g. `0xb7f7e8f2`).
 
-As of TZDB 2022b, 2 zone registries are provided:
+As of TZDB 2022g, 2 zone registries are provided:
 
 ```C
 // Zones
