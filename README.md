@@ -18,7 +18,7 @@ library. It does not implement the functionality provided by the
 `BasicZoneProcessor` of the AceTime library.
 
 Due to time constraints, this README document provides only a small fraction of
-the documentation provbided by the README.md and USER_GUIDE.md documents of the
+the documentation provided by the README.md and USER_GUIDE.md documents of the
 AceTime library. If you need more detailed information, please consult those
 latter documents.
 
@@ -41,7 +41,7 @@ latter documents.
     * [AtcZonedDateTime](#AtcZonedDateTime)
     * [AtcZoneProcessing](#AtcZoneProcessing)
     * [AtcZoneInfo](#AtcZoneInfo)
-    * [Zone Database](#ZoneDatabase)
+    * [Zone Database and Registry](#ZoneDatabaseAndRegistry)
     * [AtcZonedExtra](#AtcZonedExtra)
     * [AtcZoneRegistrar](#AtcZoneRegistrar)
 * [License](#License)
@@ -189,35 +189,125 @@ as described in the next section.
 <a name="Epoch"></a>
 ### Epoch
 
-TODO: Add documentation for:
+The functions in [epoch.h](src/ace_time_c/epoch.h) provide features related to
+the epoch used by the AceTimeC library. By default, the epoch is 2050-01-01
+00:00:00 UTC, which allows the 32-bit `ace_time_t` type to support dates from
+the year 2000 until the year 2100, at a minimum. However, unlike most timezone
+libraries, the epoch year can be changed at runtime so that the `ace_time_t` can
+be used to support any dates within approximately +/- 50 years of the epoch
+year.
 
-* `atc_get_current_epoch_year()`
-* `atc_set_current_epoch_year(year)`
-* `atc_convert_to_days(year, month, day)`
-* `atc_convert_from_days(days, year, month, day)`
-* `atc_epoch_valid_year_lower()`
-* `atc_epoch_valid_year_upper()`
+The following functions are used to get and set the epoch year:
+
+* `int16_t atc_get_current_epoch_year(void)`
+    * Returns the current epoch year.
+* `void atc_set_current_epoch_year(int16_t year)`
+    * Sets the current epoch year to `year`.
+
+**Warning**: If the epoch year is changed using the
+`atc_set_current_epoch_year()` function, then the `atc_processing_init()`
+function (see [AtcZoneProcessing](#AtcZoneProcessing)) must be called to
+reinitialize any instance of `AtcZoneProcessing` that may have used a different
+epoch year.
+
+The following convenience functions return the range of validity of the
+`ace_time_t` type:
+
+* `int16_t atc_epoch_valid_year_lower(void)`
+    * Returns the lower bound of the year that can be represented by
+      `ace_time_t`.
+    * This currently returns `epoch_year - 50` as a conservative estimate.
+    * The actual lower bound is 10-15 years higher, and a future version of the
+      library may update the value returned by this function.
+* `int16_t atc_epoch_valid_year_upper(void)`
+    * Returns the upper bound of the year that can be represented by
+      `ace_time_t`.
+    * This currently returns `epoch_year + 50` as a conservative estimate.
+    * The actual upper bound is 10-15 years higher, and a future version of the
+      library may update the value returned by this function.
+
+The following are low level internal functions that convert a given `(year,
+month, day)` triple in the proleptic Gregorian calendar to the number of days
+from an arbitrary, but fixed, internal epoch date (currently the year 2000).
+They are used as the basis for converting the Gregorian date to the number of
+offset days from the user-adjustable epoch year. They are not expected to be
+used by client applications.
+
+* `int32_t atc_convert_to_days(int16_t year, uint8_t month, uint8_t day)`
+* `void atc_convert_from_days(int16_t days, uint8_t *year, uint8_t *month,
+   uint8_t *day)`
 
 <a name="AtcLocalDate"></a>
 ### AtcLocalDate
 
-TODO: Add documentation for:
+The functions in [local_date.h](src/ace_time_c/local_date.h) provide features
+related to the Gregorian `(year, month, day)` triple. These functions do not
+know about the time components `(hour, minute, second)` or the timezone. They
+often represent either the local date, or the UTC date, depending on context.
 
-* `atc_is_leap_year()`
-* `atc_local_date_days_in_year_month()`
-* `atc_local_date_day_of_week()`
-* `atc_local_date_to_epoch_days()`
-* `atc_local_date_from_epoch_days()`
+* `bool atc_is_leap_year(int16_t year)`
+    * Returns `true` if the given `year` is a leap year in the Gregorian
+      calendar.
+* `uint8_t atc_local_date_days_in_year_month(int16_t year, uint8_t month)`
+    * Returns the number of days in the given `(year, month)` pair.
 
-* `struct AtcLocalDate`
-* `atc_local_date_increment_one_day()`
-* `atc_local_date_decrement_one_day()`
+The `atc_local_date_day_of_week()` returns the ISO day of week of the given
+`(year, month, day)` date. The ISO weekday starts with Monday as 1, and ending
+with Sunday as 7:
+
+```C
+enum {
+  kAtcIsoWeekdayMonday = 1,
+  kAtcIsoWeekdayTuesday,
+  kAtcIsoWeekdayWednesday,
+  kAtcIsoWeekdayThursday,
+  kAtcIsoWeekdayFriday,
+  kAtcIsoWeekdaySaturday,
+  kAtcIsoWeekdaySunday,
+};
+
+uint8_t atc_local_date_day_of_week(int16_t year, uint8_t month, uint8_t day)`
+```
+
+The following 2 functions convert the Gregorian date to and from the number of
+days from the current epoch (given by `atc_get_current_epoch_year()`). These
+functions should return the correct value for any year in the range of `0 < year
+< 10000`, but no validation is performed for invalid dates. For example, the
+behavior is undefined for Feb 30 which is an invalid date.
+
+```C
+int32_t atc_local_date_to_epoch_days(
+    int16_t year, uint8_t month, uint8_t day);
+
+void atc_local_date_from_epoch_days(
+    int32_t epoch_days,
+    int16_t *year,
+    uint8_t *month,
+    uint8_t *day);
+```
+
+The `AtcLocalDate` is used primarily for internal purposes, and is exposed
+mostly for consistency with the other data structures described in later
+sections.
+
+```C
+typedef struct AtcLocalDate
+  int16_t year;
+  uint8_t month;
+  uint8_t day;
+} AtcLocalDate;
+
+void atc_local_date_increment_one_day(AtcLocalDate *ld);
+
+void atc_local_date_decrement_one_day(AtcLocalDate *ld);
+```
 
 <a name="AtcLocalDateTime"></a>
 ### AtcLocalDateTime
 
-The `AtcLocalDateTime` type represents the wall time, without any reference
-to a time zone:
+The functions in [local_date_time.h](src/ace_time_c/local_date_time.h) operate
+on the `AtcLocalDateTime` type which represents the wall date and time, without
+reference to a time zone:
 
 ```C
 typedef struct AtcLocalDateTime {
@@ -252,8 +342,9 @@ returns `kAtcErrGeneric`, otherwise it returns `kAtcErrOk`.
 <a name="AtcOffsetDateTime"></a>
 ### AtcOffsetDateTime
 
-The `AtcOffsetDateTime` type represents a date-time with a fixed offset from
-UTC:
+The functions in [offset_date_time.h](src/ace_time_c/offset_date_time.h) operate
+on the `AtcOffsetDateTime` type which represents a date-time with a fixed offset
+from UTC:
 
 ```C
 typedef struct AtcOffsetDateTime {
@@ -270,8 +361,9 @@ typedef struct AtcOffsetDateTime {
 } AtcOffsetDateTime;
 ```
 
-The initial memory layout of `AtcOffsetDateTime` was designed to be identical to
-`AtcLocalDateTime`.
+The memory layout of `AtcOffsetDateTime` was designed to be identical to
+`AtcLocalDateTime` so that functions that accept a pointer to `AtcLocalDateTime`
+can be given a pointer to `AtcOffsetDateTime` as well.
 
 The `fold` parameter is used to disambiguate a time which occurs twice due
 to a DST change. For example, in most of North America, the time zone switches
@@ -308,8 +400,10 @@ an error occurs, the function returns `kAtcErrGeneric`, otherwise it returns
 <a name="AtcZonedDateTime"></a>
 ### AtcZonedDateTime
 
-An `AtcZonedDateTime` is an `AtcOffsetDateTime` which also contains a reference
-to the TZDB time zone.
+The functions in [zoned_date_time.h](src/ace_time_c/zoned_date_time.h) operate
+on the `AtcZonedDateTime` data structure, which is identical to the
+`AtcOffsetDateTime` data structure with the addition of a reference to the TZDB
+time zone:
 
 ```C
 typedef struct AtcZonedDateTime {
@@ -327,8 +421,9 @@ typedef struct AtcZonedDateTime {
 } AtcZonedDateTime;
 ```
 
-The initial memory layout of `AtcZonedDateTime` was designed to be identical to
-`AtcOffsetDateTime`.
+The memory layout of `AtcZonedDateTime` was designed to be identical to
+`AtcOffsetDateTime`, so that functions that accept a pointer to
+`AtcOffsetDateTime` can also accept pointers to `AtcZonedDateTime`.
 
 The following functions operate on the `AtcZonedDateTime`:
 
@@ -444,15 +539,19 @@ time zones (i.e. different `AtcZoneInfo`). However, each time the time zone
 changes, the internal cache of the `AtcZoneProcessing` instance will be cleared
 and recalculated, so the execution speed may decrease significantly.
 
+**Warning**: If the epoch year is changed using the
+`atc_set_current_epoch_year()` function (see [Epoch](#Epoch)), then the
+`atc_processing_init()` function must be called to reinitialize any instance of
+`AtcZoneProcessing` that may have used a different epoch year.
+
 <a name="AtcZoneInfo"></a>
 ### AtcZoneInfo
 
-The `AtcZoneInfo` data structure, defined in the
-[zone_info.h](src/ace_time_c/zone_info.h) header file, defines the DST
-transition rules of a single time zone. The pointer to the `AtcZoneInfo` is
-meant to be passed around as opaque object for the most part since most of the
-fields are meant for internal consumption. There are 3 accessor functions which
-may be useful for end-users:
+The `AtcZoneInfo` data structure in [zone_info.h](src/ace_time_c/zone_info.h)
+defines the DST transition rules of a single time zone. The pointer to the
+`AtcZoneInfo` is meant to be passed around as opaque object for the most part
+since most of the fields are meant for internal consumption. There are 3
+accessor functions which may be useful for end-users:
 
 ```C
 bool atc_zone_info_is_link(const AtcZoneInfo *info);
@@ -476,8 +575,8 @@ The `atc_zone_info_short_name()` function is similar to the
 which is defined to be the string just after the last `/` character in the zone
 name. For example, the short name of `"America/Los_Angeles"` is `"Los_Angeles"`.
 
-<a name="ZoneDatabase"></a>
-### Zone Database
+<a name="ZoneDatabaseAndRegistry"></a>
+### Zone Database and Registry
 
 The Zone Database in the [src/ace_time_c/zonedb/](src/ace_time_c/zonedb)
 directory contains the collection of `AtcZoneInfo` instances representing all
@@ -491,7 +590,7 @@ pointer.
 
 The full list of Zones (and Links) supported by this library is given in the
 [zonedb/zone_infos.h](src/ace_time_c/zonedb/zone_infos.h) header file, which is
-automatically included by the `acetime.h` header file.
+automatically included by the `<acetimec.h>` header file.
 
 The IANA TZ database is often updated to track changes to the DST rules in
 different countries and regions. The version of the TZ database that was used to
@@ -501,14 +600,36 @@ generate the AceTimeC Zone database is given by:
 extern const char kAtcTzDatabaseVersion[];
 ```
 
-For example, this string will be `"2022b"` for the 2022b version of the TZ
+For example, this string will be `"2022g"` for the 2022g version of the TZ
 database.
+
+The Zone Registry is defined in the
+[zonedb/zone_registry.h](src/ace_time_c/zonedb/zone_registry.h) file which
+contains the list of all Zones (and Links) supported by this library. It allows
+us to locate the `AtcZoneInfo` pointer using the human readable zone name (e.g.
+`"America/Los_Angeles"`) or its 32-bit zone identifier (e.g. `0xb7f7e8f2`).
+
+As of TZDB 2022g, 2 zone registries are provided:
+
+```C
+// Zones
+#define kAtcZoneRegistrySize 356
+extern const AtcZoneInfo * const kAtcZoneRegistry[356];
+
+// Zones and Links
+#define kAtcZoneAndLinkRegistrySize 595
+extern const AtcZoneInfo * const kAtcZoneAndLinkRegistry[595];
+```
+
+The `kAtcZoneRegistry` and `kAtcZoneAndLinkRegistry` are used by the [Zone
+Registrar functions](#AtcZoneRegistrar) described below.
 
 <a name="AtcZonedExtra"></a>
 ### AtcZonedExtra
 
-The `AtcZonedExtra` holds additional meta information about a particular time
-zone, usually at a particular epoch seconds:
+The `AtcZonedExtra` structure in [zoned_extra.h](src/ace_time_c/zoned_extra.h)
+holds additional meta information about a particular time zone, usually at a
+particular epoch seconds:
 
 ```C
 typedef struct AtcZonedExtra {
@@ -535,22 +656,17 @@ returns `kAtcErrOk`.
 <a name="AtcZoneRegistrar"></a>
 ## AtcZoneRegistrar
 
-The Zone Registry is the list of all Zones (and Links) supported by this
-library. It allows us to locate the `AtcZoneInfo` pointer using the
-human readable zone name (e.g. `"America/Los_Angeles"`) or its 32-bit
-zone identifier (e.g. `0xb7f7e8f2`).
+The functions in [zone_registrar.h](src/ace_time_c/zone_registrar.h) allow
+searching of the [zone registries](#ZoneDatabaseAndRegistry) by human readable
+name (e.g. "America/Los_Angeles") or by a 32-bit numerical zoneId.
 
-As of TZDB 2022g, 2 zone registries are provided:
-
-```C
-// Zones
-#define kAtcZoneRegistrySize 356
-extern const AtcZoneInfo * const kAtcZoneRegistry[356];
-
-// Zones and Links
-#define kAtcZoneAndLinkRegistrySize 595
-extern const AtcZoneInfo * const kAtcZoneAndLinkRegistry[595];
-```
+The zone identifier is a unique and stable 32-bit integer associated with each
+time zone. It was defined in the AceTime library. See the section
+[CreateForZoneId](https://github.com/bxparks/AceTime/blob/develop/USER_GUIDE.md#CreateForZoneId)
+in the `USER_GUIDE.md` for the AceTime library. A 32-bit integer is often more
+convenient in an embedded environment than the human-readable zone name because
+the integer is a fixed size and can be stored and retrieved quickly. Examples
+are shown below.
 
 To use these registries, first we create and initialize an `AtcZoneRegistrar`
 data structure using the `atc_registrar_init()` function:
@@ -580,8 +696,8 @@ const AtcZoneInfo *atc_registrar_find_by_id(
     uint32_t zone_id);
 ```
 
-To retrieve the `AtcZoneInfo` pointer from the human readable zone name, the
-code looks something like this:
+Here is a sample code to retrieve the `AtcZoneInfo` pointer from the human
+readable zone name (e.g. `"America/Los_Angeles"`):
 
 ```C
 #include <acetimec.h>
@@ -605,6 +721,18 @@ void retrieve_zone_info_by_name()
   if (zone_info == NULL) { /*error*/ }
   ...
 }
+```
+
+Instead of using the string `"America/Los_Angeles"`, we can search for this
+timezone by its 32-bit zoneId which is provided by the Zone Database as
+`kAtcZoneIdAmerica_Los_Angeles=0xb7f7e8f2`:
+
+```C
+#include <acetimec.h>
+
+AtcZoneRegistrar registrar;
+
+// Perform setup() as above
 
 void retrieve_zone_info_by_id()
 {
@@ -615,25 +743,13 @@ void retrieve_zone_info_by_id()
 }
 ```
 
-The zone identifier is a unique and stable 32-bit integer associated for each
-time zone. It was defined in the AceTime library. See the section
-[CreateForZoneId](https://github.com/bxparks/AceTime/blob/develop/USER_GUIDE.md#CreateForZoneId)
-in the `USER_GUIDE.md` for AceTime. A 32-bit integer is often more convenient in
-an embedded environment than the human-readable zone name because the integer is
-a fixed size and can be stored and retrieved quickly.
-
-For example, instead of using the string `"America/Los_Angeles"`, this library
-defines the 32-bit number `kAtcZoneIdAmerica_Los_Angeles=0xb7f7e8f2` for this
-zone. This zone identifier can be passed into the `atc_registrar_find_by_id()`
-function to retrieve the corresponding `AtcZoneInfo` object.
-
-The `atc_registrar_init()` function determines whether or not the registry is
-sorted by zone id. If it is, then the search functions (both `find_by_name()`
-and `find_by_id()`) will use binary search algorithm. If the registry is not
-sorted, then the search functions performs a linear search through the registry.
-The binary search algorithm is `O(log(N))` and the linear search of `O(N)`.
-The binary search will be far faster than the linear search if the registry
-contains more than about 5-10 entries.
+The `atc_registrar_init()` function performs an optimization. It evaluates
+whether or not the registry is sorted by zone id. If it is, then the search
+functions (both `find_by_name()` and `find_by_id()`) will use binary search
+algorithm. If the registry is not sorted, then the search functions performs a
+linear search through the registry. The binary search algorithm is `O(log(N))`
+and the linear search of `O(N)`. The binary search will be far faster than the
+linear search if the registry contains more than about 5-10 entries.
 
 The downstream application does not need to use the default zone registries
 (`kAtcZoneRegistry` or `kAtcZoneAndLinkRegistry`). It can create its own custom
