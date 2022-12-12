@@ -52,7 +52,13 @@ extern int32_t atc_days_from_converter_epoch_to_current_epoch;
 /** Get the current epoch year. */
 int16_t atc_get_current_epoch_year(void);
 
-/** Set the current epoch year. */
+/**
+ * Set the current epoch year. Any cached values (e.g. any internal or external
+ * evaluations of `ace_time_t`) that used a previous epoch year must be
+ * invalidated. In particular, the `atc_processing_init()` must be called on
+ * each instance of `AtcZoneProcessing` that was used with a different epoch
+ * year.
+ */
 void atc_set_current_epoch_year(int16_t year);
 
 /** Get number of days from converter epoch to current epoch. */
