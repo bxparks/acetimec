@@ -669,7 +669,7 @@ ACU_TEST(test_atc_transition_storage_reset_candidate_pool)
 
 //---------------------------------------------------------------------------
 
-ACU_VARS();
+ACU_CONTEXT();
 
 int main()
 {

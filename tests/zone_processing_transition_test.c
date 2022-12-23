@@ -9,7 +9,8 @@
 
 //---------------------------------------------------------------------------
 
-static void check_sorted_transitions(AtcTransition **begin, AtcTransition **end)
+static void check_sorted_transitions(
+    AcuContext *acu_context, AtcTransition **begin, AtcTransition **end)
 {
   AtcTransition *prev = NULL;
   for (AtcTransition **iter = begin; iter != end; iter++) {
@@ -21,7 +22,8 @@ static void check_sorted_transitions(AtcTransition **begin, AtcTransition **end)
   }
 }
 
-static void check_unique_transitions(AtcTransition **begin, AtcTransition **end)
+static void check_unique_transitions(
+    AcuContext *acu_context, AtcTransition **begin, AtcTransition **end)
 {
   AtcTransition *prev = NULL;
   for (AtcTransition **iter = begin; iter != end; iter++) {
@@ -34,6 +36,7 @@ static void check_unique_transitions(AtcTransition **begin, AtcTransition **end)
 }
 
 static void validate_zone(
+  AcuContext *acu_context,
   AtcZoneProcessing *processing,
   const AtcZoneInfo *info,
   int16_t start_year,
@@ -50,8 +53,10 @@ static void validate_zone(
     // Verify that every year produces at least one transition
     ACU_ASSERT((end - begin) > 0);
 
-    ACU_ASSERT_NO_FATAL_FAILURE(check_sorted_transitions(begin, end));
-    ACU_ASSERT_NO_FATAL_FAILURE(check_unique_transitions(begin, end));
+    ACU_ASSERT_NO_FATAL_FAILURE(check_sorted_transitions(
+        acu_context, begin, end));
+    ACU_ASSERT_NO_FATAL_FAILURE(check_unique_transitions(
+        acu_context, begin, end));
   }
 }
 
@@ -77,7 +82,8 @@ ACU_TEST(test_transitions_for_all_zones_all_years) {
       }
 
       ACU_ASSERT_NO_FATAL_FAILURE(
-          validate_zone(&processing, info, start_year, until_year));
+          validate_zone(
+              acu_context, &processing, info, start_year, until_year));
     }
   }
 
@@ -86,7 +92,7 @@ ACU_TEST(test_transitions_for_all_zones_all_years) {
 
 //---------------------------------------------------------------------------
 
-ACU_VARS();
+ACU_CONTEXT();
 
 int main()
 {

@@ -193,7 +193,7 @@ ACU_TEST(test_epoch_year_and_valid_years)
 
 //---------------------------------------------------------------------------
 
-ACU_VARS();
+ACU_CONTEXT();
 
 int main()
 {

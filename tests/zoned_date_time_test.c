@@ -652,7 +652,7 @@ ACU_TEST(test_zoned_date_time_convert)
 
 //---------------------------------------------------------------------------
 
-ACU_VARS();
+ACU_CONTEXT();
 
 int main()
 {

@@ -82,7 +82,7 @@ ACU_TEST(test_atc_registrar_find_by_name_unsorted)
 
 //---------------------------------------------------------------------------
 
-ACU_VARS();
+ACU_CONTEXT();
 
 int main()
 {

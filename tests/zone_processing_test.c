@@ -1028,7 +1028,7 @@ ACU_TEST(test_atc_processing_create_abbreviation)
 
 //---------------------------------------------------------------------------
 
-ACU_VARS();
+ACU_CONTEXT();
 
 int main()
 {

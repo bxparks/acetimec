@@ -202,7 +202,7 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_epoch2050)
 
 //---------------------------------------------------------------------------
 
-ACU_VARS();
+ACU_CONTEXT();
 
 int main()
 {
