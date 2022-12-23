@@ -23,12 +23,24 @@ ACU_TEST(test_is_leap_year)
   ACU_ASSERT(atc_is_leap_year(-400)); // divisible by 100 => not leap
 }
 
+// Make sure that the default current epoch year (2050) is correctly configured.
+// Don't call `atc_set_current_epoch_year(2050)` in this test, and make sure it
+// is executed before any other test that calls `atc_set_current_epoch_year()`.
+ACU_TEST(test_local_date_to_epoch_days) {
+  ACU_ASSERT(atc_local_date_to_epoch_days(2050, 1, 1) == 0);
+}
+
 // Do a round-trip of conversion atc_local_date_to_epoch_days() and
-// atc_local_date_from_epoch_days() for every day from 1873-01-01 to 2127-12-31,
-// inclusive.
+// atc_local_date_from_epoch_days() for almost every day from 0001-01-01 to
+// 9999-12-31:
 ACU_TEST(test_local_date_to_and_from_epoch_days)
 {
-  int32_t epoch_days = -730119; // 0001-01-01
+  // Number of epoch days from 2050 to 0001-01-01:
+  //  = 146097*5 [2000 years, 5*400 cycle]
+  //    + 365 * 50 [days from 2000 to 2050]
+  //    + 13 [13 leap days from 2000 to 2050]
+  //    - 366 [year 0 was a leap year]
+  int32_t epoch_days = -(146097*5 + 365*50 + 13 - 366);
   for (int16_t year = 1; year <= 9999; year++) {
     for (uint8_t month = 1; month <= 12; month++) {
       uint8_t days_in_month = atc_local_date_days_in_year_month(year, month);
@@ -199,6 +211,7 @@ int main()
 {
   ACU_RUN_TEST(test_iso_week_enum);
   ACU_RUN_TEST(test_is_leap_year);
+  ACU_RUN_TEST(test_local_date_to_epoch_days);
   ACU_RUN_TEST(test_local_date_to_and_from_epoch_days);
   ACU_RUN_TEST(test_day_of_week);
   ACU_RUN_TEST(test_increment_one_day);

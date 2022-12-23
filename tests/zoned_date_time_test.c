@@ -9,6 +9,9 @@
 
 ACU_TEST(test_zoned_date_time_from_epoch_seconds)
 {
+  int16_t saved_epoch_year = atc_get_current_epoch_year();
+  atc_set_current_epoch_year(2000);
+
   AtcZoneProcessing processing;
   atc_processing_init(&processing);
 
@@ -32,6 +35,8 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds)
 
   atc_time_t eps = atc_zoned_date_time_to_epoch_seconds(&zdt);
   ACU_ASSERT(eps == epoch_seconds);
+
+  atc_set_current_epoch_year(saved_epoch_year);
 }
 
 ACU_TEST(test_zoned_date_time_from_epoch_seconds_epoch2050)

@@ -6,9 +6,13 @@
 #include <stdint.h>
 #include "epoch.h"
 
+// Initialized to the default current epoch. If this is changed, then the
+// atc_days_to_current_epoch_from_converter_epoch must be changed as well.
 int16_t atc_current_epoch_year = 2050;
 
-int32_t atc_days_to_current_epoch_from_converter_epoch = 0;
+// Number of days from 2000 (converter epoch) to 2050 (default current epoch):
+// 50 years * 365 + 13 leap days.
+int32_t atc_days_to_current_epoch_from_converter_epoch = 365 * 50 + 13;
 
 int16_t atc_get_current_epoch_year(void)
 {
