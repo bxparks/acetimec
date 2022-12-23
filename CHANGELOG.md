@@ -1,6 +1,9 @@
 # Changelog
 
 * Unreleased
+    * Fix incorrect initial value of
+      `atc_days_to_current_epoch_from_converter_epoch`.
+    * Migrate to ACUnit v0.1.0.
 * 0.5.0 (2022-12-04, TZDB 2022g)
     * Upgrade to TZDB 2022g
     * Add `extern "C"` to all header files.
