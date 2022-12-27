@@ -35,7 +35,8 @@ latter documents.
     * [Constants](#Constants)
     * [atc_time_t](#AtcTimeT)
     * [Epoch](#Epoch)
-    * [AtcLocalDate](#AtcLocalDate)
+    * [LocalDate](#LocalDate)
+    * [LocalTime](#LocalTime)
     * [AtcLocalDateTime](#AtcLocalDateTime)
     * [AtcOffsetDateTime](#AtcOffsetDateTime)
     * [AtcZonedDateTime](#AtcZonedDateTime)
@@ -237,8 +238,8 @@ used by client applications.
 * `void atc_convert_from_days(int16_t days, uint8_t *year, uint8_t *month,
    uint8_t *day)`
 
-<a name="AtcLocalDate"></a>
-### AtcLocalDate
+<a name="LocalDate"></a>
+### LocalDate
 
 The functions in [local_date.h](src/ace_time_c/local_date.h) provide features
 related to the Gregorian `(year, month, day)` triple. These functions do not
@@ -286,20 +287,24 @@ void atc_local_date_from_epoch_days(
     uint8_t *day);
 ```
 
-The `AtcLocalDate` is used primarily for internal purposes, and is exposed
-mostly for consistency with the other data structures described in later
-sections.
+The following functions increment and decrement the date by one day:
 
 ```C
-typedef struct AtcLocalDate
-  int16_t year;
-  uint8_t month;
-  uint8_t day;
-} AtcLocalDate;
+void atc_local_date_increment_one_day(
+    int16_t *year, uint8_t *month, uint8_t *day);
 
-void atc_local_date_increment_one_day(AtcLocalDate *ld);
+void atc_local_date_decrement_one_day(
+    int16_t *year, uint8_t *month, uint8_t *day);
+```
 
-void atc_local_date_decrement_one_day(AtcLocalDate *ld);
+<a name="LocalTime"></a>
+### LocalTime
+
+The `local_time.h` file contains functions related to the local `(hour, minute,
+second)`. Currently a single function is provided:
+
+```C
+int32_t atc_local_time_to_seconds(uint8_t hour, uint8_t minute, uint8_t second);
 ```
 
 <a name="AtcLocalDateTime"></a>
