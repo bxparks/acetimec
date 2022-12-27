@@ -7,7 +7,20 @@
 #include "epoch.h"
 #include "local_date.h"
 
-// Using 0=Jan offset.
+// Offsets used to calculate the day of the week of a particular (year, month,
+// day). The element represents the number of days that the first of month of
+// the given index was shifted by the cummulative days from the previous months.
+// To determine the "day of the week", we must normalize the resulting "day of
+// the week" modulo 7.
+//
+// January is index 0, but we also use a modified year, where the year starts in
+// March to make leap years easier to handle, so the shift for March=3 is 0.
+//
+// For example:
+//    * atc_days_of_week[3] is 3 because April (index=3) 1st is shifted by 3
+//      days because March has 31 days (28 + 3).
+//    * atc_days_of_week[4] is 5 because May (index=4) 1st is shifted by 2
+//      additional days from April, because April has 30 days (28 + 2).
 static const uint8_t atc_days_of_week[12] = {
   5 /*Jan=31*/,
   1 /*Feb=28*/,
@@ -53,6 +66,9 @@ uint8_t atc_local_date_day_of_week(int16_t year, uint8_t month, uint8_t day)
 {
   // The "year" starts in March to shift leap year calculation to end.
   int16_t y = year - (month < 3);
+
+  // Each year shifts the day of week by one. Each leap year by one.
+  // Except every 100 years. Unless divisible by 400.
   int16_t d = y + y/4 - y/100 + y/400 + atc_days_of_week[month-1] + day;
 
   // 2000-01-01 was a Saturday=6, so set the offsets accordingly
