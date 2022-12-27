@@ -1,3 +1,8 @@
+/*
+ * MIT License
+ * Copyright (c) 2022 Brian T. Park
+ */
+
 #include "common.h"
 
 void atc_copy_replace_string(char *dst, size_t dst_size, const char *src,

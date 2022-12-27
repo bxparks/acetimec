@@ -1,3 +1,8 @@
+/*
+ * MIT License
+ * Copyright (c) 2022 Brian T. Park
+ */
+
 #include "local_date.h"
 #include "local_date_time.h"
 #include "offset_date_time.h"

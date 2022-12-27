@@ -1,3 +1,8 @@
+/*
+ * MIT License
+ * Copyright (c) 2022 Brian T. Park
+ */
+
 #include <stdbool.h>
 #include "common.h" // atc_time_t
 #include "zone_info.h"
