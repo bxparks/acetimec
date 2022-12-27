@@ -88,108 +88,112 @@ ACU_TEST(test_day_of_week)
 
 ACU_TEST(test_increment_one_day)
 {
-  AtcLocalDate ld;
+  int16_t year;
+  uint8_t month;
+  uint8_t day;
 
-  ld.year = 2000;
-  ld.month = 2;
-  ld.day = 28;
-  atc_local_date_increment_one_day(&ld);
-  ACU_ASSERT(ld.year == 2000);
-  ACU_ASSERT(ld.month == 2);
-  ACU_ASSERT(ld.day == 29);
+  year = 2000;
+  month = 2;
+  day = 28;
+  atc_local_date_increment_one_day(&year, &month, &day);
+  ACU_ASSERT(year == 2000);
+  ACU_ASSERT(month == 2);
+  ACU_ASSERT(day == 29);
 
-  ld.year = 2000;
-  ld.month = 2;
-  ld.day = 29;
-  atc_local_date_increment_one_day(&ld);
-  ACU_ASSERT(ld.year == 2000);
-  ACU_ASSERT(ld.month == 3);
-  ACU_ASSERT(ld.day == 1);
+  year = 2000;
+  month = 2;
+  day = 29;
+  atc_local_date_increment_one_day(&year, &month, &day);
+  ACU_ASSERT(year == 2000);
+  ACU_ASSERT(month == 3);
+  ACU_ASSERT(day == 1);
 
-  ld.year = 2000;
-  ld.month = 3;
-  ld.day = 31;
-  atc_local_date_increment_one_day(&ld);
-  ACU_ASSERT(ld.year == 2000);
-  ACU_ASSERT(ld.month == 4);
-  ACU_ASSERT(ld.day == 1);
+  year = 2000;
+  month = 3;
+  day = 31;
+  atc_local_date_increment_one_day(&year, &month, &day);
+  ACU_ASSERT(year == 2000);
+  ACU_ASSERT(month == 4);
+  ACU_ASSERT(day == 1);
 
-  ld.year = 2000;
-  ld.month = 12;
-  ld.day = 31;
-  atc_local_date_increment_one_day(&ld);
-  ACU_ASSERT(ld.year == 2001);
-  ACU_ASSERT(ld.month == 1);
-  ACU_ASSERT(ld.day == 1);
+  year = 2000;
+  month = 12;
+  day = 31;
+  atc_local_date_increment_one_day(&year, &month, &day);
+  ACU_ASSERT(year == 2001);
+  ACU_ASSERT(month == 1);
+  ACU_ASSERT(day == 1);
 
-  ld.year = 2001;
-  ld.month = 2;
-  ld.day = 28;
-  atc_local_date_increment_one_day(&ld);
-  ACU_ASSERT(ld.year == 2001);
-  ACU_ASSERT(ld.month == 3);
-  ACU_ASSERT(ld.day == 1);
+  year = 2001;
+  month = 2;
+  day = 28;
+  atc_local_date_increment_one_day(&year, &month, &day);
+  ACU_ASSERT(year == 2001);
+  ACU_ASSERT(month == 3);
+  ACU_ASSERT(day == 1);
 
-  ld.year = 2004;
-  ld.month = 2;
-  ld.day = 28;
-  atc_local_date_increment_one_day(&ld);
-  ACU_ASSERT(ld.year == 2004);
-  ACU_ASSERT(ld.month == 2);
-  ACU_ASSERT(ld.day == 29);
+  year = 2004;
+  month = 2;
+  day = 28;
+  atc_local_date_increment_one_day(&year, &month, &day);
+  ACU_ASSERT(year == 2004);
+  ACU_ASSERT(month == 2);
+  ACU_ASSERT(day == 29);
 }
 
 ACU_TEST(test_decrement_one_day)
 {
-  AtcLocalDate ld;
+  int16_t year;
+  uint8_t month;
+  uint8_t day;
 
-  ld.year = 2004;
-  ld.month = 2;
-  ld.day = 29;
-  atc_local_date_decrement_one_day(&ld);
-  ACU_ASSERT(ld.year == 2004);
-  ACU_ASSERT(ld.month == 2);
-  ACU_ASSERT(ld.day == 28);
+  year = 2004;
+  month = 2;
+  day = 29;
+  atc_local_date_decrement_one_day(&year, &month, &day);
+  ACU_ASSERT(year == 2004);
+  ACU_ASSERT(month == 2);
+  ACU_ASSERT(day == 28);
 
-  ld.year = 2001;
-  ld.month = 3;
-  ld.day = 1;
-  atc_local_date_decrement_one_day(&ld);
-  ACU_ASSERT(ld.year == 2001);
-  ACU_ASSERT(ld.month == 2);
-  ACU_ASSERT(ld.day == 28);
+  year = 2001;
+  month = 3;
+  day = 1;
+  atc_local_date_decrement_one_day(&year, &month, &day);
+  ACU_ASSERT(year == 2001);
+  ACU_ASSERT(month == 2);
+  ACU_ASSERT(day == 28);
 
-  ld.year = 2001;
-  ld.month = 1;
-  ld.day = 1;
-  atc_local_date_decrement_one_day(&ld);
-  ACU_ASSERT(ld.year == 2000);
-  ACU_ASSERT(ld.month == 12);
-  ACU_ASSERT(ld.day == 31);
+  year = 2001;
+  month = 1;
+  day = 1;
+  atc_local_date_decrement_one_day(&year, &month, &day);
+  ACU_ASSERT(year == 2000);
+  ACU_ASSERT(month == 12);
+  ACU_ASSERT(day == 31);
 
-  ld.year = 2000;
-  ld.month = 4;
-  ld.day = 1;
-  atc_local_date_decrement_one_day(&ld);
-  ACU_ASSERT(ld.year == 2000);
-  ACU_ASSERT(ld.month == 3);
-  ACU_ASSERT(ld.day == 31);
+  year = 2000;
+  month = 4;
+  day = 1;
+  atc_local_date_decrement_one_day(&year, &month, &day);
+  ACU_ASSERT(year == 2000);
+  ACU_ASSERT(month == 3);
+  ACU_ASSERT(day == 31);
 
-  ld.year = 2000;
-  ld.month = 3;
-  ld.day = 1;
-  atc_local_date_decrement_one_day(&ld);
-  ACU_ASSERT(ld.year == 2000);
-  ACU_ASSERT(ld.month == 2);
-  ACU_ASSERT(ld.day == 29);
+  year = 2000;
+  month = 3;
+  day = 1;
+  atc_local_date_decrement_one_day(&year, &month, &day);
+  ACU_ASSERT(year == 2000);
+  ACU_ASSERT(month == 2);
+  ACU_ASSERT(day == 29);
 
-  ld.year = 2000;
-  ld.month = 2;
-  ld.day = 29;
-  atc_local_date_decrement_one_day(&ld);
-  ACU_ASSERT(ld.year == 2000);
-  ACU_ASSERT(ld.month == 2);
-  ACU_ASSERT(ld.day == 28);
+  year = 2000;
+  month = 2;
+  day = 29;
+  atc_local_date_decrement_one_day(&year, &month, &day);
+  ACU_ASSERT(year == 2000);
+  ACU_ASSERT(month == 2);
+  ACU_ASSERT(day == 28);
 }
 
 ACU_TEST(test_epoch_year_and_valid_years)

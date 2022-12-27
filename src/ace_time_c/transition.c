@@ -100,18 +100,10 @@ void atc_date_tuple_normalize(AtcDateTuple *dt)
   const int16_t kOneDayAsMinutes = 60 * 24;
 
   if (dt->minutes <= -kOneDayAsMinutes) {
-    AtcLocalDate ld = { dt->year, dt->month, dt->day };
-    atc_local_date_decrement_one_day(&ld);
-    dt->year = ld.year;
-    dt->month = ld.month;
-    dt->day = ld.day;
+    atc_local_date_decrement_one_day(&dt->year, &dt->month, &dt->day);
     dt->minutes += kOneDayAsMinutes;
   } else if (kOneDayAsMinutes <= dt->minutes) {
-    AtcLocalDate ld = { dt->year, dt->month, dt->day };
-    atc_local_date_increment_one_day(&ld);
-    dt->year = ld.year;
-    dt->month = ld.month;
-    dt->day = ld.day;
+    atc_local_date_increment_one_day(&dt->year, &dt->month, &dt->day);
     dt->minutes -= kOneDayAsMinutes;
   } else {
     // do nothing

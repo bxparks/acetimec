@@ -77,40 +77,34 @@ void atc_local_date_from_epoch_days(
   atc_convert_from_days(converter_days, year, month, day);
 }
 
-void atc_local_date_increment_one_day(AtcLocalDate *ld)
+void atc_local_date_increment_one_day(
+    int16_t *year, uint8_t *month, uint8_t *day)
 {
-  uint8_t day = ld->day + 1;
-  uint8_t month = ld->month;
-  int16_t year = ld->year;
+  (*day)++;
 
-  if (day > atc_local_date_days_in_year_month(year, month)) {
-    day = 1;
-    month++;
-    if (month > 12) {
-      month = 1;
-      year++;
+  if (*day > atc_local_date_days_in_year_month(*year, *month)) {
+    *day = 1;
+    (*month)++;
+    if (*month > 12) {
+      *month = 1;
+      (*year)++;
     }
   }
-  ld->day = day;
-  ld->month = month;
-  ld->year = year;
 }
 
-void atc_local_date_decrement_one_day(AtcLocalDate *ld)
+void atc_local_date_decrement_one_day(
+    int16_t *year, uint8_t *month, uint8_t *day)
 {
-  uint8_t day = ld->day - 1;
-  uint8_t month = ld->month;
-  int16_t year = ld->year;
+  (*day)--;
 
-  if (day == 0) {
-    month--;
-    if (month == 0) {
-      month = 12;
-      year--;
+  if (*day == 0) {
+    (*month)--;
+    if (*month == 0) {
+      *month = 12;
+      (*year)--;
+      *day = 31;
+    } else {
+      *day = atc_local_date_days_in_year_month(*year, *month);
     }
-    day = atc_local_date_days_in_year_month(year, month);
   }
-  ld->day = day;
-  ld->month = month;
-  ld->year = year;
 }
