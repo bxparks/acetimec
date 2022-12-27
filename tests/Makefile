@@ -6,6 +6,7 @@ TARGETS := \
 	common_test.out \
 	local_date_test.out \
 	local_date_time_test.out \
+	local_time_test.out \
 	offset_date_time_test.out \
 	string_buffer_test.out \
 	transition_test.out \
@@ -28,6 +29,9 @@ local_date_test.out: local_date_test.o ../src/acetimec.a
 	$(CC) -o $@ $^
 
 local_date_time_test.out: local_date_time_test.o ../src/acetimec.a
+	$(CC) -o $@ $^
+
+local_time_test.out: local_time_test.o ../src/acetimec.a
 	$(CC) -o $@ $^
 
 offset_date_time_test.out: offset_date_time_test.o ../src/acetimec.a

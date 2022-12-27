@@ -13,6 +13,7 @@
 #include "ace_time_c/string_buffer.h"
 #include "ace_time_c/epoch.h"
 #include "ace_time_c/local_date.h"
+#include "ace_time_c/local_time.h"
 #include "ace_time_c/local_date_time.h"
 #include "ace_time_c/offset_date_time.h"
 #include "ace_time_c/transition.h"
