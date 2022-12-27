@@ -47,7 +47,7 @@ enum {
 extern int16_t atc_current_epoch_year;
 
 /** Number of days from epoch converter epoch to the current epoch. */
-extern int32_t atc_days_from_converter_epoch_to_current_epoch;
+extern int32_t atc_days_to_current_epoch_from_converter_epoch;
 
 /** Get the current epoch year. */
 int16_t atc_get_current_epoch_year(void);
