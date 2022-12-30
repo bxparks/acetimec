@@ -92,7 +92,6 @@ void atc_date_tuple_expand(
  *  * kAtcMatchStatusWithinMatch if 't' is within [start, until) with a one
  *    month slop,
  *  * kAtcMatchStatusExactMatch is never returned.
-
  */
 uint8_t atc_date_tuple_compare_fuzzy(
     const AtcDateTuple *t,
