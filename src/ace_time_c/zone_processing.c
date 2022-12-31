@@ -42,13 +42,13 @@ int8_t atc_compare_era_to_year_month(
  * earliest ZoneEra.
  */
 static bool atc_era_overlaps_interval(
-  const AtcMatchingEra *prev_match,
+  const AtcZoneEra *prev_era,
   const AtcZoneEra *era,
   AtcYearMonth start_ym,
   AtcYearMonth until_ym)
 {
-  return (prev_match == NULL || atc_compare_era_to_year_month(
-          prev_match->era, until_ym.year, until_ym.month) < 0)
+  return (prev_era == NULL || atc_compare_era_to_year_month(
+          prev_era, until_ym.year, until_ym.month) < 0)
       && atc_compare_era_to_year_month(
           era, start_ym.year, start_ym.month) > 0;
 }
@@ -148,7 +148,6 @@ AtcMonthDay atc_processing_calc_start_day_of_month(
     }
     md.month = month;
     md.day = day;
-    return md;
   } else {
     on_day_of_month = -on_day_of_month;
     uint8_t dow = atc_local_date_day_of_week(year, month, on_day_of_month);
@@ -163,8 +162,8 @@ AtcMonthDay atc_processing_calc_start_day_of_month(
     }
     md.month = month;
     md.day = day;
-    return md;
   }
+  return md;
 }
 
 //---------------------------------------------------------------------------
@@ -184,7 +183,9 @@ uint8_t atc_processing_find_matches(
   uint8_t num_eras = atc_zone_info_num_eras(zone_info);
   for (uint8_t i_era = 0; i_era < num_eras; i_era++) {
     const AtcZoneEra *era = atc_zone_info_era(zone_info, i_era);
-    if (atc_era_overlaps_interval(prev_match, era, start_ym, until_ym)) {
+    if (atc_era_overlaps_interval(
+        (prev_match ? prev_match->era : NULL),
+        era, start_ym, until_ym)) {
       if (i_match < num_matches) {
         atc_create_matching_era(
             &matches[i_match], prev_match, era, start_ym, until_ym);
