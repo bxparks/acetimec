@@ -603,7 +603,7 @@ ACU_TEST(test_atc_processing_find_candidate_transitions) {
 // Step 2B: Pass 3
 //---------------------------------------------------------------------------
 
-ACU_TEST(test_atc_process_transition_match_status)
+ACU_TEST(test_atc_processing_process_transition_match_status)
 {
   // UNTIL = 2002-01-02T03:00
   const AtcZoneEra ERA = {
@@ -619,7 +619,6 @@ ACU_TEST(test_atc_process_transition_match_status)
   };
 
   // [2000-01-01, 2001-01-01)
-  AtcTransition *prior = NULL;
   const AtcMatchingEra match = {
     {2000, 1, 1, 0, kAtcSuffixW} /*startDateTime*/,
     {2001, 1, 1, 0, kAtcSuffixW} /*untilDateTime*/,
@@ -681,6 +680,7 @@ ACU_TEST(test_atc_process_transition_match_status)
   };
 
   // Populate the transitionTimeS and transitionTimeU fields.
+  AtcTransition *prior = NULL;
   atc_transition_fix_times(&transitions[0], &transitions[4]);
 
   atc_processing_process_transition_match_status(&transition0, &prior);
@@ -1043,7 +1043,7 @@ int main()
   ACU_RUN_TEST(test_atc_processing_calc_interior_years);
   ACU_RUN_TEST(test_atc_processing_get_most_recent_prior_year);
   ACU_RUN_TEST(test_atc_processing_find_candidate_transitions);
-  ACU_RUN_TEST(test_atc_process_transition_match_status);
+  ACU_RUN_TEST(test_atc_processing_process_transition_match_status);
   ACU_RUN_TEST(test_atc_processing_create_transitions_from_named_match);
   ACU_RUN_TEST(test_fix_transition_times_generate_start_until_times);
   ACU_RUN_TEST(test_atc_processing_create_abbreviation);

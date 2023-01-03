@@ -545,7 +545,7 @@ void atc_processing_create_abbreviation(
     char* dest,
     uint8_t dest_size,
     const char* format,
-    uint16_t delta_minutes,
+    int16_t delta_minutes,
     const char* letter_string) {
 
   // Check if FORMAT contains a '%'.
@@ -649,10 +649,10 @@ int8_t atc_processing_init_for_year(
     processing->matches,
     num_matches);
 
-  // Step 3: Fix transition times.
+  // Step 3: Fix transition times of active transitions.
   AtcTransitionStorage *ts = &processing->transition_storage;
   AtcTransition **begin = &ts->transitions[0];
-  AtcTransition **end = &ts->transitions[ts->index_free];
+  AtcTransition **end = &ts->transitions[ts->index_prior];
   atc_transition_fix_times(begin, end);
 
   // Step 4: Generate start and until times.

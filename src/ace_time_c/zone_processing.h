@@ -284,7 +284,7 @@ void atc_processing_create_abbreviation(
     char* dest,
     uint8_t dest_size,
     const char* format,
-    uint16_t delta_minutes,
+    int16_t delta_minutes,
     const char* letter_string);
 
 //---------------------------------------------------------------------------
