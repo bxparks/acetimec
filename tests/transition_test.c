@@ -56,6 +56,37 @@ ACU_TEST(test_atc_date_tuple_subtract)
   }
 }
 
+ACU_TEST(test_atc_date_tuple_subtract_no_overflow)
+{
+  {
+    AtcDateTuple dta = {6000, 1, 1, 0, kAtcSuffixW}; // 6000-01-01 00:00
+    AtcDateTuple dtb = {6000, 1, 1, 1, kAtcSuffixW}; // 6000-01-01 00:01
+    atc_time_t diff = atc_date_tuple_subtract(&dta, &dtb);
+    ACU_ASSERT(-60 == diff);
+  }
+
+  {
+    AtcDateTuple dta = {6000, 1, 1, 0, kAtcSuffixW}; // 6000-01-01 00:00
+    AtcDateTuple dtb = {6000, 1, 2, 0, kAtcSuffixW}; // 6000-01-02 00:00
+    atc_time_t diff = atc_date_tuple_subtract(&dta, &dtb);
+    ACU_ASSERT((int32_t) -86400 == diff);
+  }
+
+  {
+    AtcDateTuple dta = {6000, 1, 1, 0, kAtcSuffixW}; // 6000-01-01 00:00
+    AtcDateTuple dtb = {6000, 2, 1, 0, kAtcSuffixW}; // 6000-02-01 00:00
+    atc_time_t diff = atc_date_tuple_subtract(&dta, &dtb);
+    ACU_ASSERT((int32_t) -86400 * 31 == diff); // January has 31 days
+  }
+
+  {
+    AtcDateTuple dta = {6000, 2, 1, 0, kAtcSuffixW}; // 6000-02-01 00:00
+    AtcDateTuple dtb = {6000, 3, 1, 0, kAtcSuffixW}; // 6000-03-01 00:00
+    atc_time_t diff = atc_date_tuple_subtract(&dta, &dtb);
+    ACU_ASSERT((int32_t) -86400 * 29 == diff); // Feb 6000 is leap, 29 days
+  }
+}
+
 ACU_TEST(test_atc_date_tuple_normalize)
 {
   // 00:00
@@ -675,6 +706,7 @@ int main()
 {
   ACU_RUN_TEST(test_atc_date_tuple_compare);
   ACU_RUN_TEST(test_atc_date_tuple_subtract);
+  ACU_RUN_TEST(test_atc_date_tuple_subtract_no_overflow);
   ACU_RUN_TEST(test_atc_date_tuple_normalize);
   ACU_RUN_TEST(test_atc_date_tuple_expand);
   ACU_RUN_TEST(test_atc_date_tuple_compare_fuzzy);

@@ -31,13 +31,13 @@ atc_time_t atc_date_tuple_subtract(
     const AtcDateTuple *a,
     const AtcDateTuple *b)
 {
-  int32_t eda = atc_local_date_to_epoch_days(a->year, a->month, a->day);
-  int32_t esa = eda * 86400 + a->minutes * 60;
+  int32_t da = atc_local_date_to_epoch_days(a->year, a->month, a->day);
+  int32_t db = atc_local_date_to_epoch_days(b->year, b->month, b->day);
 
-  int32_t edb = atc_local_date_to_epoch_days(b->year, b->month, b->day);
-  int32_t esb = edb * 86400 + b->minutes * 60;
-
-  return esa - esb;
+  // Subtract the days, before converting to seconds, to avoid overflowing the
+  // int32_t when a.year or b.year is more than 68 years from the
+  // atc_current_epoch_year.
+  return (da - db) * 86400 + (a->minutes - b->minutes) * 60;
 }
 
 void atc_date_tuple_expand(
