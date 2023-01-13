@@ -633,6 +633,7 @@ ACU_TEST(test_zoned_date_time_convert)
   atc_processing_init(&los_angeles);
   atc_processing_init(&new_york);
 
+  // 2022-08-30 20:00-07:00 in LA
   AtcLocalDateTime ldt = { 2022, 8, 30, 20, 0, 0 };
   AtcZonedDateTime ladt;
   int8_t err = atc_zoned_date_time_from_local_date_time(
@@ -643,6 +644,7 @@ ACU_TEST(test_zoned_date_time_convert)
   atc_zoned_date_time_convert(
       &new_york, &kAtcZoneAmerica_New_York, &ladt, &nydt);
 
+  // 2022-08-30 23:00-04:00 in NYC
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(nydt.year == 2022);
   ACU_ASSERT(nydt.month == 8);
