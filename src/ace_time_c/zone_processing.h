@@ -63,29 +63,84 @@ AtcMonthDay atc_processing_calc_start_day_of_month(
     int8_t on_day_of_month);
 
 //---------------------------------------------------------------------------
-// Data structures to track ZoneEra transitions and associated info.
+// Data structures that hold the matching transition when searching by
+// AtcLocalDateTime or epoch_seconds.
 //---------------------------------------------------------------------------
 
+/**
+ * The result returned by atc_processing_find_transition_for_seconds() when
+ * searching for Transition by epoch seconds. Searching by epoch_seconds is
+ * guaranteed to return only a single Transition if found. Usually `fold=0`. But
+ * if the epoch_seconds maps to a AtcLocalDateTime which occurs a second time
+ * during a "fall back", then `fold` is set to 1.
+ *
+ * Adapted from TransitionForSeconds in Transition.h of the AceTime library.
+ */
+typedef struct AtcTransitionForSeconds {
+  /** The matching transition or null if not found. */
+  const AtcTransition *curr;
+
+  /** 1 if in the overlap, otherwise 0 */
+  uint8_t fold;
+
+  /**
+   * Number of occurrences of the resulting AtcLocalDateTime: 0, 1, or 2.
+   * This is needed because a fold=0 can mean that the AtcLocalDateTime occurs
+   * exactly once, or that the first of two occurrences of AtcLocalDateTime was
+   * selected by the epoch_seconds.
+   */
+  uint8_t num;
+} AtcTransitionForSeconds;
+
+/**
+ * The result returned by atc_processing_find_transition_for_date_time() when
+ * searching for transitions by local date time. There are 5 possibilities:
+ *
+ *  * num=0, prev==NULL, curr=curr: datetime is far past
+ *  * num=1, prev==prev, curr=prev: exact match to datetime
+ *  * num=2, prev==prev, curr=curr: datetime in overlap
+ *  * num=0, prev==prev, curr=curr: datetime in gap
+ *  * num=0, prev==prev, curr=NULL: datetime is far future
+ *
+ * Adapted from TransitionForDateTime in Transition.h of the AceTime library.
+ *
+ */
+typedef struct AtcTransitionForDateTime {
+  /** The previous transition, or null if the first transition matches. */
+  const AtcTransition *prev;
+
+  /** The matching transition or null if not found. */
+  const AtcTransition *curr;
+
+  /** Number of matches for given LocalDateTime: 0, 1, or 2. */
+  uint8_t num;
+} AtcTransitionForDateTime;
+
 enum {
-  kAtcSearchStatusGap = 0,
-  kAtcSearchStatusExact = 1,
-  kAtcSearchStatusOverlap = 2,
+  kAtcFindResultNotFound = 0,
+  kAtcFindResultExact = 1,
+  kAtcFindResultGap = 2,
+  kAtcFindResultOverlap = 3,
 };
 
 /**
- * The transition search result at a particular epoch second or local date
- * time.
+ * Data structure that converts the AtcTransitionForSeconds and
+ * AtcTransitionForDatetime into time offsets and other extra information which
+ * can be used to construct an AtcOffsetDateTime or an AtcZonedExtra.
+ *
+ * Adapted from FindResult in ZoneProcessor.h of the AceTime library.
  */
-typedef struct AtcTransitionResult {
-  /** Transition for fold==0 */
-  const AtcTransition *transition0;
+typedef struct AtcFindResult {
+  uint8_t type;
+  uint8_t fold;
+  int16_t std_offset_minutes;
+  int16_t dst_offset_minutes;
+  int16_t req_std_offset_minutes;
+  int16_t req_dst_offset_minutes;
+  const char *abbrev;
+} AtcFindResult;
 
-  /** Transition for fold==1 */
-  const AtcTransition *transition1;
-
-  /** Result of search: 0=gap, 1=exact, 2=overlap */
-  int8_t search_status;
-} AtcTransitionResult;
+//---------------------------------------------------------------------------
 
 /**
  * Return the most recent year from the Rule[fromYear, toYear] which is

@@ -682,54 +682,193 @@ int8_t atc_processing_init_for_epoch_seconds(
 
 //---------------------------------------------------------------------------
 
-/** The Transition that matches the given epoch seconds or local date time. */
-typedef struct AtcMatchingTransition {
-  /** The matching AtcTransition. */
-  const AtcTransition *transition;
-
-  /** 1 if in the overlap, otherwise 0 */
-  uint8_t fold;
-} AtcMatchingTransition;
-
-static uint8_t atc_processing_calculate_fold(
-    atc_time_t epoch_seconds,
-    const AtcTransition *match,
-    const AtcTransition *prev_match)
+static void atc_processing_calculate_fold_and_overlap(
+    uint8_t* fold,
+    uint8_t* num,
+    const AtcTransition* prev,
+    const AtcTransition* curr,
+    const AtcTransition* next,
+    atc_time_t epoch_seconds)
 {
-  if (match == NULL) return 0;
-  if (prev_match == NULL) return 0;
+  if (curr == NULL) {
+    *fold = 0;
+    *num = 0;
+    return;
+  }
 
-  // Check if epoch_seconds occurs during a "fall back" DST transition.
-  atc_time_t overlap_seconds = atc_date_tuple_subtract(
-      &prev_match->until_dt, &match->start_dt);
-  if (overlap_seconds <= 0) return 0;
-  atc_time_t seconds_from_transition_start =
-      epoch_seconds - match->start_epoch_seconds;
-  if (seconds_from_transition_start >= overlap_seconds) return 0;
+  // Check if within forward overlap shadow from prev
+  bool is_overlap;
+  if (prev == NULL) {
+    is_overlap = false;
+  } else {
+    // Extract the shift from prev transition. Can be 0 in some cases where
+    // the zone changed from DST of one zone to the STD into another zone,
+    // causing the overall UTC offset to remain unchanged.
+    atc_time_t shift_seconds = atc_date_tuple_subtract(
+      &curr->start_dt, &prev->until_dt);
+    if (shift_seconds >= 0) {
+      // spring forward, or unchanged
+      is_overlap = false;
+    } else {
+      is_overlap = epoch_seconds - curr->start_epoch_seconds < -shift_seconds;
+    }
+  }
+  if (is_overlap) {
+    *fold = 1; // selects the second match
+    *num = 2;
+    return;
+  }
 
-  // EpochSeconds occurs within the "fall back" overlap.
-  return 1;
+  // Check if within backward overlap shawdow from next
+  if (next == NULL) {
+    is_overlap = false;
+  } else {
+    // Extract the shift to next transition. Can be 0 in some cases where
+    // the zone changed from DST of one zone to the STD into another zone,
+    // causing the overall UTC offset to remain unchanged.
+    atc_time_t shift_seconds = atc_date_tuple_subtract(
+        &next->start_dt, &curr->until_dt);
+    if (shift_seconds >= 0) {
+      // spring forward, or unchanged
+      is_overlap = false;
+    } else {
+      // Check if within the backward overlap shadow from next
+      is_overlap = next->start_epoch_seconds - epoch_seconds <= -shift_seconds;
+    }
+  }
+  if (is_overlap) {
+    *fold = 0; // epochSeconds selects the first match
+    *num = 2;
+    return;
+  }
+
+  // Normal single match, no overlap.
+  *fold = 0;
+  *num = 1;
 }
 
-static AtcMatchingTransition atc_processing_find_transition_for_seconds(
+/**
+ * Return the Transition matching the given epochSeconds. Return nullptr if no
+ * matching Transition found. If a zone does not have any transition according
+ * to TZ Database, the AceTimeTools/transformer.py script adds an "anchor"
+ * transition at the "beginning of time" which happens to be the year 1872
+ * (because the year is stored as an int8_t). Therefore, this method should
+ * never return a nullptr for a well-formed ZoneInfo file.
+ *
+ * TODO: Move to transition.c.
+ */
+static AtcTransitionForSeconds atc_processing_find_transition_for_seconds(
     const AtcTransitionStorage *ts,
     atc_time_t epoch_seconds)
 {
-  const AtcTransition *prev_match = NULL;
-  const AtcTransition *match = NULL;
+  const AtcTransition *prev = NULL;
+  const AtcTransition *curr = NULL;
+  const AtcTransition *next = NULL;
   for (uint8_t i = 0; i < ts->index_free; i++) {
-    const AtcTransition *candidate = ts->transitions[i];
-    if (candidate->start_epoch_seconds > epoch_seconds) break;
-    prev_match = match;
-    match = candidate;
+    next = ts->transitions[i];
+    if (next->start_epoch_seconds > epoch_seconds) break;
+    prev = curr;
+    curr = next;
+    next = NULL;
   }
-  uint8_t fold = atc_processing_calculate_fold(
-      epoch_seconds, match, prev_match);
-  AtcMatchingTransition result = { match, fold };
+
+  uint8_t fold;
+  uint8_t num;
+  atc_processing_calculate_fold_and_overlap(
+      &fold, &num, prev, curr, next, epoch_seconds);
+  AtcTransitionForSeconds result = {curr, fold, num};
   return result;
 }
 
-static AtcTransitionResult atc_processing_find_transition_for_date_time(
+static int8_t atc_processing_find_by_epoch_seconds(
+    AtcZoneProcessing *processing,
+    const AtcZoneInfo *zone_info,
+    atc_time_t epoch_seconds,
+    AtcFindResult *result) {
+
+  int8_t err = atc_processing_init_for_epoch_seconds(
+      processing, zone_info, epoch_seconds);
+  if (err) return err;
+
+  AtcTransitionForSeconds tfs = atc_processing_find_transition_for_seconds(
+      &processing->transition_storage, epoch_seconds);
+  const AtcTransition *t = tfs.curr;
+  if (! t) return kAtcErrGeneric;
+
+  result->std_offset_minutes = t->offset_minutes;
+  result->dst_offset_minutes = t->delta_minutes;
+  result->req_std_offset_minutes = t->offset_minutes;
+  result->req_dst_offset_minutes = t->delta_minutes;
+  result->abbrev = t->abbrev;
+  result->fold = tfs.fold;
+  if (tfs.num == 2) {
+    result->type = kAtcFindResultOverlap;
+  } else {
+    result->type = kAtcFindResultExact;
+  }
+  return kAtcErrOk;
+}
+
+/** Create the OffsetDateTime from the given epoch_seconds. */
+int8_t atc_processing_offset_date_time_from_epoch_seconds(
+    AtcZoneProcessing *processing,
+    const AtcZoneInfo *zone_info,
+    atc_time_t epoch_seconds,
+    AtcOffsetDateTime *odt)
+{
+  AtcFindResult result;
+  int8_t err = atc_processing_find_by_epoch_seconds(
+      processing, zone_info, epoch_seconds, &result);
+  if (err) return err;
+
+  if (result.type == kAtcFindResultNotFound) {
+    return kAtcErrGeneric;
+  }
+
+  int16_t offset_minutes =
+      result.std_offset_minutes + result.dst_offset_minutes;
+  err = atc_offset_date_time_from_epoch_seconds(
+      epoch_seconds, offset_minutes, odt);
+  if (err) return err;
+
+  odt->fold = result.fold;
+  return kAtcErrOk;
+}
+
+// TODO: Convert this to use atc_processing_find_by_epoch_seconds().
+int8_t atc_processing_transition_info_from_epoch_seconds(
+  AtcZoneProcessing *processing,
+  const AtcZoneInfo *zone_info,
+  atc_time_t epoch_seconds,
+  AtcTransitionInfo *ti)
+{
+  int8_t err = atc_processing_init_for_epoch_seconds(
+      processing,
+      zone_info,
+      epoch_seconds);
+  if (err) return err;
+
+  AtcTransitionForSeconds mt = atc_processing_find_transition_for_seconds(
+      &processing->transition_storage, epoch_seconds);
+  const AtcTransition *t = mt.curr;
+  if (! t) return kAtcErrGeneric;
+
+  ti->std_offset_minutes = t->offset_minutes;
+  ti->dst_offset_minutes = t->delta_minutes;
+  memcpy(ti->abbrev, t->abbrev, kAtcAbbrevSize);
+  ti->abbrev[kAtcAbbrevSize - 1] = '\0';
+
+  return kAtcErrOk;
+}
+
+//---------------------------------------------------------------------------
+
+/**
+ * Return the candidate Transitions matching the given dateTime. The search may
+ * return 0, 1 or 2 Transitions, depending on whether the dateTime falls in a
+ * gap or overlap.
+ */
+static AtcTransitionForDateTime atc_processing_find_transition_for_date_time(
     const AtcTransitionStorage *ts,
     const AtcLocalDateTime *ldt)
 {
@@ -744,105 +883,48 @@ static AtcTransitionResult atc_processing_find_transition_for_date_time(
 
   // Examine adjacent pairs of Transitions, looking for an exact match, gap,
   // or overlap.
-  const AtcTransition *prev_candidate = NULL;
-  const AtcTransition *candidate = NULL;
-  int8_t search_status = kAtcSearchStatusGap;
+  const AtcTransition *prev = NULL;
+  const AtcTransition *curr = NULL;
+  uint8_t num = 0;
   for (uint8_t i = 0; i < ts->index_free; i++) {
-    candidate = ts->transitions[i];
+    curr = ts->transitions[i];
 
-    const AtcDateTuple *start_dt = &candidate->start_dt;
-    const AtcDateTuple *until_dt = &candidate->until_dt;
+    const AtcDateTuple *start_dt = &curr->start_dt;
+    const AtcDateTuple *until_dt = &curr->until_dt;
     bool is_exact_match = atc_date_tuple_compare(start_dt, &local_dt) <= 0
         && atc_date_tuple_compare(&local_dt, until_dt) < 0;
 
     if (is_exact_match) {
       // Check for a previous exact match to detect an overlap.
-      if (search_status == kAtcSearchStatusExact) {
-        search_status = kAtcSearchStatusOverlap;
+      if (num == 1) {
+        num++;
         break;
       }
 
       // Loop again to detect an overlap.
-      search_status = kAtcSearchStatusExact;
-
+      num = 1;
     } else if (atc_date_tuple_compare(start_dt, &local_dt) > 0) {
-      // Exit loop since no more candidate transition.
+      // Exit loop since no more curr transition.
       break;
     }
 
-    prev_candidate = candidate;
+    prev = curr;
 
     // Set nullptr so that if the loop runs off the end of the list of
-    // Transitions, the candidate is marked as nullptr.
-    candidate = NULL;
+    // Transitions, the current transition is marked as nullptr.
+    curr = NULL;
   }
 
-  // Check if the prev was an exact match, and clear the current to
-  // avoid confusion.
-  if (search_status == kAtcSearchStatusExact) {
-    candidate = NULL;
+  // If the prev was an exact match, set curr to the same to avoid confusion.
+  if (num == 1) {
+    curr = prev;
   }
 
-  AtcTransitionResult result = {
-    prev_candidate,
-    candidate,
-    search_status,
-  };
+  AtcTransitionForDateTime result = {prev, curr, num};
   return result;
 }
 
 //---------------------------------------------------------------------------
-
-int8_t atc_processing_offset_date_time_from_epoch_seconds(
-  AtcZoneProcessing *processing,
-  const AtcZoneInfo *zone_info,
-  atc_time_t epoch_seconds,
-  AtcOffsetDateTime *odt)
-{
-  int8_t err = atc_processing_init_for_epoch_seconds(
-      processing,
-      zone_info,
-      epoch_seconds);
-  if (err) return err;
-
-  AtcMatchingTransition mt = atc_processing_find_transition_for_seconds(
-      &processing->transition_storage, epoch_seconds);
-  const AtcTransition *t = mt.transition;
-  if (! t) return kAtcErrGeneric;
-
-  int16_t total_offset_minutes = t->offset_minutes + t->delta_minutes;
-  err = atc_offset_date_time_from_epoch_seconds(
-      epoch_seconds, total_offset_minutes, odt);
-  if (err) return err;
-
-  odt->fold = mt.fold;
-  return kAtcErrOk;
-}
-
-int8_t atc_processing_transition_info_from_epoch_seconds(
-  AtcZoneProcessing *processing,
-  const AtcZoneInfo *zone_info,
-  atc_time_t epoch_seconds,
-  AtcTransitionInfo *ti)
-{
-  int8_t err = atc_processing_init_for_epoch_seconds(
-      processing,
-      zone_info,
-      epoch_seconds);
-  if (err) return err;
-
-  AtcMatchingTransition mt = atc_processing_find_transition_for_seconds(
-      &processing->transition_storage, epoch_seconds);
-  const AtcTransition *t = mt.transition;
-  if (! t) return kAtcErrGeneric;
-
-  ti->std_offset_minutes = t->offset_minutes;
-  ti->dst_offset_minutes = t->delta_minutes;
-  strncpy(ti->abbrev, t->abbrev, kAtcAbbrevSize);
-  ti->abbrev[kAtcAbbrevSize - 1] = '\0';
-
-  return kAtcErrOk;
-}
 
 // Adapted from ExtendedZoneProcessor::getOffsetDateTime(const LocalDatetime&)
 // from ExtendedZoneProcessor in AceTime.
@@ -856,23 +938,23 @@ int8_t atc_processing_offset_date_time_from_local_date_time(
   int8_t err = atc_processing_init_for_year(processing, zone_info, ldt->year);
   if (err) return err;
 
-  AtcTransitionResult result =
+  AtcTransitionForDateTime result =
       atc_processing_find_transition_for_date_time(
           &processing->transition_storage, ldt);
 
   // Extract the appropriate Transition, depending on the requested 'fold'
-  // and the 'result.search_status'.
+  // and the 'result.num'.
   bool needs_normalization = false;
   const AtcTransition *t;
-  if (result.search_status == kAtcSearchStatusExact) {
-    t = result.transition0;
+  if (result.num == 1) {
+    t = result.prev;
   } else {
-    if (result.transition0 == NULL || result.transition1 == NULL) {
+    if (result.prev == NULL || result.curr == NULL) {
       // ldt was far past or far future, and didn't match anything.
       t = NULL;
     } else {
-      needs_normalization = (result.search_status == kAtcSearchStatusGap);
-      t = (fold == 0) ? result.transition0 : result.transition1;
+      needs_normalization = (result.num == 0);
+      t = (fold == 0) ? result.prev : result.curr;
     }
   }
 
@@ -896,8 +978,8 @@ int8_t atc_processing_offset_date_time_from_local_date_time(
     // turns out that this process identical to just using the other
     // Transition returned in TransitionResult above.
     const AtcTransition *othert = (fold == 0)
-        ? result.transition1
-        : result.transition0;
+        ? result.curr
+        : result.prev;
     int8_t err = atc_offset_date_time_from_epoch_seconds(
         epoch_seconds,
         othert->offset_minutes + othert->delta_minutes,
