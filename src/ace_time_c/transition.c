@@ -500,3 +500,59 @@ AtcTransitionForSeconds atc_transition_storage_find_for_seconds(
   AtcTransitionForSeconds result = {curr, fold, num};
   return result;
 }
+
+AtcTransitionForDateTime atc_transition_storage_find_for_date_time(
+    const AtcTransitionStorage *ts,
+    const AtcLocalDateTime *ldt)
+{
+  // Convert LocalDateTime to DateTuple.
+  AtcDateTuple local_dt = {
+      ldt->year,
+      ldt->month,
+      ldt->day,
+      (int16_t) (ldt->hour * 60 + ldt->minute),
+      kAtcSuffixW
+  };
+
+  // Examine adjacent pairs of Transitions, looking for an exact match, gap,
+  // or overlap.
+  const AtcTransition *prev = NULL;
+  const AtcTransition *curr = NULL;
+  uint8_t num = 0;
+  for (uint8_t i = 0; i < ts->index_free; i++) {
+    curr = ts->transitions[i];
+
+    const AtcDateTuple *start_dt = &curr->start_dt;
+    const AtcDateTuple *until_dt = &curr->until_dt;
+    bool is_exact_match = atc_date_tuple_compare(start_dt, &local_dt) <= 0
+        && atc_date_tuple_compare(&local_dt, until_dt) < 0;
+
+    if (is_exact_match) {
+      // Check for a previous exact match to detect an overlap.
+      if (num == 1) {
+        num++;
+        break;
+      }
+
+      // Loop again to detect an overlap.
+      num = 1;
+    } else if (atc_date_tuple_compare(start_dt, &local_dt) > 0) {
+      // Exit loop since no more curr transition.
+      break;
+    }
+
+    prev = curr;
+
+    // Set nullptr so that if the loop runs off the end of the list of
+    // Transitions, the current transition is marked as nullptr.
+    curr = NULL;
+  }
+
+  // If the prev was an exact match, set curr to the same to avoid confusion.
+  if (num == 1) {
+    curr = prev;
+  }
+
+  AtcTransitionForDateTime result = {prev, curr, num};
+  return result;
+}

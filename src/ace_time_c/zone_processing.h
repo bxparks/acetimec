@@ -67,30 +67,6 @@ AtcMonthDay atc_processing_calc_start_day_of_month(
 // AtcLocalDateTime or epoch_seconds.
 //---------------------------------------------------------------------------
 
-/**
- * The result returned by atc_processing_find_transition_for_date_time() when
- * searching for transitions by local date time. There are 5 possibilities:
- *
- *  * num=0, prev==NULL, curr=curr: datetime is far past
- *  * num=1, prev==prev, curr=prev: exact match to datetime
- *  * num=2, prev==prev, curr=curr: datetime in overlap
- *  * num=0, prev==prev, curr=curr: datetime in gap
- *  * num=0, prev==prev, curr=NULL: datetime is far future
- *
- * Adapted from TransitionForDateTime in Transition.h of the AceTime library.
- *
- */
-typedef struct AtcTransitionForDateTime {
-  /** The previous transition, or null if the first transition matches. */
-  const AtcTransition *prev;
-
-  /** The matching transition or null if not found. */
-  const AtcTransition *curr;
-
-  /** Number of matches for given LocalDateTime: 0, 1, or 2. */
-  uint8_t num;
-} AtcTransitionForDateTime;
-
 /** Values of the the AtcFindResult.type field. */
 enum {
   kAtcFindResultNotFound = 0,

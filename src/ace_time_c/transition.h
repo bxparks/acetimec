@@ -15,6 +15,7 @@
 #include <stdint.h>
 #include "common.h" // atc_time_t
 #include "zone_info.h" // AtcZoneEra
+#include "local_date_time.h" // AtcLocalDateTime
 
 #ifdef __cplusplus
 extern "C" {
@@ -443,6 +444,39 @@ typedef struct AtcTransitionForSeconds {
 AtcTransitionForSeconds atc_transition_storage_find_for_seconds(
     const AtcTransitionStorage *ts,
     atc_time_t epoch_seconds);
+
+/**
+ * The result returned by atc_transition_storage_find_for_date_time() when
+ * searching for transitions by local date time. There are 5 possibilities:
+ *
+ *  * num=0, prev==NULL, curr=curr: datetime is far past
+ *  * num=1, prev==prev, curr=prev: exact match to datetime
+ *  * num=2, prev==prev, curr=curr: datetime in overlap
+ *  * num=0, prev==prev, curr=curr: datetime in gap
+ *  * num=0, prev==prev, curr=NULL: datetime is far future
+ *
+ * Adapted from TransitionForDateTime in Transition.h of the AceTime library.
+ *
+ */
+typedef struct AtcTransitionForDateTime {
+  /** The previous transition, or null if the first transition matches. */
+  const AtcTransition *prev;
+
+  /** The matching transition or null if not found. */
+  const AtcTransition *curr;
+
+  /** Number of matches for given LocalDateTime: 0, 1, or 2. */
+  uint8_t num;
+} AtcTransitionForDateTime;
+
+/**
+ * Return the candidate Transitions matching the given dateTime. The search may
+ * return 0, 1 or 2 Transitions, depending on whether the dateTime falls in a
+ * gap or overlap.
+ */
+AtcTransitionForDateTime atc_transition_storage_find_for_date_time(
+    const AtcTransitionStorage *ts,
+    const AtcLocalDateTime *ldt);
 
 #ifdef __cplusplus
 }
