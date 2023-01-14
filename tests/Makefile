@@ -21,47 +21,59 @@ TARGETS := \
 all: $(TARGETS)
 
 #-----------------------------------------------------------------------------
+# Copy the acetimec.a library here. The sole purpose of this rule is to force
+# the acetime.a file to be regenerated if necessary. The .PHONY rule causes it
+# to always run. This indirection rule of copying the *.a file here prevents
+# all the *.o files from recompiled if the acetimec.a file was not changed.
 
-common_test.out: common_test.o ../src/acetimec.a
+.PHONY: ../src/acetimec.a
+
+acetimec.a: ../src/acetimec.a
+	$(MAKE) -C ../src
+	cp -a $< $@
+
+#-----------------------------------------------------------------------------
+
+common_test.out: common_test.o acetimec.a
 	$(CC) -o $@ $^
 
-local_date_test.out: local_date_test.o ../src/acetimec.a
+local_date_test.out: local_date_test.o acetimec.a
 	$(CC) -o $@ $^
 
-local_date_time_test.out: local_date_time_test.o ../src/acetimec.a
+local_date_time_test.out: local_date_time_test.o acetimec.a
 	$(CC) -o $@ $^
 
-local_time_test.out: local_time_test.o ../src/acetimec.a
+local_time_test.out: local_time_test.o acetimec.a
 	$(CC) -o $@ $^
 
-offset_date_time_test.out: offset_date_time_test.o ../src/acetimec.a
+offset_date_time_test.out: offset_date_time_test.o acetimec.a
 	$(CC) -o $@ $^
 
-string_buffer_test.out: string_buffer_test.o ../src/acetimec.a
+string_buffer_test.out: string_buffer_test.o acetimec.a
 	$(CC) -o $@ $^
 
-transition_test.out: transition_test.o ../src/acetimec.a
+transition_test.out: transition_test.o acetimec.a
 	$(CC) -o $@ $^
 
-zone_info_utils_test.out: zone_info_utils_test.o ../src/acetimec.a
+zone_info_utils_test.out: zone_info_utils_test.o acetimec.a
 	$(CC) -o $@ $^
 
-zone_processing_test.out: zone_processing_test.o ../src/acetimec.a
+zone_processing_test.out: zone_processing_test.o acetimec.a
 	$(CC) -o $@ $^
 
-zone_processing_transition_test.out: zone_processing_transition_test.o ../src/acetimec.a
+zone_processing_transition_test.out: zone_processing_transition_test.o acetimec.a
 	$(CC) -o $@ $^
 
-zone_registrar_test.out: zone_registrar_test.o ../src/acetimec.a
+zone_registrar_test.out: zone_registrar_test.o acetimec.a
 	$(CC) -o $@ $^
 
-zoned_date_time_test.out: zoned_date_time_test.o ../src/acetimec.a
+zoned_date_time_test.out: zoned_date_time_test.o acetimec.a
 	$(CC) -o $@ $^
 
-zoned_extra_test.out: zoned_extra_test.o ../src/acetimec.a
+zoned_extra_test.out: zoned_extra_test.o acetimec.a
 	$(CC) -o $@ $^
 
-zonedb_test.out: zonedb_test.o ../src/acetimec.a
+zonedb_test.out: zonedb_test.o acetimec.a
 	$(CC) -o $@ $^
 
 #-----------------------------------------------------------------------------
