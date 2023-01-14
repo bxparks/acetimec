@@ -741,7 +741,7 @@ int8_t atc_processing_offset_date_time_from_epoch_seconds(
 
 // Adapted from ExtendedZoneProcessor::findByLocalDateTime() in the AceTime
 // library.
-static int8_t atc_processing_find_by_local_date_time(
+int8_t atc_processing_find_by_local_date_time(
     AtcZoneProcessing *processing,
     const AtcZoneInfo *zone_info,
     const AtcLocalDateTime *ldt,

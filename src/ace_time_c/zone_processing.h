@@ -193,6 +193,18 @@ int8_t atc_processing_find_by_epoch_seconds(
     AtcFindResult *result);
 
 /**
+ * Find the AtcFindResult at the given LocalDateTime and fold. The fold
+ * parameter is used only when LocalDateTime falls in a gap or an overlap.
+ * library. Return non-zero error code upon failure.
+ */
+int8_t atc_processing_find_by_local_date_time(
+    AtcZoneProcessing *processing,
+    const AtcZoneInfo *zone_info,
+    const AtcLocalDateTime *ldt,
+    uint8_t fold,
+    AtcFindResult *result);
+
+/**
  * Convert epoch_seconds to an AtcOffsetDateTime using the given zone_info.
  * Return non-zero error code upon failure.
  */
