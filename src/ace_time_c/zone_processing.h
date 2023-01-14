@@ -129,6 +129,9 @@ enum {
  * AtcTransitionForDatetime into time offsets and other extra information which
  * can be used to construct an AtcOffsetDateTime or an AtcZonedExtra.
  *
+ * The 'abbrev' field contains a pointer to a transition string buffer. The
+ * string should be copied by the calling code as soon as possible.
+ *
  * Adapted from FindResult in ZoneProcessor.h of the AceTime library.
  */
 typedef struct AtcFindResult {
@@ -231,6 +234,13 @@ int8_t atc_processing_init_for_epoch_seconds(
   const AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds);
 
+/** Find the AtcFindResult at the given epoch_seconds. */
+int8_t atc_processing_find_by_epoch_seconds(
+    AtcZoneProcessing *processing,
+    const AtcZoneInfo *zone_info,
+    atc_time_t epoch_seconds,
+    AtcFindResult *result);
+
 /**
  * Convert epoch_seconds to an AtcOffsetDateTime using the given zone_info.
  * Return non-zero error code upon failure.
@@ -251,32 +261,6 @@ int8_t atc_processing_offset_date_time_from_local_date_time(
   const AtcLocalDateTime *ldt,
   uint8_t fold,
   AtcOffsetDateTime *odt);
-
-//---------------------------------------------------------------------------
-
-/**
- * Additional meta information about the transition. Should be identical to
- * AtcZoneExtra.
- */
-typedef struct AtcTransitionInfo {
-  /** STD offset */
-  int16_t std_offset_minutes;
-  /** DST offset */
-  int16_t dst_offset_minutes;
-  /** abbreviation (e.g. PST, PDT) */
-  char abbrev[kAtcAbbrevSize];
-} AtcTransitionInfo;
-
-/**
- * Find the AtcTransitionInfo (i.e. STD offset, DST offset, abbrev)
- * at the given epoch_seconds.
- * Return non-zero error code upon failure.
- */
-int8_t atc_processing_transition_info_from_epoch_seconds(
-  AtcZoneProcessing *processing,
-  const AtcZoneInfo *zone_info,
-  atc_time_t epoch_seconds,
-  AtcTransitionInfo *ti);
 
 //---------------------------------------------------------------------------
 // Functions and data structures exposed for testing.

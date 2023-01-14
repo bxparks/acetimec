@@ -780,7 +780,7 @@ static AtcTransitionForSeconds atc_processing_find_transition_for_seconds(
   return result;
 }
 
-static int8_t atc_processing_find_by_epoch_seconds(
+int8_t atc_processing_find_by_epoch_seconds(
     AtcZoneProcessing *processing,
     const AtcZoneInfo *zone_info,
     atc_time_t epoch_seconds,
@@ -832,32 +832,6 @@ int8_t atc_processing_offset_date_time_from_epoch_seconds(
   if (err) return err;
 
   odt->fold = result.fold;
-  return kAtcErrOk;
-}
-
-// TODO: Convert this to use atc_processing_find_by_epoch_seconds().
-int8_t atc_processing_transition_info_from_epoch_seconds(
-  AtcZoneProcessing *processing,
-  const AtcZoneInfo *zone_info,
-  atc_time_t epoch_seconds,
-  AtcTransitionInfo *ti)
-{
-  int8_t err = atc_processing_init_for_epoch_seconds(
-      processing,
-      zone_info,
-      epoch_seconds);
-  if (err) return err;
-
-  AtcTransitionForSeconds mt = atc_processing_find_transition_for_seconds(
-      &processing->transition_storage, epoch_seconds);
-  const AtcTransition *t = mt.curr;
-  if (! t) return kAtcErrGeneric;
-
-  ti->std_offset_minutes = t->offset_minutes;
-  ti->dst_offset_minutes = t->delta_minutes;
-  memcpy(ti->abbrev, t->abbrev, kAtcAbbrevSize);
-  ti->abbrev[kAtcAbbrevSize - 1] = '\0';
-
   return kAtcErrOk;
 }
 

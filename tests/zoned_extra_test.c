@@ -2,6 +2,14 @@
 #include <acetimec.h>
 #include <acunit.h>
 
+ACU_TEST(test_atc_zoned_extra_types_equal_find_result_types)
+{
+  ACU_ASSERT((int)kAtcZonedExtraNotFound == (int)kAtcFindResultNotFound);
+  ACU_ASSERT((int)kAtcZonedExtraExact == (int)kAtcFindResultExact);
+  ACU_ASSERT((int)kAtcZonedExtraGap == (int)kAtcFindResultGap);
+  ACU_ASSERT((int)kAtcZonedExtraOverlap == (int)kAtcFindResultOverlap);
+}
+
 ACU_TEST(test_atc_zoned_extra_from_epoch_seconds_invalid)
 {
   AtcZoneProcessing processing;
@@ -92,6 +100,7 @@ ACU_CONTEXT();
 
 int main()
 {
+  ACU_RUN_TEST(test_atc_zoned_extra_types_equal_find_result_types);
   ACU_RUN_TEST(test_atc_zoned_extra_from_epoch_seconds_invalid);
   ACU_RUN_TEST(test_zoned_extra_from_epoch_seconds_fall_back);
   ACU_RUN_TEST(test_zoned_extra_from_epoch_seconds_spring_forward);

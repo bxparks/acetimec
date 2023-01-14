@@ -24,14 +24,35 @@ extern "C" {
 #include "transition.h" // kAtcAbbrevSize
 
 /**
+ * Values of the the AtcZonedExtra.type field. Should be identical to
+ * AtcFindRresultXxx
+ */
+enum {
+  kAtcZonedExtraNotFound = 0,
+  kAtcZonedExtraExact = 1,
+  kAtcZonedExtraGap = 2,
+  kAtcZonedExtraOverlap = 3,
+};
+
+/**
  * Extra information about a given time zone at a specified epoch seconds.
- * Should be identical to AtcTransitionInfo.
  */
 typedef struct AtcZonedExtra {
+  /** Type of match against the LocalDateTime or epoch_seconds. */
+  int8_t type;
+
   /** STD offset */
   int16_t std_offset_minutes;
+
   /** DST offset */
   int16_t dst_offset_minutes;
+
+  /** STD offset of the requested LocalDateTime or epoch_seconds */
+  int16_t req_std_offset_minutes;
+
+  /** DST offset of the requested LocalDateTime or epoch_seconds */
+  int16_t req_dst_offset_minutes;
+
   /** abbreviation (e.g. PST, PDT) */
   char abbrev[kAtcAbbrevSize];
 } AtcZonedExtra;

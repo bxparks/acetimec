@@ -78,31 +78,31 @@ zonedb_test.out: zonedb_test.o acetimec.a
 
 #-----------------------------------------------------------------------------
 
-common_test.o: common_test.c
+common_test.o: common_test.c acetimec.a
 
-local_date_test.o: local_date_test.c
+local_date_test.o: local_date_test.c acetimec.a
 
-local_date_time_test.o: local_date_time_test.c
+local_date_time_test.o: local_date_time_test.c acetimec.a
 
-offset_date_time_test.o: offset_date_time_test.c
+offset_date_time_test.o: offset_date_time_test.c acetimec.a
 
-string_buffer.o: string_buffer.c
+string_buffer.o: string_buffer.c acetimec.a
 
-transition_test.o: transition_test.c
+transition_test.o: transition_test.c acetimec.a
 
-zone_info_utils_test.o: zone_info_utils_test.c
+zone_info_utils_test.o: zone_info_utils_test.c acetimec.a
 
-zone_processing_test.o: zone_processing_test.c
+zone_processing_test.o: zone_processing_test.c acetimec.a
 
-zone_processing_transition_test.o: zone_processing_transition_test.c
+zone_processing_transition_test.o: zone_processing_transition_test.c acetimec.a
 
-zone_registrar_test.o: zone_registrar_test.c
+zone_registrar_test.o: zone_registrar_test.c acetimec.a
 
-zoned_date_time_test.o: zoned_date_time_test.c
+zoned_date_time_test.o: zoned_date_time_test.c acetimec.a
 
-zoned_extra_test.o: zoned_extra_test.c
+zoned_extra_test.o: zoned_extra_test.c acetimec.a
 
-zonedb_test.o: zonedb_test.c
+zonedb_test.o: zonedb_test.c acetimec.a
 
 #-----------------------------------------------------------------------------
 
