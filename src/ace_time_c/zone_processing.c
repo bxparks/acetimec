@@ -682,104 +682,6 @@ int8_t atc_processing_init_for_epoch_seconds(
 
 //---------------------------------------------------------------------------
 
-static void atc_processing_calculate_fold_and_overlap(
-    uint8_t* fold,
-    uint8_t* num,
-    const AtcTransition* prev,
-    const AtcTransition* curr,
-    const AtcTransition* next,
-    atc_time_t epoch_seconds)
-{
-  if (curr == NULL) {
-    *fold = 0;
-    *num = 0;
-    return;
-  }
-
-  // Check if within forward overlap shadow from prev
-  bool is_overlap;
-  if (prev == NULL) {
-    is_overlap = false;
-  } else {
-    // Extract the shift from prev transition. Can be 0 in some cases where
-    // the zone changed from DST of one zone to the STD into another zone,
-    // causing the overall UTC offset to remain unchanged.
-    atc_time_t shift_seconds = atc_date_tuple_subtract(
-      &curr->start_dt, &prev->until_dt);
-    if (shift_seconds >= 0) {
-      // spring forward, or unchanged
-      is_overlap = false;
-    } else {
-      is_overlap = epoch_seconds - curr->start_epoch_seconds < -shift_seconds;
-    }
-  }
-  if (is_overlap) {
-    *fold = 1; // selects the second match
-    *num = 2;
-    return;
-  }
-
-  // Check if within backward overlap shawdow from next
-  if (next == NULL) {
-    is_overlap = false;
-  } else {
-    // Extract the shift to next transition. Can be 0 in some cases where
-    // the zone changed from DST of one zone to the STD into another zone,
-    // causing the overall UTC offset to remain unchanged.
-    atc_time_t shift_seconds = atc_date_tuple_subtract(
-        &next->start_dt, &curr->until_dt);
-    if (shift_seconds >= 0) {
-      // spring forward, or unchanged
-      is_overlap = false;
-    } else {
-      // Check if within the backward overlap shadow from next
-      is_overlap = next->start_epoch_seconds - epoch_seconds <= -shift_seconds;
-    }
-  }
-  if (is_overlap) {
-    *fold = 0; // epochSeconds selects the first match
-    *num = 2;
-    return;
-  }
-
-  // Normal single match, no overlap.
-  *fold = 0;
-  *num = 1;
-}
-
-/**
- * Return the Transition matching the given epochSeconds. Return nullptr if no
- * matching Transition found. If a zone does not have any transition according
- * to TZ Database, the AceTimeTools/transformer.py script adds an "anchor"
- * transition at the "beginning of time" which happens to be the year 1872
- * (because the year is stored as an int8_t). Therefore, this method should
- * never return a nullptr for a well-formed ZoneInfo file.
- *
- * TODO: Move to transition.c.
- */
-static AtcTransitionForSeconds atc_processing_find_transition_for_seconds(
-    const AtcTransitionStorage *ts,
-    atc_time_t epoch_seconds)
-{
-  const AtcTransition *prev = NULL;
-  const AtcTransition *curr = NULL;
-  const AtcTransition *next = NULL;
-  for (uint8_t i = 0; i < ts->index_free; i++) {
-    next = ts->transitions[i];
-    if (next->start_epoch_seconds > epoch_seconds) break;
-    prev = curr;
-    curr = next;
-    next = NULL;
-  }
-
-  uint8_t fold;
-  uint8_t num;
-  atc_processing_calculate_fold_and_overlap(
-      &fold, &num, prev, curr, next, epoch_seconds);
-  AtcTransitionForSeconds result = {curr, fold, num};
-  return result;
-}
-
 int8_t atc_processing_find_by_epoch_seconds(
     AtcZoneProcessing *processing,
     const AtcZoneInfo *zone_info,
@@ -790,7 +692,7 @@ int8_t atc_processing_find_by_epoch_seconds(
       processing, zone_info, epoch_seconds);
   if (err) return err;
 
-  AtcTransitionForSeconds tfs = atc_processing_find_transition_for_seconds(
+  AtcTransitionForSeconds tfs = atc_transition_storage_find_for_seconds(
       &processing->transition_storage, epoch_seconds);
   const AtcTransition *t = tfs.curr;
   if (! t) return kAtcErrGeneric;

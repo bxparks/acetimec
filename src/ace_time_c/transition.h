@@ -406,6 +406,44 @@ uint8_t atc_transition_compare_to_match_fuzzy(
 
 //---------------------------------------------------------------------------
 
+/**
+ * The result returned by atc_transition_storage_find_for_seconds() when
+ * searching for Transition by epoch seconds. Searching by epoch_seconds is
+ * guaranteed to return only a single Transition if found. Usually `fold=0`. But
+ * if the epoch_seconds maps to a AtcLocalDateTime which occurs a second time
+ * during a "fall back", then `fold` is set to 1.
+ *
+ * Adapted from TransitionForSeconds in Transition.h of the AceTime library.
+ */
+typedef struct AtcTransitionForSeconds {
+  /** The matching transition or null if not found. */
+  const AtcTransition *curr;
+
+  /** 0 for the first or exact transition; 1 for the second transition */
+  uint8_t fold;
+
+  /**
+   * Number of occurrences of the resulting AtcLocalDateTime: 0, 1, or 2.
+   * This is needed because a fold=0 can mean that the AtcLocalDateTime occurs
+   * exactly once, or that the first of two occurrences of AtcLocalDateTime was
+   * selected by the epoch_seconds.
+   */
+  uint8_t num;
+} AtcTransitionForSeconds;
+
+/**
+ * Find the Transition matching the given epochSeconds. Return
+ * AtcTransitionForSeconds.curr == nullptr if no matching Transition found. If a
+ * zone does not have any transition according to TZ Database, the
+ * AceTimeTools/transformer.py script adds an "anchor" transition at the
+ * "beginning of time" which happens to be the year 1872 (because the year is
+ * stored as an int8_t). Therefore, this method should never return a nullptr
+ * for a well-formed ZoneInfo file.
+ */
+AtcTransitionForSeconds atc_transition_storage_find_for_seconds(
+    const AtcTransitionStorage *ts,
+    atc_time_t epoch_seconds);
+
 #ifdef __cplusplus
 }
 #endif

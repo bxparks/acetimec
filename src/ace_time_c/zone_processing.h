@@ -68,31 +68,6 @@ AtcMonthDay atc_processing_calc_start_day_of_month(
 //---------------------------------------------------------------------------
 
 /**
- * The result returned by atc_processing_find_transition_for_seconds() when
- * searching for Transition by epoch seconds. Searching by epoch_seconds is
- * guaranteed to return only a single Transition if found. Usually `fold=0`. But
- * if the epoch_seconds maps to a AtcLocalDateTime which occurs a second time
- * during a "fall back", then `fold` is set to 1.
- *
- * Adapted from TransitionForSeconds in Transition.h of the AceTime library.
- */
-typedef struct AtcTransitionForSeconds {
-  /** The matching transition or null if not found. */
-  const AtcTransition *curr;
-
-  /** 1 if in the overlap, otherwise 0 */
-  uint8_t fold;
-
-  /**
-   * Number of occurrences of the resulting AtcLocalDateTime: 0, 1, or 2.
-   * This is needed because a fold=0 can mean that the AtcLocalDateTime occurs
-   * exactly once, or that the first of two occurrences of AtcLocalDateTime was
-   * selected by the epoch_seconds.
-   */
-  uint8_t num;
-} AtcTransitionForSeconds;
-
-/**
  * The result returned by atc_processing_find_transition_for_date_time() when
  * searching for transitions by local date time. There are 5 possibilities:
  *

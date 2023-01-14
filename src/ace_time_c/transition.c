@@ -410,3 +410,93 @@ uint8_t atc_transition_compare_to_match_fuzzy(
       &match->start_dt,
       &match->until_dt);
 }
+
+//---------------------------------------------------------------------------
+
+static void atc_calculate_fold_and_overlap(
+    uint8_t* fold,
+    uint8_t* num,
+    const AtcTransition* prev,
+    const AtcTransition* curr,
+    const AtcTransition* next,
+    atc_time_t epoch_seconds)
+{
+  if (curr == NULL) {
+    *fold = 0;
+    *num = 0;
+    return;
+  }
+
+  // Check if within forward overlap shadow from prev
+  bool is_overlap;
+  if (prev == NULL) {
+    is_overlap = false;
+  } else {
+    // Extract the shift from prev transition. Can be 0 in some cases where
+    // the zone changed from DST of one zone to the STD into another zone,
+    // causing the overall UTC offset to remain unchanged.
+    atc_time_t shift_seconds = atc_date_tuple_subtract(
+      &curr->start_dt, &prev->until_dt);
+    if (shift_seconds >= 0) {
+      // spring forward, or unchanged
+      is_overlap = false;
+    } else {
+      is_overlap = epoch_seconds - curr->start_epoch_seconds < -shift_seconds;
+    }
+  }
+  if (is_overlap) {
+    *fold = 1; // selects the second match
+    *num = 2;
+    return;
+  }
+
+  // Check if within backward overlap shawdow from next
+  if (next == NULL) {
+    is_overlap = false;
+  } else {
+    // Extract the shift to next transition. Can be 0 in some cases where
+    // the zone changed from DST of one zone to the STD into another zone,
+    // causing the overall UTC offset to remain unchanged.
+    atc_time_t shift_seconds = atc_date_tuple_subtract(
+        &next->start_dt, &curr->until_dt);
+    if (shift_seconds >= 0) {
+      // spring forward, or unchanged
+      is_overlap = false;
+    } else {
+      // Check if within the backward overlap shadow from next
+      is_overlap = next->start_epoch_seconds - epoch_seconds <= -shift_seconds;
+    }
+  }
+  if (is_overlap) {
+    *fold = 0; // epochSeconds selects the first match
+    *num = 2;
+    return;
+  }
+
+  // Normal single match, no overlap.
+  *fold = 0;
+  *num = 1;
+}
+
+AtcTransitionForSeconds atc_transition_storage_find_for_seconds(
+    const AtcTransitionStorage *ts,
+    atc_time_t epoch_seconds)
+{
+  const AtcTransition *prev = NULL;
+  const AtcTransition *curr = NULL;
+  const AtcTransition *next = NULL;
+  for (uint8_t i = 0; i < ts->index_free; i++) {
+    next = ts->transitions[i];
+    if (next->start_epoch_seconds > epoch_seconds) break;
+    prev = curr;
+    curr = next;
+    next = NULL;
+  }
+
+  uint8_t fold;
+  uint8_t num;
+  atc_calculate_fold_and_overlap(
+      &fold, &num, prev, curr, next, epoch_seconds);
+  AtcTransitionForSeconds result = {curr, fold, num};
+  return result;
+}
