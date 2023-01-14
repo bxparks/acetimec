@@ -738,6 +738,9 @@ int8_t atc_processing_offset_date_time_from_epoch_seconds(
 }
 
 //---------------------------------------------------------------------------
+// findByXxx() routines to find Transitions at a given epoch_seconds or
+// LocalDatetime.
+//---------------------------------------------------------------------------
 
 // Adapted from ExtendedZoneProcessor::findByLocalDateTime() in the AceTime
 // library.

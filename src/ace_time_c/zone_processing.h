@@ -63,39 +63,6 @@ AtcMonthDay atc_processing_calc_start_day_of_month(
     int8_t on_day_of_month);
 
 //---------------------------------------------------------------------------
-// Data structures that hold the matching transition when searching by
-// AtcLocalDateTime or epoch_seconds.
-//---------------------------------------------------------------------------
-
-/** Values of the the AtcFindResult.type field. */
-enum {
-  kAtcFindResultNotFound = 0,
-  kAtcFindResultExact = 1,
-  kAtcFindResultGap = 2,
-  kAtcFindResultOverlap = 3,
-};
-
-/**
- * Data structure that converts the AtcTransitionForSeconds and
- * AtcTransitionForDatetime into time offsets and other extra information which
- * can be used to construct an AtcOffsetDateTime or an AtcZonedExtra.
- *
- * The 'abbrev' field contains a pointer to a transition string buffer. The
- * string should be copied by the calling code as soon as possible.
- *
- * Adapted from FindResult in ZoneProcessor.h of the AceTime library.
- */
-typedef struct AtcFindResult {
-  uint8_t type;
-  uint8_t fold;
-  int16_t std_offset_minutes;
-  int16_t dst_offset_minutes;
-  int16_t req_std_offset_minutes;
-  int16_t req_dst_offset_minutes;
-  const char *abbrev;
-} AtcFindResult;
-
-//---------------------------------------------------------------------------
 
 /**
  * Return the most recent year from the Rule[fromYear, toYear] which is
@@ -130,8 +97,9 @@ uint8_t atc_processing_calc_interior_years(
     int16_t end_year);
 
 //---------------------------------------------------------------------------
-// Externally exported API for converting between epoch seconds and
-// LocalDateTime and OffsetDateTime.
+// Data structures related to the AtcZoneProcessing object which is responsible
+// for finding the active Transitions of a time zone, and for finding the
+// matching Transitions at a gien epoch_seconds or LocalDatetime.
 //---------------------------------------------------------------------------
 
 /**
@@ -159,6 +127,37 @@ typedef struct AtcZoneProcessing {
   AtcTransitionStorage transition_storage;
 } AtcZoneProcessing;
 
+/** Values of the the AtcFindResult.type field. */
+enum {
+  kAtcFindResultNotFound = 0,
+  kAtcFindResultExact = 1,
+  kAtcFindResultGap = 2,
+  kAtcFindResultOverlap = 3,
+};
+
+/**
+ * Data structure that converts the AtcTransitionForSeconds and
+ * AtcTransitionForDatetime into time offsets and other extra information which
+ * can be used to construct an AtcOffsetDateTime or an AtcZonedExtra.
+ *
+ * The 'abbrev' field contains a pointer to a transition string buffer. The
+ * string should be copied by the calling code as soon as possible.
+ *
+ * Adapted from FindResult in ZoneProcessor.h of the AceTime library.
+ */
+typedef struct AtcFindResult {
+  uint8_t type;
+  uint8_t fold;
+  int16_t std_offset_minutes;
+  int16_t dst_offset_minutes;
+  int16_t req_std_offset_minutes;
+  int16_t req_dst_offset_minutes;
+  const char *abbrev;
+} AtcFindResult;
+
+//---------------------------------------------------------------------------
+// Externally exported API for converting between epoch seconds and
+// LocalDateTime and OffsetDateTime.
 //---------------------------------------------------------------------------
 
 /**
@@ -226,7 +225,9 @@ int8_t atc_processing_offset_date_time_from_local_date_time(
   AtcOffsetDateTime *odt);
 
 //---------------------------------------------------------------------------
-// Functions and data structures exposed for testing.
+// Functions and data structures related to the creation of the active
+// Transitions of the given time zone at the given year.
+// Most of these are internal function which are exposed for testing.
 //---------------------------------------------------------------------------
 
 /** A tuple of (year, month). */
