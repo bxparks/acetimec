@@ -866,7 +866,7 @@ int8_t atc_processing_transition_info_from_epoch_seconds(
 /**
  * Return the candidate Transitions matching the given dateTime. The search may
  * return 0, 1 or 2 Transitions, depending on whether the dateTime falls in a
- * gap or overlap.
+ * gap or overlap. TODO: Move to transition.c.
  */
 static AtcTransitionForDateTime atc_processing_find_transition_for_date_time(
     const AtcTransitionStorage *ts,
@@ -924,74 +924,115 @@ static AtcTransitionForDateTime atc_processing_find_transition_for_date_time(
   return result;
 }
 
-//---------------------------------------------------------------------------
+// Adapted from ExtendedZoneProcessor::findByLocalDateTime() in the AceTime
+// library.
+static int8_t atc_processing_find_by_local_date_time(
+    AtcZoneProcessing *processing,
+    const AtcZoneInfo *zone_info,
+    const AtcLocalDateTime *ldt,
+    uint8_t fold,
+    AtcFindResult *result) {
 
-// Adapted from ExtendedZoneProcessor::getOffsetDateTime(const LocalDatetime&)
-// from ExtendedZoneProcessor in AceTime.
-int8_t atc_processing_offset_date_time_from_local_date_time(
-  AtcZoneProcessing *processing,
-  const AtcZoneInfo *zone_info,
-  const AtcLocalDateTime *ldt,
-  uint8_t fold,
-  AtcOffsetDateTime *odt)
-{
   int8_t err = atc_processing_init_for_year(processing, zone_info, ldt->year);
   if (err) return err;
 
-  AtcTransitionForDateTime result =
-      atc_processing_find_transition_for_date_time(
-          &processing->transition_storage, ldt);
+  AtcTransitionForDateTime tfd = atc_processing_find_transition_for_date_time(
+      &processing->transition_storage, ldt);
 
-  // Extract the appropriate Transition, depending on the requested 'fold'
-  // and the 'result.num'.
-  bool needs_normalization = false;
-  const AtcTransition *t;
-  if (result.num == 1) {
-    t = result.prev;
-  } else {
-    if (result.prev == NULL || result.curr == NULL) {
-      // ldt was far past or far future, and didn't match anything.
-      t = NULL;
-    } else {
-      needs_normalization = (result.num == 0);
-      t = (fold == 0) ? result.prev : result.curr;
+    // Extract the target Transition, depending on the requested fold
+    // and the tfd.num.
+    const AtcTransition *transition;
+    if (tfd.num == 1) {
+      transition = tfd.curr;
+      result->type = kAtcFindResultExact;
+      result->fold = 0;
+      result->req_std_offset_minutes = transition->offset_minutes;
+      result->req_dst_offset_minutes = transition->delta_minutes;
+    } else { // num = 0 or 2
+      if (tfd.prev == NULL || tfd.curr == NULL) {
+        // ldt was far past or far future
+        transition = NULL;
+        result->type = kAtcFindResultNotFound;
+        result->fold = 0;
+      } else { // gap or overlap
+        if (tfd.num == 0) { // num==0, Gap
+          result->type = kAtcFindResultGap;
+          result->fold = 0;
+          if (fold == 0) {
+            // ldt wants to use the 'prev' transition to convert to
+            // epochSeconds.
+            result->req_std_offset_minutes = tfd.prev->offset_minutes;
+            result->req_dst_offset_minutes = tfd.prev->delta_minutes;
+            // But after normalization, it will be shifted into the curr
+            // transition, so select 'curr' as the target transition.
+            transition = tfd.curr;
+          } else {
+            // ldt wants to use the 'curr' transition to convert to
+            // epochSeconds.
+            result->req_std_offset_minutes = tfd.curr->offset_minutes;
+            result->req_dst_offset_minutes = tfd.curr->delta_minutes;
+            // But after normalization, it will be shifted into the prev
+            // transition, so select 'prev' as the target transition.
+            transition = tfd.prev;
+          }
+        } else { // num==2, Overlap
+          transition = (fold == 0) ? tfd.prev : tfd.curr;
+          result->type = kAtcFindResultOverlap;
+          result->fold = fold;
+          result->req_std_offset_minutes = transition->offset_minutes;
+          result->req_dst_offset_minutes = transition->delta_minutes;
+        }
+      }
     }
-  }
 
-  if (! t) return kAtcErrGeneric;
+    if (! transition) {
+      result->type = kAtcFindResultNotFound;
+      return kAtcErrGeneric; // TOOD: should this be kAtcErrOk?
+    }
 
+    result->std_offset_minutes = transition->offset_minutes;
+    result->dst_offset_minutes = transition->delta_minutes;
+    result->abbrev = transition->abbrev;
+
+    return kAtcErrOk;
+}
+
+// Adapted from TimeZone::getOffsetDateTime(const LocalDatetime&) from the
+// AceTime library.
+int8_t atc_processing_offset_date_time_from_local_date_time(
+    AtcZoneProcessing *processing,
+    const AtcZoneInfo *zone_info,
+    const AtcLocalDateTime *ldt,
+    uint8_t fold,
+    AtcOffsetDateTime *odt)
+{
+  AtcFindResult result;
+  int8_t err = atc_processing_find_by_local_date_time(
+      processing, zone_info, ldt, fold, &result);
+  if (err) return err;
+  if (result.type == kAtcFindResultNotFound) return kAtcErrGeneric;
+
+  // Convert FindResult into OffsetDateTime using the requested offset.
   odt->year = ldt->year;
   odt->month = ldt->month;
   odt->day = ldt->day;
   odt->hour = ldt->hour;
   odt->minute = ldt->minute;
   odt->second = ldt->second;
-  odt->offset_minutes = t->offset_minutes + t->delta_minutes;
-  odt->fold = fold;
+  odt->offset_minutes =
+      result.req_std_offset_minutes + result.req_dst_offset_minutes;
+  odt->fold = result.fold;
 
-  if (needs_normalization) {
+  // Special processing for kAtcFindResultGap: Convert to epochSeconds using the
+  // reqStdOffsetMinutes and reqDstOffsetMinutes, then convert back to
+  // OffsetDateTime using the target stdOffsetMinutes and
+  // dstOffsetMinutes.
+  if (result.type == kAtcFindResultGap) {
     atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(odt);
-
-    // If in the gap, normalization means that we convert to epochSeconds
-    // then perform another search through the Transitions, then use
-    // that new Transition to convert the epochSeconds to OffsetDateTime. It
-    // turns out that this process identical to just using the other
-    // Transition returned in TransitionResult above.
-    const AtcTransition *othert = (fold == 0)
-        ? result.curr
-        : result.prev;
-    int8_t err = atc_offset_date_time_from_epoch_seconds(
-        epoch_seconds,
-        othert->offset_minutes + othert->delta_minutes,
-        odt);
-    if (err) return err;
-
-    // Invert the fold.
-    // 1) The normalization process causes the LocalDateTime to jump to the
-    // other transition.
-    // 2) Provides a user-accessible indicator that a gap normalization was
-    // performed.
-    odt->fold = 1 - fold;
+    int16_t target_offset =
+        result.std_offset_minutes + result.dst_offset_minutes;
+    atc_offset_date_time_from_epoch_seconds(
+        epoch_seconds, target_offset, odt);
   }
 
   return kAtcErrOk;

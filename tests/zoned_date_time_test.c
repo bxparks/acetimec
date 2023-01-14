@@ -271,7 +271,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time)
   ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
   ACU_ASSERT(8 * 60 * 60 == atc_zoned_date_time_to_epoch_seconds(&zdt));
 
-  // check that fold=1 gives identical results, while preserving fold
+  // check that input fold=1 gives identical results, with output fold=0
+  // because there is only a single LocalDateTime that matches
   ldt = (AtcLocalDateTime) { 2000, 1, 1, 0, 0, 0 };
   err = atc_zoned_date_time_from_local_date_time(
       &processing,
@@ -286,7 +287,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time)
   ACU_ASSERT(zdt.hour == 0);
   ACU_ASSERT(zdt.minute == 0);
   ACU_ASSERT(zdt.second == 0);
-  ACU_ASSERT(zdt.fold == 1);
+  ACU_ASSERT(zdt.fold == 0);
   ACU_ASSERT(zdt.offset_minutes == -8*60);
   ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
   ACU_ASSERT(8 * 60 * 60 == atc_zoned_date_time_to_epoch_seconds(&zdt));
@@ -322,7 +323,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_epoch2050)
   ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
   ACU_ASSERT(8 * 60 * 60 == atc_zoned_date_time_to_epoch_seconds(&zdt));
 
-  // check that fold=1 gives identical results, while preserving fold
+  // check that input fold=1 gives identical results, with output fold=0
   ldt = (AtcLocalDateTime) { 2050, 1, 1, 0, 0, 0 };
   err = atc_zoned_date_time_from_local_date_time(
       &processing,
@@ -337,7 +338,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_epoch2050)
   ACU_ASSERT(zdt.hour == 0);
   ACU_ASSERT(zdt.minute == 0);
   ACU_ASSERT(zdt.second == 0);
-  ACU_ASSERT(zdt.fold == 1);
+  ACU_ASSERT(zdt.fold == 0);
   ACU_ASSERT(zdt.offset_minutes == -8*60);
   ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
   ACU_ASSERT(8 * 60 * 60 == atc_zoned_date_time_to_epoch_seconds(&zdt));
@@ -370,7 +371,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_dst)
   ACU_ASSERT(zdt.offset_minutes == -8*60);
   ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
 
-  // check that fold=1 gives identical results, while preserving fold
+  // check that input fold=1 gives identical results, with output fold=0
   ldt = (AtcLocalDateTime) { 2018, 3, 11, 1, 59, 0 };
   err = atc_zoned_date_time_from_local_date_time(
       &processing,
@@ -385,7 +386,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_dst)
   ACU_ASSERT(zdt.hour == 1);
   ACU_ASSERT(zdt.minute == 59);
   ACU_ASSERT(zdt.second == 0);
-  ACU_ASSERT(zdt.fold == 1);
+  ACU_ASSERT(zdt.fold == 0);
   ACU_ASSERT(zdt.offset_minutes == -8*60);
   ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
 }
@@ -414,7 +415,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_gap)
   ACU_ASSERT(zdt.hour == 3);
   ACU_ASSERT(zdt.minute == 1);
   ACU_ASSERT(zdt.second == 0);
-  ACU_ASSERT(zdt.fold == 1); // indicate the second transition
+  ACU_ASSERT(zdt.fold == 0); // only a single matching transition
   ACU_ASSERT(zdt.offset_minutes == -7*60);
   ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
 
@@ -465,7 +466,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_dst)
   ACU_ASSERT(zdt.offset_minutes == -7*60);
   ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
 
-  // check that fold=1 gives identical results, while preserving fold
+  // check that input fold=1 gives identical results, with output fold=0
   ldt = (AtcLocalDateTime) { 2018, 3, 11, 3, 1, 0 };
   err = atc_zoned_date_time_from_local_date_time(
       &processing,
@@ -480,7 +481,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_dst)
   ACU_ASSERT(zdt.hour == 3);
   ACU_ASSERT(zdt.minute == 1);
   ACU_ASSERT(zdt.second == 0);
-  ACU_ASSERT(zdt.fold == 1);
+  ACU_ASSERT(zdt.fold == 0);
   ACU_ASSERT(zdt.offset_minutes == -7*60);
   ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
 }
@@ -511,7 +512,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_sdt)
   ACU_ASSERT(zdt.offset_minutes == -7*60);
   ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
 
-  // check that fold=1 gives identical results, while preserving fold
+  // check that input fold=1 gives identical results, with output fold=0
   ldt = (AtcLocalDateTime) { 2018, 11, 4, 0, 59, 0 };
   err = atc_zoned_date_time_from_local_date_time(
       &processing,
@@ -526,7 +527,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_sdt)
   ACU_ASSERT(zdt.hour == 0);
   ACU_ASSERT(zdt.minute == 59);
   ACU_ASSERT(zdt.second == 0);
-  ACU_ASSERT(zdt.fold == 1);
+  ACU_ASSERT(zdt.fold == 0);
   ACU_ASSERT(zdt.offset_minutes == -7*60);
   ACU_ASSERT(zdt.zone_info == &kAtcZoneAmerica_Los_Angeles);
 }

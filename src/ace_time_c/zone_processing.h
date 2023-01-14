@@ -116,6 +116,7 @@ typedef struct AtcTransitionForDateTime {
   uint8_t num;
 } AtcTransitionForDateTime;
 
+/** Values of the the AtcFindResult.type field. */
 enum {
   kAtcFindResultNotFound = 0,
   kAtcFindResultExact = 1,
