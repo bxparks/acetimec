@@ -43,10 +43,10 @@ static void print_offset_minutes(AtcStringBuffer *sb, uint16_t offset_minutes)
 }
 
 void atc_offset_date_time_print(
-    AtcStringBuffer *sb,
-    const AtcOffsetDateTime *odt)
+    const AtcOffsetDateTime *odt,
+    AtcStringBuffer *sb)
 {
-  atc_local_date_time_print(sb, (const AtcLocalDateTime *) odt);
+  atc_local_date_time_print((const AtcLocalDateTime *) odt, sb);
   if (odt->offset_minutes < 0) {
     atc_print_char(sb, '-');
     print_offset_minutes(sb, -odt->offset_minutes);

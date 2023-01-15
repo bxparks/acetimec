@@ -82,7 +82,7 @@ void atc_zoned_date_time_print(
     const AtcZonedDateTime *zdt,
     AtcStringBuffer *sb)
 {
-  atc_offset_date_time_print(sb, (const AtcOffsetDateTime *) zdt);
+  atc_offset_date_time_print((const AtcOffsetDateTime *) zdt, sb);
   atc_print_char(sb, '[');
   atc_print_string(sb, atc_zone_info_zone_name(zdt->tz.zone_info));
   atc_print_char(sb, ']');
