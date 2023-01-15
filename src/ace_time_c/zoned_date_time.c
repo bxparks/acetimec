@@ -74,6 +74,7 @@ int8_t atc_zoned_date_time_normalize(AtcZonedDateTime *zdt)
       zdt->tz.zone_info,
       &ldt,
       zdt->fold,
+      // ZonedDateTime memory layout must be same as OffsetDateTime.
       (AtcOffsetDateTime *) zdt);
 }
 
