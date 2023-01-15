@@ -22,6 +22,7 @@ extern "C" {
 #include "zone_info.h"
 #include "transition.h" // kAtcAbbrevSize
 #include "time_zone.h"
+#include "local_date_time.h"
 
 /**
  * Values of the the AtcZonedExtra.type field. Should be identical to
@@ -64,6 +65,16 @@ typedef struct AtcZonedExtra {
 int8_t atc_zoned_extra_from_epoch_seconds(
     AtcZonedExtra *extra,
     atc_time_t epoch_seconds,
+    AtcTimeZone tz);
+
+/**
+ * Extract the extra zone information at given LocalDateTime.
+ * Returns true upon success, false upon error.
+ */
+int8_t atc_zoned_extra_from_local_date_time(
+    AtcZonedExtra *extra,
+    AtcLocalDateTime *ldt,
+    uint8_t fold,
     AtcTimeZone tz);
 
 #ifdef __cplusplus

@@ -38,6 +38,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_fall_back)
   AtcZonedExtra zet;
   int8_t err = atc_zoned_extra_from_epoch_seconds(&zet, epoch_seconds, tz);
   ACU_ASSERT(err == kAtcErrOk);
+  ACU_ASSERT(kAtcZonedExtraOverlap == zet.type);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
   ACU_ASSERT(1*60 == zet.dst_offset_minutes);
   ACU_ASSERT(-8*60 == zet.req_std_offset_minutes);
@@ -48,6 +49,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_fall_back)
   epoch_seconds += 3600;
   err = atc_zoned_extra_from_epoch_seconds(&zet, epoch_seconds, tz);
   ACU_ASSERT(err == kAtcErrOk);
+  ACU_ASSERT(kAtcZonedExtraOverlap == zet.type);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
   ACU_ASSERT(0*60 == zet.dst_offset_minutes);
   ACU_ASSERT(-8*60 == zet.req_std_offset_minutes);
@@ -69,6 +71,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_spring_forward)
   AtcZonedExtra zet;
   int8_t err = atc_zoned_extra_from_epoch_seconds(&zet, epoch_seconds, tz);
   ACU_ASSERT(err == kAtcErrOk);
+  ACU_ASSERT(kAtcZonedExtraExact == zet.type);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
   ACU_ASSERT(0*60 == zet.dst_offset_minutes);
   ACU_ASSERT(-8*60 == zet.req_std_offset_minutes);
@@ -79,11 +82,74 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_spring_forward)
   epoch_seconds += 3600;
   err = atc_zoned_extra_from_epoch_seconds(&zet, epoch_seconds, tz);
   ACU_ASSERT(err == kAtcErrOk);
+  ACU_ASSERT(kAtcZonedExtraExact == zet.type);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
   ACU_ASSERT(1*60 == zet.dst_offset_minutes);
   ACU_ASSERT(-8*60 == zet.req_std_offset_minutes);
   ACU_ASSERT(1*60 == zet.req_dst_offset_minutes);
   ACU_ASSERT(strcmp(zet.abbrev, "PDT") == 0);
+}
+
+ACU_TEST(test_zoned_extra_from_local_date_time_fall_back)
+{
+  AtcZoneProcessing processing;
+  atc_processing_init(&processing);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+
+  // Start our sampling at 01:29:00(fold=0), which is 31 minutes before the DST
+  // fall-back, and occurs within an overlap.
+  AtcLocalDateTime ldt = { 2022, 11, 6, 1, 29, 0 };
+
+  AtcZonedExtra zet;
+  int8_t err = atc_zoned_extra_from_local_date_time(&zet, &ldt, 0 /*fold*/, tz);
+  ACU_ASSERT(err == kAtcErrOk);
+  ACU_ASSERT(kAtcZonedExtraOverlap == zet.type);
+  ACU_ASSERT(-8*60 == zet.std_offset_minutes);
+  ACU_ASSERT(1*60 == zet.dst_offset_minutes);
+  ACU_ASSERT(-8*60 == zet.req_std_offset_minutes);
+  ACU_ASSERT(1*60 == zet.req_dst_offset_minutes);
+  ACU_ASSERT(strcmp(zet.abbrev, "PDT") == 0);
+
+  // For fold=1, the second transition is selected.
+  err = atc_zoned_extra_from_local_date_time(&zet, &ldt, 1 /*fold*/, tz);
+  ACU_ASSERT(err == kAtcErrOk);
+  ACU_ASSERT(kAtcZonedExtraOverlap == zet.type);
+  ACU_ASSERT(-8*60 == zet.std_offset_minutes);
+  ACU_ASSERT(0*60 == zet.dst_offset_minutes);
+  ACU_ASSERT(-8*60 == zet.req_std_offset_minutes);
+  ACU_ASSERT(0*60 == zet.req_dst_offset_minutes);
+  ACU_ASSERT(strcmp(zet.abbrev, "PST") == 0);
+}
+
+ACU_TEST(test_zoned_extra_from_local_date_time_spring_forward)
+{
+  AtcZoneProcessing processing;
+  atc_processing_init(&processing);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+
+  AtcLocalDateTime ldt = { 2022, 3, 13, 2, 29, 0 };
+
+  // Start our sampling at 02:29:00(fold=0) which occurs in the gap, uses the
+  // first transition, and normalizes to 03:29:00-07:00.
+  AtcZonedExtra zet;
+  int8_t err = atc_zoned_extra_from_local_date_time(&zet, &ldt, 0 /*fold*/, tz);
+  ACU_ASSERT(err == kAtcErrOk);
+  ACU_ASSERT(kAtcZonedExtraGap == zet.type);
+  ACU_ASSERT(-8*60 == zet.std_offset_minutes);
+  ACU_ASSERT(1*60 == zet.dst_offset_minutes);
+  ACU_ASSERT(-8*60 == zet.req_std_offset_minutes);
+  ACU_ASSERT(0*60 == zet.req_dst_offset_minutes);
+  ACU_ASSERT(strcmp(zet.abbrev, "PDT") == 0);
+
+  // For fold=1, use the second transition, and normalize to 01:29:00-08:00.
+  err = atc_zoned_extra_from_local_date_time(&zet, &ldt, 1 /*fold*/, tz);
+  ACU_ASSERT(err == kAtcErrOk);
+  ACU_ASSERT(kAtcZonedExtraGap == zet.type);
+  ACU_ASSERT(-8*60 == zet.std_offset_minutes);
+  ACU_ASSERT(0*60 == zet.dst_offset_minutes);
+  ACU_ASSERT(-8*60 == zet.req_std_offset_minutes);
+  ACU_ASSERT(1*60 == zet.req_dst_offset_minutes);
+  ACU_ASSERT(strcmp(zet.abbrev, "PST") == 0);
 }
 
 //---------------------------------------------------------------------------
@@ -96,5 +162,7 @@ int main()
   ACU_RUN_TEST(test_atc_zoned_extra_from_epoch_seconds_invalid);
   ACU_RUN_TEST(test_zoned_extra_from_epoch_seconds_fall_back);
   ACU_RUN_TEST(test_zoned_extra_from_epoch_seconds_spring_forward);
+  ACU_RUN_TEST(test_zoned_extra_from_local_date_time_fall_back);
+  ACU_RUN_TEST(test_zoned_extra_from_local_date_time_spring_forward);
   ACU_SUMMARY();
 }
