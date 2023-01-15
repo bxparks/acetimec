@@ -3,4 +3,4 @@
 
 APP_NAME := HelloTextClock
 ARDUINO_LIBS := AceCommon AceTimeC AceSorting
-include ../../../../EpoxyDuino/EpoxyDuino.mk
+include ../../../EpoxyDuino/EpoxyDuino.mk
