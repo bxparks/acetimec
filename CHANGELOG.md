@@ -1,10 +1,22 @@
 # Changelog
 
 * Unreleased
-    * Fix incorrect initial value of
-      `atc_days_to_current_epoch_from_converter_epoch`.
     * Migrate to ACUnit v0.1.0.
-    * zonedb: Rename `kAtcPolicyXxx` to `kAtcZonePolicyXxx` for consistency.
+    * `atc_days_to_current_epoch_from_converter_epoch`
+        * Fix incorrect initial value.
+    * `atc_date_tuple_subtract()`
+        * Fix overflow bug.
+    * `zonedb`
+        * Rename `kAtcPolicyXxx` to `kAtcZonePolicyXxx` for consistency.
+    * `zone_processing`
+        * Incorporate same algorithm as AceTime
+        * Unify `find_by_epochseconds()` and `find_by_local_date_time()` using a
+          common `FindResult`.
+        * Fix handling of input and output `fold` parameters during overlap in
+          `find_by_local_date_time()`.
+    * `AtcZonedExtra`
+        * Add requested STD offset and DST offset.
+        * Add `type` parameter to indicate exact match, gap, or overlap.
 * 0.5.0 (2022-12-04, TZDB 2022g)
     * Upgrade to TZDB 2022g
     * Add `extern "C"` to all header files.
