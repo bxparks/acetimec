@@ -9,16 +9,15 @@
 #include "zoned_extra.h"
 
 int8_t atc_zoned_extra_from_epoch_seconds(
-    AtcZoneProcessing *processing,
-    const AtcZoneInfo *zone_info,
+    AtcZonedExtra *extra,
     atc_time_t epoch_seconds,
-    AtcZonedExtra *extra)
+    AtcTimeZone tz)
 {
   if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
 
   AtcFindResult result;
   int8_t err = atc_processing_find_by_epoch_seconds(
-      processing, zone_info, epoch_seconds, &result);
+      tz.zone_processing, tz.zone_info, epoch_seconds, &result);
   if (err) return err;
 
   extra->type = result.type;
