@@ -1,3 +1,4 @@
+#include <string.h> // strcmp
 #include <acunit.h>
 #include <acetimec.h>
 
@@ -572,6 +573,51 @@ ACU_TEST(test_zoned_date_time_convert)
   ACU_ASSERT(zdtny.tz.zone_info == &kAtcZoneAmerica_New_York);
 }
 
+ACU_TEST(test_zoned_date_time_normalize)
+{
+  AtcZoneProcessing processing;
+  atc_processing_init(&processing);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+
+  // 2018-03-11 02:30:00-08:00(fold=0) is in the gap. After normalization, it
+  // should be 03:30-07:00.
+  AtcZonedDateTime zdt = {2018, 3, 11, 2, 30, 0, 0 /*fold*/, -8*60, tz};
+  int8_t err = atc_zoned_date_time_normalize(&zdt);
+
+  ACU_ASSERT(err == kAtcErrOk);
+  ACU_ASSERT(zdt.year == 2018);
+  ACU_ASSERT(zdt.month == 3);
+  ACU_ASSERT(zdt.day == 11);
+  ACU_ASSERT(zdt.hour == 3);
+  ACU_ASSERT(zdt.minute == 30);
+  ACU_ASSERT(zdt.second == 0);
+  ACU_ASSERT(zdt.fold == 0);
+  ACU_ASSERT(zdt.offset_minutes == -7*60);
+  ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
+}
+
+ACU_TEST(test_zoned_date_time_print)
+{
+  AtcZoneProcessing processing;
+  atc_processing_init(&processing);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+
+  AtcZonedDateTime zdt;
+  AtcLocalDateTime ldt = {2018, 3, 11, 2, 30, 0};
+  int8_t err = atc_zoned_date_time_from_local_date_time(
+      &zdt, &ldt, 0 /*fold*/, tz);
+  ACU_ASSERT(err == kAtcErrOk);
+
+  char buf[64];
+  AtcStringBuffer sb;
+  atc_buf_init(&sb, buf, 64);
+  atc_zoned_date_time_print(&zdt, &sb);
+  atc_buf_close(&sb);
+
+  const char expected[] = "2018-03-11T03:30:00-07:00[America/Los_Angeles]";
+  ACU_ASSERT(strcmp(sb.p, expected) == 0);
+}
+
 //---------------------------------------------------------------------------
 
 ACU_CONTEXT();
@@ -592,5 +638,7 @@ int main()
   ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_before_sdt);
   ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_in_overlap);
   ACU_RUN_TEST(test_zoned_date_time_convert);
+  ACU_RUN_TEST(test_zoned_date_time_normalize);
+  ACU_RUN_TEST(test_zoned_date_time_print);
   ACU_SUMMARY();
 }
