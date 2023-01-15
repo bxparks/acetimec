@@ -63,29 +63,6 @@ AtcMonthDay atc_processing_calc_start_day_of_month(
     int8_t on_day_of_month);
 
 //---------------------------------------------------------------------------
-// Data structures to track ZoneEra transitions and associated info.
-//---------------------------------------------------------------------------
-
-enum {
-  kAtcSearchStatusGap = 0,
-  kAtcSearchStatusExact = 1,
-  kAtcSearchStatusOverlap = 2,
-};
-
-/**
- * The transition search result at a particular epoch second or local date
- * time.
- */
-typedef struct AtcTransitionResult {
-  /** Transition for fold==0 */
-  const AtcTransition *transition0;
-
-  /** Transition for fold==1 */
-  const AtcTransition *transition1;
-
-  /** Result of search: 0=gap, 1=exact, 2=overlap */
-  int8_t search_status;
-} AtcTransitionResult;
 
 /**
  * Return the most recent year from the Rule[fromYear, toYear] which is
@@ -120,8 +97,9 @@ uint8_t atc_processing_calc_interior_years(
     int16_t end_year);
 
 //---------------------------------------------------------------------------
-// Externally exported API for converting between epoch seconds and
-// LocalDateTime and OffsetDateTime.
+// Data structures related to the AtcZoneProcessing object which is responsible
+// for finding the active Transitions of a time zone, and for finding the
+// matching Transitions at a gien epoch_seconds or LocalDatetime.
 //---------------------------------------------------------------------------
 
 /**
@@ -149,6 +127,37 @@ typedef struct AtcZoneProcessing {
   AtcTransitionStorage transition_storage;
 } AtcZoneProcessing;
 
+/** Values of the the AtcFindResult.type field. */
+enum {
+  kAtcFindResultNotFound = 0,
+  kAtcFindResultExact = 1,
+  kAtcFindResultGap = 2,
+  kAtcFindResultOverlap = 3,
+};
+
+/**
+ * Data structure that converts the AtcTransitionForSeconds and
+ * AtcTransitionForDatetime into time offsets and other extra information which
+ * can be used to construct an AtcOffsetDateTime or an AtcZonedExtra.
+ *
+ * The 'abbrev' field contains a pointer to a transition string buffer. The
+ * string should be copied by the calling code as soon as possible.
+ *
+ * Adapted from FindResult in ZoneProcessor.h of the AceTime library.
+ */
+typedef struct AtcFindResult {
+  uint8_t type;
+  uint8_t fold;
+  int16_t std_offset_minutes;
+  int16_t dst_offset_minutes;
+  int16_t req_std_offset_minutes;
+  int16_t req_dst_offset_minutes;
+  const char *abbrev;
+} AtcFindResult;
+
+//---------------------------------------------------------------------------
+// Externally exported API for converting between epoch seconds and
+// LocalDateTime and OffsetDateTime.
 //---------------------------------------------------------------------------
 
 /**
@@ -175,6 +184,25 @@ int8_t atc_processing_init_for_epoch_seconds(
   const AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds);
 
+/** Find the AtcFindResult at the given epoch_seconds. */
+int8_t atc_processing_find_by_epoch_seconds(
+    AtcZoneProcessing *processing,
+    const AtcZoneInfo *zone_info,
+    atc_time_t epoch_seconds,
+    AtcFindResult *result);
+
+/**
+ * Find the AtcFindResult at the given LocalDateTime and fold. The fold
+ * parameter is used only when LocalDateTime falls in a gap or an overlap.
+ * library. Return non-zero error code upon failure.
+ */
+int8_t atc_processing_find_by_local_date_time(
+    AtcZoneProcessing *processing,
+    const AtcZoneInfo *zone_info,
+    const AtcLocalDateTime *ldt,
+    uint8_t fold,
+    AtcFindResult *result);
+
 /**
  * Convert epoch_seconds to an AtcOffsetDateTime using the given zone_info.
  * Return non-zero error code upon failure.
@@ -197,33 +225,9 @@ int8_t atc_processing_offset_date_time_from_local_date_time(
   AtcOffsetDateTime *odt);
 
 //---------------------------------------------------------------------------
-
-/**
- * Additional meta information about the transition. Should be identical to
- * AtcZoneExtra.
- */
-typedef struct AtcTransitionInfo {
-  /** STD offset */
-  int16_t std_offset_minutes;
-  /** DST offset */
-  int16_t dst_offset_minutes;
-  /** abbreviation (e.g. PST, PDT) */
-  char abbrev[kAtcAbbrevSize];
-} AtcTransitionInfo;
-
-/**
- * Find the AtcTransitionInfo (i.e. STD offset, DST offset, abbrev)
- * at the given epoch_seconds.
- * Return non-zero error code upon failure.
- */
-int8_t atc_processing_transition_info_from_epoch_seconds(
-  AtcZoneProcessing *processing,
-  const AtcZoneInfo *zone_info,
-  atc_time_t epoch_seconds,
-  AtcTransitionInfo *ti);
-
-//---------------------------------------------------------------------------
-// Functions and data structures exposed for testing.
+// Functions and data structures related to the creation of the active
+// Transitions of the given time zone at the given year.
+// Most of these are internal function which are exposed for testing.
 //---------------------------------------------------------------------------
 
 /** A tuple of (year, month). */
