@@ -21,6 +21,7 @@
 #include "ace_time_c/zone_info.h"
 #include "ace_time_c/zone_info_utils.h"
 #include "ace_time_c/zone_processing.h"
+#include "ace_time_c/time_zone.h"
 #include "ace_time_c/zoned_date_time.h"
 #include "ace_time_c/zonedb/zone_infos.h"
 #include "ace_time_c/zonedb/zone_policies.h"

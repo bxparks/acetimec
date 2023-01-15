@@ -10,59 +10,55 @@
 #include "zone_info_utils.h"
 
 int8_t atc_zoned_date_time_from_epoch_seconds(
-    AtcZoneProcessing *processing,
-    const AtcZoneInfo *zone_info,
+    AtcZonedDateTime *zdt,
     atc_time_t epoch_seconds,
-    AtcZonedDateTime *zdt)
+    AtcTimeZone tz)
 {
   if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
 
-  zdt->zone_info = zone_info;
+  zdt->tz = tz;
   return atc_processing_offset_date_time_from_epoch_seconds(
-      processing,
-      zone_info,
+      tz.zone_processing,
+      tz.zone_info,
       epoch_seconds,
+      // ZonedDateTime memory layout must be same as OffsetDateTime.
       (AtcOffsetDateTime *) zdt);
 }
 
-atc_time_t atc_zoned_date_time_to_epoch_seconds(
-    const AtcZonedDateTime *zdt)
+atc_time_t atc_zoned_date_time_to_epoch_seconds(const AtcZonedDateTime *zdt)
 {
+  // ZonedDateTime memory layout must be same as OffsetDateTime.
   return atc_offset_date_time_to_epoch_seconds(
       (const AtcOffsetDateTime*) zdt);
 }
 
 int8_t atc_zoned_date_time_from_local_date_time(
-    AtcZoneProcessing *processing,
-    const AtcZoneInfo *zone_info,
+    AtcZonedDateTime *zdt,
     const AtcLocalDateTime *ldt,
     uint8_t fold,
-    AtcZonedDateTime *zdt)
+    AtcTimeZone tz)
 {
-  zdt->zone_info = zone_info;
+  zdt->tz = tz;
   return atc_processing_offset_date_time_from_local_date_time(
-      processing,
-      zone_info,
+      tz.zone_processing,
+      tz.zone_info,
       ldt,
       fold,
+      // ZonedDateTime memory layout must be same as OffsetDateTime.
       (AtcOffsetDateTime *) zdt);
 }
 
 int8_t atc_zoned_date_time_convert(
-    AtcZoneProcessing *processing,
-    const AtcZoneInfo *zone_info,
     const AtcZonedDateTime *src,
+    AtcTimeZone dst_tz,
     AtcZonedDateTime *dst)
 {
   atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(src);
   if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
-  return atc_zoned_date_time_from_epoch_seconds(
-      processing, zone_info, epoch_seconds, dst);
+  return atc_zoned_date_time_from_epoch_seconds(dst, epoch_seconds, dst_tz);
 }
 
-int8_t atc_zoned_date_time_normalize(
-    AtcZoneProcessing *processing,
-    AtcZonedDateTime *zdt)
+int8_t atc_zoned_date_time_normalize(AtcZonedDateTime *zdt)
 {
   // Copy the date/time components.
   AtcLocalDateTime ldt;
@@ -74,10 +70,11 @@ int8_t atc_zoned_date_time_normalize(
   ldt.second = zdt->second;
 
   return atc_processing_offset_date_time_from_local_date_time(
-      processing,
-      zdt->zone_info,
+      zdt->tz.zone_processing,
+      zdt->tz.zone_info,
       &ldt,
       zdt->fold,
+      // ZonedDateTime memory layout must be same as OffsetDateTime.
       (AtcOffsetDateTime *) zdt);
 }
 
@@ -87,6 +84,6 @@ void atc_zoned_date_time_print(
 {
   atc_offset_date_time_print(sb, (const AtcOffsetDateTime *) zdt);
   atc_print_char(sb, '[');
-  atc_print_string(sb, atc_zone_info_zone_name(zdt->zone_info));
+  atc_print_string(sb, atc_zone_info_zone_name(zdt->tz.zone_info));
   atc_print_char(sb, ']');
 }

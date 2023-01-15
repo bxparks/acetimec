@@ -29,16 +29,13 @@ void setup() {
 #endif
 
   atc_processing_init(&losAngelesProcessing);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &losAngelesProcessing};
 
   // Create a ZoneDateTime of 2019-03-10T03:00:00, just after DST shift
   struct AtcLocalDateTime localTime = { 2019, 3, 10, 3, 0, 0 };
   struct AtcZonedDateTime startTime;
   atc_zoned_date_time_from_local_date_time(
-      &losAngelesProcessing,
-      &kAtcZoneAmerica_Los_Angeles,
-      &localTime,
-      0 /*fold*/,
-      &startTime);
+      &startTime, &localTime, 0 /*fold*/, tz);
 
   // Print the AceTime epoch seconds
   SERIAL_PORT_MONITOR.print(F("Epoch Seconds: "));
@@ -48,10 +45,7 @@ void setup() {
   // Create a ZonedDateTime from the epoch seconds.
   struct AtcZonedDateTime lat;
   int8_t err = atc_zoned_date_time_from_epoch_seconds(
-      &losAngelesProcessing,
-      &kAtcZoneAmerica_Los_Angeles,
-      epochSeconds,
-      &lat);
+      &lat, epochSeconds, tz);
   if (err) {
     SERIAL_PORT_MONITOR.println("ERROR");
     return;

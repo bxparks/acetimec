@@ -17,6 +17,7 @@
 #include "common.h"
 #include "zone_processing.h"
 #include "zone_info.h"
+#include "time_zone.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -46,8 +47,9 @@ typedef struct AtcZonedDateTime {
 
   /** offset_minutes [-840, 960] */
   int16_t offset_minutes;
-  /** Identifies the time zone. Non-nullable. */
-  const AtcZoneInfo *zone_info;
+
+  /** time zone. */
+  AtcTimeZone tz;
 } AtcZonedDateTime;
 
 /**
@@ -56,10 +58,9 @@ typedef struct AtcZonedDateTime {
  * Return non-zero error code upon failure.
  */
 int8_t atc_zoned_date_time_from_epoch_seconds(
-    AtcZoneProcessing *processing,
-    const AtcZoneInfo *zone_info,
+    AtcZonedDateTime *zdt,
     atc_time_t epoch_seconds,
-    AtcZonedDateTime *zdt);
+    AtcTimeZone tz);
 
 /**
  * Convert AtcZonedDateTime to epoch seconds using the time zone
@@ -74,21 +75,19 @@ atc_time_t atc_zoned_date_time_to_epoch_seconds(
  * Return non-zero error code upon failure.
  */
 int8_t atc_zoned_date_time_from_local_date_time(
-    AtcZoneProcessing *processing,
-    const AtcZoneInfo *zone_info,
+    AtcZonedDateTime *zdt,
     const AtcLocalDateTime *ldt,
     uint8_t fold,
-    AtcZonedDateTime *zdt);
+    AtcTimeZone tz);
 
 /**
  * Convert the source AtcZoneDateTime (src) into the destination
- * AtcZonedDateTime (dst) using a different time zone. The src and dst is
+ * AtcZonedDateTime (dst) using the new time zone (dst_tz). The src and dst are
  * permitted to be the same instance. Returns kAtcErrGeneric upon failure.
  */
 int8_t atc_zoned_date_time_convert(
-    AtcZoneProcessing *processing,
-    const AtcZoneInfo *zone_info,
     const AtcZonedDateTime *src,
+    AtcTimeZone dst_tz,
     AtcZonedDateTime *dst);
 
 /**
@@ -97,12 +96,11 @@ int8_t atc_zoned_date_time_convert(
  * components (e.g. incrementing the day by one).
  * Return non-zero error code upon failure.
  */
-int8_t atc_zoned_date_time_normalize(
-    AtcZoneProcessing *processing,
-    AtcZonedDateTime *zdt);
+int8_t atc_zoned_date_time_normalize(AtcZonedDateTime *zdt);
 
 /** Print the zoned date time in ISO 8601 format. */
 void atc_zoned_date_time_print(
+  // TODO: switch order of arguments, putting zdt first
     AtcStringBuffer *sb,
     const AtcZonedDateTime *zdt);
 
