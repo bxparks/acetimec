@@ -41,7 +41,7 @@ latter documents.
     * [AtcOffsetDateTime](#AtcOffsetDateTime)
     * [AtcZonedDateTime](#AtcZonedDateTime)
     * [AtcTimeZone](#AtcTimeZone)
-    * [AtcZoneProcessing](#AtcZoneProcessing)
+    * [AtcZoneProcessor](#AtcZoneProcessor)
     * [AtcZoneInfo](#AtcZoneInfo)
     * [Zone Database and Registry](#ZoneDatabaseAndRegistry)
     * [AtcZonedExtra](#AtcZonedExtra)
@@ -59,13 +59,13 @@ The expected usage is something like this:
 #include <stdio.h>
 #include <acetimec.h>
 
-AtcZoneProcessing processing_la; // Los Angeles
-AtcZoneProcessing processing_ny; // New York
+AtcZoneProcessor processor_la; // Los Angeles
+AtcZoneProcessor processor_ny; // New York
 
 void setup()
 {
-  atc_processing_init(&processing_la);
-  atc_processing_init(&processing_ny);
+  atc_processor_init(&processor_la);
+  atc_processor_init(&processor_ny);
 }
 
 void print_dates()
@@ -76,7 +76,7 @@ void print_dates()
   printf("Epoch Seconds: %ld\n", (long) seconds);
 
   // Convert epoch seconds to date/time components for given time zone.
-  AtcTimeZone tzla = {&kAtcZoneAmerica_Los_Angeles, &processing_la};
+  AtcTimeZone tzla = {&kAtcZoneAmerica_Los_Angeles, &processor_la};
   AtcZonedDateTime zdtla;
   int8_t err = atc_zoned_date_time_from_epoch_seconds(&zdtla, seconds, tzla);
   if (err) { ... }
@@ -122,7 +122,7 @@ void print_dates()
   printf("======== ZonedDateTime to different time zone\n");
 
   // convert America/Los_Angles to America/New_York
-  AtcTimeZone tzny = {&kAtcZoneAmerica_New_York, &processing_ny};
+  AtcTimeZone tzny = {&kAtcZoneAmerica_New_York, &processor_ny};
   AtcZonedDateTime zdtny;
   err = atc_zoned_date_time_convert(&zdtla, tzny, &zdtny);
   if (err) { ... }
@@ -260,9 +260,9 @@ The following functions are used to get and set the epoch year:
     * Sets the current epoch year to `year`.
 
 **Warning**: If the epoch year is changed using the
-`atc_set_current_epoch_year()` function, then the `atc_processing_init()`
-function (see [AtcZoneProcessing](#AtcZoneProcessing)) must be called to
-reinitialize any instance of `AtcZoneProcessing` that may have used a different
+`atc_set_current_epoch_year()` function, then the `atc_processor_init()`
+function (see [AtcZoneProcessor](#AtcZoneProcessor)) must be called to
+reinitialize any instance of `AtcZoneProcessor` that may have used a different
 epoch year.
 
 The following convenience functions return the range of validity of the
@@ -570,55 +570,55 @@ These conventions are meant to be identical to the one described by the Python
 
 The `AtcTimeZone` structure represents a time zone from the IANA TZ database. It
 consists of a pair of pointers, an `AtcZoneInfo*` pointer and an
-`AtcZoneProcessing*` pointer, like this:
+`AtcZoneProcessor*` pointer, like this:
 
 ```C++
 typedef struct AtcTimeZone {
   const AtcZoneInfo *zone_info;
-  AtcZoneProcessing *zone_processing;
+  AtcZoneProcessor *zone_processor;
 } AtcTimeZone;
 ```
 
 Instances of `AtcTimeZone` are expected to be passed around by value into
 functions which need to be provided a time zone.
 
-<a name="AtcZoneProcessing"></a>
-### AtcZoneProcessing
+<a name="AtcZoneProcessor"></a>
+### AtcZoneProcessor
 
-The `AtcZoneProcessing` data structure provides a workspace for the various
+The `AtcZoneProcessor` data structure provides a workspace for the various
 internal functions that perform time zone calculations. The internal details
 should be considered to be private and subject to change without notice. One of
 this data type should be created statically for each time zone used by the
 downstream application. (Another possibility is to create one on the heap at
 startup time, then never freed.)
 
-Each time zone should be assigned an instance of the `AtcZoneProcessing`. An
-instance of `AtcZoneProcessing` should be initialized only once, usually at the
+Each time zone should be assigned an instance of the `AtcZoneProcessor`. An
+instance of `AtcZoneProcessor` should be initialized only once, usually at the
 beginning of the application:
 
 ```C
-AtcZoneProcessing los_angeles_processing;
+AtcZoneProcessor los_angeles_processor;
 
 void setup()
 {
-  atc_processing_init(&los_angeles_processing);
+  atc_processor_init(&los_angeles_processor);
 }
 ```
 
-The `AtcZoneProcessing` instance keeps a cache of UTC offset transitions
+The `AtcZoneProcessor` instance keeps a cache of UTC offset transitions
 spanning a year. Multiple calls to various `atc_zoned_date_time_XXX()` functions
-with the same `AtcZoneProcessing` instance within a given year will execute much
+with the same `AtcZoneProcessor` instance within a given year will execute much
 faster than other years.
 
-If memory is tight, an `AtcZoneProcessing` instance could be used by multiple
+If memory is tight, an `AtcZoneProcessor` instance could be used by multiple
 time zones (i.e. different `AtcZoneInfo`). However, each time the time zone
-changes, the internal cache of the `AtcZoneProcessing` instance will be cleared
+changes, the internal cache of the `AtcZoneProcessor` instance will be cleared
 and recalculated, so the execution speed may decrease significantly.
 
 **Warning**: If the epoch year is changed using the
 `atc_set_current_epoch_year()` function (see [Epoch](#Epoch)), then the
-`atc_processing_init()` function must be called to reinitialize any instance of
-`AtcZoneProcessing` that may have used a different epoch year.
+`atc_processor_init()` function must be called to reinitialize any instance of
+`AtcZoneProcessor` that may have used a different epoch year.
 
 <a name="AtcZoneInfo"></a>
 ### AtcZoneInfo

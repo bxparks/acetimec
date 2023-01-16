@@ -14,7 +14,7 @@
   #define SERIAL_PORT_MONITOR Serial
 #endif
 
-struct AtcZoneProcessing losAngelesProcessing;
+struct AtcZoneProcessor losAngelesProcessor;
 
 void setup() {
 #if ! defined(EPOXY_DUINO)
@@ -28,8 +28,8 @@ void setup() {
   Serial.setLineModeUnix();                                                     
 #endif
 
-  atc_processing_init(&losAngelesProcessing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &losAngelesProcessing};
+  atc_processor_init(&losAngelesProcessor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &losAngelesProcessor};
 
   // Create a ZoneDateTime of 2019-03-10T03:00:00, just after DST shift
   struct AtcLocalDateTime localTime = { 2019, 3, 10, 3, 0, 0 };

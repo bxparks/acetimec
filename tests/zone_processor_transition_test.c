@@ -1,5 +1,5 @@
 /*
- * Unit tests for zone_processing.c. Much of this was adapted from
+ * Unit tests for zone_processor.c. Much of this was adapted from
  * ExtendedZoneProcessorTransitionTest.ino from the AceTime library.
  */
 
@@ -37,14 +37,14 @@ static void check_unique_transitions(
 
 static void validate_zone(
   AcuContext *acu_context,
-  AtcZoneProcessing *processing,
+  AtcZoneProcessor *processor,
   const AtcZoneInfo *info,
   int16_t start_year,
   int16_t until_year)
 {
   for (int16_t year = start_year; year < until_year; year++) {
-    atc_processing_init_for_year(processing, info, year);
-    AtcTransitionStorage *storage = &processing->transition_storage;
+    atc_processor_init_for_year(processor, info, year);
+    AtcTransitionStorage *storage = &processor->transition_storage;
     AtcTransition **begin =
         atc_transition_storage_get_active_pool_begin(storage);
     AtcTransition **end =
@@ -62,8 +62,8 @@ static void validate_zone(
 
 ACU_TEST(test_transitions_for_all_zones_all_years) {
   int16_t saved_epoch_year = atc_get_current_epoch_year();
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
 
   for (uint16_t i = 0; i < kAtcZoneRegistrySize; i++) {
     const AtcZoneInfo *info = kAtcZoneRegistry[i];
@@ -83,7 +83,7 @@ ACU_TEST(test_transitions_for_all_zones_all_years) {
 
       ACU_ASSERT_NO_FATAL_FAILURE(
           validate_zone(
-              acu_context, &processing, info, start_year, until_year));
+              acu_context, &processor, info, start_year, until_year));
     }
   }
 

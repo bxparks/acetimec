@@ -11,8 +11,8 @@ TARGETS := \
 	string_buffer_test.out \
 	transition_test.out \
 	zone_info_utils_test.out \
-	zone_processing_test.out \
-	zone_processing_transition_test.out \
+	zone_processor_test.out \
+	zone_processor_transition_test.out \
 	zone_registrar_test.out \
 	zoned_date_time_test.out \
 	zoned_extra_test.out \
@@ -58,10 +58,10 @@ transition_test.out: transition_test.o acetimec.a
 zone_info_utils_test.out: zone_info_utils_test.o acetimec.a
 	$(CC) -o $@ $^
 
-zone_processing_test.out: zone_processing_test.o acetimec.a
+zone_processor_test.out: zone_processor_test.o acetimec.a
 	$(CC) -o $@ $^
 
-zone_processing_transition_test.out: zone_processing_transition_test.o acetimec.a
+zone_processor_transition_test.out: zone_processor_transition_test.o acetimec.a
 	$(CC) -o $@ $^
 
 zone_registrar_test.out: zone_registrar_test.o acetimec.a
@@ -92,9 +92,9 @@ transition_test.o: transition_test.c acetimec.a
 
 zone_info_utils_test.o: zone_info_utils_test.c acetimec.a
 
-zone_processing_test.o: zone_processing_test.c acetimec.a
+zone_processor_test.o: zone_processor_test.c acetimec.a
 
-zone_processing_transition_test.o: zone_processing_transition_test.c acetimec.a
+zone_processor_transition_test.o: zone_processor_transition_test.c acetimec.a
 
 zone_registrar_test.o: zone_registrar_test.c acetimec.a
 

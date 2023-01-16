@@ -313,7 +313,7 @@ const char *atc_transition_extract_letter(const AtcTransition *t)
   // RULES point to a named rule, and LETTER is a single, printable character.
   // Return the letter_buf which contains a NUL-terminated string containing the
   // single character, as initialized in
-  // atc_processing_create_transition_for_year().
+  // atc_processor_create_transition_for_year().
   char letter = t->rule->letter;
   if (letter >= 32) {
     return t->letter_buf;
