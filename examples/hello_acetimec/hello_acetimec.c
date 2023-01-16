@@ -2,14 +2,14 @@
 #include <stdio.h>
 #include <acetimec.h>
 
-AtcZoneProcessing processing_la; // Los Angeles
-AtcZoneProcessing processing_ny; // New York
+AtcZoneProcessor processor_la; // Los Angeles
+AtcZoneProcessor processor_ny; // New York
 
-// initialize the time zone processing workspace
+// initialize the time zone processor workspace
 void setup()
 {
-  atc_processing_init(&processing_la);
-  atc_processing_init(&processing_ny);
+  atc_processor_init(&processor_la);
+  atc_processor_init(&processor_ny);
 }
 
 void print_dates()
@@ -20,7 +20,7 @@ void print_dates()
   printf("Epoch Seconds: %ld\n", (long) seconds);
 
   // Convert epoch seconds to date/time components for given time zone.
-  AtcTimeZone tzla = {&kAtcZoneAmerica_Los_Angeles, &processing_la};
+  AtcTimeZone tzla = {&kAtcZoneAmerica_Los_Angeles, &processor_la};
   AtcZonedDateTime zdtla;
   int8_t err = atc_zoned_date_time_from_epoch_seconds(&zdtla, seconds, tzla);
   if (err) { 
@@ -79,7 +79,7 @@ void print_dates()
   printf("======== ZonedDateTime to different time zone\n");
 
   // convert America/Los_Angles to America/New_York
-  AtcTimeZone tzny = {&kAtcZoneAmerica_New_York, &processing_ny};
+  AtcTimeZone tzny = {&kAtcZoneAmerica_New_York, &processor_ny};
   AtcZonedDateTime zdtny;
   err = atc_zoned_date_time_convert(&zdtla, tzny, &zdtny);
   if (err) { 

@@ -12,9 +12,9 @@ ACU_TEST(test_atc_zoned_extra_types_equal_find_result_types)
 
 ACU_TEST(test_atc_zoned_extra_from_epoch_seconds_invalid)
 {
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneEtc_UTC, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneEtc_UTC, &processor};
 
   AtcZonedExtra zet;
   atc_time_t epoch_seconds = kAtcInvalidEpochSeconds;
@@ -26,9 +26,9 @@ ACU_TEST(test_atc_zoned_extra_from_epoch_seconds_invalid)
 
 ACU_TEST(test_zoned_extra_from_epoch_seconds_fall_back)
 {
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   // Start our sampling at 01:29:00-07:00, which is 31 minutes before the DST
   // fall-back.
@@ -59,9 +59,9 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_fall_back)
 
 ACU_TEST(test_zoned_extra_from_epoch_seconds_spring_forward)
 {
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   // Start our sampling at 01:29:00-08:00, which is 31 minutes before the DST
   // spring forward.
@@ -92,9 +92,9 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_spring_forward)
 
 ACU_TEST(test_zoned_extra_from_local_date_time_fall_back)
 {
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   // Start our sampling at 01:29:00(fold=0), which is 31 minutes before the DST
   // fall-back, and occurs within an overlap.
@@ -123,9 +123,9 @@ ACU_TEST(test_zoned_extra_from_local_date_time_fall_back)
 
 ACU_TEST(test_zoned_extra_from_local_date_time_spring_forward)
 {
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   AtcLocalDateTime ldt = { 2022, 3, 13, 2, 29, 0 };
 

@@ -5,7 +5,7 @@
 
 #include "local_date.h"
 #include "local_date_time.h"
-#include "zone_processing.h"
+#include "zone_processor.h"
 #include "zoned_date_time.h"
 #include "zone_info_utils.h"
 
@@ -17,8 +17,8 @@ int8_t atc_zoned_date_time_from_epoch_seconds(
   if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
 
   zdt->tz = tz;
-  return atc_processing_offset_date_time_from_epoch_seconds(
-      tz.zone_processing,
+  return atc_processor_offset_date_time_from_epoch_seconds(
+      tz.zone_processor,
       tz.zone_info,
       epoch_seconds,
       // ZonedDateTime memory layout must be same as OffsetDateTime.
@@ -39,8 +39,8 @@ int8_t atc_zoned_date_time_from_local_date_time(
     AtcTimeZone tz)
 {
   zdt->tz = tz;
-  return atc_processing_offset_date_time_from_local_date_time(
-      tz.zone_processing,
+  return atc_processor_offset_date_time_from_local_date_time(
+      tz.zone_processor,
       tz.zone_info,
       ldt,
       fold,
@@ -69,8 +69,8 @@ int8_t atc_zoned_date_time_normalize(AtcZonedDateTime *zdt)
   ldt.minute = zdt->minute;
   ldt.second = zdt->second;
 
-  return atc_processing_offset_date_time_from_local_date_time(
-      zdt->tz.zone_processing,
+  return atc_processor_offset_date_time_from_local_date_time(
+      zdt->tz.zone_processor,
       zdt->tz.zone_info,
       &ldt,
       zdt->fold,

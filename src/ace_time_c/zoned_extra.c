@@ -5,7 +5,7 @@
 
 #include <string.h>
 #include "local_date.h"
-#include "zone_processing.h"
+#include "zone_processor.h"
 #include "zoned_extra.h"
 
 int8_t atc_zoned_extra_from_epoch_seconds(
@@ -16,8 +16,8 @@ int8_t atc_zoned_extra_from_epoch_seconds(
   if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
 
   AtcFindResult result;
-  int8_t err = atc_processing_find_by_epoch_seconds(
-      tz.zone_processing, tz.zone_info, epoch_seconds, &result);
+  int8_t err = atc_processor_find_by_epoch_seconds(
+      tz.zone_processor, tz.zone_info, epoch_seconds, &result);
   if (err) return err;
 
   extra->type = result.type;
@@ -38,8 +38,8 @@ int8_t atc_zoned_extra_from_local_date_time(
     AtcTimeZone tz)
 {
   AtcFindResult result;
-  int8_t err = atc_processing_find_by_local_date_time(
-      tz.zone_processing, tz.zone_info, ldt, fold, &result);
+  int8_t err = atc_processor_find_by_local_date_time(
+      tz.zone_processor, tz.zone_info, ldt, fold, &result);
   if (err) return err;
 
   extra->type = result.type;

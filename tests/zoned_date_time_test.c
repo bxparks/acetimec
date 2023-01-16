@@ -13,9 +13,9 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds)
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2000);
 
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   AtcZonedDateTime zdt;
   atc_time_t epoch_seconds = 0;
@@ -42,9 +42,9 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_epoch2050)
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2050);
 
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   AtcZonedDateTime zdt;
   atc_time_t epoch_seconds = 0;
@@ -71,9 +71,9 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_unix_max)
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2000);
 
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneEtc_UTC, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneEtc_UTC, &processor};
 
   AtcZonedDateTime zdt;
   atc_time_t epoch_seconds = 1200798847;
@@ -97,9 +97,9 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_unix_max)
 
 ACU_TEST(test_zoned_date_time_from_epoch_seconds_invalid)
 {
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneEtc_UTC, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneEtc_UTC, &processor};
 
   AtcZonedDateTime zdt;
   atc_time_t epoch_seconds = kAtcInvalidEpochSeconds;
@@ -113,9 +113,9 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_fall_back)
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2000);
 
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   // Start our sampling at 01:29:00-07:00, which is 31 minutes before the DST
   // fall-back.
@@ -173,9 +173,9 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward)
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2000);
 
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   // Start our sampling at 01:29:00-08:00, which is 31 minutes before the DST
   // spring forward.
@@ -219,9 +219,9 @@ ACU_TEST(test_zoned_date_time_from_local_date_time)
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2000);
 
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   AtcLocalDateTime ldt = { 2000, 1, 1, 0, 0, 0 };
   AtcZonedDateTime zdt;
@@ -264,9 +264,9 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_epoch2050)
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2050);
 
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   AtcLocalDateTime ldt = { 2050, 1, 1, 0, 0, 0 };
   AtcZonedDateTime zdt;
@@ -305,9 +305,9 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_epoch2050)
 
 ACU_TEST(test_zoned_date_time_from_local_date_time_before_dst)
 {
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   // 01:59 should resolve to 01:59-08:00
   AtcZonedDateTime zdt;
@@ -343,9 +343,9 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_dst)
 
 ACU_TEST(test_zoned_date_time_from_local_date_time_in_gap)
 {
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   // 02:01 doesn't exist.
   // Setting (fold=0) causes the first transition to be selected, which has a
@@ -386,9 +386,9 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_gap)
 
 ACU_TEST(test_zoned_date_time_from_local_date_time_in_dst)
 {
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   // 03:01 should resolve to 03:01-07:00.
   AtcLocalDateTime ldt = { 2018, 3, 11, 3, 1, 0 };
@@ -424,9 +424,9 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_dst)
 
 ACU_TEST(test_zoned_date_time_from_local_date_time_before_sdt)
 {
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   // 00:59 is an hour before the DST->STD transition, so should return
   // 00:59-07:00.
@@ -463,9 +463,9 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_sdt)
 
 ACU_TEST(test_zoned_date_time_from_local_date_time_in_overlap)
 {
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   // There were two instances of 01:01
 
@@ -503,9 +503,9 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_overlap)
 
 ACU_TEST(test_zoned_date_time_from_local_date_time_after_overlap)
 {
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   // 02:01 should resolve to 02:01-08:00
   AtcZonedDateTime zdt;
@@ -543,10 +543,10 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_after_overlap)
 
 ACU_TEST(test_zoned_date_time_convert)
 {
-  AtcZoneProcessing los_angeles;
-  AtcZoneProcessing new_york;
-  atc_processing_init(&los_angeles);
-  atc_processing_init(&new_york);
+  AtcZoneProcessor los_angeles;
+  AtcZoneProcessor new_york;
+  atc_processor_init(&los_angeles);
+  atc_processor_init(&new_york);
   AtcTimeZone tzla = {&kAtcZoneAmerica_Los_Angeles, &los_angeles};
   AtcTimeZone tzny = {&kAtcZoneAmerica_New_York, &new_york};
 
@@ -575,9 +575,9 @@ ACU_TEST(test_zoned_date_time_convert)
 
 ACU_TEST(test_zoned_date_time_normalize)
 {
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   // 2018-03-11 02:30:00-08:00(fold=0) is in the gap. After normalization, it
   // should be 03:30-07:00.
@@ -598,9 +598,9 @@ ACU_TEST(test_zoned_date_time_normalize)
 
 ACU_TEST(test_zoned_date_time_print)
 {
-  AtcZoneProcessing processing;
-  atc_processing_init(&processing);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processing};
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
   AtcZonedDateTime zdt;
   AtcLocalDateTime ldt = {2018, 3, 11, 2, 30, 0};

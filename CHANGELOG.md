@@ -8,7 +8,9 @@
         * Fix overflow bug.
     * `zonedb`
         * Rename `kAtcPolicyXxx` to `kAtcZonePolicyXxx` for consistency.
-    * `zone_processing`
+    * `zone_processor.h`
+        * Renamed from `zone_processing.h`.
+        * Rename `AtcZoneProcessing` to `AtcZoneProcessor`.
         * Incorporate same algorithm as AceTime
         * Unify `find_by_epochseconds()` and `find_by_local_date_time()` using a
           common `FindResult`.

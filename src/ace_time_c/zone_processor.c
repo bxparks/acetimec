@@ -10,7 +10,7 @@
 #include "local_date.h" // atc_local_date_days_in_year_month()
 #include "zone_info_utils.h"
 #include "offset_date_time.h"
-#include "zone_processing.h"
+#include "zone_processor.h"
 
 //---------------------------------------------------------------------------
 
@@ -119,7 +119,7 @@ void atc_create_matching_era(
   new_match->last_delta_minutes = 0;
 }
 
-AtcMonthDay atc_processing_calc_start_day_of_month(
+AtcMonthDay atc_processor_calc_start_day_of_month(
     int16_t year,
     uint8_t month,
     uint8_t on_day_of_week,
@@ -170,7 +170,7 @@ AtcMonthDay atc_processing_calc_start_day_of_month(
 // Step 1
 //---------------------------------------------------------------------------
 
-uint8_t atc_processing_find_matches(
+uint8_t atc_processor_find_matches(
   const AtcZoneInfo *zone_info,
   AtcYearMonth start_ym,
   AtcYearMonth until_ym,
@@ -201,12 +201,12 @@ uint8_t atc_processing_find_matches(
 // Step 2A: Simple Match
 // ---------------------------------------------------------------------------
 
-void atc_processing_get_transition_time(
+void atc_processor_get_transition_time(
     int16_t year,
     const AtcZoneRule* rule,
     AtcDateTuple *dt)
 {
-  AtcMonthDay md = atc_processing_calc_start_day_of_month(
+  AtcMonthDay md = atc_processor_calc_start_day_of_month(
       year,
       rule->in_month,
       rule->on_day_of_week,
@@ -219,7 +219,7 @@ void atc_processing_get_transition_time(
   dt->suffix = atc_zone_rule_at_suffix(rule);
 }
 
-void atc_processing_create_transition_for_year(
+void atc_processor_create_transition_for_year(
     AtcTransition *t,
     int16_t year,
     const AtcZoneRule *rule,
@@ -231,7 +231,7 @@ void atc_processing_create_transition_for_year(
   t->letter_buf[0] = '\0';
 
   if (rule) {
-    atc_processing_get_transition_time(year, rule, &t->transition_time);
+    atc_processor_get_transition_time(year, rule, &t->transition_time);
     t->delta_minutes = atc_zone_rule_dst_offset_minutes(rule);
     char letter = rule->letter;
     if (letter >= 32) {
@@ -243,7 +243,7 @@ void atc_processing_create_transition_for_year(
     } else {
       // rule->letter is a long string, so is referenced as an offset index into
       // the ZonePolicy.letters array. The string cannot fit in letter_buf, so
-      // will be retrieved by the atc_processing_long_letter() function.
+      // will be retrieved by the atc_processor_long_letter() function.
     }
   } else {
     // Create a Transition using the MatchingEra for the transitionTime.
@@ -253,12 +253,12 @@ void atc_processing_create_transition_for_year(
   }
 }
 
-void atc_processing_create_transitions_from_simple_match(
+void atc_processor_create_transitions_from_simple_match(
     AtcTransitionStorage *ts,
     AtcMatchingEra *match)
 {
   AtcTransition *free_agent = atc_transition_storage_get_free_agent(ts);
-  atc_processing_create_transition_for_year(free_agent, 0, NULL, match);
+  atc_processor_create_transition_for_year(free_agent, 0, NULL, match);
   free_agent->match_status = kAtcMatchStatusExactMatch;
   match->last_offset_minutes = free_agent->offset_minutes;
   match->last_delta_minutes = free_agent->delta_minutes;
@@ -269,7 +269,7 @@ void atc_processing_create_transitions_from_simple_match(
 // Step 2B: Pass 1
 //---------------------------------------------------------------------------
 
-uint8_t atc_processing_calc_interior_years(
+uint8_t atc_processor_calc_interior_years(
     int16_t* interior_years,
     uint8_t max_interior_years,
     int16_t from_year,
@@ -288,7 +288,7 @@ uint8_t atc_processing_calc_interior_years(
   return i;
 }
 
-int16_t atc_processing_get_most_recent_prior_year(
+int16_t atc_processor_get_most_recent_prior_year(
     int16_t from_year, int16_t to_year,
     int16_t start_year, int16_t end_year)
 {
@@ -305,7 +305,7 @@ int16_t atc_processing_get_most_recent_prior_year(
   }
 }
 
-void atc_processing_find_candidate_transitions(
+void atc_processor_find_candidate_transitions(
     AtcTransitionStorage *ts,
     AtcMatchingEra *match)
 {
@@ -321,7 +321,7 @@ void atc_processing_find_candidate_transitions(
 
     // Add transitions for interior years
     int16_t interior_years[kAtcMaxInteriorYears];
-    uint8_t num_years = atc_processing_calc_interior_years(
+    uint8_t num_years = atc_processor_calc_interior_years(
         interior_years,
         kAtcMaxInteriorYears,
         rule->from_year,
@@ -331,7 +331,7 @@ void atc_processing_find_candidate_transitions(
     for (uint8_t y = 0; y < num_years; y++) {
       int16_t year = interior_years[y];
       AtcTransition *t = atc_transition_storage_get_free_agent(ts);
-      atc_processing_create_transition_for_year(t, year, rule, match);
+      atc_processor_create_transition_for_year(t, year, rule, match);
       uint8_t status = atc_transition_compare_to_match_fuzzy(t, match);
       if (status == kAtcMatchStatusPrior) {
         atc_transition_storage_set_free_agent_as_prior_if_valid(ts);
@@ -344,12 +344,12 @@ void atc_processing_find_candidate_transitions(
     }
 
     // Add Transition for prior year
-    int16_t prior_year = atc_processing_get_most_recent_prior_year(
+    int16_t prior_year = atc_processor_get_most_recent_prior_year(
         rule->from_year, rule->to_year,
         start_year, end_year);
     if (prior_year != kAtcInvalidYear) {
       AtcTransition *t = atc_transition_storage_get_free_agent(ts);
-      atc_processing_create_transition_for_year(t, prior_year, rule, match);
+      atc_processor_create_transition_for_year(t, prior_year, rule, match);
       atc_transition_storage_set_free_agent_as_prior_if_valid(ts);
     }
   }
@@ -365,7 +365,7 @@ void atc_processing_find_candidate_transitions(
 // Step 2B: Pass 3
 //---------------------------------------------------------------------------
 
-void atc_processing_process_transition_match_status(
+void atc_processor_process_transition_match_status(
     AtcTransition *transition,
     AtcTransition **prior)
 {
@@ -394,14 +394,14 @@ void atc_processing_process_transition_match_status(
   }
 }
 
-void atc_processing_select_active_transitions(
+void atc_processor_select_active_transitions(
     AtcTransition **begin,
     AtcTransition **end)
 {
   AtcTransition *prior = NULL;
   for (AtcTransition **iter = begin; iter != end; ++iter) {
     AtcTransition *transition = *iter;
-    atc_processing_process_transition_match_status(transition, &prior);
+    atc_processor_process_transition_match_status(transition, &prior);
   }
 
   // If the latest prior transition is found, shift it to start at the
@@ -415,14 +415,14 @@ void atc_processing_select_active_transitions(
 // Step 2B
 //---------------------------------------------------------------------------
 
-void atc_processing_create_transitions_from_named_match(
+void atc_processor_create_transitions_from_named_match(
     AtcTransitionStorage *ts,
     AtcMatchingEra *match)
 {
   atc_transition_storage_reset_candidate_pool(ts);
 
   // Pass 1: Find candidate transitions using whole years.
-  atc_processing_find_candidate_transitions(ts, match);
+  atc_processor_find_candidate_transitions(ts, match);
 
   // Pass 2: Fix the transitions times, converting 's' and 'u' into 'w'
   // uniformly.
@@ -432,7 +432,7 @@ void atc_processing_create_transitions_from_named_match(
 
   // Pass 3: Select only those Transitions which overlap with the actual
   // start and until times of the MatchingEra.
-  atc_processing_select_active_transitions(
+  atc_processor_select_active_transitions(
       &ts->transitions[ts->index_candidate],
       &ts->transitions[ts->index_free]);
   AtcTransition *last_transition =
@@ -445,34 +445,34 @@ void atc_processing_create_transitions_from_named_match(
 // Step 2
 //---------------------------------------------------------------------------
 
-void atc_processing_create_transitions_for_match(
+void atc_processor_create_transitions_for_match(
   AtcTransitionStorage *ts,
   AtcMatchingEra *match)
 {
   const AtcZonePolicy *policy = match->era->zone_policy;
   if (policy == NULL) {
     // Step 2A
-    atc_processing_create_transitions_from_simple_match(ts, match);
+    atc_processor_create_transitions_from_simple_match(ts, match);
   } else {
     // Step 2B
-    atc_processing_create_transitions_from_named_match(ts, match);
+    atc_processor_create_transitions_from_named_match(ts, match);
   }
 }
 
-void atc_processing_create_transitions(
+void atc_processor_create_transitions(
   AtcTransitionStorage *ts,
   AtcMatchingEra *matches,
   uint8_t num_matches)
 {
   for (uint8_t i = 0; i < num_matches; i++) {
-    atc_processing_create_transitions_for_match(ts, &matches[i]);
+    atc_processor_create_transitions_for_match(ts, &matches[i]);
   }
 }
 
 //---------------------------------------------------------------------------
 // Step 4
 //---------------------------------------------------------------------------
-void atc_processing_generate_start_until_times(
+void atc_processor_generate_start_until_times(
     AtcTransition **begin,
     AtcTransition **end)
 {
@@ -541,7 +541,7 @@ void atc_processing_generate_start_until_times(
 // Step 5
 //---------------------------------------------------------------------------
 
-void atc_processing_create_abbreviation(
+void atc_processor_create_abbreviation(
     char* dest,
     uint8_t dest_size,
     const char* format,
@@ -581,13 +581,13 @@ void atc_processing_create_abbreviation(
   }
 }
 
-void atc_processing_calc_abbreviations(
+void atc_processor_calc_abbreviations(
     AtcTransition **begin,
     AtcTransition **end)
 {
   for (AtcTransition **iter = begin; iter != end; ++iter) {
     AtcTransition * const t = *iter;
-    atc_processing_create_abbreviation(
+    atc_processor_create_abbreviation(
         t->abbrev,
         kAtcAbbrevSize,
         t->match->era->format,
@@ -597,38 +597,38 @@ void atc_processing_calc_abbreviations(
 }
 
 //---------------------------------------------------------------------------
-// Initialization of AtcZoneProcessing.
+// Initialization of AtcZoneProcessor.
 //---------------------------------------------------------------------------
 
-void atc_processing_init(AtcZoneProcessing *processing)
+void atc_processor_init(AtcZoneProcessor *processor)
 {
-  processing->zone_info = NULL;
-  processing->is_filled = 0;
-  processing->num_matches = 0;
+  processor->zone_info = NULL;
+  processor->is_filled = 0;
+  processor->num_matches = 0;
 }
 
-bool atc_processing_is_filled_for_year(
-  AtcZoneProcessing *processing,
+bool atc_processor_is_filled_for_year(
+  AtcZoneProcessor *processor,
   int16_t year)
 {
-  return processing->is_filled && (year == processing->year);
+  return processor->is_filled && (year == processor->year);
 }
 
-int8_t atc_processing_init_for_year(
-  AtcZoneProcessing *processing,
+int8_t atc_processor_init_for_year(
+  AtcZoneProcessor *processor,
   const AtcZoneInfo *zone_info,
   int16_t year)
 {
-  if (processing->zone_info != zone_info) {
-    atc_processing_init(processing);
-    processing->zone_info = zone_info;
+  if (processor->zone_info != zone_info) {
+    atc_processor_init(processor);
+    processor->zone_info = zone_info;
   }
-  if (atc_processing_is_filled_for_year(processing, year)) return kAtcErrOk;
+  if (atc_processor_is_filled_for_year(processor, year)) return kAtcErrOk;
 
-  processing->year = year;
-  processing->num_matches = 0;
-  atc_transition_storage_init(&processing->transition_storage);
-  const AtcZoneContext *context = processing->zone_info->zone_context;
+  processor->year = year;
+  processor->num_matches = 0;
+  atc_transition_storage_init(&processor->transition_storage);
+  const AtcZoneContext *context = processor->zone_info->zone_context;
   if (year < context->start_year - 1 || context->until_year < year) {
     return kAtcErrGeneric;
   }
@@ -636,64 +636,64 @@ int8_t atc_processing_init_for_year(
   AtcYearMonth until_ym = { year + 1, 2 };
 
   // Step 1: Find matches.
-  uint8_t num_matches = atc_processing_find_matches(
-    processing->zone_info,
+  uint8_t num_matches = atc_processor_find_matches(
+    processor->zone_info,
     start_ym,
     until_ym,
-    processing->matches,
+    processor->matches,
     kAtcMaxMatches);
 
   // Step 2: Create Transitions.
-  atc_processing_create_transitions(
-    &processing->transition_storage,
-    processing->matches,
+  atc_processor_create_transitions(
+    &processor->transition_storage,
+    processor->matches,
     num_matches);
 
   // Step 3: Fix transition times of active transitions.
-  AtcTransitionStorage *ts = &processing->transition_storage;
+  AtcTransitionStorage *ts = &processor->transition_storage;
   AtcTransition **begin = &ts->transitions[0];
   AtcTransition **end = &ts->transitions[ts->index_prior];
   atc_transition_fix_times(begin, end);
 
   // Step 4: Generate start and until times.
-  atc_processing_generate_start_until_times(begin, end);
+  atc_processor_generate_start_until_times(begin, end);
 
   // Step 5: Calc abbreviations.
-  atc_processing_calc_abbreviations(begin, end);
+  atc_processor_calc_abbreviations(begin, end);
 
   return kAtcErrOk;
 }
 
-int8_t atc_processing_init_for_epoch_seconds(
-  AtcZoneProcessing *processing,
+int8_t atc_processor_init_for_epoch_seconds(
+  AtcZoneProcessor *processor,
   const AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds)
 {
-  if (processing->zone_info != zone_info) {
-    atc_processing_init(processing);
-    processing->zone_info = zone_info;
+  if (processor->zone_info != zone_info) {
+    atc_processor_init(processor);
+    processor->zone_info = zone_info;
   }
 
   AtcLocalDateTime ldt;
   int8_t err = atc_local_date_time_from_epoch_seconds(&ldt, epoch_seconds);
   if (err) return err;
-  return atc_processing_init_for_year(processing, zone_info, ldt.year);
+  return atc_processor_init_for_year(processor, zone_info, ldt.year);
 }
 
 //---------------------------------------------------------------------------
 
-int8_t atc_processing_find_by_epoch_seconds(
-    AtcZoneProcessing *processing,
+int8_t atc_processor_find_by_epoch_seconds(
+    AtcZoneProcessor *processor,
     const AtcZoneInfo *zone_info,
     atc_time_t epoch_seconds,
     AtcFindResult *result) {
 
-  int8_t err = atc_processing_init_for_epoch_seconds(
-      processing, zone_info, epoch_seconds);
+  int8_t err = atc_processor_init_for_epoch_seconds(
+      processor, zone_info, epoch_seconds);
   if (err) return err;
 
   AtcTransitionForSeconds tfs = atc_transition_storage_find_for_seconds(
-      &processing->transition_storage, epoch_seconds);
+      &processor->transition_storage, epoch_seconds);
   const AtcTransition *t = tfs.curr;
   if (! t) return kAtcErrGeneric;
 
@@ -712,15 +712,15 @@ int8_t atc_processing_find_by_epoch_seconds(
 }
 
 /** Create the OffsetDateTime from the given epoch_seconds. */
-int8_t atc_processing_offset_date_time_from_epoch_seconds(
-    AtcZoneProcessing *processing,
+int8_t atc_processor_offset_date_time_from_epoch_seconds(
+    AtcZoneProcessor *processor,
     const AtcZoneInfo *zone_info,
     atc_time_t epoch_seconds,
     AtcOffsetDateTime *odt)
 {
   AtcFindResult result;
-  int8_t err = atc_processing_find_by_epoch_seconds(
-      processing, zone_info, epoch_seconds, &result);
+  int8_t err = atc_processor_find_by_epoch_seconds(
+      processor, zone_info, epoch_seconds, &result);
   if (err) return err;
 
   if (result.type == kAtcFindResultNotFound) {
@@ -744,18 +744,18 @@ int8_t atc_processing_offset_date_time_from_epoch_seconds(
 
 // Adapted from ExtendedZoneProcessor::findByLocalDateTime() in the AceTime
 // library.
-int8_t atc_processing_find_by_local_date_time(
-    AtcZoneProcessing *processing,
+int8_t atc_processor_find_by_local_date_time(
+    AtcZoneProcessor *processor,
     const AtcZoneInfo *zone_info,
     const AtcLocalDateTime *ldt,
     uint8_t fold,
     AtcFindResult *result) {
 
-  int8_t err = atc_processing_init_for_year(processing, zone_info, ldt->year);
+  int8_t err = atc_processor_init_for_year(processor, zone_info, ldt->year);
   if (err) return err;
 
   AtcTransitionForDateTime tfd = atc_transition_storage_find_for_date_time(
-      &processing->transition_storage, ldt);
+      &processor->transition_storage, ldt);
 
     // Extract the target Transition, depending on the requested fold
     // and the tfd.num.
@@ -817,16 +817,16 @@ int8_t atc_processing_find_by_local_date_time(
 
 // Adapted from TimeZone::getOffsetDateTime(const LocalDatetime&) from the
 // AceTime library.
-int8_t atc_processing_offset_date_time_from_local_date_time(
-    AtcZoneProcessing *processing,
+int8_t atc_processor_offset_date_time_from_local_date_time(
+    AtcZoneProcessor *processor,
     const AtcZoneInfo *zone_info,
     const AtcLocalDateTime *ldt,
     uint8_t fold,
     AtcOffsetDateTime *odt)
 {
   AtcFindResult result;
-  int8_t err = atc_processing_find_by_local_date_time(
-      processing, zone_info, ldt, fold, &result);
+  int8_t err = atc_processor_find_by_local_date_time(
+      processor, zone_info, ldt, fold, &result);
   if (err) return err;
   if (result.type == kAtcFindResultNotFound) return kAtcErrGeneric;
 
@@ -841,7 +841,7 @@ int8_t atc_processing_offset_date_time_from_local_date_time(
       result.req_std_offset_minutes + result.req_dst_offset_minutes;
   odt->fold = result.fold;
 
-  // Special processing for kAtcFindResultGap: Convert to epochSeconds using the
+  // Special processor for kAtcFindResultGap: Convert to epochSeconds using the
   // reqStdOffsetMinutes and reqDstOffsetMinutes, then convert back to
   // OffsetDateTime using the target stdOffsetMinutes and
   // dstOffsetMinutes.
