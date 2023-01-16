@@ -74,7 +74,6 @@ int8_t atc_zoned_extra_from_epoch_seconds(
 int8_t atc_zoned_extra_from_local_date_time(
     AtcZonedExtra *extra,
     AtcLocalDateTime *ldt,
-    uint8_t fold,
     AtcTimeZone tz);
 
 #ifdef __cplusplus

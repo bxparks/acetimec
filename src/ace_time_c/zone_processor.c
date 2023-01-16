@@ -748,7 +748,6 @@ int8_t atc_processor_find_by_local_date_time(
     AtcZoneProcessor *processor,
     const AtcZoneInfo *zone_info,
     const AtcLocalDateTime *ldt,
-    uint8_t fold,
     AtcFindResult *result) {
 
   int8_t err = atc_processor_init_for_year(processor, zone_info, ldt->year);
@@ -776,7 +775,7 @@ int8_t atc_processor_find_by_local_date_time(
         if (tfd.num == 0) { // num==0, Gap
           result->type = kAtcFindResultGap;
           result->fold = 0;
-          if (fold == 0) {
+          if (ldt->fold == 0) {
             // ldt wants to use the 'prev' transition to convert to
             // epochSeconds.
             result->req_std_offset_minutes = tfd.prev->offset_minutes;
@@ -794,9 +793,9 @@ int8_t atc_processor_find_by_local_date_time(
             transition = tfd.prev;
           }
         } else { // num==2, Overlap
-          transition = (fold == 0) ? tfd.prev : tfd.curr;
+          transition = (ldt->fold == 0) ? tfd.prev : tfd.curr;
           result->type = kAtcFindResultOverlap;
-          result->fold = fold;
+          result->fold = ldt->fold;
           result->req_std_offset_minutes = transition->offset_minutes;
           result->req_dst_offset_minutes = transition->delta_minutes;
         }
@@ -821,12 +820,11 @@ int8_t atc_processor_offset_date_time_from_local_date_time(
     AtcZoneProcessor *processor,
     const AtcZoneInfo *zone_info,
     const AtcLocalDateTime *ldt,
-    uint8_t fold,
     AtcOffsetDateTime *odt)
 {
   AtcFindResult result;
   int8_t err = atc_processor_find_by_local_date_time(
-      processor, zone_info, ldt, fold, &result);
+      processor, zone_info, ldt, &result);
   if (err) return err;
   if (result.type == kAtcFindResultNotFound) return kAtcErrGeneric;
 

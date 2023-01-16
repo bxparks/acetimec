@@ -16,8 +16,15 @@
           common `FindResult`.
         * Fix handling of input and output `fold` parameters during overlap in
           `find_by_local_date_time()`.
+    * `AtcLocalDateTime`
+        * Incorporate `fold` parameter, for consistency with `AtcOffsetDateTime`
+          and `AtcZonedDateTime`.
+        * Removes the explicit `uint8_t fold` argument from a number of
+          functions, simplifying their usage.
+        * More consistent with the AceTime library.
     * `AtcZonedExtra`
-        * Add requested STD offset and DST offset.
+        * Add requested STD offset and DST offset, information which was
+          otherwise lost during a DST gap.
         * Add `type` parameter to indicate exact match, gap, or overlap.
     * `AtcTimeZone`
         * Add `AtcTimeZone` struct to simplify arguments to various

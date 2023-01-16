@@ -200,7 +200,6 @@ int8_t atc_processor_find_by_local_date_time(
     AtcZoneProcessor *processor,
     const AtcZoneInfo *zone_info,
     const AtcLocalDateTime *ldt,
-    uint8_t fold,
     AtcFindResult *result);
 
 /**
@@ -221,7 +220,6 @@ int8_t atc_processor_offset_date_time_from_local_date_time(
   AtcZoneProcessor *processor,
   const AtcZoneInfo *zone_info,
   const AtcLocalDateTime *ldt,
-  uint8_t fold,
   AtcOffsetDateTime *odt);
 
 //---------------------------------------------------------------------------

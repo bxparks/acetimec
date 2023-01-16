@@ -376,6 +376,7 @@ typedef struct AtcLocalDateTime {
   uint8_t hour;
   uint8_t minute;
   uint8_t second;
+  uint8_t fold;
 } AtcLocalDateTime;
 ```
 
@@ -397,6 +398,26 @@ function returns `kAtcInvalidEpochSeconds`.
 The `atc_local_date_time_from_epoch_seconds()` function converts the given epoch
 seconds into the `AtcLocalDateTime` components. If an error occurs, the function
 returns `kAtcErrGeneric`, otherwise it returns `kAtcErrOk`.
+
+The `fold` parameter is both an input parameter and an output parameter, and has
+the meaning as the `fold` parameter in the AceTime library, which borrowed the
+concept from the [PEP 495](https://www.python.org/dev/peps/pep-0495/) document
+in Python 3.6.
+
+The `fold` as an output parameter is used to disambiguate a time which
+occurs twice due to a DST change. For example, in most of North America, the
+time zone switches from DST to Standard time in the fall. The wall clock "falls
+back" from 02:00 to 01:00, which means that the time from 01:00 to 02:00 occurs
+twice. The `fold` parameter is returned as 0 for the first occurrence, and 1 for
+the second occurrence.
+
+The `fold` as an input parameter is used to specify the UTC offset to be used
+when converting a LocalDateTime to an `epoch_seconds` around a DST gap, for
+example, when the clock jumps from 2:00 to 03:00 in North America. If `fold=0`,
+the given LocalDateTime is interpreted using the UTC offset *before* the gap,
+which then normalizes to a ZonedDateTime after the gap. If `fold=1`, the given
+LocalDateTime is interpreted using the UTC offset *after* the gap, which then
+normalizes to a ZonedDateTime before the gap.
 
 <a name="AtcOffsetDateTime"></a>
 ### AtcOffsetDateTime
@@ -424,16 +445,6 @@ The memory layout of `AtcOffsetDateTime` was designed to be identical to
 `AtcLocalDateTime` so that functions that accept a pointer to `AtcLocalDateTime`
 can be given a pointer to `AtcOffsetDateTime` as well.
 
-The `fold` parameter is used to disambiguate a time which occurs twice due
-to a DST change. For example, in most of North America, the time zone switches
-from DST to Standard time in the fall. The wall clock "falls back" from 2:00am
-to 1:00am, which means that the time from 1:00am to 2:00am occurs twice. The
-`fold` parameter is 0 for the first occurrence, and 1 for the second occurrence.
-
-The meaning of the `fold` parameter is identical to the `fold` parameter in the
-AceTime library, which itself borrowed the concept from the [PEP
-495](https://www.python.org/dev/peps/pep-0495/) document in Python 3.6.
-
 There are 2 functions that operate on the `AtcOffsetDateTime` object:
 
 ```C
@@ -449,12 +460,14 @@ int8_t atc_offset_date_time_from_epoch_seconds(
 The `atc_offset_date_time_from_epoch_seconds()` function converts the given
 `AtcOffsetDateTime` into its `atc_time_t` epoch seconds, taking into account the
 `offset_minutes` field. If an error occurs, the function returns
-`kAtcInvalidEpochSeconds`. The `fold` parameter is ignored.
+`kAtcInvalidEpochSeconds`. The `fold` parameter of the input `AtcOffsetDateTime`
+is ignored because the `odt.offset_minutes` field is sufficient to disambiguate
+multiple instances.
 
 The `atc_offset_date_time_from_epoch_seconds()` function converts the given
 `epoch_seconds` and `offset_minutes` into the `AtcOffsetDateTime` components. If
 an error occurs, the function returns `kAtcErrGeneric`, otherwise it returns
-`kAtcErrOk`. The `fold` parameter is ignored.
+`kAtcErrOk`. The `odt.fold` parameter will always be set to 0.
 
 <a name="AtcZonedDateTime"></a>
 ### AtcZonedDateTime
@@ -498,7 +511,6 @@ atc_time_t atc_zoned_date_time_to_epoch_seconds(
 int8_t atc_zoned_date_time_from_local_date_time(
     AtcZonedDateTime *zdt,
     const AtcLocalDateTime *ldt,
-    uint8_t fold,
     AtcTimeZone tz);
 
 int8_t atc_zoned_date_time_convert(
@@ -514,56 +526,43 @@ void atc_zoned_date_time_print(
     AtcStringBuffer *sb);
 ```
 
-The `atc_offset_date_time_from_epoch_seconds()` function converts the given
-`epoch_seconds` and `tz` into the `AtcZonedDateTime` components. If an
-error occurs, the function returns `kAtcErrGeneric`, otherwise it returns
-`kAtcErrOk`. The `fold` parameter is usually 0. However, during a DST shift
-(described above), a `fold=0` indicates the first occurrence of the local wall
-clock, and `fold=1` indicates the second occurrence of the local wall clock.
+* `atc_offset_date_time_from_epoch_seconds()`
+    * Converts the given `epoch_seconds` and `tz` into the `AtcZonedDateTime`
+      components.
+    * If an error occurs, the function returns `kAtcErrGeneric`, otherwise it
+      returns `kAtcErrOk`.
+    * `AtcZonedDateTime.fold` is an *output* parameter in this function:
+        * Will usually be 0 except during a DST overlap.
+        * `fold=0` indicates the first occurrence of the local wall clock
+        * `fold=1` indicates the second occurrence of the local wall clock.
+* `atc_zoned_date_time_to_epoch_seconds()`
+    * Converts the given `AtcZonedDateTime` into its `atc_time_t` epoch seconds,
+      taking into account the time zone defined by the `tz` field inside the
+      `AtcZonedDatetime`.
+    * If an error occurs, the function returns `kAtcInvalidEpochSeconds`.
+* `atc_zoned_date_time_from_local_date_time()`
+    * Converts the local wall clock defined by `AtcLocalDateTime` to the
+      `AtcZonedDateTime`, taking into account the time zone defined by `tz`.
+    * `AtcLocalDateTime.fold` is an *input* parameter for this function.
+        * In most cases, the `fold` parameter has no effect.
+        * During an overlap:
+            * `fold=0` indicates the earlier of the 2 repeated time,
+            * `fold=1` indicates the later of the 2 repeated time.
+        * During a gap:
+            * `fold=0` indicates that the *earlier* UTC offset should be used,
+              which causes the effective epoch seconds to be the *later* one,
+              which then gets normalized to the *later* `AtcZonedDateTime`.
+            * `fold=1` indicates that the *later* UTC offset should be used,
+              which causes the effective epoch seconds to be the *earlier* one,
+              which then gets normalized to the *earlier* `AtcZonedDateTime`.
+* `atc_zoned_date_time_convert()`
+    * Converts an `AtcZonedDateTime` instance from one time zone to another. The
+      `src` instance contains the original time zone. The `dst` instance will
+      contain the date-time of the time zone represented by `dst_zone_info`.
 
-The `atc_zoned_date_time_to_epoch_seconds()` function converts the given
-`AtcZonedDateTime` into its `atc_time_t` epoch seconds, taking into account the
-time zone defined by the `tz` field inside the `AtcZonedDatetime`. If an
-error occurs, the function returns `kAtcInvalidEpochSeconds`.
-
-The `atc_zoned_date_time_from_local_date_time()` converts the date-time
-components defined by the `AtcLocalDateTime` to the `AtcZonedDateTime`, taking
-into account the time zone defined by `tz` and the `fold` parameter. In
-most cases, the `fold` parameter has no effect. But for cases where a local wall
-clock occurs twice (e.g. during a DST to Standard time shift), the `fold`
-parameter disambiguates the multiple occurrence of the local time.
-
-The `atc_zoned_date_time_convert()` function converts an `AtcZonedDateTime`
-instance from one time zone to another. The `src` instance contains the original
-time zone. The `dst` instance will contain the date-time of the time zone
-represented by `dst_zone_info`.
-
-The `fold` parameter occurs in 2 places, as an input parameter of one the above
-functions, and as an output parameter in the `AtcZonedDateTime` data structure.
-The `fold` parameter serves to disambiguate certain local date-time instances
-where the time occurs twice, or does not exist at all.
-
-For example, in the autumn in North America, the wall clock changes from 02:00
-(DST) to 01:00 (Standard). This means means that the wall clock from 01:00 to
-02:00 occur twice. In the spring time, the wall clock changes from 02:00 to
-03:00, which means there is a gap where the times do not exist at all.
-
-During a repeat:
-
-* `fold=0` indicates the earlier of the 2 repeated time,
-* `fold=1` indicates the later of the 2 repeated time.
-
-During a gap:
-
-* `fold=0` indicates that the *earlier* UTC offset should be used, which causes
-  the effective epoch seconds to be the *later* one, which then gets normalized
-  to the *later* `AtcZonedDateTime`.
-* `fold=1` that the *later* UTC offset, which causes the effective epoch seconds
-  to be the *earlier* one, which then gets normalized to the *earlier*
-  `AtcZonedDateTime`.
-
-These conventions are meant to be identical to the one described by the Python
-[PEP 495](https://www.python.org/dev/peps/pep-0495/) document.
+The conventions for the `fold` parameter are intended to be identical to the one
+described by the Python [PEP 495](https://www.python.org/dev/peps/pep-0495/)
+document.
 
 <a name="AtcTimeZone"></a>
 ### AtcTimeZone
@@ -737,7 +736,6 @@ int8_t atc_zoned_extra_from_epoch_seconds(
 int8_t atc_zoned_extra_from_local_date_time(
     AtcZonedExtra *extra,
     AtcLocalDateTime *ldt,
-    uint8_t fold,
     AtcTimeZone tz);
 ```
 

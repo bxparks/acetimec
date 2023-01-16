@@ -34,12 +34,11 @@ int8_t atc_zoned_extra_from_epoch_seconds(
 int8_t atc_zoned_extra_from_local_date_time(
     AtcZonedExtra *extra,
     AtcLocalDateTime *ldt,
-    uint8_t fold,
     AtcTimeZone tz)
 {
   AtcFindResult result;
   int8_t err = atc_processor_find_by_local_date_time(
-      tz.zone_processor, tz.zone_info, ldt, fold, &result);
+      tz.zone_processor, tz.zone_info, ldt, &result);
   if (err) return err;
 
   extra->type = result.type;

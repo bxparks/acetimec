@@ -28,7 +28,6 @@ int8_t atc_offset_date_time_from_epoch_seconds(
       (AtcLocalDateTime *) odt, epoch_seconds);
   if (err) return err;
 
-  odt->fold = 0;
   odt->offset_minutes = offset_minutes;
   return kAtcErrOk;
 }
