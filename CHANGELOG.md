@@ -17,6 +17,12 @@
     * `AtcZonedExtra`
         * Add requested STD offset and DST offset.
         * Add `type` parameter to indicate exact match, gap, or overlap.
+    * `AtcTimeZone`
+        * Add `AtcTimeZone` struct to simplify arguments to various
+          `atc_zoned_date_time*()` and `atc_zoned_extra*()` functions
+    * printing to `AtcStringBuffer`
+        * Change order of various `atc_xxx_print()` functions to place the
+          date-time objects first, like the `this` pointer of an object.
 * 0.5.0 (2022-12-04, TZDB 2022g)
     * Upgrade to TZDB 2022g
     * Add `extern "C"` to all header files.

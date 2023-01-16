@@ -55,57 +55,110 @@ latter documents.
 The expected usage is something like this:
 
 ```C
+#include <stdio.h>
 #include <acetimec.h>
 
-AtcZoneProcessing los_angeles_processing;
-AtcZoneProcessing new_york_processing;
+AtcZoneProcessing processing_la; // Los Angeles
+AtcZoneProcessing processing_ny; // New York
 
-// initialize the time zone processing workspace
 void setup()
 {
-  atc_processing_init(&los_angeles_processing);
-  atc_processing_init(&new_york_processing);
+  atc_processing_init(&processing_la);
+  atc_processing_init(&processing_ny);
 }
 
-void do_something()
+void print_dates()
 {
+  printf("======== ZonedDateTime from epoch seconds\n");
+
   atc_time_t seconds = 3432423;
+  printf("Epoch Seconds: %ld\n", (long) seconds);
 
-  // convert epoch seconds to date/time components for given time zone
-  AtcZonedDateTime zdt;
-  int8_t err = atc_zoned_date_time_from_epoch_seconds(
-    &los_angeles_processing,
-    &kAtcZoneAmerica_Los_Angeles,
-    seconds,
-    &zdt);
-  if (err) { /*error*/ }
-  ...
+  // Convert epoch seconds to date/time components for given time zone.
+  AtcTimeZone tzla = {&kAtcZoneAmerica_Los_Angeles, &processing_la};
+  AtcZonedDateTime zdtla;
+  int8_t err = atc_zoned_date_time_from_epoch_seconds(&zdtla, seconds, tzla);
+  if (err) { ... }
 
-  // convert zoned_date_time to epoch seconds
-  seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
-  if (seconds == kAtcInvalidEpochSeconds) { /*error*/ }
-  ...
+  // Print the date for Los Angeles.
+  char buf[80];
+  struct AtcStringBuffer sb;
+  atc_buf_init(&sb, buf, 80);
+  atc_zoned_date_time_print(&zdtla, &sb);
+  atc_buf_close(&sb);
+  printf("Los Angeles: %s\n", sb.p);
 
-  // convert components to zoned_date_time
-  AtcLocalDateTime ldt = { year, month, day, hour, minute, second };
+  // Convert zoned_date_time to back to epoch seconds.
+  atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
+  if (epoch_seconds == kAtcInvalidEpochSeconds) { ... }
+  if (seconds != epoch_seconds) { ... }
+  printf("Converted Seconds: %ld\n", (long) epoch_seconds);
+
+  printf("======== ZonedDateTime from LocalDateTime\n");
+
+  // Start with a LocalDateTime in an overlap.
+  AtcLocalDateTime ldt = {2022, 11, 6, 1, 30, 0};
+  atc_buf_reset(&sb);
+  atc_local_date_time_print(&ldt, &sb);
+  atc_buf_close(&sb);
+  printf("LocalDateTime: %s\n", sb.p);
+  printf("fold: 1\n");
+
+  // Convert components to zoned_date_time. 2022-11-06 01:30 occurred twice. Set
+  // fold=1 to select the second occurrence.
   err = atc_zoned_date_time_from_local_date_time(
-    &los_angeles_processing,
-    &kAtcZoneAmerica_Los_Angeles,
-    &ldt,
-    0 /*fold*/,
-    &zdt);
-  if (err) { /*error*/ }
-  ...
+      &zdtla, &ldt, 1 /*fold*/, tzla);
+  if (err) { ... }
+
+  // Print the date time.
+  atc_buf_reset(&sb);
+  atc_zoned_date_time_print(&zdtla, &sb);
+  atc_buf_close(&sb);
+  printf("Los Angeles: %s\n", sb.p);
+  epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
+  printf("Epoch Seconds: %ld\n", (long) epoch_seconds);
+
+  printf("======== ZonedDateTime to different time zone\n");
 
   // convert America/Los_Angles to America/New_York
-  AtcZonedDateTime nydt;
-  err = atc_zoned_date_time_from_local_date_time(
-    &new_york_processing,
-    &kAtcZoneAmerica_New_York,
-    &zdt,
-    &nydt);
-  if (err) { /*error*/ }
+  AtcTimeZone tzny = {&kAtcZoneAmerica_New_York, &processing_ny};
+  AtcZonedDateTime zdtny;
+  err = atc_zoned_date_time_convert(&zdtla, tzny, &zdtny);
+  if (err) { ... }
+
+  atc_buf_reset(&sb);
+  atc_zoned_date_time_print(&zdtny, &sb);
+  atc_buf_close(&sb);
+  printf("New York: %s\n", sb.p);
+  epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
+  printf("Epoch Seconds: %ld\n", (long) epoch_seconds);
 }
+
+int main(int argc, char **argv)
+{
+  (void) argc;
+  (void) argv;
+  setup();
+  print_dates();
+}
+```
+
+The complete example at [examples/hello_acetime.c](examples/hello_acetimec/)
+prints the following:
+
+```
+======== ZonedDateTime from epoch seconds
+Epoch Seconds: 3432423
+Los Angeles: 2050-02-09T09:27:03-08:00[America/Los_Angeles]
+Converted Seconds: 3432423
+======== ZonedDateTime from LocalDateTime
+LocalDateTime: 2022-11-06T01:30:00
+fold: 1
+Los Angeles: 2022-11-06T01:30:00-08:00[America/Los_Angeles]
+Epoch Seconds: -856881000
+======== ZonedDateTime to different time zone
+New York: 2022-11-06T04:30:00-05:00[America/New_York]
+Epoch Seconds: -856881000
 ```
 
 <a name="Installation"></a>
