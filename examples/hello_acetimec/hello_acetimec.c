@@ -51,8 +51,8 @@ void print_dates()
 
   printf("======== ZonedDateTime from LocalDateTime\n");
 
-  // Start with a LocalDateTime in an overlap.
-  AtcLocalDateTime ldt = {2022, 11, 6, 1, 30, 0};
+  // Start with a LocalDateTime in an overlap, fold=1 for the second one.
+  AtcLocalDateTime ldt = {2022, 11, 6, 1, 30, 0, 1 /*fold*/};
   atc_buf_reset(&sb);
   atc_local_date_time_print(&ldt, &sb);
   atc_buf_close(&sb);
@@ -61,8 +61,7 @@ void print_dates()
 
   // Convert components to zoned_date_time. 2022-11-06 01:30 occurred twice. Set
   // fold=1 to select the second occurrence.
-  err = atc_zoned_date_time_from_local_date_time(
-      &zdtla, &ldt, 1 /*fold*/, tzla);
+  err = atc_zoned_date_time_from_local_date_time(&zdtla, &ldt, tzla);
   if (err) { 
     printf("ERROR: Unable to create ZonedDateTime from LocalDateTime\n");
     exit(1);

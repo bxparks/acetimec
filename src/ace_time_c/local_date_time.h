@@ -38,6 +38,21 @@ typedef struct AtcLocalDateTime {
   uint8_t minute;
   /** second [0, 59] */
   uint8_t second;
+
+  /**
+   * fold [0,1]. The first or second occurrence of this date-time.
+   *
+   * As an input parameter, this will be 0 most of the time. During a DST "fall
+   * back" overlap, it can be to 1 to select the second occurrence instead of
+   * the first occurrence. During a DST "spring forward" gap, setting this to 0
+   * selects the UTC offset before the gap, which then normalizes to the UTC
+   * offset after the gap. Settings this to 1 selects the DST offset after the
+   * gap, which then normalizes to the UTC offset before the gap.
+   *
+   * As an output parameter, this indicates whether the the epoch_seconds occurs
+   * on the first or second occurrence of the DST overlap.
+   */
+  uint8_t fold;
 } AtcLocalDateTime;
 
 /**

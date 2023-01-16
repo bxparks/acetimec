@@ -6,31 +6,31 @@ ACU_TEST(test_atc_local_date_time_to_epoch_seconds)
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2000);
 
-  AtcLocalDateTime ldt = {1931, 12, 13, 20, 45, 53};
+  AtcLocalDateTime ldt = {1931, 12, 13, 20, 45, 53, 0 /*fold*/};
   int32_t seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == INT32_MIN + 1);
 
-  ldt = (AtcLocalDateTime) {2000, 1, 1, 0, 0, 0};
+  ldt = (AtcLocalDateTime) {2000, 1, 1, 0, 0, 0, 0 /*fold*/};
   seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 0);
 
-  ldt = (AtcLocalDateTime) {2000, 1, 2, 0, 0, 0};
+  ldt = (AtcLocalDateTime) {2000, 1, 2, 0, 0, 0, 0 /*fold*/};
   seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 86400);
 
-  ldt = (AtcLocalDateTime) {2000, 2, 29, 0, 0, 0};
+  ldt = (AtcLocalDateTime) {2000, 2, 29, 0, 0, 0, 0 /*fold*/};
   seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 86400 * 59);
 
-  ldt = (AtcLocalDateTime) {2018, 1, 1, 0, 0, 0};
+  ldt = (AtcLocalDateTime) {2018, 1, 1, 0, 0, 0, 0 /*fold*/};
   seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 86400 * 6575);
 
-  ldt = (AtcLocalDateTime) {2038, 1, 19, 3, 14, 7};
+  ldt = (AtcLocalDateTime) {2038, 1, 19, 3, 14, 7, 0 /*fold*/};
   seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 1200798847);
 
-  ldt = (AtcLocalDateTime) {2068, 1, 19, 3, 14, 7};
+  ldt = (AtcLocalDateTime) {2068, 1, 19, 3, 14, 7, 0 /*fold*/};
   seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == INT32_MAX);
 
@@ -91,19 +91,19 @@ ACU_TEST(test_atc_local_date_time_to_epoch_seconds_epoch2050)
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2050);
 
-  AtcLocalDateTime ldt = {1981, 12, 13, 20, 45, 53};
+  AtcLocalDateTime ldt = {1981, 12, 13, 20, 45, 53, 0 /*fold*/};
   int32_t seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == INT32_MIN + 1);
 
-  ldt = (AtcLocalDateTime) {2050, 1, 1, 0, 0, 0};
+  ldt = (AtcLocalDateTime) {2050, 1, 1, 0, 0, 0, 0 /*fold*/};
   seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 0);
 
-  ldt = (AtcLocalDateTime) {2050, 1, 2, 0, 0, 0};
+  ldt = (AtcLocalDateTime) {2050, 1, 2, 0, 0, 0, 0 /*fold*/};
   seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == 86400);
 
-  ldt = (AtcLocalDateTime) {2118, 1, 20, 3, 14, 7};
+  ldt = (AtcLocalDateTime) {2118, 1, 20, 3, 14, 7, 0 /*fold*/};
   seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   ACU_ASSERT(seconds == INT32_MAX);
 

@@ -98,10 +98,10 @@ ACU_TEST(test_zoned_extra_from_local_date_time_fall_back)
 
   // Start our sampling at 01:29:00(fold=0), which is 31 minutes before the DST
   // fall-back, and occurs within an overlap.
-  AtcLocalDateTime ldt = { 2022, 11, 6, 1, 29, 0 };
+  AtcLocalDateTime ldt = {2022, 11, 6, 1, 29, 0, 0 /*fold*/};
 
   AtcZonedExtra zet;
-  int8_t err = atc_zoned_extra_from_local_date_time(&zet, &ldt, 0 /*fold*/, tz);
+  int8_t err = atc_zoned_extra_from_local_date_time(&zet, &ldt, tz);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(kAtcZonedExtraOverlap == zet.type);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
@@ -111,7 +111,8 @@ ACU_TEST(test_zoned_extra_from_local_date_time_fall_back)
   ACU_ASSERT(strcmp(zet.abbrev, "PDT") == 0);
 
   // For fold=1, the second transition is selected.
-  err = atc_zoned_extra_from_local_date_time(&zet, &ldt, 1 /*fold*/, tz);
+  ldt.fold = 1;
+  err = atc_zoned_extra_from_local_date_time(&zet, &ldt, tz);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(kAtcZonedExtraOverlap == zet.type);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
@@ -127,12 +128,12 @@ ACU_TEST(test_zoned_extra_from_local_date_time_spring_forward)
   atc_processor_init(&processor);
   AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
-  AtcLocalDateTime ldt = { 2022, 3, 13, 2, 29, 0 };
+  AtcLocalDateTime ldt = {2022, 3, 13, 2, 29, 0, 0 /*fold*/};
 
   // Start our sampling at 02:29:00(fold=0) which occurs in the gap, uses the
   // first transition, and normalizes to 03:29:00-07:00.
   AtcZonedExtra zet;
-  int8_t err = atc_zoned_extra_from_local_date_time(&zet, &ldt, 0 /*fold*/, tz);
+  int8_t err = atc_zoned_extra_from_local_date_time(&zet, &ldt, tz);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(kAtcZonedExtraGap == zet.type);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
@@ -142,7 +143,8 @@ ACU_TEST(test_zoned_extra_from_local_date_time_spring_forward)
   ACU_ASSERT(strcmp(zet.abbrev, "PDT") == 0);
 
   // For fold=1, use the second transition, and normalize to 01:29:00-08:00.
-  err = atc_zoned_extra_from_local_date_time(&zet, &ldt, 1 /*fold*/, tz);
+  ldt.fold = 1;
+  err = atc_zoned_extra_from_local_date_time(&zet, &ldt, tz);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(kAtcZonedExtraGap == zet.type);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);

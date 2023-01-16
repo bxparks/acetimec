@@ -25,10 +25,10 @@ extern "C" {
 /**
  * Date and time fields with a UTC offset in minutes.
  *
- * In AceTime, the 'fold' parameter was included in the low-level LocalTime
- * class, which then got absorbed into the LocalDatetime class. This extra
- * parameter is mostly transparent to the user because C++ supports default
- * parameters in the constructor and functions.
+ * In the AceTime library, the 'fold' parameter was included in the low-level
+ * LocalTime class, which then got absorbed into the LocalDatetime class. This
+ * extra parameter is mostly transparent to the user because C++ supports
+ * default parameters in the constructor and functions.
  *
  * Unfortunately C does not have default parameters, so adding a 'fold' in
  * LocalDateTime causes unnecessary friction. Therefore, I am adding this

@@ -26,6 +26,8 @@ int8_t atc_local_date_time_from_epoch_seconds(
   AtcLocalDateTime *ldt,
   atc_time_t epoch_seconds)
 {
+  ldt->fold = 0;
+
   if (epoch_seconds == kAtcInvalidEpochSeconds) {
     ldt->year = kAtcInvalidYear;
     ldt->month = 0;

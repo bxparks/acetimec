@@ -77,7 +77,6 @@ atc_time_t atc_zoned_date_time_to_epoch_seconds(
 int8_t atc_zoned_date_time_from_local_date_time(
     AtcZonedDateTime *zdt,
     const AtcLocalDateTime *ldt,
-    uint8_t fold,
     AtcTimeZone tz);
 
 /**

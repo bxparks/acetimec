@@ -35,7 +35,6 @@ atc_time_t atc_zoned_date_time_to_epoch_seconds(const AtcZonedDateTime *zdt)
 int8_t atc_zoned_date_time_from_local_date_time(
     AtcZonedDateTime *zdt,
     const AtcLocalDateTime *ldt,
-    uint8_t fold,
     AtcTimeZone tz)
 {
   zdt->tz = tz;
@@ -43,7 +42,6 @@ int8_t atc_zoned_date_time_from_local_date_time(
       tz.zone_processor,
       tz.zone_info,
       ldt,
-      fold,
       // ZonedDateTime memory layout must be same as OffsetDateTime.
       (AtcOffsetDateTime *) zdt);
 }
@@ -68,12 +66,12 @@ int8_t atc_zoned_date_time_normalize(AtcZonedDateTime *zdt)
   ldt.hour = zdt->hour;
   ldt.minute = zdt->minute;
   ldt.second = zdt->second;
+  ldt.fold = zdt->fold;
 
   return atc_processor_offset_date_time_from_local_date_time(
       zdt->tz.zone_processor,
       zdt->tz.zone_info,
       &ldt,
-      zdt->fold,
       // ZonedDateTime memory layout must be same as OffsetDateTime.
       (AtcOffsetDateTime *) zdt);
 }
