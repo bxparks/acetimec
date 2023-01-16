@@ -40,6 +40,7 @@ latter documents.
     * [AtcLocalDateTime](#AtcLocalDateTime)
     * [AtcOffsetDateTime](#AtcOffsetDateTime)
     * [AtcZonedDateTime](#AtcZonedDateTime)
+    * [AtcTimeZone](#AtcTimeZone)
     * [AtcZoneProcessing](#AtcZoneProcessing)
     * [AtcZoneInfo](#AtcZoneInfo)
     * [Zone Database and Registry](#ZoneDatabaseAndRegistry)
@@ -475,7 +476,7 @@ typedef struct AtcZonedDateTime {
   uint8_t fold;
 
   int16_t offset_minutes; /* possibly ignored */
-  const AtcZoneInfo *zone_info; /* nullable, possibly ignored */
+  AtcTimeZone tz;
 } AtcZonedDateTime;
 ```
 
@@ -483,51 +484,51 @@ The memory layout of `AtcZonedDateTime` was designed to be identical to
 `AtcOffsetDateTime`, so that functions that accept a pointer to
 `AtcOffsetDateTime` can also accept pointers to `AtcZonedDateTime`.
 
-The following functions operate on the `AtcZonedDateTime`:
+The following functions operate on the `AtcZonedDateTime` struct:
 
 ```C
+int8_t atc_zoned_date_time_from_epoch_seconds(
+    AtcZonedDateTime *zdt,
+    atc_time_t epoch_seconds,
+    AtcTimeZone tz);
+
 atc_time_t atc_zoned_date_time_to_epoch_seconds(
     const AtcZonedDateTime *zdt);
 
-int8_t atc_zoned_date_time_from_epoch_seconds(
-    AtcZoneProcessing *processing,
-    const AtcZoneInfo *zone_info,
-    atc_time_t epoch_seconds,
-    AtcZonedDateTime *zdt);
-
 int8_t atc_zoned_date_time_from_local_date_time(
-    AtcZoneProcessing *processing,
-    const AtcZoneInfo *zone_info,
+    AtcZonedDateTime *zdt,
     const AtcLocalDateTime *ldt,
     uint8_t fold,
-    AtcZonedDateTime *zdt);
+    AtcTimeZone tz);
 
 int8_t atc_zoned_date_time_convert(
-    AtcZoneProcessing *dst_processing,
-    const AtcZoneInfo *dst_zone_info,
-    const AtcLocalDateTime *src,
+    const AtcZonedDateTime *src,
+    AtcTimeZone dst_tz,
     AtcZonedDateTime *dst);
 
 int8_t atc_zoned_date_time_normalize(
-    AtcZoneProcessing *processing,
     AtcZonedDateTime *zdt);
+
+void atc_zoned_date_time_print(
+    const AtcZonedDateTime *zdt,
+    AtcStringBuffer *sb);
 ```
 
-The `atc_zoned_date_time_to_epoch_seconds()` function converts the given
-`AtcZonedDateTime` into its `atc_time_t` epoch seconds, taking into account the
-time zone defined by the `zone_info` field inside the `AtcZonedDatetime`. If an
-error occurs, the function returns `kAtcInvalidEpochSeconds`.
-
 The `atc_offset_date_time_from_epoch_seconds()` function converts the given
-`epoch_seconds` and `zone_info` into the `AtcZonedDateTime` components. If an
+`epoch_seconds` and `tz` into the `AtcZonedDateTime` components. If an
 error occurs, the function returns `kAtcErrGeneric`, otherwise it returns
 `kAtcErrOk`. The `fold` parameter is usually 0. However, during a DST shift
 (described above), a `fold=0` indicates the first occurrence of the local wall
 clock, and `fold=1` indicates the second occurrence of the local wall clock.
 
+The `atc_zoned_date_time_to_epoch_seconds()` function converts the given
+`AtcZonedDateTime` into its `atc_time_t` epoch seconds, taking into account the
+time zone defined by the `tz` field inside the `AtcZonedDatetime`. If an
+error occurs, the function returns `kAtcInvalidEpochSeconds`.
+
 The `atc_zoned_date_time_from_local_date_time()` converts the date-time
 components defined by the `AtcLocalDateTime` to the `AtcZonedDateTime`, taking
-into account the time zone defined by `zone_info` and the `fold` parameter. In
+into account the time zone defined by `tz` and the `fold` parameter. In
 most cases, the `fold` parameter has no effect. But for cases where a local wall
 clock occurs twice (e.g. during a DST to Standard time shift), the `fold`
 parameter disambiguates the multiple occurrence of the local time.
@@ -563,6 +564,23 @@ During a gap:
 
 These conventions are meant to be identical to the one described by the Python
 [PEP 495](https://www.python.org/dev/peps/pep-0495/) document.
+
+<a name="AtcTimeZone"></a>
+### AtcTimeZone
+
+The `AtcTimeZone` structure represents a time zone from the IANA TZ database. It
+consists of a pair of pointers, an `AtcZoneInfo*` pointer and an
+`AtcZoneProcessing*` pointer, like this:
+
+```C++
+typedef struct AtcTimeZone {
+  const AtcZoneInfo *zone_info;
+  AtcZoneProcessing *zone_processing;
+} AtcTimeZone;
+```
+
+Instances of `AtcTimeZone` are expected to be passed around by value into
+functions which need to be provided a time zone.
 
 <a name="AtcZoneProcessing"></a>
 ### AtcZoneProcessing
@@ -690,22 +708,37 @@ holds additional meta information about a particular time zone, usually at a
 particular epoch seconds:
 
 ```C
+enum {
+  kAtcZonedExtraNotFound = 0,
+  kAtcZonedExtraExact = 1,
+  kAtcZonedExtraGap = 2,
+  kAtcZonedExtraOverlap = 3,
+};
+
 typedef struct AtcZonedExtra {
+  int8_t type;
   int16_t std_offset_minutes; // STD offset
   int16_t dst_offset_minutes; // DST offset
+  int16_t req_std_offset_minutes; // request STD offset
+  int16_t req_dst_offset_minutes; // request DST offset
   char abbrev[kAtcAbbrevSize];
 } AtcZonedExtra;
 ```
 
-There is one function that populates this type given an `epoch_seconds` and its
-`zone_info`:
+There are 2 functions that populates this data structure (analogous to the
+functions that populate the `AtcZonedDateTime` data structure):
 
 ```C
 int8_t atc_zoned_extra_from_epoch_seconds(
-    AtcZoneProcessing *processing,
-    const AtcZoneInfo *zone_info,
+    AtcZonedExtra *extra,
     atc_time_t epoch_seconds,
-    AtcZonedExtra *extra);
+    AtcTimeZone tz);
+
+int8_t atc_zoned_extra_from_local_date_time(
+    AtcZonedExtra *extra,
+    AtcLocalDateTime *ldt,
+    uint8_t fold,
+    AtcTimeZone tz);
 ```
 
 This function returns `kAtcErrGeneric` if an error is encountered, otherwise it
