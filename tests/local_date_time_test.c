@@ -45,7 +45,7 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds)
   AtcLocalDateTime ldt;
   int8_t err;
 
-  err = atc_local_date_time_from_epoch_seconds(INT32_MIN + 1, &ldt);
+  err = atc_local_date_time_from_epoch_seconds(&ldt, INT32_MIN + 1);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(ldt.year == 1931);
   ACU_ASSERT(ldt.month == 12);
@@ -54,7 +54,7 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds)
   ACU_ASSERT(ldt.minute == 45);
   ACU_ASSERT(ldt.second == 53);
 
-  err = atc_local_date_time_from_epoch_seconds(0, &ldt);
+  err = atc_local_date_time_from_epoch_seconds(&ldt, 0);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(ldt.year == 2000);
   ACU_ASSERT(ldt.month == 1);
@@ -63,7 +63,7 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds)
   ACU_ASSERT(ldt.minute == 0);
   ACU_ASSERT(ldt.second == 0);
 
-  err = atc_local_date_time_from_epoch_seconds(10958 * 86400 - 1, &ldt);
+  err = atc_local_date_time_from_epoch_seconds(&ldt, 10958 * 86400 - 1);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(ldt.year == 2029);
   ACU_ASSERT(ldt.month == 12);
@@ -72,7 +72,7 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds)
   ACU_ASSERT(ldt.minute == 59);
   ACU_ASSERT(ldt.second == 59);
 
-  err = atc_local_date_time_from_epoch_seconds(INT32_MAX - 1, &ldt);
+  err = atc_local_date_time_from_epoch_seconds(&ldt, INT32_MAX - 1);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(ldt.year == 2068);
   ACU_ASSERT(ldt.month == 1);
@@ -118,7 +118,7 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds_epoch2050)
   AtcLocalDateTime ldt;
   int8_t err;
 
-  err = atc_local_date_time_from_epoch_seconds(INT32_MIN + 1, &ldt);
+  err = atc_local_date_time_from_epoch_seconds(&ldt, INT32_MIN + 1);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(ldt.year == 1981);
   ACU_ASSERT(ldt.month == 12);
@@ -127,7 +127,7 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds_epoch2050)
   ACU_ASSERT(ldt.minute == 45);
   ACU_ASSERT(ldt.second == 53);
 
-  err = atc_local_date_time_from_epoch_seconds(0, &ldt);
+  err = atc_local_date_time_from_epoch_seconds(&ldt, 0);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(ldt.year == 2050);
   ACU_ASSERT(ldt.month == 1);
@@ -136,7 +136,7 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds_epoch2050)
   ACU_ASSERT(ldt.minute == 0);
   ACU_ASSERT(ldt.second == 0);
 
-  err = atc_local_date_time_from_epoch_seconds(INT32_MAX - 1, &ldt);
+  err = atc_local_date_time_from_epoch_seconds(&ldt, INT32_MAX - 1);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(ldt.year == 2118);
   ACU_ASSERT(ldt.month == 1);

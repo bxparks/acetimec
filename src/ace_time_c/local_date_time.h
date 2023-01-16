@@ -52,8 +52,8 @@ atc_time_t atc_local_date_time_to_epoch_seconds(
  * Return non-zero error code upon failure.
  */
 int8_t atc_local_date_time_from_epoch_seconds(
-  atc_time_t epoch_seconds,
-  AtcLocalDateTime *ldt);
+  AtcLocalDateTime *ldt,
+  atc_time_t epoch_seconds);
 
 /** Print the local date time in ISO 8601 format. */
 void atc_local_date_time_print(

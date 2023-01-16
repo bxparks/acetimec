@@ -23,8 +23,8 @@ atc_time_t atc_local_date_time_to_epoch_seconds(
 }
 
 int8_t atc_local_date_time_from_epoch_seconds(
-  atc_time_t epoch_seconds,
-  AtcLocalDateTime *ldt)
+  AtcLocalDateTime *ldt,
+  atc_time_t epoch_seconds)
 {
   if (epoch_seconds == kAtcInvalidEpochSeconds) {
     ldt->year = kAtcInvalidYear;

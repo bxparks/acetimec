@@ -675,7 +675,7 @@ int8_t atc_processing_init_for_epoch_seconds(
   }
 
   AtcLocalDateTime ldt;
-  int8_t err = atc_local_date_time_from_epoch_seconds(epoch_seconds, &ldt);
+  int8_t err = atc_local_date_time_from_epoch_seconds(&ldt, epoch_seconds);
   if (err) return err;
   return atc_processing_init_for_year(processing, zone_info, ldt.year);
 }

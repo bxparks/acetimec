@@ -25,7 +25,7 @@ int8_t atc_offset_date_time_from_epoch_seconds(
 
   epoch_seconds += offset_minutes * 60;
   int8_t err = atc_local_date_time_from_epoch_seconds(
-      epoch_seconds, (AtcLocalDateTime *) odt);
+      (AtcLocalDateTime *) odt, epoch_seconds);
   if (err) return err;
 
   odt->fold = 0;
