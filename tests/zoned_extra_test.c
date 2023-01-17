@@ -19,8 +19,7 @@ ACU_TEST(test_atc_zoned_extra_from_epoch_seconds_invalid)
   AtcZonedExtra zet;
   atc_time_t epoch_seconds = kAtcInvalidEpochSeconds;
 
-  int8_t err = atc_zoned_extra_from_epoch_seconds(
-    &zet, epoch_seconds, tz);
+  int8_t err = atc_zoned_extra_from_epoch_seconds(&zet, epoch_seconds, &tz);
   ACU_ASSERT(err == kAtcErrGeneric);
 }
 
@@ -36,7 +35,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_fall_back)
   atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(&odt);
 
   AtcZonedExtra zet;
-  int8_t err = atc_zoned_extra_from_epoch_seconds(&zet, epoch_seconds, tz);
+  int8_t err = atc_zoned_extra_from_epoch_seconds(&zet, epoch_seconds, &tz);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(kAtcZonedExtraOverlap == zet.type);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
@@ -47,7 +46,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_fall_back)
 
   // Go forward an hour. Should be 01:29:00-08:00.
   epoch_seconds += 3600;
-  err = atc_zoned_extra_from_epoch_seconds(&zet, epoch_seconds, tz);
+  err = atc_zoned_extra_from_epoch_seconds(&zet, epoch_seconds, &tz);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(kAtcZonedExtraOverlap == zet.type);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
@@ -69,7 +68,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_spring_forward)
   atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(&odt);
 
   AtcZonedExtra zet;
-  int8_t err = atc_zoned_extra_from_epoch_seconds(&zet, epoch_seconds, tz);
+  int8_t err = atc_zoned_extra_from_epoch_seconds(&zet, epoch_seconds, &tz);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(kAtcZonedExtraExact == zet.type);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
@@ -80,7 +79,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_spring_forward)
 
   // An hour later, we spring forward to 03:29:00-07:00.
   epoch_seconds += 3600;
-  err = atc_zoned_extra_from_epoch_seconds(&zet, epoch_seconds, tz);
+  err = atc_zoned_extra_from_epoch_seconds(&zet, epoch_seconds, &tz);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(kAtcZonedExtraExact == zet.type);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
@@ -101,7 +100,7 @@ ACU_TEST(test_zoned_extra_from_local_date_time_fall_back)
   AtcLocalDateTime ldt = {2022, 11, 6, 1, 29, 0, 0 /*fold*/};
 
   AtcZonedExtra zet;
-  int8_t err = atc_zoned_extra_from_local_date_time(&zet, &ldt, tz);
+  int8_t err = atc_zoned_extra_from_local_date_time(&zet, &ldt, &tz);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(kAtcZonedExtraOverlap == zet.type);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
@@ -112,7 +111,7 @@ ACU_TEST(test_zoned_extra_from_local_date_time_fall_back)
 
   // For fold=1, the second transition is selected.
   ldt.fold = 1;
-  err = atc_zoned_extra_from_local_date_time(&zet, &ldt, tz);
+  err = atc_zoned_extra_from_local_date_time(&zet, &ldt, &tz);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(kAtcZonedExtraOverlap == zet.type);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
@@ -133,7 +132,7 @@ ACU_TEST(test_zoned_extra_from_local_date_time_spring_forward)
   // Start our sampling at 02:29:00(fold=0) which occurs in the gap, uses the
   // first transition, and normalizes to 03:29:00-07:00.
   AtcZonedExtra zet;
-  int8_t err = atc_zoned_extra_from_local_date_time(&zet, &ldt, tz);
+  int8_t err = atc_zoned_extra_from_local_date_time(&zet, &ldt, &tz);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(kAtcZonedExtraGap == zet.type);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);
@@ -144,7 +143,7 @@ ACU_TEST(test_zoned_extra_from_local_date_time_spring_forward)
 
   // For fold=1, use the second transition, and normalize to 01:29:00-08:00.
   ldt.fold = 1;
-  err = atc_zoned_extra_from_local_date_time(&zet, &ldt, tz);
+  err = atc_zoned_extra_from_local_date_time(&zet, &ldt, &tz);
   ACU_ASSERT(err == kAtcErrOk);
   ACU_ASSERT(kAtcZonedExtraGap == zet.type);
   ACU_ASSERT(-8*60 == zet.std_offset_minutes);

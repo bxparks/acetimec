@@ -65,7 +65,7 @@ typedef struct AtcZonedExtra {
 int8_t atc_zoned_extra_from_epoch_seconds(
     AtcZonedExtra *extra,
     atc_time_t epoch_seconds,
-    AtcTimeZone tz);
+    const AtcTimeZone *tz);
 
 /**
  * Extract the extra zone information at given LocalDateTime.
@@ -73,8 +73,8 @@ int8_t atc_zoned_extra_from_epoch_seconds(
  */
 int8_t atc_zoned_extra_from_local_date_time(
     AtcZonedExtra *extra,
-    AtcLocalDateTime *ldt,
-    AtcTimeZone tz);
+    const AtcLocalDateTime *ldt,
+    const AtcTimeZone *tz);
 
 #ifdef __cplusplus
 }

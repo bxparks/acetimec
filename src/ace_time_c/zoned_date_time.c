@@ -13,11 +13,11 @@
 int8_t atc_zoned_date_time_from_epoch_seconds(
     AtcZonedDateTime *zdt,
     atc_time_t epoch_seconds,
-    AtcTimeZone tz)
+    const AtcTimeZone *tz)
 {
   if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
 
-  zdt->tz = tz;
+  zdt->tz = *tz;
   // ZonedDateTime memory layout must be same as OffsetDateTime.
   return atc_time_zone_offset_date_time_from_epoch_seconds(
       tz, epoch_seconds, (AtcOffsetDateTime *) zdt);
@@ -33,9 +33,9 @@ atc_time_t atc_zoned_date_time_to_epoch_seconds(const AtcZonedDateTime *zdt)
 int8_t atc_zoned_date_time_from_local_date_time(
     AtcZonedDateTime *zdt,
     const AtcLocalDateTime *ldt,
-    AtcTimeZone tz)
+    const AtcTimeZone *tz)
 {
-  zdt->tz = tz;
+  zdt->tz = *tz;
   // ZonedDateTime memory layout must be same as OffsetDateTime.
   return atc_time_zone_offset_date_time_from_local_date_time(
       tz, ldt, (AtcOffsetDateTime *) zdt);
@@ -43,7 +43,7 @@ int8_t atc_zoned_date_time_from_local_date_time(
 
 int8_t atc_zoned_date_time_convert(
     const AtcZonedDateTime *src,
-    AtcTimeZone dst_tz,
+    const AtcTimeZone *dst_tz,
     AtcZonedDateTime *dst)
 {
   atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(src);
@@ -75,7 +75,7 @@ int8_t atc_zoned_date_time_normalize(AtcZonedDateTime *zdt)
 
   // ZonedDateTime memory layout must be same as OffsetDateTime.
   return atc_time_zone_offset_date_time_from_local_date_time(
-      zdt->tz, &ldt, (AtcOffsetDateTime *) zdt);
+      &zdt->tz, &ldt, (AtcOffsetDateTime *) zdt);
 }
 
 void atc_zoned_date_time_print(

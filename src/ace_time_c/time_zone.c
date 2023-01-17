@@ -11,13 +11,13 @@
 // Adapted from TimeZone::getOffsetDateTime(epochSeconds) from the
 // AceTime library.
 int8_t atc_time_zone_offset_date_time_from_epoch_seconds(
-    AtcTimeZone tz,
+    const AtcTimeZone *tz,
     atc_time_t epoch_seconds,
     AtcOffsetDateTime *odt)
 {
   AtcFindResult result;
   int8_t err = atc_processor_find_by_epoch_seconds(
-      tz.zone_processor, tz.zone_info, epoch_seconds, &result);
+      tz->zone_processor, tz->zone_info, epoch_seconds, &result);
   if (err) return err;
 
   if (result.type == kAtcFindResultNotFound) {
@@ -37,13 +37,13 @@ int8_t atc_time_zone_offset_date_time_from_epoch_seconds(
 // Adapted from TimeZone::getOffsetDateTime(const LocalDatetime&) from the
 // AceTime library.
 int8_t atc_time_zone_offset_date_time_from_local_date_time(
-    AtcTimeZone tz,
+    const AtcTimeZone *tz,
     const AtcLocalDateTime *ldt,
     AtcOffsetDateTime *odt)
 {
   AtcFindResult result;
   int8_t err = atc_processor_find_by_local_date_time(
-      tz.zone_processor, tz.zone_info, ldt, &result);
+      tz->zone_processor, tz->zone_info, ldt, &result);
   if (err) return err;
   if (result.type == kAtcFindResultNotFound) return kAtcErrGeneric;
 

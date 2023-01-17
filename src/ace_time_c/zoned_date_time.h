@@ -60,7 +60,7 @@ typedef struct AtcZonedDateTime {
 int8_t atc_zoned_date_time_from_epoch_seconds(
     AtcZonedDateTime *zdt,
     atc_time_t epoch_seconds,
-    AtcTimeZone tz);
+    const AtcTimeZone *tz);
 
 /**
  * Convert AtcZonedDateTime to epoch seconds using the time zone
@@ -77,7 +77,7 @@ atc_time_t atc_zoned_date_time_to_epoch_seconds(
 int8_t atc_zoned_date_time_from_local_date_time(
     AtcZonedDateTime *zdt,
     const AtcLocalDateTime *ldt,
-    AtcTimeZone tz);
+    const AtcTimeZone *tz);
 
 /**
  * Convert the source AtcZoneDateTime (src) into the destination
@@ -86,7 +86,7 @@ int8_t atc_zoned_date_time_from_local_date_time(
  */
 int8_t atc_zoned_date_time_convert(
     const AtcZonedDateTime *src,
-    AtcTimeZone dst_tz,
+    const AtcTimeZone *dst_tz,
     AtcZonedDateTime *dst);
 
 /**

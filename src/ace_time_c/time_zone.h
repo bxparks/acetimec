@@ -33,7 +33,7 @@ typedef struct AtcTimeZone {
  * Return non-zero error code upon failure.
  */
 int8_t atc_time_zone_offset_date_time_from_epoch_seconds(
-  AtcTimeZone tz,
+  const AtcTimeZone *tz,
   atc_time_t epoch_seconds,
   AtcOffsetDateTime *odt);
 
@@ -42,7 +42,7 @@ int8_t atc_time_zone_offset_date_time_from_epoch_seconds(
  * Return non-zero error code upon failure.
  */
 int8_t atc_time_zone_offset_date_time_from_local_date_time(
-  AtcTimeZone tz,
+  const AtcTimeZone *tz,
   const AtcLocalDateTime *ldt,
   AtcOffsetDateTime *odt);
 

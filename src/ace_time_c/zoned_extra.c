@@ -11,13 +11,13 @@
 int8_t atc_zoned_extra_from_epoch_seconds(
     AtcZonedExtra *extra,
     atc_time_t epoch_seconds,
-    AtcTimeZone tz)
+    const AtcTimeZone *tz)
 {
   if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
 
   AtcFindResult result;
   int8_t err = atc_processor_find_by_epoch_seconds(
-      tz.zone_processor, tz.zone_info, epoch_seconds, &result);
+      tz->zone_processor, tz->zone_info, epoch_seconds, &result);
   if (err) return err;
 
   extra->type = result.type;
@@ -33,12 +33,12 @@ int8_t atc_zoned_extra_from_epoch_seconds(
 
 int8_t atc_zoned_extra_from_local_date_time(
     AtcZonedExtra *extra,
-    AtcLocalDateTime *ldt,
-    AtcTimeZone tz)
+    const AtcLocalDateTime *ldt,
+    const AtcTimeZone *tz)
 {
   AtcFindResult result;
   int8_t err = atc_processor_find_by_local_date_time(
-      tz.zone_processor, tz.zone_info, ldt, &result);
+      tz->zone_processor, tz->zone_info, ldt, &result);
   if (err) return err;
 
   extra->type = result.type;
