@@ -17,7 +17,6 @@
 #include <stdint.h>
 #include "common.h" // atc_time_t
 #include "local_date_time.h" // AtcLocalDateTime
-#include "offset_date_time.h" // AtcOffsetDateTime
 #include "zone_info.h"
 #include "transition.h" // AtcTransition, AtcTransitionStorage
 
@@ -201,26 +200,6 @@ int8_t atc_processor_find_by_local_date_time(
     const AtcZoneInfo *zone_info,
     const AtcLocalDateTime *ldt,
     AtcFindResult *result);
-
-/**
- * Convert epoch_seconds to an AtcOffsetDateTime using the given zone_info.
- * Return non-zero error code upon failure.
- */
-int8_t atc_processor_offset_date_time_from_epoch_seconds(
-  AtcZoneProcessor *processor,
-  const AtcZoneInfo *zone_info,
-  atc_time_t epoch_seconds,
-  AtcOffsetDateTime *odt);
-
-/**
- * Convert the LocalDateTime to OffsetDateTime using the given zone_info.
- * Return non-zero error code upon failure.
- */
-int8_t atc_processor_offset_date_time_from_local_date_time(
-  AtcZoneProcessor *processor,
-  const AtcZoneInfo *zone_info,
-  const AtcLocalDateTime *ldt,
-  AtcOffsetDateTime *odt);
 
 //---------------------------------------------------------------------------
 // Functions and data structures related to the creation of the active

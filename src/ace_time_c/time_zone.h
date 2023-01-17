@@ -21,10 +21,30 @@
 extern "C" {
 #endif
 
+typedef struct AtcOffsetDateTime AtcOffsetDateTime;
+
 typedef struct AtcTimeZone {
   const AtcZoneInfo *zone_info;
   AtcZoneProcessor *zone_processor;
 } AtcTimeZone;
+
+/**
+ * Convert epoch_seconds to an AtcOffsetDateTime using the given zone_info.
+ * Return non-zero error code upon failure.
+ */
+int8_t atc_time_zone_offset_date_time_from_epoch_seconds(
+  AtcTimeZone tz,
+  atc_time_t epoch_seconds,
+  AtcOffsetDateTime *odt);
+
+/**
+ * Convert the LocalDateTime to AtcOffsetDateTime using the given zone_info.
+ * Return non-zero error code upon failure.
+ */
+int8_t atc_time_zone_offset_date_time_from_local_date_time(
+  AtcTimeZone tz,
+  const AtcLocalDateTime *ldt,
+  AtcOffsetDateTime *odt);
 
 #ifdef __cplusplus
 }

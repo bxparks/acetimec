@@ -3,13 +3,11 @@
  * Copyright (c) 2022 Brian T. Park
  */
 
-#include <stdio.h> //printf()
 #include <stdbool.h>
 #include <string.h> // memcpy(), strncpy()
 #include "common.h" // atc_copy_replace_string()
 #include "local_date.h" // atc_local_date_days_in_year_month()
 #include "zone_info_utils.h"
-#include "offset_date_time.h"
 #include "zone_processor.h"
 
 //---------------------------------------------------------------------------
@@ -681,6 +679,9 @@ int8_t atc_processor_init_for_epoch_seconds(
 }
 
 //---------------------------------------------------------------------------
+// findByXxx() routines to find Transitions at a given epoch_seconds or
+// LocalDatetime.
+//---------------------------------------------------------------------------
 
 int8_t atc_processor_find_by_epoch_seconds(
     AtcZoneProcessor *processor,
@@ -710,37 +711,6 @@ int8_t atc_processor_find_by_epoch_seconds(
   }
   return kAtcErrOk;
 }
-
-/** Create the OffsetDateTime from the given epoch_seconds. */
-int8_t atc_processor_offset_date_time_from_epoch_seconds(
-    AtcZoneProcessor *processor,
-    const AtcZoneInfo *zone_info,
-    atc_time_t epoch_seconds,
-    AtcOffsetDateTime *odt)
-{
-  AtcFindResult result;
-  int8_t err = atc_processor_find_by_epoch_seconds(
-      processor, zone_info, epoch_seconds, &result);
-  if (err) return err;
-
-  if (result.type == kAtcFindResultNotFound) {
-    return kAtcErrGeneric;
-  }
-
-  int16_t offset_minutes =
-      result.std_offset_minutes + result.dst_offset_minutes;
-  err = atc_offset_date_time_from_epoch_seconds(
-      epoch_seconds, offset_minutes, odt);
-  if (err) return err;
-
-  odt->fold = result.fold;
-  return kAtcErrOk;
-}
-
-//---------------------------------------------------------------------------
-// findByXxx() routines to find Transitions at a given epoch_seconds or
-// LocalDatetime.
-//---------------------------------------------------------------------------
 
 // Adapted from ExtendedZoneProcessor::findByLocalDateTime() in the AceTime
 // library.
@@ -812,44 +782,4 @@ int8_t atc_processor_find_by_local_date_time(
     result->abbrev = transition->abbrev;
 
     return kAtcErrOk;
-}
-
-// Adapted from TimeZone::getOffsetDateTime(const LocalDatetime&) from the
-// AceTime library.
-int8_t atc_processor_offset_date_time_from_local_date_time(
-    AtcZoneProcessor *processor,
-    const AtcZoneInfo *zone_info,
-    const AtcLocalDateTime *ldt,
-    AtcOffsetDateTime *odt)
-{
-  AtcFindResult result;
-  int8_t err = atc_processor_find_by_local_date_time(
-      processor, zone_info, ldt, &result);
-  if (err) return err;
-  if (result.type == kAtcFindResultNotFound) return kAtcErrGeneric;
-
-  // Convert FindResult into OffsetDateTime using the requested offset.
-  odt->year = ldt->year;
-  odt->month = ldt->month;
-  odt->day = ldt->day;
-  odt->hour = ldt->hour;
-  odt->minute = ldt->minute;
-  odt->second = ldt->second;
-  odt->offset_minutes =
-      result.req_std_offset_minutes + result.req_dst_offset_minutes;
-  odt->fold = result.fold;
-
-  // Special processor for kAtcFindResultGap: Convert to epochSeconds using the
-  // reqStdOffsetMinutes and reqDstOffsetMinutes, then convert back to
-  // OffsetDateTime using the target stdOffsetMinutes and
-  // dstOffsetMinutes.
-  if (result.type == kAtcFindResultGap) {
-    atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(odt);
-    int16_t target_offset =
-        result.std_offset_minutes + result.dst_offset_minutes;
-    atc_offset_date_time_from_epoch_seconds(
-        epoch_seconds, target_offset, odt);
-  }
-
-  return kAtcErrOk;
 }

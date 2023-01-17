@@ -5,9 +5,10 @@
 
 #include "local_date.h"
 #include "local_date_time.h"
-#include "zone_processor.h"
-#include "zoned_date_time.h"
 #include "zone_info_utils.h"
+#include "zone_processor.h"
+#include "offset_date_time.h"
+#include "zoned_date_time.h"
 
 int8_t atc_zoned_date_time_from_epoch_seconds(
     AtcZonedDateTime *zdt,
@@ -17,12 +18,9 @@ int8_t atc_zoned_date_time_from_epoch_seconds(
   if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
 
   zdt->tz = tz;
-  return atc_processor_offset_date_time_from_epoch_seconds(
-      tz.zone_processor,
-      tz.zone_info,
-      epoch_seconds,
-      // ZonedDateTime memory layout must be same as OffsetDateTime.
-      (AtcOffsetDateTime *) zdt);
+  // ZonedDateTime memory layout must be same as OffsetDateTime.
+  return atc_time_zone_offset_date_time_from_epoch_seconds(
+      tz, epoch_seconds, (AtcOffsetDateTime *) zdt);
 }
 
 atc_time_t atc_zoned_date_time_to_epoch_seconds(const AtcZonedDateTime *zdt)
@@ -38,12 +36,9 @@ int8_t atc_zoned_date_time_from_local_date_time(
     AtcTimeZone tz)
 {
   zdt->tz = tz;
-  return atc_processor_offset_date_time_from_local_date_time(
-      tz.zone_processor,
-      tz.zone_info,
-      ldt,
-      // ZonedDateTime memory layout must be same as OffsetDateTime.
-      (AtcOffsetDateTime *) zdt);
+  // ZonedDateTime memory layout must be same as OffsetDateTime.
+  return atc_time_zone_offset_date_time_from_local_date_time(
+      tz, ldt, (AtcOffsetDateTime *) zdt);
 }
 
 int8_t atc_zoned_date_time_convert(
@@ -56,6 +51,16 @@ int8_t atc_zoned_date_time_convert(
   return atc_zoned_date_time_from_epoch_seconds(dst, epoch_seconds, dst_tz);
 }
 
+// The current implementation looks up the LocalDateTime using
+// atc_time_zone_offset_date_time_from_local_date_time(). This uses the fold and
+// ignores the offset_minutes.
+//
+// An alternative implementation is to convert zdt into epoch_seconds, then call
+// atc_time_zone_offset_date_time_from_epoch_seconds() instead. This uses the
+// offset_minutes, and ignores the fold.
+//
+// It's not clear which implementation is better.
+//
 int8_t atc_zoned_date_time_normalize(AtcZonedDateTime *zdt)
 {
   // Copy the date/time components.
@@ -68,12 +73,9 @@ int8_t atc_zoned_date_time_normalize(AtcZonedDateTime *zdt)
   ldt.second = zdt->second;
   ldt.fold = zdt->fold;
 
-  return atc_processor_offset_date_time_from_local_date_time(
-      zdt->tz.zone_processor,
-      zdt->tz.zone_info,
-      &ldt,
-      // ZonedDateTime memory layout must be same as OffsetDateTime.
-      (AtcOffsetDateTime *) zdt);
+  // ZonedDateTime memory layout must be same as OffsetDateTime.
+  return atc_time_zone_offset_date_time_from_local_date_time(
+      zdt->tz, &ldt, (AtcOffsetDateTime *) zdt);
 }
 
 void atc_zoned_date_time_print(

@@ -456,7 +456,6 @@ AtcTransitionForSeconds atc_transition_storage_find_for_seconds(
  *  * num=0, prev==prev, curr=NULL: datetime is far future
  *
  * Adapted from TransitionForDateTime in Transition.h of the AceTime library.
- *
  */
 typedef struct AtcTransitionForDateTime {
   /** The previous transition, or null if the first transition matches. */
