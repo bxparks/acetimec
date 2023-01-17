@@ -22,7 +22,7 @@ void print_dates()
   // Convert epoch seconds to date/time components for given time zone.
   AtcTimeZone tzla = {&kAtcZoneAmerica_Los_Angeles, &processor_la};
   AtcZonedDateTime zdtla;
-  int8_t err = atc_zoned_date_time_from_epoch_seconds(&zdtla, seconds, tzla);
+  int8_t err = atc_zoned_date_time_from_epoch_seconds(&zdtla, seconds, &tzla);
   if (err) { 
     printf("ERROR: Unable to create ZonedDateTime from epoch seconds\n");
     exit(1);
@@ -61,7 +61,7 @@ void print_dates()
 
   // Convert components to zoned_date_time. 2022-11-06 01:30 occurred twice. Set
   // fold=1 to select the second occurrence.
-  err = atc_zoned_date_time_from_local_date_time(&zdtla, &ldt, tzla);
+  err = atc_zoned_date_time_from_local_date_time(&zdtla, &ldt, &tzla);
   if (err) { 
     printf("ERROR: Unable to create ZonedDateTime from LocalDateTime\n");
     exit(1);
@@ -80,7 +80,7 @@ void print_dates()
   // convert America/Los_Angles to America/New_York
   AtcTimeZone tzny = {&kAtcZoneAmerica_New_York, &processor_ny};
   AtcZonedDateTime zdtny;
-  err = atc_zoned_date_time_convert(&zdtla, tzny, &zdtny);
+  err = atc_zoned_date_time_convert(&zdtla, &tzny, &zdtny);
   if (err) { 
     printf("ERROR: Unable to convert ZonedDateTime to New York time zone\n");
     exit(1);

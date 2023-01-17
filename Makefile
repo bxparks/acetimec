@@ -1,6 +1,6 @@
 all:
 	set -e; \
-	for i in src/Makefile tests/Makefile; do \
+	for i in src/Makefile tests/Makefile examples/Makefile; do \
 		echo '==== Making:' $$(dirname $$i); \
 		$(MAKE) -C $$(dirname $$i); \
 	done
@@ -10,7 +10,7 @@ runtests:
 
 clean:
 	set -e; \
-	for i in src/Makefile tests/Makefile; do \
+	for i in src/Makefile tests/Makefile examples/Makefile; do \
 		echo '==== Cleaning:' $$(dirname $$i); \
 		$(MAKE) -C $$(dirname $$i) clean; \
 	done
