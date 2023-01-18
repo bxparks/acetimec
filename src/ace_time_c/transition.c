@@ -1,3 +1,8 @@
+/*
+ * MIT License
+ * Copyright (c) 2022 Brian T. Park
+ */
+
 #include <stdbool.h>
 #include "common.h" // atc_time_t
 #include "zone_info.h"
@@ -26,13 +31,13 @@ atc_time_t atc_date_tuple_subtract(
     const AtcDateTuple *a,
     const AtcDateTuple *b)
 {
-  int32_t eda = atc_local_date_to_epoch_days(a->year, a->month, a->day);
-  int32_t esa = eda * 86400 + a->minutes * 60;
+  int32_t da = atc_local_date_to_epoch_days(a->year, a->month, a->day);
+  int32_t db = atc_local_date_to_epoch_days(b->year, b->month, b->day);
 
-  int32_t edb = atc_local_date_to_epoch_days(b->year, b->month, b->day);
-  int32_t esb = edb * 86400 + b->minutes * 60;
-
-  return esa - esb;
+  // Subtract the days, before converting to seconds, to avoid overflowing the
+  // int32_t when a.year or b.year is more than 68 years from the
+  // atc_current_epoch_year.
+  return (da - db) * 86400 + (a->minutes - b->minutes) * 60;
 }
 
 void atc_date_tuple_expand(
@@ -100,18 +105,10 @@ void atc_date_tuple_normalize(AtcDateTuple *dt)
   const int16_t kOneDayAsMinutes = 60 * 24;
 
   if (dt->minutes <= -kOneDayAsMinutes) {
-    AtcLocalDate ld = { dt->year, dt->month, dt->day };
-    atc_local_date_decrement_one_day(&ld);
-    dt->year = ld.year;
-    dt->month = ld.month;
-    dt->day = ld.day;
+    atc_local_date_decrement_one_day(&dt->year, &dt->month, &dt->day);
     dt->minutes += kOneDayAsMinutes;
   } else if (kOneDayAsMinutes <= dt->minutes) {
-    AtcLocalDate ld = { dt->year, dt->month, dt->day };
-    atc_local_date_increment_one_day(&ld);
-    dt->year = ld.year;
-    dt->month = ld.month;
-    dt->day = ld.day;
+    atc_local_date_increment_one_day(&dt->year, &dt->month, &dt->day);
     dt->minutes -= kOneDayAsMinutes;
   } else {
     // do nothing
@@ -316,7 +313,7 @@ const char *atc_transition_extract_letter(const AtcTransition *t)
   // RULES point to a named rule, and LETTER is a single, printable character.
   // Return the letter_buf which contains a NUL-terminated string containing the
   // single character, as initialized in
-  // atc_processing_create_transition_for_year().
+  // atc_processor_create_transition_for_year().
   char letter = t->rule->letter;
   if (letter >= 32) {
     return t->letter_buf;
@@ -412,4 +409,149 @@ uint8_t atc_transition_compare_to_match_fuzzy(
       &t->transition_time,
       &match->start_dt,
       &match->until_dt);
+}
+
+//---------------------------------------------------------------------------
+
+static void atc_calculate_fold_and_overlap(
+    uint8_t* fold,
+    uint8_t* num,
+    const AtcTransition* prev,
+    const AtcTransition* curr,
+    const AtcTransition* next,
+    atc_time_t epoch_seconds)
+{
+  if (curr == NULL) {
+    *fold = 0;
+    *num = 0;
+    return;
+  }
+
+  // Check if within forward overlap shadow from prev
+  bool is_overlap;
+  if (prev == NULL) {
+    is_overlap = false;
+  } else {
+    // Extract the shift from prev transition. Can be 0 in some cases where
+    // the zone changed from DST of one zone to the STD into another zone,
+    // causing the overall UTC offset to remain unchanged.
+    atc_time_t shift_seconds = atc_date_tuple_subtract(
+        &curr->start_dt, &prev->until_dt);
+    if (shift_seconds >= 0) {
+      // spring forward, or unchanged
+      is_overlap = false;
+    } else {
+      is_overlap = epoch_seconds - curr->start_epoch_seconds < -shift_seconds;
+    }
+  }
+  if (is_overlap) {
+    *fold = 1; // selects the second match
+    *num = 2;
+    return;
+  }
+
+  // Check if within backward overlap shawdow from next
+  if (next == NULL) {
+    is_overlap = false;
+  } else {
+    // Extract the shift to next transition. Can be 0 in some cases where
+    // the zone changed from DST of one zone to the STD into another zone,
+    // causing the overall UTC offset to remain unchanged.
+    atc_time_t shift_seconds = atc_date_tuple_subtract(
+        &next->start_dt, &curr->until_dt);
+    if (shift_seconds >= 0) {
+      // spring forward, or unchanged
+      is_overlap = false;
+    } else {
+      // Check if within the backward overlap shadow from next
+      is_overlap = next->start_epoch_seconds - epoch_seconds <= -shift_seconds;
+    }
+  }
+  if (is_overlap) {
+    *fold = 0; // epochSeconds selects the first match
+    *num = 2;
+    return;
+  }
+
+  // Normal single match, no overlap.
+  *fold = 0;
+  *num = 1;
+}
+
+AtcTransitionForSeconds atc_transition_storage_find_for_seconds(
+    const AtcTransitionStorage *ts,
+    atc_time_t epoch_seconds)
+{
+  const AtcTransition *prev = NULL;
+  const AtcTransition *curr = NULL;
+  const AtcTransition *next = NULL;
+  for (uint8_t i = 0; i < ts->index_free; i++) {
+    next = ts->transitions[i];
+    if (next->start_epoch_seconds > epoch_seconds) break;
+    prev = curr;
+    curr = next;
+    next = NULL;
+  }
+
+  uint8_t fold;
+  uint8_t num;
+  atc_calculate_fold_and_overlap(&fold, &num, prev, curr, next, epoch_seconds);
+  AtcTransitionForSeconds result = {curr, fold, num};
+  return result;
+}
+
+AtcTransitionForDateTime atc_transition_storage_find_for_date_time(
+    const AtcTransitionStorage *ts,
+    const AtcLocalDateTime *ldt)
+{
+  // Convert LocalDateTime to DateTuple.
+  AtcDateTuple local_dt = {
+      ldt->year,
+      ldt->month,
+      ldt->day,
+      (int16_t) (ldt->hour * 60 + ldt->minute),
+      kAtcSuffixW
+  };
+
+  // Examine adjacent pairs of Transitions, looking for an exact match, gap,
+  // or overlap.
+  const AtcTransition *prev = NULL;
+  const AtcTransition *curr = NULL;
+  uint8_t num = 0;
+  for (uint8_t i = 0; i < ts->index_free; i++) {
+    curr = ts->transitions[i];
+
+    const AtcDateTuple *start_dt = &curr->start_dt;
+    const AtcDateTuple *until_dt = &curr->until_dt;
+    bool is_exact_match = atc_date_tuple_compare(start_dt, &local_dt) <= 0
+        && atc_date_tuple_compare(&local_dt, until_dt) < 0;
+
+    if (is_exact_match) {
+      // Check for a previous exact match to detect an overlap.
+      if (num == 1) {
+        num++;
+        break;
+      }
+
+      // Loop again to detect an overlap.
+      num = 1;
+    } else if (atc_date_tuple_compare(start_dt, &local_dt) > 0) {
+      // Exit loop since no more curr transition.
+      break;
+    }
+
+    prev = curr;
+
+    // Set nullptr so that if the loop runs off the end of the list of
+    // Transitions, the current transition is marked as nullptr.
+    curr = NULL;
+  }
+
+  // If the prev was an exact match, set curr to the same to avoid confusion.
+  if (num == 1) {
+    curr = prev;
+  }
+
+  AtcTransitionForDateTime result = {prev, curr, num};
+  return result;
 }

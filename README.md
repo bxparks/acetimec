@@ -18,11 +18,11 @@ library. It does not implement the functionality provided by the
 `BasicZoneProcessor` of the AceTime library.
 
 Due to time constraints, this README document provides only a small fraction of
-the documentation provbided by the README.md and USER_GUIDE.md documents of the
+the documentation provided by the README.md and USER_GUIDE.md documents of the
 AceTime library. If you need more detailed information, please consult those
 latter documents.
 
-**Version**: 0.5.0 (2022-12-04, TZDB version 2022g)
+**Version**: 0.6.0 (2023-01-17, TZDB version 2022g)
 
 **Changelog**: [CHANGELOG.md](CHANGELOG.md)
 
@@ -34,12 +34,16 @@ latter documents.
     * [Header File](#HeaderFile)
     * [Constants](#Constants)
     * [atc_time_t](#AtcTimeT)
+    * [Epoch](#Epoch)
+    * [LocalDate](#LocalDate)
+    * [LocalTime](#LocalTime)
     * [AtcLocalDateTime](#AtcLocalDateTime)
     * [AtcOffsetDateTime](#AtcOffsetDateTime)
     * [AtcZonedDateTime](#AtcZonedDateTime)
-    * [AtcZoneProcessing](#AtcZoneProcessing)
+    * [AtcTimeZone](#AtcTimeZone)
+    * [AtcZoneProcessor](#AtcZoneProcessor)
     * [AtcZoneInfo](#AtcZoneInfo)
-    * [Zone Database](#ZoneDatabase)
+    * [Zone Database and Registry](#ZoneDatabaseAndRegistry)
     * [AtcZonedExtra](#AtcZonedExtra)
     * [AtcZoneRegistrar](#AtcZoneRegistrar)
 * [License](#License)
@@ -52,57 +56,110 @@ latter documents.
 The expected usage is something like this:
 
 ```C
+#include <stdio.h>
 #include <acetimec.h>
 
-AtcZoneProcessing los_angeles_processing;
-AtcZoneProcessing new_york_processing;
+AtcZoneProcessor processor_la; // Los Angeles
+AtcZoneProcessor processor_ny; // New York
 
-// initialize the time zone processing workspace
 void setup()
 {
-  atc_processing_init(&los_angeles_processing);
-  atc_processing_init(&new_york_processing);
+  atc_processor_init(&processor_la);
+  atc_processor_init(&processor_ny);
 }
 
-void do_something()
+void print_dates()
 {
+  printf("======== ZonedDateTime from epoch seconds\n");
+
   atc_time_t seconds = 3432423;
+  printf("Epoch Seconds: %ld\n", (long) seconds);
 
-  // convert epoch seconds to date/time components for given time zone
-  AtcZonedDateTime zdt;
-  int8_t err = atc_zoned_date_time_from_epoch_seconds(
-    &los_angeles_processing,
-    &kAtcZoneAmerica_Los_Angeles,
-    seconds,
-    &zdt);
-  if (err) { /*error*/ }
-  ...
+  // Convert epoch seconds to date/time components for given time zone.
+  AtcTimeZone tzla = {&kAtcZoneAmerica_Los_Angeles, &processor_la};
+  AtcZonedDateTime zdtla;
+  int8_t err = atc_zoned_date_time_from_epoch_seconds(&zdtla, seconds, tzla);
+  if (err) { ... }
 
-  // convert zoned_date_time to epoch seconds
-  seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
-  if (seconds == kAtcInvalidEpochSeconds) { /*error*/ }
-  ...
+  // Print the date for Los Angeles.
+  char buf[80];
+  struct AtcStringBuffer sb;
+  atc_buf_init(&sb, buf, 80);
+  atc_zoned_date_time_print(&zdtla, &sb);
+  atc_buf_close(&sb);
+  printf("Los Angeles: %s\n", sb.p);
 
-  // convert components to zoned_date_time
-  AtcLocalDateTime ldt = { year, month, day, hour, minute, second };
+  // Convert zoned_date_time to back to epoch seconds.
+  atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
+  if (epoch_seconds == kAtcInvalidEpochSeconds) { ... }
+  if (seconds != epoch_seconds) { ... }
+  printf("Converted Seconds: %ld\n", (long) epoch_seconds);
+
+  printf("======== ZonedDateTime from LocalDateTime\n");
+
+  // Start with a LocalDateTime in an overlap.
+  AtcLocalDateTime ldt = {2022, 11, 6, 1, 30, 0};
+  atc_buf_reset(&sb);
+  atc_local_date_time_print(&ldt, &sb);
+  atc_buf_close(&sb);
+  printf("LocalDateTime: %s\n", sb.p);
+  printf("fold: 1\n");
+
+  // Convert components to zoned_date_time. 2022-11-06 01:30 occurred twice. Set
+  // fold=1 to select the second occurrence.
   err = atc_zoned_date_time_from_local_date_time(
-    &los_angeles_processing,
-    &kAtcZoneAmerica_Los_Angeles,
-    &ldt,
-    0 /*fold*/,
-    &zdt);
-  if (err) { /*error*/ }
-  ...
+      &zdtla, &ldt, 1 /*fold*/, tzla);
+  if (err) { ... }
+
+  // Print the date time.
+  atc_buf_reset(&sb);
+  atc_zoned_date_time_print(&zdtla, &sb);
+  atc_buf_close(&sb);
+  printf("Los Angeles: %s\n", sb.p);
+  epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
+  printf("Epoch Seconds: %ld\n", (long) epoch_seconds);
+
+  printf("======== ZonedDateTime to different time zone\n");
 
   // convert America/Los_Angles to America/New_York
-  AtcZonedDateTime nydt;
-  err = atc_zoned_date_time_from_local_date_time(
-    &new_york_processing,
-    &kAtcZoneAmerica_New_York,
-    &zdt,
-    &nydt);
-  if (err) { /*error*/ }
+  AtcTimeZone tzny = {&kAtcZoneAmerica_New_York, &processor_ny};
+  AtcZonedDateTime zdtny;
+  err = atc_zoned_date_time_convert(&zdtla, tzny, &zdtny);
+  if (err) { ... }
+
+  atc_buf_reset(&sb);
+  atc_zoned_date_time_print(&zdtny, &sb);
+  atc_buf_close(&sb);
+  printf("New York: %s\n", sb.p);
+  epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
+  printf("Epoch Seconds: %ld\n", (long) epoch_seconds);
 }
+
+int main(int argc, char **argv)
+{
+  (void) argc;
+  (void) argv;
+  setup();
+  print_dates();
+}
+```
+
+The complete example at [examples/hello_acetime.c](examples/hello_acetimec/)
+prints the following:
+
+```
+======== ZonedDateTime from epoch seconds
+Epoch Seconds: 3432423
+Los Angeles: 2050-02-09T09:27:03-08:00[America/Los_Angeles]
+Converted Seconds: 3432423
+======== ZonedDateTime from LocalDateTime
+LocalDateTime: 2022-11-06T01:30:00
+fold: 1
+Los Angeles: 2022-11-06T01:30:00-08:00[America/Los_Angeles]
+Epoch Seconds: -856881000
+======== ZonedDateTime to different time zone
+New York: 2022-11-06T04:30:00-05:00[America/New_York]
+Epoch Seconds: -856881000
 ```
 
 <a name="Installation"></a>
@@ -177,15 +234,139 @@ typedef int32_t atc_time_t;
 ```
 
 It is a signed, 32-bit integer that counts the number of POSIX seconds from the
-epoch of this library. That epoch will normally be 2000-01-01 00:00:00 UTC,
+epoch of this library. That epoch will normally be 2050-01-01 00:00:00 UTC,
 instead of the POSIX standard of 1970-01-01 00:00:00 UTC. That means that
-largest date that can be represented by `atc_time_t` is 2068-01-19 03:14:07 UTC.
+largest date that can be represented by `atc_time_t` is 2118-01-20 03:14:07 UTC.
+
+The current epoch year can be changed using the `atc_set_current_epoch_year()`
+as described in the next section.
+
+<a name="Epoch"></a>
+### Epoch
+
+The functions in [epoch.h](src/ace_time_c/epoch.h) provide features related to
+the epoch used by the AceTimeC library. By default, the epoch is 2050-01-01
+00:00:00 UTC, which allows the 32-bit `ace_time_t` type to support dates from
+the year 2000 until the year 2100, at a minimum. However, unlike most timezone
+libraries, the epoch year can be changed at runtime so that the `ace_time_t` can
+be used to support any dates within approximately +/- 50 years of the epoch
+year.
+
+The following functions are used to get and set the epoch year:
+
+* `int16_t atc_get_current_epoch_year(void)`
+    * Returns the current epoch year.
+* `void atc_set_current_epoch_year(int16_t year)`
+    * Sets the current epoch year to `year`.
+
+**Warning**: If the epoch year is changed using the
+`atc_set_current_epoch_year()` function, then the `atc_processor_init()`
+function (see [AtcZoneProcessor](#AtcZoneProcessor)) must be called to
+reinitialize any instance of `AtcZoneProcessor` that may have used a different
+epoch year.
+
+The following convenience functions return the range of validity of the
+`ace_time_t` type:
+
+* `int16_t atc_epoch_valid_year_lower(void)`
+    * Returns the lower bound of the year that can be represented by
+      `ace_time_t`.
+    * This currently returns `epoch_year - 50` as a conservative estimate.
+    * The actual lower bound is 10-15 years higher, and a future version of the
+      library may update the value returned by this function.
+* `int16_t atc_epoch_valid_year_upper(void)`
+    * Returns the upper bound of the year that can be represented by
+      `ace_time_t`.
+    * This currently returns `epoch_year + 50` as a conservative estimate.
+    * The actual upper bound is 10-15 years higher, and a future version of the
+      library may update the value returned by this function.
+
+The following are low level internal functions that convert a given `(year,
+month, day)` triple in the proleptic Gregorian calendar to the number of days
+from an arbitrary, but fixed, internal epoch date (currently the year 2000).
+They are used as the basis for converting the Gregorian date to the number of
+offset days from the user-adjustable epoch year. They are not expected to be
+used by client applications.
+
+* `int32_t atc_convert_to_days(int16_t year, uint8_t month, uint8_t day)`
+* `void atc_convert_from_days(int16_t days, uint8_t *year, uint8_t *month,
+   uint8_t *day)`
+
+<a name="LocalDate"></a>
+### LocalDate
+
+The functions in [local_date.h](src/ace_time_c/local_date.h) provide features
+related to the Gregorian `(year, month, day)` triple. These functions do not
+know about the time components `(hour, minute, second)` or the timezone. They
+often represent either the local date, or the UTC date, depending on context.
+
+* `bool atc_is_leap_year(int16_t year)`
+    * Returns `true` if the given `year` is a leap year in the Gregorian
+      calendar.
+* `uint8_t atc_local_date_days_in_year_month(int16_t year, uint8_t month)`
+    * Returns the number of days in the given `(year, month)` pair.
+
+The `atc_local_date_day_of_week()` returns the ISO day of week of the given
+`(year, month, day)` date. The ISO weekday starts with Monday as 1, and ending
+with Sunday as 7:
+
+```C
+enum {
+  kAtcIsoWeekdayMonday = 1,
+  kAtcIsoWeekdayTuesday,
+  kAtcIsoWeekdayWednesday,
+  kAtcIsoWeekdayThursday,
+  kAtcIsoWeekdayFriday,
+  kAtcIsoWeekdaySaturday,
+  kAtcIsoWeekdaySunday,
+};
+
+uint8_t atc_local_date_day_of_week(int16_t year, uint8_t month, uint8_t day)`
+```
+
+The following 2 functions convert the Gregorian date to and from the number of
+days from the current epoch (given by `atc_get_current_epoch_year()`). These
+functions should return the correct value for any year in the range of `0 < year
+< 10000`, but no validation is performed for invalid dates. For example, the
+behavior is undefined for Feb 30 which is an invalid date.
+
+```C
+int32_t atc_local_date_to_epoch_days(
+    int16_t year, uint8_t month, uint8_t day);
+
+void atc_local_date_from_epoch_days(
+    int32_t epoch_days,
+    int16_t *year,
+    uint8_t *month,
+    uint8_t *day);
+```
+
+The following functions increment and decrement the date by one day:
+
+```C
+void atc_local_date_increment_one_day(
+    int16_t *year, uint8_t *month, uint8_t *day);
+
+void atc_local_date_decrement_one_day(
+    int16_t *year, uint8_t *month, uint8_t *day);
+```
+
+<a name="LocalTime"></a>
+### LocalTime
+
+The `local_time.h` file contains functions related to the local `(hour, minute,
+second)`. Currently a single function is provided:
+
+```C
+int32_t atc_local_time_to_seconds(uint8_t hour, uint8_t minute, uint8_t second);
+```
 
 <a name="AtcLocalDateTime"></a>
 ### AtcLocalDateTime
 
-The `AtcLocalDateTime` type represents the wall time, without any reference
-to a time zone:
+The functions in [local_date_time.h](src/ace_time_c/local_date_time.h) operate
+on the `AtcLocalDateTime` type which represents the wall date and time, without
+reference to a time zone:
 
 ```C
 typedef struct AtcLocalDateTime {
@@ -195,6 +376,7 @@ typedef struct AtcLocalDateTime {
   uint8_t hour;
   uint8_t minute;
   uint8_t second;
+  uint8_t fold;
 } AtcLocalDateTime;
 ```
 
@@ -217,11 +399,32 @@ The `atc_local_date_time_from_epoch_seconds()` function converts the given epoch
 seconds into the `AtcLocalDateTime` components. If an error occurs, the function
 returns `kAtcErrGeneric`, otherwise it returns `kAtcErrOk`.
 
+The `fold` parameter is both an input parameter and an output parameter, and has
+the meaning as the `fold` parameter in the AceTime library, which borrowed the
+concept from the [PEP 495](https://www.python.org/dev/peps/pep-0495/) document
+in Python 3.6.
+
+The `fold` as an output parameter is used to disambiguate a time which
+occurs twice due to a DST change. For example, in most of North America, the
+time zone switches from DST to Standard time in the fall. The wall clock "falls
+back" from 02:00 to 01:00, which means that the time from 01:00 to 02:00 occurs
+twice. The `fold` parameter is returned as 0 for the first occurrence, and 1 for
+the second occurrence.
+
+The `fold` as an input parameter is used to specify the UTC offset to be used
+when converting a LocalDateTime to an `epoch_seconds` around a DST gap, for
+example, when the clock jumps from 2:00 to 03:00 in North America. If `fold=0`,
+the given LocalDateTime is interpreted using the UTC offset *before* the gap,
+which then normalizes to a ZonedDateTime after the gap. If `fold=1`, the given
+LocalDateTime is interpreted using the UTC offset *after* the gap, which then
+normalizes to a ZonedDateTime before the gap.
+
 <a name="AtcOffsetDateTime"></a>
 ### AtcOffsetDateTime
 
-The `AtcOffsetDateTime` type represents a date-time with a fixed offset from
-UTC:
+The functions in [offset_date_time.h](src/ace_time_c/offset_date_time.h) operate
+on the `AtcOffsetDateTime` type which represents a date-time with a fixed offset
+from UTC:
 
 ```C
 typedef struct AtcOffsetDateTime {
@@ -238,18 +441,9 @@ typedef struct AtcOffsetDateTime {
 } AtcOffsetDateTime;
 ```
 
-The initial memory layout of `AtcOffsetDateTime` was designed to be identical to
-`AtcLocalDateTime`.
-
-The `fold` parameter is used to disambiguate a time which occurs twice due
-to a DST change. For example, in most of North America, the time zone switches
-from DST to Standard time in the fall. The wall clock "falls back" from 2:00am
-to 1:00am, which means that the time from 1:00am to 2:00am occurs twice. The
-`fold` parameter is 0 for the first occurrence, and 1 for the second occurrence.
-
-The meaning of the `fold` parameter is identical to the `fold` parameter in the
-AceTime library, which itself borrowed the concept from the [PEP
-495](https://www.python.org/dev/peps/pep-0495/) document in Python 3.6.
+The memory layout of `AtcOffsetDateTime` was designed to be identical to
+`AtcLocalDateTime` so that functions that accept a pointer to `AtcLocalDateTime`
+can be given a pointer to `AtcOffsetDateTime` as well.
 
 There are 2 functions that operate on the `AtcOffsetDateTime` object:
 
@@ -266,18 +460,22 @@ int8_t atc_offset_date_time_from_epoch_seconds(
 The `atc_offset_date_time_from_epoch_seconds()` function converts the given
 `AtcOffsetDateTime` into its `atc_time_t` epoch seconds, taking into account the
 `offset_minutes` field. If an error occurs, the function returns
-`kAtcInvalidEpochSeconds`. The `fold` parameter is ignored.
+`kAtcInvalidEpochSeconds`. The `fold` parameter of the input `AtcOffsetDateTime`
+is ignored because the `odt.offset_minutes` field is sufficient to disambiguate
+multiple instances.
 
 The `atc_offset_date_time_from_epoch_seconds()` function converts the given
 `epoch_seconds` and `offset_minutes` into the `AtcOffsetDateTime` components. If
 an error occurs, the function returns `kAtcErrGeneric`, otherwise it returns
-`kAtcErrOk`. The `fold` parameter is ignored.
+`kAtcErrOk`. The `odt.fold` parameter will always be set to 0.
 
 <a name="AtcZonedDateTime"></a>
 ### AtcZonedDateTime
 
-An `AtcZonedDateTime` is an `AtcOffsetDateTime` which also contains a reference
-to the TZDB time zone.
+The functions in [zoned_date_time.h](src/ace_time_c/zoned_date_time.h) operate
+on the `AtcZonedDateTime` data structure, which is identical to the
+`AtcOffsetDateTime` data structure with the addition of a reference to the TZDB
+time zone:
 
 ```C
 typedef struct AtcZonedDateTime {
@@ -291,136 +489,144 @@ typedef struct AtcZonedDateTime {
   uint8_t fold;
 
   int16_t offset_minutes; /* possibly ignored */
-  const AtcZoneInfo *zone_info; /* nullable, possibly ignored */
+  AtcTimeZone tz;
 } AtcZonedDateTime;
 ```
 
-The initial memory layout of `AtcZonedDateTime` was designed to be identical to
-`AtcOffsetDateTime`.
+The memory layout of `AtcZonedDateTime` was designed to be identical to
+`AtcOffsetDateTime`, so that functions that accept a pointer to
+`AtcOffsetDateTime` can also accept pointers to `AtcZonedDateTime`.
 
-The following functions operate on the `AtcZonedDateTime`:
+The following functions operate on the `AtcZonedDateTime` struct:
 
 ```C
+int8_t atc_zoned_date_time_from_epoch_seconds(
+    AtcZonedDateTime *zdt,
+    atc_time_t epoch_seconds,
+    AtcTimeZone tz);
+
 atc_time_t atc_zoned_date_time_to_epoch_seconds(
     const AtcZonedDateTime *zdt);
 
-int8_t atc_zoned_date_time_from_epoch_seconds(
-    AtcZoneProcessing *processing,
-    const AtcZoneInfo *zone_info,
-    atc_time_t epoch_seconds,
-    AtcZonedDateTime *zdt);
-
 int8_t atc_zoned_date_time_from_local_date_time(
-    AtcZoneProcessing *processing,
-    const AtcZoneInfo *zone_info,
+    AtcZonedDateTime *zdt,
     const AtcLocalDateTime *ldt,
-    uint8_t fold,
-    AtcZonedDateTime *zdt);
+    AtcTimeZone tz);
 
 int8_t atc_zoned_date_time_convert(
-    AtcZoneProcessing *dst_processing,
-    const AtcZoneInfo *dst_zone_info,
-    const AtcLocalDateTime *src,
+    const AtcZonedDateTime *src,
+    AtcTimeZone dst_tz,
     AtcZonedDateTime *dst);
 
 int8_t atc_zoned_date_time_normalize(
-    AtcZoneProcessing *processing,
     AtcZonedDateTime *zdt);
+
+void atc_zoned_date_time_print(
+    const AtcZonedDateTime *zdt,
+    AtcStringBuffer *sb);
 ```
 
-The `atc_zoned_date_time_to_epoch_seconds()` function converts the given
-`AtcZonedDateTime` into its `atc_time_t` epoch seconds, taking into account the
-time zone defined by the `zone_info` field inside the `AtcZonedDatetime`. If an
-error occurs, the function returns `kAtcInvalidEpochSeconds`.
+* `atc_offset_date_time_from_epoch_seconds()`
+    * Converts the given `epoch_seconds` and `tz` into the `AtcZonedDateTime`
+      components.
+    * If an error occurs, the function returns `kAtcErrGeneric`, otherwise it
+      returns `kAtcErrOk`.
+    * `AtcZonedDateTime.fold` is an *output* parameter in this function:
+        * Will usually be 0 except during a DST overlap.
+        * `fold=0` indicates the first occurrence of the local wall clock
+        * `fold=1` indicates the second occurrence of the local wall clock.
+* `atc_zoned_date_time_to_epoch_seconds()`
+    * Converts the given `AtcZonedDateTime` into its `atc_time_t` epoch seconds,
+      taking into account the time zone defined by the `tz` field inside the
+      `AtcZonedDatetime`.
+    * If an error occurs, the function returns `kAtcInvalidEpochSeconds`.
+* `atc_zoned_date_time_from_local_date_time()`
+    * Converts the local wall clock defined by `AtcLocalDateTime` to the
+      `AtcZonedDateTime`, taking into account the time zone defined by `tz`.
+    * `AtcLocalDateTime.fold` is an *input* parameter for this function.
+        * In most cases, the `fold` parameter has no effect.
+        * During an overlap:
+            * `fold=0` indicates the earlier of the 2 repeated time,
+            * `fold=1` indicates the later of the 2 repeated time.
+        * During a gap:
+            * `fold=0` indicates that the *earlier* UTC offset should be used,
+              which causes the effective epoch seconds to be the *later* one,
+              which then gets normalized to the *later* `AtcZonedDateTime`.
+            * `fold=1` indicates that the *later* UTC offset should be used,
+              which causes the effective epoch seconds to be the *earlier* one,
+              which then gets normalized to the *earlier* `AtcZonedDateTime`.
+* `atc_zoned_date_time_convert()`
+    * Converts an `AtcZonedDateTime` instance from one time zone to another. The
+      `src` instance contains the original time zone. The `dst` instance will
+      contain the date-time of the time zone represented by `dst_zone_info`.
 
-The `atc_offset_date_time_from_epoch_seconds()` function converts the given
-`epoch_seconds` and `zone_info` into the `AtcZonedDateTime` components. If an
-error occurs, the function returns `kAtcErrGeneric`, otherwise it returns
-`kAtcErrOk`. The `fold` parameter is usually 0. However, during a DST shift
-(described above), a `fold=0` indicates the first occurrence of the local wall
-clock, and `fold=1` indicates the second occurrence of the local wall clock.
+The conventions for the `fold` parameter are intended to be identical to the one
+described by the Python [PEP 495](https://www.python.org/dev/peps/pep-0495/)
+document.
 
-The `atc_zoned_date_time_from_local_date_time()` converts the date-time
-components defined by the `AtcLocalDateTime` to the `AtcZonedDateTime`, taking
-into account the time zone defined by `zone_info` and the `fold` parameter. In
-most cases, the `fold` parameter has no effect. But for cases where a local wall
-clock occurs twice (e.g. during a DST to Standard time shift), the `fold`
-parameter disambiguates the multiple occurrence of the local time.
+<a name="AtcTimeZone"></a>
+### AtcTimeZone
 
-The `atc_zoned_date_time_convert()` function converts an `AtcZonedDateTime`
-instance from one time zone to another. The `src` instance contains the original
-time zone. The `dst` instance will contain the date-time of the time zone
-represented by `dst_zone_info`.
+The `AtcTimeZone` structure represents a time zone from the IANA TZ database. It
+consists of a pair of pointers, an `AtcZoneInfo*` pointer and an
+`AtcZoneProcessor*` pointer, like this:
 
-The `fold` parameter occurs in 2 places, as an input parameter of one the above
-functions, and as an output parameter in the `AtcZonedDateTime` data structure.
-The `fold` parameter serves to disambiguate certain local date-time instances
-where the time occurs twice, or does not exist at all.
+```C++
+typedef struct AtcTimeZone {
+  const AtcZoneInfo *zone_info;
+  AtcZoneProcessor *zone_processor;
+} AtcTimeZone;
+```
 
-For example, in the autumn in North America, the wall clock changes from 02:00
-(DST) to 01:00 (Standard). This means means that the wall clock from 01:00 to
-02:00 occur twice. In the spring time, the wall clock changes from 02:00 to
-03:00, which means there is a gap where the times do not exist at all.
+Instances of `AtcTimeZone` are expected to be passed around by value into
+functions which need to be provided a time zone.
 
-During a repeat:
+<a name="AtcZoneProcessor"></a>
+### AtcZoneProcessor
 
-* `fold=0` indicates the earlier of the 2 repeated time,
-* `fold=1` indicates the later of the 2 repeated time.
-
-During a gap:
-
-* `fold=0` indicates that the *earlier* UTC offset should be used, which causes
-  the effective epoch seconds to be the *later* one, which then gets normalized
-  to the *later* `AtcZonedDateTime`.
-* `fold=1` that the *later* UTC offset, which causes the effective epoch seconds
-  to be the *earlier* one, which then gets normalized to the *earlier*
-  `AtcZonedDateTime`.
-
-These conventions are meant to be identical to the one described by the Python
-[PEP 495](https://www.python.org/dev/peps/pep-0495/) document.
-
-<a name="AtcZoneProcessing"></a>
-### AtcZoneProcessing
-
-The `AtcZoneProcessing` data structure provides a workspace for the various
+The `AtcZoneProcessor` data structure provides a workspace for the various
 internal functions that perform time zone calculations. The internal details
 should be considered to be private and subject to change without notice. One of
 this data type should be created statically for each time zone used by the
 downstream application. (Another possibility is to create one on the heap at
 startup time, then never freed.)
 
-Each time zone should be assigned an instance of the `AtcZoneProcessing`. An
-instance of `AtcZoneProcessing` should be initialized only once, usually at the
+Each time zone should be assigned an instance of the `AtcZoneProcessor`. An
+instance of `AtcZoneProcessor` should be initialized only once, usually at the
 beginning of the application:
 
 ```C
-AtcZoneProcessing los_angeles_processing;
+AtcZoneProcessor los_angeles_processor;
 
 void setup()
 {
-  atc_processing_init(&los_angeles_processing);
+  atc_processor_init(&los_angeles_processor);
 }
 ```
 
-The `AtcZoneProcessing` instance keeps a cache of UTC offset transitions
+The `AtcZoneProcessor` instance keeps a cache of UTC offset transitions
 spanning a year. Multiple calls to various `atc_zoned_date_time_XXX()` functions
-with the same `AtcZoneProcessing` instance within a given year will execute much
+with the same `AtcZoneProcessor` instance within a given year will execute much
 faster than other years.
 
-If memory is tight, an `AtcZoneProcessing` instance could be used by multiple
+If memory is tight, an `AtcZoneProcessor` instance could be used by multiple
 time zones (i.e. different `AtcZoneInfo`). However, each time the time zone
-changes, the internal cache of the `AtcZoneProcessing` instance will be cleared
+changes, the internal cache of the `AtcZoneProcessor` instance will be cleared
 and recalculated, so the execution speed may decrease significantly.
+
+**Warning**: If the epoch year is changed using the
+`atc_set_current_epoch_year()` function (see [Epoch](#Epoch)), then the
+`atc_processor_init()` function must be called to reinitialize any instance of
+`AtcZoneProcessor` that may have used a different epoch year.
 
 <a name="AtcZoneInfo"></a>
 ### AtcZoneInfo
 
-The `AtcZoneInfo` data structure, defined in the
-[zone_info.h](src/ace_time_c/zone_info.h) header file, defines the DST
-transition rules of a single time zone. The pointer to the `AtcZoneInfo` is
-meant to be passed around as opaque object for the most part since most of the
-fields are meant for internal consumption. There are 3 accessor functions which
-may be useful for end-users:
+The `AtcZoneInfo` data structure in [zone_info.h](src/ace_time_c/zone_info.h)
+defines the DST transition rules of a single time zone. The pointer to the
+`AtcZoneInfo` is meant to be passed around as opaque object for the most part
+since most of the fields are meant for internal consumption. There are 3
+accessor functions which may be useful for end-users:
 
 ```C
 bool atc_zone_info_is_link(const AtcZoneInfo *info);
@@ -444,8 +650,8 @@ The `atc_zone_info_short_name()` function is similar to the
 which is defined to be the string just after the last `/` character in the zone
 name. For example, the short name of `"America/Los_Angeles"` is `"Los_Angeles"`.
 
-<a name="ZoneDatabase"></a>
-### Zone Database
+<a name="ZoneDatabaseAndRegistry"></a>
+### Zone Database and Registry
 
 The Zone Database in the [src/ace_time_c/zonedb/](src/ace_time_c/zonedb)
 directory contains the collection of `AtcZoneInfo` instances representing all
@@ -459,7 +665,7 @@ pointer.
 
 The full list of Zones (and Links) supported by this library is given in the
 [zonedb/zone_infos.h](src/ace_time_c/zonedb/zone_infos.h) header file, which is
-automatically included by the `acetime.h` header file.
+automatically included by the `<acetimec.h>` header file.
 
 The IANA TZ database is often updated to track changes to the DST rules in
 different countries and regions. The version of the TZ database that was used to
@@ -469,46 +675,16 @@ generate the AceTimeC Zone database is given by:
 extern const char kAtcTzDatabaseVersion[];
 ```
 
-For example, this string will be `"2022b"` for the 2022b version of the TZ
+For example, this string will be `"2022g"` for the 2022g version of the TZ
 database.
 
-<a name="AtcZonedExtra"></a>
-### AtcZonedExtra
+The Zone Registry is defined in the
+[zonedb/zone_registry.h](src/ace_time_c/zonedb/zone_registry.h) file which
+contains the list of all Zones (and Links) supported by this library. It allows
+us to locate the `AtcZoneInfo` pointer using the human readable zone name (e.g.
+`"America/Los_Angeles"`) or its 32-bit zone identifier (e.g. `0xb7f7e8f2`).
 
-The `AtcZonedExtra` holds additional meta information about a particular time
-zone, usually at a particular epoch seconds:
-
-```C
-typedef struct AtcZonedExtra {
-  int16_t std_offset_minutes; // STD offset
-  int16_t dst_offset_minutes; // DST offset
-  char abbrev[kAtcAbbrevSize];
-} AtcZonedExtra;
-```
-
-There is one function that populates this type given an `epoch_seconds` and its
-`zone_info`:
-
-```C
-int8_t atc_zoned_extra_from_epoch_seconds(
-    AtcZoneProcessing *processing,
-    const AtcZoneInfo *zone_info,
-    atc_time_t epoch_seconds,
-    AtcZonedExtra *extra);
-```
-
-This function returns `kAtcErrGeneric` if an error is encountered, otherwise it
-returns `kAtcErrOk`.
-
-<a name="AtcZoneRegistrar"></a>
-## AtcZoneRegistrar
-
-The Zone Registry is the list of all Zones (and Links) supported by this
-library. It allows us to locate the `AtcZoneInfo` pointer using the
-human readable zone name (e.g. `"America/Los_Angeles"`) or its 32-bit
-zone identifier (e.g. `0xb7f7e8f2`).
-
-As of TZDB 2022b, 2 zone registries are provided:
+As of TZDB 2022g, 2 zone registries are provided:
 
 ```C
 // Zones
@@ -519,6 +695,67 @@ extern const AtcZoneInfo * const kAtcZoneRegistry[356];
 #define kAtcZoneAndLinkRegistrySize 595
 extern const AtcZoneInfo * const kAtcZoneAndLinkRegistry[595];
 ```
+
+The `kAtcZoneRegistry` and `kAtcZoneAndLinkRegistry` are used by the [Zone
+Registrar functions](#AtcZoneRegistrar) described below.
+
+<a name="AtcZonedExtra"></a>
+### AtcZonedExtra
+
+The `AtcZonedExtra` structure in [zoned_extra.h](src/ace_time_c/zoned_extra.h)
+holds additional meta information about a particular time zone, usually at a
+particular epoch seconds:
+
+```C
+enum {
+  kAtcZonedExtraNotFound = 0,
+  kAtcZonedExtraExact = 1,
+  kAtcZonedExtraGap = 2,
+  kAtcZonedExtraOverlap = 3,
+};
+
+typedef struct AtcZonedExtra {
+  int8_t type;
+  int16_t std_offset_minutes; // STD offset
+  int16_t dst_offset_minutes; // DST offset
+  int16_t req_std_offset_minutes; // request STD offset
+  int16_t req_dst_offset_minutes; // request DST offset
+  char abbrev[kAtcAbbrevSize];
+} AtcZonedExtra;
+```
+
+There are 2 functions that populates this data structure (analogous to the
+functions that populate the `AtcZonedDateTime` data structure):
+
+```C
+int8_t atc_zoned_extra_from_epoch_seconds(
+    AtcZonedExtra *extra,
+    atc_time_t epoch_seconds,
+    AtcTimeZone tz);
+
+int8_t atc_zoned_extra_from_local_date_time(
+    AtcZonedExtra *extra,
+    AtcLocalDateTime *ldt,
+    AtcTimeZone tz);
+```
+
+This function returns `kAtcErrGeneric` if an error is encountered, otherwise it
+returns `kAtcErrOk`.
+
+<a name="AtcZoneRegistrar"></a>
+## AtcZoneRegistrar
+
+The functions in [zone_registrar.h](src/ace_time_c/zone_registrar.h) allow
+searching of the [zone registries](#ZoneDatabaseAndRegistry) by human readable
+name (e.g. "America/Los_Angeles") or by a 32-bit numerical zoneId.
+
+The zone identifier is a unique and stable 32-bit integer associated with each
+time zone. It was defined in the AceTime library. See the section
+[CreateForZoneId](https://github.com/bxparks/AceTime/blob/develop/USER_GUIDE.md#CreateForZoneId)
+in the `USER_GUIDE.md` for the AceTime library. A 32-bit integer is often more
+convenient in an embedded environment than the human-readable zone name because
+the integer is a fixed size and can be stored and retrieved quickly. Examples
+are shown below.
 
 To use these registries, first we create and initialize an `AtcZoneRegistrar`
 data structure using the `atc_registrar_init()` function:
@@ -548,8 +785,8 @@ const AtcZoneInfo *atc_registrar_find_by_id(
     uint32_t zone_id);
 ```
 
-To retrieve the `AtcZoneInfo` pointer from the human readable zone name, the
-code looks something like this:
+Here is a sample code to retrieve the `AtcZoneInfo` pointer from the human
+readable zone name (e.g. `"America/Los_Angeles"`):
 
 ```C
 #include <acetimec.h>
@@ -573,6 +810,18 @@ void retrieve_zone_info_by_name()
   if (zone_info == NULL) { /*error*/ }
   ...
 }
+```
+
+Instead of using the string `"America/Los_Angeles"`, we can search for this
+timezone by its 32-bit zoneId which is provided by the Zone Database as
+`kAtcZoneIdAmerica_Los_Angeles=0xb7f7e8f2`:
+
+```C
+#include <acetimec.h>
+
+AtcZoneRegistrar registrar;
+
+// Perform setup() as above
 
 void retrieve_zone_info_by_id()
 {
@@ -583,25 +832,13 @@ void retrieve_zone_info_by_id()
 }
 ```
 
-The zone identifier is a unique and stable 32-bit integer associated for each
-time zone. It was defined in the AceTime library. See the section
-[CreateForZoneId](https://github.com/bxparks/AceTime/blob/develop/USER_GUIDE.md#CreateForZoneId)
-in the `USER_GUIDE.md` for AceTime. A 32-bit integer is often more convenient in
-an embedded environment than the human-readable zone name because the integer is
-a fixed size and can be stored and retrieved quickly.
-
-For example, instead of using the string `"America/Los_Angeles"`, this library
-defines the 32-bit number `kAtcZoneIdAmerica_Los_Angeles=0xb7f7e8f2` for this
-zone. This zone identifier can be passed into the `atc_registrar_find_by_id()`
-function to retrieve the corresponding `AtcZoneInfo` object.
-
-The `atc_registrar_init()` function determines whether or not the registry is
-sorted by zone id. If it is, then the search functions (both `find_by_name()`
-and `find_by_id()`) will use binary search algorithm. If the registry is not
-sorted, then the search functions performs a linear search through the registry.
-The binary search algorithm is `O(log(N))` and the linear search of `O(N)`.
-The binary search will be far faster than the linear search if the registry
-contains more than about 5-10 entries.
+The `atc_registrar_init()` function performs an optimization. It evaluates
+whether or not the registry is sorted by zone id. If it is, then the search
+functions (both `find_by_name()` and `find_by_id()`) will use binary search
+algorithm. If the registry is not sorted, then the search functions performs a
+linear search through the registry. The binary search algorithm is `O(log(N))`
+and the linear search of `O(N)`. The binary search will be far faster than the
+linear search if the registry contains more than about 5-10 entries.
 
 The downstream application does not need to use the default zone registries
 (`kAtcZoneRegistry` or `kAtcZoneAndLinkRegistry`). It can create its own custom

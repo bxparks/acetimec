@@ -20,18 +20,40 @@ extern "C" {
 #include <stdint.h>
 #include "common.h"
 #include "zone_info.h"
-#include "zone_processing.h"
 #include "transition.h" // kAtcAbbrevSize
+#include "time_zone.h"
+#include "local_date_time.h"
+
+/**
+ * Values of the the AtcZonedExtra.type field. Should be identical to
+ * AtcFindRresultXxx
+ */
+enum {
+  kAtcZonedExtraNotFound = 0,
+  kAtcZonedExtraExact = 1,
+  kAtcZonedExtraGap = 2,
+  kAtcZonedExtraOverlap = 3,
+};
 
 /**
  * Extra information about a given time zone at a specified epoch seconds.
- * Should be identical to AtcTransitionInfo.
  */
 typedef struct AtcZonedExtra {
+  /** Type of match against the LocalDateTime or epoch_seconds. */
+  int8_t type;
+
   /** STD offset */
   int16_t std_offset_minutes;
+
   /** DST offset */
   int16_t dst_offset_minutes;
+
+  /** STD offset of the requested LocalDateTime or epoch_seconds */
+  int16_t req_std_offset_minutes;
+
+  /** DST offset of the requested LocalDateTime or epoch_seconds */
+  int16_t req_dst_offset_minutes;
+
   /** abbreviation (e.g. PST, PDT) */
   char abbrev[kAtcAbbrevSize];
 } AtcZonedExtra;
@@ -41,10 +63,18 @@ typedef struct AtcZonedExtra {
  * Returns true upon success, false upon error.
  */
 int8_t atc_zoned_extra_from_epoch_seconds(
-    AtcZoneProcessing *processing,
-    const AtcZoneInfo *zone_info,
+    AtcZonedExtra *extra,
     atc_time_t epoch_seconds,
-    AtcZonedExtra *extra);
+    const AtcTimeZone *tz);
+
+/**
+ * Extract the extra zone information at given LocalDateTime.
+ * Returns true upon success, false upon error.
+ */
+int8_t atc_zoned_extra_from_local_date_time(
+    AtcZonedExtra *extra,
+    const AtcLocalDateTime *ldt,
+    const AtcTimeZone *tz);
 
 #ifdef __cplusplus
 }

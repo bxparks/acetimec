@@ -7,19 +7,20 @@
 #define ACE_TIME_C_H
 
 /* Version format: xxyyzz == "xx.yy.zz" */
-#define ACE_TIME_C_VERSION 500
-#define ACE_TIME_C_VERSION_STRING "0.5.0"
+#define ACE_TIME_C_VERSION 600
+#define ACE_TIME_C_VERSION_STRING "0.6.0"
 
 #include "ace_time_c/string_buffer.h"
 #include "ace_time_c/epoch.h"
 #include "ace_time_c/local_date.h"
+#include "ace_time_c/local_time.h"
 #include "ace_time_c/local_date_time.h"
 #include "ace_time_c/offset_date_time.h"
-#include "ace_time_c/transition.h"
-#include "ace_time_c/zone_processing.h"
 #include "ace_time_c/zone_info.h"
 #include "ace_time_c/zone_info_utils.h"
-#include "ace_time_c/zone_processing.h"
+#include "ace_time_c/transition.h"
+#include "ace_time_c/zone_processor.h"
+#include "ace_time_c/time_zone.h"
 #include "ace_time_c/zoned_date_time.h"
 #include "ace_time_c/zonedb/zone_infos.h"
 #include "ace_time_c/zonedb/zone_policies.h"

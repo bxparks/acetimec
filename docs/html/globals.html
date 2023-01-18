@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.5.0</span>
+   &#160;<span id="projectnumber">0.6.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -79,7 +79,7 @@ $(function() {
 : <a class="el" href="string__buffer_8h.html#a5bd511d14fe98c2ba2ba4124fea71903">string_buffer.h</a>
 </li>
 <li>atc_compare_era_to_year_month()
-: <a class="el" href="zone__processing_8h.html#a6c38f9724e4b56feae82a019ce0b9c47">zone_processing.h</a>
+: <a class="el" href="zone__processor_8h.html#a6c38f9724e4b56feae82a019ce0b9c47">zone_processor.h</a>
 </li>
 <li>atc_convert_from_days()
 : <a class="el" href="epoch_8h.html#a45128050cfbce1409a563aca1db24238">epoch.h</a>
@@ -91,7 +91,7 @@ $(function() {
 : <a class="el" href="common_8h.html#a3524006cfa67e08e009187b670d667fe">common.h</a>
 </li>
 <li>atc_create_matching_era()
-: <a class="el" href="zone__processing_8h.html#a4efd273155303cb4c6e934c0f3965c9e">zone_processing.h</a>
+: <a class="el" href="zone__processor_8h.html#a4efd273155303cb4c6e934c0f3965c9e">zone_processor.h</a>
 </li>
 <li>atc_current_epoch_year
 : <a class="el" href="epoch_8h.html#a9a4754dae713b24ca1246f058f16fe9c">epoch.h</a>
@@ -111,8 +111,8 @@ $(function() {
 <li>atc_date_tuple_subtract()
 : <a class="el" href="transition_8h.html#a9412503b3e1a276ee8d3fdf3793bdf83">transition.h</a>
 </li>
-<li>atc_days_from_converter_epoch_to_current_epoch
-: <a class="el" href="epoch_8h.html#a1a39126d02a66915c3ec163c4e56b84e">epoch.h</a>
+<li>atc_days_to_current_epoch_from_converter_epoch
+: <a class="el" href="epoch_8h.html#a80360a9c4c199f5fd6ee65efcfa2efb3">epoch.h</a>
 </li>
 <li>atc_djb2()
 : <a class="el" href="common_8h.html#adf398a9b212b8331b21fc2becf8b720e">common.h</a>
@@ -139,19 +139,19 @@ $(function() {
 : <a class="el" href="local__date_8h.html#ab3fae33c46c836fadcd35bc4cc86b33d">local_date.h</a>
 </li>
 <li>atc_local_date_decrement_one_day()
-: <a class="el" href="local__date_8h.html#ad4f838f0f9cbc40da855bae87a20a1f6">local_date.h</a>
+: <a class="el" href="local__date_8h.html#acffbb16835eb30c277fc4282fdd20611">local_date.h</a>
 </li>
 <li>atc_local_date_from_epoch_days()
 : <a class="el" href="local__date_8h.html#a385fcd84e9fb482f5b6da92a2800e383">local_date.h</a>
 </li>
 <li>atc_local_date_increment_one_day()
-: <a class="el" href="local__date_8h.html#ac05b296b380e476fa11c3969a5140c65">local_date.h</a>
+: <a class="el" href="local__date_8h.html#ae3761861c0c6b0a1c58c6412cda75f54">local_date.h</a>
 </li>
 <li>atc_local_date_time_from_epoch_seconds()
-: <a class="el" href="local__date__time_8h.html#add46f49e2fd033fc49ae9597af40df4d">local_date_time.h</a>
+: <a class="el" href="local__date__time_8h.html#a5dd676ba410479787c7f8aef59fbe181">local_date_time.h</a>
 </li>
 <li>atc_local_date_time_print()
-: <a class="el" href="local__date__time_8h.html#a3101297e2c75acc639c63b74070343f4">local_date_time.h</a>
+: <a class="el" href="local__date__time_8h.html#a3504090bc4b385357a63d6d3ef0356fb">local_date_time.h</a>
 </li>
 <li>atc_local_date_time_to_epoch_seconds()
 : <a class="el" href="local__date__time_8h.html#a47ae8261528b13df61c1d2f270a5d185">local_date_time.h</a>
@@ -159,11 +159,14 @@ $(function() {
 <li>atc_local_date_to_epoch_days()
 : <a class="el" href="local__date_8h.html#aa88cdfb5680791efd935b304877c953d">local_date.h</a>
 </li>
+<li>atc_local_time_to_seconds()
+: <a class="el" href="local__time_8h.html#a7a18833661a80f73895339a07a25df6a">local_time.h</a>
+</li>
 <li>atc_offset_date_time_from_epoch_seconds()
 : <a class="el" href="offset__date__time_8h.html#a25dc3cf843a2201f070df4f5479984db">offset_date_time.h</a>
 </li>
 <li>atc_offset_date_time_print()
-: <a class="el" href="offset__date__time_8h.html#a3da3eed00d621061fdd891e848f8a19d">offset_date_time.h</a>
+: <a class="el" href="offset__date__time_8h.html#a69f709711df2fcdd1e43fdfff0d18b8a">offset_date_time.h</a>
 </li>
 <li>atc_offset_date_time_to_epoch_seconds()
 : <a class="el" href="offset__date__time_8h.html#aa3e28840fa903ac35b59cf7a1b4510b3">offset_date_time.h</a>
@@ -186,32 +189,62 @@ $(function() {
 <li>atc_print_uint16_pad4()
 : <a class="el" href="string__buffer_8h.html#a4d19731cae3af1648d3c1f0a96b937ca">string_buffer.h</a>
 </li>
-<li>atc_processing_calc_interior_years()
-: <a class="el" href="zone__processing_8h.html#afddac4cecf6c755730ace7dc6773ec3e">zone_processing.h</a>
+<li>atc_processor_calc_abbreviations()
+: <a class="el" href="zone__processor_8h.html#a5cef8ec7f7303da56be4cdc83a901bd1">zone_processor.h</a>
 </li>
-<li>atc_processing_calc_start_day_of_month()
-: <a class="el" href="zone__processing_8h.html#a0f04625ebc749de65d865c57853d80c9">zone_processing.h</a>
+<li>atc_processor_calc_interior_years()
+: <a class="el" href="zone__processor_8h.html#ae6b8e43a13d8e8c89bf8f5bc50d410ba">zone_processor.h</a>
 </li>
-<li>atc_processing_get_most_recent_prior_year()
-: <a class="el" href="zone__processing_8h.html#a57f51547f9349f719c2069bd3b975b0b">zone_processing.h</a>
+<li>atc_processor_calc_start_day_of_month()
+: <a class="el" href="zone__processor_8h.html#ab3cfb80e53d3e51c3345371595bbdb0b">zone_processor.h</a>
 </li>
-<li>atc_processing_init()
-: <a class="el" href="zone__processing_8h.html#a26f1e50b8086d4aff33164a960a8c619">zone_processing.h</a>
+<li>atc_processor_create_abbreviation()
+: <a class="el" href="zone__processor_8h.html#a636221f33d1d8cb7a796e952b6576d58">zone_processor.h</a>
 </li>
-<li>atc_processing_init_for_epoch_seconds()
-: <a class="el" href="zone__processing_8h.html#a59dfe680ca40c90a14cc1ff2145faa31">zone_processing.h</a>
+<li>atc_processor_create_transition_for_year()
+: <a class="el" href="zone__processor_8h.html#a3dbc7e72cb5a0d8a92661a2afd08664f">zone_processor.h</a>
 </li>
-<li>atc_processing_init_for_year()
-: <a class="el" href="zone__processing_8h.html#a84d8ed296fc285474a8d93ee036e35c5">zone_processing.h</a>
+<li>atc_processor_create_transitions_for_match()
+: <a class="el" href="zone__processor_8h.html#ae98999d3f47ae760004446e26a2ed3d3">zone_processor.h</a>
 </li>
-<li>atc_processing_offset_date_time_from_epoch_seconds()
-: <a class="el" href="zone__processing_8h.html#ac4203428beeb81ba27ef69f694df2c98">zone_processing.h</a>
+<li>atc_processor_create_transitions_from_named_match()
+: <a class="el" href="zone__processor_8h.html#abe4b933fd60452ed53fde2edf4c0677a">zone_processor.h</a>
 </li>
-<li>atc_processing_offset_date_time_from_local_date_time()
-: <a class="el" href="zone__processing_8h.html#ad124d1e8e9e6887ceade4519d95e355d">zone_processing.h</a>
+<li>atc_processor_create_transitions_from_simple_match()
+: <a class="el" href="zone__processor_8h.html#abbb0d4888abda72df03aa7b52fcab904">zone_processor.h</a>
 </li>
-<li>atc_processing_transition_info_from_epoch_seconds()
-: <a class="el" href="zone__processing_8h.html#a2a77c4689b9aa8532dc91f2230db8cb2">zone_processing.h</a>
+<li>atc_processor_find_by_epoch_seconds()
+: <a class="el" href="zone__processor_8h.html#aede4673c4ef012f91ee06fda56a8e8f9">zone_processor.h</a>
+</li>
+<li>atc_processor_find_by_local_date_time()
+: <a class="el" href="zone__processor_8h.html#a9332b65f1e6688bceb63d84b6cb0d53f">zone_processor.h</a>
+</li>
+<li>atc_processor_find_candidate_transitions()
+: <a class="el" href="zone__processor_8h.html#a40146cebb14445aab819befc20080813">zone_processor.h</a>
+</li>
+<li>atc_processor_find_matches()
+: <a class="el" href="zone__processor_8h.html#a49fe99960b14baf49454e85374de7af9">zone_processor.h</a>
+</li>
+<li>atc_processor_generate_start_until_times()
+: <a class="el" href="zone__processor_8h.html#a8f029b68cbd175f99367892e66d5fa94">zone_processor.h</a>
+</li>
+<li>atc_processor_get_most_recent_prior_year()
+: <a class="el" href="zone__processor_8h.html#a4983b325e932f3db2c14ec9c986c744b">zone_processor.h</a>
+</li>
+<li>atc_processor_get_transition_time()
+: <a class="el" href="zone__processor_8h.html#afcff2f6ca925123dd62dd31f8e0829d2">zone_processor.h</a>
+</li>
+<li>atc_processor_init()
+: <a class="el" href="zone__processor_8h.html#a3c432909cd21efbd035810fec546b06a">zone_processor.h</a>
+</li>
+<li>atc_processor_init_for_epoch_seconds()
+: <a class="el" href="zone__processor_8h.html#a9f186a48821cb7ea3f7fc462cb974c49">zone_processor.h</a>
+</li>
+<li>atc_processor_init_for_year()
+: <a class="el" href="zone__processor_8h.html#afba97848714dc3a2784dc58234e6aa11">zone_processor.h</a>
+</li>
+<li>atc_processor_process_transition_match_status()
+: <a class="el" href="zone__processor_8h.html#a6f9bdfbc984d858bab3b14db07c5f410">zone_processor.h</a>
 </li>
 <li>atc_registrar_find_by_id()
 : <a class="el" href="zone__registrar_8h.html#a7210fa6e3ac93f970dc062a61e7f511b">zone_registrar.h</a>
@@ -230,6 +263,12 @@ $(function() {
 </li>
 <li>atc_time_t
 : <a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">common.h</a>
+</li>
+<li>atc_time_zone_offset_date_time_from_epoch_seconds()
+: <a class="el" href="time__zone_8h.html#ae66d8aa69902fae74b79bc3d06858f4e">time_zone.h</a>
+</li>
+<li>atc_time_zone_offset_date_time_from_local_date_time()
+: <a class="el" href="time__zone_8h.html#a175f711f130aad01a637bc5976942b54">time_zone.h</a>
 </li>
 <li>atc_transition_compare_to_match()
 : <a class="el" href="transition_8h.html#aee8a83c2d49ed94cd6f8034112a48230">transition.h</a>
@@ -254,6 +293,24 @@ $(function() {
 </li>
 <li>atc_transition_storage_add_prior_to_candidate_pool()
 : <a class="el" href="transition_8h.html#af66e4a2d8938cf48b08ef1e1577dcab1">transition.h</a>
+</li>
+<li>atc_transition_storage_find_for_date_time()
+: <a class="el" href="transition_8h.html#a07adb7f18cfc28fec459ecde9fdaec50">transition.h</a>
+</li>
+<li>atc_transition_storage_find_for_seconds()
+: <a class="el" href="transition_8h.html#ae261eb432272a18429b0d9c7509f1557">transition.h</a>
+</li>
+<li>atc_transition_storage_get_active_pool_begin()
+: <a class="el" href="transition_8h.html#a626e7a43e526bd056eadf737c6d588a6">transition.h</a>
+</li>
+<li>atc_transition_storage_get_active_pool_end()
+: <a class="el" href="transition_8h.html#ae646996b3bcaa2a69058db3e3751365d">transition.h</a>
+</li>
+<li>atc_transition_storage_get_candidate_pool_begin()
+: <a class="el" href="transition_8h.html#ac4ad8839180f159174286cdfbf318e0d">transition.h</a>
+</li>
+<li>atc_transition_storage_get_candidate_pool_end()
+: <a class="el" href="transition_8h.html#a38a467bd7c7494b8cba924535828e6d9">transition.h</a>
 </li>
 <li>atc_transition_storage_get_free_agent()
 : <a class="el" href="transition_8h.html#a9847e6784d5d7a9da578b50976f8a09f">transition.h</a>
@@ -310,34 +367,37 @@ $(function() {
 : <a class="el" href="zone__info__utils_8h.html#ac6ece4caa9002a39cc4c5695377f7d50">zone_info_utils.h</a>
 </li>
 <li>atc_zoned_date_time_convert()
-: <a class="el" href="zoned__date__time_8h.html#abf738a3b3fe8133eba370d83e353bc5a">zoned_date_time.h</a>
+: <a class="el" href="zoned__date__time_8h.html#ab012e7ee0a6b6ae18394af5feaa74739">zoned_date_time.h</a>
 </li>
 <li>atc_zoned_date_time_from_epoch_seconds()
-: <a class="el" href="zoned__date__time_8h.html#a2f988d70c04dca6a52694ba13de487d1">zoned_date_time.h</a>
+: <a class="el" href="zoned__date__time_8h.html#a790e5cbb501ad27b01021c3517aa66f7">zoned_date_time.h</a>
 </li>
 <li>atc_zoned_date_time_from_local_date_time()
-: <a class="el" href="zoned__date__time_8h.html#ab5134925877f87964202a9ba36d12407">zoned_date_time.h</a>
+: <a class="el" href="zoned__date__time_8h.html#a782aa1e6d8b1510ddfebffe8ea2e61df">zoned_date_time.h</a>
 </li>
 <li>atc_zoned_date_time_normalize()
-: <a class="el" href="zoned__date__time_8h.html#a22c2d6df06c05472a982b146dbeb800f">zoned_date_time.h</a>
+: <a class="el" href="zoned__date__time_8h.html#a778585a2b3ab2c3139abf06fb23b281b">zoned_date_time.h</a>
 </li>
 <li>atc_zoned_date_time_print()
-: <a class="el" href="zoned__date__time_8h.html#acd1f33fdf5aba5c84909f991c2bd45de">zoned_date_time.h</a>
+: <a class="el" href="zoned__date__time_8h.html#a3137ef23cb97fbf8484eccc039b51d30">zoned_date_time.h</a>
 </li>
 <li>atc_zoned_date_time_to_epoch_seconds()
 : <a class="el" href="zoned__date__time_8h.html#af7af315c2907bc0b921fd59d2ead00cf">zoned_date_time.h</a>
 </li>
 <li>atc_zoned_extra_from_epoch_seconds()
-: <a class="el" href="zoned__extra_8h.html#a3a0c1d491c7ad968aa4d2b24b7b8fcc6">zoned_extra.h</a>
+: <a class="el" href="zoned__extra_8h.html#a3a75956c9a831dff8aaba455c875d9b5">zoned_extra.h</a>
+</li>
+<li>atc_zoned_extra_from_local_date_time()
+: <a class="el" href="zoned__extra_8h.html#a2bbc3893e5745cd2919720f732c64f68">zoned_extra.h</a>
 </li>
 <li>AtcDateTuple
 : <a class="el" href="transition_8h.html#a956b7acc9da9cb228b540ccbd9267f5c">transition.h</a>
 </li>
+<li>AtcFindResult
+: <a class="el" href="zone__processor_8h.html#a0399a43149a4708715b64e66376619a9">zone_processor.h</a>
+</li>
 <li>AtcLinkEntry
 : <a class="el" href="zone__info_8h.html#afa913c17faa6ff477d65b5abfedfad44">zone_info.h</a>
-</li>
-<li>AtcLocalDate
-: <a class="el" href="local__date_8h.html#ab9d74d90dfdfb35e324f5bca1145e568">local_date.h</a>
 </li>
 <li>AtcLocalDateTime
 : <a class="el" href="local__date__time_8h.html#a652ba174dc5d388d180e1eea88f2216f">local_date_time.h</a>
@@ -346,28 +406,32 @@ $(function() {
 : <a class="el" href="transition_8h.html#a1e33133a13a970ef03bd58d713e67069">transition.h</a>
 </li>
 <li>AtcMonthDay
-: <a class="el" href="zone__processing_8h.html#ad4ffe4799b5c91058b2ac660879adce3">zone_processing.h</a>
+: <a class="el" href="zone__processor_8h.html#ad4ffe4799b5c91058b2ac660879adce3">zone_processor.h</a>
 </li>
 <li>AtcOffsetDateTime
 : <a class="el" href="offset__date__time_8h.html#a2e3af32a3ad2977303fcf71d05b8c95b">offset_date_time.h</a>
+, <a class="el" href="time__zone_8h.html#a2e3af32a3ad2977303fcf71d05b8c95b">time_zone.h</a>
 </li>
 <li>AtcStringBuffer
 : <a class="el" href="string__buffer_8h.html#a798233d0477038ed9c50b9523fd45e94">string_buffer.h</a>
 </li>
+<li>AtcTimeZone
+: <a class="el" href="time__zone_8h.html#a7a4f693ed3831a770b621f5f33cf63db">time_zone.h</a>
+</li>
 <li>AtcTransition
 : <a class="el" href="transition_8h.html#a5a2b87c5eff43812cf841bb7f9246e14">transition.h</a>
 </li>
-<li>AtcTransitionInfo
-: <a class="el" href="zone__processing_8h.html#a60efc8a9f5943d7cfa68336c4fe4b2b0">zone_processing.h</a>
+<li>AtcTransitionForDateTime
+: <a class="el" href="transition_8h.html#a0b59554b257ebb9cd68a658c57a16f71">transition.h</a>
 </li>
-<li>AtcTransitionResult
-: <a class="el" href="zone__processing_8h.html#a85eeb9ce893569107fa68f28b2e7d176">zone_processing.h</a>
+<li>AtcTransitionForSeconds
+: <a class="el" href="transition_8h.html#ad470c4c7db14230392db6f412e7584d3">transition.h</a>
 </li>
 <li>AtcTransitionStorage
 : <a class="el" href="transition_8h.html#aa0c2bda75e04888fd7e7ecf791553936">transition.h</a>
 </li>
 <li>AtcYearMonth
-: <a class="el" href="zone__processing_8h.html#a05c2e8d32bf1b6fb01ee92d00d2dd9fc">zone_processing.h</a>
+: <a class="el" href="zone__processor_8h.html#a05c2e8d32bf1b6fb01ee92d00d2dd9fc">zone_processor.h</a>
 </li>
 <li>AtcZoneContext
 : <a class="el" href="zone__info_8h.html#af4d4ff7f7ea57477c177b6cd6aa074c8">zone_info.h</a>
@@ -387,8 +451,8 @@ $(function() {
 <li>AtcZonePolicy
 : <a class="el" href="zone__info_8h.html#ab54ee98e3adee43845e0c0b14dcea45a">zone_info.h</a>
 </li>
-<li>AtcZoneProcessing
-: <a class="el" href="zone__processing_8h.html#aef274155c88ff581d058b18dfa20c760">zone_processing.h</a>
+<li>AtcZoneProcessor
+: <a class="el" href="zone__processor_8h.html#a5ac87192eb435b787d93ae7cf1da3201">zone_processor.h</a>
 </li>
 <li>AtcZoneRegistrar
 : <a class="el" href="zone__registrar_8h.html#af1608058716ea352d8b74beb7b54b10f">zone_registrar.h</a>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.5.0</span>
+   &#160;<span id="projectnumber">0.6.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -78,6 +78,10 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a836e80485a7ed200bfceebb926e53cac"><td class="memItemLeft" align="right" valign="top"><a id="a836e80485a7ed200bfceebb926e53cac"></a>
+int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonedExtra.html#a836e80485a7ed200bfceebb926e53cac">type</a></td></tr>
+<tr class="memdesc:a836e80485a7ed200bfceebb926e53cac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of match against the LocalDateTime or epoch_seconds. <br /></td></tr>
+<tr class="separator:a836e80485a7ed200bfceebb926e53cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a904d87896bbdc5727cc36d3d26c847f1"><td class="memItemLeft" align="right" valign="top"><a id="a904d87896bbdc5727cc36d3d26c847f1"></a>
 int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonedExtra.html#a904d87896bbdc5727cc36d3d26c847f1">std_offset_minutes</a></td></tr>
 <tr class="memdesc:a904d87896bbdc5727cc36d3d26c847f1"><td class="mdescLeft">&#160;</td><td class="mdescRight">STD offset. <br /></td></tr>
@@ -86,15 +90,22 @@ int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonedExtra.html#acc43d5ac53bd5027fb60c18a998ed268">dst_offset_minutes</a></td></tr>
 <tr class="memdesc:acc43d5ac53bd5027fb60c18a998ed268"><td class="mdescLeft">&#160;</td><td class="mdescRight">DST offset. <br /></td></tr>
 <tr class="separator:acc43d5ac53bd5027fb60c18a998ed268"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a29660c6b919e47c590a16a8c0ae2a680"><td class="memItemLeft" align="right" valign="top"><a id="a29660c6b919e47c590a16a8c0ae2a680"></a>
+int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonedExtra.html#a29660c6b919e47c590a16a8c0ae2a680">req_std_offset_minutes</a></td></tr>
+<tr class="memdesc:a29660c6b919e47c590a16a8c0ae2a680"><td class="mdescLeft">&#160;</td><td class="mdescRight">STD offset of the requested LocalDateTime or epoch_seconds. <br /></td></tr>
+<tr class="separator:a29660c6b919e47c590a16a8c0ae2a680"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a1dfbe23bece2d0f461d80e192cce7b4f"><td class="memItemLeft" align="right" valign="top"><a id="a1dfbe23bece2d0f461d80e192cce7b4f"></a>
+int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonedExtra.html#a1dfbe23bece2d0f461d80e192cce7b4f">req_dst_offset_minutes</a></td></tr>
+<tr class="memdesc:a1dfbe23bece2d0f461d80e192cce7b4f"><td class="mdescLeft">&#160;</td><td class="mdescRight">DST offset of the requested LocalDateTime or epoch_seconds. <br /></td></tr>
+<tr class="separator:a1dfbe23bece2d0f461d80e192cce7b4f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a90ea7f732ec6f8646930ad544c1e0dd2"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonedExtra.html#a90ea7f732ec6f8646930ad544c1e0dd2">abbrev</a> [<a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06ca9262981dc217adabd9b160f3b8e29c80">kAtcAbbrevSize</a>]</td></tr>
 <tr class="memdesc:a90ea7f732ec6f8646930ad544c1e0dd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">abbreviation (e.g.  <a href="structAtcZonedExtra.html#a90ea7f732ec6f8646930ad544c1e0dd2">More...</a><br /></td></tr>
 <tr class="separator:a90ea7f732ec6f8646930ad544c1e0dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Extra information about a given time zone at a specified epoch seconds. </p>
-<p>Should be identical to <a class="el" href="structAtcTransitionInfo.html" title="Additional meta information about the transition.">AtcTransitionInfo</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="zoned__extra_8h_source.html#l00030">30</a> of file <a class="el" href="zoned__extra_8h_source.html">zoned_extra.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zoned__extra_8h_source.html#l00041">41</a> of file <a class="el" href="zoned__extra_8h_source.html">zoned_extra.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a90ea7f732ec6f8646930ad544c1e0dd2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a90ea7f732ec6f8646930ad544c1e0dd2">&#9670;&nbsp;</a></span>abbrev</h2>
@@ -111,7 +122,7 @@ int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <p>abbreviation (e.g. </p>
 <p>PST, PDT) </p>
 
-<p class="definition">Definition at line <a class="el" href="zoned__extra_8h_source.html#l00036">36</a> of file <a class="el" href="zoned__extra_8h_source.html">zoned_extra.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zoned__extra_8h_source.html#l00058">58</a> of file <a class="el" href="zoned__extra_8h_source.html">zoned_extra.h</a>.</p>
 
 </div>
 </div>

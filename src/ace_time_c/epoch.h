@@ -37,9 +37,9 @@ enum {
 
 /**
  * The epoch year which will be used to interpret the epoch seconds. By default,
- * the current epoch year is 2000, which means that the epoch is
- * 2000-01-01T00:00:00, and the largest date that can be represented by an
- * `int32_t` epoch_seconds is 2068-01-19T03:14:07. To represents dates after
+ * the current epoch year is 2050, which means that the epoch is
+ * 2050-01-01T00:00:00, and the largest date that can be represented by an
+ * `int32_t` epoch_seconds is 2118-01-20T03:14:07. To represents dates after
  * this, we would have to change the current epoch year. For example, changing
  * the current epoch year to 2100 allows the epoch_seconds to extend to
  * 2168-01-20T03:14:07.
@@ -47,12 +47,18 @@ enum {
 extern int16_t atc_current_epoch_year;
 
 /** Number of days from epoch converter epoch to the current epoch. */
-extern int32_t atc_days_from_converter_epoch_to_current_epoch;
+extern int32_t atc_days_to_current_epoch_from_converter_epoch;
 
 /** Get the current epoch year. */
 int16_t atc_get_current_epoch_year(void);
 
-/** Set the current epoch year. */
+/**
+ * Set the current epoch year. Any cached values (e.g. any internal or external
+ * evaluations of `ace_time_t`) that used a previous epoch year must be
+ * invalidated. In particular, the `atc_processor_init()` must be called on
+ * each instance of `AtcZoneProcessor` that was used with a different epoch
+ * year.
+ */
 void atc_set_current_epoch_year(int16_t year);
 
 /** Get number of days from converter epoch to current epoch. */
@@ -65,7 +71,7 @@ int32_t atc_get_days_to_current_epoch_from_converter_epoch(void);
  * atc_epoch_valid_year_lower()`.
  *
  * A 32-bit integer has a range of about 136 years, so the half interval is 68
- * years. But the algorithms to calculate transitions in `zone_processing.h` use
+ * years. But the algorithms to calculate transitions in `zone_processor.h` use
  * a 3-year window straddling the current year, so the actual lower limit is
  * probably closer to `atc_get_current_epoch_year() - 66`. To be conservative,
  * this function returns `atc_get_current_epoch_year() - 50`. It may return a
@@ -81,7 +87,7 @@ int16_t atc_epoch_valid_year_lower(void);
  * atc_epoch_valid_year_upper()`.
  *
  * A 32-bit integer has a range of about 136 years, so the half interval is 68
- * years. But the algorithms to calculate the transitions in `zone_processing.h`
+ * years. But the algorithms to calculate the transitions in `zone_processor.h`
  * use a 3-year window straddling the current year, so actual upper limit is
  * probably close to `atc_get_current_epoch_year() + 66`. To be conservative,
  * this function returns `atc_get_current_epoch_year() + 50`. It may return a

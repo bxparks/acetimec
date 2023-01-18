@@ -1,6 +1,38 @@
 # Changelog
 
 * Unreleased
+* 0.6.0 (2023-01-17, TZDB 2022g)
+    * Migrate to ACUnit v0.1.0.
+    * `atc_days_to_current_epoch_from_converter_epoch`
+        * Fix incorrect initial value.
+    * `atc_date_tuple_subtract()`
+        * Fix overflow bug.
+    * `zonedb`
+        * Rename `kAtcPolicyXxx` to `kAtcZonePolicyXxx` for consistency.
+    * `zone_processor.h`
+        * Renamed from `zone_processing.h`.
+        * Rename `AtcZoneProcessing` to `AtcZoneProcessor`.
+        * Incorporate same algorithm as AceTime
+        * Unify `find_by_epochseconds()` and `find_by_local_date_time()` using a
+          common `FindResult`.
+        * Fix handling of input and output `fold` parameters during overlap in
+          `find_by_local_date_time()`.
+    * `AtcLocalDateTime`
+        * Incorporate `fold` parameter, for consistency with `AtcOffsetDateTime`
+          and `AtcZonedDateTime`.
+        * Removes the explicit `uint8_t fold` argument from a number of
+          functions, simplifying their usage.
+        * More consistent with the AceTime library.
+    * `AtcZonedExtra`
+        * Add requested STD offset and DST offset, information which was
+          otherwise lost during a DST gap.
+        * Add `type` parameter to indicate exact match, gap, or overlap.
+    * `AtcTimeZone`
+        * Add `AtcTimeZone` struct to simplify arguments to various
+          `atc_zoned_date_time*()` and `atc_zoned_extra*()` functions
+    * printing to `AtcStringBuffer`
+        * Change order of various `atc_xxx_print()` functions to place the
+          date-time objects first, like the `this` pointer of an object.
 * 0.5.0 (2022-12-04, TZDB 2022g)
     * Upgrade to TZDB 2022g
     * Add `extern "C"` to all header files.

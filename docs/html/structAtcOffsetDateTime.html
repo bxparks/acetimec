@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.5.0</span>
+   &#160;<span id="projectnumber">0.6.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -113,7 +113,7 @@ int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Date and time fields with a UTC offset in minutes. </p>
-<p>In AceTime, the 'fold' parameter was included in the low-level LocalTime class, which then got absorbed into the LocalDatetime class. This extra parameter is mostly transparent to the user because C++ supports default parameters in the constructor and functions.</p>
+<p>In the AceTime library, the 'fold' parameter was included in the low-level LocalTime class, which then got absorbed into the LocalDatetime class. This extra parameter is mostly transparent to the user because C++ supports default parameters in the constructor and functions.</p>
 <p>Unfortunately C does not have default parameters, so adding a 'fold' in LocalDateTime causes unnecessary friction. Therefore, I am adding this parameter to the OffsetDateTime instead, which is higher level so hopefully the parameter is exposed to the user only when the user needs. </p>
 
 <p class="definition">Definition at line <a class="el" href="offset__date__time_8h_source.html#l00038">38</a> of file <a class="el" href="offset__date__time_8h_source.html">offset_date_time.h</a>.</p>

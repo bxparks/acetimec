@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.5.0</span>
+   &#160;<span id="projectnumber">0.6.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -102,13 +102,39 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcLocalDateTime.html#a9ef974bc8decc25b432421bbcce8864b">second</a></td></tr>
 <tr class="memdesc:a9ef974bc8decc25b432421bbcce8864b"><td class="mdescLeft">&#160;</td><td class="mdescRight">second [0, 59] <br /></td></tr>
 <tr class="separator:a9ef974bc8decc25b432421bbcce8864b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a51a2be455f91b1aa97263263ac200fe4"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcLocalDateTime.html#a51a2be455f91b1aa97263263ac200fe4">fold</a></td></tr>
+<tr class="memdesc:a51a2be455f91b1aa97263263ac200fe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">fold [0,1].  <a href="structAtcLocalDateTime.html#a51a2be455f91b1aa97263263ac200fe4">More...</a><br /></td></tr>
+<tr class="separator:a51a2be455f91b1aa97263263ac200fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Date and time fields which are independent of the time zone. </p>
 <p>Often this struct holds the date time fields in UTC, but not always. </p>
 
 <p class="definition">Definition at line <a class="el" href="local__date__time_8h_source.html#l00028">28</a> of file <a class="el" href="local__date__time_8h_source.html">local_date_time.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a51a2be455f91b1aa97263263ac200fe4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a51a2be455f91b1aa97263263ac200fe4">&#9670;&nbsp;</a></span>fold</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t AtcLocalDateTime::fold</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>fold [0,1]. </p>
+<p>The first or second occurrence of this date-time.</p>
+<p>As an input parameter, this will be 0 most of the time. During a DST "fall
+back" overlap, it can be to 1 to select the second occurrence instead of the first occurrence. During a DST "spring forward" gap, setting this to 0 selects the UTC offset before the gap, which then normalizes to the UTC offset after the gap. Settings this to 1 selects the DST offset after the gap, which then normalizes to the UTC offset before the gap.</p>
+<p>As an output parameter, this indicates whether the the epoch_seconds occurs on the first or second occurrence of the DST overlap. </p>
+
+<p class="definition">Definition at line <a class="el" href="local__date__time_8h_source.html#l00055">55</a> of file <a class="el" href="local__date__time_8h_source.html">local_date_time.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/home/brian/src/AceTimeC/src/ace_time_c/<a class="el" href="local__date__time_8h_source.html">local_date_time.h</a></li>
 </ul>
 </div><!-- contents -->

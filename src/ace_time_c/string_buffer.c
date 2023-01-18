@@ -1,3 +1,8 @@
+/*
+ * MIT License
+ * Copyright (c) 2022 Brian T. Park
+ */
+
 #include "string_buffer.h"
 
 void atc_buf_init(AtcStringBuffer *sb, char *p, uint8_t capacity)

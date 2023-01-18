@@ -3,6 +3,9 @@
 
 ACU_TEST(test_offset_date_time_to_epoch_seconds)
 {
+  int16_t saved_epoch_year = atc_get_current_epoch_year();
+  atc_set_current_epoch_year(2000);
+
   // smallest valid offset_date_time
   AtcOffsetDateTime odt = {
     1931, 12, 13, 20, 45, 53, 0 /*fold*/, 0 /*offset*/
@@ -32,25 +35,37 @@ ACU_TEST(test_offset_date_time_to_epoch_seconds)
     2068, 1, 19, 3, 14, 7, 0 /*fold*/, 0 /*offset*/
   };
   ACU_ASSERT(INT32_MAX == atc_offset_date_time_to_epoch_seconds(&odt));
+
+  atc_set_current_epoch_year(saved_epoch_year);
 }
 
 ACU_TEST(test_offset_date_time_to_epoch_seconds_with_offset)
 {
+  int16_t saved_epoch_year = atc_get_current_epoch_year();
+  atc_set_current_epoch_year(2000);
+
   uint16_t offset_minutes = 1;
   AtcOffsetDateTime odt = {
     2000, 1, 1, 0, 0, 0, 0 /*fold*/, offset_minutes /*offset*/
   };
   ACU_ASSERT(offset_minutes * -60
       == atc_offset_date_time_to_epoch_seconds(&odt));
+
+  atc_set_current_epoch_year(saved_epoch_year);
 }
 
 ACU_TEST(test_offset_date_time_to_epoch_seconds_invalid)
 {
+  int16_t saved_epoch_year = atc_get_current_epoch_year();
+  atc_set_current_epoch_year(2000);
+
   AtcOffsetDateTime odt = {
     kAtcInvalidYear, 12, 13, 20, 45, 53, 0 /*fold*/, 0 /*offset*/
   };
   ACU_ASSERT(kAtcInvalidEpochSeconds
       == atc_offset_date_time_to_epoch_seconds(&odt));
+
+  atc_set_current_epoch_year(saved_epoch_year);
 }
 
 //---------------------------------------------------------------------------
@@ -202,7 +217,7 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_epoch2050)
 
 //---------------------------------------------------------------------------
 
-ACU_VARS();
+ACU_CONTEXT();
 
 int main()
 {

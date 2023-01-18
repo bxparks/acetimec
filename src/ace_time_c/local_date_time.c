@@ -1,14 +1,14 @@
+/*
+ * MIT License
+ * Copyright (c) 2022 Brian T. Park
+ */
+
 #include "local_date_time.h"
 
 #include "common.h"
 #include "local_date.h"
+#include "local_time.h"
 #include "local_date_time.h"
-
-static int32_t hms_to_seconds(
-    uint8_t hour, uint8_t minute, uint8_t second)
-{
-  return ((hour * (int16_t) 60) + minute) * (int32_t) 60 + second;
-}
 
 atc_time_t atc_local_date_time_to_epoch_seconds(
     const AtcLocalDateTime *ldt)
@@ -17,14 +17,17 @@ atc_time_t atc_local_date_time_to_epoch_seconds(
 
   int32_t days = atc_local_date_to_epoch_days(
       ldt->year, ldt->month, ldt->day);
-  int32_t seconds = hms_to_seconds(ldt->hour, ldt->minute, ldt->second);
+  int32_t seconds = atc_local_time_to_seconds(
+      ldt->hour, ldt->minute, ldt->second);
   return days * 86400 + seconds;
 }
 
 int8_t atc_local_date_time_from_epoch_seconds(
-  atc_time_t epoch_seconds,
-  AtcLocalDateTime *ldt)
+  AtcLocalDateTime *ldt,
+  atc_time_t epoch_seconds)
 {
+  ldt->fold = 0;
+
   if (epoch_seconds == kAtcInvalidEpochSeconds) {
     ldt->year = kAtcInvalidYear;
     ldt->month = 0;
@@ -55,8 +58,8 @@ int8_t atc_local_date_time_from_epoch_seconds(
 }
 
 void atc_local_date_time_print(
-    AtcStringBuffer *sb,
-    const AtcLocalDateTime *ldt)
+    const AtcLocalDateTime *ldt,
+    AtcStringBuffer *sb)
 {
   atc_print_uint16_pad4(sb, ldt->year);
   atc_print_char(sb, '-');

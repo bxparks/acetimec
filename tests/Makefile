@@ -6,12 +6,13 @@ TARGETS := \
 	common_test.out \
 	local_date_test.out \
 	local_date_time_test.out \
+	local_time_test.out \
 	offset_date_time_test.out \
 	string_buffer_test.out \
 	transition_test.out \
 	zone_info_utils_test.out \
-	zone_processing_test.out \
-	zone_processing_transition_test.out \
+	zone_processor_test.out \
+	zone_processor_transition_test.out \
 	zone_registrar_test.out \
 	zoned_date_time_test.out \
 	zoned_extra_test.out \
@@ -20,73 +21,88 @@ TARGETS := \
 all: $(TARGETS)
 
 #-----------------------------------------------------------------------------
+# Copy the acetimec.a library here. The sole purpose of this rule is to force
+# the acetime.a file to be regenerated if necessary. The .PHONY rule causes it
+# to always run. This indirection rule of copying the *.a file here prevents
+# all the *.o files from recompiled if the acetimec.a file was not changed.
 
-common_test.out: common_test.o ../src/acetimec.a
+.PHONY: ../src/acetimec.a
+
+acetimec.a: ../src/acetimec.a
+	$(MAKE) -C ../src
+	cp -a $< $@
+
+#-----------------------------------------------------------------------------
+
+common_test.out: common_test.o acetimec.a
 	$(CC) -o $@ $^
 
-local_date_test.out: local_date_test.o ../src/acetimec.a
+local_date_test.out: local_date_test.o acetimec.a
 	$(CC) -o $@ $^
 
-local_date_time_test.out: local_date_time_test.o ../src/acetimec.a
+local_date_time_test.out: local_date_time_test.o acetimec.a
 	$(CC) -o $@ $^
 
-offset_date_time_test.out: offset_date_time_test.o ../src/acetimec.a
+local_time_test.out: local_time_test.o acetimec.a
 	$(CC) -o $@ $^
 
-string_buffer_test.out: string_buffer_test.o ../src/acetimec.a
+offset_date_time_test.out: offset_date_time_test.o acetimec.a
 	$(CC) -o $@ $^
 
-transition_test.out: transition_test.o ../src/acetimec.a
+string_buffer_test.out: string_buffer_test.o acetimec.a
 	$(CC) -o $@ $^
 
-zone_info_utils_test.out: zone_info_utils_test.o ../src/acetimec.a
+transition_test.out: transition_test.o acetimec.a
 	$(CC) -o $@ $^
 
-zone_processing_test.out: zone_processing_test.o ../src/acetimec.a
+zone_info_utils_test.out: zone_info_utils_test.o acetimec.a
 	$(CC) -o $@ $^
 
-zone_processing_transition_test.out: zone_processing_transition_test.o ../src/acetimec.a
+zone_processor_test.out: zone_processor_test.o acetimec.a
 	$(CC) -o $@ $^
 
-zone_registrar_test.out: zone_registrar_test.o ../src/acetimec.a
+zone_processor_transition_test.out: zone_processor_transition_test.o acetimec.a
 	$(CC) -o $@ $^
 
-zoned_date_time_test.out: zoned_date_time_test.o ../src/acetimec.a
+zone_registrar_test.out: zone_registrar_test.o acetimec.a
 	$(CC) -o $@ $^
 
-zoned_extra_test.out: zoned_extra_test.o ../src/acetimec.a
+zoned_date_time_test.out: zoned_date_time_test.o acetimec.a
 	$(CC) -o $@ $^
 
-zonedb_test.out: zonedb_test.o ../src/acetimec.a
+zoned_extra_test.out: zoned_extra_test.o acetimec.a
+	$(CC) -o $@ $^
+
+zonedb_test.out: zonedb_test.o acetimec.a
 	$(CC) -o $@ $^
 
 #-----------------------------------------------------------------------------
 
-common_test.o: common_test.c
+common_test.o: common_test.c acetimec.a
 
-local_date_test.o: local_date_test.c
+local_date_test.o: local_date_test.c acetimec.a
 
-local_date_time_test.o: local_date_time_test.c
+local_date_time_test.o: local_date_time_test.c acetimec.a
 
-offset_date_time_test.o: offset_date_time_test.c
+offset_date_time_test.o: offset_date_time_test.c acetimec.a
 
-string_buffer.o: string_buffer.c
+string_buffer.o: string_buffer.c acetimec.a
 
-transition_test.o: transition_test.c
+transition_test.o: transition_test.c acetimec.a
 
-zone_info_utils_test.o: zone_info_utils_test.c
+zone_info_utils_test.o: zone_info_utils_test.c acetimec.a
 
-zone_processing_test.o: zone_processing_test.c
+zone_processor_test.o: zone_processor_test.c acetimec.a
 
-zone_processing_transition_test.o: zone_processing_transition_test.c
+zone_processor_transition_test.o: zone_processor_transition_test.c acetimec.a
 
-zone_registrar_test.o: zone_registrar_test.c
+zone_registrar_test.o: zone_registrar_test.c acetimec.a
 
-zoned_date_time_test.o: zoned_date_time_test.c
+zoned_date_time_test.o: zoned_date_time_test.c acetimec.a
 
-zoned_extra_test.o: zoned_extra_test.c
+zoned_extra_test.o: zoned_extra_test.c acetimec.a
 
-zonedb_test.o: zonedb_test.c
+zonedb_test.o: zonedb_test.c acetimec.a
 
 #-----------------------------------------------------------------------------
 
