@@ -7,8 +7,8 @@
 #define ACE_TIME_C_H
 
 /* Version format: xxyyzz == "xx.yy.zz" */
-#define ACE_TIME_C_VERSION 500
-#define ACE_TIME_C_VERSION_STRING "0.5.0"
+#define ACE_TIME_C_VERSION 600
+#define ACE_TIME_C_VERSION_STRING "0.6.0"
 
 #include "ace_time_c/string_buffer.h"
 #include "ace_time_c/epoch.h"

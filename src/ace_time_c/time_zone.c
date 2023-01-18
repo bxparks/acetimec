@@ -58,7 +58,7 @@ int8_t atc_time_zone_offset_date_time_from_local_date_time(
       result.req_std_offset_minutes + result.req_dst_offset_minutes;
   odt->fold = result.fold;
 
-  // Special processor for kAtcFindResultGap: Convert to epochSeconds using the
+  // Special process for kAtcFindResultGap: Convert to epochSeconds using the
   // reqStdOffsetMinutes and reqDstOffsetMinutes, then convert back to
   // OffsetDateTime using the target stdOffsetMinutes and
   // dstOffsetMinutes.
@@ -66,8 +66,7 @@ int8_t atc_time_zone_offset_date_time_from_local_date_time(
     atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(odt);
     int16_t target_offset =
         result.std_offset_minutes + result.dst_offset_minutes;
-    atc_offset_date_time_from_epoch_seconds(
-        epoch_seconds, target_offset, odt);
+    atc_offset_date_time_from_epoch_seconds(epoch_seconds, target_offset, odt);
   }
 
   return kAtcErrOk;

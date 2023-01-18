@@ -436,7 +436,7 @@ static void atc_calculate_fold_and_overlap(
     // the zone changed from DST of one zone to the STD into another zone,
     // causing the overall UTC offset to remain unchanged.
     atc_time_t shift_seconds = atc_date_tuple_subtract(
-      &curr->start_dt, &prev->until_dt);
+        &curr->start_dt, &prev->until_dt);
     if (shift_seconds >= 0) {
       // spring forward, or unchanged
       is_overlap = false;
@@ -495,8 +495,7 @@ AtcTransitionForSeconds atc_transition_storage_find_for_seconds(
 
   uint8_t fold;
   uint8_t num;
-  atc_calculate_fold_and_overlap(
-      &fold, &num, prev, curr, next, epoch_seconds);
+  atc_calculate_fold_and_overlap(&fold, &num, prev, curr, next, epoch_seconds);
   AtcTransitionForSeconds result = {curr, fold, num};
   return result;
 }
