@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.5.0</span>
+   &#160;<span id="projectnumber">0.6.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -82,16 +82,19 @@ $(function() {
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="zone__info_8h_source.html">zone_info.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="local__date__time_8h_source.html">local_date_time.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for transition.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="transition_8h__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2transition_8h" alt=""/></div>
 <map name="a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2transition_8h" id="a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2transition_8h">
-<area shape="rect" title="Data structures and functions related to calculating DST transitions." alt="" coords="5,5,207,47"/>
-<area shape="rect" title=" " alt="" coords="71,169,141,196"/>
-<area shape="rect" href="common_8h.html" title="Some common shared typedefs, constants, and functions." alt="" coords="179,95,270,121"/>
-<area shape="rect" href="zone__info_8h.html" title="The data structures in the zone database, with the AtcZoneInfo representing a specific time zone." alt="" coords="57,95,155,121"/>
-<area shape="rect" title=" " alt="" coords="177,169,251,196"/>
+<area shape="rect" title="Data structures and functions related to calculating DST transitions." alt="" coords="57,5,259,47"/>
+<area shape="rect" title=" " alt="" coords="64,244,135,271"/>
+<area shape="rect" href="common_8h.html" title="Some common shared typedefs, constants, and functions." alt="" coords="181,169,271,196"/>
+<area shape="rect" href="zone__info_8h.html" title="The data structures in the zone database, with the AtcZoneInfo representing a specific time zone." alt="" coords="296,169,393,196"/>
+<area shape="rect" href="local__date__time_8h.html" title="Functions that relate to the local date time, without any reference to the time zone." alt="" coords="35,95,174,121"/>
+<area shape="rect" title=" " alt="" coords="189,244,263,271"/>
+<area shape="rect" href="string__buffer_8h.html" title="A simple set of integer to string conversion functions." alt="" coords="42,169,157,196"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -99,15 +102,17 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="transition_8h__dep__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2transition_8hdep" alt=""/></div>
 <map name="a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2transition_8hdep" id="a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2transition_8hdep">
-<area shape="rect" title="Data structures and functions related to calculating DST transitions." alt="" coords="515,5,717,47"/>
-<area shape="rect" href="transition_8c_source.html" title=" " alt="" coords="189,95,389,136"/>
-<area shape="rect" href="zone__processing_8h.html" title="Data structures and functions related to determining the UTC and DST offsets using the list of DST tr..." alt="" coords="413,95,659,136"/>
-<area shape="rect" href="acetimec_8h_source.html" title=" " alt="" coords="549,273,742,315"/>
-<area shape="rect" href="zoned__extra_8h.html" title="Additional information about a time zone such as the STD offset, the DST offset, and the abbreviation..." alt="" coords="733,184,952,225"/>
-<area shape="rect" href="zone__processing_8c_source.html" title=" " alt="" coords="362,184,609,225"/>
-<area shape="rect" href="zoned__date__time_8c_source.html" title=" " alt="" coords="5,273,256,315"/>
-<area shape="rect" href="zoned__date__time_8h.html" title="Functions that relate to the date time with a reference to a specific time zone." alt="" coords="87,184,337,225"/>
-<area shape="rect" href="zoned__extra_8c_source.html" title=" " alt="" coords="767,273,985,315"/>
+<area shape="rect" title="Data structures and functions related to calculating DST transitions." alt="" coords="271,5,473,47"/>
+<area shape="rect" href="transition_8c_source.html" title=" " alt="" coords="5,95,205,136"/>
+<area shape="rect" href="zone__processor_8h.html" title="Data structures and functions related to determining the UTC and DST offsets using the list of DST tr..." alt="" coords="505,95,743,136"/>
+<area shape="rect" href="acetimec_8h_source.html" title=" " alt="" coords="503,363,697,404"/>
+<area shape="rect" href="zoned__extra_8h.html" title="Additional information about a time zone such as the STD offset, the DST offset, and the abbreviation..." alt="" coords="963,273,1181,315"/>
+<area shape="rect" href="time__zone_8c_source.html" title=" " alt="" coords="351,273,558,315"/>
+<area shape="rect" href="time__zone_8h.html" title="A class representing a specific IANA time zone, containing a pointer to a ZoneInfo data containing th..." alt="" coords="645,184,851,225"/>
+<area shape="rect" href="zoned__date__time_8h.html" title="Functions that relate to the date time with a reference to a specific time zone." alt="" coords="637,273,888,315"/>
+<area shape="rect" href="zoned__date__time_8c_source.html" title=" " alt="" coords="760,363,1011,404"/>
+<area shape="rect" href="zoned__extra_8c_source.html" title=" " alt="" coords="1072,363,1291,404"/>
+<area shape="rect" href="zone__processor_8c_source.html" title=" " alt="" coords="382,184,621,225"/>
 </map>
 </div>
 </div>
@@ -127,6 +132,12 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcTransitionStorage.html">AtcTransitionStorage</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of transitions for a given time zone.  <a href="structAtcTransitionStorage.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcTransitionForSeconds.html">AtcTransitionForSeconds</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The result returned by <a class="el" href="transition_8h.html#ae261eb432272a18429b0d9c7509f1557" title="Find the Transition matching the given epochSeconds.">atc_transition_storage_find_for_seconds()</a> when searching for Transition by epoch seconds.  <a href="structAtcTransitionForSeconds.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcTransitionForDateTime.html">AtcTransitionForDateTime</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">The result returned by <a class="el" href="transition_8h.html#a07adb7f18cfc28fec459ecde9fdaec50" title="Return the candidate Transitions matching the given dateTime.">atc_transition_storage_find_for_date_time()</a> when searching for transitions by local date time.  <a href="structAtcTransitionForDateTime.html#details">More...</a><br /></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
@@ -145,6 +156,12 @@ typedef struct <a class="el" href="structAtcTransition.html">AtcTransition</a>&#
 typedef struct <a class="el" href="structAtcTransitionStorage.html">AtcTransitionStorage</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transition_8h.html#aa0c2bda75e04888fd7e7ecf791553936">AtcTransitionStorage</a></td></tr>
 <tr class="memdesc:aa0c2bda75e04888fd7e7ecf791553936"><td class="mdescLeft">&#160;</td><td class="mdescRight">The list of transitions for a given time zone. <br /></td></tr>
 <tr class="separator:aa0c2bda75e04888fd7e7ecf791553936"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad470c4c7db14230392db6f412e7584d3"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structAtcTransitionForSeconds.html">AtcTransitionForSeconds</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transition_8h.html#ad470c4c7db14230392db6f412e7584d3">AtcTransitionForSeconds</a></td></tr>
+<tr class="memdesc:ad470c4c7db14230392db6f412e7584d3"><td class="mdescLeft">&#160;</td><td class="mdescRight">The result returned by <a class="el" href="transition_8h.html#ae261eb432272a18429b0d9c7509f1557" title="Find the Transition matching the given epochSeconds.">atc_transition_storage_find_for_seconds()</a> when searching for Transition by epoch seconds.  <a href="transition_8h.html#ad470c4c7db14230392db6f412e7584d3">More...</a><br /></td></tr>
+<tr class="separator:ad470c4c7db14230392db6f412e7584d3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0b59554b257ebb9cd68a658c57a16f71"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structAtcTransitionForDateTime.html">AtcTransitionForDateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transition_8h.html#a0b59554b257ebb9cd68a658c57a16f71">AtcTransitionForDateTime</a></td></tr>
+<tr class="memdesc:a0b59554b257ebb9cd68a658c57a16f71"><td class="mdescLeft">&#160;</td><td class="mdescRight">The result returned by <a class="el" href="transition_8h.html#a07adb7f18cfc28fec459ecde9fdaec50" title="Return the candidate Transitions matching the given dateTime.">atc_transition_storage_find_for_date_time()</a> when searching for transitions by local date time.  <a href="transition_8h.html#a0b59554b257ebb9cd68a658c57a16f71">More...</a><br /></td></tr>
+<tr class="separator:a0b59554b257ebb9cd68a658c57a16f71"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
@@ -190,16 +207,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <tr class="memdesc:abf7682411f98afe4a5e68ab9ad0d0a23"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the Transition Storage.  <a href="transition_8h.html#abf7682411f98afe4a5e68ab9ad0d0a23">More...</a><br /></td></tr>
 <tr class="separator:abf7682411f98afe4a5e68ab9ad0d0a23"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac4ad8839180f159174286cdfbf318e0d"><td class="memItemLeft" align="right" valign="top"><a id="ac4ad8839180f159174286cdfbf318e0d"></a>
-<a class="el" href="structAtcTransition.html">AtcTransition</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>atc_transition_storage_get_candidate_pool_begin</b> (<a class="el" href="structAtcTransitionStorage.html">AtcTransitionStorage</a> *ts)</td></tr>
+<a class="el" href="structAtcTransition.html">AtcTransition</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transition_8h.html#ac4ad8839180f159174286cdfbf318e0d">atc_transition_storage_get_candidate_pool_begin</a> (<a class="el" href="structAtcTransitionStorage.html">AtcTransitionStorage</a> *ts)</td></tr>
+<tr class="memdesc:ac4ad8839180f159174286cdfbf318e0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the begin iterator of the 'candidate' transitions. <br /></td></tr>
 <tr class="separator:ac4ad8839180f159174286cdfbf318e0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38a467bd7c7494b8cba924535828e6d9"><td class="memItemLeft" align="right" valign="top"><a id="a38a467bd7c7494b8cba924535828e6d9"></a>
-<a class="el" href="structAtcTransition.html">AtcTransition</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>atc_transition_storage_get_candidate_pool_end</b> (<a class="el" href="structAtcTransitionStorage.html">AtcTransitionStorage</a> *ts)</td></tr>
+<a class="el" href="structAtcTransition.html">AtcTransition</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transition_8h.html#a38a467bd7c7494b8cba924535828e6d9">atc_transition_storage_get_candidate_pool_end</a> (<a class="el" href="structAtcTransitionStorage.html">AtcTransitionStorage</a> *ts)</td></tr>
+<tr class="memdesc:a38a467bd7c7494b8cba924535828e6d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the end iterator of the 'candidate' transitions. <br /></td></tr>
 <tr class="separator:a38a467bd7c7494b8cba924535828e6d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a626e7a43e526bd056eadf737c6d588a6"><td class="memItemLeft" align="right" valign="top"><a id="a626e7a43e526bd056eadf737c6d588a6"></a>
-<a class="el" href="structAtcTransition.html">AtcTransition</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>atc_transition_storage_get_active_pool_begin</b> (<a class="el" href="structAtcTransitionStorage.html">AtcTransitionStorage</a> *ts)</td></tr>
+<a class="el" href="structAtcTransition.html">AtcTransition</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transition_8h.html#a626e7a43e526bd056eadf737c6d588a6">atc_transition_storage_get_active_pool_begin</a> (<a class="el" href="structAtcTransitionStorage.html">AtcTransitionStorage</a> *ts)</td></tr>
+<tr class="memdesc:a626e7a43e526bd056eadf737c6d588a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the begin iterator of the 'active' transitions. <br /></td></tr>
 <tr class="separator:a626e7a43e526bd056eadf737c6d588a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae646996b3bcaa2a69058db3e3751365d"><td class="memItemLeft" align="right" valign="top"><a id="ae646996b3bcaa2a69058db3e3751365d"></a>
-<a class="el" href="structAtcTransition.html">AtcTransition</a> **&#160;</td><td class="memItemRight" valign="bottom"><b>atc_transition_storage_get_active_pool_end</b> (<a class="el" href="structAtcTransitionStorage.html">AtcTransitionStorage</a> *ts)</td></tr>
+<a class="el" href="structAtcTransition.html">AtcTransition</a> **&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transition_8h.html#ae646996b3bcaa2a69058db3e3751365d">atc_transition_storage_get_active_pool_end</a> (<a class="el" href="structAtcTransitionStorage.html">AtcTransitionStorage</a> *ts)</td></tr>
+<tr class="memdesc:ae646996b3bcaa2a69058db3e3751365d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the end iterator of the 'active' transitions. <br /></td></tr>
 <tr class="separator:ae646996b3bcaa2a69058db3e3751365d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9847e6784d5d7a9da578b50976f8a09f"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structAtcTransition.html">AtcTransition</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transition_8h.html#a9847e6784d5d7a9da578b50976f8a09f">atc_transition_storage_get_free_agent</a> (<a class="el" href="structAtcTransitionStorage.html">AtcTransitionStorage</a> *ts)</td></tr>
 <tr class="memdesc:a9847e6784d5d7a9da578b50976f8a09f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return a pointer to the first Transition in the free pool.  <a href="transition_8h.html#a9847e6784d5d7a9da578b50976f8a09f">More...</a><br /></td></tr>
@@ -238,6 +259,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <tr class="memitem:af456507371e7df900183810dc0fbe46e"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transition_8h.html#af456507371e7df900183810dc0fbe46e">atc_transition_compare_to_match_fuzzy</a> (const <a class="el" href="structAtcTransition.html">AtcTransition</a> *t, const <a class="el" href="structAtcMatchingEra.html">AtcMatchingEra</a> *match)</td></tr>
 <tr class="memdesc:af456507371e7df900183810dc0fbe46e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Like compare_transition_to_match() except perform a fuzzy match within at least one-month of the match.start or match.until.  <a href="transition_8h.html#af456507371e7df900183810dc0fbe46e">More...</a><br /></td></tr>
 <tr class="separator:af456507371e7df900183810dc0fbe46e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ae261eb432272a18429b0d9c7509f1557"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structAtcTransitionForSeconds.html">AtcTransitionForSeconds</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transition_8h.html#ae261eb432272a18429b0d9c7509f1557">atc_transition_storage_find_for_seconds</a> (const <a class="el" href="structAtcTransitionStorage.html">AtcTransitionStorage</a> *ts, <a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">atc_time_t</a> epoch_seconds)</td></tr>
+<tr class="memdesc:ae261eb432272a18429b0d9c7509f1557"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the Transition matching the given epochSeconds.  <a href="transition_8h.html#ae261eb432272a18429b0d9c7509f1557">More...</a><br /></td></tr>
+<tr class="separator:ae261eb432272a18429b0d9c7509f1557"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a07adb7f18cfc28fec459ecde9fdaec50"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structAtcTransitionForDateTime.html">AtcTransitionForDateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="transition_8h.html#a07adb7f18cfc28fec459ecde9fdaec50">atc_transition_storage_find_for_date_time</a> (const <a class="el" href="structAtcTransitionStorage.html">AtcTransitionStorage</a> *ts, const <a class="el" href="structAtcLocalDateTime.html">AtcLocalDateTime</a> *ldt)</td></tr>
+<tr class="memdesc:a07adb7f18cfc28fec459ecde9fdaec50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the candidate Transitions matching the given dateTime.  <a href="transition_8h.html#a07adb7f18cfc28fec459ecde9fdaec50">More...</a><br /></td></tr>
+<tr class="separator:a07adb7f18cfc28fec459ecde9fdaec50"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Data structures and functions related to calculating DST transitions. </p>
@@ -259,6 +286,49 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <p>An internal simplified version of the AtcDateTime class that uses the (year, month, day, minutes, suffix) fields. </p>
 <p>The order of 'minutes' and 'suffix' are reversed from the DateTuple class in the AceTime library because C does not support constructors, so the initializer list must be in the same order as the field order. But I have a bunch of code ported from the C++ code in AceTime which assumes that 'minutes' comes before 'suffix'. So it is easier to fix the ordering here.</p>
 <p>This causes the field alignment to be slightly less than ideal, but the class already consumes 2 x 4-byte slots on 32-bit processors, so the new ordering does not change the overall sizeof(AtcDateTuple). </p>
+
+</div>
+</div>
+<a id="a0b59554b257ebb9cd68a658c57a16f71"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0b59554b257ebb9cd68a658c57a16f71">&#9670;&nbsp;</a></span>AtcTransitionForDateTime</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structAtcTransitionForDateTime.html">AtcTransitionForDateTime</a> <a class="el" href="structAtcTransitionForDateTime.html">AtcTransitionForDateTime</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The result returned by <a class="el" href="transition_8h.html#a07adb7f18cfc28fec459ecde9fdaec50" title="Return the candidate Transitions matching the given dateTime.">atc_transition_storage_find_for_date_time()</a> when searching for transitions by local date time. </p>
+<p>There are 5 possibilities:</p>
+<ul>
+<li>num=0, prev==NULL, curr=curr: datetime is far past</li>
+<li>num=1, prev==prev, curr=prev: exact match to datetime</li>
+<li>num=2, prev==prev, curr=curr: datetime in overlap</li>
+<li>num=0, prev==prev, curr=curr: datetime in gap</li>
+<li>num=0, prev==prev, curr=NULL: datetime is far future</li>
+</ul>
+<p>Adapted from TransitionForDateTime in Transition.h of the AceTime library. </p>
+
+</div>
+</div>
+<a id="ad470c4c7db14230392db6f412e7584d3"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad470c4c7db14230392db6f412e7584d3">&#9670;&nbsp;</a></span>AtcTransitionForSeconds</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">typedef struct <a class="el" href="structAtcTransitionForSeconds.html">AtcTransitionForSeconds</a> <a class="el" href="structAtcTransitionForSeconds.html">AtcTransitionForSeconds</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>The result returned by <a class="el" href="transition_8h.html#ae261eb432272a18429b0d9c7509f1557" title="Find the Transition matching the given epochSeconds.">atc_transition_storage_find_for_seconds()</a> when searching for Transition by epoch seconds. </p>
+<p>Searching by epoch_seconds is guaranteed to return only a single Transition if found. Usually <code>fold=0</code>. But if the epoch_seconds maps to a <a class="el" href="structAtcLocalDateTime.html" title="Date and time fields which are independent of the time zone.">AtcLocalDateTime</a> which occurs a second time during a "fall back", then <code>fold</code> is set to 1.</p>
+<p>Adapted from TransitionForSeconds in Transition.h of the AceTime library. </p>
 
 </div>
 </div>
@@ -335,7 +405,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <li>kAtcMatchStatusExactMatch is never returned. </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00121">121</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00118">118</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
 
 </div>
 </div>
@@ -392,7 +462,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <p>Convert the given 'tt', offsetMinutes, and deltaMinutes into the 'w', 's' and 'u' versions of the <a class="el" href="structAtcDateTuple.html" title="An internal simplified version of the AtcDateTime class that uses the (year, month,...">AtcDateTuple</a>. </p>
 <p>It is allowed for 'ttw' to be an alias of 'tt'. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00038">38</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00043">43</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
 
 </div>
 </div>
@@ -425,7 +495,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <p>Compare the temporal location of transition compared to the interval defined by the match. </p>
 <p>The transition time of the Transition is expanded to include all 3 versions ('w', 's', and 'u') of the time stamp. When comparing against the MatchingEra.startDateTime and MatchingEra.untilDateTime, the version will be determined by the suffix of those parameters. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00343">343</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00340">340</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
 
 </div>
 </div>
@@ -464,7 +534,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 </ul>
 <p>Exported for testing. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00408">408</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00405">405</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
 
 </div>
 </div>
@@ -487,7 +557,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <p>Return the letter string. </p>
 <p>Returns NULL if the RULES column is empty since that means that the ZoneRule is not used, which means LETTER does not exist. A LETTER of '-' is returned as an empty string "". </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00309">309</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00306">306</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
 
 </div>
 </div>
@@ -520,7 +590,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <p>Normalize the transition_time* fields of the array of Transition objects. </p>
 <p>Most Transition.transition_time* values are given in 'w' mode. However, if they are given in 's' or 'u' mode, we convert these into the 'w' mode for consistency. To convert an 's' or 'u' into 'w', we need the UTC offset of the current <a class="el" href="structAtcTransition.html" title="A transition from one DST rule to another, and the time period which that rule is valid for.">AtcTransition</a>, which happens to be given by the <em>previous</em> <a class="el" href="structAtcTransition.html" title="A transition from one DST rule to another, and the time period which that rule is valid for.">AtcTransition</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00291">291</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00288">288</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
 
 </div>
 </div>
@@ -544,7 +614,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <p>Every MatchingEra will have at least one Transition.</p>
 <dl class="section return"><dt>Returns</dt><dd>the last Transition that was added </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00264">264</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00261">261</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
 
 </div>
 </div>
@@ -567,7 +637,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <p>Immediately add the free agent Transition at index mIndexFree to the Active pool. </p>
 <p>Then increment mIndexFree to consume the free agent from the Free pool. This assumes that the Pending and Candidate pool are empty, which makes the Active pool come immediately before the Free pool. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00199">199</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00196">196</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
 
 </div>
 </div>
@@ -590,7 +660,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <p>Add the free agent Transition at index mIndexFree to the Candidate pool, sorted by transitionTime. </p>
 <p>Then increment mIndexFree by one to remove the free agent from the Free pool. Essentially this is an Insertion Sort keyed by the 'transitionTime' (ignoring the DateTuple.suffix). </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00242">242</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00239">239</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
 
 </div>
 </div>
@@ -613,7 +683,73 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <p>Add the current prior into the Candidates pool. </p>
 <p>Prior is always just before the start of the Candidate pool, so we just need to shift back the start index of the Candidate pool. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00236">236</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00233">233</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
+
+</div>
+</div>
+<a id="a07adb7f18cfc28fec459ecde9fdaec50"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a07adb7f18cfc28fec459ecde9fdaec50">&#9670;&nbsp;</a></span>atc_transition_storage_find_for_date_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structAtcTransitionForDateTime.html">AtcTransitionForDateTime</a> atc_transition_storage_find_for_date_time </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structAtcTransitionStorage.html">AtcTransitionStorage</a> *&#160;</td>
+          <td class="paramname"><em>ts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structAtcLocalDateTime.html">AtcLocalDateTime</a> *&#160;</td>
+          <td class="paramname"><em>ldt</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the candidate Transitions matching the given dateTime. </p>
+<p>The search may return 0, 1 or 2 Transitions, depending on whether the dateTime falls in a gap or overlap. </p>
+
+<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00503">503</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
+
+</div>
+</div>
+<a id="ae261eb432272a18429b0d9c7509f1557"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae261eb432272a18429b0d9c7509f1557">&#9670;&nbsp;</a></span>atc_transition_storage_find_for_seconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structAtcTransitionForSeconds.html">AtcTransitionForSeconds</a> atc_transition_storage_find_for_seconds </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structAtcTransitionStorage.html">AtcTransitionStorage</a> *&#160;</td>
+          <td class="paramname"><em>ts</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">atc_time_t</a>&#160;</td>
+          <td class="paramname"><em>epoch_seconds</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Find the Transition matching the given epochSeconds. </p>
+<p>Return <a class="el" href="structAtcTransitionForSeconds.html#afa0eedfa06dcf69b752fa9f4f85c7d7d" title="The matching transition or null if not found.">AtcTransitionForSeconds.curr</a> == nullptr if no matching Transition found. If a zone does not have any transition according to TZ Database, the AceTimeTools/transformer.py script adds an "anchor" transition at the "beginning of time" which happens to be the year 1872 (because the year is stored as an int8_t). Therefore, this method should never return a nullptr for a well-formed ZoneInfo file. </p>
+
+<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00481">481</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
 
 </div>
 </div>
@@ -636,7 +772,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <p>Return a pointer to the first Transition in the free pool. </p>
 <p>If this transition is not used, then it's ok to just drop it. The next time getFreeAgent() is called, the same Transition will be returned. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00181">181</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00178">178</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
 
 </div>
 </div>
@@ -659,7 +795,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <p>Initialize the Transition Storage. </p>
 <p>Should be called once for a given app. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00138">138</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00135">135</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
 
 </div>
 </div>
@@ -682,7 +818,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <p>Allocate a free Transition then add it to the Prior pool. </p>
 <p>This assumes that the Prior pool and Candidate pool were both empty before calling this method. Shift the Candidate pool and Free pool up by one. Return a handle (pointer to pointer) to the Transition, so that the prior Transition can be swapped with another Transition, while keeping the handle valid. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00208">208</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00205">205</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
 
 </div>
 </div>
@@ -705,7 +841,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 <p>Empty the Candidate pool by resetting the various indexes. </p>
 <p>If every iteration of createTransitionsForMatch() finishes with addFreeAgentToActivePool() or addActiveCandidatesToActivePool(), it may be possible to remove this. But it's safer to reset the indexes upon each iteration. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00174">174</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="transition_8c_source.html#l00171">171</a> of file <a class="el" href="transition_8c_source.html">transition.c</a>.</p>
 
 </div>
 </div>

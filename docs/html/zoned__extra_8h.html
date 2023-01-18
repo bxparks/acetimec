@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.5.0</span>
+   &#160;<span id="projectnumber">0.6.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -70,6 +70,7 @@ $(function() {
   <div class="summary">
 <a href="#nested-classes">Classes</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
+<a href="#enum-members">Enumerations</a> &#124;
 <a href="#func-members">Functions</a>  </div>
   <div class="headertitle">
 <div class="title">zoned_extra.h File Reference</div>  </div>
@@ -81,23 +82,24 @@ $(function() {
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="zone__info_8h_source.html">zone_info.h</a>&quot;</code><br />
-<code>#include &quot;<a class="el" href="zone__processing_8h_source.html">zone_processing.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="transition_8h_source.html">transition.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="time__zone_8h_source.html">time_zone.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="local__date__time_8h_source.html">local_date_time.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for zoned_extra.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="zoned__extra_8h__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2zoned__extra_8h" alt=""/></div>
 <map name="a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2zoned__extra_8h" id="a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2zoned__extra_8h">
-<area shape="rect" title="Additional information about a time zone such as the STD offset, the DST offset, and the abbreviation..." alt="" coords="61,5,279,47"/>
-<area shape="rect" title=" " alt="" coords="325,319,396,345"/>
-<area shape="rect" href="common_8h.html" title="Some common shared typedefs, constants, and functions." alt="" coords="178,244,269,271"/>
-<area shape="rect" href="zone__info_8h.html" title="The data structures in the zone database, with the AtcZoneInfo representing a specific time zone." alt="" coords="5,244,103,271"/>
-<area shape="rect" href="zone__processing_8h.html" title="Data structures and functions related to determining the UTC and DST offsets using the list of DST tr..." alt="" coords="208,95,351,121"/>
-<area shape="rect" href="transition_8h.html" title="Data structures and functions related to calculating DST transitions." alt="" coords="37,169,133,196"/>
-<area shape="rect" title=" " alt="" coords="186,319,261,345"/>
-<area shape="rect" href="local__date__time_8h.html" title="Functions that relate to the local date time, without any reference to the time zone." alt="" coords="426,169,565,196"/>
-<area shape="rect" href="offset__date__time_8h.html" title="Functions that relate to the local date time along with a UTC offset measured in minutes." alt="" coords="258,169,402,196"/>
-<area shape="rect" href="string__buffer_8h.html" title="A simple set of integer to string conversion functions." alt="" coords="343,244,458,271"/>
+<area shape="rect" title="Additional information about a time zone such as the STD offset, the DST offset, and the abbreviation..." alt="" coords="205,5,424,47"/>
+<area shape="rect" title=" " alt="" coords="185,468,255,495"/>
+<area shape="rect" href="common_8h.html" title="Some common shared typedefs, constants, and functions." alt="" coords="497,393,588,420"/>
+<area shape="rect" href="zone__info_8h.html" title="The data structures in the zone database, with the AtcZoneInfo representing a specific time zone." alt="" coords="122,319,219,345"/>
+<area shape="rect" href="transition_8h.html" title="Data structures and functions related to calculating DST transitions." alt="" coords="245,244,341,271"/>
+<area shape="rect" href="local__date__time_8h.html" title="Functions that relate to the local date time, without any reference to the time zone." alt="" coords="345,319,484,345"/>
+<area shape="rect" href="time__zone_8h.html" title="A class representing a specific IANA time zone, containing a pointer to a ZoneInfo data containing th..." alt="" coords="211,95,314,121"/>
+<area shape="rect" title=" " alt="" coords="379,468,453,495"/>
+<area shape="rect" href="string__buffer_8h.html" title="A simple set of integer to string conversion functions." alt="" coords="359,393,473,420"/>
+<area shape="rect" href="zone__processor_8h.html" title="Data structures and functions related to determining the UTC and DST offsets using the list of DST tr..." alt="" coords="195,169,330,196"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -121,41 +123,57 @@ Classes</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
-<tr class="memitem:a91f76b76a8cd3ad07bbe675278c2880c"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structAtcZonedExtra.html">AtcZonedExtra</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__extra_8h.html#a91f76b76a8cd3ad07bbe675278c2880c">AtcZonedExtra</a></td></tr>
-<tr class="memdesc:a91f76b76a8cd3ad07bbe675278c2880c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extra information about a given time zone at a specified epoch seconds.  <a href="zoned__extra_8h.html#a91f76b76a8cd3ad07bbe675278c2880c">More...</a><br /></td></tr>
+<tr class="memitem:a91f76b76a8cd3ad07bbe675278c2880c"><td class="memItemLeft" align="right" valign="top"><a id="a91f76b76a8cd3ad07bbe675278c2880c"></a>
+typedef struct <a class="el" href="structAtcZonedExtra.html">AtcZonedExtra</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__extra_8h.html#a91f76b76a8cd3ad07bbe675278c2880c">AtcZonedExtra</a></td></tr>
+<tr class="memdesc:a91f76b76a8cd3ad07bbe675278c2880c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extra information about a given time zone at a specified epoch seconds. <br /></td></tr>
 <tr class="separator:a91f76b76a8cd3ad07bbe675278c2880c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
+Enumerations</h2></td></tr>
+<tr class="memitem:aba01db17f4a2bfbc3db60dc172972a25"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kAtcZonedExtraNotFound</b> = 0
+, <b>kAtcZonedExtraExact</b> = 1
+, <b>kAtcZonedExtraGap</b> = 2
+, <b>kAtcZonedExtraOverlap</b> = 3
+ }</td></tr>
+<tr class="memdesc:aba01db17f4a2bfbc3db60dc172972a25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Values of the the <a class="el" href="structAtcZonedExtra.html#a836e80485a7ed200bfceebb926e53cac" title="Type of match against the LocalDateTime or epoch_seconds.">AtcZonedExtra.type</a> field.  <a href="zoned__extra_8h.html#aba01db17f4a2bfbc3db60dc172972a25">More...</a><br /></td></tr>
+<tr class="separator:aba01db17f4a2bfbc3db60dc172972a25"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a3a0c1d491c7ad968aa4d2b24b7b8fcc6"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__extra_8h.html#a3a0c1d491c7ad968aa4d2b24b7b8fcc6">atc_zoned_extra_from_epoch_seconds</a> (<a class="el" href="structAtcZoneProcessing.html">AtcZoneProcessing</a> *processing, const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *zone_info, <a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">atc_time_t</a> epoch_seconds, <a class="el" href="structAtcZonedExtra.html">AtcZonedExtra</a> *extra)</td></tr>
-<tr class="memdesc:a3a0c1d491c7ad968aa4d2b24b7b8fcc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the extra zone information at given epoch_seconds.  <a href="zoned__extra_8h.html#a3a0c1d491c7ad968aa4d2b24b7b8fcc6">More...</a><br /></td></tr>
-<tr class="separator:a3a0c1d491c7ad968aa4d2b24b7b8fcc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a75956c9a831dff8aaba455c875d9b5"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__extra_8h.html#a3a75956c9a831dff8aaba455c875d9b5">atc_zoned_extra_from_epoch_seconds</a> (<a class="el" href="structAtcZonedExtra.html">AtcZonedExtra</a> *extra, <a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">atc_time_t</a> epoch_seconds, const <a class="el" href="structAtcTimeZone.html">AtcTimeZone</a> *tz)</td></tr>
+<tr class="memdesc:a3a75956c9a831dff8aaba455c875d9b5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the extra zone information at given epoch_seconds.  <a href="zoned__extra_8h.html#a3a75956c9a831dff8aaba455c875d9b5">More...</a><br /></td></tr>
+<tr class="separator:a3a75956c9a831dff8aaba455c875d9b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bbc3893e5745cd2919720f732c64f68"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__extra_8h.html#a2bbc3893e5745cd2919720f732c64f68">atc_zoned_extra_from_local_date_time</a> (<a class="el" href="structAtcZonedExtra.html">AtcZonedExtra</a> *extra, const <a class="el" href="structAtcLocalDateTime.html">AtcLocalDateTime</a> *ldt, const <a class="el" href="structAtcTimeZone.html">AtcTimeZone</a> *tz)</td></tr>
+<tr class="memdesc:a2bbc3893e5745cd2919720f732c64f68"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the extra zone information at given LocalDateTime.  <a href="zoned__extra_8h.html#a2bbc3893e5745cd2919720f732c64f68">More...</a><br /></td></tr>
+<tr class="separator:a2bbc3893e5745cd2919720f732c64f68"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Additional information about a time zone such as the STD offset, the DST offset, and the abbreviation at a given epochSeconds. </p>
 
 <p class="definition">Definition in file <a class="el" href="zoned__extra_8h_source.html">zoned_extra.h</a>.</p>
-</div><h2 class="groupheader">Typedef Documentation</h2>
-<a id="a91f76b76a8cd3ad07bbe675278c2880c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a91f76b76a8cd3ad07bbe675278c2880c">&#9670;&nbsp;</a></span>AtcZonedExtra</h2>
+</div><h2 class="groupheader">Enumeration Type Documentation</h2>
+<a id="aba01db17f4a2bfbc3db60dc172972a25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aba01db17f4a2bfbc3db60dc172972a25">&#9670;&nbsp;</a></span>anonymous enum</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">typedef struct <a class="el" href="structAtcZonedExtra.html">AtcZonedExtra</a> <a class="el" href="structAtcZonedExtra.html">AtcZonedExtra</a></td>
+          <td class="memname">anonymous enum</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Extra information about a given time zone at a specified epoch seconds. </p>
-<p>Should be identical to <a class="el" href="structAtcTransitionInfo.html" title="Additional meta information about the transition.">AtcTransitionInfo</a>. </p>
+<p>Values of the the <a class="el" href="structAtcZonedExtra.html#a836e80485a7ed200bfceebb926e53cac" title="Type of match against the LocalDateTime or epoch_seconds.">AtcZonedExtra.type</a> field. </p>
+<p>Should be identical to AtcFindRresultXxx </p>
+
+<p class="definition">Definition at line <a class="el" href="zoned__extra_8h_source.html#l00031">31</a> of file <a class="el" href="zoned__extra_8h_source.html">zoned_extra.h</a>.</p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a3a0c1d491c7ad968aa4d2b24b7b8fcc6"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3a0c1d491c7ad968aa4d2b24b7b8fcc6">&#9670;&nbsp;</a></span>atc_zoned_extra_from_epoch_seconds()</h2>
+<a id="a3a75956c9a831dff8aaba455c875d9b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a75956c9a831dff8aaba455c875d9b5">&#9670;&nbsp;</a></span>atc_zoned_extra_from_epoch_seconds()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -163,14 +181,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">int8_t atc_zoned_extra_from_epoch_seconds </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="structAtcZoneProcessing.html">AtcZoneProcessing</a> *&#160;</td>
-          <td class="paramname"><em>processing</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *&#160;</td>
-          <td class="paramname"><em>zone_info</em>, </td>
+          <td class="paramtype"><a class="el" href="structAtcZonedExtra.html">AtcZonedExtra</a> *&#160;</td>
+          <td class="paramname"><em>extra</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -181,8 +193,8 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="structAtcZonedExtra.html">AtcZonedExtra</a> *&#160;</td>
-          <td class="paramname"><em>extra</em>&#160;</td>
+          <td class="paramtype">const <a class="el" href="structAtcTimeZone.html">AtcTimeZone</a> *&#160;</td>
+          <td class="paramname"><em>tz</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -195,7 +207,46 @@ Functions</h2></td></tr>
 <p>Extract the extra zone information at given epoch_seconds. </p>
 <p>Returns true upon success, false upon error. </p>
 
-<p class="definition">Definition at line <a class="el" href="zoned__extra_8c_source.html#l00005">5</a> of file <a class="el" href="zoned__extra_8c_source.html">zoned_extra.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zoned__extra_8c_source.html#l00011">11</a> of file <a class="el" href="zoned__extra_8c_source.html">zoned_extra.c</a>.</p>
+
+</div>
+</div>
+<a id="a2bbc3893e5745cd2919720f732c64f68"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2bbc3893e5745cd2919720f732c64f68">&#9670;&nbsp;</a></span>atc_zoned_extra_from_local_date_time()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int8_t atc_zoned_extra_from_local_date_time </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structAtcZonedExtra.html">AtcZonedExtra</a> *&#160;</td>
+          <td class="paramname"><em>extra</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structAtcLocalDateTime.html">AtcLocalDateTime</a> *&#160;</td>
+          <td class="paramname"><em>ldt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structAtcTimeZone.html">AtcTimeZone</a> *&#160;</td>
+          <td class="paramname"><em>tz</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extract the extra zone information at given LocalDateTime. </p>
+<p>Returns true upon success, false upon error. </p>
+
+<p class="definition">Definition at line <a class="el" href="zoned__extra_8c_source.html#l00034">34</a> of file <a class="el" href="zoned__extra_8c_source.html">zoned_extra.c</a>.</p>
 
 </div>
 </div>

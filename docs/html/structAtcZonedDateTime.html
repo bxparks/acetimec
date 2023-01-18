@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.5.0</span>
+   &#160;<span id="projectnumber">0.6.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -80,9 +80,18 @@ Collaboration diagram for AtcZonedDateTime:</div>
 <div class="dyncontent">
 <div class="center"><img src="structAtcZonedDateTime__coll__graph.png" border="0" usemap="#aAtcZonedDateTime_coll__map" alt="Collaboration graph"/></div>
 <map name="aAtcZonedDateTime_coll__map" id="aAtcZonedDateTime_coll__map">
-<area shape="rect" title="Date and time broken down into components." alt="" coords="5,184,153,211"/>
-<area shape="rect" href="structAtcZoneInfo.html" title="Representation of a given time zone, implemented as an array of ZoneEra records." alt="" coords="29,95,130,121"/>
-<area shape="rect" href="structAtcZoneContext.html" title="Information about the zone database." alt="" coords="16,5,143,32"/>
+<area shape="rect" title="Date and time broken down into components." alt="" coords="188,825,336,852"/>
+<area shape="rect" href="structAtcTimeZone.html" title="A data structure that represents a specific Time Zone." alt="" coords="207,736,317,763"/>
+<area shape="rect" href="structAtcZoneProcessor.html" title="Zone processor work space." alt="" coords="134,647,273,673"/>
+<area shape="rect" href="structAtcTransitionStorage.html" title="The list of transitions for a given time zone." alt="" coords="5,557,161,584"/>
+<area shape="rect" href="structAtcTransition.html" title="A transition from one DST rule to another, and the time period which that rule is valid for." alt="" coords="38,453,145,480"/>
+<area shape="rect" href="structAtcDateTuple.html" title="An internal simplified version of the AtcDateTime class that uses the (year, month,..." alt="" coords="128,184,236,211"/>
+<area shape="rect" href="structAtcMatchingEra.html" title="A struct that represents a matching ZoneEra." alt="" coords="253,326,377,353"/>
+<area shape="rect" href="structAtcZoneRule.html" title="A time zone transition rule." alt="" coords="36,5,141,32"/>
+<area shape="rect" href="structAtcZonePolicy.html" title="A collection of transition rules which describe the DST rules of a given administrative region." alt="" coords="174,95,289,121"/>
+<area shape="rect" href="structAtcZoneEra.html" title="An entry in ZoneInfo which describes which ZonePolicy was being followed during a particular time per..." alt="" coords="263,184,360,211"/>
+<area shape="rect" href="structAtcZoneInfo.html" title="Representation of a given time zone, implemented as an array of ZoneEra records." alt="" coords="186,557,287,584"/>
+<area shape="rect" href="structAtcZoneContext.html" title="Information about the zone database." alt="" coords="172,453,299,480"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -120,9 +129,10 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonedDateTime.html#af3211e0b4fe33139aad8d3229ed83426">offset_minutes</a></td></tr>
 <tr class="memdesc:af3211e0b4fe33139aad8d3229ed83426"><td class="mdescLeft">&#160;</td><td class="mdescRight">offset_minutes [-840, 960] <br /></td></tr>
 <tr class="separator:af3211e0b4fe33139aad8d3229ed83426"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8eae6acf5012c452e72b22a22fb28966"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonedDateTime.html#a8eae6acf5012c452e72b22a22fb28966">zone_info</a></td></tr>
-<tr class="memdesc:a8eae6acf5012c452e72b22a22fb28966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Identifies the time zone.  <a href="structAtcZonedDateTime.html#a8eae6acf5012c452e72b22a22fb28966">More...</a><br /></td></tr>
-<tr class="separator:a8eae6acf5012c452e72b22a22fb28966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9fe53a0c812465fdb2ccb4f5946ec527"><td class="memItemLeft" align="right" valign="top"><a id="a9fe53a0c812465fdb2ccb4f5946ec527"></a>
+<a class="el" href="structAtcTimeZone.html">AtcTimeZone</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonedDateTime.html#a9fe53a0c812465fdb2ccb4f5946ec527">tz</a></td></tr>
+<tr class="memdesc:a9fe53a0c812465fdb2ccb4f5946ec527"><td class="mdescLeft">&#160;</td><td class="mdescRight">time zone. <br /></td></tr>
+<tr class="separator:a9fe53a0c812465fdb2ccb4f5946ec527"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Date and time broken down into components. </p>
@@ -131,28 +141,8 @@ int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <li>ZonedDateTime from AceTime library </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="zoned__date__time_8h_source.html#l00030">30</a> of file <a class="el" href="zoned__date__time_8h_source.html">zoned_date_time.h</a>.</p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a8eae6acf5012c452e72b22a22fb28966"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a8eae6acf5012c452e72b22a22fb28966">&#9670;&nbsp;</a></span>zone_info</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a>* AtcZonedDateTime::zone_info</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Identifies the time zone. </p>
-<p>Non-nullable. </p>
-
-<p class="definition">Definition at line <a class="el" href="zoned__date__time_8h_source.html#l00050">50</a> of file <a class="el" href="zoned__date__time_8h_source.html">zoned_date_time.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
+<p class="definition">Definition at line <a class="el" href="zoned__date__time_8h_source.html#l00031">31</a> of file <a class="el" href="zoned__date__time_8h_source.html">zoned_date_time.h</a>.</p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/home/brian/src/AceTimeC/src/ace_time_c/<a class="el" href="zoned__date__time_8h_source.html">zoned_date_time.h</a></li>
 </ul>
 </div><!-- contents -->
