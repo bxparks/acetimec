@@ -21,10 +21,18 @@
 extern "C" {
 #endif
 
+/** Forward declaration of AtcOffsetDateTime. */
 typedef struct AtcOffsetDateTime AtcOffsetDateTime;
 
+/** A data structure that represents a specific Time Zone. */
 typedef struct AtcTimeZone {
+  /** Pointer to an AtcZoneInfo that contains the IANA TZ database info. */
   const AtcZoneInfo *zone_info;
+
+  /**
+   * Pointer to a pre-allocated preallocated AtcZoneProcessor which knows how
+   * to calculate the DST transitions of the particular time zone.
+   */
   AtcZoneProcessor *zone_processor;
 } AtcTimeZone;
 

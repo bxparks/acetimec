@@ -261,15 +261,19 @@ typedef struct AtcTransitionStorage {
 /** Initialize the Transition Storage. Should be called once for a given app. */
 void atc_transition_storage_init(AtcTransitionStorage *ts);
 
+/** Return the begin iterator of the 'candidate' transitions. */
 AtcTransition **atc_transition_storage_get_candidate_pool_begin(
     AtcTransitionStorage *ts);
 
+/** Return the end iterator of the 'candidate' transitions. */
 AtcTransition **atc_transition_storage_get_candidate_pool_end(
     AtcTransitionStorage *ts);
 
+/** Return the begin iterator of the 'active' transitions. */
 AtcTransition **atc_transition_storage_get_active_pool_begin(
     AtcTransitionStorage *ts);
 
+/** Return the end iterator of the 'active' transitions. */
 AtcTransition **atc_transition_storage_get_active_pool_end(
     AtcTransitionStorage *ts);
 

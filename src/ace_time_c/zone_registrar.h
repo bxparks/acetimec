@@ -24,8 +24,13 @@ extern "C" {
 
 /** Data structure used by the registrar to manage a given zone registry. */
 typedef struct AtcZoneRegistrar {
+  /** An array of pointers to AtcZoneInfo data structures. */
   const AtcZoneInfo * const * registry;
+
+  /** Size of the registry. */
   uint16_t size;
+
+  /** True if the registry is sorted according by zone_id. */
   bool is_sorted;
 } AtcZoneRegistrar;
 

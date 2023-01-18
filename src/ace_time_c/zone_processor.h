@@ -64,18 +64,18 @@ AtcMonthDay atc_processor_calc_start_day_of_month(
 //---------------------------------------------------------------------------
 
 /**
- * Return the most recent year from the Rule[fromYear, toYear] which is
- * prior to the matching ZoneEra years of [startYear, endYear].
+ * Return the most recent year from the Rule[from_year, to_year] which is
+ * prior to the matching ZoneEra years of [start_year, end_year].
  *
- * Return LocalDate::kInvalidYear if the rule[fromYear, to_year] has no prior
- * year to the MatchingEra[startYear, endYear].
+ * Return LocalDate::kInvalidYear if the rule[from_year, to_year] has no prior
+ * year to the MatchingEra[start_year, end_year].
  *
  * Exported for testing.
  *
- * @param fromYear FROM year field of a Rule entry
- * @param toYear TO year field of a Rule entry
- * @param startYear start year of the matching ZoneEra
- * @param endYear until year of the matching ZoneEra (unused)
+ * @param from_year FROM year field of a Rule entry
+ * @param to_year TO year field of a Rule entry
+ * @param start_year start year of the matching ZoneEra
+ * @param end_year until year of the matching ZoneEra (unused)
  */
 int16_t atc_processor_get_most_recent_prior_year(
     int16_t from_year, int16_t to_year,
@@ -139,18 +139,42 @@ enum {
  * AtcTransitionForDatetime into time offsets and other extra information which
  * can be used to construct an AtcOffsetDateTime or an AtcZonedExtra.
  *
- * The 'abbrev' field contains a pointer to a transition string buffer. The
- * string should be copied by the calling code as soon as possible.
- *
  * Adapted from FindResult in ZoneProcessor.h of the AceTime library.
  */
 typedef struct AtcFindResult {
+  /**
+   * The result type of the find_by_xxx() function, one of the
+   * kAtcFindResultXxx enums.
+   */
   uint8_t type;
+
+  /** The fold of the resulting OffsetDateTime. */
   uint8_t fold;
+
+  /** The STD offset of the target OffsetDateTime. */
   int16_t std_offset_minutes;
+
+  /** The DST offset of the target OffsetDateTime. */
   int16_t dst_offset_minutes;
+
+  /**
+   * The STD offset of the requested LocalDateTime when
+   * atc_processor_find_by_local_date_time() finds a gap. Otherwise, this will
+   * be identical to std_offset_minutes.
+   */
   int16_t req_std_offset_minutes;
+
+  /**
+   * The DST offset of the requested LocalDateTime when
+   * atc_processor_find_by_local_date_time() finds a gap. Otherwise, this will
+   * be identical to dst_offset_minutes.
+   */
   int16_t req_dst_offset_minutes;
+
+  /**
+   * Contains a pointer to a transition string buffer. The string should be
+   * copied by the calling code as soon as possible.
+   */
   const char *abbrev;
 } AtcFindResult;
 
@@ -215,6 +239,7 @@ typedef struct AtcYearMonth {
   uint8_t month;
 } AtcYearMonth;
 
+/** Find ZoneEra entries which match the [start_ym, until_ym) interval. */
 uint8_t atc_processor_find_matches(
   const AtcZoneInfo *zone_info,
   AtcYearMonth start_ym,
@@ -222,11 +247,16 @@ uint8_t atc_processor_find_matches(
   AtcMatchingEra *matches,
   uint8_t num_matches);
 
+/**
+ * Determine if era is less than (-1), roughly equal (0), or greater than (1)
+ * the given  (year, month).
+ */
 int8_t atc_compare_era_to_year_month(
     const AtcZoneEra *era,
     int16_t year,
     uint8_t month);
 
+/** Create new new_match, containing the given parameters. */
 void atc_create_matching_era(
     AtcMatchingEra *new_match,
     AtcMatchingEra *prev_match,
@@ -234,33 +264,58 @@ void atc_create_matching_era(
     AtcYearMonth start_ym,
     AtcYearMonth until_ym);
 
+/** Populate the AtcDateTuple dt with the given year and rule. */
 void atc_processor_get_transition_time(
     int16_t year,
     const AtcZoneRule* rule,
     AtcDateTuple *dt);
 
+/** Create an AtcTransition t for the given rule and match. */
 void atc_processor_create_transition_for_year(
     AtcTransition *t,
     int16_t year,
     const AtcZoneRule *rule,
     const AtcMatchingEra *match);
 
+/**
+ * Evaluate the given 'match' and add candidate AtcTransitions into the
+ * AtcTransitionStorage ts.
+ */
 void atc_processor_find_candidate_transitions(
     AtcTransitionStorage *ts,
     AtcMatchingEra *match);
 
+/** Calculate the given transition's `match_status`. */
 void atc_processor_process_transition_match_status(
     AtcTransition *transition,
     AtcTransition **prior);
 
+/** Create active transitions for the given match. */
+void atc_processor_create_transitions_for_match(
+  AtcTransitionStorage *ts,
+  AtcMatchingEra *match);
+
+/** Create active transitions for the given simple match (no rules). */
+void atc_processor_create_transitions_from_simple_match(
+    AtcTransitionStorage *ts,
+    AtcMatchingEra *match);
+
+/** Create active transitions for the given named match (with rules). */
 void atc_processor_create_transitions_from_named_match(
     AtcTransitionStorage *ts,
     AtcMatchingEra *match);
 
+/** Update the start and until times of the specified transitions. */
 void atc_processor_generate_start_until_times(
     AtcTransition **begin,
     AtcTransition **end);
 
+/** Compute the time zone abbreviation of the specified transitions. */
+void atc_processor_calc_abbreviations(
+    AtcTransition **begin,
+    AtcTransition **end);
+
+/** Compute the time zone abbreviation for the given parameters. */
 void atc_processor_create_abbreviation(
     char* dest,
     uint8_t dest_size,

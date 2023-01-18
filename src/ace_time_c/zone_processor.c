@@ -392,6 +392,10 @@ void atc_processor_process_transition_match_status(
   }
 }
 
+//---------------------------------------------------------------------------
+// Step 2B
+//---------------------------------------------------------------------------
+
 void atc_processor_select_active_transitions(
     AtcTransition **begin,
     AtcTransition **end)
@@ -408,10 +412,6 @@ void atc_processor_select_active_transitions(
     prior->transition_time = prior->match->start_dt;
   }
 }
-
-//---------------------------------------------------------------------------
-// Step 2B
-//---------------------------------------------------------------------------
 
 void atc_processor_create_transitions_from_named_match(
     AtcTransitionStorage *ts,
