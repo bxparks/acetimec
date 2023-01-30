@@ -32,14 +32,14 @@
 //   Names: 5519 (originally 5519)
 //   Formats: 597
 //   Fragments: 122
-//   Memory (8-bit): 17948
-//   Memory (32-bit): 25044
+//   Memory (8-bit): 19297
+//   Memory (32-bit): 26448
 // kAtcZoneAndLinkRegistry sizes (bytes):
 //   Names: 9076 (originally 9076)
 //   Formats: 597
 //   Fragments: 122
-//   Memory (8-bit): 24690
-//   Memory (32-bit): 34481
+//   Memory (8-bit): 26529
+//   Memory (32-bit): 36865
 //
 // DO NOT EDIT
 
@@ -87,8 +87,8 @@ const AtcZoneContext kAtcZoneContext = {
 // Zone name: Africa/Abidjan
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Abidjan[]  = {
@@ -122,8 +122,8 @@ const AtcZoneInfo kAtcZoneAfrica_Abidjan  = {
 // Zone name: Africa/Algiers
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Algiers[]  = {
@@ -157,8 +157,8 @@ const AtcZoneInfo kAtcZoneAfrica_Algiers  = {
 // Zone name: Africa/Bissau
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Bissau[]  = {
@@ -192,8 +192,8 @@ const AtcZoneInfo kAtcZoneAfrica_Bissau  = {
 // Zone name: Africa/Cairo
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Cairo[]  = {
@@ -227,8 +227,8 @@ const AtcZoneInfo kAtcZoneAfrica_Cairo  = {
 // Zone name: Africa/Casablanca
 // Zone Eras: 2
 // Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 67
-// Memory (32-bit): 86
+// Memory (8-bit): 71
+// Memory (32-bit): 90
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Casablanca[]  = {
@@ -274,8 +274,8 @@ const AtcZoneInfo kAtcZoneAfrica_Casablanca  = {
 // Zone name: Africa/Ceuta
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Ceuta[]  = {
@@ -309,8 +309,8 @@ const AtcZoneInfo kAtcZoneAfrica_Ceuta  = {
 // Zone name: Africa/El_Aaiun
 // Zone Eras: 2
 // Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 65
-// Memory (32-bit): 84
+// Memory (8-bit): 69
+// Memory (32-bit): 88
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_El_Aaiun[]  = {
@@ -356,8 +356,8 @@ const AtcZoneInfo kAtcZoneAfrica_El_Aaiun  = {
 // Zone name: Africa/Johannesburg
 // Zone Eras: 1
 // Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 47
-// Memory (32-bit): 61
+// Memory (8-bit): 50
+// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Johannesburg[]  = {
@@ -391,8 +391,8 @@ const AtcZoneInfo kAtcZoneAfrica_Johannesburg  = {
 // Zone name: Africa/Juba
 // Zone Eras: 3
 // Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 69
-// Memory (32-bit): 93
+// Memory (8-bit): 74
+// Memory (32-bit): 97
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Juba[]  = {
@@ -450,8 +450,8 @@ const AtcZoneInfo kAtcZoneAfrica_Juba  = {
 // Zone name: Africa/Khartoum
 // Zone Eras: 3
 // Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 73
-// Memory (32-bit): 97
+// Memory (8-bit): 78
+// Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Khartoum[]  = {
@@ -509,8 +509,8 @@ const AtcZoneInfo kAtcZoneAfrica_Khartoum  = {
 // Zone name: Africa/Lagos
 // Zone Eras: 1
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 39
-// Memory (32-bit): 53
+// Memory (8-bit): 42
+// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Lagos[]  = {
@@ -544,8 +544,8 @@ const AtcZoneInfo kAtcZoneAfrica_Lagos  = {
 // Zone name: Africa/Maputo
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Maputo[]  = {
@@ -579,8 +579,8 @@ const AtcZoneInfo kAtcZoneAfrica_Maputo  = {
 // Zone name: Africa/Monrovia
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
+// Memory (8-bit): 45
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Monrovia[]  = {
@@ -614,8 +614,8 @@ const AtcZoneInfo kAtcZoneAfrica_Monrovia  = {
 // Zone name: Africa/Nairobi
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Nairobi[]  = {
@@ -649,8 +649,8 @@ const AtcZoneInfo kAtcZoneAfrica_Nairobi  = {
 // Zone name: Africa/Ndjamena
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
+// Memory (8-bit): 45
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Ndjamena[]  = {
@@ -684,8 +684,8 @@ const AtcZoneInfo kAtcZoneAfrica_Ndjamena  = {
 // Zone name: Africa/Sao_Tome
 // Zone Eras: 3
 // Strings (bytes): 28 (originally 28)
-// Memory (8-bit): 72
-// Memory (32-bit): 96
+// Memory (8-bit): 77
+// Memory (32-bit): 100
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Sao_Tome[]  = {
@@ -743,8 +743,8 @@ const AtcZoneInfo kAtcZoneAfrica_Sao_Tome  = {
 // Zone name: Africa/Tripoli
 // Zone Eras: 3
 // Strings (bytes): 28 (originally 28)
-// Memory (8-bit): 72
-// Memory (32-bit): 96
+// Memory (8-bit): 77
+// Memory (32-bit): 100
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Tripoli[]  = {
@@ -802,8 +802,8 @@ const AtcZoneInfo kAtcZoneAfrica_Tripoli  = {
 // Zone name: Africa/Tunis
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Tunis[]  = {
@@ -837,8 +837,8 @@ const AtcZoneInfo kAtcZoneAfrica_Tunis  = {
 // Zone name: Africa/Windhoek
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Windhoek[]  = {
@@ -872,8 +872,8 @@ const AtcZoneInfo kAtcZoneAfrica_Windhoek  = {
 // Zone name: America/Adak
 // Zone Eras: 1
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 39
-// Memory (32-bit): 53
+// Memory (8-bit): 42
+// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Adak[]  = {
@@ -907,8 +907,8 @@ const AtcZoneInfo kAtcZoneAmerica_Adak  = {
 // Zone name: America/Anchorage
 // Zone Eras: 1
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 45
-// Memory (32-bit): 59
+// Memory (8-bit): 48
+// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Anchorage[]  = {
@@ -942,8 +942,8 @@ const AtcZoneInfo kAtcZoneAmerica_Anchorage  = {
 // Zone name: America/Araguaina
 // Zone Eras: 4
 // Strings (bytes): 42 (originally 42)
-// Memory (8-bit): 97
-// Memory (32-bit): 126
+// Memory (8-bit): 103
+// Memory (32-bit): 130
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Araguaina[]  = {
@@ -1013,8 +1013,8 @@ const AtcZoneInfo kAtcZoneAmerica_Araguaina  = {
 // Zone name: America/Argentina/Buenos_Aires
 // Zone Eras: 3
 // Strings (bytes): 55 (originally 55)
-// Memory (8-bit): 99
-// Memory (32-bit): 123
+// Memory (8-bit): 104
+// Memory (32-bit): 127
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Buenos_Aires[]  = {
@@ -1072,8 +1072,8 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Buenos_Aires  = {
 // Zone name: America/Argentina/Catamarca
 // Zone Eras: 6
 // Strings (bytes): 64 (originally 64)
-// Memory (8-bit): 141
-// Memory (32-bit): 180
+// Memory (8-bit): 149
+// Memory (32-bit): 184
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Catamarca[]  = {
@@ -1167,8 +1167,8 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Catamarca  = {
 // Zone name: America/Argentina/Cordoba
 // Zone Eras: 3
 // Strings (bytes): 50 (originally 50)
-// Memory (8-bit): 94
-// Memory (32-bit): 118
+// Memory (8-bit): 99
+// Memory (32-bit): 122
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Cordoba[]  = {
@@ -1226,8 +1226,8 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Cordoba  = {
 // Zone name: America/Argentina/Jujuy
 // Zone Eras: 4
 // Strings (bytes): 52 (originally 52)
-// Memory (8-bit): 107
-// Memory (32-bit): 136
+// Memory (8-bit): 113
+// Memory (32-bit): 140
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Jujuy[]  = {
@@ -1297,8 +1297,8 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Jujuy  = {
 // Zone name: America/Argentina/La_Rioja
 // Zone Eras: 6
 // Strings (bytes): 63 (originally 63)
-// Memory (8-bit): 140
-// Memory (32-bit): 179
+// Memory (8-bit): 148
+// Memory (32-bit): 183
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_La_Rioja[]  = {
@@ -1392,8 +1392,8 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_La_Rioja  = {
 // Zone name: America/Argentina/Mendoza
 // Zone Eras: 6
 // Strings (bytes): 62 (originally 62)
-// Memory (8-bit): 139
-// Memory (32-bit): 178
+// Memory (8-bit): 147
+// Memory (32-bit): 182
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Mendoza[]  = {
@@ -1487,8 +1487,8 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Mendoza  = {
 // Zone name: America/Argentina/Rio_Gallegos
 // Zone Eras: 6
 // Strings (bytes): 67 (originally 67)
-// Memory (8-bit): 144
-// Memory (32-bit): 183
+// Memory (8-bit): 152
+// Memory (32-bit): 187
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Rio_Gallegos[]  = {
@@ -1582,8 +1582,8 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Rio_Gallegos  = {
 // Zone name: America/Argentina/Salta
 // Zone Eras: 4
 // Strings (bytes): 52 (originally 52)
-// Memory (8-bit): 107
-// Memory (32-bit): 136
+// Memory (8-bit): 113
+// Memory (32-bit): 140
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Salta[]  = {
@@ -1653,8 +1653,8 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Salta  = {
 // Zone name: America/Argentina/San_Juan
 // Zone Eras: 6
 // Strings (bytes): 63 (originally 63)
-// Memory (8-bit): 140
-// Memory (32-bit): 179
+// Memory (8-bit): 148
+// Memory (32-bit): 183
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Juan[]  = {
@@ -1748,8 +1748,8 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_San_Juan  = {
 // Zone name: America/Argentina/San_Luis
 // Zone Eras: 7
 // Strings (bytes): 63 (originally 63)
-// Memory (8-bit): 151
-// Memory (32-bit): 195
+// Memory (8-bit): 160
+// Memory (32-bit): 199
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Luis[]  = {
@@ -1855,8 +1855,8 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_San_Luis  = {
 // Zone name: America/Argentina/Tucuman
 // Zone Eras: 5
 // Strings (bytes): 58 (originally 58)
-// Memory (8-bit): 124
-// Memory (32-bit): 158
+// Memory (8-bit): 131
+// Memory (32-bit): 162
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Tucuman[]  = {
@@ -1938,8 +1938,8 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Tucuman  = {
 // Zone name: America/Argentina/Ushuaia
 // Zone Eras: 6
 // Strings (bytes): 62 (originally 62)
-// Memory (8-bit): 139
-// Memory (32-bit): 178
+// Memory (8-bit): 147
+// Memory (32-bit): 182
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Ushuaia[]  = {
@@ -2033,8 +2033,8 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Ushuaia  = {
 // Zone name: America/Asuncion
 // Zone Eras: 1
 // Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 47
-// Memory (32-bit): 61
+// Memory (8-bit): 50
+// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Asuncion[]  = {
@@ -2068,8 +2068,8 @@ const AtcZoneInfo kAtcZoneAmerica_Asuncion  = {
 // Zone name: America/Bahia
 // Zone Eras: 4
 // Strings (bytes): 38 (originally 38)
-// Memory (8-bit): 93
-// Memory (32-bit): 122
+// Memory (8-bit): 99
+// Memory (32-bit): 126
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Bahia[]  = {
@@ -2139,8 +2139,8 @@ const AtcZoneInfo kAtcZoneAmerica_Bahia  = {
 // Zone name: America/Bahia_Banderas
 // Zone Eras: 2
 // Strings (bytes): 31 (originally 31)
-// Memory (8-bit): 64
-// Memory (32-bit): 83
+// Memory (8-bit): 68
+// Memory (32-bit): 87
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Bahia_Banderas[]  = {
@@ -2186,8 +2186,8 @@ const AtcZoneInfo kAtcZoneAmerica_Bahia_Banderas  = {
 // Zone name: America/Barbados
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Barbados[]  = {
@@ -2221,8 +2221,8 @@ const AtcZoneInfo kAtcZoneAmerica_Barbados  = {
 // Zone name: America/Belem
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Belem[]  = {
@@ -2256,8 +2256,8 @@ const AtcZoneInfo kAtcZoneAmerica_Belem  = {
 // Zone name: America/Belize
 // Zone Eras: 1
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 39
-// Memory (32-bit): 53
+// Memory (8-bit): 42
+// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Belize[]  = {
@@ -2291,8 +2291,8 @@ const AtcZoneInfo kAtcZoneAmerica_Belize  = {
 // Zone name: America/Boa_Vista
 // Zone Eras: 3
 // Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 78
-// Memory (32-bit): 102
+// Memory (8-bit): 83
+// Memory (32-bit): 106
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Boa_Vista[]  = {
@@ -2350,8 +2350,8 @@ const AtcZoneInfo kAtcZoneAmerica_Boa_Vista  = {
 // Zone name: America/Bogota
 // Zone Eras: 1
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 45
-// Memory (32-bit): 59
+// Memory (8-bit): 48
+// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Bogota[]  = {
@@ -2385,8 +2385,8 @@ const AtcZoneInfo kAtcZoneAmerica_Bogota  = {
 // Zone name: America/Boise
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Boise[]  = {
@@ -2420,8 +2420,8 @@ const AtcZoneInfo kAtcZoneAmerica_Boise  = {
 // Zone name: America/Cambridge_Bay
 // Zone Eras: 5
 // Strings (bytes): 42 (originally 42)
-// Memory (8-bit): 108
-// Memory (32-bit): 142
+// Memory (8-bit): 115
+// Memory (32-bit): 146
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Cambridge_Bay[]  = {
@@ -2503,8 +2503,8 @@ const AtcZoneInfo kAtcZoneAmerica_Cambridge_Bay  = {
 // Zone name: America/Campo_Grande
 // Zone Eras: 1
 // Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 51
-// Memory (32-bit): 65
+// Memory (8-bit): 54
+// Memory (32-bit): 69
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Campo_Grande[]  = {
@@ -2538,8 +2538,8 @@ const AtcZoneInfo kAtcZoneAmerica_Campo_Grande  = {
 // Zone name: America/Cancun
 // Zone Eras: 2
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 56
-// Memory (32-bit): 75
+// Memory (8-bit): 60
+// Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Cancun[]  = {
@@ -2585,8 +2585,8 @@ const AtcZoneInfo kAtcZoneAmerica_Cancun  = {
 // Zone name: America/Caracas
 // Zone Eras: 3
 // Strings (bytes): 30 (originally 30)
-// Memory (8-bit): 74
-// Memory (32-bit): 98
+// Memory (8-bit): 79
+// Memory (32-bit): 102
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Caracas[]  = {
@@ -2644,8 +2644,8 @@ const AtcZoneInfo kAtcZoneAmerica_Caracas  = {
 // Zone name: America/Cayenne
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
+// Memory (8-bit): 45
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Cayenne[]  = {
@@ -2679,8 +2679,8 @@ const AtcZoneInfo kAtcZoneAmerica_Cayenne  = {
 // Zone name: America/Chicago
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
+// Memory (8-bit): 45
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Chicago[]  = {
@@ -2714,8 +2714,8 @@ const AtcZoneInfo kAtcZoneAmerica_Chicago  = {
 // Zone name: America/Chihuahua
 // Zone Eras: 2
 // Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 59
-// Memory (32-bit): 78
+// Memory (8-bit): 63
+// Memory (32-bit): 82
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Chihuahua[]  = {
@@ -2761,8 +2761,8 @@ const AtcZoneInfo kAtcZoneAmerica_Chihuahua  = {
 // Zone name: America/Ciudad_Juarez
 // Zone Eras: 4
 // Strings (bytes): 38 (originally 38)
-// Memory (8-bit): 93
-// Memory (32-bit): 122
+// Memory (8-bit): 99
+// Memory (32-bit): 126
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Ciudad_Juarez[]  = {
@@ -2832,8 +2832,8 @@ const AtcZoneInfo kAtcZoneAmerica_Ciudad_Juarez  = {
 // Zone name: America/Costa_Rica
 // Zone Eras: 1
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 45
-// Memory (32-bit): 59
+// Memory (8-bit): 48
+// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Costa_Rica[]  = {
@@ -2867,8 +2867,8 @@ const AtcZoneInfo kAtcZoneAmerica_Costa_Rica  = {
 // Zone name: America/Cuiaba
 // Zone Eras: 3
 // Strings (bytes): 35 (originally 35)
-// Memory (8-bit): 79
-// Memory (32-bit): 103
+// Memory (8-bit): 84
+// Memory (32-bit): 107
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Cuiaba[]  = {
@@ -2926,8 +2926,8 @@ const AtcZoneInfo kAtcZoneAmerica_Cuiaba  = {
 // Zone name: America/Danmarkshavn
 // Zone Eras: 1
 // Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 47
-// Memory (32-bit): 61
+// Memory (8-bit): 50
+// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Danmarkshavn[]  = {
@@ -2961,8 +2961,8 @@ const AtcZoneInfo kAtcZoneAmerica_Danmarkshavn  = {
 // Zone name: America/Dawson
 // Zone Eras: 2
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 56
-// Memory (32-bit): 75
+// Memory (8-bit): 60
+// Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Dawson[]  = {
@@ -3008,8 +3008,8 @@ const AtcZoneInfo kAtcZoneAmerica_Dawson  = {
 // Zone name: America/Dawson_Creek
 // Zone Eras: 1
 // Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 47
-// Memory (32-bit): 61
+// Memory (8-bit): 50
+// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Dawson_Creek[]  = {
@@ -3043,8 +3043,8 @@ const AtcZoneInfo kAtcZoneAmerica_Dawson_Creek  = {
 // Zone name: America/Denver
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Denver[]  = {
@@ -3078,8 +3078,8 @@ const AtcZoneInfo kAtcZoneAmerica_Denver  = {
 // Zone name: America/Detroit
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
+// Memory (8-bit): 45
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Detroit[]  = {
@@ -3113,8 +3113,8 @@ const AtcZoneInfo kAtcZoneAmerica_Detroit  = {
 // Zone name: America/Edmonton
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Edmonton[]  = {
@@ -3148,8 +3148,8 @@ const AtcZoneInfo kAtcZoneAmerica_Edmonton  = {
 // Zone name: America/Eirunepe
 // Zone Eras: 3
 // Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 73
-// Memory (32-bit): 97
+// Memory (8-bit): 78
+// Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Eirunepe[]  = {
@@ -3207,8 +3207,8 @@ const AtcZoneInfo kAtcZoneAmerica_Eirunepe  = {
 // Zone name: America/El_Salvador
 // Zone Eras: 1
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 46
-// Memory (32-bit): 60
+// Memory (8-bit): 49
+// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_El_Salvador[]  = {
@@ -3242,8 +3242,8 @@ const AtcZoneInfo kAtcZoneAmerica_El_Salvador  = {
 // Zone name: America/Fort_Nelson
 // Zone Eras: 2
 // Strings (bytes): 28 (originally 28)
-// Memory (8-bit): 61
-// Memory (32-bit): 80
+// Memory (8-bit): 65
+// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Fort_Nelson[]  = {
@@ -3289,8 +3289,8 @@ const AtcZoneInfo kAtcZoneAmerica_Fort_Nelson  = {
 // Zone name: America/Fortaleza
 // Zone Eras: 5
 // Strings (bytes): 46 (originally 46)
-// Memory (8-bit): 112
-// Memory (32-bit): 146
+// Memory (8-bit): 119
+// Memory (32-bit): 150
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Fortaleza[]  = {
@@ -3372,8 +3372,8 @@ const AtcZoneInfo kAtcZoneAmerica_Fortaleza  = {
 // Zone name: America/Glace_Bay
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Glace_Bay[]  = {
@@ -3407,8 +3407,8 @@ const AtcZoneInfo kAtcZoneAmerica_Glace_Bay  = {
 // Zone name: America/Goose_Bay
 // Zone Eras: 2
 // Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 59
-// Memory (32-bit): 78
+// Memory (8-bit): 63
+// Memory (32-bit): 82
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Goose_Bay[]  = {
@@ -3454,8 +3454,8 @@ const AtcZoneInfo kAtcZoneAmerica_Goose_Bay  = {
 // Zone name: America/Grand_Turk
 // Zone Eras: 3
 // Strings (bytes): 31 (originally 31)
-// Memory (8-bit): 75
-// Memory (32-bit): 99
+// Memory (8-bit): 80
+// Memory (32-bit): 103
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Grand_Turk[]  = {
@@ -3513,8 +3513,8 @@ const AtcZoneInfo kAtcZoneAmerica_Grand_Turk  = {
 // Zone name: America/Guatemala
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Guatemala[]  = {
@@ -3548,8 +3548,8 @@ const AtcZoneInfo kAtcZoneAmerica_Guatemala  = {
 // Zone name: America/Guayaquil
 // Zone Eras: 1
 // Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 48
-// Memory (32-bit): 62
+// Memory (8-bit): 51
+// Memory (32-bit): 66
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Guayaquil[]  = {
@@ -3583,8 +3583,8 @@ const AtcZoneInfo kAtcZoneAmerica_Guayaquil  = {
 // Zone name: America/Guyana
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Guyana[]  = {
@@ -3618,8 +3618,8 @@ const AtcZoneInfo kAtcZoneAmerica_Guyana  = {
 // Zone name: America/Halifax
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
+// Memory (8-bit): 45
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Halifax[]  = {
@@ -3653,8 +3653,8 @@ const AtcZoneInfo kAtcZoneAmerica_Halifax  = {
 // Zone name: America/Havana
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Havana[]  = {
@@ -3688,8 +3688,8 @@ const AtcZoneInfo kAtcZoneAmerica_Havana  = {
 // Zone name: America/Hermosillo
 // Zone Eras: 2
 // Strings (bytes): 27 (originally 27)
-// Memory (8-bit): 60
-// Memory (32-bit): 79
+// Memory (8-bit): 64
+// Memory (32-bit): 83
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Hermosillo[]  = {
@@ -3735,8 +3735,8 @@ const AtcZoneInfo kAtcZoneAmerica_Hermosillo  = {
 // Zone name: America/Indiana/Indianapolis
 // Zone Eras: 2
 // Strings (bytes): 37 (originally 37)
-// Memory (8-bit): 70
-// Memory (32-bit): 89
+// Memory (8-bit): 74
+// Memory (32-bit): 93
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Indianapolis[]  = {
@@ -3782,8 +3782,8 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Indianapolis  = {
 // Zone name: America/Indiana/Knox
 // Zone Eras: 2
 // Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 62
-// Memory (32-bit): 81
+// Memory (8-bit): 66
+// Memory (32-bit): 85
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Knox[]  = {
@@ -3829,8 +3829,8 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Knox  = {
 // Zone name: America/Indiana/Marengo
 // Zone Eras: 2
 // Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 65
-// Memory (32-bit): 84
+// Memory (8-bit): 69
+// Memory (32-bit): 88
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Marengo[]  = {
@@ -3876,8 +3876,8 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Marengo  = {
 // Zone name: America/Indiana/Petersburg
 // Zone Eras: 3
 // Strings (bytes): 39 (originally 39)
-// Memory (8-bit): 83
-// Memory (32-bit): 107
+// Memory (8-bit): 88
+// Memory (32-bit): 111
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Petersburg[]  = {
@@ -3935,8 +3935,8 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Petersburg  = {
 // Zone name: America/Indiana/Tell_City
 // Zone Eras: 2
 // Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 67
-// Memory (32-bit): 86
+// Memory (8-bit): 71
+// Memory (32-bit): 90
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Tell_City[]  = {
@@ -3982,8 +3982,8 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Tell_City  = {
 // Zone name: America/Indiana/Vevay
 // Zone Eras: 2
 // Strings (bytes): 30 (originally 30)
-// Memory (8-bit): 63
-// Memory (32-bit): 82
+// Memory (8-bit): 67
+// Memory (32-bit): 86
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vevay[]  = {
@@ -4029,8 +4029,8 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Vevay  = {
 // Zone name: America/Indiana/Vincennes
 // Zone Eras: 3
 // Strings (bytes): 38 (originally 38)
-// Memory (8-bit): 82
-// Memory (32-bit): 106
+// Memory (8-bit): 87
+// Memory (32-bit): 110
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vincennes[]  = {
@@ -4088,8 +4088,8 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Vincennes  = {
 // Zone name: America/Indiana/Winamac
 // Zone Eras: 3
 // Strings (bytes): 36 (originally 36)
-// Memory (8-bit): 80
-// Memory (32-bit): 104
+// Memory (8-bit): 85
+// Memory (32-bit): 108
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Winamac[]  = {
@@ -4147,8 +4147,8 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Winamac  = {
 // Zone name: America/Inuvik
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Inuvik[]  = {
@@ -4182,8 +4182,8 @@ const AtcZoneInfo kAtcZoneAmerica_Inuvik  = {
 // Zone name: America/Iqaluit
 // Zone Eras: 3
 // Strings (bytes): 28 (originally 28)
-// Memory (8-bit): 72
-// Memory (32-bit): 96
+// Memory (8-bit): 77
+// Memory (32-bit): 100
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Iqaluit[]  = {
@@ -4241,8 +4241,8 @@ const AtcZoneInfo kAtcZoneAmerica_Iqaluit  = {
 // Zone name: America/Jamaica
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
+// Memory (8-bit): 45
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Jamaica[]  = {
@@ -4276,8 +4276,8 @@ const AtcZoneInfo kAtcZoneAmerica_Jamaica  = {
 // Zone name: America/Juneau
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
+// Memory (8-bit): 45
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Juneau[]  = {
@@ -4311,8 +4311,8 @@ const AtcZoneInfo kAtcZoneAmerica_Juneau  = {
 // Zone name: America/Kentucky/Louisville
 // Zone Eras: 1
 // Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 54
-// Memory (32-bit): 68
+// Memory (8-bit): 57
+// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Louisville[]  = {
@@ -4346,8 +4346,8 @@ const AtcZoneInfo kAtcZoneAmerica_Kentucky_Louisville  = {
 // Zone name: America/Kentucky/Monticello
 // Zone Eras: 2
 // Strings (bytes): 36 (originally 36)
-// Memory (8-bit): 69
-// Memory (32-bit): 88
+// Memory (8-bit): 73
+// Memory (32-bit): 92
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Monticello[]  = {
@@ -4393,8 +4393,8 @@ const AtcZoneInfo kAtcZoneAmerica_Kentucky_Monticello  = {
 // Zone name: America/La_Paz
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_La_Paz[]  = {
@@ -4428,8 +4428,8 @@ const AtcZoneInfo kAtcZoneAmerica_La_Paz  = {
 // Zone name: America/Lima
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Lima[]  = {
@@ -4463,8 +4463,8 @@ const AtcZoneInfo kAtcZoneAmerica_Lima  = {
 // Zone name: America/Los_Angeles
 // Zone Eras: 1
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 46
-// Memory (32-bit): 60
+// Memory (8-bit): 49
+// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Los_Angeles[]  = {
@@ -4498,8 +4498,8 @@ const AtcZoneInfo kAtcZoneAmerica_Los_Angeles  = {
 // Zone name: America/Maceio
 // Zone Eras: 5
 // Strings (bytes): 43 (originally 43)
-// Memory (8-bit): 109
-// Memory (32-bit): 143
+// Memory (8-bit): 116
+// Memory (32-bit): 147
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Maceio[]  = {
@@ -4581,8 +4581,8 @@ const AtcZoneInfo kAtcZoneAmerica_Maceio  = {
 // Zone name: America/Managua
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
+// Memory (8-bit): 45
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Managua[]  = {
@@ -4616,8 +4616,8 @@ const AtcZoneInfo kAtcZoneAmerica_Managua  = {
 // Zone name: America/Manaus
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Manaus[]  = {
@@ -4651,8 +4651,8 @@ const AtcZoneInfo kAtcZoneAmerica_Manaus  = {
 // Zone name: America/Martinique
 // Zone Eras: 1
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 45
-// Memory (32-bit): 59
+// Memory (8-bit): 48
+// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Martinique[]  = {
@@ -4686,8 +4686,8 @@ const AtcZoneInfo kAtcZoneAmerica_Martinique  = {
 // Zone name: America/Matamoros
 // Zone Eras: 2
 // Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 59
-// Memory (32-bit): 78
+// Memory (8-bit): 63
+// Memory (32-bit): 82
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Matamoros[]  = {
@@ -4733,8 +4733,8 @@ const AtcZoneInfo kAtcZoneAmerica_Matamoros  = {
 // Zone name: America/Mazatlan
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Mazatlan[]  = {
@@ -4768,8 +4768,8 @@ const AtcZoneInfo kAtcZoneAmerica_Mazatlan  = {
 // Zone name: America/Menominee
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Menominee[]  = {
@@ -4803,8 +4803,8 @@ const AtcZoneInfo kAtcZoneAmerica_Menominee  = {
 // Zone name: America/Merida
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Merida[]  = {
@@ -4838,8 +4838,8 @@ const AtcZoneInfo kAtcZoneAmerica_Merida  = {
 // Zone name: America/Metlakatla
 // Zone Eras: 4
 // Strings (bytes): 37 (originally 37)
-// Memory (8-bit): 92
-// Memory (32-bit): 121
+// Memory (8-bit): 98
+// Memory (32-bit): 125
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Metlakatla[]  = {
@@ -4909,8 +4909,8 @@ const AtcZoneInfo kAtcZoneAmerica_Metlakatla  = {
 // Zone name: America/Mexico_City
 // Zone Eras: 3
 // Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 76
-// Memory (32-bit): 100
+// Memory (8-bit): 81
+// Memory (32-bit): 104
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Mexico_City[]  = {
@@ -4968,8 +4968,8 @@ const AtcZoneInfo kAtcZoneAmerica_Mexico_City  = {
 // Zone name: America/Miquelon
 // Zone Eras: 1
 // Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 47
-// Memory (32-bit): 61
+// Memory (8-bit): 50
+// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Miquelon[]  = {
@@ -5003,8 +5003,8 @@ const AtcZoneInfo kAtcZoneAmerica_Miquelon  = {
 // Zone name: America/Moncton
 // Zone Eras: 2
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 57
-// Memory (32-bit): 76
+// Memory (8-bit): 61
+// Memory (32-bit): 80
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Moncton[]  = {
@@ -5050,8 +5050,8 @@ const AtcZoneInfo kAtcZoneAmerica_Moncton  = {
 // Zone name: America/Monterrey
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Monterrey[]  = {
@@ -5085,8 +5085,8 @@ const AtcZoneInfo kAtcZoneAmerica_Monterrey  = {
 // Zone name: America/Montevideo
 // Zone Eras: 1
 // Strings (bytes): 27 (originally 27)
-// Memory (8-bit): 49
-// Memory (32-bit): 63
+// Memory (8-bit): 52
+// Memory (32-bit): 67
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Montevideo[]  = {
@@ -5120,8 +5120,8 @@ const AtcZoneInfo kAtcZoneAmerica_Montevideo  = {
 // Zone name: America/New_York
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_New_York[]  = {
@@ -5155,8 +5155,8 @@ const AtcZoneInfo kAtcZoneAmerica_New_York  = {
 // Zone name: America/Nome
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Nome[]  = {
@@ -5190,8 +5190,8 @@ const AtcZoneInfo kAtcZoneAmerica_Nome  = {
 // Zone name: America/Noronha
 // Zone Eras: 5
 // Strings (bytes): 44 (originally 44)
-// Memory (8-bit): 110
-// Memory (32-bit): 144
+// Memory (8-bit): 117
+// Memory (32-bit): 148
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Noronha[]  = {
@@ -5273,8 +5273,8 @@ const AtcZoneInfo kAtcZoneAmerica_Noronha  = {
 // Zone name: America/North_Dakota/Beulah
 // Zone Eras: 2
 // Strings (bytes): 36 (originally 36)
-// Memory (8-bit): 69
-// Memory (32-bit): 88
+// Memory (8-bit): 73
+// Memory (32-bit): 92
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Beulah[]  = {
@@ -5320,8 +5320,8 @@ const AtcZoneInfo kAtcZoneAmerica_North_Dakota_Beulah  = {
 // Zone name: America/North_Dakota/Center
 // Zone Eras: 1
 // Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 54
-// Memory (32-bit): 68
+// Memory (8-bit): 57
+// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Center[]  = {
@@ -5355,8 +5355,8 @@ const AtcZoneInfo kAtcZoneAmerica_North_Dakota_Center  = {
 // Zone name: America/North_Dakota/New_Salem
 // Zone Eras: 2
 // Strings (bytes): 39 (originally 39)
-// Memory (8-bit): 72
-// Memory (32-bit): 91
+// Memory (8-bit): 76
+// Memory (32-bit): 95
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_New_Salem[]  = {
@@ -5402,8 +5402,8 @@ const AtcZoneInfo kAtcZoneAmerica_North_Dakota_New_Salem  = {
 // Zone name: America/Nuuk
 // Zone Eras: 2
 // Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 58
-// Memory (32-bit): 77
+// Memory (8-bit): 62
+// Memory (32-bit): 81
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Nuuk[]  = {
@@ -5449,8 +5449,8 @@ const AtcZoneInfo kAtcZoneAmerica_Nuuk  = {
 // Zone name: America/Ojinaga
 // Zone Eras: 4
 // Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 87
-// Memory (32-bit): 116
+// Memory (8-bit): 93
+// Memory (32-bit): 120
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Ojinaga[]  = {
@@ -5520,8 +5520,8 @@ const AtcZoneInfo kAtcZoneAmerica_Ojinaga  = {
 // Zone name: America/Panama
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Panama[]  = {
@@ -5555,8 +5555,8 @@ const AtcZoneInfo kAtcZoneAmerica_Panama  = {
 // Zone name: America/Paramaribo
 // Zone Eras: 1
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 45
-// Memory (32-bit): 59
+// Memory (8-bit): 48
+// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Paramaribo[]  = {
@@ -5590,8 +5590,8 @@ const AtcZoneInfo kAtcZoneAmerica_Paramaribo  = {
 // Zone name: America/Phoenix
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
+// Memory (8-bit): 45
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Phoenix[]  = {
@@ -5625,8 +5625,8 @@ const AtcZoneInfo kAtcZoneAmerica_Phoenix  = {
 // Zone name: America/Port-au-Prince
 // Zone Eras: 1
 // Strings (bytes): 27 (originally 27)
-// Memory (8-bit): 49
-// Memory (32-bit): 63
+// Memory (8-bit): 52
+// Memory (32-bit): 67
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Port_au_Prince[]  = {
@@ -5660,8 +5660,8 @@ const AtcZoneInfo kAtcZoneAmerica_Port_au_Prince  = {
 // Zone name: America/Porto_Velho
 // Zone Eras: 1
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 46
-// Memory (32-bit): 60
+// Memory (8-bit): 49
+// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Porto_Velho[]  = {
@@ -5695,8 +5695,8 @@ const AtcZoneInfo kAtcZoneAmerica_Porto_Velho  = {
 // Zone name: America/Puerto_Rico
 // Zone Eras: 1
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 46
-// Memory (32-bit): 60
+// Memory (8-bit): 49
+// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Puerto_Rico[]  = {
@@ -5730,8 +5730,8 @@ const AtcZoneInfo kAtcZoneAmerica_Puerto_Rico  = {
 // Zone name: America/Punta_Arenas
 // Zone Eras: 2
 // Strings (bytes): 33 (originally 33)
-// Memory (8-bit): 66
-// Memory (32-bit): 85
+// Memory (8-bit): 70
+// Memory (32-bit): 89
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Punta_Arenas[]  = {
@@ -5777,8 +5777,8 @@ const AtcZoneInfo kAtcZoneAmerica_Punta_Arenas  = {
 // Zone name: America/Rankin_Inlet
 // Zone Eras: 3
 // Strings (bytes): 33 (originally 33)
-// Memory (8-bit): 77
-// Memory (32-bit): 101
+// Memory (8-bit): 82
+// Memory (32-bit): 105
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Rankin_Inlet[]  = {
@@ -5836,8 +5836,8 @@ const AtcZoneInfo kAtcZoneAmerica_Rankin_Inlet  = {
 // Zone name: America/Recife
 // Zone Eras: 5
 // Strings (bytes): 43 (originally 43)
-// Memory (8-bit): 109
-// Memory (32-bit): 143
+// Memory (8-bit): 116
+// Memory (32-bit): 147
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Recife[]  = {
@@ -5919,8 +5919,8 @@ const AtcZoneInfo kAtcZoneAmerica_Recife  = {
 // Zone name: America/Regina
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Regina[]  = {
@@ -5954,8 +5954,8 @@ const AtcZoneInfo kAtcZoneAmerica_Regina  = {
 // Zone name: America/Resolute
 // Zone Eras: 5
 // Strings (bytes): 37 (originally 37)
-// Memory (8-bit): 103
-// Memory (32-bit): 137
+// Memory (8-bit): 110
+// Memory (32-bit): 141
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Resolute[]  = {
@@ -6037,8 +6037,8 @@ const AtcZoneInfo kAtcZoneAmerica_Resolute  = {
 // Zone name: America/Rio_Branco
 // Zone Eras: 3
 // Strings (bytes): 31 (originally 31)
-// Memory (8-bit): 75
-// Memory (32-bit): 99
+// Memory (8-bit): 80
+// Memory (32-bit): 103
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Rio_Branco[]  = {
@@ -6096,8 +6096,8 @@ const AtcZoneInfo kAtcZoneAmerica_Rio_Branco  = {
 // Zone name: America/Santarem
 // Zone Eras: 2
 // Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 58
-// Memory (32-bit): 77
+// Memory (8-bit): 62
+// Memory (32-bit): 81
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Santarem[]  = {
@@ -6143,8 +6143,8 @@ const AtcZoneInfo kAtcZoneAmerica_Santarem  = {
 // Zone name: America/Santiago
 // Zone Eras: 1
 // Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 47
-// Memory (32-bit): 61
+// Memory (8-bit): 50
+// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Santiago[]  = {
@@ -6178,8 +6178,8 @@ const AtcZoneInfo kAtcZoneAmerica_Santiago  = {
 // Zone name: America/Santo_Domingo
 // Zone Eras: 3
 // Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 78
-// Memory (32-bit): 102
+// Memory (8-bit): 83
+// Memory (32-bit): 106
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Santo_Domingo[]  = {
@@ -6237,8 +6237,8 @@ const AtcZoneInfo kAtcZoneAmerica_Santo_Domingo  = {
 // Zone name: America/Sao_Paulo
 // Zone Eras: 1
 // Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 48
-// Memory (32-bit): 62
+// Memory (8-bit): 51
+// Memory (32-bit): 66
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Sao_Paulo[]  = {
@@ -6272,8 +6272,8 @@ const AtcZoneInfo kAtcZoneAmerica_Sao_Paulo  = {
 // Zone name: America/Scoresbysund
 // Zone Eras: 1
 // Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 51
-// Memory (32-bit): 65
+// Memory (8-bit): 54
+// Memory (32-bit): 69
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Scoresbysund[]  = {
@@ -6307,8 +6307,8 @@ const AtcZoneInfo kAtcZoneAmerica_Scoresbysund  = {
 // Zone name: America/Sitka
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Sitka[]  = {
@@ -6342,8 +6342,8 @@ const AtcZoneInfo kAtcZoneAmerica_Sitka  = {
 // Zone name: America/St_Johns
 // Zone Eras: 2
 // Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 58
-// Memory (32-bit): 77
+// Memory (8-bit): 62
+// Memory (32-bit): 81
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_St_Johns[]  = {
@@ -6389,8 +6389,8 @@ const AtcZoneInfo kAtcZoneAmerica_St_Johns  = {
 // Zone name: America/Swift_Current
 // Zone Eras: 1
 // Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 48
-// Memory (32-bit): 62
+// Memory (8-bit): 51
+// Memory (32-bit): 66
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Swift_Current[]  = {
@@ -6424,8 +6424,8 @@ const AtcZoneInfo kAtcZoneAmerica_Swift_Current  = {
 // Zone name: America/Tegucigalpa
 // Zone Eras: 1
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 46
-// Memory (32-bit): 60
+// Memory (8-bit): 49
+// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Tegucigalpa[]  = {
@@ -6459,8 +6459,8 @@ const AtcZoneInfo kAtcZoneAmerica_Tegucigalpa  = {
 // Zone name: America/Thule
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Thule[]  = {
@@ -6494,8 +6494,8 @@ const AtcZoneInfo kAtcZoneAmerica_Thule  = {
 // Zone name: America/Tijuana
 // Zone Eras: 4
 // Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 87
-// Memory (32-bit): 116
+// Memory (8-bit): 93
+// Memory (32-bit): 120
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Tijuana[]  = {
@@ -6565,8 +6565,8 @@ const AtcZoneInfo kAtcZoneAmerica_Tijuana  = {
 // Zone name: America/Toronto
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
+// Memory (8-bit): 45
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Toronto[]  = {
@@ -6600,8 +6600,8 @@ const AtcZoneInfo kAtcZoneAmerica_Toronto  = {
 // Zone name: America/Vancouver
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Vancouver[]  = {
@@ -6635,8 +6635,8 @@ const AtcZoneInfo kAtcZoneAmerica_Vancouver  = {
 // Zone name: America/Whitehorse
 // Zone Eras: 2
 // Strings (bytes): 27 (originally 27)
-// Memory (8-bit): 60
-// Memory (32-bit): 79
+// Memory (8-bit): 64
+// Memory (32-bit): 83
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Whitehorse[]  = {
@@ -6682,8 +6682,8 @@ const AtcZoneInfo kAtcZoneAmerica_Whitehorse  = {
 // Zone name: America/Winnipeg
 // Zone Eras: 2
 // Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 58
-// Memory (32-bit): 77
+// Memory (8-bit): 62
+// Memory (32-bit): 81
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Winnipeg[]  = {
@@ -6729,8 +6729,8 @@ const AtcZoneInfo kAtcZoneAmerica_Winnipeg  = {
 // Zone name: America/Yakutat
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Yakutat[]  = {
@@ -6764,8 +6764,8 @@ const AtcZoneInfo kAtcZoneAmerica_Yakutat  = {
 // Zone name: America/Yellowknife
 // Zone Eras: 1
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 46
-// Memory (32-bit): 60
+// Memory (8-bit): 49
+// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Yellowknife[]  = {
@@ -6799,8 +6799,8 @@ const AtcZoneInfo kAtcZoneAmerica_Yellowknife  = {
 // Zone name: Antarctica/Casey
 // Zone Eras: 12
 // Strings (bytes): 65 (originally 65)
-// Memory (8-bit): 208
-// Memory (32-bit): 277
+// Memory (8-bit): 222
+// Memory (32-bit): 281
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Casey[]  = {
@@ -6966,8 +6966,8 @@ const AtcZoneInfo kAtcZoneAntarctica_Casey  = {
 // Zone name: Antarctica/Davis
 // Zone Eras: 5
 // Strings (bytes): 37 (originally 37)
-// Memory (8-bit): 103
-// Memory (32-bit): 137
+// Memory (8-bit): 110
+// Memory (32-bit): 141
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Davis[]  = {
@@ -7049,8 +7049,8 @@ const AtcZoneInfo kAtcZoneAntarctica_Davis  = {
 // Zone name: Antarctica/Macquarie
 // Zone Eras: 3
 // Strings (bytes): 36 (originally 36)
-// Memory (8-bit): 80
-// Memory (32-bit): 104
+// Memory (8-bit): 85
+// Memory (32-bit): 108
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Macquarie[]  = {
@@ -7108,8 +7108,8 @@ const AtcZoneInfo kAtcZoneAntarctica_Macquarie  = {
 // Zone name: Antarctica/Mawson
 // Zone Eras: 2
 // Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 59
-// Memory (32-bit): 78
+// Memory (8-bit): 63
+// Memory (32-bit): 82
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Mawson[]  = {
@@ -7155,8 +7155,8 @@ const AtcZoneInfo kAtcZoneAntarctica_Mawson  = {
 // Zone name: Antarctica/Palmer
 // Zone Eras: 2
 // Strings (bytes): 30 (originally 30)
-// Memory (8-bit): 63
-// Memory (32-bit): 82
+// Memory (8-bit): 67
+// Memory (32-bit): 86
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Palmer[]  = {
@@ -7202,8 +7202,8 @@ const AtcZoneInfo kAtcZoneAntarctica_Palmer  = {
 // Zone name: Antarctica/Rothera
 // Zone Eras: 1
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 45
-// Memory (32-bit): 59
+// Memory (8-bit): 48
+// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Rothera[]  = {
@@ -7237,8 +7237,8 @@ const AtcZoneInfo kAtcZoneAntarctica_Rothera  = {
 // Zone name: Antarctica/Troll
 // Zone Eras: 2
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 56
-// Memory (32-bit): 75
+// Memory (8-bit): 60
+// Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Troll[]  = {
@@ -7284,8 +7284,8 @@ const AtcZoneInfo kAtcZoneAntarctica_Troll  = {
 // Zone name: Asia/Almaty
 // Zone Eras: 2
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 57
-// Memory (32-bit): 76
+// Memory (8-bit): 61
+// Memory (32-bit): 80
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Almaty[]  = {
@@ -7331,8 +7331,8 @@ const AtcZoneInfo kAtcZoneAsia_Almaty  = {
 // Zone name: Asia/Amman
 // Zone Eras: 2
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 53
-// Memory (32-bit): 72
+// Memory (8-bit): 57
+// Memory (32-bit): 76
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Amman[]  = {
@@ -7378,8 +7378,8 @@ const AtcZoneInfo kAtcZoneAsia_Amman  = {
 // Zone name: Asia/Anadyr
 // Zone Eras: 3
 // Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 76
-// Memory (32-bit): 100
+// Memory (8-bit): 81
+// Memory (32-bit): 104
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Anadyr[]  = {
@@ -7437,8 +7437,8 @@ const AtcZoneInfo kAtcZoneAsia_Anadyr  = {
 // Zone name: Asia/Aqtau
 // Zone Eras: 2
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 56
-// Memory (32-bit): 75
+// Memory (8-bit): 60
+// Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Aqtau[]  = {
@@ -7484,8 +7484,8 @@ const AtcZoneInfo kAtcZoneAsia_Aqtau  = {
 // Zone name: Asia/Aqtobe
 // Zone Eras: 2
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 57
-// Memory (32-bit): 76
+// Memory (8-bit): 61
+// Memory (32-bit): 80
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Aqtobe[]  = {
@@ -7531,8 +7531,8 @@ const AtcZoneInfo kAtcZoneAsia_Aqtobe  = {
 // Zone name: Asia/Ashgabat
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Ashgabat[]  = {
@@ -7566,8 +7566,8 @@ const AtcZoneInfo kAtcZoneAsia_Ashgabat  = {
 // Zone name: Asia/Atyrau
 // Zone Eras: 3
 // Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 76
-// Memory (32-bit): 100
+// Memory (8-bit): 81
+// Memory (32-bit): 104
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Atyrau[]  = {
@@ -7625,8 +7625,8 @@ const AtcZoneInfo kAtcZoneAsia_Atyrau  = {
 // Zone name: Asia/Baghdad
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Baghdad[]  = {
@@ -7660,8 +7660,8 @@ const AtcZoneInfo kAtcZoneAsia_Baghdad  = {
 // Zone name: Asia/Baku
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Baku[]  = {
@@ -7695,8 +7695,8 @@ const AtcZoneInfo kAtcZoneAsia_Baku  = {
 // Zone name: Asia/Bangkok
 // Zone Eras: 1
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 39
-// Memory (32-bit): 53
+// Memory (8-bit): 42
+// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Bangkok[]  = {
@@ -7730,8 +7730,8 @@ const AtcZoneInfo kAtcZoneAsia_Bangkok  = {
 // Zone name: Asia/Barnaul
 // Zone Eras: 4
 // Strings (bytes): 33 (originally 33)
-// Memory (8-bit): 88
-// Memory (32-bit): 117
+// Memory (8-bit): 94
+// Memory (32-bit): 121
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Barnaul[]  = {
@@ -7801,8 +7801,8 @@ const AtcZoneInfo kAtcZoneAsia_Barnaul  = {
 // Zone name: Asia/Beirut
 // Zone Eras: 1
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 39
-// Memory (32-bit): 53
+// Memory (8-bit): 42
+// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Beirut[]  = {
@@ -7836,8 +7836,8 @@ const AtcZoneInfo kAtcZoneAsia_Beirut  = {
 // Zone name: Asia/Bishkek
 // Zone Eras: 2
 // Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 58
-// Memory (32-bit): 77
+// Memory (8-bit): 62
+// Memory (32-bit): 81
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Bishkek[]  = {
@@ -7883,8 +7883,8 @@ const AtcZoneInfo kAtcZoneAsia_Bishkek  = {
 // Zone name: Asia/Chita
 // Zone Eras: 4
 // Strings (bytes): 31 (originally 31)
-// Memory (8-bit): 86
-// Memory (32-bit): 115
+// Memory (8-bit): 92
+// Memory (32-bit): 119
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Chita[]  = {
@@ -7954,8 +7954,8 @@ const AtcZoneInfo kAtcZoneAsia_Chita  = {
 // Zone name: Asia/Choibalsan
 // Zone Eras: 2
 // Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 65
-// Memory (32-bit): 84
+// Memory (8-bit): 69
+// Memory (32-bit): 88
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Choibalsan[]  = {
@@ -8001,8 +8001,8 @@ const AtcZoneInfo kAtcZoneAsia_Choibalsan  = {
 // Zone name: Asia/Colombo
 // Zone Eras: 2
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 56
-// Memory (32-bit): 75
+// Memory (8-bit): 60
+// Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Colombo[]  = {
@@ -8048,8 +8048,8 @@ const AtcZoneInfo kAtcZoneAsia_Colombo  = {
 // Zone name: Asia/Damascus
 // Zone Eras: 2
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 56
-// Memory (32-bit): 75
+// Memory (8-bit): 60
+// Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Damascus[]  = {
@@ -8095,8 +8095,8 @@ const AtcZoneInfo kAtcZoneAsia_Damascus  = {
 // Zone name: Asia/Dhaka
 // Zone Eras: 2
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 56
-// Memory (32-bit): 75
+// Memory (8-bit): 60
+// Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Dhaka[]  = {
@@ -8142,8 +8142,8 @@ const AtcZoneInfo kAtcZoneAsia_Dhaka  = {
 // Zone name: Asia/Dili
 // Zone Eras: 2
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 51
-// Memory (32-bit): 70
+// Memory (8-bit): 55
+// Memory (32-bit): 74
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Dili[]  = {
@@ -8189,8 +8189,8 @@ const AtcZoneInfo kAtcZoneAsia_Dili  = {
 // Zone name: Asia/Dubai
 // Zone Eras: 1
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 37
-// Memory (32-bit): 51
+// Memory (8-bit): 40
+// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Dubai[]  = {
@@ -8224,8 +8224,8 @@ const AtcZoneInfo kAtcZoneAsia_Dubai  = {
 // Zone name: Asia/Dushanbe
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Dushanbe[]  = {
@@ -8259,8 +8259,8 @@ const AtcZoneInfo kAtcZoneAsia_Dushanbe  = {
 // Zone name: Asia/Famagusta
 // Zone Eras: 3
 // Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 73
-// Memory (32-bit): 97
+// Memory (8-bit): 78
+// Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Famagusta[]  = {
@@ -8318,8 +8318,8 @@ const AtcZoneInfo kAtcZoneAsia_Famagusta  = {
 // Zone name: Asia/Gaza
 // Zone Eras: 8
 // Strings (bytes): 47 (originally 47)
-// Memory (8-bit): 146
-// Memory (32-bit): 195
+// Memory (8-bit): 156
+// Memory (32-bit): 199
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Gaza[]  = {
@@ -8437,8 +8437,8 @@ const AtcZoneInfo kAtcZoneAsia_Gaza  = {
 // Zone name: Asia/Hebron
 // Zone Eras: 2
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 55
-// Memory (32-bit): 74
+// Memory (8-bit): 59
+// Memory (32-bit): 78
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Hebron[]  = {
@@ -8484,8 +8484,8 @@ const AtcZoneInfo kAtcZoneAsia_Hebron  = {
 // Zone name: Asia/Ho_Chi_Minh
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Ho_Chi_Minh[]  = {
@@ -8519,8 +8519,8 @@ const AtcZoneInfo kAtcZoneAsia_Ho_Chi_Minh  = {
 // Zone name: Asia/Hong_Kong
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
+// Memory (8-bit): 45
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Hong_Kong[]  = {
@@ -8554,8 +8554,8 @@ const AtcZoneInfo kAtcZoneAsia_Hong_Kong  = {
 // Zone name: Asia/Hovd
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Hovd[]  = {
@@ -8589,8 +8589,8 @@ const AtcZoneInfo kAtcZoneAsia_Hovd  = {
 // Zone name: Asia/Irkutsk
 // Zone Eras: 3
 // Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 73
-// Memory (32-bit): 97
+// Memory (8-bit): 78
+// Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Irkutsk[]  = {
@@ -8648,8 +8648,8 @@ const AtcZoneInfo kAtcZoneAsia_Irkutsk  = {
 // Zone name: Asia/Jakarta
 // Zone Eras: 1
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 39
-// Memory (32-bit): 53
+// Memory (8-bit): 42
+// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Jakarta[]  = {
@@ -8683,8 +8683,8 @@ const AtcZoneInfo kAtcZoneAsia_Jakarta  = {
 // Zone name: Asia/Jayapura
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Jayapura[]  = {
@@ -8718,8 +8718,8 @@ const AtcZoneInfo kAtcZoneAsia_Jayapura  = {
 // Zone name: Asia/Jerusalem
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Jerusalem[]  = {
@@ -8753,8 +8753,8 @@ const AtcZoneInfo kAtcZoneAsia_Jerusalem  = {
 // Zone name: Asia/Kabul
 // Zone Eras: 1
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 39
-// Memory (32-bit): 53
+// Memory (8-bit): 42
+// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Kabul[]  = {
@@ -8788,8 +8788,8 @@ const AtcZoneInfo kAtcZoneAsia_Kabul  = {
 // Zone name: Asia/Kamchatka
 // Zone Eras: 3
 // Strings (bytes): 35 (originally 35)
-// Memory (8-bit): 79
-// Memory (32-bit): 103
+// Memory (8-bit): 84
+// Memory (32-bit): 107
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Kamchatka[]  = {
@@ -8847,8 +8847,8 @@ const AtcZoneInfo kAtcZoneAsia_Kamchatka  = {
 // Zone name: Asia/Karachi
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Karachi[]  = {
@@ -8882,8 +8882,8 @@ const AtcZoneInfo kAtcZoneAsia_Karachi  = {
 // Zone name: Asia/Kathmandu
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Kathmandu[]  = {
@@ -8917,8 +8917,8 @@ const AtcZoneInfo kAtcZoneAsia_Kathmandu  = {
 // Zone name: Asia/Khandyga
 // Zone Eras: 5
 // Strings (bytes): 42 (originally 42)
-// Memory (8-bit): 108
-// Memory (32-bit): 142
+// Memory (8-bit): 115
+// Memory (32-bit): 146
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Khandyga[]  = {
@@ -9000,8 +9000,8 @@ const AtcZoneInfo kAtcZoneAsia_Khandyga  = {
 // Zone name: Asia/Kolkata
 // Zone Eras: 1
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 39
-// Memory (32-bit): 53
+// Memory (8-bit): 42
+// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Kolkata[]  = {
@@ -9035,8 +9035,8 @@ const AtcZoneInfo kAtcZoneAsia_Kolkata  = {
 // Zone name: Asia/Krasnoyarsk
 // Zone Eras: 3
 // Strings (bytes): 33 (originally 33)
-// Memory (8-bit): 77
-// Memory (32-bit): 101
+// Memory (8-bit): 82
+// Memory (32-bit): 105
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Krasnoyarsk[]  = {
@@ -9094,8 +9094,8 @@ const AtcZoneInfo kAtcZoneAsia_Krasnoyarsk  = {
 // Zone name: Asia/Kuching
 // Zone Eras: 1
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 39
-// Memory (32-bit): 53
+// Memory (8-bit): 42
+// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Kuching[]  = {
@@ -9129,8 +9129,8 @@ const AtcZoneInfo kAtcZoneAsia_Kuching  = {
 // Zone name: Asia/Macau
 // Zone Eras: 1
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 37
-// Memory (32-bit): 51
+// Memory (8-bit): 40
+// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Macau[]  = {
@@ -9164,8 +9164,8 @@ const AtcZoneInfo kAtcZoneAsia_Macau  = {
 // Zone name: Asia/Magadan
 // Zone Eras: 4
 // Strings (bytes): 33 (originally 33)
-// Memory (8-bit): 88
-// Memory (32-bit): 117
+// Memory (8-bit): 94
+// Memory (32-bit): 121
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Magadan[]  = {
@@ -9235,8 +9235,8 @@ const AtcZoneInfo kAtcZoneAsia_Magadan  = {
 // Zone name: Asia/Makassar
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Makassar[]  = {
@@ -9270,8 +9270,8 @@ const AtcZoneInfo kAtcZoneAsia_Makassar  = {
 // Zone name: Asia/Manila
 // Zone Eras: 1
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 38
-// Memory (32-bit): 52
+// Memory (8-bit): 41
+// Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Manila[]  = {
@@ -9305,8 +9305,8 @@ const AtcZoneInfo kAtcZoneAsia_Manila  = {
 // Zone name: Asia/Nicosia
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Nicosia[]  = {
@@ -9340,8 +9340,8 @@ const AtcZoneInfo kAtcZoneAsia_Nicosia  = {
 // Zone name: Asia/Novokuznetsk
 // Zone Eras: 3
 // Strings (bytes): 38 (originally 38)
-// Memory (8-bit): 82
-// Memory (32-bit): 106
+// Memory (8-bit): 87
+// Memory (32-bit): 110
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Novokuznetsk[]  = {
@@ -9399,8 +9399,8 @@ const AtcZoneInfo kAtcZoneAsia_Novokuznetsk  = {
 // Zone name: Asia/Novosibirsk
 // Zone Eras: 4
 // Strings (bytes): 37 (originally 37)
-// Memory (8-bit): 92
-// Memory (32-bit): 121
+// Memory (8-bit): 98
+// Memory (32-bit): 125
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Novosibirsk[]  = {
@@ -9470,8 +9470,8 @@ const AtcZoneInfo kAtcZoneAsia_Novosibirsk  = {
 // Zone name: Asia/Omsk
 // Zone Eras: 3
 // Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 70
-// Memory (32-bit): 94
+// Memory (8-bit): 75
+// Memory (32-bit): 98
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Omsk[]  = {
@@ -9529,8 +9529,8 @@ const AtcZoneInfo kAtcZoneAsia_Omsk  = {
 // Zone name: Asia/Oral
 // Zone Eras: 2
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 55
-// Memory (32-bit): 74
+// Memory (8-bit): 59
+// Memory (32-bit): 78
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Oral[]  = {
@@ -9576,8 +9576,8 @@ const AtcZoneInfo kAtcZoneAsia_Oral  = {
 // Zone name: Asia/Pontianak
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Pontianak[]  = {
@@ -9611,8 +9611,8 @@ const AtcZoneInfo kAtcZoneAsia_Pontianak  = {
 // Zone name: Asia/Pyongyang
 // Zone Eras: 3
 // Strings (bytes): 27 (originally 27)
-// Memory (8-bit): 71
-// Memory (32-bit): 95
+// Memory (8-bit): 76
+// Memory (32-bit): 99
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Pyongyang[]  = {
@@ -9670,8 +9670,8 @@ const AtcZoneInfo kAtcZoneAsia_Pyongyang  = {
 // Zone name: Asia/Qatar
 // Zone Eras: 1
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 37
-// Memory (32-bit): 51
+// Memory (8-bit): 40
+// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Qatar[]  = {
@@ -9705,8 +9705,8 @@ const AtcZoneInfo kAtcZoneAsia_Qatar  = {
 // Zone name: Asia/Qostanay
 // Zone Eras: 2
 // Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 59
-// Memory (32-bit): 78
+// Memory (8-bit): 63
+// Memory (32-bit): 82
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Qostanay[]  = {
@@ -9752,8 +9752,8 @@ const AtcZoneInfo kAtcZoneAsia_Qostanay  = {
 // Zone name: Asia/Qyzylorda
 // Zone Eras: 3
 // Strings (bytes): 31 (originally 31)
-// Memory (8-bit): 75
-// Memory (32-bit): 99
+// Memory (8-bit): 80
+// Memory (32-bit): 103
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Qyzylorda[]  = {
@@ -9811,8 +9811,8 @@ const AtcZoneInfo kAtcZoneAsia_Qyzylorda  = {
 // Zone name: Asia/Riyadh
 // Zone Eras: 1
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 38
-// Memory (32-bit): 52
+// Memory (8-bit): 41
+// Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Riyadh[]  = {
@@ -9846,8 +9846,8 @@ const AtcZoneInfo kAtcZoneAsia_Riyadh  = {
 // Zone name: Asia/Sakhalin
 // Zone Eras: 4
 // Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 89
-// Memory (32-bit): 118
+// Memory (8-bit): 95
+// Memory (32-bit): 122
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Sakhalin[]  = {
@@ -9917,8 +9917,8 @@ const AtcZoneInfo kAtcZoneAsia_Sakhalin  = {
 // Zone name: Asia/Samarkand
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Samarkand[]  = {
@@ -9952,8 +9952,8 @@ const AtcZoneInfo kAtcZoneAsia_Samarkand  = {
 // Zone name: Asia/Seoul
 // Zone Eras: 1
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 37
-// Memory (32-bit): 51
+// Memory (8-bit): 40
+// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Seoul[]  = {
@@ -9987,8 +9987,8 @@ const AtcZoneInfo kAtcZoneAsia_Seoul  = {
 // Zone name: Asia/Shanghai
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Shanghai[]  = {
@@ -10022,8 +10022,8 @@ const AtcZoneInfo kAtcZoneAsia_Shanghai  = {
 // Zone name: Asia/Singapore
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Singapore[]  = {
@@ -10057,8 +10057,8 @@ const AtcZoneInfo kAtcZoneAsia_Singapore  = {
 // Zone name: Asia/Srednekolymsk
 // Zone Eras: 3
 // Strings (bytes): 35 (originally 35)
-// Memory (8-bit): 79
-// Memory (32-bit): 103
+// Memory (8-bit): 84
+// Memory (32-bit): 107
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Srednekolymsk[]  = {
@@ -10116,8 +10116,8 @@ const AtcZoneInfo kAtcZoneAsia_Srednekolymsk  = {
 // Zone name: Asia/Taipei
 // Zone Eras: 1
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 38
-// Memory (32-bit): 52
+// Memory (8-bit): 41
+// Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Taipei[]  = {
@@ -10151,8 +10151,8 @@ const AtcZoneInfo kAtcZoneAsia_Taipei  = {
 // Zone name: Asia/Tashkent
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Tashkent[]  = {
@@ -10186,8 +10186,8 @@ const AtcZoneInfo kAtcZoneAsia_Tashkent  = {
 // Zone name: Asia/Tbilisi
 // Zone Eras: 3
 // Strings (bytes): 33 (originally 33)
-// Memory (8-bit): 77
-// Memory (32-bit): 101
+// Memory (8-bit): 82
+// Memory (32-bit): 105
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Tbilisi[]  = {
@@ -10245,8 +10245,8 @@ const AtcZoneInfo kAtcZoneAsia_Tbilisi  = {
 // Zone name: Asia/Tehran
 // Zone Eras: 1
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 46
-// Memory (32-bit): 60
+// Memory (8-bit): 49
+// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Tehran[]  = {
@@ -10280,8 +10280,8 @@ const AtcZoneInfo kAtcZoneAsia_Tehran  = {
 // Zone name: Asia/Thimphu
 // Zone Eras: 1
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 39
-// Memory (32-bit): 53
+// Memory (8-bit): 42
+// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Thimphu[]  = {
@@ -10315,8 +10315,8 @@ const AtcZoneInfo kAtcZoneAsia_Thimphu  = {
 // Zone name: Asia/Tokyo
 // Zone Eras: 1
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 37
-// Memory (32-bit): 51
+// Memory (8-bit): 40
+// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Tokyo[]  = {
@@ -10350,8 +10350,8 @@ const AtcZoneInfo kAtcZoneAsia_Tokyo  = {
 // Zone name: Asia/Tomsk
 // Zone Eras: 5
 // Strings (bytes): 39 (originally 39)
-// Memory (8-bit): 105
-// Memory (32-bit): 139
+// Memory (8-bit): 112
+// Memory (32-bit): 143
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Tomsk[]  = {
@@ -10433,8 +10433,8 @@ const AtcZoneInfo kAtcZoneAsia_Tomsk  = {
 // Zone name: Asia/Ulaanbaatar
 // Zone Eras: 1
 // Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 47
-// Memory (32-bit): 61
+// Memory (8-bit): 50
+// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Ulaanbaatar[]  = {
@@ -10468,8 +10468,8 @@ const AtcZoneInfo kAtcZoneAsia_Ulaanbaatar  = {
 // Zone name: Asia/Urumqi
 // Zone Eras: 1
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 38
-// Memory (32-bit): 52
+// Memory (8-bit): 41
+// Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Urumqi[]  = {
@@ -10503,8 +10503,8 @@ const AtcZoneInfo kAtcZoneAsia_Urumqi  = {
 // Zone name: Asia/Ust-Nera
 // Zone Eras: 4
 // Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 89
-// Memory (32-bit): 118
+// Memory (8-bit): 95
+// Memory (32-bit): 122
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Ust_Nera[]  = {
@@ -10574,8 +10574,8 @@ const AtcZoneInfo kAtcZoneAsia_Ust_Nera  = {
 // Zone name: Asia/Vladivostok
 // Zone Eras: 3
 // Strings (bytes): 33 (originally 33)
-// Memory (8-bit): 77
-// Memory (32-bit): 101
+// Memory (8-bit): 82
+// Memory (32-bit): 105
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Vladivostok[]  = {
@@ -10633,8 +10633,8 @@ const AtcZoneInfo kAtcZoneAsia_Vladivostok  = {
 // Zone name: Asia/Yakutsk
 // Zone Eras: 3
 // Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 73
-// Memory (32-bit): 97
+// Memory (8-bit): 78
+// Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Yakutsk[]  = {
@@ -10692,8 +10692,8 @@ const AtcZoneInfo kAtcZoneAsia_Yakutsk  = {
 // Zone name: Asia/Yangon
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Yangon[]  = {
@@ -10727,8 +10727,8 @@ const AtcZoneInfo kAtcZoneAsia_Yangon  = {
 // Zone name: Asia/Yekaterinburg
 // Zone Eras: 3
 // Strings (bytes): 35 (originally 35)
-// Memory (8-bit): 79
-// Memory (32-bit): 103
+// Memory (8-bit): 84
+// Memory (32-bit): 107
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Yekaterinburg[]  = {
@@ -10786,8 +10786,8 @@ const AtcZoneInfo kAtcZoneAsia_Yekaterinburg  = {
 // Zone name: Asia/Yerevan
 // Zone Eras: 2
 // Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 62
-// Memory (32-bit): 81
+// Memory (8-bit): 66
+// Memory (32-bit): 85
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Yerevan[]  = {
@@ -10833,8 +10833,8 @@ const AtcZoneInfo kAtcZoneAsia_Yerevan  = {
 // Zone name: Atlantic/Azores
 // Zone Eras: 1
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 46
-// Memory (32-bit): 60
+// Memory (8-bit): 49
+// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Azores[]  = {
@@ -10868,8 +10868,8 @@ const AtcZoneInfo kAtcZoneAtlantic_Azores  = {
 // Zone name: Atlantic/Bermuda
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Bermuda[]  = {
@@ -10903,8 +10903,8 @@ const AtcZoneInfo kAtcZoneAtlantic_Bermuda  = {
 // Zone name: Atlantic/Canary
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Canary[]  = {
@@ -10938,8 +10938,8 @@ const AtcZoneInfo kAtcZoneAtlantic_Canary  = {
 // Zone name: Atlantic/Cape_Verde
 // Zone Eras: 1
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 46
-// Memory (32-bit): 60
+// Memory (8-bit): 49
+// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Cape_Verde[]  = {
@@ -10973,8 +10973,8 @@ const AtcZoneInfo kAtcZoneAtlantic_Cape_Verde  = {
 // Zone name: Atlantic/Faroe
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
+// Memory (8-bit): 45
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Faroe[]  = {
@@ -11008,8 +11008,8 @@ const AtcZoneInfo kAtcZoneAtlantic_Faroe  = {
 // Zone name: Atlantic/Madeira
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Madeira[]  = {
@@ -11043,8 +11043,8 @@ const AtcZoneInfo kAtcZoneAtlantic_Madeira  = {
 // Zone name: Atlantic/South_Georgia
 // Zone Eras: 1
 // Strings (bytes): 27 (originally 27)
-// Memory (8-bit): 49
-// Memory (32-bit): 63
+// Memory (8-bit): 52
+// Memory (32-bit): 67
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_South_Georgia[]  = {
@@ -11078,8 +11078,8 @@ const AtcZoneInfo kAtcZoneAtlantic_South_Georgia  = {
 // Zone name: Atlantic/Stanley
 // Zone Eras: 2
 // Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 62
-// Memory (32-bit): 81
+// Memory (8-bit): 66
+// Memory (32-bit): 85
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Stanley[]  = {
@@ -11125,8 +11125,8 @@ const AtcZoneInfo kAtcZoneAtlantic_Stanley  = {
 // Zone name: Australia/Adelaide
 // Zone Eras: 1
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 46
-// Memory (32-bit): 60
+// Memory (8-bit): 49
+// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Adelaide[]  = {
@@ -11160,8 +11160,8 @@ const AtcZoneInfo kAtcZoneAustralia_Adelaide  = {
 // Zone name: Australia/Brisbane
 // Zone Eras: 1
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 46
-// Memory (32-bit): 60
+// Memory (8-bit): 49
+// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Brisbane[]  = {
@@ -11195,8 +11195,8 @@ const AtcZoneInfo kAtcZoneAustralia_Brisbane  = {
 // Zone name: Australia/Broken_Hill
 // Zone Eras: 2
 // Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 65
-// Memory (32-bit): 84
+// Memory (8-bit): 69
+// Memory (32-bit): 88
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Broken_Hill[]  = {
@@ -11242,8 +11242,8 @@ const AtcZoneInfo kAtcZoneAustralia_Broken_Hill  = {
 // Zone name: Australia/Darwin
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Darwin[]  = {
@@ -11277,8 +11277,8 @@ const AtcZoneInfo kAtcZoneAustralia_Darwin  = {
 // Zone name: Australia/Eucla
 // Zone Eras: 1
 // Strings (bytes): 28 (originally 28)
-// Memory (8-bit): 50
-// Memory (32-bit): 64
+// Memory (8-bit): 53
+// Memory (32-bit): 68
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Eucla[]  = {
@@ -11312,8 +11312,8 @@ const AtcZoneInfo kAtcZoneAustralia_Eucla  = {
 // Zone name: Australia/Hobart
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Hobart[]  = {
@@ -11347,8 +11347,8 @@ const AtcZoneInfo kAtcZoneAustralia_Hobart  = {
 // Zone name: Australia/Lindeman
 // Zone Eras: 1
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 46
-// Memory (32-bit): 60
+// Memory (8-bit): 49
+// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Lindeman[]  = {
@@ -11382,8 +11382,8 @@ const AtcZoneInfo kAtcZoneAustralia_Lindeman  = {
 // Zone name: Australia/Lord_Howe
 // Zone Eras: 1
 // Strings (bytes): 30 (originally 30)
-// Memory (8-bit): 52
-// Memory (32-bit): 66
+// Memory (8-bit): 55
+// Memory (32-bit): 70
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Lord_Howe[]  = {
@@ -11417,8 +11417,8 @@ const AtcZoneInfo kAtcZoneAustralia_Lord_Howe  = {
 // Zone name: Australia/Melbourne
 // Zone Eras: 1
 // Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 47
-// Memory (32-bit): 61
+// Memory (8-bit): 50
+// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Melbourne[]  = {
@@ -11452,8 +11452,8 @@ const AtcZoneInfo kAtcZoneAustralia_Melbourne  = {
 // Zone name: Australia/Perth
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Perth[]  = {
@@ -11487,8 +11487,8 @@ const AtcZoneInfo kAtcZoneAustralia_Perth  = {
 // Zone name: Australia/Sydney
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Sydney[]  = {
@@ -11522,8 +11522,8 @@ const AtcZoneInfo kAtcZoneAustralia_Sydney  = {
 // Zone name: CET
 // Zone Eras: 1
 // Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 31
-// Memory (32-bit): 45
+// Memory (8-bit): 34
+// Memory (32-bit): 49
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraCET[]  = {
@@ -11557,8 +11557,8 @@ const AtcZoneInfo kAtcZoneCET  = {
 // Zone name: CST6CDT
 // Zone Eras: 1
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 34
-// Memory (32-bit): 48
+// Memory (8-bit): 37
+// Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraCST6CDT[]  = {
@@ -11592,8 +11592,8 @@ const AtcZoneInfo kAtcZoneCST6CDT  = {
 // Zone name: EET
 // Zone Eras: 1
 // Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 31
-// Memory (32-bit): 45
+// Memory (8-bit): 34
+// Memory (32-bit): 49
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEET[]  = {
@@ -11627,8 +11627,8 @@ const AtcZoneInfo kAtcZoneEET  = {
 // Zone name: EST
 // Zone Eras: 1
 // Strings (bytes): 8 (originally 8)
-// Memory (8-bit): 30
-// Memory (32-bit): 44
+// Memory (8-bit): 33
+// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEST[]  = {
@@ -11662,8 +11662,8 @@ const AtcZoneInfo kAtcZoneEST  = {
 // Zone name: EST5EDT
 // Zone Eras: 1
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 34
-// Memory (32-bit): 48
+// Memory (8-bit): 37
+// Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEST5EDT[]  = {
@@ -11697,8 +11697,8 @@ const AtcZoneInfo kAtcZoneEST5EDT  = {
 // Zone name: Etc/GMT
 // Zone Eras: 1
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 34
-// Memory (32-bit): 48
+// Memory (8-bit): 37
+// Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT[]  = {
@@ -11732,8 +11732,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT  = {
 // Zone name: Etc/GMT+1
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_1[]  = {
@@ -11767,8 +11767,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_1  = {
 // Zone name: Etc/GMT+10
 // Zone Eras: 1
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 37
-// Memory (32-bit): 51
+// Memory (8-bit): 40
+// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_10[]  = {
@@ -11802,8 +11802,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_10  = {
 // Zone name: Etc/GMT+11
 // Zone Eras: 1
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 37
-// Memory (32-bit): 51
+// Memory (8-bit): 40
+// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_11[]  = {
@@ -11837,8 +11837,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_11  = {
 // Zone name: Etc/GMT+12
 // Zone Eras: 1
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 37
-// Memory (32-bit): 51
+// Memory (8-bit): 40
+// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_12[]  = {
@@ -11872,8 +11872,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_12  = {
 // Zone name: Etc/GMT+2
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_2[]  = {
@@ -11907,8 +11907,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_2  = {
 // Zone name: Etc/GMT+3
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_3[]  = {
@@ -11942,8 +11942,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_3  = {
 // Zone name: Etc/GMT+4
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_4[]  = {
@@ -11977,8 +11977,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_4  = {
 // Zone name: Etc/GMT+5
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_5[]  = {
@@ -12012,8 +12012,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_5  = {
 // Zone name: Etc/GMT+6
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_6[]  = {
@@ -12047,8 +12047,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_6  = {
 // Zone name: Etc/GMT+7
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_7[]  = {
@@ -12082,8 +12082,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_7  = {
 // Zone name: Etc/GMT+8
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_8[]  = {
@@ -12117,8 +12117,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_8  = {
 // Zone name: Etc/GMT+9
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_9[]  = {
@@ -12152,8 +12152,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_9  = {
 // Zone name: Etc/GMT-1
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_1[]  = {
@@ -12187,8 +12187,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_1  = {
 // Zone name: Etc/GMT-10
 // Zone Eras: 1
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 37
-// Memory (32-bit): 51
+// Memory (8-bit): 40
+// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_10[]  = {
@@ -12222,8 +12222,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_10  = {
 // Zone name: Etc/GMT-11
 // Zone Eras: 1
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 37
-// Memory (32-bit): 51
+// Memory (8-bit): 40
+// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_11[]  = {
@@ -12257,8 +12257,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_11  = {
 // Zone name: Etc/GMT-12
 // Zone Eras: 1
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 37
-// Memory (32-bit): 51
+// Memory (8-bit): 40
+// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_12[]  = {
@@ -12292,8 +12292,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_12  = {
 // Zone name: Etc/GMT-13
 // Zone Eras: 1
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 37
-// Memory (32-bit): 51
+// Memory (8-bit): 40
+// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_13[]  = {
@@ -12327,8 +12327,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_13  = {
 // Zone name: Etc/GMT-14
 // Zone Eras: 1
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 37
-// Memory (32-bit): 51
+// Memory (8-bit): 40
+// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_14[]  = {
@@ -12362,8 +12362,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_14  = {
 // Zone name: Etc/GMT-2
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_2[]  = {
@@ -12397,8 +12397,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_2  = {
 // Zone name: Etc/GMT-3
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_3[]  = {
@@ -12432,8 +12432,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_3  = {
 // Zone name: Etc/GMT-4
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_4[]  = {
@@ -12467,8 +12467,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_4  = {
 // Zone name: Etc/GMT-5
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_5[]  = {
@@ -12502,8 +12502,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_5  = {
 // Zone name: Etc/GMT-6
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_6[]  = {
@@ -12537,8 +12537,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_6  = {
 // Zone name: Etc/GMT-7
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_7[]  = {
@@ -12572,8 +12572,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_7  = {
 // Zone name: Etc/GMT-8
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_8[]  = {
@@ -12607,8 +12607,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_8  = {
 // Zone name: Etc/GMT-9
 // Zone Eras: 1
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 36
-// Memory (32-bit): 50
+// Memory (8-bit): 39
+// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_9[]  = {
@@ -12642,8 +12642,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_9  = {
 // Zone name: Etc/UTC
 // Zone Eras: 1
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 34
-// Memory (32-bit): 48
+// Memory (8-bit): 37
+// Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_UTC[]  = {
@@ -12677,8 +12677,8 @@ const AtcZoneInfo kAtcZoneEtc_UTC  = {
 // Zone name: Europe/Andorra
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
+// Memory (8-bit): 45
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Andorra[]  = {
@@ -12712,8 +12712,8 @@ const AtcZoneInfo kAtcZoneEurope_Andorra  = {
 // Zone name: Europe/Astrakhan
 // Zone Eras: 4
 // Strings (bytes): 37 (originally 37)
-// Memory (8-bit): 92
-// Memory (32-bit): 121
+// Memory (8-bit): 98
+// Memory (32-bit): 125
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Astrakhan[]  = {
@@ -12783,8 +12783,8 @@ const AtcZoneInfo kAtcZoneEurope_Astrakhan  = {
 // Zone name: Europe/Athens
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Athens[]  = {
@@ -12818,8 +12818,8 @@ const AtcZoneInfo kAtcZoneEurope_Athens  = {
 // Zone name: Europe/Belgrade
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Belgrade[]  = {
@@ -12853,8 +12853,8 @@ const AtcZoneInfo kAtcZoneEurope_Belgrade  = {
 // Zone name: Europe/Berlin
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Berlin[]  = {
@@ -12888,8 +12888,8 @@ const AtcZoneInfo kAtcZoneEurope_Berlin  = {
 // Zone name: Europe/Brussels
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Brussels[]  = {
@@ -12923,8 +12923,8 @@ const AtcZoneInfo kAtcZoneEurope_Brussels  = {
 // Zone name: Europe/Bucharest
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Bucharest[]  = {
@@ -12958,8 +12958,8 @@ const AtcZoneInfo kAtcZoneEurope_Bucharest  = {
 // Zone name: Europe/Budapest
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Budapest[]  = {
@@ -12993,8 +12993,8 @@ const AtcZoneInfo kAtcZoneEurope_Budapest  = {
 // Zone name: Europe/Chisinau
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Chisinau[]  = {
@@ -13028,8 +13028,8 @@ const AtcZoneInfo kAtcZoneEurope_Chisinau  = {
 // Zone name: Europe/Dublin
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Dublin[]  = {
@@ -13063,8 +13063,8 @@ const AtcZoneInfo kAtcZoneEurope_Dublin  = {
 // Zone name: Europe/Gibraltar
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Gibraltar[]  = {
@@ -13098,8 +13098,8 @@ const AtcZoneInfo kAtcZoneEurope_Gibraltar  = {
 // Zone name: Europe/Helsinki
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Helsinki[]  = {
@@ -13133,8 +13133,8 @@ const AtcZoneInfo kAtcZoneEurope_Helsinki  = {
 // Zone name: Europe/Istanbul
 // Zone Eras: 9
 // Strings (bytes): 58 (originally 58)
-// Memory (8-bit): 168
-// Memory (32-bit): 222
+// Memory (8-bit): 179
+// Memory (32-bit): 226
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Istanbul[]  = {
@@ -13264,8 +13264,8 @@ const AtcZoneInfo kAtcZoneEurope_Istanbul  = {
 // Zone name: Europe/Kaliningrad
 // Zone Eras: 3
 // Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 76
-// Memory (32-bit): 100
+// Memory (8-bit): 81
+// Memory (32-bit): 104
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Kaliningrad[]  = {
@@ -13323,8 +13323,8 @@ const AtcZoneInfo kAtcZoneEurope_Kaliningrad  = {
 // Zone name: Europe/Kirov
 // Zone Eras: 3
 // Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 73
-// Memory (32-bit): 97
+// Memory (8-bit): 78
+// Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Kirov[]  = {
@@ -13382,8 +13382,8 @@ const AtcZoneInfo kAtcZoneEurope_Kirov  = {
 // Zone name: Europe/Kyiv
 // Zone Eras: 1
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 39
-// Memory (32-bit): 53
+// Memory (8-bit): 42
+// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Kyiv[]  = {
@@ -13417,8 +13417,8 @@ const AtcZoneInfo kAtcZoneEurope_Kyiv  = {
 // Zone name: Europe/Lisbon
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Lisbon[]  = {
@@ -13452,8 +13452,8 @@ const AtcZoneInfo kAtcZoneEurope_Lisbon  = {
 // Zone name: Europe/London
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_London[]  = {
@@ -13487,8 +13487,8 @@ const AtcZoneInfo kAtcZoneEurope_London  = {
 // Zone name: Europe/Madrid
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Madrid[]  = {
@@ -13522,8 +13522,8 @@ const AtcZoneInfo kAtcZoneEurope_Madrid  = {
 // Zone name: Europe/Malta
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Malta[]  = {
@@ -13557,8 +13557,8 @@ const AtcZoneInfo kAtcZoneEurope_Malta  = {
 // Zone name: Europe/Minsk
 // Zone Eras: 2
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 55
-// Memory (32-bit): 74
+// Memory (8-bit): 59
+// Memory (32-bit): 78
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Minsk[]  = {
@@ -13604,8 +13604,8 @@ const AtcZoneInfo kAtcZoneEurope_Minsk  = {
 // Zone name: Europe/Moscow
 // Zone Eras: 3
 // Strings (bytes): 30 (originally 30)
-// Memory (8-bit): 74
-// Memory (32-bit): 98
+// Memory (8-bit): 79
+// Memory (32-bit): 102
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Moscow[]  = {
@@ -13663,8 +13663,8 @@ const AtcZoneInfo kAtcZoneEurope_Moscow  = {
 // Zone name: Europe/Paris
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Paris[]  = {
@@ -13698,8 +13698,8 @@ const AtcZoneInfo kAtcZoneEurope_Paris  = {
 // Zone name: Europe/Prague
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Prague[]  = {
@@ -13733,8 +13733,8 @@ const AtcZoneInfo kAtcZoneEurope_Prague  = {
 // Zone name: Europe/Riga
 // Zone Eras: 3
 // Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 70
-// Memory (32-bit): 94
+// Memory (8-bit): 75
+// Memory (32-bit): 98
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Riga[]  = {
@@ -13792,8 +13792,8 @@ const AtcZoneInfo kAtcZoneEurope_Riga  = {
 // Zone name: Europe/Rome
 // Zone Eras: 1
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 39
-// Memory (32-bit): 53
+// Memory (8-bit): 42
+// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Rome[]  = {
@@ -13827,8 +13827,8 @@ const AtcZoneInfo kAtcZoneEurope_Rome  = {
 // Zone name: Europe/Samara
 // Zone Eras: 3
 // Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 78
-// Memory (32-bit): 102
+// Memory (8-bit): 83
+// Memory (32-bit): 106
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Samara[]  = {
@@ -13886,8 +13886,8 @@ const AtcZoneInfo kAtcZoneEurope_Samara  = {
 // Zone name: Europe/Saratov
 // Zone Eras: 4
 // Strings (bytes): 35 (originally 35)
-// Memory (8-bit): 90
-// Memory (32-bit): 119
+// Memory (8-bit): 96
+// Memory (32-bit): 123
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Saratov[]  = {
@@ -13957,8 +13957,8 @@ const AtcZoneInfo kAtcZoneEurope_Saratov  = {
 // Zone name: Europe/Simferopol
 // Zone Eras: 3
 // Strings (bytes): 31 (originally 31)
-// Memory (8-bit): 75
-// Memory (32-bit): 99
+// Memory (8-bit): 80
+// Memory (32-bit): 103
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Simferopol[]  = {
@@ -14016,8 +14016,8 @@ const AtcZoneInfo kAtcZoneEurope_Simferopol  = {
 // Zone name: Europe/Sofia
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Sofia[]  = {
@@ -14051,8 +14051,8 @@ const AtcZoneInfo kAtcZoneEurope_Sofia  = {
 // Zone name: Europe/Tallinn
 // Zone Eras: 3
 // Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 73
-// Memory (32-bit): 97
+// Memory (8-bit): 78
+// Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Tallinn[]  = {
@@ -14110,8 +14110,8 @@ const AtcZoneInfo kAtcZoneEurope_Tallinn  = {
 // Zone name: Europe/Tirane
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Tirane[]  = {
@@ -14145,8 +14145,8 @@ const AtcZoneInfo kAtcZoneEurope_Tirane  = {
 // Zone name: Europe/Ulyanovsk
 // Zone Eras: 4
 // Strings (bytes): 37 (originally 37)
-// Memory (8-bit): 92
-// Memory (32-bit): 121
+// Memory (8-bit): 98
+// Memory (32-bit): 125
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Ulyanovsk[]  = {
@@ -14216,8 +14216,8 @@ const AtcZoneInfo kAtcZoneEurope_Ulyanovsk  = {
 // Zone name: Europe/Vienna
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Vienna[]  = {
@@ -14251,8 +14251,8 @@ const AtcZoneInfo kAtcZoneEurope_Vienna  = {
 // Zone name: Europe/Vilnius
 // Zone Eras: 3
 // Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 73
-// Memory (32-bit): 97
+// Memory (8-bit): 78
+// Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Vilnius[]  = {
@@ -14310,8 +14310,8 @@ const AtcZoneInfo kAtcZoneEurope_Vilnius  = {
 // Zone name: Europe/Volgograd
 // Zone Eras: 5
 // Strings (bytes): 41 (originally 41)
-// Memory (8-bit): 107
-// Memory (32-bit): 141
+// Memory (8-bit): 114
+// Memory (32-bit): 145
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Volgograd[]  = {
@@ -14393,8 +14393,8 @@ const AtcZoneInfo kAtcZoneEurope_Volgograd  = {
 // Zone name: Europe/Warsaw
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Warsaw[]  = {
@@ -14428,8 +14428,8 @@ const AtcZoneInfo kAtcZoneEurope_Warsaw  = {
 // Zone name: Europe/Zurich
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Zurich[]  = {
@@ -14463,8 +14463,8 @@ const AtcZoneInfo kAtcZoneEurope_Zurich  = {
 // Zone name: HST
 // Zone Eras: 1
 // Strings (bytes): 8 (originally 8)
-// Memory (8-bit): 30
-// Memory (32-bit): 44
+// Memory (8-bit): 33
+// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraHST[]  = {
@@ -14498,8 +14498,8 @@ const AtcZoneInfo kAtcZoneHST  = {
 // Zone name: Indian/Chagos
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraIndian_Chagos[]  = {
@@ -14533,8 +14533,8 @@ const AtcZoneInfo kAtcZoneIndian_Chagos  = {
 // Zone name: Indian/Maldives
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
+// Memory (8-bit): 45
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraIndian_Maldives[]  = {
@@ -14568,8 +14568,8 @@ const AtcZoneInfo kAtcZoneIndian_Maldives  = {
 // Zone name: Indian/Mauritius
 // Zone Eras: 1
 // Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 47
-// Memory (32-bit): 61
+// Memory (8-bit): 50
+// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraIndian_Mauritius[]  = {
@@ -14603,8 +14603,8 @@ const AtcZoneInfo kAtcZoneIndian_Mauritius  = {
 // Zone name: MET
 // Zone Eras: 1
 // Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 31
-// Memory (32-bit): 45
+// Memory (8-bit): 34
+// Memory (32-bit): 49
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraMET[]  = {
@@ -14638,8 +14638,8 @@ const AtcZoneInfo kAtcZoneMET  = {
 // Zone name: MST
 // Zone Eras: 1
 // Strings (bytes): 8 (originally 8)
-// Memory (8-bit): 30
-// Memory (32-bit): 44
+// Memory (8-bit): 33
+// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraMST[]  = {
@@ -14673,8 +14673,8 @@ const AtcZoneInfo kAtcZoneMST  = {
 // Zone name: MST7MDT
 // Zone Eras: 1
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 34
-// Memory (32-bit): 48
+// Memory (8-bit): 37
+// Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraMST7MDT[]  = {
@@ -14708,8 +14708,8 @@ const AtcZoneInfo kAtcZoneMST7MDT  = {
 // Zone name: PST8PDT
 // Zone Eras: 1
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 34
-// Memory (32-bit): 48
+// Memory (8-bit): 37
+// Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPST8PDT[]  = {
@@ -14743,8 +14743,8 @@ const AtcZoneInfo kAtcZonePST8PDT  = {
 // Zone name: Pacific/Apia
 // Zone Eras: 2
 // Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 62
-// Memory (32-bit): 81
+// Memory (8-bit): 66
+// Memory (32-bit): 85
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Apia[]  = {
@@ -14790,8 +14790,8 @@ const AtcZoneInfo kAtcZonePacific_Apia  = {
 // Zone name: Pacific/Auckland
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Auckland[]  = {
@@ -14825,8 +14825,8 @@ const AtcZoneInfo kAtcZonePacific_Auckland  = {
 // Zone name: Pacific/Bougainville
 // Zone Eras: 2
 // Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 62
-// Memory (32-bit): 81
+// Memory (8-bit): 66
+// Memory (32-bit): 85
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Bougainville[]  = {
@@ -14872,8 +14872,8 @@ const AtcZoneInfo kAtcZonePacific_Bougainville  = {
 // Zone name: Pacific/Chatham
 // Zone Eras: 1
 // Strings (bytes): 28 (originally 28)
-// Memory (8-bit): 50
-// Memory (32-bit): 64
+// Memory (8-bit): 53
+// Memory (32-bit): 68
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Chatham[]  = {
@@ -14907,8 +14907,8 @@ const AtcZoneInfo kAtcZonePacific_Chatham  = {
 // Zone name: Pacific/Easter
 // Zone Eras: 1
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 45
-// Memory (32-bit): 59
+// Memory (8-bit): 48
+// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Easter[]  = {
@@ -14942,8 +14942,8 @@ const AtcZoneInfo kAtcZonePacific_Easter  = {
 // Zone name: Pacific/Efate
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Efate[]  = {
@@ -14977,8 +14977,8 @@ const AtcZoneInfo kAtcZonePacific_Efate  = {
 // Zone name: Pacific/Fakaofo
 // Zone Eras: 2
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 57
-// Memory (32-bit): 76
+// Memory (8-bit): 61
+// Memory (32-bit): 80
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Fakaofo[]  = {
@@ -15024,8 +15024,8 @@ const AtcZoneInfo kAtcZonePacific_Fakaofo  = {
 // Zone name: Pacific/Fiji
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Fiji[]  = {
@@ -15059,8 +15059,8 @@ const AtcZoneInfo kAtcZonePacific_Fiji  = {
 // Zone name: Pacific/Galapagos
 // Zone Eras: 1
 // Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 48
-// Memory (32-bit): 62
+// Memory (8-bit): 51
+// Memory (32-bit): 66
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Galapagos[]  = {
@@ -15094,8 +15094,8 @@ const AtcZoneInfo kAtcZonePacific_Galapagos  = {
 // Zone name: Pacific/Gambier
 // Zone Eras: 1
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 42
-// Memory (32-bit): 56
+// Memory (8-bit): 45
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Gambier[]  = {
@@ -15129,8 +15129,8 @@ const AtcZoneInfo kAtcZonePacific_Gambier  = {
 // Zone name: Pacific/Guadalcanal
 // Zone Eras: 1
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 46
-// Memory (32-bit): 60
+// Memory (8-bit): 49
+// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Guadalcanal[]  = {
@@ -15164,8 +15164,8 @@ const AtcZoneInfo kAtcZonePacific_Guadalcanal  = {
 // Zone name: Pacific/Guam
 // Zone Eras: 2
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 55
-// Memory (32-bit): 74
+// Memory (8-bit): 59
+// Memory (32-bit): 78
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Guam[]  = {
@@ -15211,8 +15211,8 @@ const AtcZoneInfo kAtcZonePacific_Guam  = {
 // Zone name: Pacific/Honolulu
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Honolulu[]  = {
@@ -15246,8 +15246,8 @@ const AtcZoneInfo kAtcZonePacific_Honolulu  = {
 // Zone name: Pacific/Kanton
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Kanton[]  = {
@@ -15281,8 +15281,8 @@ const AtcZoneInfo kAtcZonePacific_Kanton  = {
 // Zone name: Pacific/Kiritimati
 // Zone Eras: 1
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 45
-// Memory (32-bit): 59
+// Memory (8-bit): 48
+// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Kiritimati[]  = {
@@ -15316,8 +15316,8 @@ const AtcZoneInfo kAtcZonePacific_Kiritimati  = {
 // Zone name: Pacific/Kosrae
 // Zone Eras: 2
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 56
-// Memory (32-bit): 75
+// Memory (8-bit): 60
+// Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Kosrae[]  = {
@@ -15363,8 +15363,8 @@ const AtcZoneInfo kAtcZonePacific_Kosrae  = {
 // Zone name: Pacific/Kwajalein
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Kwajalein[]  = {
@@ -15398,8 +15398,8 @@ const AtcZoneInfo kAtcZonePacific_Kwajalein  = {
 // Zone name: Pacific/Marquesas
 // Zone Eras: 1
 // Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 46
-// Memory (32-bit): 60
+// Memory (8-bit): 49
+// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Marquesas[]  = {
@@ -15433,8 +15433,8 @@ const AtcZoneInfo kAtcZonePacific_Marquesas  = {
 // Zone name: Pacific/Nauru
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Nauru[]  = {
@@ -15468,8 +15468,8 @@ const AtcZoneInfo kAtcZonePacific_Nauru  = {
 // Zone name: Pacific/Niue
 // Zone Eras: 1
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 39
-// Memory (32-bit): 53
+// Memory (8-bit): 42
+// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Niue[]  = {
@@ -15503,8 +15503,8 @@ const AtcZoneInfo kAtcZonePacific_Niue  = {
 // Zone name: Pacific/Norfolk
 // Zone Eras: 3
 // Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 78
-// Memory (32-bit): 102
+// Memory (8-bit): 83
+// Memory (32-bit): 106
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Norfolk[]  = {
@@ -15562,8 +15562,8 @@ const AtcZoneInfo kAtcZonePacific_Norfolk  = {
 // Zone name: Pacific/Noumea
 // Zone Eras: 1
 // Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 45
-// Memory (32-bit): 59
+// Memory (8-bit): 48
+// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Noumea[]  = {
@@ -15597,8 +15597,8 @@ const AtcZoneInfo kAtcZonePacific_Noumea  = {
 // Zone name: Pacific/Pago_Pago
 // Zone Eras: 1
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 44
-// Memory (32-bit): 58
+// Memory (8-bit): 47
+// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Pago_Pago[]  = {
@@ -15632,8 +15632,8 @@ const AtcZoneInfo kAtcZonePacific_Pago_Pago  = {
 // Zone name: Pacific/Palau
 // Zone Eras: 1
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 40
-// Memory (32-bit): 54
+// Memory (8-bit): 43
+// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Palau[]  = {
@@ -15667,8 +15667,8 @@ const AtcZoneInfo kAtcZonePacific_Palau  = {
 // Zone name: Pacific/Pitcairn
 // Zone Eras: 1
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 43
-// Memory (32-bit): 57
+// Memory (8-bit): 46
+// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Pitcairn[]  = {
@@ -15702,8 +15702,8 @@ const AtcZoneInfo kAtcZonePacific_Pitcairn  = {
 // Zone name: Pacific/Port_Moresby
 // Zone Eras: 1
 // Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 47
-// Memory (32-bit): 61
+// Memory (8-bit): 50
+// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Port_Moresby[]  = {
@@ -15737,8 +15737,8 @@ const AtcZoneInfo kAtcZonePacific_Port_Moresby  = {
 // Zone name: Pacific/Rarotonga
 // Zone Eras: 1
 // Strings (bytes): 28 (originally 28)
-// Memory (8-bit): 50
-// Memory (32-bit): 64
+// Memory (8-bit): 53
+// Memory (32-bit): 68
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Rarotonga[]  = {
@@ -15772,8 +15772,8 @@ const AtcZoneInfo kAtcZonePacific_Rarotonga  = {
 // Zone name: Pacific/Tahiti
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Tahiti[]  = {
@@ -15807,8 +15807,8 @@ const AtcZoneInfo kAtcZonePacific_Tahiti  = {
 // Zone name: Pacific/Tarawa
 // Zone Eras: 1
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 41
-// Memory (32-bit): 55
+// Memory (8-bit): 44
+// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Tarawa[]  = {
@@ -15842,8 +15842,8 @@ const AtcZoneInfo kAtcZonePacific_Tarawa  = {
 // Zone name: Pacific/Tongatapu
 // Zone Eras: 2
 // Strings (bytes): 30 (originally 30)
-// Memory (8-bit): 63
-// Memory (32-bit): 82
+// Memory (8-bit): 67
+// Memory (32-bit): 86
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Tongatapu[]  = {
@@ -15889,8 +15889,8 @@ const AtcZoneInfo kAtcZonePacific_Tongatapu  = {
 // Zone name: WET
 // Zone Eras: 1
 // Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 31
-// Memory (32-bit): 45
+// Memory (8-bit): 34
+// Memory (32-bit): 49
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraWET[]  = {
@@ -15929,8 +15929,8 @@ const AtcZoneInfo kAtcZoneWET  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Accra -> Africa/Abidjan
 // Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 24
-// Memory (32-bit): 33
+// Memory (8-bit): 26
+// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Accra[]  = "Africa/Accra";
@@ -15947,8 +15947,8 @@ const AtcZoneInfo kAtcZoneAfrica_Accra  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Addis_Ababa -> Africa/Nairobi
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Addis_Ababa[]  = "Africa/Addis_Ababa";
@@ -15965,8 +15965,8 @@ const AtcZoneInfo kAtcZoneAfrica_Addis_Ababa  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Asmara -> Africa/Nairobi
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Asmara[]  = "Africa/Asmara";
@@ -15983,8 +15983,8 @@ const AtcZoneInfo kAtcZoneAfrica_Asmara  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Asmera -> Africa/Nairobi
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Asmera[]  = "Africa/Asmera";
@@ -16001,8 +16001,8 @@ const AtcZoneInfo kAtcZoneAfrica_Asmera  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Bamako -> Africa/Abidjan
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Bamako[]  = "Africa/Bamako";
@@ -16019,8 +16019,8 @@ const AtcZoneInfo kAtcZoneAfrica_Bamako  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Bangui -> Africa/Lagos
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Bangui[]  = "Africa/Bangui";
@@ -16037,8 +16037,8 @@ const AtcZoneInfo kAtcZoneAfrica_Bangui  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Banjul -> Africa/Abidjan
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Banjul[]  = "Africa/Banjul";
@@ -16055,8 +16055,8 @@ const AtcZoneInfo kAtcZoneAfrica_Banjul  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Blantyre -> Africa/Maputo
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Blantyre[]  = "Africa/Blantyre";
@@ -16073,8 +16073,8 @@ const AtcZoneInfo kAtcZoneAfrica_Blantyre  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Brazzaville -> Africa/Lagos
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Brazzaville[]  = "Africa/Brazzaville";
@@ -16091,8 +16091,8 @@ const AtcZoneInfo kAtcZoneAfrica_Brazzaville  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Bujumbura -> Africa/Maputo
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Bujumbura[]  = "Africa/Bujumbura";
@@ -16109,8 +16109,8 @@ const AtcZoneInfo kAtcZoneAfrica_Bujumbura  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Conakry -> Africa/Abidjan
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Conakry[]  = "Africa/Conakry";
@@ -16127,8 +16127,8 @@ const AtcZoneInfo kAtcZoneAfrica_Conakry  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Dakar -> Africa/Abidjan
 // Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 24
-// Memory (32-bit): 33
+// Memory (8-bit): 26
+// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Dakar[]  = "Africa/Dakar";
@@ -16145,8 +16145,8 @@ const AtcZoneInfo kAtcZoneAfrica_Dakar  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Dar_es_Salaam -> Africa/Nairobi
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 32
-// Memory (32-bit): 41
+// Memory (8-bit): 34
+// Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Dar_es_Salaam[]  = "Africa/Dar_es_Salaam";
@@ -16163,8 +16163,8 @@ const AtcZoneInfo kAtcZoneAfrica_Dar_es_Salaam  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Djibouti -> Africa/Nairobi
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Djibouti[]  = "Africa/Djibouti";
@@ -16181,8 +16181,8 @@ const AtcZoneInfo kAtcZoneAfrica_Djibouti  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Douala -> Africa/Lagos
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Douala[]  = "Africa/Douala";
@@ -16199,8 +16199,8 @@ const AtcZoneInfo kAtcZoneAfrica_Douala  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Freetown -> Africa/Abidjan
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Freetown[]  = "Africa/Freetown";
@@ -16217,8 +16217,8 @@ const AtcZoneInfo kAtcZoneAfrica_Freetown  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Gaborone -> Africa/Maputo
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Gaborone[]  = "Africa/Gaborone";
@@ -16235,8 +16235,8 @@ const AtcZoneInfo kAtcZoneAfrica_Gaborone  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Harare -> Africa/Maputo
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Harare[]  = "Africa/Harare";
@@ -16253,8 +16253,8 @@ const AtcZoneInfo kAtcZoneAfrica_Harare  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Kampala -> Africa/Nairobi
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Kampala[]  = "Africa/Kampala";
@@ -16271,8 +16271,8 @@ const AtcZoneInfo kAtcZoneAfrica_Kampala  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Kigali -> Africa/Maputo
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Kigali[]  = "Africa/Kigali";
@@ -16289,8 +16289,8 @@ const AtcZoneInfo kAtcZoneAfrica_Kigali  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Kinshasa -> Africa/Lagos
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Kinshasa[]  = "Africa/Kinshasa";
@@ -16307,8 +16307,8 @@ const AtcZoneInfo kAtcZoneAfrica_Kinshasa  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Libreville -> Africa/Lagos
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 29
-// Memory (32-bit): 38
+// Memory (8-bit): 31
+// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Libreville[]  = "Africa/Libreville";
@@ -16325,8 +16325,8 @@ const AtcZoneInfo kAtcZoneAfrica_Libreville  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Lome -> Africa/Abidjan
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Lome[]  = "Africa/Lome";
@@ -16343,8 +16343,8 @@ const AtcZoneInfo kAtcZoneAfrica_Lome  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Luanda -> Africa/Lagos
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Luanda[]  = "Africa/Luanda";
@@ -16361,8 +16361,8 @@ const AtcZoneInfo kAtcZoneAfrica_Luanda  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Lubumbashi -> Africa/Maputo
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 29
-// Memory (32-bit): 38
+// Memory (8-bit): 31
+// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Lubumbashi[]  = "Africa/Lubumbashi";
@@ -16379,8 +16379,8 @@ const AtcZoneInfo kAtcZoneAfrica_Lubumbashi  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Lusaka -> Africa/Maputo
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Lusaka[]  = "Africa/Lusaka";
@@ -16397,8 +16397,8 @@ const AtcZoneInfo kAtcZoneAfrica_Lusaka  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Malabo -> Africa/Lagos
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Malabo[]  = "Africa/Malabo";
@@ -16415,8 +16415,8 @@ const AtcZoneInfo kAtcZoneAfrica_Malabo  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Maseru -> Africa/Johannesburg
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Maseru[]  = "Africa/Maseru";
@@ -16433,8 +16433,8 @@ const AtcZoneInfo kAtcZoneAfrica_Maseru  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Mbabane -> Africa/Johannesburg
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Mbabane[]  = "Africa/Mbabane";
@@ -16451,8 +16451,8 @@ const AtcZoneInfo kAtcZoneAfrica_Mbabane  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Mogadishu -> Africa/Nairobi
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Mogadishu[]  = "Africa/Mogadishu";
@@ -16469,8 +16469,8 @@ const AtcZoneInfo kAtcZoneAfrica_Mogadishu  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Niamey -> Africa/Lagos
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Niamey[]  = "Africa/Niamey";
@@ -16487,8 +16487,8 @@ const AtcZoneInfo kAtcZoneAfrica_Niamey  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Nouakchott -> Africa/Abidjan
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 29
-// Memory (32-bit): 38
+// Memory (8-bit): 31
+// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Nouakchott[]  = "Africa/Nouakchott";
@@ -16505,8 +16505,8 @@ const AtcZoneInfo kAtcZoneAfrica_Nouakchott  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Ouagadougou -> Africa/Abidjan
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Ouagadougou[]  = "Africa/Ouagadougou";
@@ -16523,8 +16523,8 @@ const AtcZoneInfo kAtcZoneAfrica_Ouagadougou  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Porto-Novo -> Africa/Lagos
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 29
-// Memory (32-bit): 38
+// Memory (8-bit): 31
+// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Porto_Novo[]  = "Africa/Porto-Novo";
@@ -16541,8 +16541,8 @@ const AtcZoneInfo kAtcZoneAfrica_Porto_Novo  = {
 //---------------------------------------------------------------------------
 // Link name: Africa/Timbuktu -> Africa/Abidjan
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Timbuktu[]  = "Africa/Timbuktu";
@@ -16559,8 +16559,8 @@ const AtcZoneInfo kAtcZoneAfrica_Timbuktu  = {
 //---------------------------------------------------------------------------
 // Link name: America/Anguilla -> America/Puerto_Rico
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Anguilla[]  = "America/Anguilla";
@@ -16577,8 +16577,8 @@ const AtcZoneInfo kAtcZoneAmerica_Anguilla  = {
 //---------------------------------------------------------------------------
 // Link name: America/Antigua -> America/Puerto_Rico
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Antigua[]  = "America/Antigua";
@@ -16595,8 +16595,8 @@ const AtcZoneInfo kAtcZoneAmerica_Antigua  = {
 //---------------------------------------------------------------------------
 // Link name: America/Argentina/ComodRivadavia -> America/Argentina/Catamarca
 // Strings (bytes): 33 (originally 33)
-// Memory (8-bit): 44
-// Memory (32-bit): 53
+// Memory (8-bit): 46
+// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Argentina_ComodRivadavia[]  = "America/Argentina/ComodRivadavia";
@@ -16613,8 +16613,8 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_ComodRivadavia  = {
 //---------------------------------------------------------------------------
 // Link name: America/Aruba -> America/Puerto_Rico
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Aruba[]  = "America/Aruba";
@@ -16631,8 +16631,8 @@ const AtcZoneInfo kAtcZoneAmerica_Aruba  = {
 //---------------------------------------------------------------------------
 // Link name: America/Atikokan -> America/Panama
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Atikokan[]  = "America/Atikokan";
@@ -16649,8 +16649,8 @@ const AtcZoneInfo kAtcZoneAmerica_Atikokan  = {
 //---------------------------------------------------------------------------
 // Link name: America/Atka -> America/Adak
 // Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 24
-// Memory (32-bit): 33
+// Memory (8-bit): 26
+// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Atka[]  = "America/Atka";
@@ -16667,8 +16667,8 @@ const AtcZoneInfo kAtcZoneAmerica_Atka  = {
 //---------------------------------------------------------------------------
 // Link name: America/Blanc-Sablon -> America/Puerto_Rico
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 32
-// Memory (32-bit): 41
+// Memory (8-bit): 34
+// Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Blanc_Sablon[]  = "America/Blanc-Sablon";
@@ -16685,8 +16685,8 @@ const AtcZoneInfo kAtcZoneAmerica_Blanc_Sablon  = {
 //---------------------------------------------------------------------------
 // Link name: America/Buenos_Aires -> America/Argentina/Buenos_Aires
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 32
-// Memory (32-bit): 41
+// Memory (8-bit): 34
+// Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Buenos_Aires[]  = "America/Buenos_Aires";
@@ -16703,8 +16703,8 @@ const AtcZoneInfo kAtcZoneAmerica_Buenos_Aires  = {
 //---------------------------------------------------------------------------
 // Link name: America/Catamarca -> America/Argentina/Catamarca
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 29
-// Memory (32-bit): 38
+// Memory (8-bit): 31
+// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Catamarca[]  = "America/Catamarca";
@@ -16721,8 +16721,8 @@ const AtcZoneInfo kAtcZoneAmerica_Catamarca  = {
 //---------------------------------------------------------------------------
 // Link name: America/Cayman -> America/Panama
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Cayman[]  = "America/Cayman";
@@ -16739,8 +16739,8 @@ const AtcZoneInfo kAtcZoneAmerica_Cayman  = {
 //---------------------------------------------------------------------------
 // Link name: America/Coral_Harbour -> America/Panama
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 33
-// Memory (32-bit): 42
+// Memory (8-bit): 35
+// Memory (32-bit): 46
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Coral_Harbour[]  = "America/Coral_Harbour";
@@ -16757,8 +16757,8 @@ const AtcZoneInfo kAtcZoneAmerica_Coral_Harbour  = {
 //---------------------------------------------------------------------------
 // Link name: America/Cordoba -> America/Argentina/Cordoba
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Cordoba[]  = "America/Cordoba";
@@ -16775,8 +16775,8 @@ const AtcZoneInfo kAtcZoneAmerica_Cordoba  = {
 //---------------------------------------------------------------------------
 // Link name: America/Creston -> America/Phoenix
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Creston[]  = "America/Creston";
@@ -16793,8 +16793,8 @@ const AtcZoneInfo kAtcZoneAmerica_Creston  = {
 //---------------------------------------------------------------------------
 // Link name: America/Curacao -> America/Puerto_Rico
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Curacao[]  = "America/Curacao";
@@ -16811,8 +16811,8 @@ const AtcZoneInfo kAtcZoneAmerica_Curacao  = {
 //---------------------------------------------------------------------------
 // Link name: America/Dominica -> America/Puerto_Rico
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Dominica[]  = "America/Dominica";
@@ -16829,8 +16829,8 @@ const AtcZoneInfo kAtcZoneAmerica_Dominica  = {
 //---------------------------------------------------------------------------
 // Link name: America/Ensenada -> America/Tijuana
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Ensenada[]  = "America/Ensenada";
@@ -16847,8 +16847,8 @@ const AtcZoneInfo kAtcZoneAmerica_Ensenada  = {
 //---------------------------------------------------------------------------
 // Link name: America/Fort_Wayne -> America/Indiana/Indianapolis
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Fort_Wayne[]  = "America/Fort_Wayne";
@@ -16865,8 +16865,8 @@ const AtcZoneInfo kAtcZoneAmerica_Fort_Wayne  = {
 //---------------------------------------------------------------------------
 // Link name: America/Godthab -> America/Nuuk
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Godthab[]  = "America/Godthab";
@@ -16883,8 +16883,8 @@ const AtcZoneInfo kAtcZoneAmerica_Godthab  = {
 //---------------------------------------------------------------------------
 // Link name: America/Grenada -> America/Puerto_Rico
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Grenada[]  = "America/Grenada";
@@ -16901,8 +16901,8 @@ const AtcZoneInfo kAtcZoneAmerica_Grenada  = {
 //---------------------------------------------------------------------------
 // Link name: America/Guadeloupe -> America/Puerto_Rico
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Guadeloupe[]  = "America/Guadeloupe";
@@ -16919,8 +16919,8 @@ const AtcZoneInfo kAtcZoneAmerica_Guadeloupe  = {
 //---------------------------------------------------------------------------
 // Link name: America/Indianapolis -> America/Indiana/Indianapolis
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 32
-// Memory (32-bit): 41
+// Memory (8-bit): 34
+// Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Indianapolis[]  = "America/Indianapolis";
@@ -16937,8 +16937,8 @@ const AtcZoneInfo kAtcZoneAmerica_Indianapolis  = {
 //---------------------------------------------------------------------------
 // Link name: America/Jujuy -> America/Argentina/Jujuy
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Jujuy[]  = "America/Jujuy";
@@ -16955,8 +16955,8 @@ const AtcZoneInfo kAtcZoneAmerica_Jujuy  = {
 //---------------------------------------------------------------------------
 // Link name: America/Knox_IN -> America/Indiana/Knox
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Knox_IN[]  = "America/Knox_IN";
@@ -16973,8 +16973,8 @@ const AtcZoneInfo kAtcZoneAmerica_Knox_IN  = {
 //---------------------------------------------------------------------------
 // Link name: America/Kralendijk -> America/Puerto_Rico
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Kralendijk[]  = "America/Kralendijk";
@@ -16991,8 +16991,8 @@ const AtcZoneInfo kAtcZoneAmerica_Kralendijk  = {
 //---------------------------------------------------------------------------
 // Link name: America/Louisville -> America/Kentucky/Louisville
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Louisville[]  = "America/Louisville";
@@ -17009,8 +17009,8 @@ const AtcZoneInfo kAtcZoneAmerica_Louisville  = {
 //---------------------------------------------------------------------------
 // Link name: America/Lower_Princes -> America/Puerto_Rico
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 33
-// Memory (32-bit): 42
+// Memory (8-bit): 35
+// Memory (32-bit): 46
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Lower_Princes[]  = "America/Lower_Princes";
@@ -17027,8 +17027,8 @@ const AtcZoneInfo kAtcZoneAmerica_Lower_Princes  = {
 //---------------------------------------------------------------------------
 // Link name: America/Marigot -> America/Puerto_Rico
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Marigot[]  = "America/Marigot";
@@ -17045,8 +17045,8 @@ const AtcZoneInfo kAtcZoneAmerica_Marigot  = {
 //---------------------------------------------------------------------------
 // Link name: America/Mendoza -> America/Argentina/Mendoza
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Mendoza[]  = "America/Mendoza";
@@ -17063,8 +17063,8 @@ const AtcZoneInfo kAtcZoneAmerica_Mendoza  = {
 //---------------------------------------------------------------------------
 // Link name: America/Montreal -> America/Toronto
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Montreal[]  = "America/Montreal";
@@ -17081,8 +17081,8 @@ const AtcZoneInfo kAtcZoneAmerica_Montreal  = {
 //---------------------------------------------------------------------------
 // Link name: America/Montserrat -> America/Puerto_Rico
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Montserrat[]  = "America/Montserrat";
@@ -17099,8 +17099,8 @@ const AtcZoneInfo kAtcZoneAmerica_Montserrat  = {
 //---------------------------------------------------------------------------
 // Link name: America/Nassau -> America/Toronto
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Nassau[]  = "America/Nassau";
@@ -17117,8 +17117,8 @@ const AtcZoneInfo kAtcZoneAmerica_Nassau  = {
 //---------------------------------------------------------------------------
 // Link name: America/Nipigon -> America/Toronto
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Nipigon[]  = "America/Nipigon";
@@ -17135,8 +17135,8 @@ const AtcZoneInfo kAtcZoneAmerica_Nipigon  = {
 //---------------------------------------------------------------------------
 // Link name: America/Pangnirtung -> America/Iqaluit
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 31
-// Memory (32-bit): 40
+// Memory (8-bit): 33
+// Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Pangnirtung[]  = "America/Pangnirtung";
@@ -17153,8 +17153,8 @@ const AtcZoneInfo kAtcZoneAmerica_Pangnirtung  = {
 //---------------------------------------------------------------------------
 // Link name: America/Port_of_Spain -> America/Puerto_Rico
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 33
-// Memory (32-bit): 42
+// Memory (8-bit): 35
+// Memory (32-bit): 46
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Port_of_Spain[]  = "America/Port_of_Spain";
@@ -17171,8 +17171,8 @@ const AtcZoneInfo kAtcZoneAmerica_Port_of_Spain  = {
 //---------------------------------------------------------------------------
 // Link name: America/Porto_Acre -> America/Rio_Branco
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Porto_Acre[]  = "America/Porto_Acre";
@@ -17189,8 +17189,8 @@ const AtcZoneInfo kAtcZoneAmerica_Porto_Acre  = {
 //---------------------------------------------------------------------------
 // Link name: America/Rainy_River -> America/Winnipeg
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 31
-// Memory (32-bit): 40
+// Memory (8-bit): 33
+// Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Rainy_River[]  = "America/Rainy_River";
@@ -17207,8 +17207,8 @@ const AtcZoneInfo kAtcZoneAmerica_Rainy_River  = {
 //---------------------------------------------------------------------------
 // Link name: America/Rosario -> America/Argentina/Cordoba
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Rosario[]  = "America/Rosario";
@@ -17225,8 +17225,8 @@ const AtcZoneInfo kAtcZoneAmerica_Rosario  = {
 //---------------------------------------------------------------------------
 // Link name: America/Santa_Isabel -> America/Tijuana
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 32
-// Memory (32-bit): 41
+// Memory (8-bit): 34
+// Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Santa_Isabel[]  = "America/Santa_Isabel";
@@ -17243,8 +17243,8 @@ const AtcZoneInfo kAtcZoneAmerica_Santa_Isabel  = {
 //---------------------------------------------------------------------------
 // Link name: America/Shiprock -> America/Denver
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Shiprock[]  = "America/Shiprock";
@@ -17261,8 +17261,8 @@ const AtcZoneInfo kAtcZoneAmerica_Shiprock  = {
 //---------------------------------------------------------------------------
 // Link name: America/St_Barthelemy -> America/Puerto_Rico
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 33
-// Memory (32-bit): 42
+// Memory (8-bit): 35
+// Memory (32-bit): 46
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_St_Barthelemy[]  = "America/St_Barthelemy";
@@ -17279,8 +17279,8 @@ const AtcZoneInfo kAtcZoneAmerica_St_Barthelemy  = {
 //---------------------------------------------------------------------------
 // Link name: America/St_Kitts -> America/Puerto_Rico
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_St_Kitts[]  = "America/St_Kitts";
@@ -17297,8 +17297,8 @@ const AtcZoneInfo kAtcZoneAmerica_St_Kitts  = {
 //---------------------------------------------------------------------------
 // Link name: America/St_Lucia -> America/Puerto_Rico
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_St_Lucia[]  = "America/St_Lucia";
@@ -17315,8 +17315,8 @@ const AtcZoneInfo kAtcZoneAmerica_St_Lucia  = {
 //---------------------------------------------------------------------------
 // Link name: America/St_Thomas -> America/Puerto_Rico
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 29
-// Memory (32-bit): 38
+// Memory (8-bit): 31
+// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_St_Thomas[]  = "America/St_Thomas";
@@ -17333,8 +17333,8 @@ const AtcZoneInfo kAtcZoneAmerica_St_Thomas  = {
 //---------------------------------------------------------------------------
 // Link name: America/St_Vincent -> America/Puerto_Rico
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_St_Vincent[]  = "America/St_Vincent";
@@ -17351,8 +17351,8 @@ const AtcZoneInfo kAtcZoneAmerica_St_Vincent  = {
 //---------------------------------------------------------------------------
 // Link name: America/Thunder_Bay -> America/Toronto
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 31
-// Memory (32-bit): 40
+// Memory (8-bit): 33
+// Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Thunder_Bay[]  = "America/Thunder_Bay";
@@ -17369,8 +17369,8 @@ const AtcZoneInfo kAtcZoneAmerica_Thunder_Bay  = {
 //---------------------------------------------------------------------------
 // Link name: America/Tortola -> America/Puerto_Rico
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Tortola[]  = "America/Tortola";
@@ -17387,8 +17387,8 @@ const AtcZoneInfo kAtcZoneAmerica_Tortola  = {
 //---------------------------------------------------------------------------
 // Link name: America/Virgin -> America/Puerto_Rico
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Virgin[]  = "America/Virgin";
@@ -17405,8 +17405,8 @@ const AtcZoneInfo kAtcZoneAmerica_Virgin  = {
 //---------------------------------------------------------------------------
 // Link name: Antarctica/DumontDUrville -> Pacific/Port_Moresby
 // Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 37
-// Memory (32-bit): 46
+// Memory (8-bit): 39
+// Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAntarctica_DumontDUrville[]  = "Antarctica/DumontDUrville";
@@ -17423,8 +17423,8 @@ const AtcZoneInfo kAtcZoneAntarctica_DumontDUrville  = {
 //---------------------------------------------------------------------------
 // Link name: Antarctica/McMurdo -> Pacific/Auckland
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAntarctica_McMurdo[]  = "Antarctica/McMurdo";
@@ -17441,8 +17441,8 @@ const AtcZoneInfo kAtcZoneAntarctica_McMurdo  = {
 //---------------------------------------------------------------------------
 // Link name: Antarctica/South_Pole -> Pacific/Auckland
 // Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 33
-// Memory (32-bit): 42
+// Memory (8-bit): 35
+// Memory (32-bit): 46
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAntarctica_South_Pole[]  = "Antarctica/South_Pole";
@@ -17459,8 +17459,8 @@ const AtcZoneInfo kAtcZoneAntarctica_South_Pole  = {
 //---------------------------------------------------------------------------
 // Link name: Antarctica/Syowa -> Asia/Riyadh
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAntarctica_Syowa[]  = "Antarctica/Syowa";
@@ -17477,8 +17477,8 @@ const AtcZoneInfo kAtcZoneAntarctica_Syowa  = {
 //---------------------------------------------------------------------------
 // Link name: Antarctica/Vostok -> Asia/Urumqi
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 29
-// Memory (32-bit): 38
+// Memory (8-bit): 31
+// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAntarctica_Vostok[]  = "Antarctica/Vostok";
@@ -17495,8 +17495,8 @@ const AtcZoneInfo kAtcZoneAntarctica_Vostok  = {
 //---------------------------------------------------------------------------
 // Link name: Arctic/Longyearbyen -> Europe/Berlin
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 31
-// Memory (32-bit): 40
+// Memory (8-bit): 33
+// Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameArctic_Longyearbyen[]  = "Arctic/Longyearbyen";
@@ -17513,8 +17513,8 @@ const AtcZoneInfo kAtcZoneArctic_Longyearbyen  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Aden -> Asia/Riyadh
 // Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 21
-// Memory (32-bit): 30
+// Memory (8-bit): 23
+// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Aden[]  = "Asia/Aden";
@@ -17531,8 +17531,8 @@ const AtcZoneInfo kAtcZoneAsia_Aden  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Ashkhabad -> Asia/Ashgabat
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Ashkhabad[]  = "Asia/Ashkhabad";
@@ -17549,8 +17549,8 @@ const AtcZoneInfo kAtcZoneAsia_Ashkhabad  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Bahrain -> Asia/Qatar
 // Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 24
-// Memory (32-bit): 33
+// Memory (8-bit): 26
+// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Bahrain[]  = "Asia/Bahrain";
@@ -17567,8 +17567,8 @@ const AtcZoneInfo kAtcZoneAsia_Bahrain  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Brunei -> Asia/Kuching
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Brunei[]  = "Asia/Brunei";
@@ -17585,8 +17585,8 @@ const AtcZoneInfo kAtcZoneAsia_Brunei  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Calcutta -> Asia/Kolkata
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Calcutta[]  = "Asia/Calcutta";
@@ -17603,8 +17603,8 @@ const AtcZoneInfo kAtcZoneAsia_Calcutta  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Chongqing -> Asia/Shanghai
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Chongqing[]  = "Asia/Chongqing";
@@ -17621,8 +17621,8 @@ const AtcZoneInfo kAtcZoneAsia_Chongqing  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Chungking -> Asia/Shanghai
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Chungking[]  = "Asia/Chungking";
@@ -17639,8 +17639,8 @@ const AtcZoneInfo kAtcZoneAsia_Chungking  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Dacca -> Asia/Dhaka
 // Strings (bytes): 11 (originally 11)
-// Memory (8-bit): 22
-// Memory (32-bit): 31
+// Memory (8-bit): 24
+// Memory (32-bit): 35
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Dacca[]  = "Asia/Dacca";
@@ -17657,8 +17657,8 @@ const AtcZoneInfo kAtcZoneAsia_Dacca  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Harbin -> Asia/Shanghai
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Harbin[]  = "Asia/Harbin";
@@ -17675,8 +17675,8 @@ const AtcZoneInfo kAtcZoneAsia_Harbin  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Istanbul -> Europe/Istanbul
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Istanbul[]  = "Asia/Istanbul";
@@ -17693,8 +17693,8 @@ const AtcZoneInfo kAtcZoneAsia_Istanbul  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Kashgar -> Asia/Urumqi
 // Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 24
-// Memory (32-bit): 33
+// Memory (8-bit): 26
+// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Kashgar[]  = "Asia/Kashgar";
@@ -17711,8 +17711,8 @@ const AtcZoneInfo kAtcZoneAsia_Kashgar  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Katmandu -> Asia/Kathmandu
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Katmandu[]  = "Asia/Katmandu";
@@ -17729,8 +17729,8 @@ const AtcZoneInfo kAtcZoneAsia_Katmandu  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Kuala_Lumpur -> Asia/Singapore
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 29
-// Memory (32-bit): 38
+// Memory (8-bit): 31
+// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Kuala_Lumpur[]  = "Asia/Kuala_Lumpur";
@@ -17747,8 +17747,8 @@ const AtcZoneInfo kAtcZoneAsia_Kuala_Lumpur  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Kuwait -> Asia/Riyadh
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Kuwait[]  = "Asia/Kuwait";
@@ -17765,8 +17765,8 @@ const AtcZoneInfo kAtcZoneAsia_Kuwait  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Macao -> Asia/Macau
 // Strings (bytes): 11 (originally 11)
-// Memory (8-bit): 22
-// Memory (32-bit): 31
+// Memory (8-bit): 24
+// Memory (32-bit): 35
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Macao[]  = "Asia/Macao";
@@ -17783,8 +17783,8 @@ const AtcZoneInfo kAtcZoneAsia_Macao  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Muscat -> Asia/Dubai
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Muscat[]  = "Asia/Muscat";
@@ -17801,8 +17801,8 @@ const AtcZoneInfo kAtcZoneAsia_Muscat  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Phnom_Penh -> Asia/Bangkok
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Phnom_Penh[]  = "Asia/Phnom_Penh";
@@ -17819,8 +17819,8 @@ const AtcZoneInfo kAtcZoneAsia_Phnom_Penh  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Rangoon -> Asia/Yangon
 // Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 24
-// Memory (32-bit): 33
+// Memory (8-bit): 26
+// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Rangoon[]  = "Asia/Rangoon";
@@ -17837,8 +17837,8 @@ const AtcZoneInfo kAtcZoneAsia_Rangoon  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Saigon -> Asia/Ho_Chi_Minh
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Saigon[]  = "Asia/Saigon";
@@ -17855,8 +17855,8 @@ const AtcZoneInfo kAtcZoneAsia_Saigon  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Tel_Aviv -> Asia/Jerusalem
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Tel_Aviv[]  = "Asia/Tel_Aviv";
@@ -17873,8 +17873,8 @@ const AtcZoneInfo kAtcZoneAsia_Tel_Aviv  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Thimbu -> Asia/Thimphu
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Thimbu[]  = "Asia/Thimbu";
@@ -17891,8 +17891,8 @@ const AtcZoneInfo kAtcZoneAsia_Thimbu  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Ujung_Pandang -> Asia/Makassar
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Ujung_Pandang[]  = "Asia/Ujung_Pandang";
@@ -17909,8 +17909,8 @@ const AtcZoneInfo kAtcZoneAsia_Ujung_Pandang  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Ulan_Bator -> Asia/Ulaanbaatar
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Ulan_Bator[]  = "Asia/Ulan_Bator";
@@ -17927,8 +17927,8 @@ const AtcZoneInfo kAtcZoneAsia_Ulan_Bator  = {
 //---------------------------------------------------------------------------
 // Link name: Asia/Vientiane -> Asia/Bangkok
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Vientiane[]  = "Asia/Vientiane";
@@ -17945,8 +17945,8 @@ const AtcZoneInfo kAtcZoneAsia_Vientiane  = {
 //---------------------------------------------------------------------------
 // Link name: Atlantic/Faeroe -> Atlantic/Faroe
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAtlantic_Faeroe[]  = "Atlantic/Faeroe";
@@ -17963,8 +17963,8 @@ const AtcZoneInfo kAtcZoneAtlantic_Faeroe  = {
 //---------------------------------------------------------------------------
 // Link name: Atlantic/Jan_Mayen -> Europe/Berlin
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAtlantic_Jan_Mayen[]  = "Atlantic/Jan_Mayen";
@@ -17981,8 +17981,8 @@ const AtcZoneInfo kAtcZoneAtlantic_Jan_Mayen  = {
 //---------------------------------------------------------------------------
 // Link name: Atlantic/Reykjavik -> Africa/Abidjan
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAtlantic_Reykjavik[]  = "Atlantic/Reykjavik";
@@ -17999,8 +17999,8 @@ const AtcZoneInfo kAtcZoneAtlantic_Reykjavik  = {
 //---------------------------------------------------------------------------
 // Link name: Atlantic/St_Helena -> Africa/Abidjan
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAtlantic_St_Helena[]  = "Atlantic/St_Helena";
@@ -18017,8 +18017,8 @@ const AtcZoneInfo kAtcZoneAtlantic_St_Helena  = {
 //---------------------------------------------------------------------------
 // Link name: Australia/ACT -> Australia/Sydney
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_ACT[]  = "Australia/ACT";
@@ -18035,8 +18035,8 @@ const AtcZoneInfo kAtcZoneAustralia_ACT  = {
 //---------------------------------------------------------------------------
 // Link name: Australia/Canberra -> Australia/Sydney
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_Canberra[]  = "Australia/Canberra";
@@ -18053,8 +18053,8 @@ const AtcZoneInfo kAtcZoneAustralia_Canberra  = {
 //---------------------------------------------------------------------------
 // Link name: Australia/Currie -> Australia/Hobart
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_Currie[]  = "Australia/Currie";
@@ -18071,8 +18071,8 @@ const AtcZoneInfo kAtcZoneAustralia_Currie  = {
 //---------------------------------------------------------------------------
 // Link name: Australia/LHI -> Australia/Lord_Howe
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_LHI[]  = "Australia/LHI";
@@ -18089,8 +18089,8 @@ const AtcZoneInfo kAtcZoneAustralia_LHI  = {
 //---------------------------------------------------------------------------
 // Link name: Australia/NSW -> Australia/Sydney
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_NSW[]  = "Australia/NSW";
@@ -18107,8 +18107,8 @@ const AtcZoneInfo kAtcZoneAustralia_NSW  = {
 //---------------------------------------------------------------------------
 // Link name: Australia/North -> Australia/Darwin
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_North[]  = "Australia/North";
@@ -18125,8 +18125,8 @@ const AtcZoneInfo kAtcZoneAustralia_North  = {
 //---------------------------------------------------------------------------
 // Link name: Australia/Queensland -> Australia/Brisbane
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 32
-// Memory (32-bit): 41
+// Memory (8-bit): 34
+// Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_Queensland[]  = "Australia/Queensland";
@@ -18143,8 +18143,8 @@ const AtcZoneInfo kAtcZoneAustralia_Queensland  = {
 //---------------------------------------------------------------------------
 // Link name: Australia/South -> Australia/Adelaide
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_South[]  = "Australia/South";
@@ -18161,8 +18161,8 @@ const AtcZoneInfo kAtcZoneAustralia_South  = {
 //---------------------------------------------------------------------------
 // Link name: Australia/Tasmania -> Australia/Hobart
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_Tasmania[]  = "Australia/Tasmania";
@@ -18179,8 +18179,8 @@ const AtcZoneInfo kAtcZoneAustralia_Tasmania  = {
 //---------------------------------------------------------------------------
 // Link name: Australia/Victoria -> Australia/Melbourne
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_Victoria[]  = "Australia/Victoria";
@@ -18197,8 +18197,8 @@ const AtcZoneInfo kAtcZoneAustralia_Victoria  = {
 //---------------------------------------------------------------------------
 // Link name: Australia/West -> Australia/Perth
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_West[]  = "Australia/West";
@@ -18215,8 +18215,8 @@ const AtcZoneInfo kAtcZoneAustralia_West  = {
 //---------------------------------------------------------------------------
 // Link name: Australia/Yancowinna -> Australia/Broken_Hill
 // Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 32
-// Memory (32-bit): 41
+// Memory (8-bit): 34
+// Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_Yancowinna[]  = "Australia/Yancowinna";
@@ -18233,8 +18233,8 @@ const AtcZoneInfo kAtcZoneAustralia_Yancowinna  = {
 //---------------------------------------------------------------------------
 // Link name: Brazil/Acre -> America/Rio_Branco
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameBrazil_Acre[]  = "Brazil/Acre";
@@ -18251,8 +18251,8 @@ const AtcZoneInfo kAtcZoneBrazil_Acre  = {
 //---------------------------------------------------------------------------
 // Link name: Brazil/DeNoronha -> America/Noronha
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameBrazil_DeNoronha[]  = "Brazil/DeNoronha";
@@ -18269,8 +18269,8 @@ const AtcZoneInfo kAtcZoneBrazil_DeNoronha  = {
 //---------------------------------------------------------------------------
 // Link name: Brazil/East -> America/Sao_Paulo
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameBrazil_East[]  = "Brazil/East";
@@ -18287,8 +18287,8 @@ const AtcZoneInfo kAtcZoneBrazil_East  = {
 //---------------------------------------------------------------------------
 // Link name: Brazil/West -> America/Manaus
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameBrazil_West[]  = "Brazil/West";
@@ -18305,8 +18305,8 @@ const AtcZoneInfo kAtcZoneBrazil_West  = {
 //---------------------------------------------------------------------------
 // Link name: Canada/Atlantic -> America/Halifax
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCanada_Atlantic[]  = "Canada/Atlantic";
@@ -18323,8 +18323,8 @@ const AtcZoneInfo kAtcZoneCanada_Atlantic  = {
 //---------------------------------------------------------------------------
 // Link name: Canada/Central -> America/Winnipeg
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCanada_Central[]  = "Canada/Central";
@@ -18341,8 +18341,8 @@ const AtcZoneInfo kAtcZoneCanada_Central  = {
 //---------------------------------------------------------------------------
 // Link name: Canada/Eastern -> America/Toronto
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCanada_Eastern[]  = "Canada/Eastern";
@@ -18359,8 +18359,8 @@ const AtcZoneInfo kAtcZoneCanada_Eastern  = {
 //---------------------------------------------------------------------------
 // Link name: Canada/Mountain -> America/Edmonton
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCanada_Mountain[]  = "Canada/Mountain";
@@ -18377,8 +18377,8 @@ const AtcZoneInfo kAtcZoneCanada_Mountain  = {
 //---------------------------------------------------------------------------
 // Link name: Canada/Newfoundland -> America/St_Johns
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 31
-// Memory (32-bit): 40
+// Memory (8-bit): 33
+// Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCanada_Newfoundland[]  = "Canada/Newfoundland";
@@ -18395,8 +18395,8 @@ const AtcZoneInfo kAtcZoneCanada_Newfoundland  = {
 //---------------------------------------------------------------------------
 // Link name: Canada/Pacific -> America/Vancouver
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCanada_Pacific[]  = "Canada/Pacific";
@@ -18413,8 +18413,8 @@ const AtcZoneInfo kAtcZoneCanada_Pacific  = {
 //---------------------------------------------------------------------------
 // Link name: Canada/Saskatchewan -> America/Regina
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 31
-// Memory (32-bit): 40
+// Memory (8-bit): 33
+// Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCanada_Saskatchewan[]  = "Canada/Saskatchewan";
@@ -18431,8 +18431,8 @@ const AtcZoneInfo kAtcZoneCanada_Saskatchewan  = {
 //---------------------------------------------------------------------------
 // Link name: Canada/Yukon -> America/Whitehorse
 // Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 24
-// Memory (32-bit): 33
+// Memory (8-bit): 26
+// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCanada_Yukon[]  = "Canada/Yukon";
@@ -18449,8 +18449,8 @@ const AtcZoneInfo kAtcZoneCanada_Yukon  = {
 //---------------------------------------------------------------------------
 // Link name: Chile/Continental -> America/Santiago
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 29
-// Memory (32-bit): 38
+// Memory (8-bit): 31
+// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameChile_Continental[]  = "Chile/Continental";
@@ -18467,8 +18467,8 @@ const AtcZoneInfo kAtcZoneChile_Continental  = {
 //---------------------------------------------------------------------------
 // Link name: Chile/EasterIsland -> Pacific/Easter
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameChile_EasterIsland[]  = "Chile/EasterIsland";
@@ -18485,8 +18485,8 @@ const AtcZoneInfo kAtcZoneChile_EasterIsland  = {
 //---------------------------------------------------------------------------
 // Link name: Cuba -> America/Havana
 // Strings (bytes): 5 (originally 5)
-// Memory (8-bit): 16
-// Memory (32-bit): 25
+// Memory (8-bit): 18
+// Memory (32-bit): 29
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCuba[]  = "Cuba";
@@ -18503,8 +18503,8 @@ const AtcZoneInfo kAtcZoneCuba  = {
 //---------------------------------------------------------------------------
 // Link name: Egypt -> Africa/Cairo
 // Strings (bytes): 6 (originally 6)
-// Memory (8-bit): 17
-// Memory (32-bit): 26
+// Memory (8-bit): 19
+// Memory (32-bit): 30
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEgypt[]  = "Egypt";
@@ -18521,8 +18521,8 @@ const AtcZoneInfo kAtcZoneEgypt  = {
 //---------------------------------------------------------------------------
 // Link name: Eire -> Europe/Dublin
 // Strings (bytes): 5 (originally 5)
-// Memory (8-bit): 16
-// Memory (32-bit): 25
+// Memory (8-bit): 18
+// Memory (32-bit): 29
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEire[]  = "Eire";
@@ -18539,8 +18539,8 @@ const AtcZoneInfo kAtcZoneEire  = {
 //---------------------------------------------------------------------------
 // Link name: Etc/GMT+0 -> Etc/GMT
 // Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 21
-// Memory (32-bit): 30
+// Memory (8-bit): 23
+// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEtc_GMT_PLUS_0[]  = "Etc/GMT+0";
@@ -18557,8 +18557,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_0  = {
 //---------------------------------------------------------------------------
 // Link name: Etc/GMT-0 -> Etc/GMT
 // Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 21
-// Memory (32-bit): 30
+// Memory (8-bit): 23
+// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEtc_GMT_0[]  = "Etc/GMT-0";
@@ -18575,8 +18575,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT_0  = {
 //---------------------------------------------------------------------------
 // Link name: Etc/GMT0 -> Etc/GMT
 // Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 20
-// Memory (32-bit): 29
+// Memory (8-bit): 22
+// Memory (32-bit): 33
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEtc_GMT0[]  = "Etc/GMT0";
@@ -18593,8 +18593,8 @@ const AtcZoneInfo kAtcZoneEtc_GMT0  = {
 //---------------------------------------------------------------------------
 // Link name: Etc/Greenwich -> Etc/GMT
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEtc_Greenwich[]  = "Etc/Greenwich";
@@ -18611,8 +18611,8 @@ const AtcZoneInfo kAtcZoneEtc_Greenwich  = {
 //---------------------------------------------------------------------------
 // Link name: Etc/UCT -> Etc/UTC
 // Strings (bytes): 8 (originally 8)
-// Memory (8-bit): 19
-// Memory (32-bit): 28
+// Memory (8-bit): 21
+// Memory (32-bit): 32
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEtc_UCT[]  = "Etc/UCT";
@@ -18629,8 +18629,8 @@ const AtcZoneInfo kAtcZoneEtc_UCT  = {
 //---------------------------------------------------------------------------
 // Link name: Etc/Universal -> Etc/UTC
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEtc_Universal[]  = "Etc/Universal";
@@ -18647,8 +18647,8 @@ const AtcZoneInfo kAtcZoneEtc_Universal  = {
 //---------------------------------------------------------------------------
 // Link name: Etc/Zulu -> Etc/UTC
 // Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 20
-// Memory (32-bit): 29
+// Memory (8-bit): 22
+// Memory (32-bit): 33
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEtc_Zulu[]  = "Etc/Zulu";
@@ -18665,8 +18665,8 @@ const AtcZoneInfo kAtcZoneEtc_Zulu  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Amsterdam -> Europe/Brussels
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Amsterdam[]  = "Europe/Amsterdam";
@@ -18683,8 +18683,8 @@ const AtcZoneInfo kAtcZoneEurope_Amsterdam  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Belfast -> Europe/London
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Belfast[]  = "Europe/Belfast";
@@ -18701,8 +18701,8 @@ const AtcZoneInfo kAtcZoneEurope_Belfast  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Bratislava -> Europe/Prague
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 29
-// Memory (32-bit): 38
+// Memory (8-bit): 31
+// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Bratislava[]  = "Europe/Bratislava";
@@ -18719,8 +18719,8 @@ const AtcZoneInfo kAtcZoneEurope_Bratislava  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Busingen -> Europe/Zurich
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Busingen[]  = "Europe/Busingen";
@@ -18737,8 +18737,8 @@ const AtcZoneInfo kAtcZoneEurope_Busingen  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Copenhagen -> Europe/Berlin
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 29
-// Memory (32-bit): 38
+// Memory (8-bit): 31
+// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Copenhagen[]  = "Europe/Copenhagen";
@@ -18755,8 +18755,8 @@ const AtcZoneInfo kAtcZoneEurope_Copenhagen  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Guernsey -> Europe/London
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Guernsey[]  = "Europe/Guernsey";
@@ -18773,8 +18773,8 @@ const AtcZoneInfo kAtcZoneEurope_Guernsey  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Isle_of_Man -> Europe/London
 // Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 30
-// Memory (32-bit): 39
+// Memory (8-bit): 32
+// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Isle_of_Man[]  = "Europe/Isle_of_Man";
@@ -18791,8 +18791,8 @@ const AtcZoneInfo kAtcZoneEurope_Isle_of_Man  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Jersey -> Europe/London
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Jersey[]  = "Europe/Jersey";
@@ -18809,8 +18809,8 @@ const AtcZoneInfo kAtcZoneEurope_Jersey  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Kiev -> Europe/Kyiv
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Kiev[]  = "Europe/Kiev";
@@ -18827,8 +18827,8 @@ const AtcZoneInfo kAtcZoneEurope_Kiev  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Ljubljana -> Europe/Belgrade
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Ljubljana[]  = "Europe/Ljubljana";
@@ -18845,8 +18845,8 @@ const AtcZoneInfo kAtcZoneEurope_Ljubljana  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Luxembourg -> Europe/Brussels
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 29
-// Memory (32-bit): 38
+// Memory (8-bit): 31
+// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Luxembourg[]  = "Europe/Luxembourg";
@@ -18863,8 +18863,8 @@ const AtcZoneInfo kAtcZoneEurope_Luxembourg  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Mariehamn -> Europe/Helsinki
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Mariehamn[]  = "Europe/Mariehamn";
@@ -18881,8 +18881,8 @@ const AtcZoneInfo kAtcZoneEurope_Mariehamn  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Monaco -> Europe/Paris
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Monaco[]  = "Europe/Monaco";
@@ -18899,8 +18899,8 @@ const AtcZoneInfo kAtcZoneEurope_Monaco  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Nicosia -> Asia/Nicosia
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Nicosia[]  = "Europe/Nicosia";
@@ -18917,8 +18917,8 @@ const AtcZoneInfo kAtcZoneEurope_Nicosia  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Oslo -> Europe/Berlin
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Oslo[]  = "Europe/Oslo";
@@ -18935,8 +18935,8 @@ const AtcZoneInfo kAtcZoneEurope_Oslo  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Podgorica -> Europe/Belgrade
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Podgorica[]  = "Europe/Podgorica";
@@ -18953,8 +18953,8 @@ const AtcZoneInfo kAtcZoneEurope_Podgorica  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/San_Marino -> Europe/Rome
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 29
-// Memory (32-bit): 38
+// Memory (8-bit): 31
+// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_San_Marino[]  = "Europe/San_Marino";
@@ -18971,8 +18971,8 @@ const AtcZoneInfo kAtcZoneEurope_San_Marino  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Sarajevo -> Europe/Belgrade
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Sarajevo[]  = "Europe/Sarajevo";
@@ -18989,8 +18989,8 @@ const AtcZoneInfo kAtcZoneEurope_Sarajevo  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Skopje -> Europe/Belgrade
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Skopje[]  = "Europe/Skopje";
@@ -19007,8 +19007,8 @@ const AtcZoneInfo kAtcZoneEurope_Skopje  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Stockholm -> Europe/Berlin
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Stockholm[]  = "Europe/Stockholm";
@@ -19025,8 +19025,8 @@ const AtcZoneInfo kAtcZoneEurope_Stockholm  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Tiraspol -> Europe/Chisinau
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Tiraspol[]  = "Europe/Tiraspol";
@@ -19043,8 +19043,8 @@ const AtcZoneInfo kAtcZoneEurope_Tiraspol  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Uzhgorod -> Europe/Kyiv
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Uzhgorod[]  = "Europe/Uzhgorod";
@@ -19061,8 +19061,8 @@ const AtcZoneInfo kAtcZoneEurope_Uzhgorod  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Vaduz -> Europe/Zurich
 // Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 24
-// Memory (32-bit): 33
+// Memory (8-bit): 26
+// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Vaduz[]  = "Europe/Vaduz";
@@ -19079,8 +19079,8 @@ const AtcZoneInfo kAtcZoneEurope_Vaduz  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Vatican -> Europe/Rome
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Vatican[]  = "Europe/Vatican";
@@ -19097,8 +19097,8 @@ const AtcZoneInfo kAtcZoneEurope_Vatican  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Zagreb -> Europe/Belgrade
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Zagreb[]  = "Europe/Zagreb";
@@ -19115,8 +19115,8 @@ const AtcZoneInfo kAtcZoneEurope_Zagreb  = {
 //---------------------------------------------------------------------------
 // Link name: Europe/Zaporozhye -> Europe/Kyiv
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 29
-// Memory (32-bit): 38
+// Memory (8-bit): 31
+// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Zaporozhye[]  = "Europe/Zaporozhye";
@@ -19133,8 +19133,8 @@ const AtcZoneInfo kAtcZoneEurope_Zaporozhye  = {
 //---------------------------------------------------------------------------
 // Link name: GB -> Europe/London
 // Strings (bytes): 3 (originally 3)
-// Memory (8-bit): 14
-// Memory (32-bit): 23
+// Memory (8-bit): 16
+// Memory (32-bit): 27
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameGB[]  = "GB";
@@ -19151,8 +19151,8 @@ const AtcZoneInfo kAtcZoneGB  = {
 //---------------------------------------------------------------------------
 // Link name: GB-Eire -> Europe/London
 // Strings (bytes): 8 (originally 8)
-// Memory (8-bit): 19
-// Memory (32-bit): 28
+// Memory (8-bit): 21
+// Memory (32-bit): 32
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameGB_Eire[]  = "GB-Eire";
@@ -19169,8 +19169,8 @@ const AtcZoneInfo kAtcZoneGB_Eire  = {
 //---------------------------------------------------------------------------
 // Link name: GMT -> Etc/GMT
 // Strings (bytes): 4 (originally 4)
-// Memory (8-bit): 15
-// Memory (32-bit): 24
+// Memory (8-bit): 17
+// Memory (32-bit): 28
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameGMT[]  = "GMT";
@@ -19187,8 +19187,8 @@ const AtcZoneInfo kAtcZoneGMT  = {
 //---------------------------------------------------------------------------
 // Link name: GMT+0 -> Etc/GMT
 // Strings (bytes): 6 (originally 6)
-// Memory (8-bit): 17
-// Memory (32-bit): 26
+// Memory (8-bit): 19
+// Memory (32-bit): 30
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameGMT_PLUS_0[]  = "GMT+0";
@@ -19205,8 +19205,8 @@ const AtcZoneInfo kAtcZoneGMT_PLUS_0  = {
 //---------------------------------------------------------------------------
 // Link name: GMT-0 -> Etc/GMT
 // Strings (bytes): 6 (originally 6)
-// Memory (8-bit): 17
-// Memory (32-bit): 26
+// Memory (8-bit): 19
+// Memory (32-bit): 30
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameGMT_0[]  = "GMT-0";
@@ -19223,8 +19223,8 @@ const AtcZoneInfo kAtcZoneGMT_0  = {
 //---------------------------------------------------------------------------
 // Link name: GMT0 -> Etc/GMT
 // Strings (bytes): 5 (originally 5)
-// Memory (8-bit): 16
-// Memory (32-bit): 25
+// Memory (8-bit): 18
+// Memory (32-bit): 29
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameGMT0[]  = "GMT0";
@@ -19241,8 +19241,8 @@ const AtcZoneInfo kAtcZoneGMT0  = {
 //---------------------------------------------------------------------------
 // Link name: Greenwich -> Etc/GMT
 // Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 21
-// Memory (32-bit): 30
+// Memory (8-bit): 23
+// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameGreenwich[]  = "Greenwich";
@@ -19259,8 +19259,8 @@ const AtcZoneInfo kAtcZoneGreenwich  = {
 //---------------------------------------------------------------------------
 // Link name: Hongkong -> Asia/Hong_Kong
 // Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 20
-// Memory (32-bit): 29
+// Memory (8-bit): 22
+// Memory (32-bit): 33
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameHongkong[]  = "Hongkong";
@@ -19277,8 +19277,8 @@ const AtcZoneInfo kAtcZoneHongkong  = {
 //---------------------------------------------------------------------------
 // Link name: Iceland -> Africa/Abidjan
 // Strings (bytes): 8 (originally 8)
-// Memory (8-bit): 19
-// Memory (32-bit): 28
+// Memory (8-bit): 21
+// Memory (32-bit): 32
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIceland[]  = "Iceland";
@@ -19295,8 +19295,8 @@ const AtcZoneInfo kAtcZoneIceland  = {
 //---------------------------------------------------------------------------
 // Link name: Indian/Antananarivo -> Africa/Nairobi
 // Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 31
-// Memory (32-bit): 40
+// Memory (8-bit): 33
+// Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIndian_Antananarivo[]  = "Indian/Antananarivo";
@@ -19313,8 +19313,8 @@ const AtcZoneInfo kAtcZoneIndian_Antananarivo  = {
 //---------------------------------------------------------------------------
 // Link name: Indian/Christmas -> Asia/Bangkok
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIndian_Christmas[]  = "Indian/Christmas";
@@ -19331,8 +19331,8 @@ const AtcZoneInfo kAtcZoneIndian_Christmas  = {
 //---------------------------------------------------------------------------
 // Link name: Indian/Cocos -> Asia/Yangon
 // Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 24
-// Memory (32-bit): 33
+// Memory (8-bit): 26
+// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIndian_Cocos[]  = "Indian/Cocos";
@@ -19349,8 +19349,8 @@ const AtcZoneInfo kAtcZoneIndian_Cocos  = {
 //---------------------------------------------------------------------------
 // Link name: Indian/Comoro -> Africa/Nairobi
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIndian_Comoro[]  = "Indian/Comoro";
@@ -19367,8 +19367,8 @@ const AtcZoneInfo kAtcZoneIndian_Comoro  = {
 //---------------------------------------------------------------------------
 // Link name: Indian/Kerguelen -> Indian/Maldives
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIndian_Kerguelen[]  = "Indian/Kerguelen";
@@ -19385,8 +19385,8 @@ const AtcZoneInfo kAtcZoneIndian_Kerguelen  = {
 //---------------------------------------------------------------------------
 // Link name: Indian/Mahe -> Asia/Dubai
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIndian_Mahe[]  = "Indian/Mahe";
@@ -19403,8 +19403,8 @@ const AtcZoneInfo kAtcZoneIndian_Mahe  = {
 //---------------------------------------------------------------------------
 // Link name: Indian/Mayotte -> Africa/Nairobi
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIndian_Mayotte[]  = "Indian/Mayotte";
@@ -19421,8 +19421,8 @@ const AtcZoneInfo kAtcZoneIndian_Mayotte  = {
 //---------------------------------------------------------------------------
 // Link name: Indian/Reunion -> Asia/Dubai
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIndian_Reunion[]  = "Indian/Reunion";
@@ -19439,8 +19439,8 @@ const AtcZoneInfo kAtcZoneIndian_Reunion  = {
 //---------------------------------------------------------------------------
 // Link name: Iran -> Asia/Tehran
 // Strings (bytes): 5 (originally 5)
-// Memory (8-bit): 16
-// Memory (32-bit): 25
+// Memory (8-bit): 18
+// Memory (32-bit): 29
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIran[]  = "Iran";
@@ -19457,8 +19457,8 @@ const AtcZoneInfo kAtcZoneIran  = {
 //---------------------------------------------------------------------------
 // Link name: Israel -> Asia/Jerusalem
 // Strings (bytes): 7 (originally 7)
-// Memory (8-bit): 18
-// Memory (32-bit): 27
+// Memory (8-bit): 20
+// Memory (32-bit): 31
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIsrael[]  = "Israel";
@@ -19475,8 +19475,8 @@ const AtcZoneInfo kAtcZoneIsrael  = {
 //---------------------------------------------------------------------------
 // Link name: Jamaica -> America/Jamaica
 // Strings (bytes): 8 (originally 8)
-// Memory (8-bit): 19
-// Memory (32-bit): 28
+// Memory (8-bit): 21
+// Memory (32-bit): 32
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameJamaica[]  = "Jamaica";
@@ -19493,8 +19493,8 @@ const AtcZoneInfo kAtcZoneJamaica  = {
 //---------------------------------------------------------------------------
 // Link name: Japan -> Asia/Tokyo
 // Strings (bytes): 6 (originally 6)
-// Memory (8-bit): 17
-// Memory (32-bit): 26
+// Memory (8-bit): 19
+// Memory (32-bit): 30
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameJapan[]  = "Japan";
@@ -19511,8 +19511,8 @@ const AtcZoneInfo kAtcZoneJapan  = {
 //---------------------------------------------------------------------------
 // Link name: Kwajalein -> Pacific/Kwajalein
 // Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 21
-// Memory (32-bit): 30
+// Memory (8-bit): 23
+// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameKwajalein[]  = "Kwajalein";
@@ -19529,8 +19529,8 @@ const AtcZoneInfo kAtcZoneKwajalein  = {
 //---------------------------------------------------------------------------
 // Link name: Libya -> Africa/Tripoli
 // Strings (bytes): 6 (originally 6)
-// Memory (8-bit): 17
-// Memory (32-bit): 26
+// Memory (8-bit): 19
+// Memory (32-bit): 30
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameLibya[]  = "Libya";
@@ -19547,8 +19547,8 @@ const AtcZoneInfo kAtcZoneLibya  = {
 //---------------------------------------------------------------------------
 // Link name: Mexico/BajaNorte -> America/Tijuana
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameMexico_BajaNorte[]  = "Mexico/BajaNorte";
@@ -19565,8 +19565,8 @@ const AtcZoneInfo kAtcZoneMexico_BajaNorte  = {
 //---------------------------------------------------------------------------
 // Link name: Mexico/BajaSur -> America/Mazatlan
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameMexico_BajaSur[]  = "Mexico/BajaSur";
@@ -19583,8 +19583,8 @@ const AtcZoneInfo kAtcZoneMexico_BajaSur  = {
 //---------------------------------------------------------------------------
 // Link name: Mexico/General -> America/Mexico_City
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameMexico_General[]  = "Mexico/General";
@@ -19601,8 +19601,8 @@ const AtcZoneInfo kAtcZoneMexico_General  = {
 //---------------------------------------------------------------------------
 // Link name: NZ -> Pacific/Auckland
 // Strings (bytes): 3 (originally 3)
-// Memory (8-bit): 14
-// Memory (32-bit): 23
+// Memory (8-bit): 16
+// Memory (32-bit): 27
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameNZ[]  = "NZ";
@@ -19619,8 +19619,8 @@ const AtcZoneInfo kAtcZoneNZ  = {
 //---------------------------------------------------------------------------
 // Link name: NZ-CHAT -> Pacific/Chatham
 // Strings (bytes): 8 (originally 8)
-// Memory (8-bit): 19
-// Memory (32-bit): 28
+// Memory (8-bit): 21
+// Memory (32-bit): 32
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameNZ_CHAT[]  = "NZ-CHAT";
@@ -19637,8 +19637,8 @@ const AtcZoneInfo kAtcZoneNZ_CHAT  = {
 //---------------------------------------------------------------------------
 // Link name: Navajo -> America/Denver
 // Strings (bytes): 7 (originally 7)
-// Memory (8-bit): 18
-// Memory (32-bit): 27
+// Memory (8-bit): 20
+// Memory (32-bit): 31
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameNavajo[]  = "Navajo";
@@ -19655,8 +19655,8 @@ const AtcZoneInfo kAtcZoneNavajo  = {
 //---------------------------------------------------------------------------
 // Link name: PRC -> Asia/Shanghai
 // Strings (bytes): 4 (originally 4)
-// Memory (8-bit): 15
-// Memory (32-bit): 24
+// Memory (8-bit): 17
+// Memory (32-bit): 28
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePRC[]  = "PRC";
@@ -19673,8 +19673,8 @@ const AtcZoneInfo kAtcZonePRC  = {
 //---------------------------------------------------------------------------
 // Link name: Pacific/Chuuk -> Pacific/Port_Moresby
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Chuuk[]  = "Pacific/Chuuk";
@@ -19691,8 +19691,8 @@ const AtcZoneInfo kAtcZonePacific_Chuuk  = {
 //---------------------------------------------------------------------------
 // Link name: Pacific/Enderbury -> Pacific/Kanton
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 29
-// Memory (32-bit): 38
+// Memory (8-bit): 31
+// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Enderbury[]  = "Pacific/Enderbury";
@@ -19709,8 +19709,8 @@ const AtcZoneInfo kAtcZonePacific_Enderbury  = {
 //---------------------------------------------------------------------------
 // Link name: Pacific/Funafuti -> Pacific/Tarawa
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Funafuti[]  = "Pacific/Funafuti";
@@ -19727,8 +19727,8 @@ const AtcZoneInfo kAtcZonePacific_Funafuti  = {
 //---------------------------------------------------------------------------
 // Link name: Pacific/Johnston -> Pacific/Honolulu
 // Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 28
-// Memory (32-bit): 37
+// Memory (8-bit): 30
+// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Johnston[]  = "Pacific/Johnston";
@@ -19745,8 +19745,8 @@ const AtcZoneInfo kAtcZonePacific_Johnston  = {
 //---------------------------------------------------------------------------
 // Link name: Pacific/Majuro -> Pacific/Tarawa
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Majuro[]  = "Pacific/Majuro";
@@ -19763,8 +19763,8 @@ const AtcZoneInfo kAtcZonePacific_Majuro  = {
 //---------------------------------------------------------------------------
 // Link name: Pacific/Midway -> Pacific/Pago_Pago
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Midway[]  = "Pacific/Midway";
@@ -19781,8 +19781,8 @@ const AtcZoneInfo kAtcZonePacific_Midway  = {
 //---------------------------------------------------------------------------
 // Link name: Pacific/Pohnpei -> Pacific/Guadalcanal
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Pohnpei[]  = "Pacific/Pohnpei";
@@ -19799,8 +19799,8 @@ const AtcZoneInfo kAtcZonePacific_Pohnpei  = {
 //---------------------------------------------------------------------------
 // Link name: Pacific/Ponape -> Pacific/Guadalcanal
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Ponape[]  = "Pacific/Ponape";
@@ -19817,8 +19817,8 @@ const AtcZoneInfo kAtcZonePacific_Ponape  = {
 //---------------------------------------------------------------------------
 // Link name: Pacific/Saipan -> Pacific/Guam
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Saipan[]  = "Pacific/Saipan";
@@ -19835,8 +19835,8 @@ const AtcZoneInfo kAtcZonePacific_Saipan  = {
 //---------------------------------------------------------------------------
 // Link name: Pacific/Samoa -> Pacific/Pago_Pago
 // Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 25
-// Memory (32-bit): 34
+// Memory (8-bit): 27
+// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Samoa[]  = "Pacific/Samoa";
@@ -19853,8 +19853,8 @@ const AtcZoneInfo kAtcZonePacific_Samoa  = {
 //---------------------------------------------------------------------------
 // Link name: Pacific/Truk -> Pacific/Port_Moresby
 // Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 24
-// Memory (32-bit): 33
+// Memory (8-bit): 26
+// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Truk[]  = "Pacific/Truk";
@@ -19871,8 +19871,8 @@ const AtcZoneInfo kAtcZonePacific_Truk  = {
 //---------------------------------------------------------------------------
 // Link name: Pacific/Wake -> Pacific/Tarawa
 // Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 24
-// Memory (32-bit): 33
+// Memory (8-bit): 26
+// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Wake[]  = "Pacific/Wake";
@@ -19889,8 +19889,8 @@ const AtcZoneInfo kAtcZonePacific_Wake  = {
 //---------------------------------------------------------------------------
 // Link name: Pacific/Wallis -> Pacific/Tarawa
 // Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 26
-// Memory (32-bit): 35
+// Memory (8-bit): 28
+// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Wallis[]  = "Pacific/Wallis";
@@ -19907,8 +19907,8 @@ const AtcZoneInfo kAtcZonePacific_Wallis  = {
 //---------------------------------------------------------------------------
 // Link name: Pacific/Yap -> Pacific/Port_Moresby
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Yap[]  = "Pacific/Yap";
@@ -19925,8 +19925,8 @@ const AtcZoneInfo kAtcZonePacific_Yap  = {
 //---------------------------------------------------------------------------
 // Link name: Poland -> Europe/Warsaw
 // Strings (bytes): 7 (originally 7)
-// Memory (8-bit): 18
-// Memory (32-bit): 27
+// Memory (8-bit): 20
+// Memory (32-bit): 31
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePoland[]  = "Poland";
@@ -19943,8 +19943,8 @@ const AtcZoneInfo kAtcZonePoland  = {
 //---------------------------------------------------------------------------
 // Link name: Portugal -> Europe/Lisbon
 // Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 20
-// Memory (32-bit): 29
+// Memory (8-bit): 22
+// Memory (32-bit): 33
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePortugal[]  = "Portugal";
@@ -19961,8 +19961,8 @@ const AtcZoneInfo kAtcZonePortugal  = {
 //---------------------------------------------------------------------------
 // Link name: ROC -> Asia/Taipei
 // Strings (bytes): 4 (originally 4)
-// Memory (8-bit): 15
-// Memory (32-bit): 24
+// Memory (8-bit): 17
+// Memory (32-bit): 28
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameROC[]  = "ROC";
@@ -19979,8 +19979,8 @@ const AtcZoneInfo kAtcZoneROC  = {
 //---------------------------------------------------------------------------
 // Link name: ROK -> Asia/Seoul
 // Strings (bytes): 4 (originally 4)
-// Memory (8-bit): 15
-// Memory (32-bit): 24
+// Memory (8-bit): 17
+// Memory (32-bit): 28
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameROK[]  = "ROK";
@@ -19997,8 +19997,8 @@ const AtcZoneInfo kAtcZoneROK  = {
 //---------------------------------------------------------------------------
 // Link name: Singapore -> Asia/Singapore
 // Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 21
-// Memory (32-bit): 30
+// Memory (8-bit): 23
+// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameSingapore[]  = "Singapore";
@@ -20015,8 +20015,8 @@ const AtcZoneInfo kAtcZoneSingapore  = {
 //---------------------------------------------------------------------------
 // Link name: Turkey -> Europe/Istanbul
 // Strings (bytes): 7 (originally 7)
-// Memory (8-bit): 18
-// Memory (32-bit): 27
+// Memory (8-bit): 20
+// Memory (32-bit): 31
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameTurkey[]  = "Turkey";
@@ -20033,8 +20033,8 @@ const AtcZoneInfo kAtcZoneTurkey  = {
 //---------------------------------------------------------------------------
 // Link name: UCT -> Etc/UTC
 // Strings (bytes): 4 (originally 4)
-// Memory (8-bit): 15
-// Memory (32-bit): 24
+// Memory (8-bit): 17
+// Memory (32-bit): 28
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUCT[]  = "UCT";
@@ -20051,8 +20051,8 @@ const AtcZoneInfo kAtcZoneUCT  = {
 //---------------------------------------------------------------------------
 // Link name: US/Alaska -> America/Anchorage
 // Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 21
-// Memory (32-bit): 30
+// Memory (8-bit): 23
+// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Alaska[]  = "US/Alaska";
@@ -20069,8 +20069,8 @@ const AtcZoneInfo kAtcZoneUS_Alaska  = {
 //---------------------------------------------------------------------------
 // Link name: US/Aleutian -> America/Adak
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Aleutian[]  = "US/Aleutian";
@@ -20087,8 +20087,8 @@ const AtcZoneInfo kAtcZoneUS_Aleutian  = {
 //---------------------------------------------------------------------------
 // Link name: US/Arizona -> America/Phoenix
 // Strings (bytes): 11 (originally 11)
-// Memory (8-bit): 22
-// Memory (32-bit): 31
+// Memory (8-bit): 24
+// Memory (32-bit): 35
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Arizona[]  = "US/Arizona";
@@ -20105,8 +20105,8 @@ const AtcZoneInfo kAtcZoneUS_Arizona  = {
 //---------------------------------------------------------------------------
 // Link name: US/Central -> America/Chicago
 // Strings (bytes): 11 (originally 11)
-// Memory (8-bit): 22
-// Memory (32-bit): 31
+// Memory (8-bit): 24
+// Memory (32-bit): 35
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Central[]  = "US/Central";
@@ -20123,8 +20123,8 @@ const AtcZoneInfo kAtcZoneUS_Central  = {
 //---------------------------------------------------------------------------
 // Link name: US/East-Indiana -> America/Indiana/Indianapolis
 // Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 27
-// Memory (32-bit): 36
+// Memory (8-bit): 29
+// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_East_Indiana[]  = "US/East-Indiana";
@@ -20141,8 +20141,8 @@ const AtcZoneInfo kAtcZoneUS_East_Indiana  = {
 //---------------------------------------------------------------------------
 // Link name: US/Eastern -> America/New_York
 // Strings (bytes): 11 (originally 11)
-// Memory (8-bit): 22
-// Memory (32-bit): 31
+// Memory (8-bit): 24
+// Memory (32-bit): 35
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Eastern[]  = "US/Eastern";
@@ -20159,8 +20159,8 @@ const AtcZoneInfo kAtcZoneUS_Eastern  = {
 //---------------------------------------------------------------------------
 // Link name: US/Hawaii -> Pacific/Honolulu
 // Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 21
-// Memory (32-bit): 30
+// Memory (8-bit): 23
+// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Hawaii[]  = "US/Hawaii";
@@ -20177,8 +20177,8 @@ const AtcZoneInfo kAtcZoneUS_Hawaii  = {
 //---------------------------------------------------------------------------
 // Link name: US/Indiana-Starke -> America/Indiana/Knox
 // Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 29
-// Memory (32-bit): 38
+// Memory (8-bit): 31
+// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Indiana_Starke[]  = "US/Indiana-Starke";
@@ -20195,8 +20195,8 @@ const AtcZoneInfo kAtcZoneUS_Indiana_Starke  = {
 //---------------------------------------------------------------------------
 // Link name: US/Michigan -> America/Detroit
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Michigan[]  = "US/Michigan";
@@ -20213,8 +20213,8 @@ const AtcZoneInfo kAtcZoneUS_Michigan  = {
 //---------------------------------------------------------------------------
 // Link name: US/Mountain -> America/Denver
 // Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 23
-// Memory (32-bit): 32
+// Memory (8-bit): 25
+// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Mountain[]  = "US/Mountain";
@@ -20231,8 +20231,8 @@ const AtcZoneInfo kAtcZoneUS_Mountain  = {
 //---------------------------------------------------------------------------
 // Link name: US/Pacific -> America/Los_Angeles
 // Strings (bytes): 11 (originally 11)
-// Memory (8-bit): 22
-// Memory (32-bit): 31
+// Memory (8-bit): 24
+// Memory (32-bit): 35
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Pacific[]  = "US/Pacific";
@@ -20249,8 +20249,8 @@ const AtcZoneInfo kAtcZoneUS_Pacific  = {
 //---------------------------------------------------------------------------
 // Link name: US/Samoa -> Pacific/Pago_Pago
 // Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 20
-// Memory (32-bit): 29
+// Memory (8-bit): 22
+// Memory (32-bit): 33
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Samoa[]  = "US/Samoa";
@@ -20267,8 +20267,8 @@ const AtcZoneInfo kAtcZoneUS_Samoa  = {
 //---------------------------------------------------------------------------
 // Link name: UTC -> Etc/UTC
 // Strings (bytes): 4 (originally 4)
-// Memory (8-bit): 15
-// Memory (32-bit): 24
+// Memory (8-bit): 17
+// Memory (32-bit): 28
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUTC[]  = "UTC";
@@ -20285,8 +20285,8 @@ const AtcZoneInfo kAtcZoneUTC  = {
 //---------------------------------------------------------------------------
 // Link name: Universal -> Etc/UTC
 // Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 21
-// Memory (32-bit): 30
+// Memory (8-bit): 23
+// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUniversal[]  = "Universal";
@@ -20303,8 +20303,8 @@ const AtcZoneInfo kAtcZoneUniversal  = {
 //---------------------------------------------------------------------------
 // Link name: W-SU -> Europe/Moscow
 // Strings (bytes): 5 (originally 5)
-// Memory (8-bit): 16
-// Memory (32-bit): 25
+// Memory (8-bit): 18
+// Memory (32-bit): 29
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameW_SU[]  = "W-SU";
@@ -20321,8 +20321,8 @@ const AtcZoneInfo kAtcZoneW_SU  = {
 //---------------------------------------------------------------------------
 // Link name: Zulu -> Etc/UTC
 // Strings (bytes): 5 (originally 5)
-// Memory (8-bit): 16
-// Memory (32-bit): 25
+// Memory (8-bit): 18
+// Memory (32-bit): 29
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameZulu[]  = "Zulu";
