@@ -335,7 +335,10 @@ typedef struct AtcZoneInfo {
    * pointer, and resolve the target numEras and eras to obtain the actual
    * ZoneEra entries.
    */
-  const void * const eras;
+  const AtcZoneEra * const eras;
+
+  /** A pointer to an AtcZoneInfo for a Link. NULL otherwise. */
+  const struct AtcZoneInfo * target_info;
 } AtcZoneInfo;
 
 //---------------------------------------------------------------------------

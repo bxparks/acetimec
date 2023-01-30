@@ -32,9 +32,6 @@ extern "C" {
  */
 bool atc_zone_info_is_link(const AtcZoneInfo *info);
 
-/** Return the info (info is a Zone) or the target info (if info is a Link). */
-const AtcZoneInfo *atc_zone_info_actual_info(const AtcZoneInfo *info);
-
 /** Return the effective number of eras, after resolving the Link. */
 uint8_t atc_zone_info_num_eras(const AtcZoneInfo *info);
 
@@ -47,9 +44,6 @@ const char *atc_zone_info_zone_name(const AtcZoneInfo *info);
  * short name of "America/Los_Angeles" is "Los_Angeles".
  */
 const char *atc_zone_info_short_name(const AtcZoneInfo *info);
-
-/** Return the ZoneEra after resolving the Link. */
-const AtcZoneEra *atc_zone_info_era(const AtcZoneInfo *info, uint8_t i);
 
 /** Return the standard offset of the given era in minutes. */
 int16_t atc_zone_era_std_offset_minutes(const AtcZoneEra *era);

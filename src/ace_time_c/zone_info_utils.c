@@ -11,29 +11,7 @@
 
 bool atc_zone_info_is_link(const AtcZoneInfo *info)
 {
-  return info->num_eras == 0;
-}
-
-const AtcZoneInfo *atc_zone_info_actual_info(const AtcZoneInfo *info)
-{
-  if (atc_zone_info_is_link(info)) {
-    return (const AtcZoneInfo *) (info->eras);
-  } else {
-    return info;
-  }
-}
-
-uint8_t atc_zone_info_num_eras(const AtcZoneInfo *info)
-{
-  const AtcZoneInfo *actual_info = atc_zone_info_actual_info(info);
-  return actual_info->num_eras;
-}
-
-const AtcZoneEra *atc_zone_info_era(const AtcZoneInfo *info, uint8_t i)
-{
-  const AtcZoneInfo *actual_info = atc_zone_info_actual_info(info);
-  const AtcZoneEra *eras = (const AtcZoneEra *) actual_info->eras;
-  return &eras[i];
+  return info->target_info != NULL;
 }
 
 const char *atc_zone_info_zone_name(const AtcZoneInfo *info)

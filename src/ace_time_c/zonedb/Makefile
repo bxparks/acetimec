@@ -1,4 +1,10 @@
-TARGETS := zone_infos.c zone_infos.h zone_policies.c zone_policies.h
+TARGETS := \
+zone_infos.c \
+zone_infos.h \
+zone_policies.c \
+zone_policies.h \
+zone_registry.c \
+zone_registry.h
 
 TOOLS := $(abspath ../../../../AceTimeTools)
 

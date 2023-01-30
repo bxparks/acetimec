@@ -115,6 +115,7 @@ const AtcZoneInfo kAtcZoneAfrica_Abidjan  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -149,6 +150,7 @@ const AtcZoneInfo kAtcZoneAfrica_Algiers  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Algiers /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -183,6 +185,7 @@ const AtcZoneInfo kAtcZoneAfrica_Bissau  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Bissau /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -217,6 +220,7 @@ const AtcZoneInfo kAtcZoneAfrica_Cairo  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Cairo /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -263,6 +267,7 @@ const AtcZoneInfo kAtcZoneAfrica_Casablanca  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Casablanca /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -297,6 +302,7 @@ const AtcZoneInfo kAtcZoneAfrica_Ceuta  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Ceuta /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -343,6 +349,7 @@ const AtcZoneInfo kAtcZoneAfrica_El_Aaiun  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_El_Aaiun /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -377,6 +384,7 @@ const AtcZoneInfo kAtcZoneAfrica_Johannesburg  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Johannesburg /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -435,6 +443,7 @@ const AtcZoneInfo kAtcZoneAfrica_Juba  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAfrica_Juba /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -493,6 +502,7 @@ const AtcZoneInfo kAtcZoneAfrica_Khartoum  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAfrica_Khartoum /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -527,6 +537,7 @@ const AtcZoneInfo kAtcZoneAfrica_Lagos  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -561,6 +572,7 @@ const AtcZoneInfo kAtcZoneAfrica_Maputo  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -595,6 +607,7 @@ const AtcZoneInfo kAtcZoneAfrica_Monrovia  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Monrovia /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -629,6 +642,7 @@ const AtcZoneInfo kAtcZoneAfrica_Nairobi  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -663,6 +677,7 @@ const AtcZoneInfo kAtcZoneAfrica_Ndjamena  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Ndjamena /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -721,6 +736,7 @@ const AtcZoneInfo kAtcZoneAfrica_Sao_Tome  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAfrica_Sao_Tome /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -779,6 +795,7 @@ const AtcZoneInfo kAtcZoneAfrica_Tripoli  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAfrica_Tripoli /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -813,6 +830,7 @@ const AtcZoneInfo kAtcZoneAfrica_Tunis  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Tunis /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -847,6 +865,7 @@ const AtcZoneInfo kAtcZoneAfrica_Windhoek  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Windhoek /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -881,6 +900,7 @@ const AtcZoneInfo kAtcZoneAmerica_Adak  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Adak /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -915,6 +935,7 @@ const AtcZoneInfo kAtcZoneAmerica_Anchorage  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Anchorage /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -985,6 +1006,7 @@ const AtcZoneInfo kAtcZoneAmerica_Araguaina  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Araguaina /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1043,6 +1065,7 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Buenos_Aires  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Buenos_Aires /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1137,6 +1160,7 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Catamarca  = {
   &kAtcZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Catamarca /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1195,6 +1219,7 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Cordoba  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Cordoba /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1265,6 +1290,7 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Jujuy  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Jujuy /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1359,6 +1385,7 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_La_Rioja  = {
   &kAtcZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_La_Rioja /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1453,6 +1480,7 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Mendoza  = {
   &kAtcZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Mendoza /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1547,6 +1575,7 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Rio_Gallegos  = {
   &kAtcZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Rio_Gallegos /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1617,6 +1646,7 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Salta  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Salta /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1711,6 +1741,7 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_San_Juan  = {
   &kAtcZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_San_Juan /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1817,6 +1848,7 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_San_Luis  = {
   &kAtcZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_San_Luis /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1899,6 +1931,7 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Tucuman  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Tucuman /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1993,6 +2026,7 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Ushuaia  = {
   &kAtcZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Ushuaia /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2027,6 +2061,7 @@ const AtcZoneInfo kAtcZoneAmerica_Asuncion  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Asuncion /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2097,6 +2132,7 @@ const AtcZoneInfo kAtcZoneAmerica_Bahia  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Bahia /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2143,6 +2179,7 @@ const AtcZoneInfo kAtcZoneAmerica_Bahia_Banderas  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Bahia_Banderas /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2177,6 +2214,7 @@ const AtcZoneInfo kAtcZoneAmerica_Barbados  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Barbados /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2211,6 +2249,7 @@ const AtcZoneInfo kAtcZoneAmerica_Belem  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Belem /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2245,6 +2284,7 @@ const AtcZoneInfo kAtcZoneAmerica_Belize  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Belize /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2303,6 +2343,7 @@ const AtcZoneInfo kAtcZoneAmerica_Boa_Vista  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Boa_Vista /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2337,6 +2378,7 @@ const AtcZoneInfo kAtcZoneAmerica_Bogota  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Bogota /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2371,6 +2413,7 @@ const AtcZoneInfo kAtcZoneAmerica_Boise  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Boise /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2453,6 +2496,7 @@ const AtcZoneInfo kAtcZoneAmerica_Cambridge_Bay  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Cambridge_Bay /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2487,6 +2531,7 @@ const AtcZoneInfo kAtcZoneAmerica_Campo_Grande  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Campo_Grande /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2533,6 +2578,7 @@ const AtcZoneInfo kAtcZoneAmerica_Cancun  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Cancun /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2591,6 +2637,7 @@ const AtcZoneInfo kAtcZoneAmerica_Caracas  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Caracas /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2625,6 +2672,7 @@ const AtcZoneInfo kAtcZoneAmerica_Cayenne  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Cayenne /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2659,6 +2707,7 @@ const AtcZoneInfo kAtcZoneAmerica_Chicago  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Chicago /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2705,6 +2754,7 @@ const AtcZoneInfo kAtcZoneAmerica_Chihuahua  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Chihuahua /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2775,6 +2825,7 @@ const AtcZoneInfo kAtcZoneAmerica_Ciudad_Juarez  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Ciudad_Juarez /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2809,6 +2860,7 @@ const AtcZoneInfo kAtcZoneAmerica_Costa_Rica  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Costa_Rica /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2867,6 +2919,7 @@ const AtcZoneInfo kAtcZoneAmerica_Cuiaba  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Cuiaba /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2901,6 +2954,7 @@ const AtcZoneInfo kAtcZoneAmerica_Danmarkshavn  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Danmarkshavn /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2947,6 +3001,7 @@ const AtcZoneInfo kAtcZoneAmerica_Dawson  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Dawson /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -2981,6 +3036,7 @@ const AtcZoneInfo kAtcZoneAmerica_Dawson_Creek  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Dawson_Creek /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3015,6 +3071,7 @@ const AtcZoneInfo kAtcZoneAmerica_Denver  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Denver /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3049,6 +3106,7 @@ const AtcZoneInfo kAtcZoneAmerica_Detroit  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Detroit /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3083,6 +3141,7 @@ const AtcZoneInfo kAtcZoneAmerica_Edmonton  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Edmonton /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3141,6 +3200,7 @@ const AtcZoneInfo kAtcZoneAmerica_Eirunepe  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Eirunepe /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3175,6 +3235,7 @@ const AtcZoneInfo kAtcZoneAmerica_El_Salvador  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_El_Salvador /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3221,6 +3282,7 @@ const AtcZoneInfo kAtcZoneAmerica_Fort_Nelson  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Fort_Nelson /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3303,6 +3365,7 @@ const AtcZoneInfo kAtcZoneAmerica_Fortaleza  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Fortaleza /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3337,6 +3400,7 @@ const AtcZoneInfo kAtcZoneAmerica_Glace_Bay  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Glace_Bay /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3383,6 +3447,7 @@ const AtcZoneInfo kAtcZoneAmerica_Goose_Bay  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Goose_Bay /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3441,6 +3506,7 @@ const AtcZoneInfo kAtcZoneAmerica_Grand_Turk  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Grand_Turk /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3475,6 +3541,7 @@ const AtcZoneInfo kAtcZoneAmerica_Guatemala  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Guatemala /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3509,6 +3576,7 @@ const AtcZoneInfo kAtcZoneAmerica_Guayaquil  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Guayaquil /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3543,6 +3611,7 @@ const AtcZoneInfo kAtcZoneAmerica_Guyana  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Guyana /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3577,6 +3646,7 @@ const AtcZoneInfo kAtcZoneAmerica_Halifax  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Halifax /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3611,6 +3681,7 @@ const AtcZoneInfo kAtcZoneAmerica_Havana  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Havana /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3657,6 +3728,7 @@ const AtcZoneInfo kAtcZoneAmerica_Hermosillo  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Hermosillo /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3703,6 +3775,7 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Indianapolis  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Indianapolis /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3749,6 +3822,7 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Knox  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Knox /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3795,6 +3869,7 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Marengo  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Marengo /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3853,6 +3928,7 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Petersburg  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Petersburg /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3899,6 +3975,7 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Tell_City  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Tell_City /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -3945,6 +4022,7 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Vevay  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Vevay /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4003,6 +4081,7 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Vincennes  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Vincennes /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4061,6 +4140,7 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Winamac  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Winamac /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4095,6 +4175,7 @@ const AtcZoneInfo kAtcZoneAmerica_Inuvik  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Inuvik /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4153,6 +4234,7 @@ const AtcZoneInfo kAtcZoneAmerica_Iqaluit  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Iqaluit /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4187,6 +4269,7 @@ const AtcZoneInfo kAtcZoneAmerica_Jamaica  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Jamaica /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4221,6 +4304,7 @@ const AtcZoneInfo kAtcZoneAmerica_Juneau  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Juneau /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4255,6 +4339,7 @@ const AtcZoneInfo kAtcZoneAmerica_Kentucky_Louisville  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Kentucky_Louisville /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4301,6 +4386,7 @@ const AtcZoneInfo kAtcZoneAmerica_Kentucky_Monticello  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Kentucky_Monticello /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4335,6 +4421,7 @@ const AtcZoneInfo kAtcZoneAmerica_La_Paz  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_La_Paz /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4369,6 +4456,7 @@ const AtcZoneInfo kAtcZoneAmerica_Lima  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Lima /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4403,6 +4491,7 @@ const AtcZoneInfo kAtcZoneAmerica_Los_Angeles  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Los_Angeles /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4485,6 +4574,7 @@ const AtcZoneInfo kAtcZoneAmerica_Maceio  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Maceio /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4519,6 +4609,7 @@ const AtcZoneInfo kAtcZoneAmerica_Managua  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Managua /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4553,6 +4644,7 @@ const AtcZoneInfo kAtcZoneAmerica_Manaus  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Manaus /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4587,6 +4679,7 @@ const AtcZoneInfo kAtcZoneAmerica_Martinique  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Martinique /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4633,6 +4726,7 @@ const AtcZoneInfo kAtcZoneAmerica_Matamoros  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Matamoros /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4667,6 +4761,7 @@ const AtcZoneInfo kAtcZoneAmerica_Mazatlan  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Mazatlan /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4701,6 +4796,7 @@ const AtcZoneInfo kAtcZoneAmerica_Menominee  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Menominee /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4735,6 +4831,7 @@ const AtcZoneInfo kAtcZoneAmerica_Merida  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Merida /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4805,6 +4902,7 @@ const AtcZoneInfo kAtcZoneAmerica_Metlakatla  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Metlakatla /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4863,6 +4961,7 @@ const AtcZoneInfo kAtcZoneAmerica_Mexico_City  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Mexico_City /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4897,6 +4996,7 @@ const AtcZoneInfo kAtcZoneAmerica_Miquelon  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Miquelon /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4943,6 +5043,7 @@ const AtcZoneInfo kAtcZoneAmerica_Moncton  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Moncton /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -4977,6 +5078,7 @@ const AtcZoneInfo kAtcZoneAmerica_Monterrey  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Monterrey /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5011,6 +5113,7 @@ const AtcZoneInfo kAtcZoneAmerica_Montevideo  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Montevideo /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5045,6 +5148,7 @@ const AtcZoneInfo kAtcZoneAmerica_New_York  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_New_York /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5079,6 +5183,7 @@ const AtcZoneInfo kAtcZoneAmerica_Nome  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Nome /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5161,6 +5266,7 @@ const AtcZoneInfo kAtcZoneAmerica_Noronha  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Noronha /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5207,6 +5313,7 @@ const AtcZoneInfo kAtcZoneAmerica_North_Dakota_Beulah  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_North_Dakota_Beulah /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5241,6 +5348,7 @@ const AtcZoneInfo kAtcZoneAmerica_North_Dakota_Center  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_North_Dakota_Center /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5287,6 +5395,7 @@ const AtcZoneInfo kAtcZoneAmerica_North_Dakota_New_Salem  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_North_Dakota_New_Salem /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5333,6 +5442,7 @@ const AtcZoneInfo kAtcZoneAmerica_Nuuk  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Nuuk /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5403,6 +5513,7 @@ const AtcZoneInfo kAtcZoneAmerica_Ojinaga  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Ojinaga /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5437,6 +5548,7 @@ const AtcZoneInfo kAtcZoneAmerica_Panama  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Panama /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5471,6 +5583,7 @@ const AtcZoneInfo kAtcZoneAmerica_Paramaribo  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Paramaribo /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5505,6 +5618,7 @@ const AtcZoneInfo kAtcZoneAmerica_Phoenix  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Phoenix /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5539,6 +5653,7 @@ const AtcZoneInfo kAtcZoneAmerica_Port_au_Prince  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Port_au_Prince /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5573,6 +5688,7 @@ const AtcZoneInfo kAtcZoneAmerica_Porto_Velho  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Porto_Velho /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5607,6 +5723,7 @@ const AtcZoneInfo kAtcZoneAmerica_Puerto_Rico  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5653,6 +5770,7 @@ const AtcZoneInfo kAtcZoneAmerica_Punta_Arenas  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Punta_Arenas /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5711,6 +5829,7 @@ const AtcZoneInfo kAtcZoneAmerica_Rankin_Inlet  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Rankin_Inlet /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5793,6 +5912,7 @@ const AtcZoneInfo kAtcZoneAmerica_Recife  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Recife /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5827,6 +5947,7 @@ const AtcZoneInfo kAtcZoneAmerica_Regina  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Regina /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5909,6 +6030,7 @@ const AtcZoneInfo kAtcZoneAmerica_Resolute  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Resolute /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -5967,6 +6089,7 @@ const AtcZoneInfo kAtcZoneAmerica_Rio_Branco  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Rio_Branco /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6013,6 +6136,7 @@ const AtcZoneInfo kAtcZoneAmerica_Santarem  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Santarem /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6047,6 +6171,7 @@ const AtcZoneInfo kAtcZoneAmerica_Santiago  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Santiago /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6105,6 +6230,7 @@ const AtcZoneInfo kAtcZoneAmerica_Santo_Domingo  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Santo_Domingo /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6139,6 +6265,7 @@ const AtcZoneInfo kAtcZoneAmerica_Sao_Paulo  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Sao_Paulo /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6173,6 +6300,7 @@ const AtcZoneInfo kAtcZoneAmerica_Scoresbysund  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Scoresbysund /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6207,6 +6335,7 @@ const AtcZoneInfo kAtcZoneAmerica_Sitka  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Sitka /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6253,6 +6382,7 @@ const AtcZoneInfo kAtcZoneAmerica_St_Johns  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_St_Johns /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6287,6 +6417,7 @@ const AtcZoneInfo kAtcZoneAmerica_Swift_Current  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Swift_Current /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6321,6 +6452,7 @@ const AtcZoneInfo kAtcZoneAmerica_Tegucigalpa  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Tegucigalpa /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6355,6 +6487,7 @@ const AtcZoneInfo kAtcZoneAmerica_Thule  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Thule /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6425,6 +6558,7 @@ const AtcZoneInfo kAtcZoneAmerica_Tijuana  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Tijuana /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6459,6 +6593,7 @@ const AtcZoneInfo kAtcZoneAmerica_Toronto  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6493,6 +6628,7 @@ const AtcZoneInfo kAtcZoneAmerica_Vancouver  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Vancouver /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6539,6 +6675,7 @@ const AtcZoneInfo kAtcZoneAmerica_Whitehorse  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Whitehorse /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6585,6 +6722,7 @@ const AtcZoneInfo kAtcZoneAmerica_Winnipeg  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Winnipeg /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6619,6 +6757,7 @@ const AtcZoneInfo kAtcZoneAmerica_Yakutat  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Yakutat /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6653,6 +6792,7 @@ const AtcZoneInfo kAtcZoneAmerica_Yellowknife  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Yellowknife /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6819,6 +6959,7 @@ const AtcZoneInfo kAtcZoneAntarctica_Casey  = {
   &kAtcZoneContext /*zone_context*/,
   12 /*num_eras*/,
   kAtcZoneEraAntarctica_Casey /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6901,6 +7042,7 @@ const AtcZoneInfo kAtcZoneAntarctica_Davis  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAntarctica_Davis /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6959,6 +7101,7 @@ const AtcZoneInfo kAtcZoneAntarctica_Macquarie  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAntarctica_Macquarie /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7005,6 +7148,7 @@ const AtcZoneInfo kAtcZoneAntarctica_Mawson  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAntarctica_Mawson /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7051,6 +7195,7 @@ const AtcZoneInfo kAtcZoneAntarctica_Palmer  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAntarctica_Palmer /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7085,6 +7230,7 @@ const AtcZoneInfo kAtcZoneAntarctica_Rothera  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAntarctica_Rothera /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7131,6 +7277,7 @@ const AtcZoneInfo kAtcZoneAntarctica_Troll  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAntarctica_Troll /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7177,6 +7324,7 @@ const AtcZoneInfo kAtcZoneAsia_Almaty  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Almaty /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7223,6 +7371,7 @@ const AtcZoneInfo kAtcZoneAsia_Amman  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Amman /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7281,6 +7430,7 @@ const AtcZoneInfo kAtcZoneAsia_Anadyr  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Anadyr /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7327,6 +7477,7 @@ const AtcZoneInfo kAtcZoneAsia_Aqtau  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Aqtau /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7373,6 +7524,7 @@ const AtcZoneInfo kAtcZoneAsia_Aqtobe  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Aqtobe /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7407,6 +7559,7 @@ const AtcZoneInfo kAtcZoneAsia_Ashgabat  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Ashgabat /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7465,6 +7618,7 @@ const AtcZoneInfo kAtcZoneAsia_Atyrau  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Atyrau /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7499,6 +7653,7 @@ const AtcZoneInfo kAtcZoneAsia_Baghdad  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Baghdad /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7533,6 +7688,7 @@ const AtcZoneInfo kAtcZoneAsia_Baku  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Baku /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7567,6 +7723,7 @@ const AtcZoneInfo kAtcZoneAsia_Bangkok  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Bangkok /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7637,6 +7794,7 @@ const AtcZoneInfo kAtcZoneAsia_Barnaul  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Barnaul /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7671,6 +7829,7 @@ const AtcZoneInfo kAtcZoneAsia_Beirut  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Beirut /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7717,6 +7876,7 @@ const AtcZoneInfo kAtcZoneAsia_Bishkek  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Bishkek /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7787,6 +7947,7 @@ const AtcZoneInfo kAtcZoneAsia_Chita  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Chita /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7833,6 +7994,7 @@ const AtcZoneInfo kAtcZoneAsia_Choibalsan  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Choibalsan /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7879,6 +8041,7 @@ const AtcZoneInfo kAtcZoneAsia_Colombo  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Colombo /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7925,6 +8088,7 @@ const AtcZoneInfo kAtcZoneAsia_Damascus  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Damascus /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7971,6 +8135,7 @@ const AtcZoneInfo kAtcZoneAsia_Dhaka  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Dhaka /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8017,6 +8182,7 @@ const AtcZoneInfo kAtcZoneAsia_Dili  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Dili /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8051,6 +8217,7 @@ const AtcZoneInfo kAtcZoneAsia_Dubai  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Dubai /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8085,6 +8252,7 @@ const AtcZoneInfo kAtcZoneAsia_Dushanbe  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Dushanbe /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8143,6 +8311,7 @@ const AtcZoneInfo kAtcZoneAsia_Famagusta  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Famagusta /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8261,6 +8430,7 @@ const AtcZoneInfo kAtcZoneAsia_Gaza  = {
   &kAtcZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAsia_Gaza /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8307,6 +8477,7 @@ const AtcZoneInfo kAtcZoneAsia_Hebron  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Hebron /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8341,6 +8512,7 @@ const AtcZoneInfo kAtcZoneAsia_Ho_Chi_Minh  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Ho_Chi_Minh /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8375,6 +8547,7 @@ const AtcZoneInfo kAtcZoneAsia_Hong_Kong  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Hong_Kong /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8409,6 +8582,7 @@ const AtcZoneInfo kAtcZoneAsia_Hovd  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Hovd /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8467,6 +8641,7 @@ const AtcZoneInfo kAtcZoneAsia_Irkutsk  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Irkutsk /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8501,6 +8676,7 @@ const AtcZoneInfo kAtcZoneAsia_Jakarta  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Jakarta /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8535,6 +8711,7 @@ const AtcZoneInfo kAtcZoneAsia_Jayapura  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Jayapura /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8569,6 +8746,7 @@ const AtcZoneInfo kAtcZoneAsia_Jerusalem  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Jerusalem /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8603,6 +8781,7 @@ const AtcZoneInfo kAtcZoneAsia_Kabul  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Kabul /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8661,6 +8840,7 @@ const AtcZoneInfo kAtcZoneAsia_Kamchatka  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Kamchatka /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8695,6 +8875,7 @@ const AtcZoneInfo kAtcZoneAsia_Karachi  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Karachi /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8729,6 +8910,7 @@ const AtcZoneInfo kAtcZoneAsia_Kathmandu  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Kathmandu /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8811,6 +8993,7 @@ const AtcZoneInfo kAtcZoneAsia_Khandyga  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Khandyga /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8845,6 +9028,7 @@ const AtcZoneInfo kAtcZoneAsia_Kolkata  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Kolkata /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8903,6 +9087,7 @@ const AtcZoneInfo kAtcZoneAsia_Krasnoyarsk  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Krasnoyarsk /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8937,6 +9122,7 @@ const AtcZoneInfo kAtcZoneAsia_Kuching  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Kuching /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8971,6 +9157,7 @@ const AtcZoneInfo kAtcZoneAsia_Macau  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Macau /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9041,6 +9228,7 @@ const AtcZoneInfo kAtcZoneAsia_Magadan  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Magadan /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9075,6 +9263,7 @@ const AtcZoneInfo kAtcZoneAsia_Makassar  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Makassar /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9109,6 +9298,7 @@ const AtcZoneInfo kAtcZoneAsia_Manila  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Manila /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9143,6 +9333,7 @@ const AtcZoneInfo kAtcZoneAsia_Nicosia  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Nicosia /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9201,6 +9392,7 @@ const AtcZoneInfo kAtcZoneAsia_Novokuznetsk  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Novokuznetsk /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9271,6 +9463,7 @@ const AtcZoneInfo kAtcZoneAsia_Novosibirsk  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Novosibirsk /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9329,6 +9522,7 @@ const AtcZoneInfo kAtcZoneAsia_Omsk  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Omsk /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9375,6 +9569,7 @@ const AtcZoneInfo kAtcZoneAsia_Oral  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Oral /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9409,6 +9604,7 @@ const AtcZoneInfo kAtcZoneAsia_Pontianak  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Pontianak /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9467,6 +9663,7 @@ const AtcZoneInfo kAtcZoneAsia_Pyongyang  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Pyongyang /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9501,6 +9698,7 @@ const AtcZoneInfo kAtcZoneAsia_Qatar  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Qatar /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9547,6 +9745,7 @@ const AtcZoneInfo kAtcZoneAsia_Qostanay  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Qostanay /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9605,6 +9804,7 @@ const AtcZoneInfo kAtcZoneAsia_Qyzylorda  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Qyzylorda /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9639,6 +9839,7 @@ const AtcZoneInfo kAtcZoneAsia_Riyadh  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Riyadh /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9709,6 +9910,7 @@ const AtcZoneInfo kAtcZoneAsia_Sakhalin  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Sakhalin /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9743,6 +9945,7 @@ const AtcZoneInfo kAtcZoneAsia_Samarkand  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Samarkand /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9777,6 +9980,7 @@ const AtcZoneInfo kAtcZoneAsia_Seoul  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Seoul /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9811,6 +10015,7 @@ const AtcZoneInfo kAtcZoneAsia_Shanghai  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Shanghai /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9845,6 +10050,7 @@ const AtcZoneInfo kAtcZoneAsia_Singapore  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Singapore /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9903,6 +10109,7 @@ const AtcZoneInfo kAtcZoneAsia_Srednekolymsk  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Srednekolymsk /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9937,6 +10144,7 @@ const AtcZoneInfo kAtcZoneAsia_Taipei  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Taipei /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -9971,6 +10179,7 @@ const AtcZoneInfo kAtcZoneAsia_Tashkent  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Tashkent /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10029,6 +10238,7 @@ const AtcZoneInfo kAtcZoneAsia_Tbilisi  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Tbilisi /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10063,6 +10273,7 @@ const AtcZoneInfo kAtcZoneAsia_Tehran  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Tehran /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10097,6 +10308,7 @@ const AtcZoneInfo kAtcZoneAsia_Thimphu  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Thimphu /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10131,6 +10343,7 @@ const AtcZoneInfo kAtcZoneAsia_Tokyo  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Tokyo /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10213,6 +10426,7 @@ const AtcZoneInfo kAtcZoneAsia_Tomsk  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Tomsk /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10247,6 +10461,7 @@ const AtcZoneInfo kAtcZoneAsia_Ulaanbaatar  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Ulaanbaatar /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10281,6 +10496,7 @@ const AtcZoneInfo kAtcZoneAsia_Urumqi  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Urumqi /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10351,6 +10567,7 @@ const AtcZoneInfo kAtcZoneAsia_Ust_Nera  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Ust_Nera /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10409,6 +10626,7 @@ const AtcZoneInfo kAtcZoneAsia_Vladivostok  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Vladivostok /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10467,6 +10685,7 @@ const AtcZoneInfo kAtcZoneAsia_Yakutsk  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Yakutsk /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10501,6 +10720,7 @@ const AtcZoneInfo kAtcZoneAsia_Yangon  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Yangon /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10559,6 +10779,7 @@ const AtcZoneInfo kAtcZoneAsia_Yekaterinburg  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Yekaterinburg /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10605,6 +10826,7 @@ const AtcZoneInfo kAtcZoneAsia_Yerevan  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Yerevan /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10639,6 +10861,7 @@ const AtcZoneInfo kAtcZoneAtlantic_Azores  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAtlantic_Azores /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10673,6 +10896,7 @@ const AtcZoneInfo kAtcZoneAtlantic_Bermuda  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAtlantic_Bermuda /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10707,6 +10931,7 @@ const AtcZoneInfo kAtcZoneAtlantic_Canary  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAtlantic_Canary /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10741,6 +10966,7 @@ const AtcZoneInfo kAtcZoneAtlantic_Cape_Verde  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAtlantic_Cape_Verde /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10775,6 +11001,7 @@ const AtcZoneInfo kAtcZoneAtlantic_Faroe  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAtlantic_Faroe /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10809,6 +11036,7 @@ const AtcZoneInfo kAtcZoneAtlantic_Madeira  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAtlantic_Madeira /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10843,6 +11071,7 @@ const AtcZoneInfo kAtcZoneAtlantic_South_Georgia  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAtlantic_South_Georgia /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10889,6 +11118,7 @@ const AtcZoneInfo kAtcZoneAtlantic_Stanley  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAtlantic_Stanley /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10923,6 +11153,7 @@ const AtcZoneInfo kAtcZoneAustralia_Adelaide  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Adelaide /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -10957,6 +11188,7 @@ const AtcZoneInfo kAtcZoneAustralia_Brisbane  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Brisbane /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11003,6 +11235,7 @@ const AtcZoneInfo kAtcZoneAustralia_Broken_Hill  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAustralia_Broken_Hill /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11037,6 +11270,7 @@ const AtcZoneInfo kAtcZoneAustralia_Darwin  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Darwin /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11071,6 +11305,7 @@ const AtcZoneInfo kAtcZoneAustralia_Eucla  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Eucla /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11105,6 +11340,7 @@ const AtcZoneInfo kAtcZoneAustralia_Hobart  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Hobart /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11139,6 +11375,7 @@ const AtcZoneInfo kAtcZoneAustralia_Lindeman  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Lindeman /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11173,6 +11410,7 @@ const AtcZoneInfo kAtcZoneAustralia_Lord_Howe  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Lord_Howe /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11207,6 +11445,7 @@ const AtcZoneInfo kAtcZoneAustralia_Melbourne  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Melbourne /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11241,6 +11480,7 @@ const AtcZoneInfo kAtcZoneAustralia_Perth  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Perth /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11275,6 +11515,7 @@ const AtcZoneInfo kAtcZoneAustralia_Sydney  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Sydney /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11309,6 +11550,7 @@ const AtcZoneInfo kAtcZoneCET  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraCET /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11343,6 +11585,7 @@ const AtcZoneInfo kAtcZoneCST6CDT  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraCST6CDT /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11377,6 +11620,7 @@ const AtcZoneInfo kAtcZoneEET  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEET /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11411,6 +11655,7 @@ const AtcZoneInfo kAtcZoneEST  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEST /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11445,6 +11690,7 @@ const AtcZoneInfo kAtcZoneEST5EDT  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEST5EDT /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11479,6 +11725,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11513,6 +11760,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_1  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_1 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11547,6 +11795,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_10  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_10 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11581,6 +11830,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_11  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_11 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11615,6 +11865,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_12  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_12 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11649,6 +11900,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_2  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_2 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11683,6 +11935,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_3  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_3 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11717,6 +11970,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_4  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_4 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11751,6 +12005,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_5  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_5 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11785,6 +12040,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_6  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_6 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11819,6 +12075,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_7  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_7 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11853,6 +12110,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_8  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_8 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11887,6 +12145,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_9  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_9 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11921,6 +12180,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_1  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_1 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11955,6 +12215,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_10  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_10 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -11989,6 +12250,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_11  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_11 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12023,6 +12285,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_12  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_12 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12057,6 +12320,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_13  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_13 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12091,6 +12355,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_14  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_14 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12125,6 +12390,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_2  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_2 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12159,6 +12425,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_3  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_3 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12193,6 +12460,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_4  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_4 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12227,6 +12495,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_5  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_5 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12261,6 +12530,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_6  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_6 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12295,6 +12565,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_7  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_7 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12329,6 +12600,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_8  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_8 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12363,6 +12635,7 @@ const AtcZoneInfo kAtcZoneEtc_GMT_9  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_9 /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12397,6 +12670,7 @@ const AtcZoneInfo kAtcZoneEtc_UTC  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12431,6 +12705,7 @@ const AtcZoneInfo kAtcZoneEurope_Andorra  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Andorra /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12501,6 +12776,7 @@ const AtcZoneInfo kAtcZoneEurope_Astrakhan  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraEurope_Astrakhan /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12535,6 +12811,7 @@ const AtcZoneInfo kAtcZoneEurope_Athens  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Athens /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12569,6 +12846,7 @@ const AtcZoneInfo kAtcZoneEurope_Belgrade  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12603,6 +12881,7 @@ const AtcZoneInfo kAtcZoneEurope_Berlin  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12637,6 +12916,7 @@ const AtcZoneInfo kAtcZoneEurope_Brussels  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Brussels /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12671,6 +12951,7 @@ const AtcZoneInfo kAtcZoneEurope_Bucharest  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Bucharest /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12705,6 +12986,7 @@ const AtcZoneInfo kAtcZoneEurope_Budapest  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Budapest /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12739,6 +13021,7 @@ const AtcZoneInfo kAtcZoneEurope_Chisinau  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Chisinau /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12773,6 +13056,7 @@ const AtcZoneInfo kAtcZoneEurope_Dublin  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Dublin /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12807,6 +13091,7 @@ const AtcZoneInfo kAtcZoneEurope_Gibraltar  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Gibraltar /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12841,6 +13126,7 @@ const AtcZoneInfo kAtcZoneEurope_Helsinki  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Helsinki /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -12971,6 +13257,7 @@ const AtcZoneInfo kAtcZoneEurope_Istanbul  = {
   &kAtcZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Istanbul /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13029,6 +13316,7 @@ const AtcZoneInfo kAtcZoneEurope_Kaliningrad  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Kaliningrad /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13087,6 +13375,7 @@ const AtcZoneInfo kAtcZoneEurope_Kirov  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Kirov /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13121,6 +13410,7 @@ const AtcZoneInfo kAtcZoneEurope_Kyiv  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Kyiv /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13155,6 +13445,7 @@ const AtcZoneInfo kAtcZoneEurope_Lisbon  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Lisbon /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13189,6 +13480,7 @@ const AtcZoneInfo kAtcZoneEurope_London  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13223,6 +13515,7 @@ const AtcZoneInfo kAtcZoneEurope_Madrid  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Madrid /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13257,6 +13550,7 @@ const AtcZoneInfo kAtcZoneEurope_Malta  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Malta /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13303,6 +13597,7 @@ const AtcZoneInfo kAtcZoneEurope_Minsk  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraEurope_Minsk /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13361,6 +13656,7 @@ const AtcZoneInfo kAtcZoneEurope_Moscow  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Moscow /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13395,6 +13691,7 @@ const AtcZoneInfo kAtcZoneEurope_Paris  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Paris /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13429,6 +13726,7 @@ const AtcZoneInfo kAtcZoneEurope_Prague  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Prague /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13487,6 +13785,7 @@ const AtcZoneInfo kAtcZoneEurope_Riga  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Riga /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13521,6 +13820,7 @@ const AtcZoneInfo kAtcZoneEurope_Rome  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Rome /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13579,6 +13879,7 @@ const AtcZoneInfo kAtcZoneEurope_Samara  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Samara /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13649,6 +13950,7 @@ const AtcZoneInfo kAtcZoneEurope_Saratov  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraEurope_Saratov /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13707,6 +14009,7 @@ const AtcZoneInfo kAtcZoneEurope_Simferopol  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Simferopol /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13741,6 +14044,7 @@ const AtcZoneInfo kAtcZoneEurope_Sofia  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Sofia /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13799,6 +14103,7 @@ const AtcZoneInfo kAtcZoneEurope_Tallinn  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Tallinn /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13833,6 +14138,7 @@ const AtcZoneInfo kAtcZoneEurope_Tirane  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Tirane /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13903,6 +14209,7 @@ const AtcZoneInfo kAtcZoneEurope_Ulyanovsk  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraEurope_Ulyanovsk /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13937,6 +14244,7 @@ const AtcZoneInfo kAtcZoneEurope_Vienna  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Vienna /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -13995,6 +14303,7 @@ const AtcZoneInfo kAtcZoneEurope_Vilnius  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Vilnius /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14077,6 +14386,7 @@ const AtcZoneInfo kAtcZoneEurope_Volgograd  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraEurope_Volgograd /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14111,6 +14421,7 @@ const AtcZoneInfo kAtcZoneEurope_Warsaw  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Warsaw /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14145,6 +14456,7 @@ const AtcZoneInfo kAtcZoneEurope_Zurich  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Zurich /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14179,6 +14491,7 @@ const AtcZoneInfo kAtcZoneHST  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraHST /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14213,6 +14526,7 @@ const AtcZoneInfo kAtcZoneIndian_Chagos  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraIndian_Chagos /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14247,6 +14561,7 @@ const AtcZoneInfo kAtcZoneIndian_Maldives  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraIndian_Maldives /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14281,6 +14596,7 @@ const AtcZoneInfo kAtcZoneIndian_Mauritius  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraIndian_Mauritius /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14315,6 +14631,7 @@ const AtcZoneInfo kAtcZoneMET  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraMET /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14349,6 +14666,7 @@ const AtcZoneInfo kAtcZoneMST  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraMST /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14383,6 +14701,7 @@ const AtcZoneInfo kAtcZoneMST7MDT  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraMST7MDT /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14417,6 +14736,7 @@ const AtcZoneInfo kAtcZonePST8PDT  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPST8PDT /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14463,6 +14783,7 @@ const AtcZoneInfo kAtcZonePacific_Apia  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Apia /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14497,6 +14818,7 @@ const AtcZoneInfo kAtcZonePacific_Auckland  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Auckland /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14543,6 +14865,7 @@ const AtcZoneInfo kAtcZonePacific_Bougainville  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Bougainville /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14577,6 +14900,7 @@ const AtcZoneInfo kAtcZonePacific_Chatham  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Chatham /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14611,6 +14935,7 @@ const AtcZoneInfo kAtcZonePacific_Easter  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Easter /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14645,6 +14970,7 @@ const AtcZoneInfo kAtcZonePacific_Efate  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Efate /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14691,6 +15017,7 @@ const AtcZoneInfo kAtcZonePacific_Fakaofo  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Fakaofo /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14725,6 +15052,7 @@ const AtcZoneInfo kAtcZonePacific_Fiji  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Fiji /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14759,6 +15087,7 @@ const AtcZoneInfo kAtcZonePacific_Galapagos  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Galapagos /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14793,6 +15122,7 @@ const AtcZoneInfo kAtcZonePacific_Gambier  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Gambier /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14827,6 +15157,7 @@ const AtcZoneInfo kAtcZonePacific_Guadalcanal  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Guadalcanal /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14873,6 +15204,7 @@ const AtcZoneInfo kAtcZonePacific_Guam  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Guam /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14907,6 +15239,7 @@ const AtcZoneInfo kAtcZonePacific_Honolulu  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Honolulu /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14941,6 +15274,7 @@ const AtcZoneInfo kAtcZonePacific_Kanton  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Kanton /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -14975,6 +15309,7 @@ const AtcZoneInfo kAtcZonePacific_Kiritimati  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Kiritimati /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15021,6 +15356,7 @@ const AtcZoneInfo kAtcZonePacific_Kosrae  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Kosrae /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15055,6 +15391,7 @@ const AtcZoneInfo kAtcZonePacific_Kwajalein  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Kwajalein /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15089,6 +15426,7 @@ const AtcZoneInfo kAtcZonePacific_Marquesas  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Marquesas /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15123,6 +15461,7 @@ const AtcZoneInfo kAtcZonePacific_Nauru  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Nauru /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15157,6 +15496,7 @@ const AtcZoneInfo kAtcZonePacific_Niue  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Niue /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15215,6 +15555,7 @@ const AtcZoneInfo kAtcZonePacific_Norfolk  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Norfolk /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15249,6 +15590,7 @@ const AtcZoneInfo kAtcZonePacific_Noumea  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Noumea /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15283,6 +15625,7 @@ const AtcZoneInfo kAtcZonePacific_Pago_Pago  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Pago_Pago /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15317,6 +15660,7 @@ const AtcZoneInfo kAtcZonePacific_Palau  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Palau /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15351,6 +15695,7 @@ const AtcZoneInfo kAtcZonePacific_Pitcairn  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Pitcairn /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15385,6 +15730,7 @@ const AtcZoneInfo kAtcZonePacific_Port_Moresby  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Port_Moresby /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15419,6 +15765,7 @@ const AtcZoneInfo kAtcZonePacific_Rarotonga  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Rarotonga /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15453,6 +15800,7 @@ const AtcZoneInfo kAtcZonePacific_Tahiti  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Tahiti /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15487,6 +15835,7 @@ const AtcZoneInfo kAtcZonePacific_Tarawa  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Tarawa /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15533,6 +15882,7 @@ const AtcZoneInfo kAtcZonePacific_Tongatapu  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Tongatapu /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15567,6 +15917,7 @@ const AtcZoneInfo kAtcZoneWET  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraWET /*eras*/,
+  NULL /*targetInfo*/,
 };
 
 
@@ -15588,8 +15939,9 @@ const AtcZoneInfo kAtcZoneAfrica_Accra  = {
   kAtcZoneNameAfrica_Accra /*name*/,
   0x77d5b054 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Abidjan /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Abidjan /*eras*/,
+  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15605,8 +15957,9 @@ const AtcZoneInfo kAtcZoneAfrica_Addis_Ababa  = {
   kAtcZoneNameAfrica_Addis_Ababa /*name*/,
   0x05ae1e65 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Nairobi /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Nairobi /*eras*/,
+  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15622,8 +15975,9 @@ const AtcZoneInfo kAtcZoneAfrica_Asmara  = {
   kAtcZoneNameAfrica_Asmara /*name*/,
   0x73b278ef /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Nairobi /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Nairobi /*eras*/,
+  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15639,8 +15993,9 @@ const AtcZoneInfo kAtcZoneAfrica_Asmera  = {
   kAtcZoneNameAfrica_Asmera /*name*/,
   0x73b289f3 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Nairobi /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Nairobi /*eras*/,
+  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15656,8 +16011,9 @@ const AtcZoneInfo kAtcZoneAfrica_Bamako  = {
   kAtcZoneNameAfrica_Bamako /*name*/,
   0x74c1e7a5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Abidjan /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Abidjan /*eras*/,
+  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15673,8 +16029,9 @@ const AtcZoneInfo kAtcZoneAfrica_Bangui  = {
   kAtcZoneNameAfrica_Bangui /*name*/,
   0x74c28ed0 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Lagos /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Lagos /*eras*/,
+  &kAtcZoneAfrica_Lagos /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15690,8 +16047,9 @@ const AtcZoneInfo kAtcZoneAfrica_Banjul  = {
   kAtcZoneNameAfrica_Banjul /*name*/,
   0x74c29b96 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Abidjan /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Abidjan /*eras*/,
+  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15707,8 +16065,9 @@ const AtcZoneInfo kAtcZoneAfrica_Blantyre  = {
   kAtcZoneNameAfrica_Blantyre /*name*/,
   0xe08d813b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Maputo /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Maputo /*eras*/,
+  &kAtcZoneAfrica_Maputo /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15724,8 +16083,9 @@ const AtcZoneInfo kAtcZoneAfrica_Brazzaville  = {
   kAtcZoneNameAfrica_Brazzaville /*name*/,
   0x39cda760 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Lagos /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Lagos /*eras*/,
+  &kAtcZoneAfrica_Lagos /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15741,8 +16101,9 @@ const AtcZoneInfo kAtcZoneAfrica_Bujumbura  = {
   kAtcZoneNameAfrica_Bujumbura /*name*/,
   0x05232a47 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Maputo /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Maputo /*eras*/,
+  &kAtcZoneAfrica_Maputo /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15758,8 +16119,9 @@ const AtcZoneInfo kAtcZoneAfrica_Conakry  = {
   kAtcZoneNameAfrica_Conakry /*name*/,
   0x7ab36b31 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Abidjan /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Abidjan /*eras*/,
+  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15775,8 +16137,9 @@ const AtcZoneInfo kAtcZoneAfrica_Dakar  = {
   kAtcZoneNameAfrica_Dakar /*name*/,
   0x780b00fd /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Abidjan /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Abidjan /*eras*/,
+  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15792,8 +16155,9 @@ const AtcZoneInfo kAtcZoneAfrica_Dar_es_Salaam  = {
   kAtcZoneNameAfrica_Dar_es_Salaam /*name*/,
   0xa04c47b6 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Nairobi /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Nairobi /*eras*/,
+  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15809,8 +16173,9 @@ const AtcZoneInfo kAtcZoneAfrica_Djibouti  = {
   kAtcZoneNameAfrica_Djibouti /*name*/,
   0x30ea01d4 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Nairobi /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Nairobi /*eras*/,
+  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15826,8 +16191,9 @@ const AtcZoneInfo kAtcZoneAfrica_Douala  = {
   kAtcZoneNameAfrica_Douala /*name*/,
   0x7a6df310 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Lagos /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Lagos /*eras*/,
+  &kAtcZoneAfrica_Lagos /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15843,8 +16209,9 @@ const AtcZoneInfo kAtcZoneAfrica_Freetown  = {
   kAtcZoneNameAfrica_Freetown /*name*/,
   0x6823dd64 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Abidjan /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Abidjan /*eras*/,
+  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15860,8 +16227,9 @@ const AtcZoneInfo kAtcZoneAfrica_Gaborone  = {
   kAtcZoneNameAfrica_Gaborone /*name*/,
   0x317c0aa7 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Maputo /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Maputo /*eras*/,
+  &kAtcZoneAfrica_Maputo /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15877,8 +16245,9 @@ const AtcZoneInfo kAtcZoneAfrica_Harare  = {
   kAtcZoneNameAfrica_Harare /*name*/,
   0x82c39a2d /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Maputo /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Maputo /*eras*/,
+  &kAtcZoneAfrica_Maputo /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15894,8 +16263,9 @@ const AtcZoneInfo kAtcZoneAfrica_Kampala  = {
   kAtcZoneNameAfrica_Kampala /*name*/,
   0xc1d30e31 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Nairobi /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Nairobi /*eras*/,
+  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15911,8 +16281,9 @@ const AtcZoneInfo kAtcZoneAfrica_Kigali  = {
   kAtcZoneNameAfrica_Kigali /*name*/,
   0x8a4dcf2b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Maputo /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Maputo /*eras*/,
+  &kAtcZoneAfrica_Maputo /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15928,8 +16299,9 @@ const AtcZoneInfo kAtcZoneAfrica_Kinshasa  = {
   kAtcZoneNameAfrica_Kinshasa /*name*/,
   0x6695d70c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Lagos /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Lagos /*eras*/,
+  &kAtcZoneAfrica_Lagos /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15945,8 +16317,9 @@ const AtcZoneInfo kAtcZoneAfrica_Libreville  = {
   kAtcZoneNameAfrica_Libreville /*name*/,
   0x01d96de4 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Lagos /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Lagos /*eras*/,
+  &kAtcZoneAfrica_Lagos /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15962,8 +16335,9 @@ const AtcZoneInfo kAtcZoneAfrica_Lome  = {
   kAtcZoneNameAfrica_Lome /*name*/,
   0xd51c3a07 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Abidjan /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Abidjan /*eras*/,
+  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15979,8 +16353,9 @@ const AtcZoneInfo kAtcZoneAfrica_Luanda  = {
   kAtcZoneNameAfrica_Luanda /*name*/,
   0x8d7909cf /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Lagos /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Lagos /*eras*/,
+  &kAtcZoneAfrica_Lagos /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -15996,8 +16371,9 @@ const AtcZoneInfo kAtcZoneAfrica_Lubumbashi  = {
   kAtcZoneNameAfrica_Lubumbashi /*name*/,
   0x6fd88566 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Maputo /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Maputo /*eras*/,
+  &kAtcZoneAfrica_Maputo /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16013,8 +16389,9 @@ const AtcZoneInfo kAtcZoneAfrica_Lusaka  = {
   kAtcZoneNameAfrica_Lusaka /*name*/,
   0x8d82b23b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Maputo /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Maputo /*eras*/,
+  &kAtcZoneAfrica_Maputo /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16030,8 +16407,9 @@ const AtcZoneInfo kAtcZoneAfrica_Malabo  = {
   kAtcZoneNameAfrica_Malabo /*name*/,
   0x8e6a1906 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Lagos /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Lagos /*eras*/,
+  &kAtcZoneAfrica_Lagos /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16047,8 +16425,9 @@ const AtcZoneInfo kAtcZoneAfrica_Maseru  = {
   kAtcZoneNameAfrica_Maseru /*name*/,
   0x8e6e02c7 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Johannesburg /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Johannesburg /*eras*/,
+  &kAtcZoneAfrica_Johannesburg /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16064,8 +16443,9 @@ const AtcZoneInfo kAtcZoneAfrica_Mbabane  = {
   kAtcZoneNameAfrica_Mbabane /*name*/,
   0x5d3bdd40 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Johannesburg /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Johannesburg /*eras*/,
+  &kAtcZoneAfrica_Johannesburg /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16081,8 +16461,9 @@ const AtcZoneInfo kAtcZoneAfrica_Mogadishu  = {
   kAtcZoneNameAfrica_Mogadishu /*name*/,
   0x66bc159b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Nairobi /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Nairobi /*eras*/,
+  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16098,8 +16479,9 @@ const AtcZoneInfo kAtcZoneAfrica_Niamey  = {
   kAtcZoneNameAfrica_Niamey /*name*/,
   0x914a30fd /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Lagos /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Lagos /*eras*/,
+  &kAtcZoneAfrica_Lagos /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16115,8 +16497,9 @@ const AtcZoneInfo kAtcZoneAfrica_Nouakchott  = {
   kAtcZoneNameAfrica_Nouakchott /*name*/,
   0x3dc49dba /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Abidjan /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Abidjan /*eras*/,
+  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16132,8 +16515,9 @@ const AtcZoneInfo kAtcZoneAfrica_Ouagadougou  = {
   kAtcZoneNameAfrica_Ouagadougou /*name*/,
   0x04d7219a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Abidjan /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Abidjan /*eras*/,
+  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16149,8 +16533,9 @@ const AtcZoneInfo kAtcZoneAfrica_Porto_Novo  = {
   kAtcZoneNameAfrica_Porto_Novo /*name*/,
   0x3d1bf95d /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Lagos /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Lagos /*eras*/,
+  &kAtcZoneAfrica_Lagos /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16166,8 +16551,9 @@ const AtcZoneInfo kAtcZoneAfrica_Timbuktu  = {
   kAtcZoneNameAfrica_Timbuktu /*name*/,
   0xb164d56f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Abidjan /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Abidjan /*eras*/,
+  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16183,8 +16569,9 @@ const AtcZoneInfo kAtcZoneAmerica_Anguilla  = {
   kAtcZoneNameAmerica_Anguilla /*name*/,
   0xafe31333 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16200,8 +16587,9 @@ const AtcZoneInfo kAtcZoneAmerica_Antigua  = {
   kAtcZoneNameAmerica_Antigua /*name*/,
   0xc067a32f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16217,8 +16605,9 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_ComodRivadavia  = {
   kAtcZoneNameAmerica_Argentina_ComodRivadavia /*name*/,
   0x22758877 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Argentina_Catamarca /*eras(info)*/,
+  6 /*numEras*/,
+  kAtcZoneEraAmerica_Argentina_Catamarca /*eras*/,
+  &kAtcZoneAmerica_Argentina_Catamarca /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16234,8 +16623,9 @@ const AtcZoneInfo kAtcZoneAmerica_Aruba  = {
   kAtcZoneNameAmerica_Aruba /*name*/,
   0x97cf8651 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16251,8 +16641,9 @@ const AtcZoneInfo kAtcZoneAmerica_Atikokan  = {
   kAtcZoneNameAmerica_Atikokan /*name*/,
   0x81b92098 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Panama /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Panama /*eras*/,
+  &kAtcZoneAmerica_Panama /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16268,8 +16659,9 @@ const AtcZoneInfo kAtcZoneAmerica_Atka  = {
   kAtcZoneNameAmerica_Atka /*name*/,
   0x97fe8f27 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Adak /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Adak /*eras*/,
+  &kAtcZoneAmerica_Adak /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16285,8 +16677,9 @@ const AtcZoneInfo kAtcZoneAmerica_Blanc_Sablon  = {
   kAtcZoneNameAmerica_Blanc_Sablon /*name*/,
   0x6e299892 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16302,8 +16695,9 @@ const AtcZoneInfo kAtcZoneAmerica_Buenos_Aires  = {
   kAtcZoneNameAmerica_Buenos_Aires /*name*/,
   0x67d79a05 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Argentina_Buenos_Aires /*eras(info)*/,
+  3 /*numEras*/,
+  kAtcZoneEraAmerica_Argentina_Buenos_Aires /*eras*/,
+  &kAtcZoneAmerica_Argentina_Buenos_Aires /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16319,8 +16713,9 @@ const AtcZoneInfo kAtcZoneAmerica_Catamarca  = {
   kAtcZoneNameAmerica_Catamarca /*name*/,
   0x5036e963 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Argentina_Catamarca /*eras(info)*/,
+  6 /*numEras*/,
+  kAtcZoneEraAmerica_Argentina_Catamarca /*eras*/,
+  &kAtcZoneAmerica_Argentina_Catamarca /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16336,8 +16731,9 @@ const AtcZoneInfo kAtcZoneAmerica_Cayman  = {
   kAtcZoneNameAmerica_Cayman /*name*/,
   0x953961df /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Panama /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Panama /*eras*/,
+  &kAtcZoneAmerica_Panama /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16353,8 +16749,9 @@ const AtcZoneInfo kAtcZoneAmerica_Coral_Harbour  = {
   kAtcZoneNameAmerica_Coral_Harbour /*name*/,
   0xabcb7569 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Panama /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Panama /*eras*/,
+  &kAtcZoneAmerica_Panama /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16370,8 +16767,9 @@ const AtcZoneInfo kAtcZoneAmerica_Cordoba  = {
   kAtcZoneNameAmerica_Cordoba /*name*/,
   0x5c8a7600 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Argentina_Cordoba /*eras(info)*/,
+  3 /*numEras*/,
+  kAtcZoneEraAmerica_Argentina_Cordoba /*eras*/,
+  &kAtcZoneAmerica_Argentina_Cordoba /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16387,8 +16785,9 @@ const AtcZoneInfo kAtcZoneAmerica_Creston  = {
   kAtcZoneNameAmerica_Creston /*name*/,
   0x62a70204 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Phoenix /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Phoenix /*eras*/,
+  &kAtcZoneAmerica_Phoenix /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16404,8 +16803,9 @@ const AtcZoneInfo kAtcZoneAmerica_Curacao  = {
   kAtcZoneNameAmerica_Curacao /*name*/,
   0x6a879184 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16421,8 +16821,9 @@ const AtcZoneInfo kAtcZoneAmerica_Dominica  = {
   kAtcZoneNameAmerica_Dominica /*name*/,
   0xcecb4c4a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16438,8 +16839,9 @@ const AtcZoneInfo kAtcZoneAmerica_Ensenada  = {
   kAtcZoneNameAmerica_Ensenada /*name*/,
   0x7bc95445 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Tijuana /*eras(info)*/,
+  4 /*numEras*/,
+  kAtcZoneEraAmerica_Tijuana /*eras*/,
+  &kAtcZoneAmerica_Tijuana /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16455,8 +16857,9 @@ const AtcZoneInfo kAtcZoneAmerica_Fort_Wayne  = {
   kAtcZoneNameAmerica_Fort_Wayne /*name*/,
   0x7eaaaf24 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Indiana_Indianapolis /*eras(info)*/,
+  2 /*numEras*/,
+  kAtcZoneEraAmerica_Indiana_Indianapolis /*eras*/,
+  &kAtcZoneAmerica_Indiana_Indianapolis /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16472,8 +16875,9 @@ const AtcZoneInfo kAtcZoneAmerica_Godthab  = {
   kAtcZoneNameAmerica_Godthab /*name*/,
   0x8f7eba1f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Nuuk /*eras(info)*/,
+  2 /*numEras*/,
+  kAtcZoneEraAmerica_Nuuk /*eras*/,
+  &kAtcZoneAmerica_Nuuk /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16489,8 +16893,9 @@ const AtcZoneInfo kAtcZoneAmerica_Grenada  = {
   kAtcZoneNameAmerica_Grenada /*name*/,
   0x968ce4d8 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16506,8 +16911,9 @@ const AtcZoneInfo kAtcZoneAmerica_Guadeloupe  = {
   kAtcZoneNameAmerica_Guadeloupe /*name*/,
   0xcd1f8a31 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16523,8 +16929,9 @@ const AtcZoneInfo kAtcZoneAmerica_Indianapolis  = {
   kAtcZoneNameAmerica_Indianapolis /*name*/,
   0x6a009ae1 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Indiana_Indianapolis /*eras(info)*/,
+  2 /*numEras*/,
+  kAtcZoneEraAmerica_Indiana_Indianapolis /*eras*/,
+  &kAtcZoneAmerica_Indiana_Indianapolis /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16540,8 +16947,9 @@ const AtcZoneInfo kAtcZoneAmerica_Jujuy  = {
   kAtcZoneNameAmerica_Jujuy /*name*/,
   0x9873dbbd /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Argentina_Jujuy /*eras(info)*/,
+  4 /*numEras*/,
+  kAtcZoneEraAmerica_Argentina_Jujuy /*eras*/,
+  &kAtcZoneAmerica_Argentina_Jujuy /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16557,8 +16965,9 @@ const AtcZoneInfo kAtcZoneAmerica_Knox_IN  = {
   kAtcZoneNameAmerica_Knox_IN /*name*/,
   0xc1db9a1c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Indiana_Knox /*eras(info)*/,
+  2 /*numEras*/,
+  kAtcZoneEraAmerica_Indiana_Knox /*eras*/,
+  &kAtcZoneAmerica_Indiana_Knox /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16574,8 +16983,9 @@ const AtcZoneInfo kAtcZoneAmerica_Kralendijk  = {
   kAtcZoneNameAmerica_Kralendijk /*name*/,
   0xe7c456c5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16591,8 +17001,9 @@ const AtcZoneInfo kAtcZoneAmerica_Louisville  = {
   kAtcZoneNameAmerica_Louisville /*name*/,
   0x3dcb47ee /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Kentucky_Louisville /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Kentucky_Louisville /*eras*/,
+  &kAtcZoneAmerica_Kentucky_Louisville /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16608,8 +17019,9 @@ const AtcZoneInfo kAtcZoneAmerica_Lower_Princes  = {
   kAtcZoneNameAmerica_Lower_Princes /*name*/,
   0x6ae45b62 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16625,8 +17037,9 @@ const AtcZoneInfo kAtcZoneAmerica_Marigot  = {
   kAtcZoneNameAmerica_Marigot /*name*/,
   0x3dab3a59 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16642,8 +17055,9 @@ const AtcZoneInfo kAtcZoneAmerica_Mendoza  = {
   kAtcZoneNameAmerica_Mendoza /*name*/,
   0x46b4e054 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Argentina_Mendoza /*eras(info)*/,
+  6 /*numEras*/,
+  kAtcZoneEraAmerica_Argentina_Mendoza /*eras*/,
+  &kAtcZoneAmerica_Argentina_Mendoza /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16659,8 +17073,9 @@ const AtcZoneInfo kAtcZoneAmerica_Montreal  = {
   kAtcZoneNameAmerica_Montreal /*name*/,
   0x203a1ea8 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Toronto /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Toronto /*eras*/,
+  &kAtcZoneAmerica_Toronto /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16676,8 +17091,9 @@ const AtcZoneInfo kAtcZoneAmerica_Montserrat  = {
   kAtcZoneNameAmerica_Montserrat /*name*/,
   0x199b0a35 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16693,8 +17109,9 @@ const AtcZoneInfo kAtcZoneAmerica_Nassau  = {
   kAtcZoneNameAmerica_Nassau /*name*/,
   0xaedef011 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Toronto /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Toronto /*eras*/,
+  &kAtcZoneAmerica_Toronto /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16710,8 +17127,9 @@ const AtcZoneInfo kAtcZoneAmerica_Nipigon  = {
   kAtcZoneNameAmerica_Nipigon /*name*/,
   0x9d2a8b1a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Toronto /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Toronto /*eras*/,
+  &kAtcZoneAmerica_Toronto /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16727,8 +17145,9 @@ const AtcZoneInfo kAtcZoneAmerica_Pangnirtung  = {
   kAtcZoneNameAmerica_Pangnirtung /*name*/,
   0x2d999193 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Iqaluit /*eras(info)*/,
+  3 /*numEras*/,
+  kAtcZoneEraAmerica_Iqaluit /*eras*/,
+  &kAtcZoneAmerica_Iqaluit /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16744,8 +17163,9 @@ const AtcZoneInfo kAtcZoneAmerica_Port_of_Spain  = {
   kAtcZoneNameAmerica_Port_of_Spain /*name*/,
   0xd8b28d59 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16761,8 +17181,9 @@ const AtcZoneInfo kAtcZoneAmerica_Porto_Acre  = {
   kAtcZoneNameAmerica_Porto_Acre /*name*/,
   0xcce5bf54 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Rio_Branco /*eras(info)*/,
+  3 /*numEras*/,
+  kAtcZoneEraAmerica_Rio_Branco /*eras*/,
+  &kAtcZoneAmerica_Rio_Branco /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16778,8 +17199,9 @@ const AtcZoneInfo kAtcZoneAmerica_Rainy_River  = {
   kAtcZoneNameAmerica_Rainy_River /*name*/,
   0x9cd58a10 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Winnipeg /*eras(info)*/,
+  2 /*numEras*/,
+  kAtcZoneEraAmerica_Winnipeg /*eras*/,
+  &kAtcZoneAmerica_Winnipeg /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16795,8 +17217,9 @@ const AtcZoneInfo kAtcZoneAmerica_Rosario  = {
   kAtcZoneNameAmerica_Rosario /*name*/,
   0xdf448665 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Argentina_Cordoba /*eras(info)*/,
+  3 /*numEras*/,
+  kAtcZoneEraAmerica_Argentina_Cordoba /*eras*/,
+  &kAtcZoneAmerica_Argentina_Cordoba /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16812,8 +17235,9 @@ const AtcZoneInfo kAtcZoneAmerica_Santa_Isabel  = {
   kAtcZoneNameAmerica_Santa_Isabel /*name*/,
   0xfd18a56c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Tijuana /*eras(info)*/,
+  4 /*numEras*/,
+  kAtcZoneEraAmerica_Tijuana /*eras*/,
+  &kAtcZoneAmerica_Tijuana /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16829,8 +17253,9 @@ const AtcZoneInfo kAtcZoneAmerica_Shiprock  = {
   kAtcZoneNameAmerica_Shiprock /*name*/,
   0x82fb7049 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Denver /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Denver /*eras*/,
+  &kAtcZoneAmerica_Denver /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16846,8 +17271,9 @@ const AtcZoneInfo kAtcZoneAmerica_St_Barthelemy  = {
   kAtcZoneNameAmerica_St_Barthelemy /*name*/,
   0x054e6a79 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16863,8 +17289,9 @@ const AtcZoneInfo kAtcZoneAmerica_St_Kitts  = {
   kAtcZoneNameAmerica_St_Kitts /*name*/,
   0x04c0507b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16880,8 +17307,9 @@ const AtcZoneInfo kAtcZoneAmerica_St_Lucia  = {
   kAtcZoneNameAmerica_St_Lucia /*name*/,
   0x04d8b3ba /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16897,8 +17325,9 @@ const AtcZoneInfo kAtcZoneAmerica_St_Thomas  = {
   kAtcZoneNameAmerica_St_Thomas /*name*/,
   0xb1b3d778 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16914,8 +17343,9 @@ const AtcZoneInfo kAtcZoneAmerica_St_Vincent  = {
   kAtcZoneNameAmerica_St_Vincent /*name*/,
   0x8460e523 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16931,8 +17361,9 @@ const AtcZoneInfo kAtcZoneAmerica_Thunder_Bay  = {
   kAtcZoneNameAmerica_Thunder_Bay /*name*/,
   0xf962e71b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Toronto /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Toronto /*eras*/,
+  &kAtcZoneAmerica_Toronto /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16948,8 +17379,9 @@ const AtcZoneInfo kAtcZoneAmerica_Tortola  = {
   kAtcZoneNameAmerica_Tortola /*name*/,
   0x7931462b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16965,8 +17397,9 @@ const AtcZoneInfo kAtcZoneAmerica_Virgin  = {
   kAtcZoneNameAmerica_Virgin /*name*/,
   0xc2183ab5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
+  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16982,8 +17415,9 @@ const AtcZoneInfo kAtcZoneAntarctica_DumontDUrville  = {
   kAtcZoneNameAntarctica_DumontDUrville /*name*/,
   0x5a3c656c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Port_Moresby /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Port_Moresby /*eras*/,
+  &kAtcZonePacific_Port_Moresby /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -16999,8 +17433,9 @@ const AtcZoneInfo kAtcZoneAntarctica_McMurdo  = {
   kAtcZoneNameAntarctica_McMurdo /*name*/,
   0x6eeb5585 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Auckland /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Auckland /*eras*/,
+  &kAtcZonePacific_Auckland /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17016,8 +17451,9 @@ const AtcZoneInfo kAtcZoneAntarctica_South_Pole  = {
   kAtcZoneNameAntarctica_South_Pole /*name*/,
   0xcd96b290 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Auckland /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Auckland /*eras*/,
+  &kAtcZonePacific_Auckland /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17033,8 +17469,9 @@ const AtcZoneInfo kAtcZoneAntarctica_Syowa  = {
   kAtcZoneNameAntarctica_Syowa /*name*/,
   0xe330c7e1 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Riyadh /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Riyadh /*eras*/,
+  &kAtcZoneAsia_Riyadh /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17050,8 +17487,9 @@ const AtcZoneInfo kAtcZoneAntarctica_Vostok  = {
   kAtcZoneNameAntarctica_Vostok /*name*/,
   0x4f966fd4 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Urumqi /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Urumqi /*eras*/,
+  &kAtcZoneAsia_Urumqi /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17067,8 +17505,9 @@ const AtcZoneInfo kAtcZoneArctic_Longyearbyen  = {
   kAtcZoneNameArctic_Longyearbyen /*name*/,
   0xd23e7859 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Berlin /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Berlin /*eras*/,
+  &kAtcZoneEurope_Berlin /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17084,8 +17523,9 @@ const AtcZoneInfo kAtcZoneAsia_Aden  = {
   kAtcZoneNameAsia_Aden /*name*/,
   0x1fa7084a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Riyadh /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Riyadh /*eras*/,
+  &kAtcZoneAsia_Riyadh /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17101,8 +17541,9 @@ const AtcZoneInfo kAtcZoneAsia_Ashkhabad  = {
   kAtcZoneNameAsia_Ashkhabad /*name*/,
   0x15454f09 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Ashgabat /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Ashgabat /*eras*/,
+  &kAtcZoneAsia_Ashgabat /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17118,8 +17559,9 @@ const AtcZoneInfo kAtcZoneAsia_Bahrain  = {
   kAtcZoneNameAsia_Bahrain /*name*/,
   0x9d078487 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Qatar /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Qatar /*eras*/,
+  &kAtcZoneAsia_Qatar /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17135,8 +17577,9 @@ const AtcZoneInfo kAtcZoneAsia_Brunei  = {
   kAtcZoneNameAsia_Brunei /*name*/,
   0xa8e595f7 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Kuching /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Kuching /*eras*/,
+  &kAtcZoneAsia_Kuching /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17152,8 +17595,9 @@ const AtcZoneInfo kAtcZoneAsia_Calcutta  = {
   kAtcZoneNameAsia_Calcutta /*name*/,
   0x328a44c3 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Kolkata /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Kolkata /*eras*/,
+  &kAtcZoneAsia_Kolkata /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17169,8 +17613,9 @@ const AtcZoneInfo kAtcZoneAsia_Chongqing  = {
   kAtcZoneNameAsia_Chongqing /*name*/,
   0xf937fb90 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Shanghai /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Shanghai /*eras*/,
+  &kAtcZoneAsia_Shanghai /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17186,8 +17631,9 @@ const AtcZoneInfo kAtcZoneAsia_Chungking  = {
   kAtcZoneNameAsia_Chungking /*name*/,
   0xc7121dd0 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Shanghai /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Shanghai /*eras*/,
+  &kAtcZoneAsia_Shanghai /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17203,8 +17649,9 @@ const AtcZoneInfo kAtcZoneAsia_Dacca  = {
   kAtcZoneNameAsia_Dacca /*name*/,
   0x14bcac5e /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Dhaka /*eras(info)*/,
+  2 /*numEras*/,
+  kAtcZoneEraAsia_Dhaka /*eras*/,
+  &kAtcZoneAsia_Dhaka /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17220,8 +17667,9 @@ const AtcZoneInfo kAtcZoneAsia_Harbin  = {
   kAtcZoneNameAsia_Harbin /*name*/,
   0xb5af1186 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Shanghai /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Shanghai /*eras*/,
+  &kAtcZoneAsia_Shanghai /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17237,8 +17685,9 @@ const AtcZoneInfo kAtcZoneAsia_Istanbul  = {
   kAtcZoneNameAsia_Istanbul /*name*/,
   0x382e7894 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Istanbul /*eras(info)*/,
+  9 /*numEras*/,
+  kAtcZoneEraEurope_Istanbul /*eras*/,
+  &kAtcZoneEurope_Istanbul /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17254,8 +17703,9 @@ const AtcZoneInfo kAtcZoneAsia_Kashgar  = {
   kAtcZoneNameAsia_Kashgar /*name*/,
   0x52955193 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Urumqi /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Urumqi /*eras*/,
+  &kAtcZoneAsia_Urumqi /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17271,8 +17721,9 @@ const AtcZoneInfo kAtcZoneAsia_Katmandu  = {
   kAtcZoneNameAsia_Katmandu /*name*/,
   0xa7ec12c7 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Kathmandu /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Kathmandu /*eras*/,
+  &kAtcZoneAsia_Kathmandu /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17288,8 +17739,9 @@ const AtcZoneInfo kAtcZoneAsia_Kuala_Lumpur  = {
   kAtcZoneNameAsia_Kuala_Lumpur /*name*/,
   0x014763c4 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Singapore /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Singapore /*eras*/,
+  &kAtcZoneAsia_Singapore /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17305,8 +17757,9 @@ const AtcZoneInfo kAtcZoneAsia_Kuwait  = {
   kAtcZoneNameAsia_Kuwait /*name*/,
   0xbe1b2f27 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Riyadh /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Riyadh /*eras*/,
+  &kAtcZoneAsia_Riyadh /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17322,8 +17775,9 @@ const AtcZoneInfo kAtcZoneAsia_Macao  = {
   kAtcZoneNameAsia_Macao /*name*/,
   0x155f88b3 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Macau /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Macau /*eras*/,
+  &kAtcZoneAsia_Macau /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17339,8 +17793,9 @@ const AtcZoneInfo kAtcZoneAsia_Muscat  = {
   kAtcZoneNameAsia_Muscat /*name*/,
   0xc2c3565f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Dubai /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Dubai /*eras*/,
+  &kAtcZoneAsia_Dubai /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17356,8 +17811,9 @@ const AtcZoneInfo kAtcZoneAsia_Phnom_Penh  = {
   kAtcZoneNameAsia_Phnom_Penh /*name*/,
   0xc224945e /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Bangkok /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Bangkok /*eras*/,
+  &kAtcZoneAsia_Bangkok /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17373,8 +17829,9 @@ const AtcZoneInfo kAtcZoneAsia_Rangoon  = {
   kAtcZoneNameAsia_Rangoon /*name*/,
   0x6d1217c6 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Yangon /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Yangon /*eras*/,
+  &kAtcZoneAsia_Yangon /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17390,8 +17847,9 @@ const AtcZoneInfo kAtcZoneAsia_Saigon  = {
   kAtcZoneNameAsia_Saigon /*name*/,
   0xcf52f713 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Ho_Chi_Minh /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Ho_Chi_Minh /*eras*/,
+  &kAtcZoneAsia_Ho_Chi_Minh /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17407,8 +17865,9 @@ const AtcZoneInfo kAtcZoneAsia_Tel_Aviv  = {
   kAtcZoneNameAsia_Tel_Aviv /*name*/,
   0x166d7c2c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Jerusalem /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Jerusalem /*eras*/,
+  &kAtcZoneAsia_Jerusalem /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17424,8 +17883,9 @@ const AtcZoneInfo kAtcZoneAsia_Thimbu  = {
   kAtcZoneNameAsia_Thimbu /*name*/,
   0xd226e31b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Thimphu /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Thimphu /*eras*/,
+  &kAtcZoneAsia_Thimphu /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17441,8 +17901,9 @@ const AtcZoneInfo kAtcZoneAsia_Ujung_Pandang  = {
   kAtcZoneNameAsia_Ujung_Pandang /*name*/,
   0x5d001eb3 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Makassar /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Makassar /*eras*/,
+  &kAtcZoneAsia_Makassar /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17458,8 +17919,9 @@ const AtcZoneInfo kAtcZoneAsia_Ulan_Bator  = {
   kAtcZoneNameAsia_Ulan_Bator /*name*/,
   0x394db4d9 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Ulaanbaatar /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Ulaanbaatar /*eras*/,
+  &kAtcZoneAsia_Ulaanbaatar /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17475,8 +17937,9 @@ const AtcZoneInfo kAtcZoneAsia_Vientiane  = {
   kAtcZoneNameAsia_Vientiane /*name*/,
   0x89d68d75 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Bangkok /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Bangkok /*eras*/,
+  &kAtcZoneAsia_Bangkok /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17492,8 +17955,9 @@ const AtcZoneInfo kAtcZoneAtlantic_Faeroe  = {
   kAtcZoneNameAtlantic_Faeroe /*name*/,
   0x031ec516 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAtlantic_Faroe /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAtlantic_Faroe /*eras*/,
+  &kAtcZoneAtlantic_Faroe /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17509,8 +17973,9 @@ const AtcZoneInfo kAtcZoneAtlantic_Jan_Mayen  = {
   kAtcZoneNameAtlantic_Jan_Mayen /*name*/,
   0x5a7535b6 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Berlin /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Berlin /*eras*/,
+  &kAtcZoneEurope_Berlin /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17526,8 +17991,9 @@ const AtcZoneInfo kAtcZoneAtlantic_Reykjavik  = {
   kAtcZoneNameAtlantic_Reykjavik /*name*/,
   0x1c2b4f74 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Abidjan /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Abidjan /*eras*/,
+  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17543,8 +18009,9 @@ const AtcZoneInfo kAtcZoneAtlantic_St_Helena  = {
   kAtcZoneNameAtlantic_St_Helena /*name*/,
   0x451fc5f7 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Abidjan /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Abidjan /*eras*/,
+  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17560,8 +18027,9 @@ const AtcZoneInfo kAtcZoneAustralia_ACT  = {
   kAtcZoneNameAustralia_ACT /*name*/,
   0x8a970eb2 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAustralia_Sydney /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAustralia_Sydney /*eras*/,
+  &kAtcZoneAustralia_Sydney /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17577,8 +18045,9 @@ const AtcZoneInfo kAtcZoneAustralia_Canberra  = {
   kAtcZoneNameAustralia_Canberra /*name*/,
   0x2a09ae58 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAustralia_Sydney /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAustralia_Sydney /*eras*/,
+  &kAtcZoneAustralia_Sydney /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17594,8 +18063,9 @@ const AtcZoneInfo kAtcZoneAustralia_Currie  = {
   kAtcZoneNameAustralia_Currie /*name*/,
   0x278b6a24 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAustralia_Hobart /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAustralia_Hobart /*eras*/,
+  &kAtcZoneAustralia_Hobart /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17611,8 +18081,9 @@ const AtcZoneInfo kAtcZoneAustralia_LHI  = {
   kAtcZoneNameAustralia_LHI /*name*/,
   0x8a973e17 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAustralia_Lord_Howe /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAustralia_Lord_Howe /*eras*/,
+  &kAtcZoneAustralia_Lord_Howe /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17628,8 +18099,9 @@ const AtcZoneInfo kAtcZoneAustralia_NSW  = {
   kAtcZoneNameAustralia_NSW /*name*/,
   0x8a974812 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAustralia_Sydney /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAustralia_Sydney /*eras*/,
+  &kAtcZoneAustralia_Sydney /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17645,8 +18117,9 @@ const AtcZoneInfo kAtcZoneAustralia_North  = {
   kAtcZoneNameAustralia_North /*name*/,
   0x8d997165 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAustralia_Darwin /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAustralia_Darwin /*eras*/,
+  &kAtcZoneAustralia_Darwin /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17662,8 +18135,9 @@ const AtcZoneInfo kAtcZoneAustralia_Queensland  = {
   kAtcZoneNameAustralia_Queensland /*name*/,
   0xd326ed0a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAustralia_Brisbane /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAustralia_Brisbane /*eras*/,
+  &kAtcZoneAustralia_Brisbane /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17679,8 +18153,9 @@ const AtcZoneInfo kAtcZoneAustralia_South  = {
   kAtcZoneNameAustralia_South /*name*/,
   0x8df3f8ad /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAustralia_Adelaide /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAustralia_Adelaide /*eras*/,
+  &kAtcZoneAustralia_Adelaide /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17696,8 +18171,9 @@ const AtcZoneInfo kAtcZoneAustralia_Tasmania  = {
   kAtcZoneNameAustralia_Tasmania /*name*/,
   0xe6d76648 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAustralia_Hobart /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAustralia_Hobart /*eras*/,
+  &kAtcZoneAustralia_Hobart /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17713,8 +18189,9 @@ const AtcZoneInfo kAtcZoneAustralia_Victoria  = {
   kAtcZoneNameAustralia_Victoria /*name*/,
   0x0260d5db /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAustralia_Melbourne /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAustralia_Melbourne /*eras*/,
+  &kAtcZoneAustralia_Melbourne /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17730,8 +18207,9 @@ const AtcZoneInfo kAtcZoneAustralia_West  = {
   kAtcZoneNameAustralia_West /*name*/,
   0xdd858a5d /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAustralia_Perth /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAustralia_Perth /*eras*/,
+  &kAtcZoneAustralia_Perth /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17747,8 +18225,9 @@ const AtcZoneInfo kAtcZoneAustralia_Yancowinna  = {
   kAtcZoneNameAustralia_Yancowinna /*name*/,
   0x90bac131 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAustralia_Broken_Hill /*eras(info)*/,
+  2 /*numEras*/,
+  kAtcZoneEraAustralia_Broken_Hill /*eras*/,
+  &kAtcZoneAustralia_Broken_Hill /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17764,8 +18243,9 @@ const AtcZoneInfo kAtcZoneBrazil_Acre  = {
   kAtcZoneNameBrazil_Acre /*name*/,
   0x66934f93 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Rio_Branco /*eras(info)*/,
+  3 /*numEras*/,
+  kAtcZoneEraAmerica_Rio_Branco /*eras*/,
+  &kAtcZoneAmerica_Rio_Branco /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17781,8 +18261,9 @@ const AtcZoneInfo kAtcZoneBrazil_DeNoronha  = {
   kAtcZoneNameBrazil_DeNoronha /*name*/,
   0x9b4cb496 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Noronha /*eras(info)*/,
+  5 /*numEras*/,
+  kAtcZoneEraAmerica_Noronha /*eras*/,
+  &kAtcZoneAmerica_Noronha /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17798,8 +18279,9 @@ const AtcZoneInfo kAtcZoneBrazil_East  = {
   kAtcZoneNameBrazil_East /*name*/,
   0x669578c5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Sao_Paulo /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Sao_Paulo /*eras*/,
+  &kAtcZoneAmerica_Sao_Paulo /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17815,8 +18297,9 @@ const AtcZoneInfo kAtcZoneBrazil_West  = {
   kAtcZoneNameBrazil_West /*name*/,
   0x669f689b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Manaus /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Manaus /*eras*/,
+  &kAtcZoneAmerica_Manaus /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17832,8 +18315,9 @@ const AtcZoneInfo kAtcZoneCanada_Atlantic  = {
   kAtcZoneNameCanada_Atlantic /*name*/,
   0x536b119c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Halifax /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Halifax /*eras*/,
+  &kAtcZoneAmerica_Halifax /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17849,8 +18333,9 @@ const AtcZoneInfo kAtcZoneCanada_Central  = {
   kAtcZoneNameCanada_Central /*name*/,
   0x626710f5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Winnipeg /*eras(info)*/,
+  2 /*numEras*/,
+  kAtcZoneEraAmerica_Winnipeg /*eras*/,
+  &kAtcZoneAmerica_Winnipeg /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17866,8 +18351,9 @@ const AtcZoneInfo kAtcZoneCanada_Eastern  = {
   kAtcZoneNameCanada_Eastern /*name*/,
   0xf3612d5e /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Toronto /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Toronto /*eras*/,
+  &kAtcZoneAmerica_Toronto /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17883,8 +18369,9 @@ const AtcZoneInfo kAtcZoneCanada_Mountain  = {
   kAtcZoneNameCanada_Mountain /*name*/,
   0xfb8a8217 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Edmonton /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Edmonton /*eras*/,
+  &kAtcZoneAmerica_Edmonton /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17900,8 +18387,9 @@ const AtcZoneInfo kAtcZoneCanada_Newfoundland  = {
   kAtcZoneNameCanada_Newfoundland /*name*/,
   0xb396e991 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_St_Johns /*eras(info)*/,
+  2 /*numEras*/,
+  kAtcZoneEraAmerica_St_Johns /*eras*/,
+  &kAtcZoneAmerica_St_Johns /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17917,8 +18405,9 @@ const AtcZoneInfo kAtcZoneCanada_Pacific  = {
   kAtcZoneNameCanada_Pacific /*name*/,
   0x40fa3c7b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Vancouver /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Vancouver /*eras*/,
+  &kAtcZoneAmerica_Vancouver /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17934,8 +18423,9 @@ const AtcZoneInfo kAtcZoneCanada_Saskatchewan  = {
   kAtcZoneNameCanada_Saskatchewan /*name*/,
   0x77311f49 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Regina /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Regina /*eras*/,
+  &kAtcZoneAmerica_Regina /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17951,8 +18441,9 @@ const AtcZoneInfo kAtcZoneCanada_Yukon  = {
   kAtcZoneNameCanada_Yukon /*name*/,
   0x78dd35c2 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Whitehorse /*eras(info)*/,
+  2 /*numEras*/,
+  kAtcZoneEraAmerica_Whitehorse /*eras*/,
+  &kAtcZoneAmerica_Whitehorse /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17968,8 +18459,9 @@ const AtcZoneInfo kAtcZoneChile_Continental  = {
   kAtcZoneNameChile_Continental /*name*/,
   0x7e2bdb18 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Santiago /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Santiago /*eras*/,
+  &kAtcZoneAmerica_Santiago /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -17985,8 +18477,9 @@ const AtcZoneInfo kAtcZoneChile_EasterIsland  = {
   kAtcZoneNameChile_EasterIsland /*name*/,
   0xb0982af8 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Easter /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Easter /*eras*/,
+  &kAtcZonePacific_Easter /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18002,8 +18495,9 @@ const AtcZoneInfo kAtcZoneCuba  = {
   kAtcZoneNameCuba /*name*/,
   0x7c83cba0 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Havana /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Havana /*eras*/,
+  &kAtcZoneAmerica_Havana /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18019,8 +18513,9 @@ const AtcZoneInfo kAtcZoneEgypt  = {
   kAtcZoneNameEgypt /*name*/,
   0x0d1a278e /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Cairo /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Cairo /*eras*/,
+  &kAtcZoneAfrica_Cairo /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18036,8 +18531,9 @@ const AtcZoneInfo kAtcZoneEire  = {
   kAtcZoneNameEire /*name*/,
   0x7c84b36a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Dublin /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Dublin /*eras*/,
+  &kAtcZoneEurope_Dublin /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18053,8 +18549,9 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_0  = {
   kAtcZoneNameEtc_GMT_PLUS_0 /*name*/,
   0x9d13da13 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEtc_GMT /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEtc_GMT /*eras*/,
+  &kAtcZoneEtc_GMT /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18070,8 +18567,9 @@ const AtcZoneInfo kAtcZoneEtc_GMT_0  = {
   kAtcZoneNameEtc_GMT_0 /*name*/,
   0x9d13da55 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEtc_GMT /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEtc_GMT /*eras*/,
+  &kAtcZoneEtc_GMT /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18087,8 +18585,9 @@ const AtcZoneInfo kAtcZoneEtc_GMT0  = {
   kAtcZoneNameEtc_GMT0 /*name*/,
   0xf53ea988 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEtc_GMT /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEtc_GMT /*eras*/,
+  &kAtcZoneEtc_GMT /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18104,8 +18603,9 @@ const AtcZoneInfo kAtcZoneEtc_Greenwich  = {
   kAtcZoneNameEtc_Greenwich /*name*/,
   0x26daa98c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEtc_GMT /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEtc_GMT /*eras*/,
+  &kAtcZoneEtc_GMT /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18121,8 +18621,9 @@ const AtcZoneInfo kAtcZoneEtc_UCT  = {
   kAtcZoneNameEtc_UCT /*name*/,
   0xd8e3189c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEtc_UTC /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEtc_UTC /*eras*/,
+  &kAtcZoneEtc_UTC /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18138,8 +18639,9 @@ const AtcZoneInfo kAtcZoneEtc_Universal  = {
   kAtcZoneNameEtc_Universal /*name*/,
   0x2f8cb9a9 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEtc_UTC /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEtc_UTC /*eras*/,
+  &kAtcZoneEtc_UTC /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18155,8 +18657,9 @@ const AtcZoneInfo kAtcZoneEtc_Zulu  = {
   kAtcZoneNameEtc_Zulu /*name*/,
   0xf549c240 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEtc_UTC /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEtc_UTC /*eras*/,
+  &kAtcZoneEtc_UTC /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18172,8 +18675,9 @@ const AtcZoneInfo kAtcZoneEurope_Amsterdam  = {
   kAtcZoneNameEurope_Amsterdam /*name*/,
   0x109395c2 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Brussels /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Brussels /*eras*/,
+  &kAtcZoneEurope_Brussels /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18189,8 +18693,9 @@ const AtcZoneInfo kAtcZoneEurope_Belfast  = {
   kAtcZoneNameEurope_Belfast /*name*/,
   0xd07dd1e5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_London /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_London /*eras*/,
+  &kAtcZoneEurope_London /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18206,8 +18711,9 @@ const AtcZoneInfo kAtcZoneEurope_Bratislava  = {
   kAtcZoneNameEurope_Bratislava /*name*/,
   0xda493bed /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Prague /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Prague /*eras*/,
+  &kAtcZoneEurope_Prague /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18223,8 +18729,9 @@ const AtcZoneInfo kAtcZoneEurope_Busingen  = {
   kAtcZoneNameEurope_Busingen /*name*/,
   0xc06d2cdf /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Zurich /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Zurich /*eras*/,
+  &kAtcZoneEurope_Zurich /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18240,8 +18747,9 @@ const AtcZoneInfo kAtcZoneEurope_Copenhagen  = {
   kAtcZoneNameEurope_Copenhagen /*name*/,
   0xe0ed30bc /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Berlin /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Berlin /*eras*/,
+  &kAtcZoneEurope_Berlin /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18257,8 +18765,9 @@ const AtcZoneInfo kAtcZoneEurope_Guernsey  = {
   kAtcZoneNameEurope_Guernsey /*name*/,
   0x3db12c16 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_London /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_London /*eras*/,
+  &kAtcZoneEurope_London /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18274,8 +18783,9 @@ const AtcZoneInfo kAtcZoneEurope_Isle_of_Man  = {
   kAtcZoneNameEurope_Isle_of_Man /*name*/,
   0xeaf84580 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_London /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_London /*eras*/,
+  &kAtcZoneEurope_London /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18291,8 +18801,9 @@ const AtcZoneInfo kAtcZoneEurope_Jersey  = {
   kAtcZoneNameEurope_Jersey /*name*/,
   0x570dae76 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_London /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_London /*eras*/,
+  &kAtcZoneEurope_London /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18308,8 +18819,9 @@ const AtcZoneInfo kAtcZoneEurope_Kiev  = {
   kAtcZoneNameEurope_Kiev /*name*/,
   0xa2c19eb3 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Kyiv /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Kyiv /*eras*/,
+  &kAtcZoneEurope_Kyiv /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18325,8 +18837,9 @@ const AtcZoneInfo kAtcZoneEurope_Ljubljana  = {
   kAtcZoneNameEurope_Ljubljana /*name*/,
   0xbd98cdb7 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Belgrade /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Belgrade /*eras*/,
+  &kAtcZoneEurope_Belgrade /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18342,8 +18855,9 @@ const AtcZoneInfo kAtcZoneEurope_Luxembourg  = {
   kAtcZoneNameEurope_Luxembourg /*name*/,
   0x1f8bc6ce /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Brussels /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Brussels /*eras*/,
+  &kAtcZoneEurope_Brussels /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18359,8 +18873,9 @@ const AtcZoneInfo kAtcZoneEurope_Mariehamn  = {
   kAtcZoneNameEurope_Mariehamn /*name*/,
   0x0caa6496 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Helsinki /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Helsinki /*eras*/,
+  &kAtcZoneEurope_Helsinki /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18376,8 +18891,9 @@ const AtcZoneInfo kAtcZoneEurope_Monaco  = {
   kAtcZoneNameEurope_Monaco /*name*/,
   0x5ebf9f01 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Paris /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Paris /*eras*/,
+  &kAtcZoneEurope_Paris /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18393,8 +18909,9 @@ const AtcZoneInfo kAtcZoneEurope_Nicosia  = {
   kAtcZoneNameEurope_Nicosia /*name*/,
   0x74efab8a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Nicosia /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Nicosia /*eras*/,
+  &kAtcZoneAsia_Nicosia /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18410,8 +18927,9 @@ const AtcZoneInfo kAtcZoneEurope_Oslo  = {
   kAtcZoneNameEurope_Oslo /*name*/,
   0xa2c3fba1 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Berlin /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Berlin /*eras*/,
+  &kAtcZoneEurope_Berlin /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18427,8 +18945,9 @@ const AtcZoneInfo kAtcZoneEurope_Podgorica  = {
   kAtcZoneNameEurope_Podgorica /*name*/,
   0x1c1a499c /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Belgrade /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Belgrade /*eras*/,
+  &kAtcZoneEurope_Belgrade /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18444,8 +18963,9 @@ const AtcZoneInfo kAtcZoneEurope_San_Marino  = {
   kAtcZoneNameEurope_San_Marino /*name*/,
   0xcef7724b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Rome /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Rome /*eras*/,
+  &kAtcZoneEurope_Rome /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18461,8 +18981,9 @@ const AtcZoneInfo kAtcZoneEurope_Sarajevo  = {
   kAtcZoneNameEurope_Sarajevo /*name*/,
   0x6a576c3f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Belgrade /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Belgrade /*eras*/,
+  &kAtcZoneEurope_Belgrade /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18478,8 +18999,9 @@ const AtcZoneInfo kAtcZoneEurope_Skopje  = {
   kAtcZoneNameEurope_Skopje /*name*/,
   0x6c76fdd0 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Belgrade /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Belgrade /*eras*/,
+  &kAtcZoneEurope_Belgrade /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18495,8 +19017,9 @@ const AtcZoneInfo kAtcZoneEurope_Stockholm  = {
   kAtcZoneNameEurope_Stockholm /*name*/,
   0x5bf6fbb8 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Berlin /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Berlin /*eras*/,
+  &kAtcZoneEurope_Berlin /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18512,8 +19035,9 @@ const AtcZoneInfo kAtcZoneEurope_Tiraspol  = {
   kAtcZoneNameEurope_Tiraspol /*name*/,
   0xbe704472 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Chisinau /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Chisinau /*eras*/,
+  &kAtcZoneEurope_Chisinau /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18529,8 +19053,9 @@ const AtcZoneInfo kAtcZoneEurope_Uzhgorod  = {
   kAtcZoneNameEurope_Uzhgorod /*name*/,
   0xb066f5d6 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Kyiv /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Kyiv /*eras*/,
+  &kAtcZoneEurope_Kyiv /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18546,8 +19071,9 @@ const AtcZoneInfo kAtcZoneEurope_Vaduz  = {
   kAtcZoneNameEurope_Vaduz /*name*/,
   0xfbb81bae /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Zurich /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Zurich /*eras*/,
+  &kAtcZoneEurope_Zurich /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18563,8 +19089,9 @@ const AtcZoneInfo kAtcZoneEurope_Vatican  = {
   kAtcZoneNameEurope_Vatican /*name*/,
   0xcb485dca /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Rome /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Rome /*eras*/,
+  &kAtcZoneEurope_Rome /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18580,8 +19107,9 @@ const AtcZoneInfo kAtcZoneEurope_Zagreb  = {
   kAtcZoneNameEurope_Zagreb /*name*/,
   0x7c11c9ff /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Belgrade /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Belgrade /*eras*/,
+  &kAtcZoneEurope_Belgrade /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18597,8 +19125,9 @@ const AtcZoneInfo kAtcZoneEurope_Zaporozhye  = {
   kAtcZoneNameEurope_Zaporozhye /*name*/,
   0xeab9767f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Kyiv /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Kyiv /*eras*/,
+  &kAtcZoneEurope_Kyiv /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18614,8 +19143,9 @@ const AtcZoneInfo kAtcZoneGB  = {
   kAtcZoneNameGB /*name*/,
   0x005973ae /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_London /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_London /*eras*/,
+  &kAtcZoneEurope_London /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18631,8 +19161,9 @@ const AtcZoneInfo kAtcZoneGB_Eire  = {
   kAtcZoneNameGB_Eire /*name*/,
   0xfa70e300 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_London /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_London /*eras*/,
+  &kAtcZoneEurope_London /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18648,8 +19179,9 @@ const AtcZoneInfo kAtcZoneGMT  = {
   kAtcZoneNameGMT /*name*/,
   0x0b87eb2d /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEtc_GMT /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEtc_GMT /*eras*/,
+  &kAtcZoneEtc_GMT /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18665,8 +19197,9 @@ const AtcZoneInfo kAtcZoneGMT_PLUS_0  = {
   kAtcZoneNameGMT_PLUS_0 /*name*/,
   0x0d2f7028 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEtc_GMT /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEtc_GMT /*eras*/,
+  &kAtcZoneEtc_GMT /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18682,8 +19215,9 @@ const AtcZoneInfo kAtcZoneGMT_0  = {
   kAtcZoneNameGMT_0 /*name*/,
   0x0d2f706a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEtc_GMT /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEtc_GMT /*eras*/,
+  &kAtcZoneEtc_GMT /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18699,8 +19233,9 @@ const AtcZoneInfo kAtcZoneGMT0  = {
   kAtcZoneNameGMT0 /*name*/,
   0x7c8550fd /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEtc_GMT /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEtc_GMT /*eras*/,
+  &kAtcZoneEtc_GMT /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18716,8 +19251,9 @@ const AtcZoneInfo kAtcZoneGreenwich  = {
   kAtcZoneNameGreenwich /*name*/,
   0xc84d4221 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEtc_GMT /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEtc_GMT /*eras*/,
+  &kAtcZoneEtc_GMT /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18733,8 +19269,9 @@ const AtcZoneInfo kAtcZoneHongkong  = {
   kAtcZoneNameHongkong /*name*/,
   0x56d36560 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Hong_Kong /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Hong_Kong /*eras*/,
+  &kAtcZoneAsia_Hong_Kong /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18750,8 +19287,9 @@ const AtcZoneInfo kAtcZoneIceland  = {
   kAtcZoneNameIceland /*name*/,
   0xe56a35b5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Abidjan /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Abidjan /*eras*/,
+  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18767,8 +19305,9 @@ const AtcZoneInfo kAtcZoneIndian_Antananarivo  = {
   kAtcZoneNameIndian_Antananarivo /*name*/,
   0x9ebf5289 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Nairobi /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Nairobi /*eras*/,
+  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18784,8 +19323,9 @@ const AtcZoneInfo kAtcZoneIndian_Christmas  = {
   kAtcZoneNameIndian_Christmas /*name*/,
   0x68c207d5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Bangkok /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Bangkok /*eras*/,
+  &kAtcZoneAsia_Bangkok /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18801,8 +19341,9 @@ const AtcZoneInfo kAtcZoneIndian_Cocos  = {
   kAtcZoneNameIndian_Cocos /*name*/,
   0x021e86de /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Yangon /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Yangon /*eras*/,
+  &kAtcZoneAsia_Yangon /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18818,8 +19359,9 @@ const AtcZoneInfo kAtcZoneIndian_Comoro  = {
   kAtcZoneNameIndian_Comoro /*name*/,
   0x45f4deb6 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Nairobi /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Nairobi /*eras*/,
+  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18835,8 +19377,9 @@ const AtcZoneInfo kAtcZoneIndian_Kerguelen  = {
   kAtcZoneNameIndian_Kerguelen /*name*/,
   0x4351b389 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneIndian_Maldives /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraIndian_Maldives /*eras*/,
+  &kAtcZoneIndian_Maldives /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18852,8 +19395,9 @@ const AtcZoneInfo kAtcZoneIndian_Mahe  = {
   kAtcZoneNameIndian_Mahe /*name*/,
   0x45e725e2 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Dubai /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Dubai /*eras*/,
+  &kAtcZoneAsia_Dubai /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18869,8 +19413,9 @@ const AtcZoneInfo kAtcZoneIndian_Mayotte  = {
   kAtcZoneNameIndian_Mayotte /*name*/,
   0xe6880bca /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Nairobi /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAfrica_Nairobi /*eras*/,
+  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18886,8 +19431,9 @@ const AtcZoneInfo kAtcZoneIndian_Reunion  = {
   kAtcZoneNameIndian_Reunion /*name*/,
   0x7076c047 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Dubai /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Dubai /*eras*/,
+  &kAtcZoneAsia_Dubai /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18903,8 +19449,9 @@ const AtcZoneInfo kAtcZoneIran  = {
   kAtcZoneNameIran /*name*/,
   0x7c87090f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Tehran /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Tehran /*eras*/,
+  &kAtcZoneAsia_Tehran /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18920,8 +19467,9 @@ const AtcZoneInfo kAtcZoneIsrael  = {
   kAtcZoneNameIsrael /*name*/,
   0xba88c9e5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Jerusalem /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Jerusalem /*eras*/,
+  &kAtcZoneAsia_Jerusalem /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18937,8 +19485,9 @@ const AtcZoneInfo kAtcZoneJamaica  = {
   kAtcZoneNameJamaica /*name*/,
   0x2e44fdab /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Jamaica /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Jamaica /*eras*/,
+  &kAtcZoneAmerica_Jamaica /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18954,8 +19503,9 @@ const AtcZoneInfo kAtcZoneJapan  = {
   kAtcZoneNameJapan /*name*/,
   0x0d712f8f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Tokyo /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Tokyo /*eras*/,
+  &kAtcZoneAsia_Tokyo /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18971,8 +19521,9 @@ const AtcZoneInfo kAtcZoneKwajalein  = {
   kAtcZoneNameKwajalein /*name*/,
   0x0e57afbb /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Kwajalein /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Kwajalein /*eras*/,
+  &kAtcZonePacific_Kwajalein /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -18988,8 +19539,9 @@ const AtcZoneInfo kAtcZoneLibya  = {
   kAtcZoneNameLibya /*name*/,
   0x0d998b16 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAfrica_Tripoli /*eras(info)*/,
+  3 /*numEras*/,
+  kAtcZoneEraAfrica_Tripoli /*eras*/,
+  &kAtcZoneAfrica_Tripoli /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19005,8 +19557,9 @@ const AtcZoneInfo kAtcZoneMexico_BajaNorte  = {
   kAtcZoneNameMexico_BajaNorte /*name*/,
   0xfcf7150f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Tijuana /*eras(info)*/,
+  4 /*numEras*/,
+  kAtcZoneEraAmerica_Tijuana /*eras*/,
+  &kAtcZoneAmerica_Tijuana /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19022,8 +19575,9 @@ const AtcZoneInfo kAtcZoneMexico_BajaSur  = {
   kAtcZoneNameMexico_BajaSur /*name*/,
   0x08ee3641 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Mazatlan /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Mazatlan /*eras*/,
+  &kAtcZoneAmerica_Mazatlan /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19039,8 +19593,9 @@ const AtcZoneInfo kAtcZoneMexico_General  = {
   kAtcZoneNameMexico_General /*name*/,
   0x93711d57 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Mexico_City /*eras(info)*/,
+  3 /*numEras*/,
+  kAtcZoneEraAmerica_Mexico_City /*eras*/,
+  &kAtcZoneAmerica_Mexico_City /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19056,8 +19611,9 @@ const AtcZoneInfo kAtcZoneNZ  = {
   kAtcZoneNameNZ /*name*/,
   0x005974ad /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Auckland /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Auckland /*eras*/,
+  &kAtcZonePacific_Auckland /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19073,8 +19629,9 @@ const AtcZoneInfo kAtcZoneNZ_CHAT  = {
   kAtcZoneNameNZ_CHAT /*name*/,
   0x4d42afda /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Chatham /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Chatham /*eras*/,
+  &kAtcZonePacific_Chatham /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19090,8 +19647,9 @@ const AtcZoneInfo kAtcZoneNavajo  = {
   kAtcZoneNameNavajo /*name*/,
   0xc4ef0e24 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Denver /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Denver /*eras*/,
+  &kAtcZoneAmerica_Denver /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19107,8 +19665,9 @@ const AtcZoneInfo kAtcZonePRC  = {
   kAtcZoneNamePRC /*name*/,
   0x0b88120a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Shanghai /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Shanghai /*eras*/,
+  &kAtcZoneAsia_Shanghai /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19124,8 +19683,9 @@ const AtcZoneInfo kAtcZonePacific_Chuuk  = {
   kAtcZoneNamePacific_Chuuk /*name*/,
   0x8a090b23 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Port_Moresby /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Port_Moresby /*eras*/,
+  &kAtcZonePacific_Port_Moresby /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19141,8 +19701,9 @@ const AtcZoneInfo kAtcZonePacific_Enderbury  = {
   kAtcZoneNamePacific_Enderbury /*name*/,
   0x61599a93 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Kanton /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Kanton /*eras*/,
+  &kAtcZonePacific_Kanton /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19158,8 +19719,9 @@ const AtcZoneInfo kAtcZonePacific_Funafuti  = {
   kAtcZoneNamePacific_Funafuti /*name*/,
   0xdb402d65 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Tarawa /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Tarawa /*eras*/,
+  &kAtcZonePacific_Tarawa /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19175,8 +19737,9 @@ const AtcZoneInfo kAtcZonePacific_Johnston  = {
   kAtcZoneNamePacific_Johnston /*name*/,
   0xb15d7b36 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Honolulu /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Honolulu /*eras*/,
+  &kAtcZonePacific_Honolulu /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19192,8 +19755,9 @@ const AtcZoneInfo kAtcZonePacific_Majuro  = {
   kAtcZoneNamePacific_Majuro /*name*/,
   0xe1f95371 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Tarawa /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Tarawa /*eras*/,
+  &kAtcZonePacific_Tarawa /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19209,8 +19773,9 @@ const AtcZoneInfo kAtcZonePacific_Midway  = {
   kAtcZoneNamePacific_Midway /*name*/,
   0xe286d38e /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Pago_Pago /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Pago_Pago /*eras*/,
+  &kAtcZonePacific_Pago_Pago /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19226,8 +19791,9 @@ const AtcZoneInfo kAtcZonePacific_Pohnpei  = {
   kAtcZoneNamePacific_Pohnpei /*name*/,
   0x28929f96 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Guadalcanal /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Guadalcanal /*eras*/,
+  &kAtcZonePacific_Guadalcanal /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19243,8 +19809,9 @@ const AtcZoneInfo kAtcZonePacific_Ponape  = {
   kAtcZoneNamePacific_Ponape /*name*/,
   0xe9f80086 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Guadalcanal /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Guadalcanal /*eras*/,
+  &kAtcZonePacific_Guadalcanal /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19260,8 +19827,9 @@ const AtcZoneInfo kAtcZonePacific_Saipan  = {
   kAtcZoneNamePacific_Saipan /*name*/,
   0xeff7a35f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Guam /*eras(info)*/,
+  2 /*numEras*/,
+  kAtcZoneEraPacific_Guam /*eras*/,
+  &kAtcZonePacific_Guam /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19277,8 +19845,9 @@ const AtcZoneInfo kAtcZonePacific_Samoa  = {
   kAtcZoneNamePacific_Samoa /*name*/,
   0x8b2699b4 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Pago_Pago /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Pago_Pago /*eras*/,
+  &kAtcZonePacific_Pago_Pago /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19294,8 +19863,9 @@ const AtcZoneInfo kAtcZonePacific_Truk  = {
   kAtcZoneNamePacific_Truk /*name*/,
   0x234010a9 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Port_Moresby /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Port_Moresby /*eras*/,
+  &kAtcZonePacific_Port_Moresby /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19311,8 +19881,9 @@ const AtcZoneInfo kAtcZonePacific_Wake  = {
   kAtcZoneNamePacific_Wake /*name*/,
   0x23416c2b /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Tarawa /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Tarawa /*eras*/,
+  &kAtcZonePacific_Tarawa /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19328,8 +19899,9 @@ const AtcZoneInfo kAtcZonePacific_Wallis  = {
   kAtcZoneNamePacific_Wallis /*name*/,
   0xf94ddb0f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Tarawa /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Tarawa /*eras*/,
+  &kAtcZonePacific_Tarawa /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19345,8 +19917,9 @@ const AtcZoneInfo kAtcZonePacific_Yap  = {
   kAtcZoneNamePacific_Yap /*name*/,
   0xbb40138d /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Port_Moresby /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Port_Moresby /*eras*/,
+  &kAtcZonePacific_Port_Moresby /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19362,8 +19935,9 @@ const AtcZoneInfo kAtcZonePoland  = {
   kAtcZoneNamePoland /*name*/,
   0xca913b23 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Warsaw /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Warsaw /*eras*/,
+  &kAtcZoneEurope_Warsaw /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19379,8 +19953,9 @@ const AtcZoneInfo kAtcZonePortugal  = {
   kAtcZoneNamePortugal /*name*/,
   0xc3274593 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Lisbon /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEurope_Lisbon /*eras*/,
+  &kAtcZoneEurope_Lisbon /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19396,8 +19971,9 @@ const AtcZoneInfo kAtcZoneROC  = {
   kAtcZoneNameROC /*name*/,
   0x0b881a29 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Taipei /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Taipei /*eras*/,
+  &kAtcZoneAsia_Taipei /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19413,8 +19989,9 @@ const AtcZoneInfo kAtcZoneROK  = {
   kAtcZoneNameROK /*name*/,
   0x0b881a31 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Seoul /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Seoul /*eras*/,
+  &kAtcZoneAsia_Seoul /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19430,8 +20007,9 @@ const AtcZoneInfo kAtcZoneSingapore  = {
   kAtcZoneNameSingapore /*name*/,
   0xa8598c8d /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAsia_Singapore /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAsia_Singapore /*eras*/,
+  &kAtcZoneAsia_Singapore /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19447,8 +20025,9 @@ const AtcZoneInfo kAtcZoneTurkey  = {
   kAtcZoneNameTurkey /*name*/,
   0xd455e469 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Istanbul /*eras(info)*/,
+  9 /*numEras*/,
+  kAtcZoneEraEurope_Istanbul /*eras*/,
+  &kAtcZoneEurope_Istanbul /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19464,8 +20043,9 @@ const AtcZoneInfo kAtcZoneUCT  = {
   kAtcZoneNameUCT /*name*/,
   0x0b882571 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEtc_UTC /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEtc_UTC /*eras*/,
+  &kAtcZoneEtc_UTC /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19481,8 +20061,9 @@ const AtcZoneInfo kAtcZoneUS_Alaska  = {
   kAtcZoneNameUS_Alaska /*name*/,
   0xfa300bc9 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Anchorage /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Anchorage /*eras*/,
+  &kAtcZoneAmerica_Anchorage /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19498,8 +20079,9 @@ const AtcZoneInfo kAtcZoneUS_Aleutian  = {
   kAtcZoneNameUS_Aleutian /*name*/,
   0x4fe013ef /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Adak /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Adak /*eras*/,
+  &kAtcZoneAmerica_Adak /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19515,8 +20097,9 @@ const AtcZoneInfo kAtcZoneUS_Arizona  = {
   kAtcZoneNameUS_Arizona /*name*/,
   0x4ec52670 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Phoenix /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Phoenix /*eras*/,
+  &kAtcZoneAmerica_Phoenix /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19532,8 +20115,9 @@ const AtcZoneInfo kAtcZoneUS_Central  = {
   kAtcZoneNameUS_Central /*name*/,
   0xcabdcb25 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Chicago /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Chicago /*eras*/,
+  &kAtcZoneAmerica_Chicago /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19549,8 +20133,9 @@ const AtcZoneInfo kAtcZoneUS_East_Indiana  = {
   kAtcZoneNameUS_East_Indiana /*name*/,
   0x6dcf558a /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Indiana_Indianapolis /*eras(info)*/,
+  2 /*numEras*/,
+  kAtcZoneEraAmerica_Indiana_Indianapolis /*eras*/,
+  &kAtcZoneAmerica_Indiana_Indianapolis /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19566,8 +20151,9 @@ const AtcZoneInfo kAtcZoneUS_Eastern  = {
   kAtcZoneNameUS_Eastern /*name*/,
   0x5bb7e78e /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_New_York /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_New_York /*eras*/,
+  &kAtcZoneAmerica_New_York /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19583,8 +20169,9 @@ const AtcZoneInfo kAtcZoneUS_Hawaii  = {
   kAtcZoneNameUS_Hawaii /*name*/,
   0x09c8de2f /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Honolulu /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Honolulu /*eras*/,
+  &kAtcZonePacific_Honolulu /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19600,8 +20187,9 @@ const AtcZoneInfo kAtcZoneUS_Indiana_Starke  = {
   kAtcZoneNameUS_Indiana_Starke /*name*/,
   0x67977be7 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Indiana_Knox /*eras(info)*/,
+  2 /*numEras*/,
+  kAtcZoneEraAmerica_Indiana_Knox /*eras*/,
+  &kAtcZoneAmerica_Indiana_Knox /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19617,8 +20205,9 @@ const AtcZoneInfo kAtcZoneUS_Michigan  = {
   kAtcZoneNameUS_Michigan /*name*/,
   0x766bb7bc /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Detroit /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Detroit /*eras*/,
+  &kAtcZoneAmerica_Detroit /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19634,8 +20223,9 @@ const AtcZoneInfo kAtcZoneUS_Mountain  = {
   kAtcZoneNameUS_Mountain /*name*/,
   0x6eb88247 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Denver /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Denver /*eras*/,
+  &kAtcZoneAmerica_Denver /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19651,8 +20241,9 @@ const AtcZoneInfo kAtcZoneUS_Pacific  = {
   kAtcZoneNameUS_Pacific /*name*/,
   0xa950f6ab /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneAmerica_Los_Angeles /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraAmerica_Los_Angeles /*eras*/,
+  &kAtcZoneAmerica_Los_Angeles /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19668,8 +20259,9 @@ const AtcZoneInfo kAtcZoneUS_Samoa  = {
   kAtcZoneNameUS_Samoa /*name*/,
   0x566821cd /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZonePacific_Pago_Pago /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraPacific_Pago_Pago /*eras*/,
+  &kAtcZonePacific_Pago_Pago /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19685,8 +20277,9 @@ const AtcZoneInfo kAtcZoneUTC  = {
   kAtcZoneNameUTC /*name*/,
   0x0b882791 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEtc_UTC /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEtc_UTC /*eras*/,
+  &kAtcZoneEtc_UTC /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19702,8 +20295,9 @@ const AtcZoneInfo kAtcZoneUniversal  = {
   kAtcZoneNameUniversal /*name*/,
   0xd0ff523e /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEtc_UTC /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEtc_UTC /*eras*/,
+  &kAtcZoneEtc_UTC /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19719,8 +20313,9 @@ const AtcZoneInfo kAtcZoneW_SU  = {
   kAtcZoneNameW_SU /*name*/,
   0x7c8d8ef1 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEurope_Moscow /*eras(info)*/,
+  3 /*numEras*/,
+  kAtcZoneEraEurope_Moscow /*eras*/,
+  &kAtcZoneEurope_Moscow /*targetInfo*/,
 };
 
 //---------------------------------------------------------------------------
@@ -19736,8 +20331,9 @@ const AtcZoneInfo kAtcZoneZulu  = {
   kAtcZoneNameZulu /*name*/,
   0x7c9069b5 /*zoneId*/,
   &kAtcZoneContext /*zoneContext*/,
-  0 /*numEras*/,
-  &kAtcZoneEtc_UTC /*eras(info)*/,
+  1 /*numEras*/,
+  kAtcZoneEraEtc_UTC /*eras*/,
+  &kAtcZoneEtc_UTC /*targetInfo*/,
 };
 
 

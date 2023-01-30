@@ -177,10 +177,9 @@ uint8_t atc_processor_find_matches(
 {
   uint8_t i_match = 0;
   AtcMatchingEra *prev_match = NULL;
-  // Support both normal Zones and Links using accessors.
-  uint8_t num_eras = atc_zone_info_num_eras(zone_info);
+  uint8_t num_eras = zone_info->num_eras;
   for (uint8_t i_era = 0; i_era < num_eras; i_era++) {
-    const AtcZoneEra *era = atc_zone_info_era(zone_info, i_era);
+    const AtcZoneEra *era = &zone_info->eras[i_era];
     if (atc_era_overlaps_interval(
         (prev_match ? prev_match->era : NULL),
         era, start_ym, until_ym)) {

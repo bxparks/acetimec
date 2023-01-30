@@ -172,6 +172,7 @@ static const AtcZoneInfo kZoneAlmostLosAngeles = {
   &kZoneContext /*zoneContext*/,
   3 /*numEras*/,
   kZoneEraAlmostLosAngeles /*eras*/,
+  NULL /*target_info*/
 };
 
 //---------------------------------------------------------------------------
@@ -271,6 +272,7 @@ static const AtcZoneInfo kZoneTestLosAngeles = {
   &kZoneContext /*zoneContext*/,
   1 /*numEras*/,
   kZoneEraTestLos_Angeles /*eras*/,
+  NULL /*target_info*/
 };
 
 //---------------------------------------------------------------------------
