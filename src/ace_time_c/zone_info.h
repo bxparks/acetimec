@@ -343,19 +343,6 @@ typedef struct AtcZoneInfo {
 
 //---------------------------------------------------------------------------
 
-/**
- * A LINK to ZONE mapping, using the zoneId/linkId hash key.
- */
-typedef struct AtcLinkEntry {
-  /** Hash id of the source LINK name (e.g. "US/Pacific"). */
-  uint32_t const link_id;
-
-  /** Hash id of the target ZONE name (e.g. "America/Los_Angeles"). */
-  uint32_t const zone_id;
-} AtcLinkEntry;
-
-//---------------------------------------------------------------------------
-
 #ifdef __cplusplus
 }
 #endif

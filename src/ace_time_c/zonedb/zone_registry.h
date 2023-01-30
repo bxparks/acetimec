@@ -45,10 +45,6 @@ extern const AtcZoneInfo * const kAtcZoneRegistry[351];
 #define kAtcZoneAndLinkRegistrySize 596
 extern const AtcZoneInfo * const kAtcZoneAndLinkRegistry[596];
 
-// Link Entries
-#define kAtcLinkRegistrySize 245
-extern const AtcLinkEntry kAtcLinkRegistry[245];
-
 #ifdef __cplusplus
 }
 #endif
