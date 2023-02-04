@@ -132,8 +132,11 @@ uint8_t atc_date_tuple_compare_fuzzy(
 
 //---------------------------------------------------------------------------
 
-void atc_transition_storage_init(AtcTransitionStorage *ts)
+void atc_transition_storage_init(
+    AtcTransitionStorage *ts, const AtcZoneInfo *zone_info)
 {
+  ts->zone_info = zone_info;
+
   for (int i = 0; i < kAtcTransitionStorageSize; i++) {
     ts->transitions[i] = &ts->transition_pool[i];
   }
@@ -301,38 +304,6 @@ void atc_transition_fix_times(
         &curr->transition_time_u);
     prev = curr;
   }
-}
-
-const char *atc_transition_extract_letter(const AtcTransition *t)
-{
-  // RULES column is '-' or hh:mm, so return NULL to indicate this.
-  if (t->rule == NULL) {
-    return NULL;
-  }
-
-  // RULES point to a named rule, and LETTER is a single, printable character.
-  // Return the letter_buf which contains a NUL-terminated string containing the
-  // single character, as initialized in
-  // atc_processor_create_transition_for_year().
-  char letter = t->rule->letter;
-  if (letter >= 32) {
-    return t->letter_buf;
-  }
-
-  // RULES points to a named rule, and the LETTER is a string. The
-  // rule->letter is a non-printable number < 32, which is an index into
-  // a list of strings given by match->era->zonePolicy->letters[].
-  const AtcZonePolicy *policy = t->match->era->zone_policy;
-  uint8_t num_letters = policy->num_letters;
-  if (letter >= num_letters) {
-    // This should never happen unless there is a programming error. If it
-    // does, return an empty string. (createTransitionForYear() sets
-    // letterBuf to a NUL terminated empty string if rule->letter < 32)
-    return t->letter_buf;
-  }
-
-  // Return the string at index 'rule->letter'.
-  return policy->letters[(uint8_t) letter];
 }
 
 //---------------------------------------------------------------------------

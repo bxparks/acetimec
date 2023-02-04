@@ -122,27 +122,22 @@ typedef struct AtcZoneRule {
   int8_t const delta_code;
 
   /**
-   * Determined by the LETTER column. Determines the substitution into the '%s'
-   * field (implemented here by just a '%') of the ZoneInfo::format field.
-   * Possible values are 'S', 'D', '-', or a number < 32 (i.e. a non-printable
-   * character). If the value is < 32, then this number is an index offset into
-   * the ZonePolicy.letters[] array which contains a (const char*) of the
-   * actual multi-character letter.
+   * An index into an array of strings defined by AtcZoneContext.letters. The
+   * string comes from Rule.LETTER column. Most letter values are single
+   * character strings (e.g. "S", "D", and ""). But a small number of zones have
+   * LETTER columsn with multiple characters (e.g. "CST", "+00"). The string is
+   * substituted into the '%s' field (implemented in AceTimeC by just a '%') of
+   * the AtcZoneInfo.format field (e.g. "P%T", "M%T").
    *
-   * BasicZoneProcessor supports only a single LETTER value (i.e. >= 32), which
-   * also means that ZonePolicy.num_letters will always be 0 for a
-   * BasicZoneProcessor. ExtendedZoenProcessor supports a LETTER value of < 32,
-   * indicating a multi-character string.
-   *
-   * As of TZ DB version 2018i, there are 4 ZonePolicies which have ZoneRules
-   * with a LETTER field longer than 1 character:
+   * As of TZ DB version 2018i, 4 ZonePolicies have ZoneRules with a LETTER
+   * field longer than 1 character:
    *
    *  - Belize ('CST'; used by America/Belize)
    *  - Namibia ('WAT', 'CAT'; used by Africa/Windhoek)
    *  - StJohns ('DD'; used by America/St_Johns and America/Goose_Bay)
    *  - Troll ('+00' '+02'; used by Antarctica/Troll)
    */
-  uint8_t const letter;
+  uint8_t const letter_index;
 } AtcZoneRule;
 
 /**
@@ -159,14 +154,8 @@ typedef struct AtcZonePolicy {
   /** Pointer to array of rules. */
   const AtcZoneRule* const rules;
 
-  /** Pointer to an array of DST letters (e.g. "D", "S"). */
-  const char* const* const letters;
-
   /** Number of rules in array. */
   uint8_t const num_rules;
-
-  /** Number of letters in array. */
-  uint8_t const num_letters;
 } AtcZonePolicy;
 
 //---------------------------------------------------------------------------
@@ -196,9 +185,17 @@ typedef struct AtcZoneContext {
   /** Number of fragments. */
   uint8_t num_fragments;
 
+  /** Number of letters. */
+  uint8_t num_letters;
+
   /** Zone Name fragment list. */
   const char * const *fragments;
+
+  /** Zone letters list (e.g. "", "D", "S"). */
+  const char * const *letters;
 } AtcZoneContext;
+
+//---------------------------------------------------------------------------
 
 /**
  * An entry in ZoneInfo which describes which ZonePolicy was being followed
