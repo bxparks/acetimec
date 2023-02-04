@@ -283,7 +283,7 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
     0 /*offset_minutes*/,
     0 /*delta_minutes*/,
     {0} /*abbrev*/,
-    {0} /*letter_buf*/,
+    NULL /*letter*/,
     {0} /*match_status*/
   };
   uint8_t status = atc_transition_compare_to_match_fuzzy(&transition, &match);
@@ -299,7 +299,7 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
     0 /*offset_minutes*/,
     0 /*delta_minutes*/,
     {0} /*abbrev*/,
-    {0} /*letter_buf*/,
+    NULL /*letter*/,
     {0} /*match_status*/
   };
   status = atc_transition_compare_to_match_fuzzy(&transition, &match);
@@ -315,7 +315,7 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
     0 /*offset_minutes*/,
     0 /*delta_minutes*/,
     {0} /*abbrev*/,
-    {0} /*letter_buf*/,
+    NULL /*letter*/,
     {0} /*match_status*/
   };
   status = atc_transition_compare_to_match_fuzzy(&transition, &match);
@@ -331,7 +331,7 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
     0 /*offset_minutes*/,
     0 /*delta_minutes*/,
     {0} /*abbrev*/,
-    {0} /*letter_buf*/,
+    NULL /*letter*/,
     {0} /*match_status*/
   };
   status = atc_transition_compare_to_match_fuzzy(&transition, &match);
@@ -347,7 +347,7 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
     0 /*offset_minutes*/,
     0 /*delta_minutes*/,
     {0} /*abbrev*/,
-    {0} /*letter_buf*/,
+    NULL /*letter*/,
     {0} /*match_status*/
   };
   status = atc_transition_compare_to_match_fuzzy(&transition, &match);
@@ -386,7 +386,7 @@ ACU_TEST(test_atc_transition_compare_to_match)
     {1999, 12, 31, 0, kAtcSuffixW} /*transitionTime*/,
     {{0, 0, 0, 0, 0}},
     {{0, 0, 0, 0, 0}},
-    0, 0, 0, {0}, {0},
+    0, 0, 0, {0}, NULL /*letter*/,
     {0}
   };
 
@@ -397,7 +397,7 @@ ACU_TEST(test_atc_transition_compare_to_match)
     {2000, 1, 1, 0, kAtcSuffixW} /*transitionTime*/,
     {{0, 0, 0, 0, 0}},
     {{0, 0, 0, 0, 0}},
-    0, 0, 0, {0}, {0},
+    0, 0, 0, {0}, NULL /*letter*/,
     {0}
   };
 
@@ -408,7 +408,7 @@ ACU_TEST(test_atc_transition_compare_to_match)
     {2000, 1, 2, 0, kAtcSuffixW} /*transitionTime*/,
     {{0, 0, 0, 0, 0}},
     {{0, 0, 0, 0, 0}},
-    0, 0, 0, {0}, {0},
+    0, 0, 0, {0}, NULL /*letter*/,
     {0}
   };
 
@@ -419,7 +419,7 @@ ACU_TEST(test_atc_transition_compare_to_match)
     {2001, 2, 3, 0, kAtcSuffixW} /*transitionTime*/,
     {{0, 0, 0, 0, 0}},
     {{0, 0, 0, 0, 0}},
-    0, 0, 0, {0}, {0},
+    0, 0, 0, {0}, NULL /*letter*/,
     {0}
   };
 
@@ -450,7 +450,7 @@ ACU_TEST(test_atc_transition_compare_to_match)
 
 ACU_TEST(test_atc_transition_storage_add_free_agent_to_active_pool) {
   AtcTransitionStorage ts;
-  atc_transition_storage_init(&ts);
+  atc_transition_storage_init(&ts, NULL /*zone_info*/);
 
   AtcTransition *free_agent = atc_transition_storage_get_free_agent(&ts);
   ACU_ASSERT(free_agent == &ts.transition_pool[0]);
@@ -483,7 +483,7 @@ ACU_TEST(test_atc_transition_storage_add_free_agent_to_active_pool) {
 
 ACU_TEST(test_atc_transition_storage_add_free_agent_to_candidate_pool) {
   AtcTransitionStorage ts;
-  atc_transition_storage_init(&ts);
+  atc_transition_storage_init(&ts, NULL /*zone_info*/);
 
   // Add the first one to active
   AtcTransition *free_agent = atc_transition_storage_get_free_agent(&ts);
@@ -518,7 +518,7 @@ ACU_TEST(test_atc_transition_storage_add_free_agent_to_candidate_pool) {
 
 ACU_TEST(test_atc_transition_storage_reserve_prior) {
   AtcTransitionStorage ts;
-  atc_transition_storage_init(&ts);
+  atc_transition_storage_init(&ts, NULL /*zone_info*/);
 
   AtcTransition** prior = atc_transition_storage_reserve_prior(&ts);
   ACU_ASSERT(prior == &ts.transitions[0]);
@@ -529,7 +529,7 @@ ACU_TEST(test_atc_transition_storage_reserve_prior) {
 
 ACU_TEST(test_atc_transition_storage_add_prior_to_candidate_pool) {
   AtcTransitionStorage ts;
-  atc_transition_storage_init(&ts);
+  atc_transition_storage_init(&ts, NULL /*zone_info*/);
 
   AtcTransition** prior = atc_transition_storage_reserve_prior(&ts);
   ACU_ASSERT(prior == &ts.transitions[0]);
@@ -545,7 +545,7 @@ ACU_TEST(test_atc_transition_storage_add_prior_to_candidate_pool) {
 
 ACU_TEST(test_atc_transition_storage_set_free_agent_as_prior_if_valid) {
   AtcTransitionStorage ts;
-  atc_transition_storage_init(&ts);
+  atc_transition_storage_init(&ts, NULL /*zone_info*/);
 
   // Initial prior
   AtcTransition** prior_reservation =
@@ -609,7 +609,7 @@ ACU_TEST(test_atc_transition_storage_set_free_agent_as_prior_if_valid) {
 
 ACU_TEST(test_atc_transition_storage_add_active_candidates_to_active_pool) {
   AtcTransitionStorage ts;
-  atc_transition_storage_init(&ts);
+  atc_transition_storage_init(&ts, NULL /*zone_info*/);
 
   // create Prior to make it interesting
   AtcTransition** prior = atc_transition_storage_reserve_prior(&ts);
@@ -650,7 +650,7 @@ ACU_TEST(test_atc_transition_storage_add_active_candidates_to_active_pool) {
 ACU_TEST(test_atc_transition_storage_reset_candidate_pool)
 {
   AtcTransitionStorage ts;
-  atc_transition_storage_init(&ts);
+  atc_transition_storage_init(&ts, NULL /*zone_info*/);
 
   // Add 2 transitions to Candidate pool, 2 active, 1 inactive.
   AtcTransition* free_agent = atc_transition_storage_get_free_agent(&ts);
