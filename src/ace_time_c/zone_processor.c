@@ -219,34 +219,24 @@ void atc_processor_get_transition_time(
 void atc_processor_create_transition_for_year(
     AtcTransition *t,
     int16_t year,
-    const AtcZoneRule *rule,
-    const AtcMatchingEra *match)
+    const AtcZoneRule *rule /*nullable*/,
+    const AtcMatchingEra *match,
+    const char * const *letters /*nullable*/)
 {
   t->match = match;
   t->rule = rule;
   t->offset_minutes = atc_zone_era_std_offset_minutes(match->era);
-  t->letter_buf[0] = '\0';
 
   if (rule) {
     atc_processor_get_transition_time(year, rule, &t->transition_time);
     t->delta_minutes = atc_zone_rule_dst_offset_minutes(rule);
-    char letter = rule->letter;
-    if (letter >= 32) {
-      // If LETTER is a '-', treat it the same as an empty string.
-      if (letter != '-') {
-        t->letter_buf[0] = letter;
-        t->letter_buf[1] = '\0';
-      }
-    } else {
-      // rule->letter is a long string, so is referenced as an offset index into
-      // the ZonePolicy.letters array. The string cannot fit in letter_buf, so
-      // will be retrieved by the atc_processor_long_letter() function.
-    }
+    t->letter = letters[rule->letter_index];
   } else {
     // Create a Transition using the MatchingEra for the transitionTime.
     // Used for simple MatchingEra.
     t->transition_time = match->start_dt;
     t->delta_minutes = atc_zone_era_dst_offset_minutes(match->era);
+    t->letter = "";
   }
 }
 
@@ -255,7 +245,8 @@ void atc_processor_create_transitions_from_simple_match(
     AtcMatchingEra *match)
 {
   AtcTransition *free_agent = atc_transition_storage_get_free_agent(ts);
-  atc_processor_create_transition_for_year(free_agent, 0, NULL, match);
+  atc_processor_create_transition_for_year(
+      free_agent, 0 /*year*/, NULL /*rule*/, match, NULL /*letters*/);
   free_agent->match_status = kAtcMatchStatusExactMatch;
   match->last_offset_minutes = free_agent->offset_minutes;
   match->last_delta_minutes = free_agent->delta_minutes;
@@ -313,6 +304,7 @@ void atc_processor_find_candidate_transitions(
 
   AtcTransition **prior = atc_transition_storage_reserve_prior(ts);
   (*prior)->is_valid_prior = false;
+  const char* const* letters = ts->zone_info->zone_context->letters;
   for (uint8_t r = 0; r < num_rules; r++) {
     const AtcZoneRule *rule = &policy->rules[r];
 
@@ -328,7 +320,7 @@ void atc_processor_find_candidate_transitions(
     for (uint8_t y = 0; y < num_years; y++) {
       int16_t year = interior_years[y];
       AtcTransition *t = atc_transition_storage_get_free_agent(ts);
-      atc_processor_create_transition_for_year(t, year, rule, match);
+      atc_processor_create_transition_for_year(t, year, rule, match, letters);
       uint8_t status = atc_transition_compare_to_match_fuzzy(t, match);
       if (status == kAtcMatchStatusPrior) {
         atc_transition_storage_set_free_agent_as_prior_if_valid(ts);
@@ -346,7 +338,8 @@ void atc_processor_find_candidate_transitions(
         start_year, end_year);
     if (prior_year != kAtcInvalidYear) {
       AtcTransition *t = atc_transition_storage_get_free_agent(ts);
-      atc_processor_create_transition_for_year(t, prior_year, rule, match);
+      atc_processor_create_transition_for_year(
+          t, prior_year, rule, match, letters);
       atc_transition_storage_set_free_agent_as_prior_if_valid(ts);
     }
   }
@@ -539,11 +532,11 @@ void atc_processor_generate_start_until_times(
 //---------------------------------------------------------------------------
 
 void atc_processor_create_abbreviation(
-    char* dest,
+    char *dest,
     uint8_t dest_size,
-    const char* format,
+    const char *format,
     int16_t delta_minutes,
-    const char* letter_string) {
+    const char *letter_string) {
 
   // Check if FORMAT contains a '%'.
   if (strchr(format, '%') != NULL) {
@@ -589,7 +582,7 @@ void atc_processor_calc_abbreviations(
         kAtcAbbrevSize,
         t->match->era->format,
         t->delta_minutes,
-        atc_transition_extract_letter(t));
+        t->letter);
   }
 }
 
@@ -624,7 +617,7 @@ int8_t atc_processor_init_for_year(
 
   processor->year = year;
   processor->num_matches = 0;
-  atc_transition_storage_init(&processor->transition_storage);
+  atc_transition_storage_init(&processor->transition_storage, zone_info);
   const AtcZoneContext *context = processor->zone_info->zone_context;
   if (year < context->start_year - 1 || context->until_year < year) {
     return kAtcErrGeneric;

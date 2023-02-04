@@ -220,7 +220,7 @@ typedef struct AtcTransition {
   char abbrev[kAtcAbbrevSize];
 
   /** Storage for the single letter 'letter' field if 'rule' is not null. */
-  char letter_buf[2];
+  const char *letter;
 
   union {
     /**
@@ -243,6 +243,12 @@ typedef struct AtcTransition {
 
 /** The list of transitions for a given time zone. */
 typedef struct AtcTransitionStorage {
+  /**
+   * Pointer to the AtcZoneInfo that this TransitionStorage describes. Needed
+   * to access the AtcZoneInfo.letters array.
+   */
+  const AtcZoneInfo *zone_info;
+
   /** A pool of AtcTransition objects. */
   AtcTransition transition_pool[kAtcTransitionStorageSize];
   /** Pointers into the pool of AtcTransition objects. */
@@ -259,7 +265,8 @@ typedef struct AtcTransitionStorage {
 } AtcTransitionStorage;
 
 /** Initialize the Transition Storage. Should be called once for a given app. */
-void atc_transition_storage_init(AtcTransitionStorage *ts);
+void atc_transition_storage_init(
+    AtcTransitionStorage *ts, const AtcZoneInfo* zone_info);
 
 /** Return the begin iterator of the 'candidate' transitions. */
 AtcTransition **atc_transition_storage_get_candidate_pool_begin(
@@ -348,13 +355,6 @@ AtcTransition *atc_transition_storage_add_active_candidates_to_active_pool(
     AtcTransitionStorage *ts);
 
 //---------------------------------------------------------------------------
-
-/**
- * Return the letter string. Returns NULL if the RULES column is empty
- * since that means that the ZoneRule is not used, which means LETTER does
- * not exist. A LETTER of '-' is returned as an empty string "".
- */
-const char *atc_transition_extract_letter(const AtcTransition *t);
 
 /**
  * Normalize the transition_time* fields of the array of Transition objects.

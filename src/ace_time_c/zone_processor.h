@@ -275,7 +275,8 @@ void atc_processor_create_transition_for_year(
     AtcTransition *t,
     int16_t year,
     const AtcZoneRule *rule,
-    const AtcMatchingEra *match);
+    const AtcMatchingEra *match,
+    const char * const *letters /*nullable*/);
 
 /**
  * Evaluate the given 'match' and add candidate AtcTransitions into the
@@ -289,6 +290,12 @@ void atc_processor_find_candidate_transitions(
 void atc_processor_process_transition_match_status(
     AtcTransition *transition,
     AtcTransition **prior);
+
+/** Create transitions for all the MatchingEras */
+void atc_processor_create_transitions(
+  AtcTransitionStorage *ts,
+  AtcMatchingEra *matches,
+  uint8_t num_matches);
 
 /** Create active transitions for the given match. */
 void atc_processor_create_transitions_for_match(
@@ -317,11 +324,11 @@ void atc_processor_calc_abbreviations(
 
 /** Compute the time zone abbreviation for the given parameters. */
 void atc_processor_create_abbreviation(
-    char* dest,
+    char *dest,
     uint8_t dest_size,
-    const char* format,
+    const char *format,
     int16_t delta_minutes,
-    const char* letter_string);
+    const char *letter_string);
 
 //---------------------------------------------------------------------------
 
