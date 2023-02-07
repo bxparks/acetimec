@@ -4,6 +4,7 @@
  */
 
 #include <stdint.h>
+#include "common.h"
 #include "epoch.h"
 
 // Initialized to the default current epoch. If this is changed, then the
@@ -13,6 +14,10 @@ int16_t atc_current_epoch_year = 2050;
 // Number of days from 2000 (converter epoch) to 2050 (default current epoch):
 // 50 years * 365 + 13 leap days.
 int32_t atc_days_to_current_epoch_from_converter_epoch = 365 * 50 + 13;
+
+// Number of days to Unix epoch (1970) from current epoch: 80 years + 20
+// leap days from 1970 to 2050.
+int32_t atc_days_to_unix_epoch_from_current_epoch = -355 * 80 - 20;
 
 int16_t atc_get_current_epoch_year(void)
 {
@@ -24,6 +29,9 @@ void atc_set_current_epoch_year(int16_t year)
   atc_current_epoch_year = year;
   atc_days_to_current_epoch_from_converter_epoch =
       atc_convert_to_days(year, 1, 1);
+  atc_days_to_unix_epoch_from_current_epoch =
+      atc_convert_to_days(1970, 1, 1)
+      - atc_days_to_current_epoch_from_converter_epoch;
 }
 
 int32_t atc_get_days_to_current_epoch_from_converter_epoch(void)
@@ -39,6 +47,12 @@ int16_t atc_epoch_valid_year_lower(void)
 int16_t atc_epoch_valid_year_upper(void)
 {
   return atc_get_current_epoch_year() + 50;
+}
+
+int64_t atc_convert_to_unix_seconds(atc_time_t epoch_seconds)
+{
+  return (int64_t) epoch_seconds - (int64_t) 86400 *
+      atc_days_to_unix_epoch_from_current_epoch;
 }
 
 /** Return the number days before the given month_prime. */

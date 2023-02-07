@@ -17,6 +17,7 @@
 
 #include <stdbool.h>
 #include <stdint.h>
+#include "common.h"
 
 #ifdef __cplusplus
 extern "C" {
@@ -63,6 +64,9 @@ void atc_set_current_epoch_year(int16_t year);
 
 /** Get number of days from converter epoch to current epoch. */
 int32_t atc_get_days_to_current_epoch_from_converter_epoch(void);
+
+/** Convert epoch seconds to the 64-bit unix seconds from 1970. */
+int64_t atc_convert_to_unix_seconds(atc_time_t epoch_seconds);
 
 /**
  * The smallest year (inclusive) for which calculations involving the 32-bit
