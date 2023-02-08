@@ -89,7 +89,7 @@ int check_zone_names()
   const char doesnotexist[] = "Random/String";
   {
     int local_err = set_time_zone(doesnotexist);
-    if (local_err) {
+    if (! local_err) {
       printf("ERROR: libc time should have returned error for %s\n",
             doesnotexist);
     }
@@ -208,7 +208,7 @@ int check_transitions(const AtcTimeZone *tz)
       if (err) continue;
     }
   }
-  printf("; transitions: %d", num_transitions);
+  printf("Transitions: %d; ", num_transitions);
 
   return err;
 }
@@ -241,7 +241,7 @@ int check_samples(const AtcTimeZone *tz)
       }
     }
   }
-  printf("; samples: %d\n", num_samples);
+  printf("Samples: %d\n", num_samples);
   return kAtcErrOk;
 }
 
@@ -253,7 +253,7 @@ int check_date_components()
   int err = 0;
   for (int i = 0; i < kAtcZoneAndLinkRegistrySize; i++) {
     const AtcZoneInfo *info = kAtcZoneAndLinkRegistry[i];
-    printf("%d: Zone %s", i, info->name);
+    printf("%d: Zone %s: ", i, info->name);
     AtcTimeZone tz = {info, &processor};
 
     err |= check_transitions(&tz);
