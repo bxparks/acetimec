@@ -79,21 +79,21 @@ void setup()
 }
 
 /** Check that the zones and links in AceTimeC are avaiable in libc. */
-uint8_t check_zone_names()
+int check_zone_names()
 {
   printf("==== check_zone_names()\n");
 
-  uint8_t err = 0;
+  int err = 0;
 
   // Check a random zone name returns not-ok
   const char doesnotexist[] = "Random/String";
   {
-    uint8_t local_err = set_time_zone(doesnotexist);
-    if (local_err == 0) {
+    int local_err = set_time_zone(doesnotexist);
+    if (local_err) {
       printf("ERROR: libc time should have returned error for %s\n",
             doesnotexist);
-      err = 1;
     }
+    err |= local_err;
   }
 
   // Check all the zones and links in the AceTimeC zonedb registry.
@@ -101,10 +101,11 @@ uint8_t check_zone_names()
   for (int i = 0; i < kAtcZoneAndLinkRegistrySize; i++) {
     const AtcZoneInfo *info = kAtcZoneAndLinkRegistry[i];
     // Check that the zone name is supported by the current libc.
-    err |= set_time_zone(info->name);
-    if (err) {
+    int local_err = set_time_zone(info->name);
+    if (local_err) {
       printf("ERROR: libc time does not suport Zone %s\n", info->name);
     }
+    err |= local_err;
   }
 
   return err;
@@ -112,7 +113,7 @@ uint8_t check_zone_names()
 
 //-----------------------------------------------------------------------------
 
-uint8_t check_epoch_seconds(const AtcTimeZone *tz, atc_time_t epoch_seconds)
+int check_epoch_seconds(const AtcTimeZone *tz, atc_time_t epoch_seconds)
 {
   // Convert epoch seconds to ZonedDateTime using AceTimeC
   struct AtcZonedDateTime zdt;
@@ -169,11 +170,11 @@ uint8_t check_epoch_seconds(const AtcTimeZone *tz, atc_time_t epoch_seconds)
   return kAtcErrOk;
 }
 
-uint8_t check_transitions(const AtcTimeZone *tz)
+int check_transitions(const AtcTimeZone *tz)
 {
   set_time_zone(tz->zone_info->name);
 
-  uint8_t err = 0;
+  int err = 0;
   int num_transitions = 0;
   for (int16_t year = start_year; year < until_year; ++year) {
     atc_processor_init_for_year(tz->zone_processor, tz->zone_info, year);
@@ -207,13 +208,13 @@ uint8_t check_transitions(const AtcTimeZone *tz)
       if (err) continue;
     }
   }
-  printf("\tNum transitions: %d\n", num_transitions);
+  printf("; transitions: %d", num_transitions);
 
   return err;
 }
 
 // Check sampled dates from start year to until year.
-uint8_t check_samples(const AtcTimeZone *tz)
+int check_samples(const AtcTimeZone *tz)
 {
   int num_samples = 0;
   for (int16_t year = start_year; year < until_year; year++) {
@@ -222,7 +223,7 @@ uint8_t check_samples(const AtcTimeZone *tz)
         AtcZonedDateTime zdt;
         AtcLocalDateTime ldt = {year, month, day, 2, 0, 0, 0 /*fold*/};
 
-        uint8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, tz);
+        int err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, tz);
         if (err) {
           char s[64];
           AtcStringBuffer buf;
@@ -240,19 +241,19 @@ uint8_t check_samples(const AtcTimeZone *tz)
       }
     }
   }
-  printf("\tNum samples: %d\n", num_samples);
+  printf("; samples: %d\n", num_samples);
   return kAtcErrOk;
 }
 
 // Check the DST transitions as determined by AceTimeC.
-uint8_t check_date_components()
+int check_date_components()
 {
   printf("==== check_date_components()\n");
 
-  uint8_t err = 0;
+  int err = 0;
   for (int i = 0; i < kAtcZoneAndLinkRegistrySize; i++) {
     const AtcZoneInfo *info = kAtcZoneAndLinkRegistry[i];
-    printf("%d: Zone %s\n", i, info->name);
+    printf("%d: Zone %s", i, info->name);
     AtcTimeZone tz = {info, &processor};
 
     err |= check_transitions(&tz);
@@ -264,7 +265,7 @@ uint8_t check_date_components()
 int main()
 {
   setup();
-  uint8_t err = check_zone_names();
+  int err = check_zone_names();
   err |= check_date_components();
   return err;
 }
