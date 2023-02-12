@@ -1,23 +1,23 @@
 CFLAGS := -std=c11 -Wall -Wextra -Werror -pedantic
 
 OBJS := \
-	ace_time_c/common.o \
-	ace_time_c/epoch.o \
-	ace_time_c/local_date.o \
-	ace_time_c/local_date_time.o \
-	ace_time_c/local_time.o \
-	ace_time_c/offset_date_time.o \
-	ace_time_c/string_buffer.o \
-	ace_time_c/time_zone.o \
-	ace_time_c/transition.o \
-	ace_time_c/zone_info_utils.o \
-	ace_time_c/zone_processor.o \
-	ace_time_c/zone_registrar.o \
-	ace_time_c/zoned_date_time.o \
-	ace_time_c/zoned_extra.o \
-	ace_time_c/zonedb/zone_infos.o \
-	ace_time_c/zonedb/zone_policies.o \
-	ace_time_c/zonedb/zone_registry.o
+	zoneinfo/zone_info_utils.o \
+	acetimec/common.o \
+	acetimec/epoch.o \
+	acetimec/local_date.o \
+	acetimec/local_date_time.o \
+	acetimec/local_time.o \
+	acetimec/offset_date_time.o \
+	acetimec/string_buffer.o \
+	acetimec/time_zone.o \
+	acetimec/transition.o \
+	acetimec/zone_processor.o \
+	acetimec/zone_registrar.o \
+	acetimec/zoned_date_time.o \
+	acetimec/zoned_extra.o \
+	zonedb/zone_infos.o \
+	zonedb/zone_policies.o \
+	zonedb/zone_registry.o
 
 acetimec.a: $(OBJS)
 	$(AR) -c -v -r $@ $(OBJS)

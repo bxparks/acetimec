@@ -6,7 +6,7 @@ zone_policies.h \
 zone_registry.c \
 zone_registry.h
 
-TOOLS := $(abspath ../../../../AceTimeTools)
+TOOLS := $(abspath ../../../AceTimeTools)
 TZ_REPO := $(abspath $(TOOLS)/../tz)
 TZ_VERSION := 2022g
 START_YEAR := 2000

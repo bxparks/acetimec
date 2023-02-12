@@ -13,8 +13,8 @@
 #define ACE_TIME_C_TRANSITION_H
 
 #include <stdint.h>
+#include "../zoneinfo/zone_info.h" // AtcZoneEra
 #include "common.h" // atc_time_t
-#include "zone_info.h" // AtcZoneEra
 #include "local_date_time.h" // AtcLocalDateTime
 
 #ifdef __cplusplus

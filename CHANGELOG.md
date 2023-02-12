@@ -1,11 +1,21 @@
 # Changelog
 
 * Unreleased
-    * Remove `kAtcLinkRegistry` and support for thin links.
-    * Add `target_info` field to `AtcZoneInfo` to unify fat and symbolic links.
+    * Links
+        * Remove `kAtcLinkRegistry` and support for thin links.
+        * Add `target_info` field to `AtcZoneInfo` to unify fat and symbolic
+          links.
     * Replace `AtcZoneInfo.letter` with `letter_index`.
         * All letter fields are now indexes into `AtcZoneContext.letters` array,
           even the one-character letters.
+    * New directory structure, similar to AceTimeGo library
+        * `src/ace_time_c/` -> `src/acetimec/`
+        * `src/ace_time_c/zone_info.h` -> `src/zoneinfo/*`
+        * `src/ace_time_c/zone_info_utils.h` -> `src/zoneinfo/*`
+        * `src/ace_time_c/zonedb/` -> `src/zonedb/`
+    * Validation
+        * Create `examples/validate_against_libc` to validate against the libc
+          time functions.
 * 0.6.0 (2023-01-17, TZDB 2022g)
     * Migrate to ACUnit v0.1.0.
     * `atc_days_to_current_epoch_from_converter_epoch`

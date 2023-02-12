@@ -14,7 +14,7 @@
 #ifndef ACE_TIME_C_TIME_ZONE_H
 #define ACE_TIME_C_TIME_ZONE_H
 
-#include "zone_info.h"
+#include "../zoneinfo/zone_info.h"
 #include "zone_processor.h"
 
 #ifdef __cplusplus

@@ -15,7 +15,7 @@
 
 #include <stdint.h>
 #include <stdbool.h>
-#include "zone_info.h"
+#include "../zoneinfo/zone_info.h"
 #include "common.h"
 
 #ifdef __cplusplus

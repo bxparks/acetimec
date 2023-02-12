@@ -22,12 +22,6 @@ extern "C" {
 
 //---------------------------------------------------------------------------
 
-/**
- * Define an empty ACE_TIME_C_PROGMEM. May be used in the future to support
- * storing zonedb in flash memory on AVR processors.
- */
-#define ACE_TIME_C_PROGMEM
-
 /** Constants for entries in the zonedb files. */
 enum {
   /**
