@@ -18,6 +18,7 @@
 #include "common.h" // atc_time_t
 #include "../zoneinfo/zone_info.h"
 #include "local_date_time.h" // AtcLocalDateTime
+#include "date_tuple.h" // AtcDateTuple
 #include "transition.h" // AtcTransition, AtcTransitionStorage
 
 #ifdef __cplusplus

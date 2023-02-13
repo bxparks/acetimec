@@ -16,88 +16,11 @@
 #include "../zoneinfo/zone_info.h" // AtcZoneEra
 #include "common.h" // atc_time_t
 #include "local_date_time.h" // AtcLocalDateTime
+#include "date_tuple.h" // AtcDateTuple
 
 #ifdef __cplusplus
 extern "C" {
 #endif
-
-//---------------------------------------------------------------------------
-
-/**
- * An internal simplified version of the AtcDateTime class that uses the
- * (year, month, day, minutes, suffix) fields.
- *
- * The order of 'minutes' and 'suffix' are reversed from the DateTuple class in
- * the AceTime library because C does not support constructors, so the
- * initializer list must be in the same order as the field order. But I have a
- * bunch of code ported from the C++ code in AceTime which assumes that
- * 'minutes' comes before 'suffix'. So it is easier to fix the ordering here.
- *
- * This causes the field alignment to be slightly less than ideal, but the class
- * already consumes 2 x 4-byte slots on 32-bit processors, so the new ordering
- * does not change the overall sizeof(AtcDateTuple).
- */
-typedef struct AtcDateTuple {
-  /** [0,10000] */
-  int16_t year;
-
-  /** [1-12] */
-  uint8_t month;
-
-  /** [1-31] */
-  uint8_t day;
-
-  /** negative values allowed */
-  int16_t minutes;
-
-  /** kAtcSuffixS, kAtcSuffixW, kAtcSuffixU */
-  uint8_t suffix;
-} AtcDateTuple;
-
-/** Compare a to b, ignoring the suffix. */
-int8_t atc_date_tuple_compare(
-    const AtcDateTuple *a,
-    const AtcDateTuple *b);
-
-/** Return (a - b) in number of seconds, ignoring the suffix. */
-atc_time_t atc_date_tuple_subtract(
-    const AtcDateTuple *a,
-    const AtcDateTuple *b);
-
-/** Normalize AtcDateTuple::minutes if its magnitude is more than 24 hours. */
-void atc_date_tuple_normalize(AtcDateTuple *dt);
-
-/**
- * Convert the given 'tt', offsetMinutes, and deltaMinutes into the 'w', 's'
- * and 'u' versions of the AtcDateTuple. It is allowed for 'ttw' to be an alias
- * of 'tt'.
- */
-void atc_date_tuple_expand(
-    const AtcDateTuple *tt,
-    int16_t offset_minutes,
-    int16_t delta_minutes,
-    AtcDateTuple *ttw,
-    AtcDateTuple *tts,
-    AtcDateTuple *ttu);
-
-/**
- * Compare the given 't' with the interval defined by [start, until). The
- * comparison is fuzzy, with a slop of about one month so that we can ignore the
- * day and minutes fields.
- *
- * The following values are returned:
- *
- *  * kAtcMatchStatusPrior if 't' is less than 'start' by at least one month,
- *  * kAtcMatchStatusFarFuture if 't' is greater than 'until' by at least one
- *    month,
- *  * kAtcMatchStatusWithinMatch if 't' is within [start, until) with a one
- *    month slop,
- *  * kAtcMatchStatusExactMatch is never returned.
- */
-uint8_t atc_date_tuple_compare_fuzzy(
-    const AtcDateTuple *t,
-    const AtcDateTuple *start,
-    const AtcDateTuple *until);
 
 //---------------------------------------------------------------------------
 
@@ -371,18 +294,6 @@ void atc_transition_fix_times(
 //---------------------------------------------------------------------------
 
 /**
- * The result of comparing transition of a Transition to the time interval
- * of the corresponding AtcMatchingEra.
- */
-enum {
-  kAtcMatchStatusFarPast, // 0
-  kAtcMatchStatusPrior, // 1
-  kAtcMatchStatusExactMatch, // 2
-  kAtcMatchStatusWithinMatch, // 3
-  kAtcMatchStatusFarFuture, // 4
-};
-
-/**
  * Compare the temporal location of transition compared to the interval
  * defined by  the match. The transition time of the Transition is expanded
  * to include all 3 versions ('w', 's', and 'u') of the time stamp. When
@@ -398,10 +309,10 @@ uint8_t atc_transition_compare_to_match(
  * least one-month of the match.start or match.until.
  *
  * Return:
- *    * kAtcMatchStatusPrior if t less than match by at least one month
- *    * kAtcMatchStatusWithinMatch if t within match,
- *    * kAtcMatchStatusFarFuture if t greater than match by at least one month
- *    * kAtcMatchStatusExactMatch is never returned, we cannot know that t ==
+ *    * kAtcComparePrior if t less than match by at least one month
+ *    * kAtcCompareWithinMatch if t within match,
+ *    * kAtcCompareFarFuture if t greater than match by at least one month
+ *    * kAtcCompareExactMatch is never returned, we cannot know that t ==
  *      match.start
  *
  * Exported for testing.

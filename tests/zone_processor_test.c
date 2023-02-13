@@ -591,19 +591,19 @@ ACU_TEST(test_atc_processor_process_transition_match_status)
   atc_transition_fix_times(&transitions[0], &transitions[4]);
 
   atc_processor_process_transition_match_status(&transition0, &prior);
-  ACU_ASSERT(kAtcMatchStatusPrior == transition0.match_status);
+  ACU_ASSERT(kAtcComparePrior == transition0.match_status);
   ACU_ASSERT(prior == &transition0);
 
   atc_processor_process_transition_match_status(&transition1, &prior);
-  ACU_ASSERT(kAtcMatchStatusExactMatch == transition1.match_status);
+  ACU_ASSERT(kAtcCompareExactMatch == transition1.match_status);
   ACU_ASSERT(prior == &transition1);
 
   atc_processor_process_transition_match_status(&transition2, &prior);
-  ACU_ASSERT(kAtcMatchStatusWithinMatch == transition2.match_status);
+  ACU_ASSERT(kAtcCompareWithinMatch == transition2.match_status);
   ACU_ASSERT(prior == &transition1);
 
   atc_processor_process_transition_match_status(&transition3, &prior);
-  ACU_ASSERT(kAtcMatchStatusFarFuture == transition3.match_status);
+  ACU_ASSERT(kAtcCompareFarFuture == transition3.match_status);
   ACU_ASSERT(prior == &transition1);
 }
 

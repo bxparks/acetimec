@@ -3,6 +3,7 @@ CFLAGS := -std=c11 -Wall -Wextra -Werror -pedantic
 OBJS := \
 	zoneinfo/zone_info_utils.o \
 	acetimec/common.o \
+	acetimec/date_tuple.o \
 	acetimec/epoch.o \
 	acetimec/local_date.o \
 	acetimec/local_date_time.o \

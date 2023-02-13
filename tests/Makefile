@@ -4,6 +4,7 @@ CFLAGS := -std=c11 -Wall -Wextra -Werror -pedantic \
 
 TARGETS := \
 	common_test.out \
+	date_tuple_test.out \
 	epoch_test.out \
 	local_date_test.out \
 	local_date_time_test.out \
@@ -36,6 +37,9 @@ acetimec.a: ../src/acetimec.a
 #-----------------------------------------------------------------------------
 
 common_test.out: common_test.o acetimec.a
+	$(CC) -o $@ $^
+
+date_tuple_test.out: date_tuple_test.o acetimec.a
 	$(CC) -o $@ $^
 
 epoch_test.out: epoch_test.o acetimec.a
@@ -83,6 +87,8 @@ zonedb_test.out: zonedb_test.o acetimec.a
 #-----------------------------------------------------------------------------
 
 common_test.o: common_test.c acetimec.a
+
+date_tuple_test.o: date_tuple_test.c acetimec.a
 
 epoch_test.o: epoch_test.c acetimec.a
 

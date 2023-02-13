@@ -8,6 +8,8 @@
 #include "../zoneinfo/zone_info_utils.h"
 #include "common.h" // atc_copy_replace_string()
 #include "local_date.h" // atc_local_date_days_in_year_month()
+#include "date_tuple.h" // AtcDateTuple
+#include "transition.h" // AtcTransition, AtcTransitionStorage
 #include "zone_processor.h"
 
 //---------------------------------------------------------------------------
@@ -247,7 +249,7 @@ void atc_processor_create_transitions_from_simple_match(
   AtcTransition *free_agent = atc_transition_storage_get_free_agent(ts);
   atc_processor_create_transition_for_year(
       free_agent, 0 /*year*/, NULL /*rule*/, match, NULL /*letters*/);
-  free_agent->match_status = kAtcMatchStatusExactMatch;
+  free_agent->match_status = kAtcCompareExactMatch;
   match->last_offset_minutes = free_agent->offset_minutes;
   match->last_delta_minutes = free_agent->delta_minutes;
   atc_transition_storage_add_free_agent_to_active_pool(ts);
@@ -322,9 +324,9 @@ void atc_processor_find_candidate_transitions(
       AtcTransition *t = atc_transition_storage_get_free_agent(ts);
       atc_processor_create_transition_for_year(t, year, rule, match, letters);
       uint8_t status = atc_transition_compare_to_match_fuzzy(t, match);
-      if (status == kAtcMatchStatusPrior) {
+      if (status == kAtcComparePrior) {
         atc_transition_storage_set_free_agent_as_prior_if_valid(ts);
-      } else if (status == kAtcMatchStatusWithinMatch) {
+      } else if (status == kAtcCompareWithinMatch) {
         atc_transition_storage_add_free_agent_to_candidate_pool(ts);
       } else {
         // Must be kFarFuture.
@@ -363,20 +365,20 @@ void atc_processor_process_transition_match_status(
       transition, transition->match);
   transition->match_status = status;
 
-  if (status == kAtcMatchStatusExactMatch) {
+  if (status == kAtcCompareExactMatch) {
     if (*prior) {
-      (*prior)->match_status = kAtcMatchStatusFarPast;
+      (*prior)->match_status = kAtcCompareFarPast;
     }
     (*prior) = transition;
-  } else if (status == kAtcMatchStatusPrior) {
+  } else if (status == kAtcComparePrior) {
     if (*prior) {
       if (atc_date_tuple_compare(
           &(*prior)->transition_time_u,
           &transition->transition_time_u) <= 0) {
-        (*prior)->match_status = kAtcMatchStatusFarPast;
+        (*prior)->match_status = kAtcCompareFarPast;
         (*prior) = transition;
       } else {
-        transition->match_status = kAtcMatchStatusFarPast;
+        transition->match_status = kAtcCompareFarPast;
       }
     } else {
       (*prior) = transition;
