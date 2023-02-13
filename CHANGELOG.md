@@ -1,6 +1,7 @@
 # Changelog
 
 * Unreleased
+* 0.7.0 (2023-02-12, TZDB 2022g)
     * Links
         * Remove `kAtcLinkRegistry` and support for thin links.
         * Add `target_info` field to `AtcZoneInfo` to unify fat and symbolic
@@ -16,6 +17,10 @@
     * Validation
         * Create `examples/validate_against_libc` to validate against the libc
           time functions.
+    * examples/
+        * Add `-D _GNU_SOURCE` flag to gain access to `gm_gmtoff` field
+          in `struct tm`.
+        * Allows validation of total UTC offset against the GNU libc library.
 * 0.6.0 (2023-01-17, TZDB 2022g)
     * Migrate to ACUnit v0.1.0.
     * `atc_days_to_current_epoch_from_converter_epoch`

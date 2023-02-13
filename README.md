@@ -22,7 +22,7 @@ the documentation provided by the README.md and USER_GUIDE.md documents of the
 AceTime library. If you need more detailed information, please consult those
 latter documents.
 
-**Version**: 0.6.0 (2023-01-17, TZDB version 2022g)
+**Version**: 0.7.0 (2023-02-12, TZDB version 2022g)
 
 **Changelog**: [CHANGELOG.md](CHANGELOG.md)
 
