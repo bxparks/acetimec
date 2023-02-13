@@ -7,25 +7,25 @@
 #define ACE_TIME_C_H
 
 /* Version format: xxyyzz == "xx.yy.zz" */
-#define ACE_TIME_C_VERSION 600
-#define ACE_TIME_C_VERSION_STRING "0.6.0"
+#define ACE_TIME_C_VERSION 700
+#define ACE_TIME_C_VERSION_STRING "0.7.0"
 
-#include "ace_time_c/string_buffer.h"
-#include "ace_time_c/epoch.h"
-#include "ace_time_c/local_date.h"
-#include "ace_time_c/local_time.h"
-#include "ace_time_c/local_date_time.h"
-#include "ace_time_c/offset_date_time.h"
-#include "ace_time_c/zone_info.h"
-#include "ace_time_c/zone_info_utils.h"
-#include "ace_time_c/transition.h"
-#include "ace_time_c/zone_processor.h"
-#include "ace_time_c/time_zone.h"
-#include "ace_time_c/zoned_date_time.h"
-#include "ace_time_c/zonedb/zone_infos.h"
-#include "ace_time_c/zonedb/zone_policies.h"
-#include "ace_time_c/zonedb/zone_registry.h"
-#include "ace_time_c/zone_registrar.h"
-#include "ace_time_c/zoned_extra.h"
+#include "zoneinfo/zone_info.h"
+#include "zoneinfo/zone_info_utils.h"
+#include "acetimec/string_buffer.h"
+#include "acetimec/epoch.h"
+#include "acetimec/local_date.h"
+#include "acetimec/local_time.h"
+#include "acetimec/local_date_time.h"
+#include "acetimec/offset_date_time.h"
+#include "acetimec/transition.h"
+#include "acetimec/zone_processor.h"
+#include "acetimec/time_zone.h"
+#include "acetimec/zoned_date_time.h"
+#include "acetimec/zone_registrar.h"
+#include "acetimec/zoned_extra.h"
+#include "zonedb/zone_infos.h"
+#include "zonedb/zone_policies.h"
+#include "zonedb/zone_registry.h"
 
 #endif

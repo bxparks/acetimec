@@ -5,25 +5,21 @@
 // Check handling of LINK and ZONE entries.
 ACU_TEST(test_zone_info_link)
 {
+  const AtcZoneInfo *zone_info = &kAtcZoneUS_Pacific;
   // Verify that US/Pacific is a link
-  ACU_ASSERT(atc_zone_info_is_link(&kAtcZoneUS_Pacific));
+  ACU_ASSERT(atc_zone_info_is_link(zone_info));
 
   // And points to America/Los_Angeles.
-  const AtcZoneInfo *actual_info = atc_zone_info_actual_info(
-      &kAtcZoneUS_Pacific);
-  ACU_ASSERT(actual_info == &kAtcZoneAmerica_Los_Angeles);
+  const AtcZoneInfo *target_info = zone_info->target_info;
+  ACU_ASSERT(target_info == &kAtcZoneAmerica_Los_Angeles);
 
   // And has the same number of eras.
-  ACU_ASSERT(
-      atc_zone_info_num_eras(&kAtcZoneAmerica_Los_Angeles)
-      == atc_zone_info_num_eras(&kAtcZoneUS_Pacific));
+  ACU_ASSERT(zone_info->num_eras == target_info->num_eras);
 
   // And points to the same era entries.
-  uint8_t num_eras = atc_zone_info_num_eras(&kAtcZoneAmerica_Los_Angeles);
+  uint8_t num_eras = zone_info->num_eras;
   for (uint8_t i = 0; i < num_eras; i++) {
-    ACU_ASSERT(
-        atc_zone_info_era(&kAtcZoneAmerica_Los_Angeles, i)
-        == atc_zone_info_era(&kAtcZoneUS_Pacific, i));
+    ACU_ASSERT(&zone_info->eras[i] == &target_info->eras[i]);
   }
 }
 

@@ -126,7 +126,9 @@ static const AtcZoneContext kZoneContext = {
   2020 /*untilYear*/,
   "testing" /*tzVersion*/,
   0 /*numFragments*/,
+  0 /*numLetters*/,
   NULL /*fragments*/,
+  NULL /*letters*/,
 };
 
 // Create simplified ZoneEras which approximate America/Los_Angeles
@@ -172,105 +174,7 @@ static const AtcZoneInfo kZoneAlmostLosAngeles = {
   &kZoneContext /*zoneContext*/,
   3 /*numEras*/,
   kZoneEraAlmostLosAngeles /*eras*/,
-};
-
-//---------------------------------------------------------------------------
-// A real ZoneInfo for America/Los_Angeles. Taken from zonedbx/zone_infos.cpp.
-//---------------------------------------------------------------------------
-
-static const AtcZoneRule kZoneRulesTestUS[] = {
-  // Rule    US    1967    2006    -    Oct    lastSun    2:00    0    S
-  {
-    1967 /*fromYear*/,
-    2006 /*toYear*/,
-    10 /*inMonth*/,
-    7 /*onDayOfWeek*/,
-    0 /*onDayOfMonth*/,
-    8 /*atTimeCode*/,
-    kAtcSuffixW /*atTimeModifier*/,
-    0 + 4 /*deltaCode*/,
-    'S' /*letter*/,
-  },
-  // Rule    US    1976    1986    -    Apr    lastSun    2:00    1:00    D
-  {
-    1976 /*fromYear*/,
-    1986 /*toYear*/,
-    4 /*inMonth*/,
-    7 /*onDayOfWeek*/,
-    0 /*onDayOfMonth*/,
-    8 /*atTimeCode*/,
-    kAtcSuffixW /*atTimeModifier*/,
-    4 + 4 /*deltaCode*/,
-    'D' /*letter*/,
-  },
-  // Rule    US    1987    2006    -    Apr    Sun>=1    2:00    1:00    D
-  {
-    1987 /*fromYear*/,
-    2006 /*toYear*/,
-    4 /*inMonth*/,
-    7 /*onDayOfWeek*/,
-    1 /*onDayOfMonth*/,
-    8 /*atTimeCode*/,
-    kAtcSuffixW /*atTimeModifier*/,
-    4 + 4 /*deltaCode*/,
-    'D' /*letter*/,
-  },
-  // Rule    US    2007    max    -    Mar    Sun>=8    2:00    1:00    D
-  {
-    2007 /*fromYear*/,
-    9999 /*toYear*/,
-    3 /*inMonth*/,
-    7 /*onDayOfWeek*/,
-    8 /*onDayOfMonth*/,
-    8 /*atTimeCode*/,
-    kAtcSuffixW /*atTimeModifier*/,
-    4 + 4 /*deltaCode*/,
-    'D' /*letter*/,
-  },
-  // Rule    US    2007    max    -    Nov    Sun>=1    2:00    0    S
-  {
-    2007 /*fromYear*/,
-    9999 /*toYear*/,
-    11 /*inMonth*/,
-    7 /*onDayOfWeek*/,
-    1 /*onDayOfMonth*/,
-    8 /*atTimeCode*/,
-    kAtcSuffixW /*atTimeModifier*/,
-    0 + 4 /*deltaCode*/,
-    'S' /*letter*/,
-  },
-
-};
-
-static const AtcZonePolicy kPolicyTestUS = {
-  kZoneRulesTestUS /*rules*/,
-  NULL /* letters */,
-  5 /*numRules*/,
-  0 /* numLetters */,
-};
-
-static const AtcZoneEra kZoneEraTestLos_Angeles[] = {
-  //             -8:00    US    P%sT
-  {
-    &kPolicyTestUS /*zonePolicy*/,
-    "P%T" /*format*/,
-    -32 /*offsetCode*/,
-    0 + 4 /*deltaCode*/,
-    10000 /*untilYear*/,
-    1 /*untilMonth*/,
-    1 /*untilDay*/,
-    0 /*untilTimeCode*/,
-    kAtcSuffixW /*untilTimeModifier*/,
-  },
-
-};
-
-static const AtcZoneInfo kZoneTestLosAngeles = {
-  "America/Los_Angeles" /*name*/,
-  0xb7f7e8f2 /*zoneId*/,
-  &kZoneContext /*zoneContext*/,
-  1 /*numEras*/,
-  kZoneEraTestLos_Angeles /*eras*/,
+  NULL /*target_info*/
 };
 
 //---------------------------------------------------------------------------
@@ -354,7 +258,7 @@ ACU_TEST(test_atc_processor_find_matches_named)
 
   AtcMatchingEra matches[kMaxMatches];
   uint8_t num_matches = atc_processor_find_matches(
-      &kZoneTestLosAngeles, start_ym, until_ym, matches, kMaxMatches);
+      &kAtcZoneAmerica_Los_Angeles, start_ym, until_ym, matches, kMaxMatches);
   ACU_ASSERT(1 == num_matches);
 
   AtcDateTuple *sdt = &matches[0].start_dt;
@@ -372,7 +276,7 @@ ACU_TEST(test_atc_processor_find_matches_named)
   ACU_ASSERT(udt->suffix == kAtcSuffixW);
 
   const AtcZoneEra *eras =
-      (const AtcZoneEra *) kZoneTestLosAngeles.eras;
+      (const AtcZoneEra *) kAtcZoneAmerica_Los_Angeles.eras;
   ACU_ASSERT(matches[0].era == &eras[0]);
 }
 
@@ -424,8 +328,9 @@ ACU_TEST(test_atc_calc_start_day_of_month) {
 }
 
 ACU_TEST(test_atc_processor_get_transition_time) {
-  // Nov Sun>=1
-  const AtcZoneRule *rule = &kZoneRulesTestUS[4];
+  // Rule 4, [2007,9999]
+  // Rule    US    2007    max    -    Nov    Sun>=1    2:00    0    S
+  const AtcZoneRule *rule = &kAtcZonePolicyUS.rules[4];
 
   // Nov 4 2018
   AtcDateTuple dt;
@@ -449,16 +354,18 @@ ACU_TEST(test_atc_processor_create_transition_for_year) {
   const AtcMatchingEra match = {
     {2018, 12, 1, 0, kAtcSuffixW},
     {2020, 2, 1, 0, kAtcSuffixW},
-    &kZoneEraTestLos_Angeles[0],
+    &kAtcZoneAmerica_Los_Angeles.eras[0],
     NULL /*prevMatch*/,
     0 /*lastOffsetMinutes*/,
     0 /*lastDeltaMinutes*/
   };
 
-  // Nov Sun>=1
-  const AtcZoneRule *rule = &kZoneRulesTestUS[4];
+  // Rule 4
+  // Rule    US    2007    max    -    Nov    Sun>=1    2:00    0    S
+  const AtcZoneRule *rule = &kAtcZonePolicyUS.rules[4];
   AtcTransition t;
-  atc_processor_create_transition_for_year(&t, 2019, rule, &match);
+  atc_processor_create_transition_for_year(
+      &t, 2019, rule, &match, kAtcZoneContext.letters);
   ACU_ASSERT(t.offset_minutes == -15*32);
   ACU_ASSERT(t.delta_minutes == 0);
   const AtcDateTuple *tt = &t.transition_time;
@@ -537,7 +444,7 @@ ACU_TEST(test_atc_processor_find_candidate_transitions) {
   AtcMatchingEra match = {
     {2018, 12, 1, 0, kAtcSuffixW},
     {2020, 2, 1, 0, kAtcSuffixW},
-    &kZoneEraTestLos_Angeles[0],
+    &kAtcZoneAmerica_Los_Angeles.eras[0],
     NULL /*prevMatch*/,
     0 /*lastOffsetMinutes*/,
     0 /*lastDeltaMinutes*/
@@ -545,7 +452,7 @@ ACU_TEST(test_atc_processor_find_candidate_transitions) {
 
   // Reserve storage for the Transitions
   AtcTransitionStorage storage;
-  atc_transition_storage_init(&storage);
+  atc_transition_storage_init(&storage, &kAtcZoneAmerica_Los_Angeles);
 
   // Verify compareTransitionToMatchFuzzy() elminates various transitions
   // to get down to 5:
@@ -636,7 +543,7 @@ ACU_TEST(test_atc_processor_process_transition_match_status)
     {1999, 12, 31, 0, kAtcSuffixW} /*transitionTime*/,
     {{0, 0, 0, 0, 0}} /*start_dt*/,
     {{0, 0, 0, 0, 0}} /*until_dt*/,
-    0, 0, 0, {0}, {0}, {0}
+    0, 0, 0, {0}, NULL /*zone_info*/, {0}
   };
 
   // This occurs at exactly match.startDateTime, so should replace the prior.
@@ -647,7 +554,7 @@ ACU_TEST(test_atc_processor_process_transition_match_status)
     {2000, 1, 1, 0, kAtcSuffixW} /*transitionTime*/,
     {{0, 0, 0, 0, 0}} /*start_dt*/,
     {{0, 0, 0, 0, 0}} /*until_dt*/,
-    0, 0, 0, {0}, {0}, {0}
+    0, 0, 0, {0}, NULL /*zone_info*/, {0}
   };
 
   // An interior transition. Prior should not change.
@@ -658,7 +565,7 @@ ACU_TEST(test_atc_processor_process_transition_match_status)
     {2000, 1, 2, 0, kAtcSuffixW} /*transitionTime*/,
     {{0, 0, 0, 0, 0}} /*start_dt*/,
     {{0, 0, 0, 0, 0}} /*until_dt*/,
-    0, 0, 0, {0}, {0}, {0}
+    0, 0, 0, {0}, NULL /*zone_info*/, {0}
   };
 
   // Occurs after match.untilDateTime, so should be rejected.
@@ -669,7 +576,7 @@ ACU_TEST(test_atc_processor_process_transition_match_status)
     {2001, 1, 2, 0, kAtcSuffixW} /*transitionTime*/,
     {{0, 0, 0, 0, 0}} /*start_dt*/,
     {{0, 0, 0, 0, 0}} /*until_dt*/,
-    0, 0, 0, {0}, {0}, {0}
+    0, 0, 0, {0}, NULL /*zone_info*/, {0}
   };
 
   AtcTransition *transitions[] = {
@@ -709,7 +616,7 @@ ACU_TEST(test_atc_processor_create_transitions_from_named_match)
   AtcMatchingEra match = {
     {2018, 12, 1, 0, kAtcSuffixW},
     {2020, 2, 1, 0, kAtcSuffixW},
-    &kZoneEraTestLos_Angeles[0],
+    &kAtcZoneAmerica_Los_Angeles.eras[0],
     NULL /*prevMatch*/,
     0 /*lastOffsetMinutes*/,
     0 /*lastDeltaMinutes*/
@@ -717,7 +624,7 @@ ACU_TEST(test_atc_processor_create_transitions_from_named_match)
 
   // Reserve storage for the Transitions
   AtcTransitionStorage storage;
-  atc_transition_storage_init(&storage);
+  atc_transition_storage_init(&storage, &kAtcZoneAmerica_Los_Angeles);
 
   atc_processor_create_transitions_from_named_match(&storage, &match);
   AtcTransition **end =
@@ -786,196 +693,181 @@ static void print_transition(const AtcTransition *t)
 }
 #endif
 
+// Adopted from test(ExtendedZoneProcessorTest,
+// fixTransitionTimes_generateStartUntilTimes) from the AceTime library.
 ACU_TEST(test_fix_transition_times_generate_start_until_times)
 {
-  // Create 3 matches for the AlmostLosAngeles test zone.
-  AtcYearMonth start_ym = {2018, 12};
-  AtcYearMonth until_ym = {2020, 2};
+  // Step 1: America/Los_Angeles matches one era, which points to US policy.
+  AtcYearMonth start_ym = {2017, 12};
+  AtcYearMonth until_ym = {2019, 2};
   const uint8_t kMaxMatches = 4;
   AtcMatchingEra matches[kMaxMatches];
   uint8_t num_matches = atc_processor_find_matches(
-      &kZoneAlmostLosAngeles, start_ym, until_ym, matches, kMaxMatches);
-  ACU_ASSERT(3 == num_matches);
+      &kAtcZoneAmerica_Los_Angeles, start_ym, until_ym, matches, kMaxMatches);
+  ACU_ASSERT(1 == num_matches);
 
-  // Create a custom template instantiation to use a different SIZE than the
-  // pre-defined typedef in ExtendedZoneProcess::TransitionStorage.
+  // Step 2: Create transitions.
   AtcTransitionStorage storage;
-  atc_transition_storage_init(&storage);
+  atc_transition_storage_init(&storage, &kAtcZoneAmerica_Los_Angeles);
+  atc_processor_create_transitions(&storage, matches, num_matches);
 
-  // Create 3 Transitions corresponding to the matches.
-  // Implements ExtendedZoneProcessor::createTransitionsFromSimpleMatch().
-  AtcTransition *transition1 =
-      atc_transition_storage_get_free_agent(&storage);
-  atc_processor_create_transition_for_year(
-      transition1, 0 /*year, not used*/, NULL /*rule*/, &matches[0]);
-  transition1->match_status = kAtcMatchStatusExactMatch; // synthetic example
-  atc_transition_storage_add_free_agent_to_candidate_pool(&storage);
-
-  AtcTransition *transition2 =
-      atc_transition_storage_get_free_agent(&storage);
-  atc_processor_create_transition_for_year(
-      transition2, 0 /*year, not used*/, NULL /*rule*/, &matches[1]);
-  transition2->match_status = kAtcMatchStatusWithinMatch; // synthetic example
-  atc_transition_storage_add_free_agent_to_candidate_pool(&storage);
-
-  AtcTransition *transition3 =
-      atc_transition_storage_get_free_agent(&storage);
-  atc_processor_create_transition_for_year(
-      transition3, 0 /*year, not used*/, NULL /*rule*/, &matches[2]);
-  transition3->match_status = kAtcMatchStatusWithinMatch; // synthetic example
-  atc_transition_storage_add_free_agent_to_candidate_pool(&storage);
-
-  // Move actives to Active pool.
+  // Step 2: Verification: there are 3 transitions:
+  //  * [2017-12-01, 2018-03-07)
+  //  * [2018-03-07, 2018-11-07)
+  //  * [2018-11-07, 2019-02-01)
   atc_transition_storage_add_active_candidates_to_active_pool(&storage);
   AtcTransition **begin =
       atc_transition_storage_get_active_pool_begin(&storage);
   AtcTransition **end =
       atc_transition_storage_get_active_pool_end(&storage);
   ACU_ASSERT(3 == (int) (end - begin));
-  ACU_ASSERT(begin[0] == transition1);
-  ACU_ASSERT(begin[1] == transition2);
-  ACU_ASSERT(begin[2] == transition3);
+  AtcTransition *transition0 = begin[0];
+  AtcTransition *transition1 = begin[1];
+  AtcTransition *transition2 = begin[2];
 #if ENABLE_DEBUG >= 1
+  print_transition(transition0);
   print_transition(transition1);
   print_transition(transition2);
-  print_transition(transition3);
 #endif
 
-  // Chain the transitions.
+  // Step 3: Chain the transitions by fixing the transition times.
   atc_transition_fix_times(begin, end);
 
 #if ENABLE_DEBUG >= 1
+  print_transition(transition0);
   print_transition(transition1);
   print_transition(transition2);
-  print_transition(transition3);
 #endif
 
-  // Verify. The first Transition is extended to -infinity.
-  AtcDateTuple *tt = &transition1->transition_time;
-  ACU_ASSERT(tt->year == 2018);
+  // Step 3: Verification: The first Transition starts at 2017-12-01.
+  AtcDateTuple *tt = &transition0->transition_time;
+  ACU_ASSERT(tt->year == 2017);
   ACU_ASSERT(tt->month == 12);
   ACU_ASSERT(tt->day == 1);
   ACU_ASSERT(tt->minutes == 0);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
-  AtcDateTuple *tts = &transition1->transition_time_s;
-  ACU_ASSERT(tts->year == 2018);
+  AtcDateTuple *tts = &transition0->transition_time_s;
+  ACU_ASSERT(tts->year == 2017);
   ACU_ASSERT(tts->month == 12);
   ACU_ASSERT(tts->day == 1);
   ACU_ASSERT(tts->minutes == 0);
   ACU_ASSERT(tts->suffix == kAtcSuffixS);
-  AtcDateTuple *ttu = &transition1->transition_time_u;
-  ACU_ASSERT(ttu->year == 2018);
+  AtcDateTuple *ttu = &transition0->transition_time_u;
+  ACU_ASSERT(ttu->year == 2017);
   ACU_ASSERT(ttu->month == 12);
   ACU_ASSERT(ttu->day == 1);
   ACU_ASSERT(ttu->minutes == 15*32);
   ACU_ASSERT(ttu->suffix == kAtcSuffixU);
 
-  // Second transition uses the UTC offset of the first.
-  tt = &transition2->transition_time;
-  ACU_ASSERT(tt->year == 2019);
+  // Step 3: Verification: Second transition springs forward at 2018-03-11
+  // 02:00.
+  tt = &transition1->transition_time;
+  ACU_ASSERT(tt->year == 2018);
   ACU_ASSERT(tt->month == 3);
-  ACU_ASSERT(tt->day == 10);
+  ACU_ASSERT(tt->day == 11);
   ACU_ASSERT(tt->minutes == 15*8);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
-  tts = &transition2->transition_time_s;
-  ACU_ASSERT(tts->year == 2019);
+  tts = &transition1->transition_time_s;
+  ACU_ASSERT(tts->year == 2018);
   ACU_ASSERT(tts->month == 3);
-  ACU_ASSERT(tts->day == 10);
+  ACU_ASSERT(tts->day == 11);
   ACU_ASSERT(tts->minutes == 15*8);
   ACU_ASSERT(tts->suffix == kAtcSuffixS);
-  ttu = &transition2->transition_time_u;
-  ACU_ASSERT(ttu->year == 2019);
+  ttu = &transition1->transition_time_u;
+  ACU_ASSERT(ttu->year == 2018);
   ACU_ASSERT(ttu->month == 3);
-  ACU_ASSERT(ttu->day == 10);
+  ACU_ASSERT(ttu->day == 11);
   ACU_ASSERT(ttu->minutes == 15*40);
   ACU_ASSERT(ttu->suffix == kAtcSuffixU);
 
-  // Third transition uses the UTC offset of the second.
-  tt = &transition3->transition_time;
-  ACU_ASSERT(tt->year == 2019);
+  // Step 3: Verification: Third transition falls back at 2018-11-04 02:00.
+  tt = &transition2->transition_time;
+  ACU_ASSERT(tt->year == 2018);
   ACU_ASSERT(tt->month == 11);
-  ACU_ASSERT(tt->day == 3);
+  ACU_ASSERT(tt->day == 4);
   ACU_ASSERT(tt->minutes == 15*8);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
-  tts = &transition3->transition_time_s;
-  ACU_ASSERT(tts->year == 2019);
+  tts = &transition2->transition_time_s;
+  ACU_ASSERT(tts->year == 2018);
   ACU_ASSERT(tts->month == 11);
-  ACU_ASSERT(tts->day == 3);
+  ACU_ASSERT(tts->day == 4);
   ACU_ASSERT(tts->minutes == 15*4);
   ACU_ASSERT(tts->suffix == kAtcSuffixS);
-  ttu = &transition3->transition_time_u;
-  ACU_ASSERT(ttu->year == 2019);
+  ttu = &transition2->transition_time_u;
+  ACU_ASSERT(ttu->year == 2018);
   ACU_ASSERT(ttu->month == 11);
-  ACU_ASSERT(ttu->day == 3);
+  ACU_ASSERT(ttu->day == 4);
   ACU_ASSERT(ttu->minutes == 15*36);
   ACU_ASSERT(ttu->suffix == kAtcSuffixU);
 
-  // Generate the startDateTime and untilDateTime of the transitions.
+  // Step 4: Generate the startDateTime and untilDateTime of the transitions.
   atc_processor_generate_start_until_times(begin, end);
 
-  // Verify. The first transition startTime should be the same as its
-  // transitionTime.
-  AtcDateTuple *sdt = &transition1->start_dt;
-  ACU_ASSERT(sdt->year == 2018);
+  // Step 4: Verification: The first transition startTime should be the same as
+  // its transitionTime.
+  AtcDateTuple *sdt = &transition0->start_dt;
+  ACU_ASSERT(sdt->year == 2017);
   ACU_ASSERT(sdt->month == 12);
   ACU_ASSERT(sdt->day == 1);
   ACU_ASSERT(sdt->minutes == 0);
   ACU_ASSERT(sdt->suffix == kAtcSuffixW);
   //
-  AtcDateTuple *udt = &transition1->until_dt;
-  ACU_ASSERT(udt->year == 2019);
+  AtcDateTuple *udt = &transition0->until_dt;
+  ACU_ASSERT(udt->year == 2018);
   ACU_ASSERT(udt->month == 3);
-  ACU_ASSERT(udt->day == 10);
+  ACU_ASSERT(udt->day == 11);
   ACU_ASSERT(udt->minutes == 15*8);
   ACU_ASSERT(udt->suffix == kAtcSuffixW);
   //
   AtcOffsetDateTime odt = {
-    2018, 12, 1, 0, 0, 0, 0 /*fold*/, -8*60 /*offset_minutes*/
+    2017, 12, 1, 0, 0, 0, 0 /*fold*/, -8*60 /*offset_minutes*/
   };
   atc_time_t eps = atc_offset_date_time_to_epoch_seconds(&odt);
-  ACU_ASSERT(eps == transition1->start_epoch_seconds);
+  ACU_ASSERT(eps == transition0->start_epoch_seconds);
 
-  // Second transition startTime is shifted forward one hour into PDT.
-  sdt = &transition2->start_dt;
-  ACU_ASSERT(sdt->year == 2019);
+  // Step 4: Verification: Second transition startTime is shifted forward one
+  // hour into PDT.
+  sdt = &transition1->start_dt;
+  ACU_ASSERT(sdt->year == 2018);
   ACU_ASSERT(sdt->month == 3);
-  ACU_ASSERT(sdt->day == 10);
+  ACU_ASSERT(sdt->day == 11);
   ACU_ASSERT(sdt->minutes == 15*12);
   ACU_ASSERT(sdt->suffix == kAtcSuffixW);
   //
-  udt = &transition2->until_dt;
-  ACU_ASSERT(udt->year == 2019);
+  udt = &transition1->until_dt;
+  ACU_ASSERT(udt->year == 2018);
   ACU_ASSERT(udt->month == 11);
-  ACU_ASSERT(udt->day == 3);
+  ACU_ASSERT(udt->day == 4);
   ACU_ASSERT(udt->minutes == 15*8);
   ACU_ASSERT(udt->suffix == kAtcSuffixW);
   //
   odt = (AtcOffsetDateTime) {
-    2019, 3, 10, 3, 0, 0, 0 /*fold*/, -7*60 /*offset_minutes*/
+    2018, 3, 11, 3, 0, 0, 0 /*fold*/, -7*60 /*offset_minutes*/
   };
   eps = atc_offset_date_time_to_epoch_seconds(&odt);
-  ACU_ASSERT(eps == transition2->start_epoch_seconds);
+  ACU_ASSERT(eps == transition1->start_epoch_seconds);
 
-  // Third transition startTime is shifted back one hour into PST.
-  sdt = &transition3->start_dt;
-  ACU_ASSERT(sdt->year == 2019);
+  // Step 4: Verification: Third transition startTime is shifted back one hour
+  // into PST.
+  sdt = &transition2->start_dt;
+  ACU_ASSERT(sdt->year == 2018);
   ACU_ASSERT(sdt->month == 11);
-  ACU_ASSERT(sdt->day == 3);
+  ACU_ASSERT(sdt->day == 4);
   ACU_ASSERT(sdt->minutes == 15*4);
   ACU_ASSERT(sdt->suffix == kAtcSuffixW);
   //
-  udt = &transition3->until_dt;
-  ACU_ASSERT(udt->year == 2020);
+  udt = &transition2->until_dt;
+  ACU_ASSERT(udt->year == 2019);
   ACU_ASSERT(udt->month == 2);
   ACU_ASSERT(udt->day == 1);
   ACU_ASSERT(udt->minutes == 0);
   ACU_ASSERT(udt->suffix == kAtcSuffixW);
   //
   odt = (AtcOffsetDateTime) {
-    2019, 11, 3, 1, 0, 0, 0 /*fold*/, -8*60 /*offset_minutes*/
+    2018, 11, 4, 1, 0, 0, 0 /*fold*/, -8*60 /*offset_minutes*/
   };
   eps = atc_offset_date_time_to_epoch_seconds(&odt);
-  ACU_ASSERT(eps == transition3->start_epoch_seconds);
+  ACU_ASSERT(eps == transition2->start_epoch_seconds);
 }
 
 //---------------------------------------------------------------------------

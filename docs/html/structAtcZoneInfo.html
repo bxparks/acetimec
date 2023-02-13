@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.6.0</span>
+   &#160;<span id="projectnumber">0.7.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -80,8 +80,11 @@ Collaboration diagram for AtcZoneInfo:</div>
 <div class="dyncontent">
 <div class="center"><img src="structAtcZoneInfo__coll__graph.png" border="0" usemap="#aAtcZoneInfo_coll__map" alt="Collaboration graph"/></div>
 <map name="aAtcZoneInfo_coll__map" id="aAtcZoneInfo_coll__map">
-<area shape="rect" title="Representation of a given time zone, implemented as an array of ZoneEra records." alt="" coords="18,95,119,121"/>
-<area shape="rect" href="structAtcZoneContext.html" title="Information about the zone database." alt="" coords="5,5,132,32"/>
+<area shape="rect" title="Representation of a given time zone, implemented as an array of ZoneEra records." alt="" coords="113,273,215,300"/>
+<area shape="rect" href="structAtcZoneEra.html" title="An entry in ZoneInfo which describes which ZonePolicy was being followed during a particular time per..." alt="" coords="14,184,111,211"/>
+<area shape="rect" href="structAtcZonePolicy.html" title="A collection of transition rules which describe the DST rules of a given administrative region." alt="" coords="5,95,120,121"/>
+<area shape="rect" href="structAtcZoneRule.html" title="A time zone transition rule." alt="" coords="10,5,115,32"/>
+<area shape="rect" href="structAtcZoneContext.html" title="Information about the zone database." alt="" coords="135,184,262,211"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -100,23 +103,26 @@ const <a class="el" href="structAtcZoneContext.html">AtcZoneContext</a> *const&#
 <tr class="memitem:aa5f154d0fae04baa988b804493e575d9"><td class="memItemLeft" align="right" valign="top">uint8_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneInfo.html#aa5f154d0fae04baa988b804493e575d9">num_eras</a></td></tr>
 <tr class="memdesc:aa5f154d0fae04baa988b804493e575d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of ZoneEra entries.  <a href="structAtcZoneInfo.html#aa5f154d0fae04baa988b804493e575d9">More...</a><br /></td></tr>
 <tr class="separator:aa5f154d0fae04baa988b804493e575d9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1555b721671a578f85f70674a574e051"><td class="memItemLeft" align="right" valign="top">const void *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneInfo.html#a1555b721671a578f85f70674a574e051">eras</a></td></tr>
-<tr class="memdesc:a1555b721671a578f85f70674a574e051"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <code>const ZoneEras*</code> pointer or a <code>const ZoneInfo*</code> pointer.  <a href="structAtcZoneInfo.html#a1555b721671a578f85f70674a574e051">More...</a><br /></td></tr>
-<tr class="separator:a1555b721671a578f85f70674a574e051"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a67dcb5bbfa03058eed4ec17d171d260c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structAtcZoneEra.html">AtcZoneEra</a> *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneInfo.html#a67dcb5bbfa03058eed4ec17d171d260c">eras</a></td></tr>
+<tr class="memdesc:a67dcb5bbfa03058eed4ec17d171d260c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A <code>const ZoneEras*</code> pointer or a <code>const ZoneInfo*</code> pointer.  <a href="structAtcZoneInfo.html#a67dcb5bbfa03058eed4ec17d171d260c">More...</a><br /></td></tr>
+<tr class="separator:a67dcb5bbfa03058eed4ec17d171d260c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a06439202669d0a8d47651656ca3319a9"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneInfo.html#a06439202669d0a8d47651656ca3319a9">target_info</a></td></tr>
+<tr class="memdesc:a06439202669d0a8d47651656ca3319a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pointer to an <a class="el" href="structAtcZoneInfo.html" title="Representation of a given time zone, implemented as an array of ZoneEra records.">AtcZoneInfo</a> for a Link.  <a href="structAtcZoneInfo.html#a06439202669d0a8d47651656ca3319a9">More...</a><br /></td></tr>
+<tr class="separator:a06439202669d0a8d47651656ca3319a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Representation of a given time zone, implemented as an array of ZoneEra records. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00312">312</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00303">303</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a1555b721671a578f85f70674a574e051"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a1555b721671a578f85f70674a574e051">&#9670;&nbsp;</a></span>eras</h2>
+<a id="a67dcb5bbfa03058eed4ec17d171d260c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a67dcb5bbfa03058eed4ec17d171d260c">&#9670;&nbsp;</a></span>eras</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const void* const AtcZoneInfo::eras</td>
+          <td class="memname">const <a class="el" href="structAtcZoneEra.html">AtcZoneEra</a>* const AtcZoneInfo::eras</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -124,7 +130,7 @@ const <a class="el" href="structAtcZoneContext.html">AtcZoneContext</a> *const&#
 <p>A <code>const ZoneEras*</code> pointer or a <code>const ZoneInfo*</code> pointer. </p>
 <p>For a normal Zone, numEras is greater than 0, and this field is a pointer to the ZoneEra entries in increasing order of UNTIL time. For a Link entry, numEras == 0, and this field provides a level of indirection to a (const ZoneInfo*) pointer to the target Zone. We have to follow the indirect pointer, and resolve the target numEras and eras to obtain the actual ZoneEra entries. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00338">338</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00329">329</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -143,7 +149,7 @@ const <a class="el" href="structAtcZoneContext.html">AtcZoneContext</a> *const&#
 <p>Full name of zone (e.g. </p>
 <p>"America/Los_Angeles"). </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00314">314</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00305">305</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -162,7 +168,26 @@ const <a class="el" href="structAtcZoneContext.html">AtcZoneContext</a> *const&#
 <p>Number of ZoneEra entries. </p>
 <p>Set to 0 if this Zone is a actually a Link. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00327">327</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00318">318</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+
+</div>
+</div>
+<a id="a06439202669d0a8d47651656ca3319a9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a06439202669d0a8d47651656ca3319a9">&#9670;&nbsp;</a></span>target_info</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const struct <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a>* AtcZoneInfo::target_info</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>A pointer to an <a class="el" href="structAtcZoneInfo.html" title="Representation of a given time zone, implemented as an array of ZoneEra records.">AtcZoneInfo</a> for a Link. </p>
+<p>NULL otherwise. </p>
+
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00332">332</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -181,12 +206,12 @@ const <a class="el" href="structAtcZoneContext.html">AtcZoneContext</a> *const&#
 <p>Unique, stable ID of the zone name, created from a hash of the name. </p>
 <p>This ID will never change once assigned. This can be used for presistence and serialization. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00321">321</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00312">312</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/brian/src/AceTimeC/src/ace_time_c/<a class="el" href="zone__info_8h_source.html">zone_info.h</a></li>
+<li>/home/brian/src/AceTimeC/src/zoneinfo/<a class="el" href="zone__info_8h_source.html">zone_info.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

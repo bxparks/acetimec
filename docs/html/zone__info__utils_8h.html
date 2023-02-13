@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AceTimeC: /home/brian/src/AceTimeC/src/ace_time_c/zone_info_utils.h File Reference</title>
+<title>AceTimeC: /home/brian/src/AceTimeC/src/zoneinfo/zone_info_utils.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.6.0</span>
+   &#160;<span id="projectnumber">0.7.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -63,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_37195fcf9b2d5b9f7b98f9af0a10ed75.html">ace_time_c</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_c458c1a7ede63e0a4ba7e7b60e917e99.html">zoneinfo</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -82,8 +82,8 @@ $(function() {
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for zone_info_utils.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="zone__info__utils_8h__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2zone__info__utils_8h" alt=""/></div>
-<map name="a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2zone__info__utils_8h" id="a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2zone__info__utils_8h">
+<div class="center"><img src="zone__info__utils_8h__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2zoneinfo_2zone__info__utils_8h" alt=""/></div>
+<map name="a_2home_2brian_2src_2AceTimeC_2src_2zoneinfo_2zone__info__utils_8h" id="a_2home_2brian_2src_2AceTimeC_2src_2zoneinfo_2zone__info__utils_8h">
 <area shape="rect" title="Most fields in the zonedb database (defined by the data types in zone_info.h) are meant to be accesse..." alt="" coords="29,5,222,61"/>
 <area shape="rect" title=" " alt="" coords="5,109,88,136"/>
 <area shape="rect" title=" " alt="" coords="90,184,161,211"/>
@@ -94,14 +94,14 @@ Include dependency graph for zone_info_utils.h:</div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="zone__info__utils_8h__dep__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2zone__info__utils_8hdep" alt=""/></div>
-<map name="a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2zone__info__utils_8hdep" id="a_2home_2brian_2src_2AceTimeC_2src_2ace__time__c_2zone__info__utils_8hdep">
-<area shape="rect" title="Most fields in the zonedb database (defined by the data types in zone_info.h) are meant to be accesse..." alt="" coords="470,5,663,61"/>
-<area shape="rect" href="transition_8c_source.html" title=" " alt="" coords="5,117,205,158"/>
-<area shape="rect" href="zone__info__utils_8c_source.html" title=" " alt="" coords="230,109,423,165"/>
-<area shape="rect" href="zone__processor_8c_source.html" title=" " alt="" coords="447,117,686,158"/>
-<area shape="rect" href="zoned__date__time_8c_source.html" title=" " alt="" coords="711,117,961,158"/>
-<area shape="rect" href="acetimec_8h_source.html" title=" " alt="" coords="986,117,1179,158"/>
+<div class="center"><img src="zone__info__utils_8h__dep__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2zoneinfo_2zone__info__utils_8hdep" alt=""/></div>
+<map name="a_2home_2brian_2src_2AceTimeC_2src_2zoneinfo_2zone__info__utils_8hdep" id="a_2home_2brian_2src_2AceTimeC_2src_2zoneinfo_2zone__info__utils_8hdep">
+<area shape="rect" title="Most fields in the zonedb database (defined by the data types in zone_info.h) are meant to be accesse..." alt="" coords="492,5,685,61"/>
+<area shape="rect" href="transition_8c_source.html" title=" " alt="" coords="5,117,199,158"/>
+<area shape="rect" href="zone__processor_8c_source.html" title=" " alt="" coords="223,117,447,158"/>
+<area shape="rect" href="zoned__date__time_8c_source.html" title=" " alt="" coords="471,117,707,158"/>
+<area shape="rect" href="acetimec_8h_source.html" title=" " alt="" coords="731,117,924,158"/>
+<area shape="rect" href="zone__info__utils_8c_source.html" title=" " alt="" coords="948,109,1141,165"/>
 </map>
 </div>
 </div>
@@ -112,10 +112,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a508f98a4e94be9ca216cf263574fe79b"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#a508f98a4e94be9ca216cf263574fe79b">atc_zone_info_is_link</a> (const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *info)</td></tr>
 <tr class="memdesc:a508f98a4e94be9ca216cf263574fe79b"><td class="mdescLeft">&#160;</td><td class="mdescRight">A Zone entry and a Link entry are encoded by the same AceZoneInfo data type.  <a href="zone__info__utils_8h.html#a508f98a4e94be9ca216cf263574fe79b">More...</a><br /></td></tr>
 <tr class="separator:a508f98a4e94be9ca216cf263574fe79b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a6f2d55f9405bda8aa2b2e0b97de63fae"><td class="memItemLeft" align="right" valign="top"><a id="a6f2d55f9405bda8aa2b2e0b97de63fae"></a>
-const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#a6f2d55f9405bda8aa2b2e0b97de63fae">atc_zone_info_actual_info</a> (const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *info)</td></tr>
-<tr class="memdesc:a6f2d55f9405bda8aa2b2e0b97de63fae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the info (info is a Zone) or the target info (if info is a Link). <br /></td></tr>
-<tr class="separator:a6f2d55f9405bda8aa2b2e0b97de63fae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a47a2e5f52978c949e4708f350fc37afc"><td class="memItemLeft" align="right" valign="top"><a id="a47a2e5f52978c949e4708f350fc37afc"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#a47a2e5f52978c949e4708f350fc37afc">atc_zone_info_num_eras</a> (const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *info)</td></tr>
 <tr class="memdesc:a47a2e5f52978c949e4708f350fc37afc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the effective number of eras, after resolving the Link. <br /></td></tr>
@@ -127,10 +123,6 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:abf64e12823c3b3c046f03dc57876e4c7"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#abf64e12823c3b3c046f03dc57876e4c7">atc_zone_info_short_name</a> (const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *info)</td></tr>
 <tr class="memdesc:abf64e12823c3b3c046f03dc57876e4c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the short zone name of the given zone info.  <a href="zone__info__utils_8h.html#abf64e12823c3b3c046f03dc57876e4c7">More...</a><br /></td></tr>
 <tr class="separator:abf64e12823c3b3c046f03dc57876e4c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a42141cc80b8e3db4cd6a7571cf730b0f"><td class="memItemLeft" align="right" valign="top"><a id="a42141cc80b8e3db4cd6a7571cf730b0f"></a>
-const <a class="el" href="structAtcZoneEra.html">AtcZoneEra</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#a42141cc80b8e3db4cd6a7571cf730b0f">atc_zone_info_era</a> (const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *info, uint8_t i)</td></tr>
-<tr class="memdesc:a42141cc80b8e3db4cd6a7571cf730b0f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the ZoneEra after resolving the Link. <br /></td></tr>
-<tr class="separator:a42141cc80b8e3db4cd6a7571cf730b0f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cb82946d317c329fad82e06564b2da1"><td class="memItemLeft" align="right" valign="top"><a id="a0cb82946d317c329fad82e06564b2da1"></a>
 int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#a0cb82946d317c329fad82e06564b2da1">atc_zone_era_std_offset_minutes</a> (const <a class="el" href="structAtcZoneEra.html">AtcZoneEra</a> *era)</td></tr>
 <tr class="memdesc:a0cb82946d317c329fad82e06564b2da1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the standard offset of the given era in minutes. <br /></td></tr>
@@ -208,7 +200,7 @@ int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="z
 <p>Return the short zone name of the given zone info. </p>
 <p>The short name is the final component of the full zone name after the last '/'. For example, the short name of "America/Los_Angeles" is "Los_Angeles". </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info__utils_8c_source.html#l00044">44</a> of file <a class="el" href="zone__info__utils_8c_source.html">zone_info_utils.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info__utils_8c_source.html#l00022">22</a> of file <a class="el" href="zone__info__utils_8c_source.html">zone_info_utils.c</a>.</p>
 
 </div>
 </div>

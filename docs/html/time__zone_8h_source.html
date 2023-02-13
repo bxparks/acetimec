@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AceTimeC: /home/brian/src/AceTimeC/src/ace_time_c/time_zone.h Source File</title>
+<title>AceTimeC: /home/brian/src/AceTimeC/src/acetimec/time_zone.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.6.0</span>
+   &#160;<span id="projectnumber">0.7.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -63,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_37195fcf9b2d5b9f7b98f9af0a10ed75.html">ace_time_c</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b39ba499df39bd15c47278b408db6864.html">acetimec</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -79,7 +79,7 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#ifndef ACE_TIME_C_TIME_ZONE_H</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;<span class="preprocessor">#define ACE_TIME_C_TIME_ZONE_H</span></div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160; </div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zone__info_8h.html">zone_info.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;../zoneinfo/zone_info.h&quot;</span></div>
 <div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zone__processor_8h.html">zone_processor.h</a>&quot;</span></div>
 <div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160; </div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
@@ -115,12 +115,11 @@ $(function() {
 <div class="ttc" id="astructAtcTimeZone_html"><div class="ttname"><a href="structAtcTimeZone.html">AtcTimeZone</a></div><div class="ttdoc">A data structure that represents a specific Time Zone.</div><div class="ttdef"><b>Definition:</b> <a href="time__zone_8h_source.html#l00028">time_zone.h:28</a></div></div>
 <div class="ttc" id="astructAtcTimeZone_html_a9f5765b0e689bb5e629a01174b29ed4d"><div class="ttname"><a href="structAtcTimeZone.html#a9f5765b0e689bb5e629a01174b29ed4d">AtcTimeZone::zone_info</a></div><div class="ttdeci">const AtcZoneInfo * zone_info</div><div class="ttdoc">Pointer to an AtcZoneInfo that contains the IANA TZ database info.</div><div class="ttdef"><b>Definition:</b> <a href="time__zone_8h_source.html#l00030">time_zone.h:30</a></div></div>
 <div class="ttc" id="astructAtcTimeZone_html_ab540096ef57f1ab9ce891f7d390122f5"><div class="ttname"><a href="structAtcTimeZone.html#ab540096ef57f1ab9ce891f7d390122f5">AtcTimeZone::zone_processor</a></div><div class="ttdeci">AtcZoneProcessor * zone_processor</div><div class="ttdoc">Pointer to a pre-allocated preallocated AtcZoneProcessor which knows how to calculate the DST transit...</div><div class="ttdef"><b>Definition:</b> <a href="time__zone_8h_source.html#l00036">time_zone.h:36</a></div></div>
-<div class="ttc" id="astructAtcZoneInfo_html"><div class="ttname"><a href="structAtcZoneInfo.html">AtcZoneInfo</a></div><div class="ttdoc">Representation of a given time zone, implemented as an array of ZoneEra records.</div><div class="ttdef"><b>Definition:</b> <a href="zone__info_8h_source.html#l00312">zone_info.h:312</a></div></div>
+<div class="ttc" id="astructAtcZoneInfo_html"><div class="ttname"><a href="structAtcZoneInfo.html">AtcZoneInfo</a></div><div class="ttdoc">Representation of a given time zone, implemented as an array of ZoneEra records.</div><div class="ttdef"><b>Definition:</b> <a href="zone__info_8h_source.html#l00303">zone_info.h:303</a></div></div>
 <div class="ttc" id="astructAtcZoneProcessor_html"><div class="ttname"><a href="structAtcZoneProcessor.html">AtcZoneProcessor</a></div><div class="ttdoc">Zone processor work space.</div><div class="ttdef"><b>Definition:</b> <a href="zone__processor_8h_source.html#l00109">zone_processor.h:109</a></div></div>
 <div class="ttc" id="atime__zone_8h_html_a175f711f130aad01a637bc5976942b54"><div class="ttname"><a href="time__zone_8h.html#a175f711f130aad01a637bc5976942b54">atc_time_zone_offset_date_time_from_local_date_time</a></div><div class="ttdeci">int8_t atc_time_zone_offset_date_time_from_local_date_time(const AtcTimeZone *tz, const AtcLocalDateTime *ldt, AtcOffsetDateTime *odt)</div><div class="ttdoc">Convert the LocalDateTime to AtcOffsetDateTime using the given zone_info.</div><div class="ttdef"><b>Definition:</b> <a href="time__zone_8c_source.html#l00039">time_zone.c:39</a></div></div>
 <div class="ttc" id="atime__zone_8h_html_a7a4f693ed3831a770b621f5f33cf63db"><div class="ttname"><a href="time__zone_8h.html#a7a4f693ed3831a770b621f5f33cf63db">AtcTimeZone</a></div><div class="ttdeci">struct AtcTimeZone AtcTimeZone</div><div class="ttdoc">A data structure that represents a specific Time Zone.</div></div>
 <div class="ttc" id="atime__zone_8h_html_ae66d8aa69902fae74b79bc3d06858f4e"><div class="ttname"><a href="time__zone_8h.html#ae66d8aa69902fae74b79bc3d06858f4e">atc_time_zone_offset_date_time_from_epoch_seconds</a></div><div class="ttdeci">int8_t atc_time_zone_offset_date_time_from_epoch_seconds(const AtcTimeZone *tz, atc_time_t epoch_seconds, AtcOffsetDateTime *odt)</div><div class="ttdoc">Convert epoch_seconds to an AtcOffsetDateTime using the given zone_info.</div><div class="ttdef"><b>Definition:</b> <a href="time__zone_8c_source.html#l00013">time_zone.c:13</a></div></div>
-<div class="ttc" id="azone__info_8h_html"><div class="ttname"><a href="zone__info_8h.html">zone_info.h</a></div><div class="ttdoc">The data structures in the zone database, with the AtcZoneInfo representing a specific time zone.</div></div>
 <div class="ttc" id="azone__processor_8h_html"><div class="ttname"><a href="zone__processor_8h.html">zone_processor.h</a></div><div class="ttdoc">Data structures and functions related to determining the UTC and DST offsets using the list of DST tr...</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

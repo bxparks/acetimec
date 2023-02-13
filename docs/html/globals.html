@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.6.0</span>
+   &#160;<span id="projectnumber">0.7.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -66,9 +66,6 @@ $(function() {
 <div class="textblock">Here is a list of all documented file members with links to the documentation:</div>
 
 <h3><a id="index_a"></a>- a -</h3><ul>
-<li>ACE_TIME_C_PROGMEM
-: <a class="el" href="zone__info_8h.html#adb3a2765d325c3d57a967faa32c84c6d">zone_info.h</a>
-</li>
 <li>atc_buf_close()
 : <a class="el" href="string__buffer_8h.html#a0b7d5ba29a40883a889ac27d0d64d39e">string_buffer.h</a>
 </li>
@@ -84,8 +81,14 @@ $(function() {
 <li>atc_convert_from_days()
 : <a class="el" href="epoch_8h.html#a45128050cfbce1409a563aca1db24238">epoch.h</a>
 </li>
+<li>atc_convert_from_unix_seconds()
+: <a class="el" href="epoch_8h.html#aad2b71e6da41c858baa9a52b5eedbf43">epoch.h</a>
+</li>
 <li>atc_convert_to_days()
 : <a class="el" href="epoch_8h.html#afd8062e8c861203196883a0640e42d11">epoch.h</a>
+</li>
+<li>atc_convert_to_unix_seconds()
+: <a class="el" href="epoch_8h.html#aa1a89fde6d79420b513db03b3a250ca3">epoch.h</a>
 </li>
 <li>atc_copy_replace_string()
 : <a class="el" href="common_8h.html#a3524006cfa67e08e009187b670d667fe">common.h</a>
@@ -202,7 +205,10 @@ $(function() {
 : <a class="el" href="zone__processor_8h.html#a636221f33d1d8cb7a796e952b6576d58">zone_processor.h</a>
 </li>
 <li>atc_processor_create_transition_for_year()
-: <a class="el" href="zone__processor_8h.html#a3dbc7e72cb5a0d8a92661a2afd08664f">zone_processor.h</a>
+: <a class="el" href="zone__processor_8h.html#ac61759afd2421663df87ed1fa008454d">zone_processor.h</a>
+</li>
+<li>atc_processor_create_transitions()
+: <a class="el" href="zone__processor_8h.html#a7ff9da9ef4a05892ef5d1d075a191dbd">zone_processor.h</a>
 </li>
 <li>atc_processor_create_transitions_for_match()
 : <a class="el" href="zone__processor_8h.html#ae98999d3f47ae760004446e26a2ed3d3">zone_processor.h</a>
@@ -276,9 +282,6 @@ $(function() {
 <li>atc_transition_compare_to_match_fuzzy()
 : <a class="el" href="transition_8h.html#af456507371e7df900183810dc0fbe46e">transition.h</a>
 </li>
-<li>atc_transition_extract_letter()
-: <a class="el" href="transition_8h.html#a1a20d67e8ca080320008650c8efdfa4c">transition.h</a>
-</li>
 <li>atc_transition_fix_times()
 : <a class="el" href="transition_8h.html#a1b1d1fa36482bbfbedb554d20c73463b">transition.h</a>
 </li>
@@ -316,7 +319,7 @@ $(function() {
 : <a class="el" href="transition_8h.html#a9847e6784d5d7a9da578b50976f8a09f">transition.h</a>
 </li>
 <li>atc_transition_storage_init()
-: <a class="el" href="transition_8h.html#abf7682411f98afe4a5e68ab9ad0d0a23">transition.h</a>
+: <a class="el" href="transition_8h.html#a88742181e1502c98559580aeab46a4b6">transition.h</a>
 </li>
 <li>atc_transition_storage_reserve_prior()
 : <a class="el" href="transition_8h.html#a6381f6ec7305e9d18bd96a09762b3f5e">transition.h</a>
@@ -338,12 +341,6 @@ $(function() {
 </li>
 <li>atc_zone_era_until_suffix()
 : <a class="el" href="zone__info__utils_8h.html#a315cc42c907ad4df2f2794d731792476">zone_info_utils.h</a>
-</li>
-<li>atc_zone_info_actual_info()
-: <a class="el" href="zone__info__utils_8h.html#a6f2d55f9405bda8aa2b2e0b97de63fae">zone_info_utils.h</a>
-</li>
-<li>atc_zone_info_era()
-: <a class="el" href="zone__info__utils_8h.html#a42141cc80b8e3db4cd6a7571cf730b0f">zone_info_utils.h</a>
 </li>
 <li>atc_zone_info_is_link()
 : <a class="el" href="zone__info__utils_8h.html#a508f98a4e94be9ca216cf263574fe79b">zone_info_utils.h</a>
@@ -395,9 +392,6 @@ $(function() {
 </li>
 <li>AtcFindResult
 : <a class="el" href="zone__processor_8h.html#a0399a43149a4708715b64e66376619a9">zone_processor.h</a>
-</li>
-<li>AtcLinkEntry
-: <a class="el" href="zone__info_8h.html#afa913c17faa6ff477d65b5abfedfad44">zone_info.h</a>
 </li>
 <li>AtcLocalDateTime
 : <a class="el" href="local__date__time_8h.html#a652ba174dc5d388d180e1eea88f2216f">local_date_time.h</a>
@@ -489,22 +483,22 @@ $(function() {
 : <a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06cac0a3a12b114e8fbfc75a9c34e31f55da">transition.h</a>
 </li>
 <li>kAtcMaxZoneEraUntilYear
-: <a class="el" href="zone__info_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8a516a2896c00f03bd6ac34ec713c54ad0">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#a16af7b253440dadd46a80a4b9fddba4da516a2896c00f03bd6ac34ec713c54ad0">zone_info.h</a>
 </li>
 <li>kAtcMaxZoneRuleYear
-: <a class="el" href="zone__info_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8a020efc50d7fe1dfa04a417815a316e7e">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#a16af7b253440dadd46a80a4b9fddba4da020efc50d7fe1dfa04a417815a316e7e">zone_info.h</a>
 </li>
 <li>kAtcMinZoneRuleYear
-: <a class="el" href="zone__info_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8afa4d2fca8a6cd40b22c7ef123a23cf12">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#a16af7b253440dadd46a80a4b9fddba4dafa4d2fca8a6cd40b22c7ef123a23cf12">zone_info.h</a>
 </li>
 <li>kAtcSuffixS
-: <a class="el" href="zone__info_8h.html#a05589fbab0657f08285ebdfe93f5ec9ea04280bfe4ef963779851e427e0c17b83">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#aba01db17f4a2bfbc3db60dc172972a25a04280bfe4ef963779851e427e0c17b83">zone_info.h</a>
 </li>
 <li>kAtcSuffixU
-: <a class="el" href="zone__info_8h.html#a05589fbab0657f08285ebdfe93f5ec9ea128db30aed8e7e11cf8341574f7c0bea">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#aba01db17f4a2bfbc3db60dc172972a25a128db30aed8e7e11cf8341574f7c0bea">zone_info.h</a>
 </li>
 <li>kAtcSuffixW
-: <a class="el" href="zone__info_8h.html#a05589fbab0657f08285ebdfe93f5ec9ea1d9d9152e8f121be37b8e743248cd2d8">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#aba01db17f4a2bfbc3db60dc172972a25a1d9d9152e8f121be37b8e743248cd2d8">zone_info.h</a>
 </li>
 <li>kAtcTransitionStorageSize
 : <a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06ca8bf03ded4b77c7045e9204ab53b55916">transition.h</a>

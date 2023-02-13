@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.6.0</span>
+   &#160;<span id="projectnumber">0.7.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -91,46 +91,19 @@ Public Attributes</h2></td></tr>
 const <a class="el" href="structAtcZoneRule.html">AtcZoneRule</a> *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonePolicy.html#a1e57c8c875364b13e6320529f88424dd">rules</a></td></tr>
 <tr class="memdesc:a1e57c8c875364b13e6320529f88424dd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to array of rules. <br /></td></tr>
 <tr class="separator:a1e57c8c875364b13e6320529f88424dd"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9b8fd7d561073ada304c854bf25934d7"><td class="memItemLeft" align="right" valign="top">const char *const  *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonePolicy.html#a9b8fd7d561073ada304c854bf25934d7">letters</a></td></tr>
-<tr class="memdesc:a9b8fd7d561073ada304c854bf25934d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to an array of DST letters (e.g.  <a href="structAtcZonePolicy.html#a9b8fd7d561073ada304c854bf25934d7">More...</a><br /></td></tr>
-<tr class="separator:a9b8fd7d561073ada304c854bf25934d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6414bcc34bcafe20085127dc2da77de9"><td class="memItemLeft" align="right" valign="top"><a id="a6414bcc34bcafe20085127dc2da77de9"></a>
 uint8_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonePolicy.html#a6414bcc34bcafe20085127dc2da77de9">num_rules</a></td></tr>
 <tr class="memdesc:a6414bcc34bcafe20085127dc2da77de9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of rules in array. <br /></td></tr>
 <tr class="separator:a6414bcc34bcafe20085127dc2da77de9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aa374ecee4ac6731a74be9c09b140e7f3"><td class="memItemLeft" align="right" valign="top"><a id="aa374ecee4ac6731a74be9c09b140e7f3"></a>
-uint8_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonePolicy.html#aa374ecee4ac6731a74be9c09b140e7f3">num_letters</a></td></tr>
-<tr class="memdesc:aa374ecee4ac6731a74be9c09b140e7f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of letters in array. <br /></td></tr>
-<tr class="separator:aa374ecee4ac6731a74be9c09b140e7f3"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A collection of transition rules which describe the DST rules of a given administrative region. </p>
 <p>A given time zone (ZoneInfo) can follow a different ZonePolicy at different times. Conversely, multiple time zones (ZoneInfo) can choose to follow the same ZonePolicy at different times.</p>
 <p>If num_letters is non-zero, then 'letters' will be a pointer to an array of (const char*) pointers. Any ZoneRule.letter &lt; 32 (i.e. non-printable) will be an offset into this array of pointers. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00158">158</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
-</div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a9b8fd7d561073ada304c854bf25934d7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9b8fd7d561073ada304c854bf25934d7">&#9670;&nbsp;</a></span>letters</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">const char* const* const AtcZonePolicy::letters</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Pointer to an array of DST letters (e.g. </p>
-<p>"D", "S"). </p>
-
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00163">163</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
-
-</div>
-</div>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/brian/src/AceTimeC/src/ace_time_c/<a class="el" href="zone__info_8h_source.html">zone_info.h</a></li>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00147">147</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li>/home/brian/src/AceTimeC/src/zoneinfo/<a class="el" href="zone__info_8h_source.html">zone_info.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->
