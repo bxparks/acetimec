@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.6.0</span>
+   &#160;<span id="projectnumber">0.7.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -80,18 +80,23 @@ Collaboration diagram for AtcTransitionStorage:</div>
 <div class="dyncontent">
 <div class="center"><img src="structAtcTransitionStorage__coll__graph.png" border="0" usemap="#aAtcTransitionStorage_coll__map" alt="Collaboration graph"/></div>
 <map name="aAtcTransitionStorage_coll__map" id="aAtcTransitionStorage_coll__map">
-<area shape="rect" title="The list of transitions for a given time zone." alt="" coords="20,557,176,584"/>
-<area shape="rect" href="structAtcTransition.html" title="A transition from one DST rule to another, and the time period which that rule is valid for." alt="" coords="45,453,151,480"/>
-<area shape="rect" href="structAtcDateTuple.html" title="An internal simplified version of the AtcDateTime class that uses the (year, month,..." alt="" coords="97,184,205,211"/>
-<area shape="rect" href="structAtcMatchingEra.html" title="A struct that represents a matching ZoneEra." alt="" coords="223,326,347,353"/>
-<area shape="rect" href="structAtcZoneRule.html" title="A time zone transition rule." alt="" coords="5,5,111,32"/>
-<area shape="rect" href="structAtcZonePolicy.html" title="A collection of transition rules which describe the DST rules of a given administrative region." alt="" coords="143,95,258,121"/>
-<area shape="rect" href="structAtcZoneEra.html" title="An entry in ZoneInfo which describes which ZonePolicy was being followed during a particular time per..." alt="" coords="232,184,329,211"/>
+<area shape="rect" title="The list of transitions for a given time zone." alt="" coords="275,557,431,584"/>
+<area shape="rect" href="structAtcTransition.html" title="A transition from one DST rule to another, and the time period which that rule is valid for." alt="" coords="215,453,322,480"/>
+<area shape="rect" href="structAtcDateTuple.html" title="An internal simplified version of the AtcDateTime class that uses the (year, month,..." alt="" coords="5,184,113,211"/>
+<area shape="rect" href="structAtcMatchingEra.html" title="A struct that represents a matching ZoneEra." alt="" coords="137,326,261,353"/>
+<area shape="rect" href="structAtcZoneRule.html" title="A time zone transition rule." alt="" coords="373,5,479,32"/>
+<area shape="rect" href="structAtcZonePolicy.html" title="A collection of transition rules which describe the DST rules of a given administrative region." alt="" coords="446,95,561,121"/>
+<area shape="rect" href="structAtcZoneEra.html" title="An entry in ZoneInfo which describes which ZonePolicy was being followed during a particular time per..." alt="" coords="459,184,556,211"/>
+<area shape="rect" href="structAtcZoneInfo.html" title="Representation of a given time zone, implemented as an array of ZoneEra records." alt="" coords="457,326,558,353"/>
+<area shape="rect" href="structAtcZoneContext.html" title="Information about the zone database." alt="" coords="580,184,707,211"/>
 </map>
 <center><span class="legend">[<a href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
+<tr class="memitem:a9f67b31feaf5337c3784eafef8a2efec"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcTransitionStorage.html#a9f67b31feaf5337c3784eafef8a2efec">zone_info</a></td></tr>
+<tr class="memdesc:a9f67b31feaf5337c3784eafef8a2efec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the <a class="el" href="structAtcZoneInfo.html" title="Representation of a given time zone, implemented as an array of ZoneEra records.">AtcZoneInfo</a> that this TransitionStorage describes.  <a href="structAtcTransitionStorage.html#a9f67b31feaf5337c3784eafef8a2efec">More...</a><br /></td></tr>
+<tr class="separator:a9f67b31feaf5337c3784eafef8a2efec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0cc7c99ac6cb08283981e64fad3be59c"><td class="memItemLeft" align="right" valign="top"><a id="a0cc7c99ac6cb08283981e64fad3be59c"></a>
 <a class="el" href="structAtcTransition.html">AtcTransition</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcTransitionStorage.html#a0cc7c99ac6cb08283981e64fad3be59c">transition_pool</a> [<a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06ca8bf03ded4b77c7045e9204ab53b55916">kAtcTransitionStorageSize</a>]</td></tr>
 <tr class="memdesc:a0cc7c99ac6cb08283981e64fad3be59c"><td class="mdescLeft">&#160;</td><td class="mdescRight">A pool of <a class="el" href="structAtcTransition.html" title="A transition from one DST rule to another, and the time period which that rule is valid for.">AtcTransition</a> objects. <br /></td></tr>
@@ -121,8 +126,28 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <div class="textblock"><p>The list of transitions for a given time zone. </p>
 
 <p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00245">245</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/brian/src/AceTimeC/src/ace_time_c/<a class="el" href="transition_8h_source.html">transition.h</a></li>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a9f67b31feaf5337c3784eafef8a2efec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f67b31feaf5337c3784eafef8a2efec">&#9670;&nbsp;</a></span>zone_info</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a>* AtcTransitionStorage::zone_info</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Pointer to the <a class="el" href="structAtcZoneInfo.html" title="Representation of a given time zone, implemented as an array of ZoneEra records.">AtcZoneInfo</a> that this TransitionStorage describes. </p>
+<p>Needed to access the AtcZoneInfo.letters array. </p>
+
+<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00250">250</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
+<li>/home/brian/src/AceTimeC/src/acetimec/<a class="el" href="transition_8h_source.html">transition.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AceTimeC: /home/brian/src/AceTimeC/src/ace_time_c/zone_registrar.c Source File</title>
+<title>AceTimeC: /home/brian/src/AceTimeC/src/acetimec/zone_registrar.c Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.6.0</span>
+   &#160;<span id="projectnumber">0.7.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -63,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_37195fcf9b2d5b9f7b98f9af0a10ed75.html">ace_time_c</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b39ba499df39bd15c47278b408db6864.html">acetimec</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -164,9 +164,9 @@ $(function() {
 <div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;  <span class="keywordflow">return</span> match;</div>
 <div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;}</div>
 <div class="ttc" id="acommon_8h_html_adf398a9b212b8331b21fc2becf8b720e"><div class="ttname"><a href="common_8h.html#adf398a9b212b8331b21fc2becf8b720e">atc_djb2</a></div><div class="ttdeci">uint32_t atc_djb2(const char *s)</div><div class="ttdoc">Implement the djb2 hash algorithm as described in https://stackoverflow.com/questions/7666509 and htt...</div><div class="ttdef"><b>Definition:</b> <a href="common_8c_source.html#l00031">common.c:31</a></div></div>
-<div class="ttc" id="astructAtcZoneInfo_html"><div class="ttname"><a href="structAtcZoneInfo.html">AtcZoneInfo</a></div><div class="ttdoc">Representation of a given time zone, implemented as an array of ZoneEra records.</div><div class="ttdef"><b>Definition:</b> <a href="zone__info_8h_source.html#l00312">zone_info.h:312</a></div></div>
-<div class="ttc" id="astructAtcZoneInfo_html_a4cd4e507556ed5acffb8f133bb2cd6bc"><div class="ttname"><a href="structAtcZoneInfo.html#a4cd4e507556ed5acffb8f133bb2cd6bc">AtcZoneInfo::zone_id</a></div><div class="ttdeci">uint32_t const zone_id</div><div class="ttdoc">Unique, stable ID of the zone name, created from a hash of the name.</div><div class="ttdef"><b>Definition:</b> <a href="zone__info_8h_source.html#l00321">zone_info.h:321</a></div></div>
-<div class="ttc" id="astructAtcZoneInfo_html_a9c0dbaea4041b917db1e3301d0b12283"><div class="ttname"><a href="structAtcZoneInfo.html#a9c0dbaea4041b917db1e3301d0b12283">AtcZoneInfo::name</a></div><div class="ttdeci">const char *const name</div><div class="ttdoc">Full name of zone (e.g.</div><div class="ttdef"><b>Definition:</b> <a href="zone__info_8h_source.html#l00314">zone_info.h:314</a></div></div>
+<div class="ttc" id="astructAtcZoneInfo_html"><div class="ttname"><a href="structAtcZoneInfo.html">AtcZoneInfo</a></div><div class="ttdoc">Representation of a given time zone, implemented as an array of ZoneEra records.</div><div class="ttdef"><b>Definition:</b> <a href="zone__info_8h_source.html#l00303">zone_info.h:303</a></div></div>
+<div class="ttc" id="astructAtcZoneInfo_html_a4cd4e507556ed5acffb8f133bb2cd6bc"><div class="ttname"><a href="structAtcZoneInfo.html#a4cd4e507556ed5acffb8f133bb2cd6bc">AtcZoneInfo::zone_id</a></div><div class="ttdeci">uint32_t const zone_id</div><div class="ttdoc">Unique, stable ID of the zone name, created from a hash of the name.</div><div class="ttdef"><b>Definition:</b> <a href="zone__info_8h_source.html#l00312">zone_info.h:312</a></div></div>
+<div class="ttc" id="astructAtcZoneInfo_html_a9c0dbaea4041b917db1e3301d0b12283"><div class="ttname"><a href="structAtcZoneInfo.html#a9c0dbaea4041b917db1e3301d0b12283">AtcZoneInfo::name</a></div><div class="ttdeci">const char *const name</div><div class="ttdoc">Full name of zone (e.g.</div><div class="ttdef"><b>Definition:</b> <a href="zone__info_8h_source.html#l00305">zone_info.h:305</a></div></div>
 <div class="ttc" id="astructAtcZoneRegistrar_html"><div class="ttname"><a href="structAtcZoneRegistrar.html">AtcZoneRegistrar</a></div><div class="ttdoc">Data structure used by the registrar to manage a given zone registry.</div><div class="ttdef"><b>Definition:</b> <a href="zone__registrar_8h_source.html#l00026">zone_registrar.h:26</a></div></div>
 <div class="ttc" id="astructAtcZoneRegistrar_html_aa4379c3abd2a5d1aab71224b613e5f6c"><div class="ttname"><a href="structAtcZoneRegistrar.html#aa4379c3abd2a5d1aab71224b613e5f6c">AtcZoneRegistrar::is_sorted</a></div><div class="ttdeci">bool is_sorted</div><div class="ttdoc">True if the registry is sorted according by zone_id.</div><div class="ttdef"><b>Definition:</b> <a href="zone__registrar_8h_source.html#l00034">zone_registrar.h:34</a></div></div>
 <div class="ttc" id="astructAtcZoneRegistrar_html_ab033078541b31ded9b43c2ac97f54253"><div class="ttname"><a href="structAtcZoneRegistrar.html#ab033078541b31ded9b43c2ac97f54253">AtcZoneRegistrar::size</a></div><div class="ttdeci">uint16_t size</div><div class="ttdoc">Size of the registry.</div><div class="ttdef"><b>Definition:</b> <a href="zone__registrar_8h_source.html#l00031">zone_registrar.h:31</a></div></div>

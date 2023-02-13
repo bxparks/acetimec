@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AceTimeC: /home/brian/src/AceTimeC/src/ace_time_c/zoned_date_time.h Source File</title>
+<title>AceTimeC: /home/brian/src/AceTimeC/src/acetimec/zoned_date_time.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.6.0</span>
+   &#160;<span id="projectnumber">0.7.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -63,7 +63,7 @@ $(function() {
 
 <div id="nav-path" class="navpath">
   <ul>
-<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_37195fcf9b2d5b9f7b98f9af0a10ed75.html">ace_time_c</a></li>  </ul>
+<li class="navelem"><a class="el" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html">src</a></li><li class="navelem"><a class="el" href="dir_b39ba499df39bd15c47278b408db6864.html">acetimec</a></li>  </ul>
 </div>
 </div><!-- top -->
 <div class="header">
@@ -80,9 +80,9 @@ $(function() {
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#define ACE_TIME_C_ZONED_DATE_TIME_H</span></div>
 <div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160; </div>
 <div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;<span class="preprocessor">#include &lt;stdint.h&gt;</span></div>
-<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">common.h</a>&quot;</span></div>
-<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zone__processor_8h.html">zone_processor.h</a>&quot;</span></div>
-<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zone__info_8h.html">zone_info.h</a>&quot;</span></div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="preprocessor">#include &quot;../zoneinfo/zone_info.h&quot;</span></div>
+<div class="line"><a name="l00018"></a><span class="lineno">   18</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="common_8h.html">common.h</a>&quot;</span></div>
+<div class="line"><a name="l00019"></a><span class="lineno">   19</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zone__processor_8h.html">zone_processor.h</a>&quot;</span></div>
 <div class="line"><a name="l00020"></a><span class="lineno">   20</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="time__zone_8h.html">time_zone.h</a>&quot;</span></div>
 <div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160; </div>
 <div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
@@ -149,7 +149,6 @@ $(function() {
 <div class="ttc" id="astructAtcZonedDateTime_html_af3211e0b4fe33139aad8d3229ed83426"><div class="ttname"><a href="structAtcZonedDateTime.html#af3211e0b4fe33139aad8d3229ed83426">AtcZonedDateTime::offset_minutes</a></div><div class="ttdeci">int16_t offset_minutes</div><div class="ttdoc">offset_minutes [-840, 960]</div><div class="ttdef"><b>Definition:</b> <a href="zoned__date__time_8h_source.html#l00049">zoned_date_time.h:49</a></div></div>
 <div class="ttc" id="astructAtcZonedDateTime_html_af6a54c764a9413f0d2578aa3696010ca"><div class="ttname"><a href="structAtcZonedDateTime.html#af6a54c764a9413f0d2578aa3696010ca">AtcZonedDateTime::day</a></div><div class="ttdeci">uint8_t day</div><div class="ttdoc">day [1,31]</div><div class="ttdef"><b>Definition:</b> <a href="zoned__date__time_8h_source.html#l00037">zoned_date_time.h:37</a></div></div>
 <div class="ttc" id="atime__zone_8h_html"><div class="ttname"><a href="time__zone_8h.html">time_zone.h</a></div><div class="ttdoc">A class representing a specific IANA time zone, containing a pointer to a ZoneInfo data containing th...</div></div>
-<div class="ttc" id="azone__info_8h_html"><div class="ttname"><a href="zone__info_8h.html">zone_info.h</a></div><div class="ttdoc">The data structures in the zone database, with the AtcZoneInfo representing a specific time zone.</div></div>
 <div class="ttc" id="azone__processor_8h_html"><div class="ttname"><a href="zone__processor_8h.html">zone_processor.h</a></div><div class="ttdoc">Data structures and functions related to determining the UTC and DST offsets using the list of DST tr...</div></div>
 <div class="ttc" id="azoned__date__time_8h_html_a06d2752942592f67e08ef473223a1576"><div class="ttname"><a href="zoned__date__time_8h.html#a06d2752942592f67e08ef473223a1576">AtcZonedDateTime</a></div><div class="ttdeci">struct AtcZonedDateTime AtcZonedDateTime</div><div class="ttdoc">Date and time broken down into components.</div></div>
 <div class="ttc" id="azoned__date__time_8h_html_a3137ef23cb97fbf8484eccc039b51d30"><div class="ttname"><a href="zoned__date__time_8h.html#a3137ef23cb97fbf8484eccc039b51d30">atc_zoned_date_time_print</a></div><div class="ttdeci">void atc_zoned_date_time_print(const AtcZonedDateTime *zdt, AtcStringBuffer *sb)</div><div class="ttdoc">Print the zoned date time in ISO 8601 format.</div><div class="ttdef"><b>Definition:</b> <a href="zoned__date__time_8c_source.html#l00081">zoned_date_time.c:81</a></div></div>
