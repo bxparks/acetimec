@@ -5,7 +5,7 @@
 #include <stdio.h> // printf()
 #include <stdlib.h> // setenv()
 #include <string.h> //strncmp()
-#include <time.h> // time(), localtime_r()
+#include <time.h> // localtime_r()
 #include <stdlib.h> // setenv()
 #include <stdbool.h> // bool
 #include <unistd.h> // sleep()
@@ -135,6 +135,7 @@ int check_epoch_seconds(const AtcTimeZone *tz, atc_time_t epoch_seconds)
   int hour = tms.tm_hour;
   int minute = tms.tm_min;
   int second = tms.tm_sec;
+  long offset = tms.tm_gmtoff;
 
   // Verify that they are same.
   if (year != zdt.year) {
@@ -165,6 +166,13 @@ int check_epoch_seconds(const AtcTimeZone *tz, atc_time_t epoch_seconds)
   if (second != zdt.second) {
     printf("ERROR: Zone %s: epoch_seconds=%d; mismatched second (%d != %d)\n",
         tz->zone_info->name, epoch_seconds, second, zdt.second);
+    return kAtcErrGeneric;
+  }
+  if (offset != (long) zdt.offset_minutes * 60) {
+    printf("ERROR: Zone %s: epoch_seconds=%d; "
+        "mismatched UTC offset (%ld != %ld)\n",
+        tz->zone_info->name, epoch_seconds,
+        offset, (long) zdt.offset_minutes * 60);
     return kAtcErrGeneric;
   }
   return kAtcErrOk;

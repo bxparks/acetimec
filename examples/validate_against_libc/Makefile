@@ -1,6 +1,6 @@
 CFLAGS := -std=c11 -Wall -Wextra -Werror \
 	-I ../../src\
-	-D _POSIX_C_SOURCE=200809L
+	-D _GNU_SOURCE
 
 TARGETS := hello_acetimec.out
 
