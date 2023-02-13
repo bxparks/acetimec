@@ -35,7 +35,7 @@ int set_time_zone(const char *zone_name)
   // know if the requested zone exists in the database?
   //
   // The following heuristics works on Linux:
-  //  * tzname[0] == atruncated version of the original zone name, and
+  //  * tzname[0] == a truncated version of the original zone name, and
   //  * tzname[1] == ""
   //
   // On MacOS, both "UTC" and an invalid zone returns the following:
@@ -50,7 +50,8 @@ int set_time_zone(const char *zone_name)
 
 const char * const ZONES[] = {
   "UTC",
-  "DoesNotExist",
+  "Etc/UCT",
+  "NoWhereContinent/DoesNotExist",
   "America/Los_Angeles",
   "America/New_York",
   "Europe/London",
@@ -58,6 +59,22 @@ const char * const ZONES[] = {
 };
 
 #define NUM_ZONES (sizeof(ZONES) / sizeof(ZONES[0]))
+
+void print_hms(long offset)
+{
+  char sign;
+  if (offset < 0) {
+    sign = '-';
+    offset = -offset;
+  } else {
+    sign = '+';
+  }
+  int s = offset % 60;
+  int minutes = offset / 60;
+  int m = minutes % 60;
+  int h = minutes / 60;
+  printf("%c%02d:%02d:%02d", sign, h, m, s);
+}
 
 void print_time(time_t epoch_seconds)
 {
@@ -70,10 +87,11 @@ void print_time(time_t epoch_seconds)
   int hour = tms.tm_hour;
   int minute = tms.tm_min;
   int second = tms.tm_sec;
-  //int gmtoff = tms.tm_gmtoff;
+  long utcoff = tms.tm_gmtoff; // available with -D _GNU_SOURCE
 
   printf("%04d-%02d-%02dT%02d:%02d:%02d",
       year, month, day, hour, minute, second);
+  print_hms(utcoff);
 }
 
 int main()
@@ -84,11 +102,13 @@ int main()
     const char *name = ZONES[i];
     int err = set_time_zone(name);
     if (err) {
-      printf("ERROR: Invalid zone %s\n", name);
+      printf("Zone %s: ERROR: does not exist\n", name);
+      printf("\ttzname[]={\"%s\",\"%s\"}\n", tzname[0], tzname[1]);
     } else {
-      printf("Zone %s: tzname[]={\"%s\",\"%s\"}: ", name, tzname[0], tzname[1]);
+      printf("Zone %s: ", name);
       print_time(epoch_seconds);
       printf("\n");
+      printf("\ttzname[]={\"%s\",\"%s\"}\n", tzname[0], tzname[1]);
     }
   }
 }
