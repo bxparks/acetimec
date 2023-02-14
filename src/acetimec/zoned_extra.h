@@ -18,11 +18,11 @@ extern "C" {
 #endif
 
 #include <stdint.h>
-#include "../zoneinfo/zone_info.h"
-#include "common.h"
 #include "transition.h" // kAtcAbbrevSize
-#include "time_zone.h"
-#include "local_date_time.h"
+
+// forward declarations
+typedef struct AtcTimeZone AtcTimeZone;
+typedef struct AtcLocalDateTime AtcLocalDateTime;
 
 /**
  * Values of the the AtcZonedExtra.type field. Should be identical to

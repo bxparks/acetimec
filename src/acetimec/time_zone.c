@@ -4,8 +4,11 @@
  */
 
 #include <stdbool.h>
+#include <string.h> // memcpy()
+#include "local_date.h" // kAtcInvalidEpochSeconds
 #include "zone_processor.h"
 #include "offset_date_time.h" // AtcOffsetDateTime
+#include "zoned_extra.h" // AtcZonedExtra
 #include "time_zone.h"
 
 // Adapted from TimeZone::getOffsetDateTime(epochSeconds) from the
@@ -68,6 +71,50 @@ int8_t atc_time_zone_offset_date_time_from_local_date_time(
         result.std_offset_minutes + result.dst_offset_minutes;
     atc_offset_date_time_from_epoch_seconds(epoch_seconds, target_offset, odt);
   }
+
+  return kAtcErrOk;
+}
+
+int8_t atc_time_zone_zoned_extra_from_epoch_seconds(
+  const AtcTimeZone *tz,
+  atc_time_t epoch_seconds,
+  AtcZonedExtra *extra)
+{
+  if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
+
+  AtcFindResult result;
+  int8_t err = atc_processor_find_by_epoch_seconds(
+      tz->zone_processor, tz->zone_info, epoch_seconds, &result);
+  if (err) return err;
+
+  extra->type = result.type;
+  extra->std_offset_minutes = result.std_offset_minutes;
+  extra->dst_offset_minutes = result.dst_offset_minutes;
+  extra->req_std_offset_minutes = result.req_std_offset_minutes;
+  extra->req_dst_offset_minutes = result.req_dst_offset_minutes;
+  memcpy(extra->abbrev, result.abbrev, kAtcAbbrevSize);
+  extra->abbrev[kAtcAbbrevSize - 1] = '\0';
+
+  return kAtcErrOk;
+}
+
+int8_t atc_time_zone_zoned_extra_from_local_date_time(
+  const AtcTimeZone *tz,
+  const AtcLocalDateTime *ldt,
+  AtcZonedExtra *extra)
+{
+  AtcFindResult result;
+  int8_t err = atc_processor_find_by_local_date_time(
+      tz->zone_processor, tz->zone_info, ldt, &result);
+  if (err) return err;
+
+  extra->type = result.type;
+  extra->std_offset_minutes = result.std_offset_minutes;
+  extra->dst_offset_minutes = result.dst_offset_minutes;
+  extra->req_std_offset_minutes = result.req_std_offset_minutes;
+  extra->req_dst_offset_minutes = result.req_dst_offset_minutes;
+  memcpy(extra->abbrev, result.abbrev, kAtcAbbrevSize);
+  extra->abbrev[kAtcAbbrevSize - 1] = '\0';
 
   return kAtcErrOk;
 }
