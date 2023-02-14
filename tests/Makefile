@@ -11,6 +11,7 @@ TARGETS := \
 	local_time_test.out \
 	offset_date_time_test.out \
 	string_buffer_test.out \
+	time_zone_test.out \
 	transition_test.out \
 	zone_info_utils_test.out \
 	zone_processor_test.out \
@@ -60,6 +61,9 @@ offset_date_time_test.out: offset_date_time_test.o acetimec.a
 string_buffer_test.out: string_buffer_test.o acetimec.a
 	$(CC) -o $@ $^
 
+time_zone_test.out: time_zone_test.o acetimec.a
+	$(CC) -o $@ $^
+
 transition_test.out: transition_test.o acetimec.a
 	$(CC) -o $@ $^
 
@@ -99,6 +103,8 @@ local_date_time_test.o: local_date_time_test.c acetimec.a
 offset_date_time_test.o: offset_date_time_test.c acetimec.a
 
 string_buffer.o: string_buffer.c acetimec.a
+
+time_zone_test.o: time_zone_test.c acetimec.a
 
 transition_test.o: transition_test.c acetimec.a
 

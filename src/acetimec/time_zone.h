@@ -37,6 +37,9 @@ typedef struct AtcTimeZone {
   AtcZoneProcessor *zone_processor;
 } AtcTimeZone;
 
+/** A default time zone instance representing UTC. */
+extern const AtcTimeZone atc_time_zone_utc;
+
 /**
  * Convert epoch_seconds to an AtcOffsetDateTime using the given time zone.
  * The `zone_procssor` is rebound to the `zone_info` in case it was previously
@@ -84,6 +87,9 @@ int8_t atc_time_zone_zoned_extra_from_local_date_time(
   const AtcTimeZone *tz,
   const AtcLocalDateTime *ldt,
   AtcZonedExtra *extra);
+
+/** Print the name of the current time zone. */
+void atc_time_zone_print(const AtcTimeZone *tz, AtcStringBuffer *sb);
 
 #ifdef __cplusplus
 }
