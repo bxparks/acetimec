@@ -1,6 +1,17 @@
 # Changelog
 
 * Unreleased
+    * Add support for plain UTC timezone in `AtcTimeZone`.
+        * Create pre-defined `atc_time_zone_utc` instance.
+    * Move `AtcZonedExtra` factory functions to `AtcTimeZone`.
+        * Simplify initialization sequence of `AtcZoneProcessor` by channeling
+          all factory operations through `AtcTimeZone`.
+    * MemoryBenchmark
+        * Use my Arduino MemoryBenchmark infrastructure to extract flash and
+          static memory consumption of the AceTimeC library across various
+          microcontrollers.
+        * The library does not support `PROGMEM` so AVR and ESP8266 processors
+          consume excessive RAM.
 * 0.7.0 (2023-02-12, TZDB 2022g)
     * Links
         * Remove `kAtcLinkRegistry` and support for thin links.
