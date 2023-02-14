@@ -42,8 +42,11 @@ static void validate_zone(
   int16_t start_year,
   int16_t until_year)
 {
+  atc_processor_init_for_zone_info(processor, info);
   for (int16_t year = start_year; year < until_year; year++) {
-    atc_processor_init_for_year(processor, info, year);
+    int8_t err = atc_processor_init_for_year(processor, year);
+    ACU_ASSERT(err == kAtcErrOk);
+
     AtcTransitionStorage *storage = &processor->transition_storage;
     AtcTransition **begin =
         atc_transition_storage_get_active_pool_begin(storage);

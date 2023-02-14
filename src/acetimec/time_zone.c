@@ -18,14 +18,13 @@ int8_t atc_time_zone_offset_date_time_from_epoch_seconds(
     atc_time_t epoch_seconds,
     AtcOffsetDateTime *odt)
 {
+  atc_processor_init_for_zone_info(tz->zone_processor, tz->zone_info);
+
   AtcFindResult result;
   int8_t err = atc_processor_find_by_epoch_seconds(
-      tz->zone_processor, tz->zone_info, epoch_seconds, &result);
+      tz->zone_processor, epoch_seconds, &result);
   if (err) return err;
-
-  if (result.type == kAtcFindResultNotFound) {
-    return kAtcErrGeneric;
-  }
+  if (result.type == kAtcFindResultNotFound) return kAtcErrGeneric;
 
   int16_t offset_minutes =
       result.std_offset_minutes + result.dst_offset_minutes;
@@ -44,9 +43,11 @@ int8_t atc_time_zone_offset_date_time_from_local_date_time(
     const AtcLocalDateTime *ldt,
     AtcOffsetDateTime *odt)
 {
+  atc_processor_init_for_zone_info(tz->zone_processor, tz->zone_info);
+
   AtcFindResult result;
   int8_t err = atc_processor_find_by_local_date_time(
-      tz->zone_processor, tz->zone_info, ldt, &result);
+      tz->zone_processor, ldt, &result);
   if (err) return err;
   if (result.type == kAtcFindResultNotFound) return kAtcErrGeneric;
 
@@ -82,9 +83,11 @@ int8_t atc_time_zone_zoned_extra_from_epoch_seconds(
 {
   if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
 
+  atc_processor_init_for_zone_info(tz->zone_processor, tz->zone_info);
+
   AtcFindResult result;
   int8_t err = atc_processor_find_by_epoch_seconds(
-      tz->zone_processor, tz->zone_info, epoch_seconds, &result);
+      tz->zone_processor, epoch_seconds, &result);
   if (err) return err;
 
   extra->type = result.type;
@@ -103,9 +106,11 @@ int8_t atc_time_zone_zoned_extra_from_local_date_time(
   const AtcLocalDateTime *ldt,
   AtcZonedExtra *extra)
 {
+  atc_processor_init_for_zone_info(tz->zone_processor, tz->zone_info);
+
   AtcFindResult result;
   int8_t err = atc_processor_find_by_local_date_time(
-      tz->zone_processor, tz->zone_info, ldt, &result);
+      tz->zone_processor, ldt, &result);
   if (err) return err;
 
   extra->type = result.type;

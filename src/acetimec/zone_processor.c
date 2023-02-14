@@ -599,7 +599,16 @@ void atc_processor_init(AtcZoneProcessor *processor)
   processor->num_matches = 0;
 }
 
-bool atc_processor_is_filled_for_year(
+void atc_processor_init_for_zone_info(
+  AtcZoneProcessor *processor,
+  const AtcZoneInfo *zone_info)
+{
+  if (processor->zone_info == zone_info) return;
+  atc_processor_init(processor);
+  processor->zone_info = zone_info;
+}
+
+static bool atc_processor_is_filled_for_year(
   AtcZoneProcessor *processor,
   int16_t year)
 {
@@ -608,18 +617,14 @@ bool atc_processor_is_filled_for_year(
 
 int8_t atc_processor_init_for_year(
   AtcZoneProcessor *processor,
-  const AtcZoneInfo *zone_info,
   int16_t year)
 {
-  if (processor->zone_info != zone_info) {
-    atc_processor_init(processor);
-    processor->zone_info = zone_info;
-  }
   if (atc_processor_is_filled_for_year(processor, year)) return kAtcErrOk;
 
   processor->year = year;
   processor->num_matches = 0;
-  atc_transition_storage_init(&processor->transition_storage, zone_info);
+  atc_transition_storage_init(
+    &processor->transition_storage, processor->zone_info);
   const AtcZoneContext *context = processor->zone_info->zone_context;
   if (year < context->start_year - 1 || context->until_year < year) {
     return kAtcErrGeneric;
@@ -658,18 +663,12 @@ int8_t atc_processor_init_for_year(
 
 int8_t atc_processor_init_for_epoch_seconds(
   AtcZoneProcessor *processor,
-  const AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds)
 {
-  if (processor->zone_info != zone_info) {
-    atc_processor_init(processor);
-    processor->zone_info = zone_info;
-  }
-
   AtcLocalDateTime ldt;
   int8_t err = atc_local_date_time_from_epoch_seconds(&ldt, epoch_seconds);
   if (err) return err;
-  return atc_processor_init_for_year(processor, zone_info, ldt.year);
+  return atc_processor_init_for_year(processor, ldt.year);
 }
 
 //---------------------------------------------------------------------------
@@ -679,12 +678,10 @@ int8_t atc_processor_init_for_epoch_seconds(
 
 int8_t atc_processor_find_by_epoch_seconds(
     AtcZoneProcessor *processor,
-    const AtcZoneInfo *zone_info,
     atc_time_t epoch_seconds,
-    AtcFindResult *result) {
-
-  int8_t err = atc_processor_init_for_epoch_seconds(
-      processor, zone_info, epoch_seconds);
+    AtcFindResult *result)
+{
+  int8_t err = atc_processor_init_for_epoch_seconds(processor, epoch_seconds);
   if (err) return err;
 
   AtcTransitionForSeconds tfs = atc_transition_storage_find_for_seconds(
@@ -710,11 +707,11 @@ int8_t atc_processor_find_by_epoch_seconds(
 // library.
 int8_t atc_processor_find_by_local_date_time(
     AtcZoneProcessor *processor,
-    const AtcZoneInfo *zone_info,
     const AtcLocalDateTime *ldt,
-    AtcFindResult *result) {
+    AtcFindResult *result)
+{
 
-  int8_t err = atc_processor_init_for_year(processor, zone_info, ldt->year);
+  int8_t err = atc_processor_init_for_year(processor, ldt->year);
   if (err) return err;
 
   AtcTransitionForDateTime tfd = atc_transition_storage_find_for_date_time(

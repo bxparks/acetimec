@@ -38,7 +38,10 @@ typedef struct AtcTimeZone {
 } AtcTimeZone;
 
 /**
- * Convert epoch_seconds to an AtcOffsetDateTime using the given zone_info.
+ * Convert epoch_seconds to an AtcOffsetDateTime using the given time zone.
+ * The `zone_procssor` is rebound to the `zone_info` in case it was previously
+ * bound to a different `zone_info`.
+ *
  * Return non-zero error code upon failure.
  */
 int8_t atc_time_zone_offset_date_time_from_epoch_seconds(
@@ -47,7 +50,10 @@ int8_t atc_time_zone_offset_date_time_from_epoch_seconds(
   AtcOffsetDateTime *odt);
 
 /**
- * Convert the LocalDateTime to AtcOffsetDateTime using the given zone_info.
+ * Convert the LocalDateTime to AtcOffsetDateTime using the given time zone.
+ * The `zone_procssor` is rebound to the `zone_info` in case it was previously
+ * bound to a different `zone_info`.
+ *
  * Return non-zero error code upon failure.
  */
 int8_t atc_time_zone_offset_date_time_from_local_date_time(
@@ -56,7 +62,10 @@ int8_t atc_time_zone_offset_date_time_from_local_date_time(
   AtcOffsetDateTime *odt);
 
 /**
- * Populate the ZonedExtra using the given epoch seconds.
+ * Populate the ZonedExtra using the given epoch seconds for the time zone.
+ * The `zone_procssor` is rebound to the `zone_info` in case it was previously
+ * bound to a different `zone_info`.
+ *
  * Return non-zero error code upon failure.
  */
 int8_t atc_time_zone_zoned_extra_from_epoch_seconds(
@@ -65,7 +74,10 @@ int8_t atc_time_zone_zoned_extra_from_epoch_seconds(
   AtcZonedExtra *extra);
 
 /**
- * Populate the ZonedExtra using the given local date time.
+ * Populate the ZonedExtra using the given local date time for the time zone.
+ * The `zone_procssor` is rebound to the `zone_info` in case it was previously
+ * bound to a different `zone_info`.
+ *
  * Return non-zero error code upon failure.
  */
 int8_t atc_time_zone_zoned_extra_from_local_date_time(

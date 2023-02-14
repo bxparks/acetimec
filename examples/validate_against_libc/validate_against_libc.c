@@ -181,11 +181,12 @@ int check_epoch_seconds(const AtcTimeZone *tz, atc_time_t epoch_seconds)
 int check_transitions(const AtcTimeZone *tz)
 {
   set_time_zone(tz->zone_info->name);
+  atc_processor_init_for_zone_info(tz->zone_processor, tz->zone_info);
 
   int err = 0;
   int num_transitions = 0;
   for (int16_t year = start_year; year < until_year; ++year) {
-    atc_processor_init_for_year(tz->zone_processor, tz->zone_info, year);
+    atc_processor_init_for_year(tz->zone_processor, year);
 
     struct AtcTransitionStorage *ts = &tz->zone_processor->transition_storage;
     struct AtcTransition **begin =
