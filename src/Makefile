@@ -1,5 +1,7 @@
 CFLAGS := -std=c11 -Wall -Wextra -Werror -pedantic
 
+.PHONY: zonedb
+
 OBJS := \
 	zoneinfo/zone_info_utils.o \
 	acetimec/common.o \
@@ -22,6 +24,9 @@ OBJS := \
 
 acetimec.a: $(OBJS)
 	$(AR) -c -v -r $@ $(OBJS)
+
+zonedb:
+	make -C zonedb
 
 clean:
 	rm -f $(OBJS) acetimec.a
