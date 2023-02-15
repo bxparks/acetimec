@@ -38,12 +38,12 @@ const char *atc_zone_info_short_name(const AtcZoneInfo *info)
 
 int16_t atc_zone_era_std_offset_minutes(const AtcZoneEra *era)
 {
-  return (era->offset_code * 15) + (((uint8_t) era->delta_code & 0xf0) >> 4);
+  return (era->offset_code * 15) + ((era->delta_code & 0xf0) >> 4);
 }
 
 int16_t atc_zone_era_dst_offset_minutes(const AtcZoneEra *era)
 {
-  return ((int8_t)((uint8_t)era->delta_code & 0x0f) - 4) * 15;
+  return ((int16_t)(era->delta_code & 0x0f) - 4) * 15;
 }
 
 int16_t atc_zone_era_until_minutes(const AtcZoneEra *era)
@@ -72,5 +72,5 @@ uint8_t atc_zone_rule_at_suffix(const AtcZoneRule *rule)
 
 int16_t atc_zone_rule_dst_offset_minutes(const AtcZoneRule *rule)
 {
-  return ((int8_t)((uint8_t)rule->delta_code & 0x0f) - 4) * 15;
+  return ((int16_t)(rule->delta_code & 0x0f) - 4) * 15;
 }

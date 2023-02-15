@@ -101,19 +101,16 @@ typedef struct AtcZoneRule {
   uint8_t const at_time_modifier;
 
   /**
-   * Determined by the SAVE column, containing the offset from UTC, in 15-min
-   * increments.
-   *
-   * If the '--scope extended' flag is given to tzcompiler.py, this field
-   * should be interpreted as an uint8_t field, whose lower 4-bits hold a
-   * slightly modified value of offset_code equal to (originalDeltaCode + 4).
+   * Determined by the SAVE column and contains the offset from UTC, in 15-min
+   * increments. The deltaCode is equal to (original_delta_code + 4). Only the
+   * lower 4-bits is used, for consistency with the AtcZoneEra.delta_code field.
    * This allows the 4-bits to represent DST offsets from -1:00 to 2:45 in
-   * 15-minute increments. This is the same algorithm used by
-   * ZoneEra::delta_code field for consistency. The
-   * extended::ZonePolicyBroker::deltaMinutes() method knows how to convert
-   * this field into minutes.
+   * 15-minute increments.
+   *
+   * The atc_zone_rule_dst_offset_minutes() function knows how to convert this
+   * field into minutes.
    */
-  int8_t const delta_code;
+  uint8_t const delta_code;
 
   /**
    * An index into an array of strings defined by AtcZoneContext.letters. The
@@ -243,24 +240,23 @@ typedef struct AtcZoneEra {
   int8_t const offset_code;
 
   /**
-   * If zone_policy is nullptr, then this indicates the DST offset in 15 minute
-   * increments as defined by the RULES column in 'hh:mm' format. If the
-   * 'RULES' column is '-', then the delta_code is 0.
+   * This is a composite of two 4-bit fields:
    *
-   * If the '--scope extended' flag is given to tzcompiler.py, the 'delta_code`
-   * should be interpreted as a uint8_t field, composed of two 4-bit fields:
+   * * The upper 4-bits is an unsigned integer from 0 to 14 that represents
+   *   the one-minute remainder from the offset_code. This allows us to capture
+   *   STDOFF offsets in 1-minute resolution.
+   * * The lower 4-bits is an unsigned integer that holds (original_delta_code
+   *   + 4). The original_delta_code is defined if zone_policy is NULL, which
+   *   indicates that the DST offset is defined by the RULES column in 'hh:mm'
+   *   format. If the 'RULES' column is '-', then the original_delta_code is 0.
+   *   With 4-bits of information, and the 1h shift, this allows us to represent
+   *   DST offsets from -1:00 to +2:45, in 15-minute increments.
    *
-   *    * The upper 4-bits is an unsigned integer from 0 to 14 that represents
-   *    the one-minute remainder from the offset_code. This allows us to capture
-   *    STDOFF offsets in 1-minute resolution.
-   *    * The lower 4-bits is an unsigned integer that holds (originalDeltaCode
-   *    + 4). This allows us to represent DST offsets from -1:00 to +2:45, in
-   *    15-minute increments.
-   *
-   * The extended::ZoneEraBroker::deltaMinutes() and offsetMinutes() know how
-   * to convert offset_code and delta_code into the appropriate minutes.
+   * The atc_zone_era_std_offset_minutes() and atc_zone_era_dst_offset_minutes()
+   * functions know how to convert offset_code and delta_code into the
+   * appropriate minutes.
    */
-  int8_t const delta_code;
+  uint8_t const delta_code;
 
   /**
    * Era is valid until currentTime < untilYear. Comes from the UNTIL column.
