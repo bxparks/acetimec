@@ -1,4 +1,5 @@
 CFLAGS := -std=c11 -Wall -Wextra -Werror -pedantic \
+	-D ATC_HIRES_ZONEDB=1 \
 	-I../../ACUnit/src \
 	-I../src
 
@@ -132,4 +133,4 @@ runtests:
 	done
 
 clean:
-	rm -f *.o $(TARGETS)
+	rm -f *.o $(TARGETS) acetimec.a

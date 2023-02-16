@@ -4,90 +4,90 @@
 ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
 {
   const AtcMatchingEra match = {
-    {2000, 1, 1, 0, kAtcSuffixW} /* start_dt */,
-    {2001, 1, 1, 0, kAtcSuffixW} /* until_dt */,
-    NULL /*era*/,
-    NULL /*prev_match*/,
-    0 /*last_offset_seconds*/,
-    0 /*last_delta_seconds*/
+    .start_dt = {2000, 1, 1, 0, kAtcSuffixW},
+    .until_dt = {2001, 1, 1, 0, kAtcSuffixW},
+    .era = NULL,
+    .prev_match = NULL,
+    .last_offset_seconds = 0,
+    .last_delta_seconds = 0,
   };
 
   AtcTransition transition = {
-    &match /*match*/,
-    NULL /*rule*/,
-    {1999, 11, 1, 0, kAtcSuffixW} /*transition_time*/,
-    {{0, 0, 0, 0, 0}} /*start_dt*/,
-    {{0, 0, 0, 0, 0}} /*until_dt*/,
-    0 /*start_epoch_seconds*/,
-    0 /*offset_seconds*/,
-    0 /*delta_seconds*/,
-    {0} /*abbrev*/,
-    NULL /*letter*/,
-    {0} /*match_status*/
+    .match = &match,
+    .rule = NULL,
+    .transition_time = {1999, 11, 1, 0, kAtcSuffixW},
+    .start_dt = {0, 0, 0, 0, 0},
+    .until_dt = {0, 0, 0, 0, 0},
+    .start_epoch_seconds = 0,
+    .offset_seconds = 0,
+    .delta_seconds = 0,
+    .abbrev = {0},
+    .letter = NULL,
+    .match_status = 0
   };
   uint8_t status = atc_transition_compare_to_match_fuzzy(&transition, &match);
   ACU_ASSERT(status == kAtcComparePrior);
 
   transition = (AtcTransition) {
-    &match /*match*/,
-    NULL /*rule*/,
-    {1999, 12, 1, 0, kAtcSuffixW} /*transition_time*/,
-    {{0, 0, 0, 0, 0}} /*start_dt*/,
-    {{0, 0, 0, 0, 0}} /*until_dt*/,
-    0 /*start_epoch_seconds*/,
-    0 /*offset_seconds*/,
-    0 /*delta_seconds*/,
-    {0} /*abbrev*/,
-    NULL /*letter*/,
-    {0} /*match_status*/
+    .match = &match,
+    .rule = NULL,
+    .transition_time = {1999, 12, 1, 0, kAtcSuffixW},
+    .start_dt = {0, 0, 0, 0, 0},
+    .until_dt = {0, 0, 0, 0, 0},
+    .start_epoch_seconds = 0,
+    .offset_seconds = 0,
+    .delta_seconds = 0,
+    .abbrev = {0},
+    .letter = NULL,
+    .match_status = 0
   };
   status = atc_transition_compare_to_match_fuzzy(&transition, &match);
   ACU_ASSERT(status == kAtcCompareWithinMatch);
 
   transition = (AtcTransition) {
-    &match /*match*/,
-    NULL /*rule*/,
-    {2000, 1, 1, 0, kAtcSuffixW} /*transition_time*/,
-    {{0, 0, 0, 0, 0}} /*start_dt*/,
-    {{0, 0, 0, 0, 0}} /*until_dt*/,
-    0 /*start_epoch_seconds*/,
-    0 /*offset_seconds*/,
-    0 /*delta_seconds*/,
-    {0} /*abbrev*/,
-    NULL /*letter*/,
-    {0} /*match_status*/
+    .match = &match,
+    .rule = NULL,
+    .transition_time = {2000, 1, 1, 0, kAtcSuffixW},
+    .start_dt = {0, 0, 0, 0, 0},
+    .until_dt = {0, 0, 0, 0, 0},
+    .start_epoch_seconds = 0,
+    .offset_seconds = 0,
+    .delta_seconds = 0,
+    .abbrev = {0},
+    .letter = NULL,
+    .match_status = 0
   };
   status = atc_transition_compare_to_match_fuzzy(&transition, &match);
   ACU_ASSERT(status == kAtcCompareWithinMatch);
 
   transition = (AtcTransition) {
-    &match /*match*/,
-    NULL /*rule*/,
-    {2001, 1, 1, 0, kAtcSuffixW} /*transition_time*/,
-    {{0, 0, 0, 0, 0}} /*start_dt*/,
-    {{0, 0, 0, 0, 0}} /*until_dt*/,
-    0 /*start_epoch_seconds*/,
-    0 /*offset_seconds*/,
-    0 /*delta_seconds*/,
-    {0} /*abbrev*/,
-    NULL /*letter*/,
-    {0} /*match_status*/
+    .match = &match,
+    .rule = NULL,
+    .transition_time = {2001, 1, 1, 0, kAtcSuffixW},
+    .start_dt = {0, 0, 0, 0, 0},
+    .until_dt = {0, 0, 0, 0, 0},
+    .start_epoch_seconds = 0,
+    .offset_seconds = 0,
+    .delta_seconds = 0,
+    .abbrev = {0},
+    .letter = NULL,
+    .match_status = 0
   };
   status = atc_transition_compare_to_match_fuzzy(&transition, &match);
   ACU_ASSERT(status == kAtcCompareWithinMatch);
 
   transition = (AtcTransition) {
-    &match /*match*/,
-    NULL /*rule*/,
-    {2001, 3, 1, 0, kAtcSuffixW} /*transition_time*/,
-    {{0, 0, 0, 0, 0}} /*start_dt*/,
-    {{0, 0, 0, 0, 0}} /*until_dt*/,
-    0 /*start_epoch_seconds*/,
-    0 /*offset_seconds*/,
-    0 /*delta_seconds*/,
-    {0} /*abbrev*/,
-    NULL /*letter*/,
-    {0} /*match_status*/
+    .match = &match,
+    .rule = NULL,
+    .transition_time = {2001, 3, 1, 0, kAtcSuffixW},
+    .start_dt = {0, 0, 0, 0, 0},
+    .until_dt = {0, 0, 0, 0, 0},
+    .start_epoch_seconds = 0,
+    .offset_seconds = 0,
+    .delta_seconds = 0,
+    .abbrev = {0},
+    .letter = NULL,
+    .match_status = 0
   };
   status = atc_transition_compare_to_match_fuzzy(&transition, &match);
   ACU_ASSERT(status == kAtcCompareFarFuture);
@@ -97,69 +97,98 @@ ACU_TEST(test_atc_transition_compare_to_match)
 {
   // UNTIL = 2002-01-02T03:00
   const AtcZoneEra ERA = {
-      NULL /*zonePolicy*/,
-      "" /*format*/,
-      0 /*offsetCode*/,
-      0 /*deltaCode*/,
-      2 /*untilYearTiny*/,
-      1 /*untilMonth*/,
-      2 /*untilDay*/,
-      12 /*untilTimeCode*/,
-      kAtcSuffixW
+  #if ATC_HIRES_ZONEDB
+    .zone_policy = NULL,
+    .format = "",
+    .offset_code = 0,
+    .offset_remainder = 0,
+    .delta_minutes = 0,
+    .until_year = 2002,
+    .until_month = 1,
+    .until_day = 2,
+    .until_time_code = 3*3600/15,
+    .until_time_modifier = kAtcSuffixW,
+  #else
+    .zone_policy = NULL,
+    .format = "",
+    .offset_code = 0,
+    .delta_code = 4,
+    .until_year = 2002,
+    .until_month = 1,
+    .until_day = 2,
+    .until_time_code = 3*60/15,
+    .until_time_modifier = kAtcSuffixW,
+  #endif
   };
 
   // MatchingEra=[2000-01-01, 2001-01-01)
   const AtcMatchingEra match = {
-    {2000, 1, 1, 0, kAtcSuffixW} /*startDateTime*/,
-    {2001, 1, 1, 0, kAtcSuffixW} /*untilDateTime*/,
-    &ERA /*era*/,
-    NULL /*prevMatch*/,
-    0 /*lastOffsetMinutes*/,
-    0 /*lastDeltaMinutes*/
+    .start_dt = {2000, 1, 1, 0, kAtcSuffixW},
+    .until_dt = {2001, 1, 1, 0, kAtcSuffixW},
+    .era = &ERA,
+    .prev_match = NULL,
+    .last_offset_seconds = 0,
+    .last_delta_seconds = 0,
   };
 
   // transitionTime = 1999-12-31
   AtcTransition transition0 = {
-    &match /*match*/,
-    NULL /*rule*/,
-    {1999, 12, 31, 0, kAtcSuffixW} /*transitionTime*/,
-    {{0, 0, 0, 0, 0}},
-    {{0, 0, 0, 0, 0}},
-    0, 0, 0, {0}, NULL /*letter*/,
-    {0}
+    .match = &match,
+    .rule = NULL,
+    .transition_time = {1999, 12, 31, 0, kAtcSuffixW},
+    .start_dt = {0, 0, 0, 0, 0},
+    .until_dt = {0, 0, 0, 0, 0},
+    .start_epoch_seconds = 0,
+    .offset_seconds = 0,
+    .delta_seconds = 0,
+    .abbrev = {0},
+    .letter = NULL,
+    .match_status = 0
   };
 
   // transitionTime = 2000-01-01
   AtcTransition transition1 = {
-    &match /*match*/,
-    NULL /*rule*/,
-    {2000, 1, 1, 0, kAtcSuffixW} /*transitionTime*/,
-    {{0, 0, 0, 0, 0}},
-    {{0, 0, 0, 0, 0}},
-    0, 0, 0, {0}, NULL /*letter*/,
-    {0}
+    .match = &match,
+    .rule = NULL,
+    .transition_time = {2000, 1, 1, 0, kAtcSuffixW},
+    .start_dt = {0, 0, 0, 0, 0},
+    .until_dt = {0, 0, 0, 0, 0},
+    .start_epoch_seconds = 0,
+    .offset_seconds = 0,
+    .delta_seconds = 0,
+    .abbrev = {0},
+    .letter = NULL,
+    .match_status = 0
   };
 
   // transitionTime = 2000-01-02
   AtcTransition transition2 = {
-    &match /*match*/,
-    NULL /*rule*/,
-    {2000, 1, 2, 0, kAtcSuffixW} /*transitionTime*/,
-    {{0, 0, 0, 0, 0}},
-    {{0, 0, 0, 0, 0}},
-    0, 0, 0, {0}, NULL /*letter*/,
-    {0}
+    .match = &match,
+    .rule = NULL,
+    .transition_time = {2000, 1, 2, 0, kAtcSuffixW},
+    .start_dt = {0, 0, 0, 0, 0},
+    .until_dt = {0, 0, 0, 0, 0},
+    .start_epoch_seconds = 0,
+    .offset_seconds = 0,
+    .delta_seconds = 0,
+    .abbrev = {0},
+    .letter = NULL,
+    .match_status = 0
   };
 
   // transitionTime = 2001-02-03
   AtcTransition transition3 = {
-    &match /*match*/,
-    NULL /*rule*/,
-    {2001, 2, 3, 0, kAtcSuffixW} /*transitionTime*/,
-    {{0, 0, 0, 0, 0}},
-    {{0, 0, 0, 0, 0}},
-    0, 0, 0, {0}, NULL /*letter*/,
-    {0}
+    .match = &match,
+    .rule = NULL,
+    .transition_time = {2001, 2, 3, 0, kAtcSuffixW},
+    .start_dt = {0, 0, 0, 0, 0},
+    .until_dt = {0, 0, 0, 0, 0},
+    .start_epoch_seconds = 0,
+    .offset_seconds = 0,
+    .delta_seconds = 0,
+    .abbrev = {0},
+    .letter = NULL,
+    .match_status = 0
   };
 
   AtcTransition *transitions[] = {

@@ -12,7 +12,31 @@
 //---------------------------------------------------------------------------
 
 ACU_TEST(test_atc_compare_era_to_year_month) {
-  const AtcZoneEra era = {NULL, "", 0, 0, 2000/*y*/, 1, 2, 12, kAtcSuffixW};
+  // 2000-01-02T03:00
+  const AtcZoneEra era = {
+#if ATC_HIRES_ZONEDB
+    .zone_policy = NULL,
+    .format = "",
+    .offset_code = 0,
+    .offset_remainder = 0,
+    .delta_minutes = 0,
+    .until_year = 2000,
+    .until_month = 1,
+    .until_day = 2,
+    .until_time_code = 3*3600/15,
+    .until_time_modifier = kAtcSuffixW,
+#else
+    .zone_policy = NULL,
+    .format = "",
+    .offset_code = 0,
+    .delta_code = 4,
+    .until_year = 2000,
+    .until_month = 1,
+    .until_day = 2,
+    .until_time_code = 3*60/15,
+    .until_time_modifier = kAtcSuffixW,
+#endif
+  };
 
   ACU_ASSERT(1 == atc_compare_era_to_year_month(&era, 2000, 1));
   ACU_ASSERT(1 == atc_compare_era_to_year_month(&era, 2000, 1));
@@ -21,7 +45,31 @@ ACU_TEST(test_atc_compare_era_to_year_month) {
 }
 
 ACU_TEST(test_atc_compare_era_to_year_month_equal) {
-  const AtcZoneEra era2 = {NULL, "", 0, 0, 2000/*y*/, 1, 0, 0, kAtcSuffixW};
+  // 2000-01-01T00:00
+  const AtcZoneEra era2 = {
+#if ATC_HIRES_ZONEDB
+    .zone_policy = NULL,
+    .format = "",
+    .offset_code = 0,
+    .offset_remainder = 0,
+    .delta_minutes = 0,
+    .until_year = 2000,
+    .until_month = 1,
+    .until_day = 1,
+    .until_time_code = 0*3600/15,
+    .until_time_modifier = kAtcSuffixW,
+#else
+    .zone_policy = NULL,
+    .format = "",
+    .offset_code = 0,
+    .delta_code = 4,
+    .until_year = 2000,
+    .until_month = 1,
+    .until_day = 1,
+    .until_time_code = 0*60/15,
+    .until_time_modifier = kAtcSuffixW,
+#endif
+  };
   ACU_ASSERT(0 == atc_compare_era_to_year_month(&era2, 2000, 1));
 }
 
@@ -33,25 +81,88 @@ ACU_TEST(test_atc_create_matching_era) {
   AtcYearMonth until_ym = {2002, 2};
 
   // UNTIL = 2000-12-02 3:00
-  const AtcZoneEra era1 =
-      {NULL, "", 0, 0, 2000 /*y*/, 12/*m*/, 2/*d*/, 3*(60/15),
-      kAtcSuffixW};
+  const AtcZoneEra era1 = {
+#if ATC_HIRES_ZONEDB
+    .zone_policy = NULL,
+    .format = "",
+    .offset_code = 0,
+    .offset_remainder = 0,
+    .delta_minutes = 0,
+    .until_year = 2000,
+    .until_month = 12,
+    .until_day = 2,
+    .until_time_code = 3*3600/15,
+    .until_time_modifier = kAtcSuffixW,
+#else
+    .zone_policy = NULL,
+    .format = "",
+    .offset_code = 0,
+    .delta_code = 4,
+    .until_year = 2000,
+    .until_month = 12,
+    .until_day = 2,
+    .until_time_code = 3*60/15,
+    .until_time_modifier = kAtcSuffixW,
+#endif
+  };
 
   // UNTIL = 2001-02-03 4:00
-  const AtcZoneEra era2 =
-      {NULL, "", 0, 0, 2001 /*y*/, 2/*m*/, 3/*d*/, 4*(60/15),
-      kAtcSuffixW};
+  const AtcZoneEra era2 = {
+#if ATC_HIRES_ZONEDB
+    .zone_policy = NULL,
+    .format = "",
+    .offset_code = 0,
+    .offset_remainder = 0,
+    .delta_minutes = 0,
+    .until_year = 2001,
+    .until_month = 2,
+    .until_day = 3,
+    .until_time_code = 4*3600/15,
+    .until_time_modifier = kAtcSuffixW,
+#else
+    .zone_policy = NULL,
+    .format = "",
+    .offset_code = 0,
+    .delta_code = 4,
+    .until_year = 2001,
+    .until_month = 2,
+    .until_day = 3,
+    .until_time_code = 4*60/15,
+    .until_time_modifier = kAtcSuffixW,
+#endif
+  };
 
   // UNTIL = 2002-10-11 4:00
-  const AtcZoneEra era3 =
-      {NULL, "", 0, 0, 2002 /*y*/, 10/*m*/, 11/*d*/, 4*(60/15),
-      kAtcSuffixW};
+  const AtcZoneEra era3 = {
+#if ATC_HIRES_ZONEDB
+    .zone_policy = NULL,
+    .format = "",
+    .offset_code = 0,
+    .offset_remainder = 0,
+    .delta_minutes = 0,
+    .until_year = 2002,
+    .until_month = 10,
+    .until_day = 11,
+    .until_time_code = 4*3600/15,
+    .until_time_modifier = kAtcSuffixW,
+#else
+    .zone_policy = NULL,
+    .format = "",
+    .offset_code = 0,
+    .delta_code = 4,
+    .until_year = 2002,
+    .until_month = 10,
+    .until_day = 11,
+    .until_time_code = 4*60/15,
+    .until_time_modifier = kAtcSuffixW,
+#endif
+  };
 
   // No previous matching era, so start_dt is set to start_ym.
   AtcMatchingEra match1;
   atc_create_matching_era(
-      &match1,
-      NULL /*prevMatch*/,
+      &match1 /*new_match*/,
+      NULL /*prev_match*/,
       &era1 /*era*/,
       start_ym,
       until_ym);
@@ -69,12 +180,12 @@ ACU_TEST(test_atc_create_matching_era) {
   //
   ACU_ASSERT(match1.era == &era1);
 
-  // start_dt is set to the prevMatch.until_dt.
+  // start_dt is set to the prev_match.until_dt.
   // until_dt is < until_ym, so is retained.
   AtcMatchingEra match2;
   atc_create_matching_era(
-      &match2,
-      &match1,
+      &match2 /*new_match*/,
+      &match1 /*prev_match*/,
       &era2 /*era*/,
       start_ym,
       until_ym);
@@ -92,12 +203,12 @@ ACU_TEST(test_atc_create_matching_era) {
   //
   ACU_ASSERT(match2.era == &era2);
 
-  // start_dt is set to the prevMatch.until_dt.
+  // start_dt is set to the prev_match.until_dt.
   // until_dt is > until_ym so truncated to until_ym.
   AtcMatchingEra match3;
   atc_create_matching_era(
-      &match3,
-      &match2,
+      &match3 /*new_match*/,
+      &match2 /*prev_match*/,
       &era3 /*era*/,
       start_ym,
       until_ym);
@@ -122,59 +233,124 @@ ACU_TEST(test_atc_create_matching_era) {
 //---------------------------------------------------------------------------
 
 static const AtcZoneContext kZoneContext = {
-  2000 /*startYear*/,
-  2020 /*untilYear*/,
-  "testing" /*tzVersion*/,
-  0 /*numFragments*/,
-  0 /*numLetters*/,
-  NULL /*fragments*/,
-  NULL /*letters*/,
+  .start_year = 2000,
+  .until_year = 2020,
+  .tz_version = "testing",
+  .num_fragments = 0,
+  .num_letters = 0,
+  .fragments = NULL,
+  .letters = NULL,
 };
 
+#if ATC_HIRES_ZONEDB
+  const AtcZoneEra era1 = {
+    .zone_policy = NULL,
+    .format = "",
+    .offset_code = 0,
+    .offset_remainder = 0,
+    .delta_minutes = 0,
+    .until_year = 2000,
+    .until_month = 12,
+    .until_day = 2,
+    .until_time_code = 3*3600/15,
+    .until_time_modifier = kAtcSuffixW,
+  };
+#else
+  const AtcZoneEra era1 = {
+    .zone_policy = NULL,
+    .format = "",
+    .offset_code = 0,
+    .delta_code = 4,
+    .until_year = 2000,
+    .until_month = 12,
+    .until_day = 2,
+    .until_time_code = 3*60/15,
+    .until_time_modifier = kAtcSuffixW,
+  }
+#endif
 // Create simplified ZoneEras which approximate America/Los_Angeles
 static const AtcZoneEra kZoneEraAlmostLosAngeles[] = {
+#if ATC_HIRES_ZONEDB
   {
-    NULL,
-    "PST" /*format*/,
-    -32 /*offsetCode*/,
-    0 + 4 /*deltaCode*/,
-    2019 /*untilYear*/,
-    3 /*untilMonth*/,
-    10 /*untilDay*/,
-    2*4 /*untilTimeCode*/,
-    kAtcSuffixW /*untilTimeModifier*/
+    .zone_policy = NULL,
+    .format = "PST",
+    .offset_code = -8*3600/15,
+    .offset_remainder = 0,
+    .delta_minutes = 0,
+    .until_year = 2019,
+    .until_month = 3,
+    .until_day = 10,
+    .until_time_code = 2*3600/15,
+    .until_time_modifier = kAtcSuffixW,
   },
   {
-    NULL,
-    "PDT" /*format*/,
-    -32 /*offsetCode*/,
-    4 + 4 /*deltaCode*/,
-    2019 /*untilYear*/,
-    11 /*untilMonth*/,
-    3 /*untilDay*/,
-    2*4 /*untilTimeCode*/,
-    kAtcSuffixW /*untilTimeModifier*/
+    .zone_policy = NULL,
+    .format = "PDT",
+    .offset_code = -8*3600/15,
+    .offset_remainder = 0,
+    .delta_minutes = 60,
+    .until_year = 2019,
+    .until_month = 11,
+    .until_day = 3,
+    .until_time_code = 2*3600/15,
+    .until_time_modifier = kAtcSuffixW,
   },
   {
-    NULL,
-    "PST" /*format*/,
-    -32 /*offsetCode*/,
-    0 + 4 /*deltaCode*/,
-    2020 /*untilYear*/,
-    3 /*untilMonth*/,
-    8 /*untilDay*/,
-    2*4 /*untilTimeCode*/,
-    kAtcSuffixW /*untilTimeModifier*/
+    .zone_policy = NULL,
+    .format = "PST",
+    .offset_code = -8*3600/15,
+    .offset_remainder = 0,
+    .delta_minutes = 0,
+    .until_year = 2020,
+    .until_month = 3,
+    .until_day = 3,
+    .until_time_code = 2*3600/15,
+    .until_time_modifier = kAtcSuffixW,
   },
+#else
+  {
+    .zone_policy = NULL,
+    .format = "PST",
+    .offset_code = -32,
+    .delta_code = 0 + 4,
+    .until_year = 2019,
+    .until_month = 3,
+    .until_day = 10,
+    .until_time_code = 2*60/15,
+    .until_time_modifier = kAtcSuffixW,
+  },
+  {
+    .zone_policy = NULL,
+    .format = "PDT",
+    .offset_code = -32,
+    .delta_code = 4 + 4,
+    .until_year = 2019,
+    .until_month = 11,
+    .until_day = 3,
+    .until_time_code = 2*60/15,
+    .until_time_modifier = kAtcSuffixW,
+  },
+  {
+    .zone_policy = NULL,
+    .format = "PST",
+    .offset_code = -32,
+    .delta_code = 0 + 4,
+    .until_year = 2020,
+    .until_month = 3,
+    .until_day = 8,
+    .until_time_code = 2*60/15,
+    .until_time_modifier = kAtcSuffixW,
+  },
+#endif
 };
 
 static const AtcZoneInfo kZoneAlmostLosAngeles = {
-  "Almost_Los_Angeles" /*name*/,
-  0x70166020 /*zoneId*/,
-  &kZoneContext /*zoneContext*/,
-  3 /*numEras*/,
-  kZoneEraAlmostLosAngeles /*eras*/,
-  NULL /*target_info*/
+  .name = "Almost_Los_Angeles",
+  .zone_id = 0x70166020,
+  .zone_context = &kZoneContext,
+  .num_eras = 3,
+  .eras = kZoneEraAlmostLosAngeles,
+  .target_info = NULL,
 };
 
 //---------------------------------------------------------------------------
@@ -352,12 +528,12 @@ ACU_TEST(test_atc_processor_get_transition_time) {
 
 ACU_TEST(test_atc_processor_create_transition_for_year) {
   const AtcMatchingEra match = {
-    {2018, 12, 1, 0, kAtcSuffixW},
-    {2020, 2, 1, 0, kAtcSuffixW},
-    &kAtcZoneAmerica_Los_Angeles.eras[0],
-    NULL /*prevMatch*/,
-    0 /*lastOffsetMinutes*/,
-    0 /*lastDeltaMinutes*/
+    .start_dt = {2018, 12, 1, 0, kAtcSuffixW},
+    .until_dt = {2020, 2, 1, 0, kAtcSuffixW},
+    .era = &kAtcZoneAmerica_Los_Angeles.eras[0],
+    .prev_match = NULL,
+    .last_offset_seconds = 0,
+    .last_delta_seconds = 0,
   };
 
   // Rule 4
@@ -442,12 +618,12 @@ ACU_TEST(test_atc_processor_get_most_recent_prior_year)
 
 ACU_TEST(test_atc_processor_find_candidate_transitions) {
   AtcMatchingEra match = {
-    {2018, 12, 1, 0, kAtcSuffixW},
-    {2020, 2, 1, 0, kAtcSuffixW},
-    &kAtcZoneAmerica_Los_Angeles.eras[0],
-    NULL /*prevMatch*/,
-    0 /*lastOffsetMinutes*/,
-    0 /*lastDeltaMinutes*/
+    .start_dt = {2018, 12, 1, 0, kAtcSuffixW},
+    .until_dt = {2020, 2, 1, 0, kAtcSuffixW},
+    .era = &kAtcZoneAmerica_Los_Angeles.eras[0],
+    .prev_match = NULL,
+    .last_offset_seconds = 0,
+    .last_delta_seconds = 0,
   };
 
   // Reserve storage for the Transitions
@@ -513,70 +689,103 @@ ACU_TEST(test_atc_processor_find_candidate_transitions) {
 ACU_TEST(test_atc_processor_process_transition_match_status)
 {
   // UNTIL = 2002-01-02T03:00
-  const AtcZoneEra ERA = {
-      NULL /*zonePolicy*/,
-      "" /*format*/,
-      0 /*offsetCode*/,
-      0 /*deltaCode*/,
-      2002 /*untilYear*/,
-      1 /*untilMonth*/,
-      2 /*untilDay*/,
-      12 /*untilTimeCode*/,
-      kAtcSuffixW
+  const AtcZoneEra era = {
+#if ATC_HIRES_ZONEDB
+    .zone_policy = NULL,
+    .format = "",
+    .offset_code = 0,
+    .offset_remainder = 0,
+    .delta_minutes = 0,
+    .until_year = 2002,
+    .until_month = 1,
+    .until_day = 2,
+    .until_time_code = 3*3600/15,
+    .until_time_modifier = kAtcSuffixW,
+#else
+    .zone_policy = NULL,
+    .format = "",
+    .offset_code = 0,
+    .delta_code = 4,
+    .until_year = 2002,
+    .until_month = 1,
+    .until_day = 2,
+    .until_time_code = 3*60/15,
+    .until_time_modifier = kAtcSuffixW,
+#endif
   };
 
   // [2000-01-01, 2001-01-01)
   const AtcMatchingEra match = {
-    {2000, 1, 1, 0, kAtcSuffixW} /*startDateTime*/,
-    {2001, 1, 1, 0, kAtcSuffixW} /*untilDateTime*/,
-    &ERA /*era*/,
-    NULL /*prevMatch*/,
-    0 /*lastOffsetMinutes*/,
-    0 /*lastDeltaMinutes*/
+    .start_dt = {2000, 1, 1, 0, kAtcSuffixW},
+    .until_dt = {2001, 1, 1, 0, kAtcSuffixW},
+    .era = &era,
+    .prev_match = NULL,
+    .last_offset_seconds = 0,
+    .last_delta_seconds = 0,
   };
 
   // This transition occurs before the match, so prior should be filled.
   // transitionTime = 1999-12-31
   AtcTransition transition0 = {
-    &match /*match*/,
-    NULL /*rule*/,
-    {1999, 12, 31, 0, kAtcSuffixW} /*transitionTime*/,
-    {{0, 0, 0, 0, 0}} /*start_dt*/,
-    {{0, 0, 0, 0, 0}} /*until_dt*/,
-    0, 0, 0, {0}, NULL /*zone_info*/, {0}
+    .match = &match,
+    .rule = NULL,
+    .transition_time = {1999, 12, 31, 0, kAtcSuffixW},
+    .start_dt = {0, 0, 0, 0, 0},
+    .until_dt = {0, 0, 0, 0, 0},
+    .start_epoch_seconds = 0,
+    .offset_seconds = 0,
+    .delta_seconds = 0,
+    .abbrev = {0},
+    .letter = NULL,
+    .match_status = 0
   };
 
   // This occurs at exactly match.startDateTime, so should replace the prior.
   // transitionTime = 2000-01-01
   AtcTransition transition1 = {
-    &match /*match*/,
-    NULL /*rule*/,
-    {2000, 1, 1, 0, kAtcSuffixW} /*transitionTime*/,
-    {{0, 0, 0, 0, 0}} /*start_dt*/,
-    {{0, 0, 0, 0, 0}} /*until_dt*/,
-    0, 0, 0, {0}, NULL /*zone_info*/, {0}
+    .match = &match,
+    .rule = NULL,
+    .transition_time = {2000, 1, 1, 0, kAtcSuffixW},
+    .start_dt = {0, 0, 0, 0, 0},
+    .until_dt = {0, 0, 0, 0, 0},
+    .start_epoch_seconds = 0,
+    .offset_seconds = 0,
+    .delta_seconds = 0,
+    .abbrev = {0},
+    .letter = NULL,
+    .match_status = 0
   };
 
   // An interior transition. Prior should not change.
   // transitionTime = 2000-01-02
   AtcTransition transition2 = {
-    &match /*match*/,
-    NULL /*rule*/,
-    {2000, 1, 2, 0, kAtcSuffixW} /*transitionTime*/,
-    {{0, 0, 0, 0, 0}} /*start_dt*/,
-    {{0, 0, 0, 0, 0}} /*until_dt*/,
-    0, 0, 0, {0}, NULL /*zone_info*/, {0}
+    .match = &match,
+    .rule = NULL,
+    .transition_time = {2000, 1, 2, 0, kAtcSuffixW},
+    .start_dt = {0, 0, 0, 0, 0},
+    .until_dt = {0, 0, 0, 0, 0},
+    .start_epoch_seconds = 0,
+    .offset_seconds = 0,
+    .delta_seconds = 0,
+    .abbrev = {0},
+    .letter = NULL,
+    .match_status = 0
   };
 
   // Occurs after match.untilDateTime, so should be rejected.
   // transitionTime = 2001-01-02
   AtcTransition transition3 = {
-    &match /*match*/,
-    NULL /*rule*/,
-    {2001, 1, 2, 0, kAtcSuffixW} /*transitionTime*/,
-    {{0, 0, 0, 0, 0}} /*start_dt*/,
-    {{0, 0, 0, 0, 0}} /*until_dt*/,
-    0, 0, 0, {0}, NULL /*zone_info*/, {0}
+    .match = &match,
+    .rule = NULL,
+    .transition_time = {2001, 1, 2, 0, kAtcSuffixW},
+    .start_dt = {0, 0, 0, 0, 0},
+    .until_dt = {0, 0, 0, 0, 0},
+    .start_epoch_seconds = 0,
+    .offset_seconds = 0,
+    .delta_seconds = 0,
+    .abbrev = {0},
+    .letter = NULL,
+    .match_status = 0
   };
 
   AtcTransition *transitions[] = {
@@ -614,12 +823,12 @@ ACU_TEST(test_atc_processor_process_transition_match_status)
 ACU_TEST(test_atc_processor_create_transitions_from_named_match)
 {
   AtcMatchingEra match = {
-    {2018, 12, 1, 0, kAtcSuffixW},
-    {2020, 2, 1, 0, kAtcSuffixW},
-    &kAtcZoneAmerica_Los_Angeles.eras[0],
-    NULL /*prevMatch*/,
-    0 /*lastOffsetMinutes*/,
-    0 /*lastDeltaMinutes*/
+    .start_dt = {2018, 12, 1, 0, kAtcSuffixW},
+    .until_dt = {2020, 2, 1, 0, kAtcSuffixW},
+    .era = &kAtcZoneAmerica_Los_Angeles.eras[0],
+    .prev_match = NULL,
+    .last_offset_seconds = 0,
+    .last_delta_seconds = 0,
   };
 
   // Reserve storage for the Transitions
