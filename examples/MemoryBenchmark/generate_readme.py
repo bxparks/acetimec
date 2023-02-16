@@ -54,6 +54,20 @@ ASCII table.
 
 ## Results
 
+**0.7.0**
+* Initial version
+
+**0.8.0**
+* Regenerate using `ATC_HIRES_ZONEDB`
+    * one-second resolution for AT, UNTIL, STDOFF
+    * one-minute resolution for DSTOFF (Zone.RULES, Rule.SAVE)
+    * 8-bit
+        * flash increases by ~650 bytes, independent of number of zones
+        * RAM increases ~100 bytes per zone
+    * 32-bit
+        * NO flash increase
+        * RAM increases by ~150 bytes per zone
+
 ### Legend
 
 * [1] Delta flash and ram consumption for `ZoneSorterByName` and

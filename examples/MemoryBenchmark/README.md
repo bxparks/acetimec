@@ -32,6 +32,20 @@ ASCII table.
 
 ## Results
 
+**0.7.0**
+* Initial version
+
+**0.8.0**
+* Regenerate using `ATC_HIRES_ZONEDB`
+    * one-second resolution for AT, UNTIL, STDOFF
+    * one-minute resolution for DSTOFF (Zone.RULES, Rule.SAVE)
+    * 8-bit
+        * flash increases by ~650 bytes, independent of number of zones
+        * RAM increases ~100 bytes per zone
+    * 32-bit
+        * NO flash increase
+        * RAM increases by ~150 bytes per zone
+
 ### Legend
 
 * [1] Delta flash and ram consumption for `ZoneSorterByName` and
@@ -56,11 +70,11 @@ ASCII table.
 | baseline                               |    474/   11 |     0/    0 |
 |----------------------------------------+--------------+-------------|
 | LocalDateTime                          |   1006/   21 |   532/   10 |
-| ZonedDateTime                          |   2652/   65 |  2178/   54 |
-| TimeZone1                              |   7072/  843 |  6598/  832 |
-| TimeZone2                              |   7968/ 1367 |  7494/ 1356 |
-| ZoneRegistry                           |  33074/26652 | 32600/26641 |
-| ZoneAndLinkRegistry                    |  40306/33884 | 39832/33873 |
+| ZonedDateTime                          |   3114/   67 |  2640/   56 |
+| TimeZone1                              |   7864/  957 |  7390/  946 |
+| TimeZone2                              |   8694/ 1595 |  8220/ 1584 |
+| ZoneRegistry                           |  33758/26766 | 33284/26755 |
+| ZoneAndLinkRegistry                    |  40990/33998 | 40516/33987 |
 +---------------------------------------------------------------------+
 
 ```
@@ -78,11 +92,11 @@ ASCII table.
 | baseline                               |   3470/  153 |     0/    0 |
 |----------------------------------------+--------------+-------------|
 | LocalDateTime                          |   3962/  161 |   492/    8 |
-| ZonedDateTime                          |   5606/  203 |  2136/   50 |
-| TimeZone1                              |  10028/  983 |  6558/  830 |
-| TimeZone2                              |  10924/ 1507 |  7454/ 1354 |
-| ZoneRegistry                           |  36030/26792 | 32560/26639 |
-| ZoneAndLinkRegistry                    |  43262/34024 | 39792/33871 |
+| ZonedDateTime                          |   6068/  205 |  2598/   52 |
+| TimeZone1                              |  10820/ 1097 |  7350/  944 |
+| TimeZone2                              |  11650/ 1735 |  8180/ 1582 |
+| ZoneRegistry                           |  36730/26906 | 33260/26753 |
+| ZoneAndLinkRegistry                    |  43962/34138 | 40492/33985 |
 +---------------------------------------------------------------------+
 
 ```
@@ -100,11 +114,11 @@ ASCII table.
 | baseline                               |  21392/ 3556 |     0/    0 |
 |----------------------------------------+--------------+-------------|
 | LocalDateTime                          |  21664/ 3572 |   272/   16 |
-| ZonedDateTime                          |  26044/ 3592 |  4652/   36 |
-| TimeZone1                              |  26928/ 4208 |  5536/  652 |
-| TimeZone2                              |  27500/ 4844 |  6108/ 1288 |
-| ZoneRegistry                           |  60672/ 4208 | 39280/  652 |
-| ZoneAndLinkRegistry                    |  71088/ 4208 | 49696/  652 |
+| ZonedDateTime                          |  26016/ 3592 |  4624/   36 |
+| TimeZone1                              |  26900/ 4384 |  5508/  828 |
+| TimeZone2                              |  27460/ 5196 |  6068/ 1640 |
+| ZoneRegistry                           |  60644/ 4384 | 39252/  828 |
+| ZoneAndLinkRegistry                    |  71060/ 4384 | 49668/  828 |
 +---------------------------------------------------------------------+
 
 ```
@@ -125,11 +139,11 @@ microcontroller and the compiler did not generate the desired information.
 | baseline                               | 260089/27892 |     0/    0 |
 |----------------------------------------+--------------+-------------|
 | LocalDateTime                          | 260525/27912 |   436/   20 |
-| ZonedDateTime                          | 266541/27968 |  6452/   76 |
-| TimeZone1                              | 267449/29444 |  7360/ 1552 |
-| TimeZone2                              | 268189/30128 |  8100/ 2236 |
-| ZoneRegistry                           | 301769/63444 | 41680/35552 |
-| ZoneAndLinkRegistry                    | 312537/74212 | 52448/46320 |
+| ZonedDateTime                          | 266525/27968 |  6436/   76 |
+| TimeZone1                              | 267433/29620 |  7344/ 1728 |
+| TimeZone2                              | 268157/30480 |  8068/ 2588 |
+| ZoneRegistry                           | 301753/63620 | 41664/35728 |
+| ZoneAndLinkRegistry                    | 312521/74388 | 52432/46496 |
 +---------------------------------------------------------------------+
 
 ```
@@ -147,11 +161,11 @@ microcontroller and the compiler did not generate the desired information.
 | baseline                               | 211065/16056 |     0/    0 |
 |----------------------------------------+--------------+-------------|
 | LocalDateTime                          | 211481/16072 |   416/   16 |
-| ZonedDateTime                          | 216333/16088 |  5268/   32 |
-| TimeZone1                              | 217217/16696 |  6152/  640 |
-| TimeZone2                              | 217821/17344 |  6756/ 1288 |
-| ZoneRegistry                           | 251501/16704 | 40436/  648 |
-| ZoneAndLinkRegistry                    | 262269/16704 | 51204/  648 |
+| ZonedDateTime                          | 216325/16088 |  5260/   32 |
+| TimeZone1                              | 217209/16872 |  6144/  816 |
+| TimeZone2                              | 217793/17696 |  6728/ 1640 |
+| ZoneRegistry                           | 251493/16880 | 40428/  824 |
+| ZoneAndLinkRegistry                    | 262261/16880 | 51196/  824 |
 +---------------------------------------------------------------------+
 
 ```
@@ -174,10 +188,10 @@ usage by objects.
 |----------------------------------------+--------------+-------------|
 | LocalDateTime                          |  10352/ 4168 |   292/   16 |
 | ZonedDateTime                          |  16316/ 4188 |  6256/   36 |
-| TimeZone1                              |  17300/ 4804 |  7240/  652 |
-| TimeZone2                              |  17944/ 5440 |  7884/ 1288 |
-| ZoneRegistry                           |  52324/ 4804 | 42264/  652 |
-| ZoneAndLinkRegistry                    |  63092/ 4804 | 53032/  652 |
+| TimeZone1                              |  17300/ 4980 |  7240/  828 |
+| TimeZone2                              |  17944/ 5792 |  7884/ 1640 |
+| ZoneRegistry                           |  52388/ 4980 | 42328/  828 |
+| ZoneAndLinkRegistry                    |  63156/ 4980 | 53096/  828 |
 +---------------------------------------------------------------------+
 
 ```
