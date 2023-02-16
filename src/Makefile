@@ -30,6 +30,7 @@ acetimec.a: $(OBJS) Makefile
 
 zonedb:
 	make -C zonedb
+	make -C zonedbtesting
 
 clean:
 	rm -f $(OBJS) acetimec.a
