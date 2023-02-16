@@ -36,7 +36,7 @@ ASCII table.
 * Initial version
 
 **0.8.0**
-* Regenerate using `ATC_HIRES_ZONEDB`
+* Regenerate using `ATC_HIRES_ZONEDB` using years `[2000,10000)`.
     * one-second resolution for AT, UNTIL, STDOFF
     * one-minute resolution for DSTOFF (Zone.RULES, Rule.SAVE)
     * 8-bit
@@ -45,6 +45,14 @@ ASCII table.
     * 32-bit
         * NO flash increase
         * RAM increases by ~150 bytes per zone
+* Regenerate using `ATC_HIRES_ZONEDB` using years `[1800,10000)`, covering
+  all TZDB transitions.
+    * Increases flash of ZoneRegistry by almost 100%.
+        * 8-bit: 33kB to 66kB
+        * 32-bit: 40kB to 80kB
+    * ZoneAndLinkRegistry is another 10kB.
+        * Microprocessors without `PROGMEM` support no longer compiles because
+          it tries to instantiate the zonedb into RAM.
 
 ### Legend
 
@@ -71,10 +79,9 @@ ASCII table.
 |----------------------------------------+--------------+-------------|
 | LocalDateTime                          |   1006/   21 |   532/   10 |
 | ZonedDateTime                          |   3114/   67 |  2640/   56 |
-| TimeZone1                              |   7864/  957 |  7390/  946 |
-| TimeZone2                              |   8694/ 1595 |  8220/ 1584 |
-| ZoneRegistry                           |  33758/26766 | 33284/26755 |
-| ZoneAndLinkRegistry                    |  40990/33998 | 40516/33987 |
+| TimeZone1                              |   8186/ 1279 |  7712/ 1268 |
+| TimeZone2                              |   9146/ 2047 |  8672/ 2036 |
+| ZoneRegistry                           |  67018/60026 | 66544/60015 |
 +---------------------------------------------------------------------+
 
 ```
@@ -93,10 +100,9 @@ ASCII table.
 |----------------------------------------+--------------+-------------|
 | LocalDateTime                          |   3962/  161 |   492/    8 |
 | ZonedDateTime                          |   6068/  205 |  2598/   52 |
-| TimeZone1                              |  10820/ 1097 |  7350/  944 |
-| TimeZone2                              |  11650/ 1735 |  8180/ 1582 |
-| ZoneRegistry                           |  36730/26906 | 33260/26753 |
-| ZoneAndLinkRegistry                    |  43962/34138 | 40492/33985 |
+| TimeZone1                              |  11142/ 1419 |  7672/ 1266 |
+| TimeZone2                              |  12100/ 2185 |  8630/ 2032 |
+| ZoneRegistry                           |  69988/60164 | 66518/60011 |
 +---------------------------------------------------------------------+
 
 ```
@@ -115,10 +121,10 @@ ASCII table.
 |----------------------------------------+--------------+-------------|
 | LocalDateTime                          |  21664/ 3572 |   272/   16 |
 | ZonedDateTime                          |  26016/ 3592 |  4624/   36 |
-| TimeZone1                              |  26900/ 4384 |  5508/  828 |
-| TimeZone2                              |  27460/ 5196 |  6068/ 1640 |
-| ZoneRegistry                           |  60644/ 4384 | 39252/  828 |
-| ZoneAndLinkRegistry                    |  71060/ 4384 | 49668/  828 |
+| TimeZone1                              |  27592/ 4384 |  6200/  828 |
+| TimeZone2                              |  28312/ 5196 |  6920/ 1640 |
+| ZoneRegistry                           | 100964/ 4384 | 79572/  828 |
+| ZoneAndLinkRegistry                    | 111380/ 4384 | 89988/  828 |
 +---------------------------------------------------------------------+
 
 ```
@@ -140,10 +146,8 @@ microcontroller and the compiler did not generate the desired information.
 |----------------------------------------+--------------+-------------|
 | LocalDateTime                          | 260525/27912 |   436/   20 |
 | ZonedDateTime                          | 266525/27968 |  6436/   76 |
-| TimeZone1                              | 267433/29620 |  7344/ 1728 |
-| TimeZone2                              | 268157/30480 |  8068/ 2588 |
-| ZoneRegistry                           | 301753/63620 | 41664/35728 |
-| ZoneAndLinkRegistry                    | 312521/74388 | 52432/46496 |
+| TimeZone1                              | 268125/30312 |  8036/ 2420 |
+| TimeZone2                              | 269009/31340 |  8920/ 3448 |
 +---------------------------------------------------------------------+
 
 ```
@@ -162,10 +166,10 @@ microcontroller and the compiler did not generate the desired information.
 |----------------------------------------+--------------+-------------|
 | LocalDateTime                          | 211481/16072 |   416/   16 |
 | ZonedDateTime                          | 216325/16088 |  5260/   32 |
-| TimeZone1                              | 217209/16872 |  6144/  816 |
-| TimeZone2                              | 217793/17696 |  6728/ 1640 |
-| ZoneRegistry                           | 251493/16880 | 40428/  824 |
-| ZoneAndLinkRegistry                    | 262261/16880 | 51196/  824 |
+| TimeZone1                              | 217897/16872 |  6832/  816 |
+| TimeZone2                              | 218641/17696 |  7576/ 1640 |
+| ZoneRegistry                           | 291813/16880 | 80748/  824 |
+| ZoneAndLinkRegistry                    | 302581/16880 | 91516/  824 |
 +---------------------------------------------------------------------+
 
 ```
@@ -188,10 +192,10 @@ usage by objects.
 |----------------------------------------+--------------+-------------|
 | LocalDateTime                          |  10352/ 4168 |   292/   16 |
 | ZonedDateTime                          |  16316/ 4188 |  6256/   36 |
-| TimeZone1                              |  17300/ 4980 |  7240/  828 |
-| TimeZone2                              |  17944/ 5792 |  7884/ 1640 |
-| ZoneRegistry                           |  52388/ 4980 | 42328/  828 |
-| ZoneAndLinkRegistry                    |  63156/ 4980 | 53096/  828 |
+| TimeZone1                              |  18152/ 4980 |  8092/  828 |
+| TimeZone2                              |  18956/ 5792 |  8896/ 1640 |
+| ZoneRegistry                           |  92868/ 4980 | 82808/  828 |
+| ZoneAndLinkRegistry                    | 103636/ 4980 | 93576/  828 |
 +---------------------------------------------------------------------+
 
 ```

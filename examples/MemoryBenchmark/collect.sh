@@ -64,6 +64,10 @@ function collect_for_board() {
             # collect the flash and ram usage numbers.
             extract_memory "$feature" "$result_file"
 
+        elif grep -q "is not within region" $auniter_out_file; then
+            # Zonedb is so large on AVR, it generates a different error message.
+            echo $feature -1 -1 -1 -1 >> $result_file
+
         elif grep -q 'region.*overflowed by' $auniter_out_file; then
             # When STM32duino overflows, it does not print any useful info.
             # Print special markers to tell generate_table.awk about the

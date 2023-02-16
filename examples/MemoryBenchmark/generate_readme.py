@@ -58,7 +58,7 @@ ASCII table.
 * Initial version
 
 **0.8.0**
-* Regenerate using `ATC_HIRES_ZONEDB`
+* Regenerate using `ATC_HIRES_ZONEDB` using years `[2000,10000)`.
     * one-second resolution for AT, UNTIL, STDOFF
     * one-minute resolution for DSTOFF (Zone.RULES, Rule.SAVE)
     * 8-bit
@@ -67,6 +67,14 @@ ASCII table.
     * 32-bit
         * NO flash increase
         * RAM increases by ~150 bytes per zone
+* Regenerate using `ATC_HIRES_ZONEDB` using years `[1800,10000)`, covering
+  all TZDB transitions.
+    * Increases flash of ZoneRegistry by almost 100%.
+        * 8-bit: 33kB to 66kB
+        * 32-bit: 40kB to 80kB
+    * ZoneAndLinkRegistry is another 10kB.
+        * Microprocessors without `PROGMEM` support no longer compiles because
+          it tries to instantiate the zonedb into RAM.
 
 ### Legend
 
