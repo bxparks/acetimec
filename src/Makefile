@@ -1,5 +1,4 @@
-CFLAGS := -std=c11 -Wall -Wextra -Werror -pedantic \
-	-D ATC_HIRES_ZONEDB=1
+CFLAGS := -std=c11 -Wall -Wextra -Werror -pedantic
 
 .PHONY: zonedb
 
@@ -21,9 +20,12 @@ OBJS := \
 	acetimec/zoned_extra.o \
 	zonedb/zone_infos.o \
 	zonedb/zone_policies.o \
-	zonedb/zone_registry.o
+	zonedb/zone_registry.o \
+	zonedbtesting/zone_infos.o \
+	zonedbtesting/zone_policies.o \
+	zonedbtesting/zone_registry.o
 
-acetimec.a: $(OBJS)
+acetimec.a: $(OBJS) Makefile
 	$(AR) -c -v -r $@ $(OBJS)
 
 zonedb:

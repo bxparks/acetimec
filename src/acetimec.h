@@ -27,5 +27,8 @@
 #include "zonedb/zone_infos.h"
 #include "zonedb/zone_policies.h"
 #include "zonedb/zone_registry.h"
+#include "zonedbtesting/zone_infos.h"
+#include "zonedbtesting/zone_policies.h"
+#include "zonedbtesting/zone_registry.h"
 
 #endif
