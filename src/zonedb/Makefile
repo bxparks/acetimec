@@ -20,6 +20,7 @@ all:
 		--language c \
 		--scope extended \
 		--generate_int16_years \
+		--generate_hires \
 		--start_year $(START_YEAR) \
 		--until_year $(UNTIL_YEAR) \
 		--nocompress

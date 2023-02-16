@@ -8,6 +8,7 @@
 //     --language c
 //     --scope extended
 //     --generate_int16_years
+//     --generate_hires
 //     --start_year 2000
 //     --until_year 10000
 //     --nocompress
