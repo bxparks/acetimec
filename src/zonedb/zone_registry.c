@@ -7,9 +7,12 @@
 //     --action zonedb
 //     --language c
 //     --scope extended
+//     --offset_granularity 1
+//     --delta_granularity 60
+//     --until_at_granularity 1
 //     --generate_int16_years
 //     --generate_hires
-//     --start_year 2000
+//     --start_year 1800
 //     --until_year 10000
 //     --nocompress
 //
@@ -30,7 +33,7 @@
 // Supported Zones: 596 (351 zones, 245 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
 // Original Years: [1844,2087]
-// Generated Years: [1943,2087]
+// Generated Years: [1844,2087]
 //
 // DO NOT EDIT
 

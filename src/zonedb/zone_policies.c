@@ -7,9 +7,12 @@
 //     --action zonedb
 //     --language c
 //     --scope extended
+//     --offset_granularity 1
+//     --delta_granularity 60
+//     --until_at_granularity 1
 //     --generate_int16_years
 //     --generate_hires
-//     --start_year 2000
+//     --start_year 1800
 //     --until_year 10000
 //     --nocompress
 //
@@ -30,25 +33,121 @@
 // Supported Zones: 596 (351 zones, 245 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
 // Original Years: [1844,2087]
-// Generated Years: [1943,2087]
+// Generated Years: [1844,2087]
 //
 // DO NOT EDIT
 
 #include "zone_policies.h"
 
 //---------------------------------------------------------------------------
-// Policies: 83
-// Rules: 603
+// Policies: 134
+// Rules: 2151
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
 // Policy name: AN
-// Rules: 9
-// Memory (8-bit): 105
-// Memory (32-bit): 120
+// Rules: 17
+// Memory (8-bit): 193
+// Memory (32-bit): 216
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAN[]  = {
+  // Anchor: Rule    AN    1972    only    -    Feb    27    2:00s    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AN    1971    1985    -    Oct    lastSun    2:00s    1:00    D
+  {
+    1971 /*from_year*/,
+    1985 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    AN    1972    only    -    Feb    27    2:00s    0    S
+  {
+    1972 /*from_year*/,
+    1972 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AN    1973    1981    -    Mar    Sun>=1    2:00s    0    S
+  {
+    1973 /*from_year*/,
+    1981 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AN    1982    only    -    Apr    Sun>=1    2:00s    0    S
+  {
+    1982 /*from_year*/,
+    1982 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AN    1983    1985    -    Mar    Sun>=1    2:00s    0    S
+  {
+    1983 /*from_year*/,
+    1985 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AN    1986    1989    -    Mar    Sun>=15    2:00s    0    S
+  {
+    1986 /*from_year*/,
+    1989 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AN    1986    only    -    Oct    19    2:00s    1:00    D
+  {
+    1986 /*from_year*/,
+    1986 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    AN    1987    1999    -    Oct    lastSun    2:00s    1:00    D
   {
     1987 /*from_year*/,
@@ -59,7 +158,7 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    AN    1990    1995    -    Mar    Sun>=1    2:00s    0    S
   {
@@ -71,7 +170,7 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AN    1996    2005    -    Mar    lastSun    2:00s    0    S
   {
@@ -83,7 +182,7 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AN    2000    only    -    Aug    lastSun    2:00s    1:00    D
   {
@@ -95,7 +194,7 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    AN    2001    2007    -    Oct    lastSun    2:00s    1:00    D
   {
@@ -107,7 +206,7 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    AN    2006    only    -    Apr    Sun>=1    2:00s    0    S
   {
@@ -119,7 +218,7 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AN    2007    only    -    Mar    lastSun    2:00s    0    S
   {
@@ -131,7 +230,7 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AN    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
@@ -143,7 +242,7 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AN    2008    max    -    Oct    Sun>=1    2:00s    1:00    D
   {
@@ -155,24 +254,72 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyAN  = {
   kAtcZoneRulesAN /*rules*/,
-  9 /*num_rules*/,
+  17 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: AQ
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 5
+// Memory (8-bit): 61
+// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAQ[]  = {
+  // Anchor: Rule    AQ    1972    only    -    Feb    lastSun    2:00s    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AQ    1971    only    -    Oct    lastSun    2:00s    1:00    D
+  {
+    1971 /*from_year*/,
+    1971 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    AQ    1972    only    -    Feb    lastSun    2:00s    0    S
+  {
+    1972 /*from_year*/,
+    1972 /*to_year*/,
+    2 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AQ    1989    1991    -    Oct    lastSun    2:00s    1:00    D
+  {
+    1989 /*from_year*/,
+    1991 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    AQ    1990    1992    -    Mar    Sun>=1    2:00s    0    S
   {
     1990 /*from_year*/,
@@ -183,24 +330,60 @@ static const AtcZoneRule kAtcZoneRulesAQ[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyAQ  = {
   kAtcZoneRulesAQ /*rules*/,
-  1 /*num_rules*/,
+  5 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: AS
-// Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
+// Rules: 16
+// Memory (8-bit): 182
+// Memory (32-bit): 204
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAS[]  = {
+  // Anchor: Rule    AS    1972    only    -    Feb    27    2:00s    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AS    1971    1985    -    Oct    lastSun    2:00s    1:00    D
+  {
+    1971 /*from_year*/,
+    1985 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    AS    1986    only    -    Oct    19    2:00s    1:00    D
+  {
+    1986 /*from_year*/,
+    1986 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    AS    1987    2007    -    Oct    lastSun    2:00s    1:00    D
   {
     1987 /*from_year*/,
@@ -211,7 +394,79 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    AS    1972    only    -    Feb    27    2:00s    0    S
+  {
+    1972 /*from_year*/,
+    1972 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AS    1973    1985    -    Mar    Sun>=1    2:00s    0    S
+  {
+    1973 /*from_year*/,
+    1985 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AS    1986    1990    -    Mar    Sun>=15    2:00s    0    S
+  {
+    1986 /*from_year*/,
+    1990 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AS    1991    only    -    Mar    3    2:00s    0    S
+  {
+    1991 /*from_year*/,
+    1991 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AS    1992    only    -    Mar    22    2:00s    0    S
+  {
+    1992 /*from_year*/,
+    1992 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AS    1993    only    -    Mar    7    2:00s    0    S
+  {
+    1993 /*from_year*/,
+    1993 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AS    1994    only    -    Mar    20    2:00s    0    S
   {
@@ -223,7 +478,7 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AS    1995    2005    -    Mar    lastSun    2:00s    0    S
   {
@@ -235,7 +490,7 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AS    2006    only    -    Apr    2    2:00s    0    S
   {
@@ -247,7 +502,7 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AS    2007    only    -    Mar    lastSun    2:00s    0    S
   {
@@ -259,7 +514,7 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AS    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
@@ -271,7 +526,7 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AS    2008    max    -    Oct    Sun>=1    2:00s    1:00    D
   {
@@ -283,24 +538,216 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyAS  = {
   kAtcZoneRulesAS /*rules*/,
-  7 /*num_rules*/,
+  16 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: AT
-// Rules: 8
-// Memory (8-bit): 94
-// Memory (32-bit): 108
+// Rules: 24
+// Memory (8-bit): 270
+// Memory (32-bit): 300
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAT[]  = {
+  // Anchor: Rule    AT    1917    only    -    Mar    lastSun    2:00s    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AT    1916    only    -    Oct    Sun>=1    2:00s    1:00    D
+  {
+    1916 /*from_year*/,
+    1916 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    AT    1917    only    -    Mar    lastSun    2:00s    0    S
+  {
+    1917 /*from_year*/,
+    1917 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AT    1917    1918    -    Oct    Sun>=22    2:00s    1:00    D
+  {
+    1917 /*from_year*/,
+    1918 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    AT    1918    1919    -    Mar    Sun>=1    2:00s    0    S
+  {
+    1918 /*from_year*/,
+    1919 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AT    1967    only    -    Oct    Sun>=1    2:00s    1:00    D
+  {
+    1967 /*from_year*/,
+    1967 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    AT    1968    only    -    Mar    Sun>=29    2:00s    0    S
+  {
+    1968 /*from_year*/,
+    1968 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AT    1968    1985    -    Oct    lastSun    2:00s    1:00    D
+  {
+    1968 /*from_year*/,
+    1985 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    AT    1969    1971    -    Mar    Sun>=8    2:00s    0    S
+  {
+    1969 /*from_year*/,
+    1971 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AT    1972    only    -    Feb    lastSun    2:00s    0    S
+  {
+    1972 /*from_year*/,
+    1972 /*to_year*/,
+    2 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AT    1973    1981    -    Mar    Sun>=1    2:00s    0    S
+  {
+    1973 /*from_year*/,
+    1981 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AT    1982    1983    -    Mar    lastSun    2:00s    0    S
+  {
+    1982 /*from_year*/,
+    1983 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AT    1984    1986    -    Mar    Sun>=1    2:00s    0    S
+  {
+    1984 /*from_year*/,
+    1986 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AT    1986    only    -    Oct    Sun>=15    2:00s    1:00    D
+  {
+    1986 /*from_year*/,
+    1986 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    AT    1987    1990    -    Mar    Sun>=15    2:00s    0    S
+  {
+    1987 /*from_year*/,
+    1990 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AT    1987    only    -    Oct    Sun>=22    2:00s    1:00    D
+  {
+    1987 /*from_year*/,
+    1987 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    AT    1988    1990    -    Oct    lastSun    2:00s    1:00    D
   {
     1988 /*from_year*/,
@@ -311,7 +758,7 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    AT    1991    1999    -    Oct    Sun>=1    2:00s    1:00    D
   {
@@ -323,7 +770,7 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    AT    1991    2005    -    Mar    lastSun    2:00s    0    S
   {
@@ -335,7 +782,7 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AT    2000    only    -    Aug    lastSun    2:00s    1:00    D
   {
@@ -347,7 +794,7 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    AT    2001    max    -    Oct    Sun>=1    2:00s    1:00    D
   {
@@ -359,7 +806,7 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    AT    2006    only    -    Apr    Sun>=1    2:00s    0    S
   {
@@ -371,7 +818,7 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AT    2007    only    -    Mar    lastSun    2:00s    0    S
   {
@@ -383,7 +830,7 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AT    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
@@ -395,24 +842,96 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyAT  = {
   kAtcZoneRulesAT /*rules*/,
-  8 /*num_rules*/,
+  24 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: AV
-// Rules: 9
-// Memory (8-bit): 105
-// Memory (32-bit): 120
+// Rules: 15
+// Memory (8-bit): 171
+// Memory (32-bit): 192
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAV[]  = {
+  // Anchor: Rule    AV    1972    only    -    Feb    lastSun    2:00s    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AV    1971    1985    -    Oct    lastSun    2:00s    1:00    D
+  {
+    1971 /*from_year*/,
+    1985 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    AV    1972    only    -    Feb    lastSun    2:00s    0    S
+  {
+    1972 /*from_year*/,
+    1972 /*to_year*/,
+    2 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AV    1973    1985    -    Mar    Sun>=1    2:00s    0    S
+  {
+    1973 /*from_year*/,
+    1985 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AV    1986    1990    -    Mar    Sun>=15    2:00s    0    S
+  {
+    1986 /*from_year*/,
+    1990 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AV    1986    1987    -    Oct    Sun>=15    2:00s    1:00    D
+  {
+    1986 /*from_year*/,
+    1987 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    AV    1988    1999    -    Oct    lastSun    2:00s    1:00    D
   {
     1988 /*from_year*/,
@@ -423,7 +942,7 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    AV    1991    1994    -    Mar    Sun>=1    2:00s    0    S
   {
@@ -435,7 +954,7 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AV    1995    2005    -    Mar    lastSun    2:00s    0    S
   {
@@ -447,7 +966,7 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AV    2000    only    -    Aug    lastSun    2:00s    1:00    D
   {
@@ -459,7 +978,7 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    AV    2001    2007    -    Oct    lastSun    2:00s    1:00    D
   {
@@ -471,7 +990,7 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    AV    2006    only    -    Apr    Sun>=1    2:00s    0    S
   {
@@ -483,7 +1002,7 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AV    2007    only    -    Mar    lastSun    2:00s    0    S
   {
@@ -495,7 +1014,7 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AV    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
@@ -507,7 +1026,7 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AV    2008    max    -    Oct    Sun>=1    2:00s    1:00    D
   {
@@ -519,24 +1038,96 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyAV  = {
   kAtcZoneRulesAV /*rules*/,
-  9 /*num_rules*/,
+  15 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: AW
-// Rules: 4
-// Memory (8-bit): 50
-// Memory (32-bit): 60
+// Rules: 10
+// Memory (8-bit): 116
+// Memory (32-bit): 132
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAW[]  = {
+  // Anchor: Rule    AW    1975    only    -    Mar    Sun>=1    2:00s    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AW    1974    only    -    Oct    lastSun    2:00s    1:00    D
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    AW    1975    only    -    Mar    Sun>=1    2:00s    0    S
+  {
+    1975 /*from_year*/,
+    1975 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AW    1983    only    -    Oct    lastSun    2:00s    1:00    D
+  {
+    1983 /*from_year*/,
+    1983 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    AW    1984    only    -    Mar    Sun>=1    2:00s    0    S
+  {
+    1984 /*from_year*/,
+    1984 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    AW    1991    only    -    Nov    17    2:00s    1:00    D
+  {
+    1991 /*from_year*/,
+    1991 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    AW    1992    only    -    Mar    Sun>=1    2:00s    0    S
   {
     1992 /*from_year*/,
@@ -547,7 +1138,7 @@ static const AtcZoneRule kAtcZoneRulesAW[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AW    2006    only    -    Dec     3    2:00s    1:00    D
   {
@@ -559,7 +1150,7 @@ static const AtcZoneRule kAtcZoneRulesAW[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    AW    2007    2009    -    Mar    lastSun    2:00s    0    S
   {
@@ -571,7 +1162,7 @@ static const AtcZoneRule kAtcZoneRulesAW[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    AW    2007    2008    -    Oct    lastSun    2:00s    1:00    D
   {
@@ -583,24 +1174,920 @@ static const AtcZoneRule kAtcZoneRulesAW[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyAW  = {
   kAtcZoneRulesAW /*rules*/,
-  4 /*num_rules*/,
+  10 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Albania
+// Rules: 26
+// Memory (8-bit): 292
+// Memory (32-bit): 324
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesAlbania[]  = {
+  // Anchor: Rule    Albania    1942    only    -    Nov     2    3:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Albania    1940    only    -    Jun    16    0:00    1:00    S
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Albania    1942    only    -    Nov     2    3:00    0    -
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Albania    1943    only    -    Mar    29    2:00    1:00    S
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Albania    1943    only    -    Apr    10    3:00    0    -
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Albania    1974    only    -    May     4    0:00    1:00    S
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Albania    1974    only    -    Oct     2    0:00    0    -
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Albania    1975    only    -    May     1    0:00    1:00    S
+  {
+    1975 /*from_year*/,
+    1975 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Albania    1975    only    -    Oct     2    0:00    0    -
+  {
+    1975 /*from_year*/,
+    1975 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Albania    1976    only    -    May     2    0:00    1:00    S
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Albania    1976    only    -    Oct     3    0:00    0    -
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Albania    1977    only    -    May     8    0:00    1:00    S
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Albania    1977    only    -    Oct     2    0:00    0    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Albania    1978    only    -    May     6    0:00    1:00    S
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Albania    1978    only    -    Oct     1    0:00    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Albania    1979    only    -    May     5    0:00    1:00    S
+  {
+    1979 /*from_year*/,
+    1979 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Albania    1979    only    -    Sep    30    0:00    0    -
+  {
+    1979 /*from_year*/,
+    1979 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Albania    1980    only    -    May     3    0:00    1:00    S
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Albania    1980    only    -    Oct     4    0:00    0    -
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Albania    1981    only    -    Apr    26    0:00    1:00    S
+  {
+    1981 /*from_year*/,
+    1981 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Albania    1981    only    -    Sep    27    0:00    0    -
+  {
+    1981 /*from_year*/,
+    1981 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Albania    1982    only    -    May     2    0:00    1:00    S
+  {
+    1982 /*from_year*/,
+    1982 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Albania    1982    only    -    Oct     3    0:00    0    -
+  {
+    1982 /*from_year*/,
+    1982 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Albania    1983    only    -    Apr    18    0:00    1:00    S
+  {
+    1983 /*from_year*/,
+    1983 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Albania    1983    only    -    Oct     1    0:00    0    -
+  {
+    1983 /*from_year*/,
+    1983 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Albania    1984    only    -    Apr     1    0:00    1:00    S
+  {
+    1984 /*from_year*/,
+    1984 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyAlbania  = {
+  kAtcZoneRulesAlbania /*rules*/,
+  26 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Algeria
+// Rules: 23
+// Memory (8-bit): 259
+// Memory (32-bit): 288
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesAlgeria[]  = {
+  // Anchor: Rule    Algeria    1916    1919    -    Oct    Sun>=1    23:00s    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Algeria    1916    only    -    Jun    14    23:00s    1:00    S
+  {
+    1916 /*from_year*/,
+    1916 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Algeria    1916    1919    -    Oct    Sun>=1    23:00s    0    -
+  {
+    1916 /*from_year*/,
+    1919 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Algeria    1917    only    -    Mar    24    23:00s    1:00    S
+  {
+    1917 /*from_year*/,
+    1917 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Algeria    1918    only    -    Mar     9    23:00s    1:00    S
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Algeria    1919    only    -    Mar     1    23:00s    1:00    S
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Algeria    1920    only    -    Feb    14    23:00s    1:00    S
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Algeria    1920    only    -    Oct    23    23:00s    0    -
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Algeria    1921    only    -    Mar    14    23:00s    1:00    S
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Algeria    1921    only    -    Jun    21    23:00s    0    -
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Algeria    1939    only    -    Sep    11    23:00s    1:00    S
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Algeria    1939    only    -    Nov    19     1:00    0    -
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Algeria    1944    1945    -    Apr    Mon>=1     2:00    1:00    S
+  {
+    1944 /*from_year*/,
+    1945 /*to_year*/,
+    4 /*in_month*/,
+    1 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Algeria    1944    only    -    Oct     8     2:00    0    -
+  {
+    1944 /*from_year*/,
+    1944 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Algeria    1945    only    -    Sep    16     1:00    0    -
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Algeria    1971    only    -    Apr    25    23:00s    1:00    S
+  {
+    1971 /*from_year*/,
+    1971 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Algeria    1971    only    -    Sep    26    23:00s    0    -
+  {
+    1971 /*from_year*/,
+    1971 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Algeria    1977    only    -    May     6     0:00    1:00    S
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Algeria    1977    only    -    Oct    21     0:00    0    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Algeria    1978    only    -    Mar    24     1:00    1:00    S
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Algeria    1978    only    -    Sep    22     3:00    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Algeria    1980    only    -    Apr    25     0:00    1:00    S
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Algeria    1980    only    -    Oct    31     2:00    0    -
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyAlgeria  = {
+  kAtcZoneRulesAlgeria /*rules*/,
+  23 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Arg
-// Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
+// Rules: 30
+// Memory (8-bit): 336
+// Memory (32-bit): 372
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesArg[]  = {
+  // Anchor: Rule    Arg    1931    only    -    Apr     1    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1930    only    -    Dec     1    0:00    1:00    -
+  {
+    1930 /*from_year*/,
+    1930 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1931    only    -    Apr     1    0:00    0    -
+  {
+    1931 /*from_year*/,
+    1931 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1931    only    -    Oct    15    0:00    1:00    -
+  {
+    1931 /*from_year*/,
+    1931 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1932    1940    -    Mar     1    0:00    0    -
+  {
+    1932 /*from_year*/,
+    1940 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1932    1939    -    Nov     1    0:00    1:00    -
+  {
+    1932 /*from_year*/,
+    1939 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1940    only    -    Jul     1    0:00    1:00    -
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1941    only    -    Jun    15    0:00    0    -
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1941    only    -    Oct    15    0:00    1:00    -
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1943    only    -    Aug     1    0:00    0    -
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1943    only    -    Oct    15    0:00    1:00    -
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1946    only    -    Mar     1    0:00    0    -
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1946    only    -    Oct     1    0:00    1:00    -
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1963    only    -    Oct     1    0:00    0    -
+  {
+    1963 /*from_year*/,
+    1963 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1963    only    -    Dec    15    0:00    1:00    -
+  {
+    1963 /*from_year*/,
+    1963 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1964    1966    -    Mar     1    0:00    0    -
+  {
+    1964 /*from_year*/,
+    1966 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1964    1966    -    Oct    15    0:00    1:00    -
+  {
+    1964 /*from_year*/,
+    1966 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1967    only    -    Apr     2    0:00    0    -
+  {
+    1967 /*from_year*/,
+    1967 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1967    1968    -    Oct    Sun>=1    0:00    1:00    -
+  {
+    1967 /*from_year*/,
+    1968 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1968    1969    -    Apr    Sun>=1    0:00    0    -
+  {
+    1968 /*from_year*/,
+    1969 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1974    only    -    Jan    23    0:00    1:00    -
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1974    only    -    May     1    0:00    0    -
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1988    only    -    Dec     1    0:00    1:00    -
+  {
+    1988 /*from_year*/,
+    1988 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Arg    1989    1993    -    Mar    Sun>=1    0:00    0    -
   {
     1989 /*from_year*/,
@@ -611,6 +2098,18 @@ static const AtcZoneRule kAtcZoneRulesArg[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Arg    1989    1992    -    Oct    Sun>=15    0:00    1:00    -
+  {
+    1989 /*from_year*/,
+    1992 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Arg    1999    only    -    Oct    Sun>=1    0:00    1:00    -
@@ -678,7 +2177,7 @@ static const AtcZoneRule kAtcZoneRulesArg[]  = {
 
 const AtcZonePolicy kAtcZonePolicyArg  = {
   kAtcZoneRulesArg /*rules*/,
-  6 /*num_rules*/,
+  30 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
@@ -735,12 +2234,84 @@ const AtcZonePolicy kAtcZonePolicyArmenia  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Aus
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 8
+// Memory (8-bit): 94
+// Memory (32-bit): 108
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAus[]  = {
+  // Anchor: Rule    Aus    1917    only    -    Mar    lastSun    2:00s    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Aus    1917    only    -    Jan     1    2:00s    1:00    D
+  {
+    1917 /*from_year*/,
+    1917 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Aus    1917    only    -    Mar    lastSun    2:00s    0    S
+  {
+    1917 /*from_year*/,
+    1917 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Aus    1942    only    -    Jan     1    2:00s    1:00    D
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Aus    1942    only    -    Mar    lastSun    2:00s    0    S
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Aus    1942    only    -    Sep    27    2:00s    1:00    D
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    Aus    1943    1944    -    Mar    lastSun    2:00s    0    S
   {
     1943 /*from_year*/,
@@ -751,24 +2322,184 @@ static const AtcZoneRule kAtcZoneRulesAus[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Aus    1943    only    -    Oct     3    2:00s    1:00    D
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyAus  = {
   kAtcZoneRulesAus /*rules*/,
-  1 /*num_rules*/,
+  8 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Austria
+// Rules: 10
+// Memory (8-bit): 116
+// Memory (32-bit): 132
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesAustria[]  = {
+  // Anchor: Rule    Austria    1920    only    -    Sep    13    2:00s    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Austria    1920    only    -    Apr     5    2:00s    1:00    S
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Austria    1920    only    -    Sep    13    2:00s    0    -
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Austria    1946    only    -    Apr    14    2:00s    1:00    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Austria    1946    only    -    Oct     7    2:00s    0    -
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Austria    1947    1948    -    Oct    Sun>=1    2:00s    0    -
+  {
+    1947 /*from_year*/,
+    1948 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Austria    1947    only    -    Apr     6    2:00s    1:00    S
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Austria    1948    only    -    Apr    18    2:00s    1:00    S
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Austria    1980    only    -    Apr     6    0:00    1:00    S
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Austria    1980    only    -    Sep    28    0:00    0    -
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyAustria  = {
+  kAtcZoneRulesAustria /*rules*/,
+  10 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Azer
-// Rules: 2
-// Memory (8-bit): 28
-// Memory (32-bit): 36
+// Rules: 3
+// Memory (8-bit): 39
+// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAzer[]  = {
+  // Anchor: Rule    Azer    1997    2015    -    Oct    lastSun     5:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Azer    1997    2015    -    Mar    lastSun     4:00    1:00    -
   {
     1997 /*from_year*/,
@@ -798,17 +2529,149 @@ static const AtcZoneRule kAtcZoneRulesAzer[]  = {
 
 const AtcZonePolicy kAtcZonePolicyAzer  = {
   kAtcZoneRulesAzer /*rules*/,
-  2 /*num_rules*/,
+  3 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Barb
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 12
+// Memory (8-bit): 138
+// Memory (32-bit): 156
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesBarb[]  = {
+  // Anchor: Rule    Barb    1942    only    -    Aug    31    6:00u    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Barb    1942    only    -    Apr    19    5:00u    1:00    D
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    1200 /*at_time_code (18000/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Barb    1942    only    -    Aug    31    6:00u    0    S
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    1440 /*at_time_code (21600/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Barb    1943    only    -    May     2    5:00u    1:00    D
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    1200 /*at_time_code (18000/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Barb    1943    only    -    Sep     5    6:00u    0    S
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    1440 /*at_time_code (21600/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Barb    1944    only    -    Apr    10    5:00u    0:30    -
+  {
+    1944 /*from_year*/,
+    1944 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    1200 /*at_time_code (18000/15)*/,
+    30 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Barb    1944    only    -    Sep    10    6:00u    0    S
+  {
+    1944 /*from_year*/,
+    1944 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    1440 /*at_time_code (21600/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Barb    1977    only    -    Jun    12    2:00    1:00    D
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Barb    1977    1978    -    Oct    Sun>=1    2:00    0    S
+  {
+    1977 /*from_year*/,
+    1978 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Barb    1978    1980    -    Apr    Sun>=15    2:00    1:00    D
+  {
+    1978 /*from_year*/,
+    1980 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Barb    1979    only    -    Sep    30    2:00    0    S
+  {
+    1979 /*from_year*/,
+    1979 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    Barb    1980    only    -    Sep    25    2:00    0    S
   {
     1980 /*from_year*/,
@@ -819,24 +2682,592 @@ static const AtcZoneRule kAtcZoneRulesBarb[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyBarb  = {
   kAtcZoneRulesBarb /*rules*/,
-  1 /*num_rules*/,
+  12 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Belgium
+// Rules: 35
+// Memory (8-bit): 391
+// Memory (32-bit): 432
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesBelgium[]  = {
+  // Anchor: Rule    Belgium    1918    1919    -    Oct    Sat>=1    23:00s    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Belgium    1918    only    -    Mar     9     0:00s    1:00    S
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1918    1919    -    Oct    Sat>=1    23:00s    0    -
+  {
+    1918 /*from_year*/,
+    1919 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Belgium    1919    only    -    Mar     1    23:00s    1:00    S
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1920    only    -    Feb    14    23:00s    1:00    S
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1920    only    -    Oct    23    23:00s    0    -
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Belgium    1921    only    -    Mar    14    23:00s    1:00    S
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1921    only    -    Oct    25    23:00s    0    -
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Belgium    1922    only    -    Mar    25    23:00s    1:00    S
+  {
+    1922 /*from_year*/,
+    1922 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1922    1927    -    Oct    Sat>=1    23:00s    0    -
+  {
+    1922 /*from_year*/,
+    1927 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Belgium    1923    only    -    Apr    21    23:00s    1:00    S
+  {
+    1923 /*from_year*/,
+    1923 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1924    only    -    Mar    29    23:00s    1:00    S
+  {
+    1924 /*from_year*/,
+    1924 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1925    only    -    Apr     4    23:00s    1:00    S
+  {
+    1925 /*from_year*/,
+    1925 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1926    only    -    Apr    17    23:00s    1:00    S
+  {
+    1926 /*from_year*/,
+    1926 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1927    only    -    Apr     9    23:00s    1:00    S
+  {
+    1927 /*from_year*/,
+    1927 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1928    only    -    Apr    14    23:00s    1:00    S
+  {
+    1928 /*from_year*/,
+    1928 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1928    1938    -    Oct    Sun>=2     2:00s    0    -
+  {
+    1928 /*from_year*/,
+    1938 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Belgium    1929    only    -    Apr    21     2:00s    1:00    S
+  {
+    1929 /*from_year*/,
+    1929 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1930    only    -    Apr    13     2:00s    1:00    S
+  {
+    1930 /*from_year*/,
+    1930 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1931    only    -    Apr    19     2:00s    1:00    S
+  {
+    1931 /*from_year*/,
+    1931 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1932    only    -    Apr     3     2:00s    1:00    S
+  {
+    1932 /*from_year*/,
+    1932 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1933    only    -    Mar    26     2:00s    1:00    S
+  {
+    1933 /*from_year*/,
+    1933 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1934    only    -    Apr     8     2:00s    1:00    S
+  {
+    1934 /*from_year*/,
+    1934 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1935    only    -    Mar    31     2:00s    1:00    S
+  {
+    1935 /*from_year*/,
+    1935 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1936    only    -    Apr    19     2:00s    1:00    S
+  {
+    1936 /*from_year*/,
+    1936 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1937    only    -    Apr     4     2:00s    1:00    S
+  {
+    1937 /*from_year*/,
+    1937 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1938    only    -    Mar    27     2:00s    1:00    S
+  {
+    1938 /*from_year*/,
+    1938 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1939    only    -    Apr    16     2:00s    1:00    S
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1939    only    -    Nov    19     2:00s    0    -
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Belgium    1940    only    -    Feb    25     2:00s    1:00    S
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1944    only    -    Sep    17     2:00s    0    -
+  {
+    1944 /*from_year*/,
+    1944 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Belgium    1945    only    -    Apr     2     2:00s    1:00    S
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1945    only    -    Sep    16     2:00s    0    -
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Belgium    1946    only    -    May    19     2:00s    1:00    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Belgium    1946    only    -    Oct     7     2:00s    0    -
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyBelgium  = {
+  kAtcZoneRulesBelgium /*rules*/,
+  35 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Belize
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 12
+// Memory (8-bit): 138
+// Memory (32-bit): 156
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesBelize[]  = {
+  // Anchor: Rule    Belize    1919    1942    -    Feb    Sat>=8    24:00    0    CST
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    11 /*letterIndex ("CST")*/,
+  },
+  // Rule    Belize    1918    1941    -    Oct    Sat>=1    24:00    0:30    -0530
+  {
+    1918 /*from_year*/,
+    1941 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    30 /*delta_minutes*/,
+    5 /*letterIndex ("-0530")*/,
+  },
+  // Rule    Belize    1919    1942    -    Feb    Sat>=8    24:00    0    CST
+  {
+    1919 /*from_year*/,
+    1942 /*to_year*/,
+    2 /*in_month*/,
+    6 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    11 /*letterIndex ("CST")*/,
+  },
+  // Rule    Belize    1942    only    -    Jun    27    24:00    1:00    CWT
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    12 /*letterIndex ("CWT")*/,
+  },
+  // Rule    Belize    1945    only    -    Aug    14    23:00u    1:00    CPT
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    10 /*letterIndex ("CPT")*/,
+  },
+  // Rule    Belize    1945    only    -    Dec    15    24:00    0    CST
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    11 /*letterIndex ("CST")*/,
+  },
+  // Rule    Belize    1947    1967    -    Oct    Sat>=1    24:00    0:30    -0530
+  {
+    1947 /*from_year*/,
+    1967 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    30 /*delta_minutes*/,
+    5 /*letterIndex ("-0530")*/,
+  },
+  // Rule    Belize    1948    1968    -    Feb    Sat>=8    24:00    0    CST
+  {
+    1948 /*from_year*/,
+    1968 /*to_year*/,
+    2 /*in_month*/,
+    6 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    11 /*letterIndex ("CST")*/,
+  },
+  // Rule    Belize    1973    only    -    Dec     5    0:00    1:00    CDT
+  {
+    1973 /*from_year*/,
+    1973 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    9 /*letterIndex ("CDT")*/,
+  },
+  // Rule    Belize    1974    only    -    Feb     9    0:00    0    CST
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    11 /*letterIndex ("CST")*/,
+  },
+  // Rule    Belize    1982    only    -    Dec    18    0:00    1:00    CDT
+  {
+    1982 /*from_year*/,
+    1982 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    9 /*letterIndex ("CDT")*/,
+  },
   // Rule    Belize    1983    only    -    Feb    12    0:00    0    CST
   {
     1983 /*from_year*/,
@@ -847,24 +3278,700 @@ static const AtcZoneRule kAtcZoneRulesBelize[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    4 /*letterIndex ("CST")*/,
+    11 /*letterIndex ("CST")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyBelize  = {
   kAtcZoneRulesBelize /*rules*/,
-  1 /*num_rules*/,
+  12 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Bermuda
+// Rules: 17
+// Memory (8-bit): 193
+// Memory (32-bit): 216
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesBermuda[]  = {
+  // Anchor: Rule    Bermuda    1917    only    -    Sep    30    24:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Bermuda    1917    only    -    Apr     5    24:00    1:00    -
+  {
+    1917 /*from_year*/,
+    1917 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Bermuda    1917    only    -    Sep    30    24:00    0    -
+  {
+    1917 /*from_year*/,
+    1917 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Bermuda    1918    only    -    Apr    13    24:00    1:00    -
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Bermuda    1918    only    -    Sep    15    24:00    0    S
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Bermuda    1942    only    -    Jan    11     2:00    1:00    D
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Bermuda    1942    only    -    Oct    18     2:00    0    S
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Bermuda    1943    only    -    Mar    21     2:00    1:00    D
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Bermuda    1943    only    -    Oct    31     2:00    0    S
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Bermuda    1944    1945    -    Mar    Sun>=8     2:00    1:00    D
+  {
+    1944 /*from_year*/,
+    1945 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Bermuda    1944    1945    -    Nov    Sun>=1     2:00    0    S
+  {
+    1944 /*from_year*/,
+    1945 /*to_year*/,
+    11 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Bermuda    1947    only    -    May    Sun>=15     2:00    1:00    D
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Bermuda    1947    only    -    Sep    Sun>=8     2:00    0    S
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Bermuda    1948    1952    -    May    Sun>=22     2:00    1:00    D
+  {
+    1948 /*from_year*/,
+    1952 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Bermuda    1948    1952    -    Sep    Sun>=1     2:00    0    S
+  {
+    1948 /*from_year*/,
+    1952 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Bermuda    1956    only    -    May    Sun>=22     2:00    1:00    D
+  {
+    1956 /*from_year*/,
+    1956 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Bermuda    1956    only    -    Oct    lastSun     2:00    0    S
+  {
+    1956 /*from_year*/,
+    1956 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyBermuda  = {
+  kAtcZoneRulesBermuda /*rules*/,
+  17 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Brazil
-// Rules: 20
-// Memory (8-bit): 226
-// Memory (32-bit): 252
+// Rules: 58
+// Memory (8-bit): 644
+// Memory (32-bit): 708
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
+  // Anchor: Rule    Brazil    1932    1933    -    Apr     1     0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1931    only    -    Oct     3    11:00    1:00    -
+  {
+    1931 /*from_year*/,
+    1931 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    2640 /*at_time_code (39600/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1932    1933    -    Apr     1     0:00    0    -
+  {
+    1932 /*from_year*/,
+    1933 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1932    only    -    Oct     3     0:00    1:00    -
+  {
+    1932 /*from_year*/,
+    1932 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1949    1952    -    Dec     1     0:00    1:00    -
+  {
+    1949 /*from_year*/,
+    1952 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1950    only    -    Apr    16     1:00    0    -
+  {
+    1950 /*from_year*/,
+    1950 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1951    1952    -    Apr     1     0:00    0    -
+  {
+    1951 /*from_year*/,
+    1952 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1953    only    -    Mar     1     0:00    0    -
+  {
+    1953 /*from_year*/,
+    1953 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1963    only    -    Dec     9     0:00    1:00    -
+  {
+    1963 /*from_year*/,
+    1963 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1964    only    -    Mar     1     0:00    0    -
+  {
+    1964 /*from_year*/,
+    1964 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1965    only    -    Jan    31     0:00    1:00    -
+  {
+    1965 /*from_year*/,
+    1965 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1965    only    -    Mar    31     0:00    0    -
+  {
+    1965 /*from_year*/,
+    1965 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1965    only    -    Dec     1     0:00    1:00    -
+  {
+    1965 /*from_year*/,
+    1965 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1966    1968    -    Mar     1     0:00    0    -
+  {
+    1966 /*from_year*/,
+    1968 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1966    1967    -    Nov     1     0:00    1:00    -
+  {
+    1966 /*from_year*/,
+    1967 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1985    only    -    Nov     2     0:00    1:00    -
+  {
+    1985 /*from_year*/,
+    1985 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1986    only    -    Mar    15     0:00    0    -
+  {
+    1986 /*from_year*/,
+    1986 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1986    only    -    Oct    25     0:00    1:00    -
+  {
+    1986 /*from_year*/,
+    1986 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1987    only    -    Feb    14     0:00    0    -
+  {
+    1987 /*from_year*/,
+    1987 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1987    only    -    Oct    25     0:00    1:00    -
+  {
+    1987 /*from_year*/,
+    1987 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1988    only    -    Feb     7     0:00    0    -
+  {
+    1988 /*from_year*/,
+    1988 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1988    only    -    Oct    16     0:00    1:00    -
+  {
+    1988 /*from_year*/,
+    1988 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1989    only    -    Jan    29     0:00    0    -
+  {
+    1989 /*from_year*/,
+    1989 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1989    only    -    Oct    15     0:00    1:00    -
+  {
+    1989 /*from_year*/,
+    1989 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1990    only    -    Feb    11     0:00    0    -
+  {
+    1990 /*from_year*/,
+    1990 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1990    only    -    Oct    21     0:00    1:00    -
+  {
+    1990 /*from_year*/,
+    1990 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1991    only    -    Feb    17     0:00    0    -
+  {
+    1991 /*from_year*/,
+    1991 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1991    only    -    Oct    20     0:00    1:00    -
+  {
+    1991 /*from_year*/,
+    1991 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1992    only    -    Feb     9     0:00    0    -
+  {
+    1992 /*from_year*/,
+    1992 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1992    only    -    Oct    25     0:00    1:00    -
+  {
+    1992 /*from_year*/,
+    1992 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1993    only    -    Jan    31     0:00    0    -
+  {
+    1993 /*from_year*/,
+    1993 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1993    1995    -    Oct    Sun>=11     0:00    1:00    -
+  {
+    1993 /*from_year*/,
+    1995 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1994    1995    -    Feb    Sun>=15     0:00    0    -
+  {
+    1994 /*from_year*/,
+    1995 /*to_year*/,
+    2 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1996    only    -    Feb    11     0:00    0    -
+  {
+    1996 /*from_year*/,
+    1996 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1996    only    -    Oct     6     0:00    1:00    -
+  {
+    1996 /*from_year*/,
+    1996 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1997    only    -    Feb    16     0:00    0    -
+  {
+    1997 /*from_year*/,
+    1997 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1997    only    -    Oct     6     0:00    1:00    -
+  {
+    1997 /*from_year*/,
+    1997 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Brazil    1998    only    -    Mar     1     0:00    0    -
+  {
+    1998 /*from_year*/,
+    1998 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Brazil    1998    only    -    Oct    11     0:00    1:00    -
   {
     1998 /*from_year*/,
@@ -1110,17 +4217,285 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
 
 const AtcZonePolicy kAtcZonePolicyBrazil  = {
   kAtcZoneRulesBrazil /*rules*/,
-  20 /*num_rules*/,
+  58 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Bulg
+// Rules: 6
+// Memory (8-bit): 72
+// Memory (32-bit): 84
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesBulg[]  = {
+  // Anchor: Rule    Bulg    1979    only    -    Oct     1     1:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Bulg    1979    only    -    Mar    31    23:00    1:00    S
+  {
+    1979 /*from_year*/,
+    1979 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Bulg    1979    only    -    Oct     1     1:00    0    -
+  {
+    1979 /*from_year*/,
+    1979 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Bulg    1980    1982    -    Apr    Sat>=1    23:00    1:00    S
+  {
+    1980 /*from_year*/,
+    1982 /*to_year*/,
+    4 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Bulg    1980    only    -    Sep    29     1:00    0    -
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Bulg    1981    only    -    Sep    27     2:00    0    -
+  {
+    1981 /*from_year*/,
+    1981 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyBulg  = {
+  kAtcZoneRulesBulg /*rules*/,
+  6 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: C-Eur
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 18
+// Memory (8-bit): 204
+// Memory (32-bit): 228
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesC_Eur[]  = {
+  // Anchor: Rule    C-Eur    1916    only    -    Oct     1     1:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    C-Eur    1916    only    -    Apr    30    23:00    1:00    S
+  {
+    1916 /*from_year*/,
+    1916 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    C-Eur    1916    only    -    Oct     1     1:00    0    -
+  {
+    1916 /*from_year*/,
+    1916 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    C-Eur    1917    1918    -    Apr    Mon>=15     2:00s    1:00    S
+  {
+    1917 /*from_year*/,
+    1918 /*to_year*/,
+    4 /*in_month*/,
+    1 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    C-Eur    1917    1918    -    Sep    Mon>=15     2:00s    0    -
+  {
+    1917 /*from_year*/,
+    1918 /*to_year*/,
+    9 /*in_month*/,
+    1 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    C-Eur    1940    only    -    Apr     1     2:00s    1:00    S
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    C-Eur    1942    only    -    Nov     2     2:00s    0    -
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    C-Eur    1943    only    -    Mar    29     2:00s    1:00    S
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    C-Eur    1943    only    -    Oct     4     2:00s    0    -
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    C-Eur    1944    1945    -    Apr    Mon>=1     2:00s    1:00    S
+  {
+    1944 /*from_year*/,
+    1945 /*to_year*/,
+    4 /*in_month*/,
+    1 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    C-Eur    1944    only    -    Oct     2     2:00s    0    -
+  {
+    1944 /*from_year*/,
+    1944 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    C-Eur    1945    only    -    Sep    16     2:00s    0    -
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    C-Eur    1977    1980    -    Apr    Sun>=1     2:00s    1:00    S
+  {
+    1977 /*from_year*/,
+    1980 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    C-Eur    1977    only    -    Sep    lastSun     2:00s    0    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    C-Eur    1978    only    -    Oct     1     2:00s    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    C-Eur    1979    1995    -    Sep    lastSun     2:00s    0    -
   {
     1979 /*from_year*/,
@@ -1143,7 +4518,7 @@ static const AtcZoneRule kAtcZoneRulesC_Eur[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    C-Eur    1996    max    -    Oct    lastSun     2:00s    0    -
   {
@@ -1162,17 +4537,129 @@ static const AtcZoneRule kAtcZoneRulesC_Eur[]  = {
 
 const AtcZonePolicy kAtcZonePolicyC_Eur  = {
   kAtcZoneRulesC_Eur /*rules*/,
-  3 /*num_rules*/,
+  18 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: CA
+// Rules: 6
+// Memory (8-bit): 72
+// Memory (32-bit): 84
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesCA[]  = {
+  // Anchor: Rule    CA    1949    only    -    Jan     1    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    CA    1948    only    -    Mar    14    2:01    1:00    D
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    484 /*at_time_code (7260/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    CA    1949    only    -    Jan     1    2:00    0    S
+  {
+    1949 /*from_year*/,
+    1949 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    CA    1950    1966    -    Apr    lastSun    1:00    1:00    D
+  {
+    1950 /*from_year*/,
+    1966 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    CA    1950    1961    -    Sep    lastSun    2:00    0    S
+  {
+    1950 /*from_year*/,
+    1961 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    CA    1962    1966    -    Oct    lastSun    2:00    0    S
+  {
+    1962 /*from_year*/,
+    1966 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyCA  = {
+  kAtcZoneRulesCA /*rules*/,
+  6 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: CO
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 3
+// Memory (8-bit): 39
+// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCO[]  = {
+  // Anchor: Rule    CO    1993    only    -    Feb     6    24:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    CO    1992    only    -    May     3     0:00    1:00    -
+  {
+    1992 /*from_year*/,
+    1992 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    CO    1993    only    -    Feb     6    24:00    0    -
   {
     1993 /*from_year*/,
@@ -1190,17 +4677,77 @@ static const AtcZoneRule kAtcZoneRulesCO[]  = {
 
 const AtcZonePolicy kAtcZonePolicyCO  = {
   kAtcZoneRulesCO /*rules*/,
-  1 /*num_rules*/,
+  3 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: CR
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 6
+// Memory (8-bit): 72
+// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCR[]  = {
+  // Anchor: Rule    CR    1979    1980    -    Jun    Sun>=1    0:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    CR    1979    1980    -    Feb    lastSun    0:00    1:00    D
+  {
+    1979 /*from_year*/,
+    1980 /*to_year*/,
+    2 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    CR    1979    1980    -    Jun    Sun>=1    0:00    0    S
+  {
+    1979 /*from_year*/,
+    1980 /*to_year*/,
+    6 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    CR    1991    1992    -    Jan    Sat>=15    0:00    1:00    D
+  {
+    1991 /*from_year*/,
+    1992 /*to_year*/,
+    1 /*in_month*/,
+    6 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    CR    1991    only    -    Jul     1    0:00    0    S
+  {
+    1991 /*from_year*/,
+    1991 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    CR    1992    only    -    Mar    15    0:00    0    S
   {
     1992 /*from_year*/,
@@ -1211,24 +4758,96 @@ static const AtcZoneRule kAtcZoneRulesCR[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyCR  = {
   kAtcZoneRulesCR /*rules*/,
-  1 /*num_rules*/,
+  6 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Canada
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 11
+// Memory (8-bit): 127
+// Memory (32-bit): 144
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCanada[]  = {
+  // Anchor: Rule    Canada    1918    only    -    Oct    27    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Canada    1918    only    -    Apr    14    2:00    1:00    D
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Canada    1918    only    -    Oct    27    2:00    0    S
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Canada    1942    only    -    Feb     9    2:00    1:00    W
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    26 /*letterIndex ("W")*/,
+  },
+  // Rule    Canada    1945    only    -    Aug    14    23:00u    1:00    P
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    24 /*letterIndex ("P")*/,
+  },
+  // Rule    Canada    1945    only    -    Sep    30    2:00    0    S
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    Canada    1974    1986    -    Apr    lastSun    2:00    1:00    D
   {
     1974 /*from_year*/,
@@ -1239,7 +4858,7 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Canada    1974    2006    -    Oct    lastSun    2:00    0    S
   {
@@ -1251,7 +4870,7 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Canada    1987    2006    -    Apr    Sun>=1    2:00    1:00    D
   {
@@ -1263,7 +4882,7 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Canada    2007    max    -    Mar    Sun>=8    2:00    1:00    D
   {
@@ -1275,7 +4894,7 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Canada    2007    max    -    Nov    Sun>=1    2:00    0    S
   {
@@ -1287,24 +4906,84 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyCanada  = {
   kAtcZoneRulesCanada /*rules*/,
-  5 /*num_rules*/,
+  11 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Chatham
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 10
+// Memory (8-bit): 116
+// Memory (32-bit): 132
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesChatham[]  = {
+  // Anchor: Rule    Chatham    1975    only    -    Feb    lastSun    2:45s    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chatham    1974    only    -    Nov    Sun>=1    2:45s    1:00    -
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    11 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    660 /*at_time_code (9900/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chatham    1975    only    -    Feb    lastSun    2:45s    0    -
+  {
+    1975 /*from_year*/,
+    1975 /*to_year*/,
+    2 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    660 /*at_time_code (9900/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chatham    1975    1988    -    Oct    lastSun    2:45s    1:00    -
+  {
+    1975 /*from_year*/,
+    1988 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    660 /*at_time_code (9900/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chatham    1976    1989    -    Mar    Sun>=1    2:45s    0    -
+  {
+    1976 /*from_year*/,
+    1989 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    660 /*at_time_code (9900/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Chatham    1989    only    -    Oct    Sun>=8    2:45s    1:00    -
   {
     1989 /*from_year*/,
@@ -1370,17 +5049,357 @@ static const AtcZoneRule kAtcZoneRulesChatham[]  = {
 
 const AtcZonePolicy kAtcZonePolicyChatham  = {
   kAtcZoneRulesChatham /*rules*/,
-  5 /*num_rules*/,
+  10 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Chicago
+// Rules: 7
+// Memory (8-bit): 83
+// Memory (32-bit): 96
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesChicago[]  = {
+  // Anchor: Rule    Chicago    1920    1921    -    Oct    lastSun    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Chicago    1920    only    -    Jun    13    2:00    1:00    D
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Chicago    1920    1921    -    Oct    lastSun    2:00    0    S
+  {
+    1920 /*from_year*/,
+    1921 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Chicago    1921    only    -    Mar    lastSun    2:00    1:00    D
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Chicago    1922    1966    -    Apr    lastSun    2:00    1:00    D
+  {
+    1922 /*from_year*/,
+    1966 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Chicago    1922    1954    -    Sep    lastSun    2:00    0    S
+  {
+    1922 /*from_year*/,
+    1954 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Chicago    1955    1966    -    Oct    lastSun    2:00    0    S
+  {
+    1955 /*from_year*/,
+    1966 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyChicago  = {
+  kAtcZoneRulesChicago /*rules*/,
+  7 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Chile
-// Rules: 17
-// Memory (8-bit): 193
-// Memory (32-bit): 216
+// Rules: 37
+// Memory (8-bit): 413
+// Memory (32-bit): 456
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesChile[]  = {
+  // Anchor: Rule    Chile    1928    1932    -    Apr     1    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1927    1931    -    Sep     1    0:00    1:00    -
+  {
+    1927 /*from_year*/,
+    1931 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1928    1932    -    Apr     1    0:00    0    -
+  {
+    1928 /*from_year*/,
+    1932 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1968    only    -    Nov     3    4:00u    1:00    -
+  {
+    1968 /*from_year*/,
+    1968 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1969    only    -    Mar    30    3:00u    0    -
+  {
+    1969 /*from_year*/,
+    1969 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1969    only    -    Nov    23    4:00u    1:00    -
+  {
+    1969 /*from_year*/,
+    1969 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1970    only    -    Mar    29    3:00u    0    -
+  {
+    1970 /*from_year*/,
+    1970 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1971    only    -    Mar    14    3:00u    0    -
+  {
+    1971 /*from_year*/,
+    1971 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1970    1972    -    Oct    Sun>=9    4:00u    1:00    -
+  {
+    1970 /*from_year*/,
+    1972 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1972    1986    -    Mar    Sun>=9    3:00u    0    -
+  {
+    1972 /*from_year*/,
+    1986 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1973    only    -    Sep    30    4:00u    1:00    -
+  {
+    1973 /*from_year*/,
+    1973 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1974    1987    -    Oct    Sun>=9    4:00u    1:00    -
+  {
+    1974 /*from_year*/,
+    1987 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1987    only    -    Apr    12    3:00u    0    -
+  {
+    1987 /*from_year*/,
+    1987 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1988    1990    -    Mar    Sun>=9    3:00u    0    -
+  {
+    1988 /*from_year*/,
+    1990 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1988    1989    -    Oct    Sun>=9    4:00u    1:00    -
+  {
+    1988 /*from_year*/,
+    1989 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1990    only    -    Sep    16    4:00u    1:00    -
+  {
+    1990 /*from_year*/,
+    1990 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1991    1996    -    Mar    Sun>=9    3:00u    0    -
+  {
+    1991 /*from_year*/,
+    1996 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1991    1997    -    Oct    Sun>=9    4:00u    1:00    -
+  {
+    1991 /*from_year*/,
+    1997 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1997    only    -    Mar    30    3:00u    0    -
+  {
+    1997 /*from_year*/,
+    1997 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Chile    1998    only    -    Mar    Sun>=9    3:00u    0    -
+  {
+    1998 /*from_year*/,
+    1998 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Chile    1998    only    -    Sep    27    4:00u    1:00    -
   {
     1998 /*from_year*/,
@@ -1590,17 +5609,41 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
 
 const AtcZonePolicy kAtcZonePolicyChile  = {
   kAtcZoneRulesChile /*rules*/,
-  17 /*num_rules*/,
+  37 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Cook
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 4
+// Memory (8-bit): 50
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCook[]  = {
+  // Anchor: Rule    Cook    1979    1991    -    Mar    Sun>=1    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Cook    1978    only    -    Nov    12    0:00    0:30    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    30 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Cook    1979    1991    -    Mar    Sun>=1    0:00    0    -
   {
     1979 /*from_year*/,
@@ -1613,22 +5656,346 @@ static const AtcZoneRule kAtcZoneRulesCook[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
+  // Rule    Cook    1979    1990    -    Oct    lastSun    0:00    0:30    -
+  {
+    1979 /*from_year*/,
+    1990 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    30 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyCook  = {
   kAtcZoneRulesCook /*rules*/,
-  1 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Cuba
-// Rules: 14
-// Memory (8-bit): 160
-// Memory (32-bit): 180
+// Rules: 40
+// Memory (8-bit): 446
+// Memory (32-bit): 492
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCuba[]  = {
+  // Anchor: Rule    Cuba    1928    only    -    Oct    10    0:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Cuba    1928    only    -    Jun    10    0:00    1:00    D
+  {
+    1928 /*from_year*/,
+    1928 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Cuba    1928    only    -    Oct    10    0:00    0    S
+  {
+    1928 /*from_year*/,
+    1928 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Cuba    1940    1942    -    Jun    Sun>=1    0:00    1:00    D
+  {
+    1940 /*from_year*/,
+    1942 /*to_year*/,
+    6 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Cuba    1940    1942    -    Sep    Sun>=1    0:00    0    S
+  {
+    1940 /*from_year*/,
+    1942 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Cuba    1945    1946    -    Jun    Sun>=1    0:00    1:00    D
+  {
+    1945 /*from_year*/,
+    1946 /*to_year*/,
+    6 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Cuba    1945    1946    -    Sep    Sun>=1    0:00    0    S
+  {
+    1945 /*from_year*/,
+    1946 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Cuba    1965    only    -    Jun    1    0:00    1:00    D
+  {
+    1965 /*from_year*/,
+    1965 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Cuba    1965    only    -    Sep    30    0:00    0    S
+  {
+    1965 /*from_year*/,
+    1965 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Cuba    1966    only    -    May    29    0:00    1:00    D
+  {
+    1966 /*from_year*/,
+    1966 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Cuba    1966    only    -    Oct    2    0:00    0    S
+  {
+    1966 /*from_year*/,
+    1966 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Cuba    1967    only    -    Apr    8    0:00    1:00    D
+  {
+    1967 /*from_year*/,
+    1967 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Cuba    1967    1968    -    Sep    Sun>=8    0:00    0    S
+  {
+    1967 /*from_year*/,
+    1968 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Cuba    1968    only    -    Apr    14    0:00    1:00    D
+  {
+    1968 /*from_year*/,
+    1968 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Cuba    1969    1977    -    Apr    lastSun    0:00    1:00    D
+  {
+    1969 /*from_year*/,
+    1977 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Cuba    1969    1971    -    Oct    lastSun    0:00    0    S
+  {
+    1969 /*from_year*/,
+    1971 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Cuba    1972    1974    -    Oct    8    0:00    0    S
+  {
+    1972 /*from_year*/,
+    1974 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Cuba    1975    1977    -    Oct    lastSun    0:00    0    S
+  {
+    1975 /*from_year*/,
+    1977 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Cuba    1978    only    -    May    7    0:00    1:00    D
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Cuba    1978    1990    -    Oct    Sun>=8    0:00    0    S
+  {
+    1978 /*from_year*/,
+    1990 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Cuba    1979    1980    -    Mar    Sun>=15    0:00    1:00    D
+  {
+    1979 /*from_year*/,
+    1980 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Cuba    1981    1985    -    May    Sun>=5    0:00    1:00    D
+  {
+    1981 /*from_year*/,
+    1985 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Cuba    1986    1989    -    Mar    Sun>=14    0:00    1:00    D
+  {
+    1986 /*from_year*/,
+    1989 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Cuba    1990    1997    -    Apr    Sun>=1    0:00    1:00    D
+  {
+    1990 /*from_year*/,
+    1997 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Cuba    1991    1995    -    Oct    Sun>=8    0:00s    0    S
+  {
+    1991 /*from_year*/,
+    1995 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Cuba    1996    only    -    Oct     6    0:00s    0    S
+  {
+    1996 /*from_year*/,
+    1996 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    Cuba    1997    only    -    Oct    12    0:00s    0    S
   {
     1997 /*from_year*/,
@@ -1639,7 +6006,7 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Cuba    1998    1999    -    Mar    lastSun    0:00s    1:00    D
   {
@@ -1651,7 +6018,7 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Cuba    1998    2003    -    Oct    lastSun    0:00s    0    S
   {
@@ -1663,7 +6030,7 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Cuba    2000    2003    -    Apr    Sun>=1    0:00s    1:00    D
   {
@@ -1675,7 +6042,7 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Cuba    2004    only    -    Mar    lastSun    0:00s    1:00    D
   {
@@ -1687,7 +6054,7 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Cuba    2006    2010    -    Oct    lastSun    0:00s    0    S
   {
@@ -1699,7 +6066,7 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Cuba    2007    only    -    Mar    Sun>=8    0:00s    1:00    D
   {
@@ -1711,7 +6078,7 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Cuba    2008    only    -    Mar    Sun>=15    0:00s    1:00    D
   {
@@ -1723,7 +6090,7 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Cuba    2009    2010    -    Mar    Sun>=8    0:00s    1:00    D
   {
@@ -1735,7 +6102,7 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Cuba    2011    only    -    Mar    Sun>=15    0:00s    1:00    D
   {
@@ -1747,7 +6114,7 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Cuba    2011    only    -    Nov    13    0:00s    0    S
   {
@@ -1759,7 +6126,7 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Cuba    2012    only    -    Apr    1    0:00s    1:00    D
   {
@@ -1771,7 +6138,7 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Cuba    2012    max    -    Nov    Sun>=1    0:00s    0    S
   {
@@ -1783,7 +6150,7 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Cuba    2013    max    -    Mar    Sun>=8    0:00s    1:00    D
   {
@@ -1795,14 +6162,490 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyCuba  = {
   kAtcZoneRulesCuba /*rules*/,
-  14 /*num_rules*/,
+  40 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Cyprus
+// Rules: 10
+// Memory (8-bit): 116
+// Memory (32-bit): 132
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesCyprus[]  = {
+  // Anchor: Rule    Cyprus    1975    only    -    Oct    12    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Cyprus    1975    only    -    Apr    13    0:00    1:00    S
+  {
+    1975 /*from_year*/,
+    1975 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Cyprus    1975    only    -    Oct    12    0:00    0    -
+  {
+    1975 /*from_year*/,
+    1975 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Cyprus    1976    only    -    May    15    0:00    1:00    S
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Cyprus    1976    only    -    Oct    11    0:00    0    -
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Cyprus    1977    1980    -    Apr    Sun>=1    0:00    1:00    S
+  {
+    1977 /*from_year*/,
+    1980 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Cyprus    1977    only    -    Sep    25    0:00    0    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Cyprus    1978    only    -    Oct    2    0:00    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Cyprus    1979    1997    -    Sep    lastSun    0:00    0    -
+  {
+    1979 /*from_year*/,
+    1997 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Cyprus    1981    1998    -    Mar    lastSun    0:00    1:00    S
+  {
+    1981 /*from_year*/,
+    1998 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyCyprus  = {
+  kAtcZoneRulesCyprus /*rules*/,
+  10 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Czech
+// Rules: 7
+// Memory (8-bit): 83
+// Memory (32-bit): 96
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesCzech[]  = {
+  // Anchor: Rule    Czech    1945    only    -    Oct     1    2:00s    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Czech    1945    only    -    Apr    Mon>=1    2:00s    1:00    S
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    4 /*in_month*/,
+    1 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Czech    1945    only    -    Oct     1    2:00s    0    -
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Czech    1946    only    -    May     6    2:00s    1:00    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Czech    1946    1949    -    Oct    Sun>=1    2:00s    0    -
+  {
+    1946 /*from_year*/,
+    1949 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Czech    1947    1948    -    Apr    Sun>=15    2:00s    1:00    S
+  {
+    1947 /*from_year*/,
+    1948 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Czech    1949    only    -    Apr     9    2:00s    1:00    S
+  {
+    1949 /*from_year*/,
+    1949 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyCzech  = {
+  kAtcZoneRulesCzech /*rules*/,
+  7 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: DR
+// Rules: 7
+// Memory (8-bit): 83
+// Memory (32-bit): 96
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesDR[]  = {
+  // Anchor: Rule    DR    1967    only    -    Feb    28    0:00    0    EST
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    16 /*letterIndex ("EST")*/,
+  },
+  // Rule    DR    1966    only    -    Oct    30    0:00    1:00    EDT
+  {
+    1966 /*from_year*/,
+    1966 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    15 /*letterIndex ("EDT")*/,
+  },
+  // Rule    DR    1967    only    -    Feb    28    0:00    0    EST
+  {
+    1967 /*from_year*/,
+    1967 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    16 /*letterIndex ("EST")*/,
+  },
+  // Rule    DR    1969    1973    -    Oct    lastSun    0:00    0:30    -0430
+  {
+    1969 /*from_year*/,
+    1973 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    30 /*delta_minutes*/,
+    4 /*letterIndex ("-0430")*/,
+  },
+  // Rule    DR    1970    only    -    Feb    21    0:00    0    EST
+  {
+    1970 /*from_year*/,
+    1970 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    16 /*letterIndex ("EST")*/,
+  },
+  // Rule    DR    1971    only    -    Jan    20    0:00    0    EST
+  {
+    1971 /*from_year*/,
+    1971 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    16 /*letterIndex ("EST")*/,
+  },
+  // Rule    DR    1972    1974    -    Jan    21    0:00    0    EST
+  {
+    1972 /*from_year*/,
+    1974 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    16 /*letterIndex ("EST")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyDR  = {
+  kAtcZoneRulesDR /*rules*/,
+  7 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Denver
+// Rules: 6
+// Memory (8-bit): 72
+// Memory (32-bit): 84
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesDenver[]  = {
+  // Anchor: Rule    Denver    1920    only    -    Oct    lastSun    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Denver    1920    1921    -    Mar    lastSun    2:00    1:00    D
+  {
+    1920 /*from_year*/,
+    1921 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Denver    1920    only    -    Oct    lastSun    2:00    0    S
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Denver    1921    only    -    May    22    2:00    0    S
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Denver    1965    1966    -    Apr    lastSun    2:00    1:00    D
+  {
+    1965 /*from_year*/,
+    1966 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Denver    1965    1966    -    Oct    lastSun    2:00    0    S
+  {
+    1965 /*from_year*/,
+    1966 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyDenver  = {
+  kAtcZoneRulesDenver /*rules*/,
+  6 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Detroit
+// Rules: 3
+// Memory (8-bit): 39
+// Memory (32-bit): 48
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesDetroit[]  = {
+  // Anchor: Rule    Detroit    1948    only    -    Sep    lastSun    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Detroit    1948    only    -    Apr    lastSun    2:00    1:00    D
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Detroit    1948    only    -    Sep    lastSun    2:00    0    S
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyDetroit  = {
+  kAtcZoneRulesDetroit /*rules*/,
+  3 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
@@ -1858,13 +6701,101 @@ const AtcZonePolicy kAtcZonePolicyDhaka  = {
 };
 
 //---------------------------------------------------------------------------
+// Policy name: E-Eur
+// Rules: 5
+// Memory (8-bit): 61
+// Memory (32-bit): 72
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesE_Eur[]  = {
+  // Anchor: Rule    E-Eur    1979    1995    -    Sep    lastSun     0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    E-Eur    1977    1980    -    Apr    Sun>=1     0:00    1:00    S
+  {
+    1977 /*from_year*/,
+    1980 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    E-Eur    1979    1995    -    Sep    lastSun     0:00    0    -
+  {
+    1979 /*from_year*/,
+    1995 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    E-Eur    1981    max    -    Mar    lastSun     0:00    1:00    S
+  {
+    1981 /*from_year*/,
+    9999 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    E-Eur    1996    max    -    Oct    lastSun     0:00    0    -
+  {
+    1996 /*from_year*/,
+    9999 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyE_Eur  = {
+  kAtcZoneRulesE_Eur /*rules*/,
+  5 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
 // Policy name: E-EurAsia
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
+// Memory (8-bit): 50
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesE_EurAsia[]  = {
+  // Anchor: Rule E-EurAsia    1979    1995    -    Sep    lastSun     0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule E-EurAsia    1981    max    -    Mar    lastSun     0:00    1:00    -
   {
     1981 /*from_year*/,
@@ -1906,17 +6837,65 @@ static const AtcZoneRule kAtcZoneRulesE_EurAsia[]  = {
 
 const AtcZonePolicy kAtcZonePolicyE_EurAsia  = {
   kAtcZoneRulesE_EurAsia /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: EU
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 7
+// Memory (8-bit): 83
+// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEU[]  = {
+  // Anchor: Rule    EU    1977    only    -    Sep    lastSun     1:00u    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    EU    1977    1980    -    Apr    Sun>=1     1:00u    1:00    S
+  {
+    1977 /*from_year*/,
+    1980 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    EU    1977    only    -    Sep    lastSun     1:00u    0    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    EU    1978    only    -    Oct     1     1:00u    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    EU    1979    1995    -    Sep    lastSun     1:00u    0    -
   {
     1979 /*from_year*/,
@@ -1939,7 +6918,7 @@ static const AtcZoneRule kAtcZoneRulesEU[]  = {
     32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    EU    1996    max    -    Oct    lastSun     1:00u    0    -
   {
@@ -1958,17 +6937,29 @@ static const AtcZoneRule kAtcZoneRulesEU[]  = {
 
 const AtcZonePolicy kAtcZonePolicyEU  = {
   kAtcZoneRulesEU /*rules*/,
-  3 /*num_rules*/,
+  7 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: EUAsia
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
+// Memory (8-bit): 50
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEUAsia[]  = {
+  // Anchor: Rule    EUAsia    1979    1995    -    Sep    lastSun     1:00u    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    EUAsia    1981    max    -    Mar    lastSun     1:00u    1:00    S
   {
     1981 /*from_year*/,
@@ -1979,7 +6970,7 @@ static const AtcZoneRule kAtcZoneRulesEUAsia[]  = {
     32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    EUAsia    1979    1995    -    Sep    lastSun     1:00u    0    -
   {
@@ -2010,17 +7001,41 @@ static const AtcZoneRule kAtcZoneRulesEUAsia[]  = {
 
 const AtcZonePolicy kAtcZonePolicyEUAsia  = {
   kAtcZoneRulesEUAsia /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Ecuador
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 3
+// Memory (8-bit): 39
+// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEcuador[]  = {
+  // Anchor: Rule    Ecuador    1993    only    -    Feb     5    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Ecuador    1992    only    -    Nov    28    0:00    1:00    -
+  {
+    1992 /*from_year*/,
+    1992 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Ecuador    1993    only    -    Feb     5    0:00    0    -
   {
     1993 /*from_year*/,
@@ -2038,17 +7053,369 @@ static const AtcZoneRule kAtcZoneRulesEcuador[]  = {
 
 const AtcZonePolicy kAtcZonePolicyEcuador  = {
   kAtcZoneRulesEcuador /*rules*/,
-  1 /*num_rules*/,
+  3 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
-// Policy name: Egypt
+// Policy name: Edm
 // Rules: 14
 // Memory (8-bit): 160
 // Memory (32-bit): 180
 //---------------------------------------------------------------------------
 
+static const AtcZoneRule kAtcZoneRulesEdm[]  = {
+  // Anchor: Rule    Edm    1918    only    -    Oct    27    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Edm    1918    1919    -    Apr    Sun>=8    2:00    1:00    D
+  {
+    1918 /*from_year*/,
+    1919 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Edm    1918    only    -    Oct    27    2:00    0    S
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Edm    1919    only    -    May    27    2:00    0    S
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Edm    1920    1923    -    Apr    lastSun    2:00    1:00    D
+  {
+    1920 /*from_year*/,
+    1923 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Edm    1920    only    -    Oct    lastSun    2:00    0    S
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Edm    1921    1923    -    Sep    lastSun    2:00    0    S
+  {
+    1921 /*from_year*/,
+    1923 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Edm    1942    only    -    Feb     9    2:00    1:00    W
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    26 /*letterIndex ("W")*/,
+  },
+  // Rule    Edm    1945    only    -    Aug    14    23:00u    1:00    P
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    24 /*letterIndex ("P")*/,
+  },
+  // Rule    Edm    1945    only    -    Sep    lastSun    2:00    0    S
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Edm    1947    only    -    Apr    lastSun    2:00    1:00    D
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Edm    1947    only    -    Sep    lastSun    2:00    0    S
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Edm    1972    1986    -    Apr    lastSun    2:00    1:00    D
+  {
+    1972 /*from_year*/,
+    1986 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Edm    1972    2006    -    Oct    lastSun    2:00    0    S
+  {
+    1972 /*from_year*/,
+    2006 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyEdm  = {
+  kAtcZoneRulesEdm /*rules*/,
+  14 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Egypt
+// Rules: 33
+// Memory (8-bit): 369
+// Memory (32-bit): 408
+//---------------------------------------------------------------------------
+
 static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
+  // Anchor: Rule    Egypt    1940    only    -    Oct     1    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Egypt    1940    only    -    Jul    15    0:00    1:00    S
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Egypt    1940    only    -    Oct     1    0:00    0    -
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Egypt    1941    only    -    Apr    15    0:00    1:00    S
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Egypt    1941    only    -    Sep    16    0:00    0    -
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Egypt    1942    1944    -    Apr     1    0:00    1:00    S
+  {
+    1942 /*from_year*/,
+    1944 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Egypt    1942    only    -    Oct    27    0:00    0    -
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Egypt    1943    1945    -    Nov     1    0:00    0    -
+  {
+    1943 /*from_year*/,
+    1945 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Egypt    1945    only    -    Apr    16    0:00    1:00    S
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Egypt    1957    only    -    May    10    0:00    1:00    S
+  {
+    1957 /*from_year*/,
+    1957 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Egypt    1957    1958    -    Oct     1    0:00    0    -
+  {
+    1957 /*from_year*/,
+    1958 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Egypt    1958    only    -    May     1    0:00    1:00    S
+  {
+    1958 /*from_year*/,
+    1958 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Egypt    1959    1981    -    May     1    1:00    1:00    S
+  {
+    1959 /*from_year*/,
+    1981 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Egypt    1959    1965    -    Sep    30    3:00    0    -
+  {
+    1959 /*from_year*/,
+    1965 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Egypt    1966    1994    -    Oct     1    3:00    0    -
   {
     1966 /*from_year*/,
@@ -2061,6 +7428,66 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
+  // Rule    Egypt    1982    only    -    Jul    25    1:00    1:00    S
+  {
+    1982 /*from_year*/,
+    1982 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Egypt    1983    only    -    Jul    12    1:00    1:00    S
+  {
+    1983 /*from_year*/,
+    1983 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Egypt    1984    1988    -    May     1    1:00    1:00    S
+  {
+    1984 /*from_year*/,
+    1988 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Egypt    1989    only    -    May     6    1:00    1:00    S
+  {
+    1989 /*from_year*/,
+    1989 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Egypt    1990    1994    -    May     1    1:00    1:00    S
+  {
+    1990 /*from_year*/,
+    1994 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    Egypt    1995    2010    -    Apr    lastFri     0:00s    1:00    S
   {
     1995 /*from_year*/,
@@ -2071,7 +7498,7 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Egypt    1995    2005    -    Sep    lastThu    24:00    0    -
   {
@@ -2155,7 +7582,7 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     5760 /*at_time_code (86400/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Egypt    2010    only    -    Sep    lastThu    24:00    0    -
   {
@@ -2179,7 +7606,7 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     5760 /*at_time_code (86400/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Egypt    2014    only    -    Jun    26    24:00    0    -
   {
@@ -2203,7 +7630,7 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     5760 /*at_time_code (86400/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Egypt    2014    only    -    Sep    lastThu    24:00    0    -
   {
@@ -2222,17 +7649,165 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
 
 const AtcZonePolicy kAtcZonePolicyEgypt  = {
   kAtcZoneRulesEgypt /*rules*/,
-  14 /*num_rules*/,
+  33 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: EgyptAsia
+// Rules: 7
+// Memory (8-bit): 83
+// Memory (32-bit): 96
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesEgyptAsia[]  = {
+  // Anchor: Rule EgyptAsia    1957    1958    -    Oct     1    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule EgyptAsia    1957    only    -    May    10    0:00    1:00    S
+  {
+    1957 /*from_year*/,
+    1957 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule EgyptAsia    1957    1958    -    Oct     1    0:00    0    -
+  {
+    1957 /*from_year*/,
+    1958 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule EgyptAsia    1958    only    -    May     1    0:00    1:00    S
+  {
+    1958 /*from_year*/,
+    1958 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule EgyptAsia    1959    1967    -    May     1    1:00    1:00    S
+  {
+    1959 /*from_year*/,
+    1967 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule EgyptAsia    1959    1965    -    Sep    30    3:00    0    -
+  {
+    1959 /*from_year*/,
+    1965 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule EgyptAsia    1966    only    -    Oct     1    3:00    0    -
+  {
+    1966 /*from_year*/,
+    1966 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyEgyptAsia  = {
+  kAtcZoneRulesEgyptAsia /*rules*/,
+  7 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Eire
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 8
+// Memory (8-bit): 94
+// Memory (32-bit): 108
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEire[]  = {
+  // Anchor: Rule    Eire    1972    1980    -    Mar    Sun>=16     2:00u    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Eire    1971    only    -    Oct    31     2:00u    -1:00    -
+  {
+    1971 /*from_year*/,
+    1971 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    -60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Eire    1972    1980    -    Mar    Sun>=16     2:00u    0    -
+  {
+    1972 /*from_year*/,
+    1980 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Eire    1972    1980    -    Oct    Sun>=23     2:00u    -1:00    -
+  {
+    1972 /*from_year*/,
+    1980 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    -60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Eire    1981    max    -    Mar    lastSun     1:00u    0    -
   {
     1981 /*from_year*/,
@@ -2243,6 +7818,18 @@ static const AtcZoneRule kAtcZoneRulesEire[]  = {
     32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Eire    1981    1989    -    Oct    Sun>=23     1:00u    -1:00    -
+  {
+    1981 /*from_year*/,
+    1989 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Eire    1990    1995    -    Oct    Sun>=22     1:00u    -1:00    -
@@ -2274,17 +7861,101 @@ static const AtcZoneRule kAtcZoneRulesEire[]  = {
 
 const AtcZonePolicy kAtcZonePolicyEire  = {
   kAtcZoneRulesEire /*rules*/,
-  3 /*num_rules*/,
+  8 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Falk
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 13
+// Memory (8-bit): 149
+// Memory (32-bit): 168
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesFalk[]  = {
+  // Anchor: Rule    Falk    1938    1942    -    Mar    Sun>=19    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Falk    1937    1938    -    Sep    lastSun    0:00    1:00    -
+  {
+    1937 /*from_year*/,
+    1938 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Falk    1938    1942    -    Mar    Sun>=19    0:00    0    -
+  {
+    1938 /*from_year*/,
+    1942 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Falk    1939    only    -    Oct    1    0:00    1:00    -
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Falk    1940    1942    -    Sep    lastSun    0:00    1:00    -
+  {
+    1940 /*from_year*/,
+    1942 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Falk    1943    only    -    Jan    1    0:00    0    -
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Falk    1983    only    -    Sep    lastSun    0:00    1:00    -
+  {
+    1983 /*from_year*/,
+    1983 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Falk    1984    1985    -    Apr    lastSun    0:00    0    -
   {
     1984 /*from_year*/,
@@ -2295,6 +7966,18 @@ static const AtcZoneRule kAtcZoneRulesFalk[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Falk    1984    only    -    Sep    16    0:00    1:00    -
+  {
+    1984 /*from_year*/,
+    1984 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Falk    1985    2000    -    Sep    Sun>=9    0:00    1:00    -
@@ -2350,17 +8033,29 @@ static const AtcZoneRule kAtcZoneRulesFalk[]  = {
 
 const AtcZonePolicy kAtcZonePolicyFalk  = {
   kAtcZoneRulesFalk /*rules*/,
-  5 /*num_rules*/,
+  13 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Fiji
-// Rules: 12
-// Memory (8-bit): 138
-// Memory (32-bit): 156
+// Rules: 13
+// Memory (8-bit): 149
+// Memory (32-bit): 168
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesFiji[]  = {
+  // Anchor: Rule    Fiji    1999    2000    -    Feb    lastSun    3:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Fiji    1998    1999    -    Nov    Sun>=1    2:00    1:00    -
   {
     1998 /*from_year*/,
@@ -2510,17 +8205,1933 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
 
 const AtcZonePolicy kAtcZonePolicyFiji  = {
   kAtcZoneRulesFiji /*rules*/,
-  12 /*num_rules*/,
+  13 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Finland
+// Rules: 5
+// Memory (8-bit): 61
+// Memory (32-bit): 72
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesFinland[]  = {
+  // Anchor: Rule    Finland    1942    only    -    Oct    4    1:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Finland    1942    only    -    Apr    2    24:00    1:00    S
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Finland    1942    only    -    Oct    4    1:00    0    -
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Finland    1981    1982    -    Mar    lastSun    2:00    1:00    S
+  {
+    1981 /*from_year*/,
+    1982 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Finland    1981    1982    -    Sep    lastSun    3:00    0    -
+  {
+    1981 /*from_year*/,
+    1982 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyFinland  = {
+  kAtcZoneRulesFinland /*rules*/,
+  5 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: France
+// Rules: 39
+// Memory (8-bit): 435
+// Memory (32-bit): 480
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesFrance[]  = {
+  // Anchor: Rule    France    1916    1919    -    Oct    Sun>=1    23:00s    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    France    1916    only    -    Jun    14    23:00s    1:00    S
+  {
+    1916 /*from_year*/,
+    1916 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1916    1919    -    Oct    Sun>=1    23:00s    0    -
+  {
+    1916 /*from_year*/,
+    1919 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    France    1917    only    -    Mar    24    23:00s    1:00    S
+  {
+    1917 /*from_year*/,
+    1917 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1918    only    -    Mar     9    23:00s    1:00    S
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1919    only    -    Mar     1    23:00s    1:00    S
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1920    only    -    Feb    14    23:00s    1:00    S
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1920    only    -    Oct    23    23:00s    0    -
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    France    1921    only    -    Mar    14    23:00s    1:00    S
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1921    only    -    Oct    25    23:00s    0    -
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    France    1922    only    -    Mar    25    23:00s    1:00    S
+  {
+    1922 /*from_year*/,
+    1922 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1922    1938    -    Oct    Sat>=1    23:00s    0    -
+  {
+    1922 /*from_year*/,
+    1938 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    France    1923    only    -    May    26    23:00s    1:00    S
+  {
+    1923 /*from_year*/,
+    1923 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1924    only    -    Mar    29    23:00s    1:00    S
+  {
+    1924 /*from_year*/,
+    1924 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1925    only    -    Apr     4    23:00s    1:00    S
+  {
+    1925 /*from_year*/,
+    1925 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1926    only    -    Apr    17    23:00s    1:00    S
+  {
+    1926 /*from_year*/,
+    1926 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1927    only    -    Apr     9    23:00s    1:00    S
+  {
+    1927 /*from_year*/,
+    1927 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1928    only    -    Apr    14    23:00s    1:00    S
+  {
+    1928 /*from_year*/,
+    1928 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1929    only    -    Apr    20    23:00s    1:00    S
+  {
+    1929 /*from_year*/,
+    1929 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1930    only    -    Apr    12    23:00s    1:00    S
+  {
+    1930 /*from_year*/,
+    1930 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1931    only    -    Apr    18    23:00s    1:00    S
+  {
+    1931 /*from_year*/,
+    1931 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1932    only    -    Apr     2    23:00s    1:00    S
+  {
+    1932 /*from_year*/,
+    1932 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1933    only    -    Mar    25    23:00s    1:00    S
+  {
+    1933 /*from_year*/,
+    1933 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1934    only    -    Apr     7    23:00s    1:00    S
+  {
+    1934 /*from_year*/,
+    1934 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1935    only    -    Mar    30    23:00s    1:00    S
+  {
+    1935 /*from_year*/,
+    1935 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1936    only    -    Apr    18    23:00s    1:00    S
+  {
+    1936 /*from_year*/,
+    1936 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1937    only    -    Apr     3    23:00s    1:00    S
+  {
+    1937 /*from_year*/,
+    1937 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1938    only    -    Mar    26    23:00s    1:00    S
+  {
+    1938 /*from_year*/,
+    1938 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1939    only    -    Apr    15    23:00s    1:00    S
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1939    only    -    Nov    18    23:00s    0    -
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    France    1940    only    -    Feb    25     2:00    1:00    S
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1941    only    -    May     5     0:00    2:00    M
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    120 /*delta_minutes*/,
+    18 /*letterIndex ("M")*/,
+  },
+  // Rule    France    1943    only    -    Oct     4     3:00    1:00    S
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1944    only    -    Apr     3     2:00    2:00    M
+  {
+    1944 /*from_year*/,
+    1944 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    120 /*delta_minutes*/,
+    18 /*letterIndex ("M")*/,
+  },
+  // Rule    France    1944    only    -    Oct     8     1:00    1:00    S
+  {
+    1944 /*from_year*/,
+    1944 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1945    only    -    Apr     2     2:00    2:00    M
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    120 /*delta_minutes*/,
+    18 /*letterIndex ("M")*/,
+  },
+  // Rule    France    1945    only    -    Sep    16     3:00    0    -
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    France    1976    only    -    Mar    28     1:00    1:00    S
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1976    only    -    Sep    26     1:00    0    -
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyFrance  = {
+  kAtcZoneRulesFrance /*rules*/,
+  39 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: GB-Eire
+// Rules: 66
+// Memory (8-bit): 732
+// Memory (32-bit): 804
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesGB_Eire[]  = {
+  // Anchor: Rule    GB-Eire    1916    only    -    Oct     1    2:00s    0    GMT
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1916    only    -    May    21    2:00s    1:00    BST
+  {
+    1916 /*from_year*/,
+    1916 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1916    only    -    Oct     1    2:00s    0    GMT
+  {
+    1916 /*from_year*/,
+    1916 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1917    only    -    Apr     8    2:00s    1:00    BST
+  {
+    1917 /*from_year*/,
+    1917 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1917    only    -    Sep    17    2:00s    0    GMT
+  {
+    1917 /*from_year*/,
+    1917 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1918    only    -    Mar    24    2:00s    1:00    BST
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1918    only    -    Sep    30    2:00s    0    GMT
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1919    only    -    Mar    30    2:00s    1:00    BST
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1919    only    -    Sep    29    2:00s    0    GMT
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1920    only    -    Mar    28    2:00s    1:00    BST
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1920    only    -    Oct    25    2:00s    0    GMT
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1921    only    -    Apr     3    2:00s    1:00    BST
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1921    only    -    Oct     3    2:00s    0    GMT
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1922    only    -    Mar    26    2:00s    1:00    BST
+  {
+    1922 /*from_year*/,
+    1922 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1922    only    -    Oct     8    2:00s    0    GMT
+  {
+    1922 /*from_year*/,
+    1922 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1923    only    -    Apr    Sun>=16    2:00s    1:00    BST
+  {
+    1923 /*from_year*/,
+    1923 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1923    1924    -    Sep    Sun>=16    2:00s    0    GMT
+  {
+    1923 /*from_year*/,
+    1924 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1924    only    -    Apr    Sun>=9    2:00s    1:00    BST
+  {
+    1924 /*from_year*/,
+    1924 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1925    1926    -    Apr    Sun>=16    2:00s    1:00    BST
+  {
+    1925 /*from_year*/,
+    1926 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1925    1938    -    Oct    Sun>=2    2:00s    0    GMT
+  {
+    1925 /*from_year*/,
+    1938 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1927    only    -    Apr    Sun>=9    2:00s    1:00    BST
+  {
+    1927 /*from_year*/,
+    1927 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1928    1929    -    Apr    Sun>=16    2:00s    1:00    BST
+  {
+    1928 /*from_year*/,
+    1929 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1930    only    -    Apr    Sun>=9    2:00s    1:00    BST
+  {
+    1930 /*from_year*/,
+    1930 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1931    1932    -    Apr    Sun>=16    2:00s    1:00    BST
+  {
+    1931 /*from_year*/,
+    1932 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1933    only    -    Apr    Sun>=9    2:00s    1:00    BST
+  {
+    1933 /*from_year*/,
+    1933 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1934    only    -    Apr    Sun>=16    2:00s    1:00    BST
+  {
+    1934 /*from_year*/,
+    1934 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1935    only    -    Apr    Sun>=9    2:00s    1:00    BST
+  {
+    1935 /*from_year*/,
+    1935 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1936    1937    -    Apr    Sun>=16    2:00s    1:00    BST
+  {
+    1936 /*from_year*/,
+    1937 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1938    only    -    Apr    Sun>=9    2:00s    1:00    BST
+  {
+    1938 /*from_year*/,
+    1938 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1939    only    -    Apr    Sun>=16    2:00s    1:00    BST
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1939    only    -    Nov    Sun>=16    2:00s    0    GMT
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    11 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1940    only    -    Feb    Sun>=23    2:00s    1:00    BST
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    2 /*in_month*/,
+    7 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1941    only    -    May    Sun>=2    1:00s    2:00    BDST
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    120 /*delta_minutes*/,
+    6 /*letterIndex ("BDST")*/,
+  },
+  // Rule    GB-Eire    1941    1943    -    Aug    Sun>=9    1:00s    1:00    BST
+  {
+    1941 /*from_year*/,
+    1943 /*to_year*/,
+    8 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1942    1944    -    Apr    Sun>=2    1:00s    2:00    BDST
+  {
+    1942 /*from_year*/,
+    1944 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    120 /*delta_minutes*/,
+    6 /*letterIndex ("BDST")*/,
+  },
+  // Rule    GB-Eire    1944    only    -    Sep    Sun>=16    1:00s    1:00    BST
+  {
+    1944 /*from_year*/,
+    1944 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1945    only    -    Apr    Mon>=2    1:00s    2:00    BDST
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    4 /*in_month*/,
+    1 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    120 /*delta_minutes*/,
+    6 /*letterIndex ("BDST")*/,
+  },
+  // Rule    GB-Eire    1945    only    -    Jul    Sun>=9    1:00s    1:00    BST
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    7 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1945    1946    -    Oct    Sun>=2    2:00s    0    GMT
+  {
+    1945 /*from_year*/,
+    1946 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1946    only    -    Apr    Sun>=9    2:00s    1:00    BST
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1947    only    -    Mar    16    2:00s    1:00    BST
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1947    only    -    Apr    13    1:00s    2:00    BDST
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    120 /*delta_minutes*/,
+    6 /*letterIndex ("BDST")*/,
+  },
+  // Rule    GB-Eire    1947    only    -    Aug    10    1:00s    1:00    BST
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1947    only    -    Nov     2    2:00s    0    GMT
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1948    only    -    Mar    14    2:00s    1:00    BST
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1948    only    -    Oct    31    2:00s    0    GMT
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1949    only    -    Apr     3    2:00s    1:00    BST
+  {
+    1949 /*from_year*/,
+    1949 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1949    only    -    Oct    30    2:00s    0    GMT
+  {
+    1949 /*from_year*/,
+    1949 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1950    1952    -    Apr    Sun>=14    2:00s    1:00    BST
+  {
+    1950 /*from_year*/,
+    1952 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1950    1952    -    Oct    Sun>=21    2:00s    0    GMT
+  {
+    1950 /*from_year*/,
+    1952 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1953    only    -    Apr    Sun>=16    2:00s    1:00    BST
+  {
+    1953 /*from_year*/,
+    1953 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1953    1960    -    Oct    Sun>=2    2:00s    0    GMT
+  {
+    1953 /*from_year*/,
+    1960 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1954    only    -    Apr    Sun>=9    2:00s    1:00    BST
+  {
+    1954 /*from_year*/,
+    1954 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1955    1956    -    Apr    Sun>=16    2:00s    1:00    BST
+  {
+    1955 /*from_year*/,
+    1956 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1957    only    -    Apr    Sun>=9    2:00s    1:00    BST
+  {
+    1957 /*from_year*/,
+    1957 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1958    1959    -    Apr    Sun>=16    2:00s    1:00    BST
+  {
+    1958 /*from_year*/,
+    1959 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1960    only    -    Apr    Sun>=9    2:00s    1:00    BST
+  {
+    1960 /*from_year*/,
+    1960 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1961    1963    -    Mar    lastSun    2:00s    1:00    BST
+  {
+    1961 /*from_year*/,
+    1963 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1961    1968    -    Oct    Sun>=23    2:00s    0    GMT
+  {
+    1961 /*from_year*/,
+    1968 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1964    1967    -    Mar    Sun>=19    2:00s    1:00    BST
+  {
+    1964 /*from_year*/,
+    1967 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1968    only    -    Feb    18    2:00s    1:00    BST
+  {
+    1968 /*from_year*/,
+    1968 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1972    1980    -    Mar    Sun>=16    2:00s    1:00    BST
+  {
+    1972 /*from_year*/,
+    1980 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire    1972    1980    -    Oct    Sun>=23    2:00s    0    GMT
+  {
+    1972 /*from_year*/,
+    1980 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire    1981    1995    -    Mar    lastSun    1:00u    1:00    BST
+  {
+    1981 /*from_year*/,
+    1995 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("BST")*/,
+  },
+  // Rule    GB-Eire 1981    1989    -    Oct    Sun>=23    1:00u    0    GMT
+  {
+    1981 /*from_year*/,
+    1989 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+  // Rule    GB-Eire 1990    1995    -    Oct    Sun>=22    1:00u    0    GMT
+  {
+    1990 /*from_year*/,
+    1995 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    17 /*letterIndex ("GMT")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyGB_Eire  = {
+  kAtcZoneRulesGB_Eire /*rules*/,
+  66 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Germany
+// Rules: 9
+// Memory (8-bit): 105
+// Memory (32-bit): 120
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesGermany[]  = {
+  // Anchor: Rule    Germany    1946    only    -    Oct     7    2:00s    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Germany    1946    only    -    Apr    14    2:00s    1:00    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Germany    1946    only    -    Oct     7    2:00s    0    -
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Germany    1947    1949    -    Oct    Sun>=1    2:00s    0    -
+  {
+    1947 /*from_year*/,
+    1949 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Germany    1947    only    -    Apr     6    3:00s    1:00    S
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Germany    1947    only    -    May    11    2:00s    2:00    M
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    120 /*delta_minutes*/,
+    18 /*letterIndex ("M")*/,
+  },
+  // Rule    Germany    1947    only    -    Jun    29    3:00    1:00    S
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Germany    1948    only    -    Apr    18    2:00s    1:00    S
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Germany    1949    only    -    Apr    10    2:00s    1:00    S
+  {
+    1949 /*from_year*/,
+    1949 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyGermany  = {
+  kAtcZoneRulesGermany /*rules*/,
+  9 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Greece
+// Rules: 20
+// Memory (8-bit): 226
+// Memory (32-bit): 252
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesGreece[]  = {
+  // Anchor: Rule    Greece    1932    only    -    Sep     1    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Greece    1932    only    -    Jul     7    0:00    1:00    S
+  {
+    1932 /*from_year*/,
+    1932 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Greece    1932    only    -    Sep     1    0:00    0    -
+  {
+    1932 /*from_year*/,
+    1932 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Greece    1941    only    -    Apr     7    0:00    1:00    S
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Greece    1942    only    -    Nov     2    3:00    0    -
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Greece    1943    only    -    Mar    30    0:00    1:00    S
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Greece    1943    only    -    Oct     4    0:00    0    -
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Greece    1952    only    -    Jul     1    0:00    1:00    S
+  {
+    1952 /*from_year*/,
+    1952 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Greece    1952    only    -    Nov     2    0:00    0    -
+  {
+    1952 /*from_year*/,
+    1952 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Greece    1975    only    -    Apr    12    0:00s    1:00    S
+  {
+    1975 /*from_year*/,
+    1975 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Greece    1975    only    -    Nov    26    0:00s    0    -
+  {
+    1975 /*from_year*/,
+    1975 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Greece    1976    only    -    Apr    11    2:00s    1:00    S
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Greece    1976    only    -    Oct    10    2:00s    0    -
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Greece    1977    1978    -    Apr    Sun>=1    2:00s    1:00    S
+  {
+    1977 /*from_year*/,
+    1978 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Greece    1977    only    -    Sep    26    2:00s    0    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Greece    1978    only    -    Sep    24    4:00    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Greece    1979    only    -    Apr     1    9:00    1:00    S
+  {
+    1979 /*from_year*/,
+    1979 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    2160 /*at_time_code (32400/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Greece    1979    only    -    Sep    29    2:00    0    -
+  {
+    1979 /*from_year*/,
+    1979 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Greece    1980    only    -    Apr     1    0:00    1:00    S
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Greece    1980    only    -    Sep    28    0:00    0    -
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyGreece  = {
+  kAtcZoneRulesGreece /*rules*/,
+  20 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Guam
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 15
+// Memory (8-bit): 171
+// Memory (32-bit): 192
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesGuam[]  = {
+  // Anchor: Rule    Guam    1961    only    -    Jan    29    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Guam    1959    only    -    Jun    27    2:00    1:00    D
+  {
+    1959 /*from_year*/,
+    1959 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Guam    1961    only    -    Jan    29    2:00    0    S
+  {
+    1961 /*from_year*/,
+    1961 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Guam    1967    only    -    Sep     1    2:00    1:00    D
+  {
+    1967 /*from_year*/,
+    1967 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Guam    1969    only    -    Jan    26    0:01    0    S
+  {
+    1969 /*from_year*/,
+    1969 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    4 /*at_time_code (60/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Guam    1969    only    -    Jun    22    2:00    1:00    D
+  {
+    1969 /*from_year*/,
+    1969 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Guam    1969    only    -    Aug    31    2:00    0    S
+  {
+    1969 /*from_year*/,
+    1969 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Guam    1970    1971    -    Apr    lastSun    2:00    1:00    D
+  {
+    1970 /*from_year*/,
+    1971 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Guam    1970    1971    -    Sep    Sun>=1    2:00    0    S
+  {
+    1970 /*from_year*/,
+    1971 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Guam    1973    only    -    Dec    16    2:00    1:00    D
+  {
+    1973 /*from_year*/,
+    1973 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Guam    1974    only    -    Feb    24    2:00    0    S
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Guam    1976    only    -    May    26    2:00    1:00    D
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Guam    1976    only    -    Aug    22    2:01    0    S
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    484 /*at_time_code (7260/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Guam    1977    only    -    Apr    24    2:00    1:00    D
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    Guam    1977    only    -    Aug    28    2:00    0    S
   {
     1977 /*from_year*/,
@@ -2531,24 +10142,96 @@ static const AtcZoneRule kAtcZoneRulesGuam[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyGuam  = {
   kAtcZoneRulesGuam /*rules*/,
-  1 /*num_rules*/,
+  15 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Guat
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 9
+// Memory (8-bit): 105
+// Memory (32-bit): 120
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesGuat[]  = {
+  // Anchor: Rule    Guat    1974    only    -    Feb    24    0:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Guat    1973    only    -    Nov    25    0:00    1:00    D
+  {
+    1973 /*from_year*/,
+    1973 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Guat    1974    only    -    Feb    24    0:00    0    S
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Guat    1983    only    -    May    21    0:00    1:00    D
+  {
+    1983 /*from_year*/,
+    1983 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Guat    1983    only    -    Sep    22    0:00    0    S
+  {
+    1983 /*from_year*/,
+    1983 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Guat    1991    only    -    Mar    23    0:00    1:00    D
+  {
+    1991 /*from_year*/,
+    1991 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    Guat    1991    only    -    Sep     7    0:00    0    S
   {
     1991 /*from_year*/,
@@ -2559,7 +10242,7 @@ static const AtcZoneRule kAtcZoneRulesGuat[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Guat    2006    only    -    Apr    30    0:00    1:00    D
   {
@@ -2571,7 +10254,7 @@ static const AtcZoneRule kAtcZoneRulesGuat[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Guat    2006    only    -    Oct     1    0:00    0    S
   {
@@ -2583,24 +10266,192 @@ static const AtcZoneRule kAtcZoneRulesGuat[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyGuat  = {
   kAtcZoneRulesGuat /*rules*/,
-  3 /*num_rules*/,
+  9 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: HK
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 15
+// Memory (8-bit): 171
+// Memory (32-bit): 192
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesHK[]  = {
+  // Anchor: Rule    HK    1946    only    -    Dec    1    3:30s    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    HK    1946    only    -    Apr    21    0:00    1:00    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    HK    1946    only    -    Dec    1    3:30s    0    -
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    HK    1947    only    -    Apr    13    3:30s    1:00    S
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    HK    1947    only    -    Nov    30    3:30s    0    -
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    HK    1948    only    -    May    2    3:30s    1:00    S
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    HK    1948    1952    -    Oct    Sun>=28    3:30s    0    -
+  {
+    1948 /*from_year*/,
+    1952 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    HK    1949    1953    -    Apr    Sun>=1    3:30    1:00    S
+  {
+    1949 /*from_year*/,
+    1953 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    HK    1953    1964    -    Oct    Sun>=31    3:30    0    -
+  {
+    1953 /*from_year*/,
+    1964 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    HK    1954    1964    -    Mar    Sun>=18    3:30    1:00    S
+  {
+    1954 /*from_year*/,
+    1964 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    HK    1965    1976    -    Apr    Sun>=16    3:30    1:00    S
+  {
+    1965 /*from_year*/,
+    1976 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    HK    1965    1976    -    Oct    Sun>=16    3:30    0    -
+  {
+    1965 /*from_year*/,
+    1976 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    HK    1973    only    -    Dec    30    3:30    1:00    S
+  {
+    1973 /*from_year*/,
+    1973 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    HK    1979    only    -    May    13    3:30    1:00    S
+  {
+    1979 /*from_year*/,
+    1979 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    HK    1979    only    -    Oct    21    3:30    0    -
   {
     1979 /*from_year*/,
@@ -2618,17 +10469,77 @@ static const AtcZoneRule kAtcZoneRulesHK[]  = {
 
 const AtcZonePolicy kAtcZonePolicyHK  = {
   kAtcZoneRulesHK /*rules*/,
-  1 /*num_rules*/,
+  15 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Haiti
-// Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
+// Rules: 12
+// Memory (8-bit): 138
+// Memory (32-bit): 156
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
+  // Anchor: Rule    Haiti    1983    1987    -    Oct    lastSun    0:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Haiti    1983    only    -    May    8    0:00    1:00    D
+  {
+    1983 /*from_year*/,
+    1983 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Haiti    1984    1987    -    Apr    lastSun    0:00    1:00    D
+  {
+    1984 /*from_year*/,
+    1987 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Haiti    1983    1987    -    Oct    lastSun    0:00    0    S
+  {
+    1983 /*from_year*/,
+    1987 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Haiti    1988    1997    -    Apr    Sun>=1    1:00s    1:00    D
+  {
+    1988 /*from_year*/,
+    1997 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    Haiti    1988    1997    -    Oct    lastSun    1:00s    0    S
   {
     1988 /*from_year*/,
@@ -2639,7 +10550,7 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Haiti    2005    2006    -    Apr    Sun>=1    0:00    1:00    D
   {
@@ -2651,7 +10562,7 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Haiti    2005    2006    -    Oct    lastSun    0:00    0    S
   {
@@ -2663,7 +10574,7 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Haiti    2012    2015    -    Mar    Sun>=8    2:00    1:00    D
   {
@@ -2675,7 +10586,7 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Haiti    2012    2015    -    Nov    Sun>=1    2:00    0    S
   {
@@ -2687,7 +10598,7 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Haiti    2017    max    -    Mar    Sun>=8    2:00    1:00    D
   {
@@ -2699,7 +10610,7 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Haiti    2017    max    -    Nov    Sun>=1    2:00    0    S
   {
@@ -2711,24 +10622,568 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyHaiti  = {
   kAtcZoneRulesHaiti /*rules*/,
-  7 /*num_rules*/,
+  12 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Halifax
+// Rules: 42
+// Memory (8-bit): 468
+// Memory (32-bit): 516
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesHalifax[]  = {
+  // Anchor: Rule    Halifax    1916    only    -    Oct     1    0:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1916    only    -    Apr     1    0:00    1:00    D
+  {
+    1916 /*from_year*/,
+    1916 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1916    only    -    Oct     1    0:00    0    S
+  {
+    1916 /*from_year*/,
+    1916 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1920    only    -    May     9    0:00    1:00    D
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1920    only    -    Aug    29    0:00    0    S
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1921    only    -    May     6    0:00    1:00    D
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1921    1922    -    Sep     5    0:00    0    S
+  {
+    1921 /*from_year*/,
+    1922 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1922    only    -    Apr    30    0:00    1:00    D
+  {
+    1922 /*from_year*/,
+    1922 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1923    1925    -    May    Sun>=1    0:00    1:00    D
+  {
+    1923 /*from_year*/,
+    1925 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1923    only    -    Sep     4    0:00    0    S
+  {
+    1923 /*from_year*/,
+    1923 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1924    only    -    Sep    15    0:00    0    S
+  {
+    1924 /*from_year*/,
+    1924 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1925    only    -    Sep    28    0:00    0    S
+  {
+    1925 /*from_year*/,
+    1925 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1926    only    -    May    16    0:00    1:00    D
+  {
+    1926 /*from_year*/,
+    1926 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1926    only    -    Sep    13    0:00    0    S
+  {
+    1926 /*from_year*/,
+    1926 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1927    only    -    May     1    0:00    1:00    D
+  {
+    1927 /*from_year*/,
+    1927 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1927    only    -    Sep    26    0:00    0    S
+  {
+    1927 /*from_year*/,
+    1927 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1928    1931    -    May    Sun>=8    0:00    1:00    D
+  {
+    1928 /*from_year*/,
+    1931 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1928    only    -    Sep     9    0:00    0    S
+  {
+    1928 /*from_year*/,
+    1928 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1929    only    -    Sep     3    0:00    0    S
+  {
+    1929 /*from_year*/,
+    1929 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1930    only    -    Sep    15    0:00    0    S
+  {
+    1930 /*from_year*/,
+    1930 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1931    1932    -    Sep    Mon>=24    0:00    0    S
+  {
+    1931 /*from_year*/,
+    1932 /*to_year*/,
+    9 /*in_month*/,
+    1 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1932    only    -    May     1    0:00    1:00    D
+  {
+    1932 /*from_year*/,
+    1932 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1933    only    -    Apr    30    0:00    1:00    D
+  {
+    1933 /*from_year*/,
+    1933 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1933    only    -    Oct     2    0:00    0    S
+  {
+    1933 /*from_year*/,
+    1933 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1934    only    -    May    20    0:00    1:00    D
+  {
+    1934 /*from_year*/,
+    1934 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1934    only    -    Sep    16    0:00    0    S
+  {
+    1934 /*from_year*/,
+    1934 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1935    only    -    Jun     2    0:00    1:00    D
+  {
+    1935 /*from_year*/,
+    1935 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1935    only    -    Sep    30    0:00    0    S
+  {
+    1935 /*from_year*/,
+    1935 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1936    only    -    Jun     1    0:00    1:00    D
+  {
+    1936 /*from_year*/,
+    1936 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1936    only    -    Sep    14    0:00    0    S
+  {
+    1936 /*from_year*/,
+    1936 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1937    1938    -    May    Sun>=1    0:00    1:00    D
+  {
+    1937 /*from_year*/,
+    1938 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1937    1941    -    Sep    Mon>=24    0:00    0    S
+  {
+    1937 /*from_year*/,
+    1941 /*to_year*/,
+    9 /*in_month*/,
+    1 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1939    only    -    May    28    0:00    1:00    D
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1940    1941    -    May    Sun>=1    0:00    1:00    D
+  {
+    1940 /*from_year*/,
+    1941 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1946    1949    -    Apr    lastSun    2:00    1:00    D
+  {
+    1946 /*from_year*/,
+    1949 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1946    1949    -    Sep    lastSun    2:00    0    S
+  {
+    1946 /*from_year*/,
+    1949 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1951    1954    -    Apr    lastSun    2:00    1:00    D
+  {
+    1951 /*from_year*/,
+    1954 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1951    1954    -    Sep    lastSun    2:00    0    S
+  {
+    1951 /*from_year*/,
+    1954 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1956    1959    -    Apr    lastSun    2:00    1:00    D
+  {
+    1956 /*from_year*/,
+    1959 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1956    1959    -    Sep    lastSun    2:00    0    S
+  {
+    1956 /*from_year*/,
+    1959 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Halifax    1962    1973    -    Apr    lastSun    2:00    1:00    D
+  {
+    1962 /*from_year*/,
+    1973 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Halifax    1962    1973    -    Oct    lastSun    2:00    0    S
+  {
+    1962 /*from_year*/,
+    1973 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyHalifax  = {
+  kAtcZoneRulesHalifax /*rules*/,
+  42 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Holiday
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 3
+// Memory (8-bit): 39
+// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesHoliday[]  = {
+  // Anchor: Rule    Holiday    1993    1994    -    Mar    Sun>=1    2:00s    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Holiday    1992    1993    -    Oct    lastSun    2:00s    1:00    D
+  {
+    1992 /*from_year*/,
+    1993 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    Holiday    1993    1994    -    Mar    Sun>=1    2:00s    0    S
   {
     1993 /*from_year*/,
@@ -2739,24 +11194,48 @@ static const AtcZoneRule kAtcZoneRulesHoliday[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyHoliday  = {
   kAtcZoneRulesHoliday /*rules*/,
-  1 /*num_rules*/,
+  3 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Hond
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 5
+// Memory (8-bit): 61
+// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesHond[]  = {
+  // Anchor: Rule    Hond    1987    1988    -    Sep    lastSun    0:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Hond    1987    1988    -    May    Sun>=1    0:00    1:00    D
+  {
+    1987 /*from_year*/,
+    1988 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    Hond    1987    1988    -    Sep    lastSun    0:00    0    S
   {
     1987 /*from_year*/,
@@ -2767,7 +11246,7 @@ static const AtcZoneRule kAtcZoneRulesHond[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Hond    2006    only    -    May    Sun>=1    0:00    1:00    D
   {
@@ -2779,7 +11258,7 @@ static const AtcZoneRule kAtcZoneRulesHond[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Hond    2006    only    -    Aug    Mon>=1    0:00    0    S
   {
@@ -2791,24 +11270,512 @@ static const AtcZoneRule kAtcZoneRulesHond[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyHond  = {
   kAtcZoneRulesHond /*rules*/,
-  3 /*num_rules*/,
+  5 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Hungary
+// Rules: 20
+// Memory (8-bit): 226
+// Memory (32-bit): 252
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesHungary[]  = {
+  // Anchor: Rule    Hungary    1918    1920    -    Sep    Mon>=15     3:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Hungary    1918    1919    -    Apr    15     2:00    1:00    S
+  {
+    1918 /*from_year*/,
+    1919 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Hungary    1918    1920    -    Sep    Mon>=15     3:00    0    -
+  {
+    1918 /*from_year*/,
+    1920 /*to_year*/,
+    9 /*in_month*/,
+    1 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Hungary    1920    only    -    Apr     5     2:00    1:00    S
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Hungary    1945    only    -    May     1    23:00    1:00    S
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Hungary    1945    only    -    Nov     1     1:00    0    -
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Hungary    1946    only    -    Mar    31     2:00s    1:00    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Hungary    1946    only    -    Oct     7     2:00    0    -
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Hungary    1947    1949    -    Apr    Sun>=4     2:00s    1:00    S
+  {
+    1947 /*from_year*/,
+    1949 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Hungary    1947    1949    -    Oct    Sun>=1     2:00s    0    -
+  {
+    1947 /*from_year*/,
+    1949 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Hungary    1954    only    -    May    23     0:00    1:00    S
+  {
+    1954 /*from_year*/,
+    1954 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Hungary    1954    only    -    Oct     3     0:00    0    -
+  {
+    1954 /*from_year*/,
+    1954 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Hungary    1955    only    -    May    22     2:00    1:00    S
+  {
+    1955 /*from_year*/,
+    1955 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Hungary    1955    only    -    Oct     2     3:00    0    -
+  {
+    1955 /*from_year*/,
+    1955 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Hungary    1956    1957    -    Jun    Sun>=1     2:00    1:00    S
+  {
+    1956 /*from_year*/,
+    1957 /*to_year*/,
+    6 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Hungary    1956    1957    -    Sep    lastSun     3:00    0    -
+  {
+    1956 /*from_year*/,
+    1957 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Hungary    1980    only    -    Apr     6     0:00    1:00    S
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Hungary    1980    only    -    Sep    28     1:00    0    -
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Hungary    1981    1983    -    Mar    lastSun     0:00    1:00    S
+  {
+    1981 /*from_year*/,
+    1983 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Hungary    1981    1983    -    Sep    lastSun     1:00    0    -
+  {
+    1981 /*from_year*/,
+    1983 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyHungary  = {
+  kAtcZoneRulesHungary /*rules*/,
+  20 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Indianapolis
+// Rules: 4
+// Memory (8-bit): 50
+// Memory (32-bit): 60
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesIndianapolis[]  = {
+  // Anchor: Rule Indianapolis 1941    1954    -    Sep    lastSun    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule Indianapolis 1941    only    -    Jun    22    2:00    1:00    D
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule Indianapolis 1941    1954    -    Sep    lastSun    2:00    0    S
+  {
+    1941 /*from_year*/,
+    1954 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule Indianapolis 1946    1954    -    Apr    lastSun    2:00    1:00    D
+  {
+    1946 /*from_year*/,
+    1954 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyIndianapolis  = {
+  kAtcZoneRulesIndianapolis /*rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Iran
-// Rules: 27
-// Memory (8-bit): 303
-// Memory (32-bit): 336
+// Rules: 41
+// Memory (8-bit): 457
+// Memory (32-bit): 504
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesIran[]  = {
+  // Anchor: Rule    Iran    1910    only    -    Jan     1    00:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iran    1910    only    -    Jan     1    00:00    0    -
+  {
+    1910 /*from_year*/,
+    1910 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iran    1977    only    -    Mar    21    23:00    1:00    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iran    1977    only    -    Oct    20    24:00    0    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iran    1978    only    -    Mar    24    24:00    1:00    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iran    1978    only    -    Aug     5    01:00    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iran    1979    only    -    May    26    24:00    1:00    -
+  {
+    1979 /*from_year*/,
+    1979 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iran    1979    only    -    Sep    18    24:00    0    -
+  {
+    1979 /*from_year*/,
+    1979 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iran    1980    only    -    Mar    20    24:00    1:00    -
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iran    1980    only    -    Sep    22    24:00    0    -
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iran    1991    only    -    May     2    24:00    1:00    -
+  {
+    1991 /*from_year*/,
+    1991 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iran    1992    1995    -    Mar    21    24:00    1:00    -
+  {
+    1992 /*from_year*/,
+    1995 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iran    1991    1995    -    Sep    21    24:00    0    -
+  {
+    1991 /*from_year*/,
+    1995 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iran    1996    only    -    Mar    20    24:00    1:00    -
+  {
+    1996 /*from_year*/,
+    1996 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Iran    1996    only    -    Sep    20    24:00    0    -
   {
     1996 /*from_year*/,
@@ -3138,17 +12105,77 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
 
 const AtcZonePolicy kAtcZonePolicyIran  = {
   kAtcZoneRulesIran /*rules*/,
-  27 /*num_rules*/,
+  41 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Iraq
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 9
+// Memory (8-bit): 105
+// Memory (32-bit): 120
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesIraq[]  = {
+  // Anchor: Rule    Iraq    1982    1984    -    Oct    1    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iraq    1982    only    -    May    1    0:00    1:00    -
+  {
+    1982 /*from_year*/,
+    1982 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iraq    1982    1984    -    Oct    1    0:00    0    -
+  {
+    1982 /*from_year*/,
+    1984 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iraq    1983    only    -    Mar    31    0:00    1:00    -
+  {
+    1983 /*from_year*/,
+    1983 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iraq    1984    1985    -    Apr    1    0:00    1:00    -
+  {
+    1984 /*from_year*/,
+    1985 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Iraq    1985    1990    -    Sep    lastSun    1:00s    0    -
   {
     1985 /*from_year*/,
@@ -3159,6 +12186,18 @@ static const AtcZoneRule kAtcZoneRulesIraq[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Iraq    1986    1990    -    Mar    lastSun    1:00s    1:00    -
+  {
+    1986 /*from_year*/,
+    1990 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iraq    1991    2007    -    Apr     1    3:00s    1:00    -
@@ -3190,17 +12229,561 @@ static const AtcZoneRule kAtcZoneRulesIraq[]  = {
 
 const AtcZonePolicy kAtcZonePolicyIraq  = {
   kAtcZoneRulesIraq /*rules*/,
-  3 /*num_rules*/,
+  9 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Italy
+// Rules: 42
+// Memory (8-bit): 468
+// Memory (32-bit): 516
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesItaly[]  = {
+  // Anchor: Rule    Italy    1916    1917    -    Sep    30    24:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1916    only    -    Jun     3    24:00    1:00    S
+  {
+    1916 /*from_year*/,
+    1916 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1916    1917    -    Sep    30    24:00    0    -
+  {
+    1916 /*from_year*/,
+    1917 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1917    only    -    Mar    31    24:00    1:00    S
+  {
+    1917 /*from_year*/,
+    1917 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1918    only    -    Mar     9    24:00    1:00    S
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1918    only    -    Oct     6    24:00    0    -
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1919    only    -    Mar     1    24:00    1:00    S
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1919    only    -    Oct     4    24:00    0    -
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1920    only    -    Mar    20    24:00    1:00    S
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1920    only    -    Sep    18    24:00    0    -
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1940    only    -    Jun    14    24:00    1:00    S
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1942    only    -    Nov     2     2:00s    0    -
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1943    only    -    Mar    29     2:00s    1:00    S
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1943    only    -    Oct     4     2:00s    0    -
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1944    only    -    Apr     2     2:00s    1:00    S
+  {
+    1944 /*from_year*/,
+    1944 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1944    only    -    Sep    17     2:00s    0    -
+  {
+    1944 /*from_year*/,
+    1944 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1945    only    -    Apr     2     2:00    1:00    S
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1945    only    -    Sep    15     1:00    0    -
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1946    only    -    Mar    17     2:00s    1:00    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1946    only    -    Oct     6     2:00s    0    -
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1947    only    -    Mar    16     0:00s    1:00    S
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1947    only    -    Oct     5     0:00s    0    -
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1948    only    -    Feb    29     2:00s    1:00    S
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1948    only    -    Oct     3     2:00s    0    -
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1966    1968    -    May    Sun>=22     0:00s    1:00    S
+  {
+    1966 /*from_year*/,
+    1968 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1966    only    -    Sep    24    24:00    0    -
+  {
+    1966 /*from_year*/,
+    1966 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1967    1969    -    Sep    Sun>=22     0:00s    0    -
+  {
+    1967 /*from_year*/,
+    1969 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1969    only    -    Jun     1     0:00s    1:00    S
+  {
+    1969 /*from_year*/,
+    1969 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1970    only    -    May    31     0:00s    1:00    S
+  {
+    1970 /*from_year*/,
+    1970 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1970    only    -    Sep    lastSun     0:00s    0    -
+  {
+    1970 /*from_year*/,
+    1970 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1971    1972    -    May    Sun>=22     0:00s    1:00    S
+  {
+    1971 /*from_year*/,
+    1972 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1971    only    -    Sep    lastSun     0:00s    0    -
+  {
+    1971 /*from_year*/,
+    1971 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1972    only    -    Oct     1     0:00s    0    -
+  {
+    1972 /*from_year*/,
+    1972 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1973    only    -    Jun     3     0:00s    1:00    S
+  {
+    1973 /*from_year*/,
+    1973 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1973    1974    -    Sep    lastSun     0:00s    0    -
+  {
+    1973 /*from_year*/,
+    1974 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1974    only    -    May    26     0:00s    1:00    S
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1975    only    -    Jun     1     0:00s    1:00    S
+  {
+    1975 /*from_year*/,
+    1975 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1975    1977    -    Sep    lastSun     0:00s    0    -
+  {
+    1975 /*from_year*/,
+    1977 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1976    only    -    May    30     0:00s    1:00    S
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1977    1979    -    May    Sun>=22     0:00s    1:00    S
+  {
+    1977 /*from_year*/,
+    1979 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Italy    1978    only    -    Oct     1     0:00s    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Italy    1979    only    -    Sep    30     0:00s    0    -
+  {
+    1979 /*from_year*/,
+    1979 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyItaly  = {
+  kAtcZoneRulesItaly /*rules*/,
+  42 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Japan
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 5
+// Memory (8-bit): 61
+// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesJapan[]  = {
+  // Anchor: Rule    Japan    1948    1951    -    Sep    Sat>=8    25:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Japan    1948    only    -    May    Sat>=1    24:00    1:00    D
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    5 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    Japan    1948    1951    -    Sep    Sat>=8    25:00    0    S
   {
     1948 /*from_year*/,
@@ -3211,24 +12794,288 @@ static const AtcZoneRule kAtcZoneRulesJapan[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     6000 /*at_time_code (90000/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Japan    1949    only    -    Apr    Sat>=1    24:00    1:00    D
+  {
+    1949 /*from_year*/,
+    1949 /*to_year*/,
+    4 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Japan    1950    1951    -    May    Sat>=1    24:00    1:00    D
+  {
+    1950 /*from_year*/,
+    1951 /*to_year*/,
+    5 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyJapan  = {
   kAtcZoneRulesJapan /*rules*/,
-  1 /*num_rules*/,
+  5 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Jordan
-// Rules: 13
-// Memory (8-bit): 149
-// Memory (32-bit): 168
+// Rules: 33
+// Memory (8-bit): 369
+// Memory (32-bit): 408
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesJordan[]  = {
+  // Anchor: Rule    Jordan    1973    1975    -    Oct    1    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Jordan    1973    only    -    Jun    6    0:00    1:00    S
+  {
+    1973 /*from_year*/,
+    1973 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Jordan    1973    1975    -    Oct    1    0:00    0    -
+  {
+    1973 /*from_year*/,
+    1975 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Jordan    1974    1977    -    May    1    0:00    1:00    S
+  {
+    1974 /*from_year*/,
+    1977 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Jordan    1976    only    -    Nov    1    0:00    0    -
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Jordan    1977    only    -    Oct    1    0:00    0    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Jordan    1978    only    -    Apr    30    0:00    1:00    S
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Jordan    1978    only    -    Sep    30    0:00    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Jordan    1985    only    -    Apr    1    0:00    1:00    S
+  {
+    1985 /*from_year*/,
+    1985 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Jordan    1985    only    -    Oct    1    0:00    0    -
+  {
+    1985 /*from_year*/,
+    1985 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Jordan    1986    1988    -    Apr    Fri>=1    0:00    1:00    S
+  {
+    1986 /*from_year*/,
+    1988 /*to_year*/,
+    4 /*in_month*/,
+    5 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Jordan    1986    1990    -    Oct    Fri>=1    0:00    0    -
+  {
+    1986 /*from_year*/,
+    1990 /*to_year*/,
+    10 /*in_month*/,
+    5 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Jordan    1989    only    -    May    8    0:00    1:00    S
+  {
+    1989 /*from_year*/,
+    1989 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Jordan    1990    only    -    Apr    27    0:00    1:00    S
+  {
+    1990 /*from_year*/,
+    1990 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Jordan    1991    only    -    Apr    17    0:00    1:00    S
+  {
+    1991 /*from_year*/,
+    1991 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Jordan    1991    only    -    Sep    27    0:00    0    -
+  {
+    1991 /*from_year*/,
+    1991 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Jordan    1992    only    -    Apr    10    0:00    1:00    S
+  {
+    1992 /*from_year*/,
+    1992 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Jordan    1992    1993    -    Oct    Fri>=1    0:00    0    -
+  {
+    1992 /*from_year*/,
+    1993 /*to_year*/,
+    10 /*in_month*/,
+    5 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Jordan    1993    1998    -    Apr    Fri>=1    0:00    1:00    S
+  {
+    1993 /*from_year*/,
+    1998 /*to_year*/,
+    4 /*in_month*/,
+    5 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Jordan    1994    only    -    Sep    Fri>=15    0:00    0    -
+  {
+    1994 /*from_year*/,
+    1994 /*to_year*/,
+    9 /*in_month*/,
+    5 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Jordan    1995    1998    -    Sep    Fri>=15    0:00s    0    -
   {
     1995 /*from_year*/,
@@ -3251,7 +13098,7 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Jordan    1999    2002    -    Sep    lastFri    0:00s    0    -
   {
@@ -3275,7 +13122,7 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Jordan    2002    2012    -    Mar    lastThu    24:00    1:00    S
   {
@@ -3287,7 +13134,7 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     5760 /*at_time_code (86400/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Jordan    2003    only    -    Oct    24    0:00s    0    -
   {
@@ -3359,7 +13206,7 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     5760 /*at_time_code (86400/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Jordan    2014    2022    -    Oct    lastFri    0:00s    0    -
   {
@@ -3383,24 +13230,48 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     5760 /*at_time_code (86400/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyJordan  = {
   kAtcZoneRulesJordan /*rules*/,
-  13 /*num_rules*/,
+  33 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Kyrgyz
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 5
+// Memory (8-bit): 61
+// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesKyrgyz[]  = {
+  // Anchor: Rule    Kyrgyz    1992    1996    -    Sep    lastSun    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Kyrgyz    1992    1996    -    Apr    Sun>=7    0:00s    1:00    -
+  {
+    1992 /*from_year*/,
+    1996 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Kyrgyz    1992    1996    -    Sep    lastSun    0:00    0    -
   {
     1992 /*from_year*/,
@@ -3442,17 +13313,89 @@ static const AtcZoneRule kAtcZoneRulesKyrgyz[]  = {
 
 const AtcZonePolicy kAtcZonePolicyKyrgyz  = {
   kAtcZoneRulesKyrgyz /*rules*/,
-  3 /*num_rules*/,
+  5 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: LH
-// Rules: 9
-// Memory (8-bit): 105
-// Memory (32-bit): 120
+// Rules: 15
+// Memory (8-bit): 171
+// Memory (32-bit): 192
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesLH[]  = {
+  // Anchor: Rule    LH    1982    1985    -    Mar    Sun>=1    2:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    LH    1981    1984    -    Oct    lastSun    2:00    1:00    -
+  {
+    1981 /*from_year*/,
+    1984 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    LH    1982    1985    -    Mar    Sun>=1    2:00    0    -
+  {
+    1982 /*from_year*/,
+    1985 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    LH    1985    only    -    Oct    lastSun    2:00    0:30    -
+  {
+    1985 /*from_year*/,
+    1985 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    30 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    LH    1986    1989    -    Mar    Sun>=15    2:00    0    -
+  {
+    1986 /*from_year*/,
+    1989 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    LH    1986    only    -    Oct    19    2:00    0:30    -
+  {
+    1986 /*from_year*/,
+    1986 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    30 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    LH    1987    1999    -    Oct    lastSun    2:00    0:30    -
   {
     1987 /*from_year*/,
@@ -3566,17 +13509,333 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
 
 const AtcZonePolicy kAtcZonePolicyLH  = {
   kAtcZoneRulesLH /*rules*/,
-  9 /*num_rules*/,
+  15 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
-// Policy name: Lebanon
+// Policy name: Latvia
 // Rules: 3
 // Memory (8-bit): 39
 // Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
+static const AtcZoneRule kAtcZoneRulesLatvia[]  = {
+  // Anchor: Rule    Latvia    1989    1996    -    Sep    lastSun     2:00s    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Latvia    1989    1996    -    Mar    lastSun     2:00s    1:00    S
+  {
+    1989 /*from_year*/,
+    1996 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Latvia    1989    1996    -    Sep    lastSun     2:00s    0    -
+  {
+    1989 /*from_year*/,
+    1996 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyLatvia  = {
+  kAtcZoneRulesLatvia /*rules*/,
+  3 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Lebanon
+// Rules: 25
+// Memory (8-bit): 281
+// Memory (32-bit): 312
+//---------------------------------------------------------------------------
+
 static const AtcZoneRule kAtcZoneRulesLebanon[]  = {
+  // Anchor: Rule    Lebanon    1920    only    -    Oct    25    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Lebanon    1920    only    -    Mar    28    0:00    1:00    S
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Lebanon    1920    only    -    Oct    25    0:00    0    -
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Lebanon    1921    only    -    Apr    3    0:00    1:00    S
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Lebanon    1921    only    -    Oct    3    0:00    0    -
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Lebanon    1922    only    -    Mar    26    0:00    1:00    S
+  {
+    1922 /*from_year*/,
+    1922 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Lebanon    1922    only    -    Oct    8    0:00    0    -
+  {
+    1922 /*from_year*/,
+    1922 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Lebanon    1923    only    -    Apr    22    0:00    1:00    S
+  {
+    1923 /*from_year*/,
+    1923 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Lebanon    1923    only    -    Sep    16    0:00    0    -
+  {
+    1923 /*from_year*/,
+    1923 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Lebanon    1957    1961    -    May    1    0:00    1:00    S
+  {
+    1957 /*from_year*/,
+    1961 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Lebanon    1957    1961    -    Oct    1    0:00    0    -
+  {
+    1957 /*from_year*/,
+    1961 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Lebanon    1972    only    -    Jun    22    0:00    1:00    S
+  {
+    1972 /*from_year*/,
+    1972 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Lebanon    1972    1977    -    Oct    1    0:00    0    -
+  {
+    1972 /*from_year*/,
+    1977 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Lebanon    1973    1977    -    May    1    0:00    1:00    S
+  {
+    1973 /*from_year*/,
+    1977 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Lebanon    1978    only    -    Apr    30    0:00    1:00    S
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Lebanon    1978    only    -    Sep    30    0:00    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Lebanon    1984    1987    -    May    1    0:00    1:00    S
+  {
+    1984 /*from_year*/,
+    1987 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Lebanon    1984    1991    -    Oct    16    0:00    0    -
+  {
+    1984 /*from_year*/,
+    1991 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Lebanon    1988    only    -    Jun    1    0:00    1:00    S
+  {
+    1988 /*from_year*/,
+    1988 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Lebanon    1989    only    -    May    10    0:00    1:00    S
+  {
+    1989 /*from_year*/,
+    1989 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Lebanon    1990    1992    -    May    1    0:00    1:00    S
+  {
+    1990 /*from_year*/,
+    1992 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Lebanon    1992    only    -    Oct    4    0:00    0    -
+  {
+    1992 /*from_year*/,
+    1992 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Lebanon    1993    max    -    Mar    lastSun    0:00    1:00    S
   {
     1993 /*from_year*/,
@@ -3587,7 +13846,7 @@ static const AtcZoneRule kAtcZoneRulesLebanon[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Lebanon    1993    1998    -    Sep    lastSun    0:00    0    -
   {
@@ -3618,17 +13877,197 @@ static const AtcZoneRule kAtcZoneRulesLebanon[]  = {
 
 const AtcZonePolicy kAtcZonePolicyLebanon  = {
   kAtcZoneRulesLebanon /*rules*/,
-  3 /*num_rules*/,
+  25 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Libya
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 18
+// Memory (8-bit): 204
+// Memory (32-bit): 228
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesLibya[]  = {
+  // Anchor: Rule    Libya    1952    only    -    Jan     1    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Libya    1951    only    -    Oct    14    2:00    1:00    S
+  {
+    1951 /*from_year*/,
+    1951 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Libya    1952    only    -    Jan     1    0:00    0    -
+  {
+    1952 /*from_year*/,
+    1952 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Libya    1953    only    -    Oct     9    2:00    1:00    S
+  {
+    1953 /*from_year*/,
+    1953 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Libya    1954    only    -    Jan     1    0:00    0    -
+  {
+    1954 /*from_year*/,
+    1954 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Libya    1955    only    -    Sep    30    0:00    1:00    S
+  {
+    1955 /*from_year*/,
+    1955 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Libya    1956    only    -    Jan     1    0:00    0    -
+  {
+    1956 /*from_year*/,
+    1956 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Libya    1982    1984    -    Apr     1    0:00    1:00    S
+  {
+    1982 /*from_year*/,
+    1984 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Libya    1982    1985    -    Oct     1    0:00    0    -
+  {
+    1982 /*from_year*/,
+    1985 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Libya    1985    only    -    Apr     6    0:00    1:00    S
+  {
+    1985 /*from_year*/,
+    1985 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Libya    1986    only    -    Apr     4    0:00    1:00    S
+  {
+    1986 /*from_year*/,
+    1986 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Libya    1986    only    -    Oct     3    0:00    0    -
+  {
+    1986 /*from_year*/,
+    1986 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Libya    1987    1989    -    Apr     1    0:00    1:00    S
+  {
+    1987 /*from_year*/,
+    1989 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Libya    1987    1989    -    Oct     1    0:00    0    -
+  {
+    1987 /*from_year*/,
+    1989 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Libya    1997    only    -    Apr     4    0:00    1:00    S
+  {
+    1997 /*from_year*/,
+    1997 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    Libya    1997    only    -    Oct     4    0:00    0    -
   {
     1997 /*from_year*/,
@@ -3651,7 +14090,7 @@ static const AtcZoneRule kAtcZoneRulesLibya[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Libya    2013    only    -    Oct    lastFri    2:00    0    -
   {
@@ -3670,17 +14109,477 @@ static const AtcZoneRule kAtcZoneRulesLibya[]  = {
 
 const AtcZonePolicy kAtcZonePolicyLibya  = {
   kAtcZoneRulesLibya /*rules*/,
-  3 /*num_rules*/,
+  18 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Louisville
+// Rules: 10
+// Memory (8-bit): 116
+// Memory (32-bit): 132
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesLouisville[]  = {
+  // Anchor: Rule Louisville    1921    only    -    Sep    1    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule Louisville    1921    only    -    May    1    2:00    1:00    D
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule Louisville    1921    only    -    Sep    1    2:00    0    S
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule Louisville    1941    only    -    Apr    lastSun    2:00    1:00    D
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule Louisville    1941    only    -    Sep    lastSun    2:00    0    S
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule Louisville    1946    only    -    Apr    lastSun    0:01    1:00    D
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    4 /*at_time_code (60/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule Louisville    1946    only    -    Jun    2    2:00    0    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule Louisville    1950    1961    -    Apr    lastSun    2:00    1:00    D
+  {
+    1950 /*from_year*/,
+    1961 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule Louisville    1950    1955    -    Sep    lastSun    2:00    0    S
+  {
+    1950 /*from_year*/,
+    1955 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule Louisville    1956    1961    -    Oct    lastSun    2:00    0    S
+  {
+    1956 /*from_year*/,
+    1961 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyLouisville  = {
+  kAtcZoneRulesLouisville /*rules*/,
+  10 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Macau
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 28
+// Memory (8-bit): 314
+// Memory (32-bit): 348
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMacau[]  = {
+  // Anchor: Rule    Macau    1942    only    -    Nov    17    23:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Macau    1942    1943    -    Apr    30    23:00    1:00    -
+  {
+    1942 /*from_year*/,
+    1943 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Macau    1942    only    -    Nov    17    23:00    0    -
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Macau    1943    only    -    Sep    30    23:00    0    S
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Macau    1946    only    -    Apr    30    23:00s    1:00    D
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Macau    1946    only    -    Sep    30    23:00s    0    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Macau    1947    only    -    Apr    19    23:00s    1:00    D
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Macau    1947    only    -    Nov    30    23:00s    0    S
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Macau    1948    only    -    May     2    23:00s    1:00    D
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Macau    1948    only    -    Oct    31    23:00s    0    S
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Macau    1949    1950    -    Apr    Sat>=1    23:00s    1:00    D
+  {
+    1949 /*from_year*/,
+    1950 /*to_year*/,
+    4 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Macau    1949    1950    -    Oct    lastSat    23:00s    0    S
+  {
+    1949 /*from_year*/,
+    1950 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Macau    1951    only    -    Mar    31    23:00s    1:00    D
+  {
+    1951 /*from_year*/,
+    1951 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Macau    1951    only    -    Oct    28    23:00s    0    S
+  {
+    1951 /*from_year*/,
+    1951 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Macau    1952    1953    -    Apr    Sat>=1    23:00s    1:00    D
+  {
+    1952 /*from_year*/,
+    1953 /*to_year*/,
+    4 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Macau    1952    only    -    Nov     1    23:00s    0    S
+  {
+    1952 /*from_year*/,
+    1952 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Macau    1953    1954    -    Oct    lastSat    23:00s    0    S
+  {
+    1953 /*from_year*/,
+    1954 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Macau    1954    1956    -    Mar    Sat>=17    23:00s    1:00    D
+  {
+    1954 /*from_year*/,
+    1956 /*to_year*/,
+    3 /*in_month*/,
+    6 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Macau    1955    only    -    Nov     5    23:00s    0    S
+  {
+    1955 /*from_year*/,
+    1955 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Macau    1956    1964    -    Nov    Sun>=1    03:30    0    S
+  {
+    1956 /*from_year*/,
+    1964 /*to_year*/,
+    11 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Macau    1957    1964    -    Mar    Sun>=18    03:30    1:00    D
+  {
+    1957 /*from_year*/,
+    1964 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Macau    1965    1973    -    Apr    Sun>=16    03:30    1:00    D
+  {
+    1965 /*from_year*/,
+    1973 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Macau    1965    1966    -    Oct    Sun>=16    02:30    0    S
+  {
+    1965 /*from_year*/,
+    1966 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    600 /*at_time_code (9000/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Macau    1967    1976    -    Oct    Sun>=16    03:30    0    S
+  {
+    1967 /*from_year*/,
+    1976 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Macau    1973    only    -    Dec    30    03:30    1:00    D
+  {
+    1973 /*from_year*/,
+    1973 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Macau    1975    1976    -    Apr    Sun>=16    03:30    1:00    D
+  {
+    1975 /*from_year*/,
+    1976 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Macau    1979    only    -    May    13    03:30    1:00    D
+  {
+    1979 /*from_year*/,
+    1979 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    840 /*at_time_code (12600/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    Macau    1979    only    -    Oct    Sun>=16    03:30    0    S
   {
     1979 /*from_year*/,
@@ -3691,24 +14590,236 @@ static const AtcZoneRule kAtcZoneRulesMacau[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     840 /*at_time_code (12600/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyMacau  = {
   kAtcZoneRulesMacau /*rules*/,
-  1 /*num_rules*/,
+  28 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Malta
+// Rules: 8
+// Memory (8-bit): 94
+// Memory (32-bit): 108
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesMalta[]  = {
+  // Anchor: Rule    Malta    1973    only    -    Sep    29    0:00s    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Malta    1973    only    -    Mar    31    0:00s    1:00    S
+  {
+    1973 /*from_year*/,
+    1973 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Malta    1973    only    -    Sep    29    0:00s    0    -
+  {
+    1973 /*from_year*/,
+    1973 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Malta    1974    only    -    Apr    21    0:00s    1:00    S
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Malta    1974    only    -    Sep    16    0:00s    0    -
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Malta    1975    1979    -    Apr    Sun>=15    2:00    1:00    S
+  {
+    1975 /*from_year*/,
+    1979 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Malta    1975    1980    -    Sep    Sun>=15    2:00    0    -
+  {
+    1975 /*from_year*/,
+    1980 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Malta    1980    only    -    Mar    31    2:00    1:00    S
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyMalta  = {
+  kAtcZoneRulesMalta /*rules*/,
+  8 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Marengo
+// Rules: 5
+// Memory (8-bit): 61
+// Memory (32-bit): 72
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesMarengo[]  = {
+  // Anchor: Rule    Marengo    1951    only    -    Sep    lastSun    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Marengo    1951    only    -    Apr    lastSun    2:00    1:00    D
+  {
+    1951 /*from_year*/,
+    1951 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Marengo    1951    only    -    Sep    lastSun    2:00    0    S
+  {
+    1951 /*from_year*/,
+    1951 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Marengo    1954    1960    -    Apr    lastSun    2:00    1:00    D
+  {
+    1954 /*from_year*/,
+    1960 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Marengo    1954    1960    -    Sep    lastSun    2:00    0    S
+  {
+    1954 /*from_year*/,
+    1960 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyMarengo  = {
+  kAtcZoneRulesMarengo /*rules*/,
+  5 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Mauritius
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 5
+// Memory (8-bit): 61
+// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMauritius[]  = {
+  // Anchor: Rule Mauritius    1983    only    -    Mar    21    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Mauritius    1982    only    -    Oct    10    0:00    1:00    -
+  {
+    1982 /*from_year*/,
+    1982 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule Mauritius    1983    only    -    Mar    21    0:00    0    -
   {
     1983 /*from_year*/,
@@ -3750,17 +14861,213 @@ static const AtcZoneRule kAtcZoneRulesMauritius[]  = {
 
 const AtcZonePolicy kAtcZonePolicyMauritius  = {
   kAtcZoneRulesMauritius /*rules*/,
-  3 /*num_rules*/,
+  5 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Menominee
+// Rules: 5
+// Memory (8-bit): 61
+// Memory (32-bit): 72
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesMenominee[]  = {
+  // Anchor: Rule Menominee    1946    only    -    Sep    lastSun    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule Menominee    1946    only    -    Apr    lastSun    2:00    1:00    D
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule Menominee    1946    only    -    Sep    lastSun    2:00    0    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule Menominee    1966    only    -    Apr    lastSun    2:00    1:00    D
+  {
+    1966 /*from_year*/,
+    1966 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule Menominee    1966    only    -    Oct    lastSun    2:00    0    S
+  {
+    1966 /*from_year*/,
+    1966 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyMenominee  = {
+  kAtcZoneRulesMenominee /*rules*/,
+  5 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Mexico
-// Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
+// Rules: 17
+// Memory (8-bit): 193
+// Memory (32-bit): 216
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMexico[]  = {
+  // Anchor: Rule    Mexico    1931    only    -    Oct    1    0:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Mexico    1931    only    -    May    1    23:00    1:00    D
+  {
+    1931 /*from_year*/,
+    1931 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Mexico    1931    only    -    Oct    1    0:00    0    S
+  {
+    1931 /*from_year*/,
+    1931 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Mexico    1939    only    -    Feb    5    0:00    1:00    D
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Mexico    1939    only    -    Jun    25    0:00    0    S
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Mexico    1940    only    -    Dec    9    0:00    1:00    D
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Mexico    1941    only    -    Apr    1    0:00    0    S
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Mexico    1943    only    -    Dec    16    0:00    1:00    W
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    26 /*letterIndex ("W")*/,
+  },
+  // Rule    Mexico    1944    only    -    May    1    0:00    0    S
+  {
+    1944 /*from_year*/,
+    1944 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Mexico    1950    only    -    Feb    12    0:00    1:00    D
+  {
+    1950 /*from_year*/,
+    1950 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    Mexico    1950    only    -    Jul    30    0:00    0    S
   {
     1950 /*from_year*/,
@@ -3771,7 +15078,7 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Mexico    1996    2000    -    Apr    Sun>=1    2:00    1:00    D
   {
@@ -3783,7 +15090,7 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Mexico    1996    2000    -    Oct    lastSun    2:00    0    S
   {
@@ -3795,7 +15102,7 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Mexico    2001    only    -    May    Sun>=1    2:00    1:00    D
   {
@@ -3807,7 +15114,7 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Mexico    2001    only    -    Sep    lastSun    2:00    0    S
   {
@@ -3819,7 +15126,7 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Mexico    2002    2022    -    Apr    Sun>=1    2:00    1:00    D
   {
@@ -3831,7 +15138,7 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Mexico    2002    2022    -    Oct    lastSun    2:00    0    S
   {
@@ -3843,24 +15150,36 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyMexico  = {
   kAtcZoneRulesMexico /*rules*/,
-  7 /*num_rules*/,
+  17 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Moldova
-// Rules: 2
-// Memory (8-bit): 28
-// Memory (32-bit): 36
+// Rules: 3
+// Memory (8-bit): 39
+// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMoldova[]  = {
+  // Anchor: Rule    Moldova    1997    max    -    Oct    lastSun     3:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Moldova    1997    max    -    Mar    lastSun     2:00    1:00    S
   {
     1997 /*from_year*/,
@@ -3871,7 +15190,7 @@ static const AtcZoneRule kAtcZoneRulesMoldova[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Moldova    1997    max    -    Oct    lastSun     3:00    0    -
   {
@@ -3890,17 +15209,149 @@ static const AtcZoneRule kAtcZoneRulesMoldova[]  = {
 
 const AtcZonePolicy kAtcZonePolicyMoldova  = {
   kAtcZoneRulesMoldova /*rules*/,
-  2 /*num_rules*/,
+  3 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Moncton
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 14
+// Memory (8-bit): 160
+// Memory (32-bit): 180
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMoncton[]  = {
+  // Anchor: Rule    Moncton    1933    1935    -    Sep    Sun>=8    1:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Moncton    1933    1935    -    Jun    Sun>=8    1:00    1:00    D
+  {
+    1933 /*from_year*/,
+    1935 /*to_year*/,
+    6 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Moncton    1933    1935    -    Sep    Sun>=8    1:00    0    S
+  {
+    1933 /*from_year*/,
+    1935 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Moncton    1936    1938    -    Jun    Sun>=1    1:00    1:00    D
+  {
+    1936 /*from_year*/,
+    1938 /*to_year*/,
+    6 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Moncton    1936    1938    -    Sep    Sun>=1    1:00    0    S
+  {
+    1936 /*from_year*/,
+    1938 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Moncton    1939    only    -    May    27    1:00    1:00    D
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Moncton    1939    1941    -    Sep    Sat>=21    1:00    0    S
+  {
+    1939 /*from_year*/,
+    1941 /*to_year*/,
+    9 /*in_month*/,
+    6 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Moncton    1940    only    -    May    19    1:00    1:00    D
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Moncton    1941    only    -    May     4    1:00    1:00    D
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Moncton    1946    1972    -    Apr    lastSun    2:00    1:00    D
+  {
+    1946 /*from_year*/,
+    1972 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Moncton    1946    1956    -    Sep    lastSun    2:00    0    S
+  {
+    1946 /*from_year*/,
+    1956 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    Moncton    1957    1972    -    Oct    lastSun    2:00    0    S
   {
     1957 /*from_year*/,
@@ -3911,7 +15362,7 @@ static const AtcZoneRule kAtcZoneRulesMoncton[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Moncton    1993    2006    -    Apr    Sun>=1    0:01    1:00    D
   {
@@ -3923,7 +15374,7 @@ static const AtcZoneRule kAtcZoneRulesMoncton[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     4 /*at_time_code (60/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Moncton    1993    2006    -    Oct    lastSun    0:01    0    S
   {
@@ -3935,24 +15386,72 @@ static const AtcZoneRule kAtcZoneRulesMoncton[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     4 /*at_time_code (60/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyMoncton  = {
   kAtcZoneRulesMoncton /*rules*/,
-  3 /*num_rules*/,
+  14 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Mongol
-// Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
+// Rules: 10
+// Memory (8-bit): 116
+// Memory (32-bit): 132
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMongol[]  = {
+  // Anchor: Rule    Mongol    1983    only    -    Oct    1    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Mongol    1983    1984    -    Apr    1    0:00    1:00    -
+  {
+    1983 /*from_year*/,
+    1984 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Mongol    1983    only    -    Oct    1    0:00    0    -
+  {
+    1983 /*from_year*/,
+    1983 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Mongol    1985    1998    -    Mar    lastSun    0:00    1:00    -
+  {
+    1985 /*from_year*/,
+    1998 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Mongol    1984    1998    -    Sep    lastSun    0:00    0    -
   {
     1984 /*from_year*/,
@@ -4030,17 +15529,197 @@ static const AtcZoneRule kAtcZoneRulesMongol[]  = {
 
 const AtcZonePolicy kAtcZonePolicyMongol  = {
   kAtcZoneRulesMongol /*rules*/,
-  6 /*num_rules*/,
+  10 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Morocco
-// Rules: 169
-// Memory (8-bit): 1865
-// Memory (32-bit): 2040
+// Rules: 184
+// Memory (8-bit): 2030
+// Memory (32-bit): 2220
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
+  // Anchor: Rule    Morocco    1939    only    -    Nov    19     0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Morocco    1939    only    -    Sep    12     0:00    1:00    -
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Morocco    1939    only    -    Nov    19     0:00    0    -
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Morocco    1940    only    -    Feb    25     0:00    1:00    -
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Morocco    1945    only    -    Nov    18     0:00    0    -
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Morocco    1950    only    -    Jun    11     0:00    1:00    -
+  {
+    1950 /*from_year*/,
+    1950 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Morocco    1950    only    -    Oct    29     0:00    0    -
+  {
+    1950 /*from_year*/,
+    1950 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Morocco    1967    only    -    Jun     3    12:00    1:00    -
+  {
+    1967 /*from_year*/,
+    1967 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    2880 /*at_time_code (43200/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Morocco    1967    only    -    Oct     1     0:00    0    -
+  {
+    1967 /*from_year*/,
+    1967 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Morocco    1974    only    -    Jun    24     0:00    1:00    -
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Morocco    1974    only    -    Sep     1     0:00    0    -
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Morocco    1976    1977    -    May     1     0:00    1:00    -
+  {
+    1976 /*from_year*/,
+    1977 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Morocco    1976    only    -    Aug     1     0:00    0    -
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Morocco    1977    only    -    Sep    28     0:00    0    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Morocco    1978    only    -    Jun     1     0:00    1:00    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Morocco    1978    only    -    Aug     4     0:00    0    -
   {
     1978 /*from_year*/,
@@ -6074,17 +17753,117 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
 
 const AtcZonePolicy kAtcZonePolicyMorocco  = {
   kAtcZoneRulesMorocco /*rules*/,
-  169 /*num_rules*/,
+  184 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: NBorneo
+// Rules: 3
+// Memory (8-bit): 39
+// Memory (32-bit): 48
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesNBorneo[]  = {
+  // Anchor: Rule    NBorneo    1935    1941    -    Dec    14    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    NBorneo    1935    1941    -    Sep    14    0:00    0:20    -
+  {
+    1935 /*from_year*/,
+    1941 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    20 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    NBorneo    1935    1941    -    Dec    14    0:00    0    -
+  {
+    1935 /*from_year*/,
+    1941 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyNBorneo  = {
+  kAtcZoneRulesNBorneo /*rules*/,
+  3 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: NC
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 5
+// Memory (8-bit): 61
+// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNC[]  = {
+  // Anchor: Rule    NC    1978    1979    -    Feb    27    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    NC    1977    1978    -    Dec    Sun>=1    0:00    1:00    -
+  {
+    1977 /*from_year*/,
+    1978 /*to_year*/,
+    12 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    NC    1978    1979    -    Feb    27    0:00    0    -
+  {
+    1978 /*from_year*/,
+    1979 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    NC    1996    only    -    Dec     1    2:00s    1:00    -
+  {
+    1996 /*from_year*/,
+    1996 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    NC    1997    only    -    Mar     2    2:00s    0    -
   {
     1997 /*from_year*/,
@@ -6102,17 +17881,113 @@ static const AtcZoneRule kAtcZoneRulesNC[]  = {
 
 const AtcZonePolicy kAtcZonePolicyNC  = {
   kAtcZoneRulesNC /*rules*/,
-  1 /*num_rules*/,
+  5 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: NT_YK
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 11
+// Memory (8-bit): 127
+// Memory (32-bit): 144
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
+  // Anchor: Rule    NT_YK    1918    only    -    Oct    27    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    NT_YK    1918    only    -    Apr    14    2:00    1:00    D
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    NT_YK    1918    only    -    Oct    27    2:00    0    S
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    NT_YK    1919    only    -    May    25    2:00    1:00    D
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    NT_YK    1919    only    -    Nov     1    0:00    0    S
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    NT_YK    1942    only    -    Feb     9    2:00    1:00    W
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    26 /*letterIndex ("W")*/,
+  },
+  // Rule    NT_YK    1945    only    -    Aug    14    23:00u    1:00    P
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    24 /*letterIndex ("P")*/,
+  },
+  // Rule    NT_YK    1945    only    -    Sep    30    2:00    0    S
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    NT_YK    1972    1986    -    Apr    lastSun    2:00    1:00    D
   {
     1972 /*from_year*/,
@@ -6123,7 +17998,7 @@ static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    NT_YK    1972    2006    -    Oct    lastSun    2:00    0    S
   {
@@ -6135,7 +18010,7 @@ static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    NT_YK    1987    2006    -    Apr    Sun>=1    2:00    1:00    D
   {
@@ -6147,24 +18022,256 @@ static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyNT_YK  = {
   kAtcZoneRulesNT_YK /*rules*/,
-  3 /*num_rules*/,
+  11 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: NYC
+// Rules: 6
+// Memory (8-bit): 72
+// Memory (32-bit): 84
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesNYC[]  = {
+  // Anchor: Rule    NYC    1920    only    -    Oct    lastSun    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    NYC    1920    only    -    Mar    lastSun    2:00    1:00    D
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    NYC    1920    only    -    Oct    lastSun    2:00    0    S
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    NYC    1921    1966    -    Apr    lastSun    2:00    1:00    D
+  {
+    1921 /*from_year*/,
+    1966 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    NYC    1921    1954    -    Sep    lastSun    2:00    0    S
+  {
+    1921 /*from_year*/,
+    1954 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    NYC    1955    1966    -    Oct    lastSun    2:00    0    S
+  {
+    1955 /*from_year*/,
+    1966 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyNYC  = {
+  kAtcZoneRulesNYC /*rules*/,
+  6 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: NZ
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 17
+// Memory (8-bit): 193
+// Memory (32-bit): 216
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNZ[]  = {
+  // Anchor: Rule    NZ    1928    only    -    Mar     4    2:00    0    M
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    18 /*letterIndex ("M")*/,
+  },
+  // Rule    NZ    1927    only    -    Nov     6    2:00    1:00    S
+  {
+    1927 /*from_year*/,
+    1927 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    NZ    1928    only    -    Mar     4    2:00    0    M
+  {
+    1928 /*from_year*/,
+    1928 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    18 /*letterIndex ("M")*/,
+  },
+  // Rule    NZ    1928    1933    -    Oct    Sun>=8    2:00    0:30    S
+  {
+    1928 /*from_year*/,
+    1933 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    30 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    NZ    1929    1933    -    Mar    Sun>=15    2:00    0    M
+  {
+    1929 /*from_year*/,
+    1933 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    18 /*letterIndex ("M")*/,
+  },
+  // Rule    NZ    1934    1940    -    Apr    lastSun    2:00    0    M
+  {
+    1934 /*from_year*/,
+    1940 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    18 /*letterIndex ("M")*/,
+  },
+  // Rule    NZ    1934    1940    -    Sep    lastSun    2:00    0:30    S
+  {
+    1934 /*from_year*/,
+    1940 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    30 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    NZ    1946    only    -    Jan     1    0:00    0    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    NZ    1974    only    -    Nov    Sun>=1    2:00s    1:00    D
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    11 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    NZ    1975    only    -    Feb    lastSun    2:00s    0    S
+  {
+    1975 /*from_year*/,
+    1975 /*to_year*/,
+    2 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    NZ    1975    1988    -    Oct    lastSun    2:00s    1:00    D
+  {
+    1975 /*from_year*/,
+    1988 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    NZ    1976    1989    -    Mar    Sun>=1    2:00s    0    S
+  {
+    1976 /*from_year*/,
+    1989 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    NZ    1989    only    -    Oct    Sun>=8    2:00s    1:00    D
   {
     1989 /*from_year*/,
@@ -6175,7 +18282,7 @@ static const AtcZoneRule kAtcZoneRulesNZ[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    NZ    1990    2006    -    Oct    Sun>=1    2:00s    1:00    D
   {
@@ -6187,7 +18294,7 @@ static const AtcZoneRule kAtcZoneRulesNZ[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    NZ    1990    2007    -    Mar    Sun>=15    2:00s    0    S
   {
@@ -6199,7 +18306,7 @@ static const AtcZoneRule kAtcZoneRulesNZ[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    NZ    2007    max    -    Sep    lastSun    2:00s    1:00    D
   {
@@ -6211,7 +18318,7 @@ static const AtcZoneRule kAtcZoneRulesNZ[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    NZ    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
@@ -6223,24 +18330,36 @@ static const AtcZoneRule kAtcZoneRulesNZ[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyNZ  = {
   kAtcZoneRulesNZ /*rules*/,
-  5 /*num_rules*/,
+  17 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Namibia
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
+// Memory (8-bit): 50
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
+  // Anchor: Rule    Namibia    1994    2017    -    Sep    Sun>=1    2:00    0    CAT
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    8 /*letterIndex ("CAT")*/,
+  },
   // Rule    Namibia    1994    only    -    Mar    21    0:00    -1:00    WAT
   {
     1994 /*from_year*/,
@@ -6251,7 +18370,7 @@ static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     -60 /*delta_minutes*/,
-    8 /*letterIndex ("WAT")*/,
+    27 /*letterIndex ("WAT")*/,
   },
   // Rule    Namibia    1994    2017    -    Sep    Sun>=1    2:00    0    CAT
   {
@@ -6263,7 +18382,7 @@ static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    3 /*letterIndex ("CAT")*/,
+    8 /*letterIndex ("CAT")*/,
   },
   // Rule    Namibia    1995    2017    -    Apr    Sun>=1    2:00    -1:00    WAT
   {
@@ -6275,24 +18394,48 @@ static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     -60 /*delta_minutes*/,
-    8 /*letterIndex ("WAT")*/,
+    27 /*letterIndex ("WAT")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyNamibia  = {
   kAtcZoneRulesNamibia /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Nic
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 7
+// Memory (8-bit): 83
+// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNic[]  = {
+  // Anchor: Rule    Nic    1979    1980    -    Jun    Mon>=23    0:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Nic    1979    1980    -    Mar    Sun>=16    0:00    1:00    D
+  {
+    1979 /*from_year*/,
+    1980 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    Nic    1979    1980    -    Jun    Mon>=23    0:00    0    S
   {
     1979 /*from_year*/,
@@ -6303,7 +18446,7 @@ static const AtcZoneRule kAtcZoneRulesNic[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Nic    2005    only    -    Apr    10    0:00    1:00    D
   {
@@ -6315,7 +18458,7 @@ static const AtcZoneRule kAtcZoneRulesNic[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Nic    2005    only    -    Oct    Sun>=1    0:00    0    S
   {
@@ -6327,7 +18470,7 @@ static const AtcZoneRule kAtcZoneRulesNic[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Nic    2006    only    -    Apr    30    2:00    1:00    D
   {
@@ -6339,7 +18482,7 @@ static const AtcZoneRule kAtcZoneRulesNic[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Nic    2006    only    -    Oct    Sun>=1    1:00    0    S
   {
@@ -6351,24 +18494,48 @@ static const AtcZoneRule kAtcZoneRulesNic[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyNic  = {
   kAtcZoneRulesNic /*rules*/,
-  5 /*num_rules*/,
+  7 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: PRC
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 4
+// Memory (8-bit): 50
+// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPRC[]  = {
+  // Anchor: Rule    PRC    1986    1991    -    Sep    Sun>=11     2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    PRC    1986    only    -    May     4     2:00    1:00    D
+  {
+    1986 /*from_year*/,
+    1986 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    PRC    1986    1991    -    Sep    Sun>=11     2:00    0    S
   {
     1986 /*from_year*/,
@@ -6379,14 +18546,26 @@ static const AtcZoneRule kAtcZoneRulesPRC[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    PRC    1987    1991    -    Apr    Sun>=11     2:00    1:00    D
+  {
+    1987 /*from_year*/,
+    1991 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyPRC  = {
   kAtcZoneRulesPRC /*rules*/,
-  1 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
@@ -6419,7 +18598,7 @@ static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule Pakistan    2002    only    -    Oct    Sun>=2    0:00    0    -
   {
@@ -6443,7 +18622,7 @@ static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule Pakistan    2008    2009    -    Nov    1    0:00    0    -
   {
@@ -6467,7 +18646,7 @@ static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
@@ -6507,7 +18686,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule Palestine    1999    2003    -    Oct    Fri>=15    0:00    0    -
   {
@@ -6555,7 +18734,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2006    only    -    Sep    22    0:00    0    -
   {
@@ -6591,7 +18770,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2008    only    -    Sep     1    0:00    0    -
   {
@@ -6627,7 +18806,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2010    only    -    Aug    11    0:00    0    -
   {
@@ -6651,7 +18830,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     4 /*at_time_code (60/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2011    only    -    Aug     1    0:00    0    -
   {
@@ -6675,7 +18854,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2011    only    -    Sep    30    0:00    0    -
   {
@@ -6699,7 +18878,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     5760 /*at_time_code (86400/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2012    only    -    Sep    21    1:00    0    -
   {
@@ -6747,7 +18926,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2015    only    -    Oct    23    1:00    0    -
   {
@@ -6771,7 +18950,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2016    2018    -    Oct    Sat<=30    1:00    0    -
   {
@@ -6795,7 +18974,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2019    only    -    Oct    Sat<=30    0:00    0    -
   {
@@ -6819,7 +18998,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2020    only    -    Oct    24    1:00    0    -
   {
@@ -6855,7 +19034,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2022    max    -    Oct    Sat<=30    2:00    0    -
   {
@@ -6879,7 +19058,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
@@ -6891,12 +19070,168 @@ const AtcZonePolicy kAtcZonePolicyPalestine  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Para
-// Rules: 10
-// Memory (8-bit): 116
-// Memory (32-bit): 132
+// Rules: 23
+// Memory (8-bit): 259
+// Memory (32-bit): 288
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPara[]  = {
+  // Anchor: Rule    Para    1975    1978    -    Mar     1    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Para    1975    1988    -    Oct     1    0:00    1:00    -
+  {
+    1975 /*from_year*/,
+    1988 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Para    1975    1978    -    Mar     1    0:00    0    -
+  {
+    1975 /*from_year*/,
+    1978 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Para    1979    1991    -    Apr     1    0:00    0    -
+  {
+    1979 /*from_year*/,
+    1991 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Para    1989    only    -    Oct    22    0:00    1:00    -
+  {
+    1989 /*from_year*/,
+    1989 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Para    1990    only    -    Oct     1    0:00    1:00    -
+  {
+    1990 /*from_year*/,
+    1990 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Para    1991    only    -    Oct     6    0:00    1:00    -
+  {
+    1991 /*from_year*/,
+    1991 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Para    1992    only    -    Mar     1    0:00    0    -
+  {
+    1992 /*from_year*/,
+    1992 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Para    1992    only    -    Oct     5    0:00    1:00    -
+  {
+    1992 /*from_year*/,
+    1992 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Para    1993    only    -    Mar    31    0:00    0    -
+  {
+    1993 /*from_year*/,
+    1993 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Para    1993    1995    -    Oct     1    0:00    1:00    -
+  {
+    1993 /*from_year*/,
+    1995 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Para    1994    1995    -    Feb    lastSun    0:00    0    -
+  {
+    1994 /*from_year*/,
+    1995 /*to_year*/,
+    2 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Para    1996    only    -    Mar     1    0:00    0    -
+  {
+    1996 /*from_year*/,
+    1996 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Para    1996    2001    -    Oct    Sun>=1    0:00    1:00    -
   {
     1996 /*from_year*/,
@@ -7022,17 +19357,213 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
 
 const AtcZonePolicy kAtcZonePolicyPara  = {
   kAtcZoneRulesPara /*rules*/,
-  10 /*num_rules*/,
+  23 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Perry
+// Rules: 5
+// Memory (8-bit): 61
+// Memory (32-bit): 72
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesPerry[]  = {
+  // Anchor: Rule Perry    1955    1960    -    Sep    lastSun    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule Perry    1955    only    -    May     1    0:00    1:00    D
+  {
+    1955 /*from_year*/,
+    1955 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule Perry    1955    1960    -    Sep    lastSun    2:00    0    S
+  {
+    1955 /*from_year*/,
+    1960 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule Perry    1956    1963    -    Apr    lastSun    2:00    1:00    D
+  {
+    1956 /*from_year*/,
+    1963 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule Perry    1961    1963    -    Oct    lastSun    2:00    0    S
+  {
+    1961 /*from_year*/,
+    1963 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyPerry  = {
+  kAtcZoneRulesPerry /*rules*/,
+  5 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Peru
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 11
+// Memory (8-bit): 127
+// Memory (32-bit): 144
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPeru[]  = {
+  // Anchor: Rule    Peru    1938    only    -    Apr     1    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Peru    1938    only    -    Jan     1    0:00    1:00    -
+  {
+    1938 /*from_year*/,
+    1938 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Peru    1938    only    -    Apr     1    0:00    0    -
+  {
+    1938 /*from_year*/,
+    1938 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Peru    1938    1939    -    Sep    lastSun    0:00    1:00    -
+  {
+    1938 /*from_year*/,
+    1939 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Peru    1939    1940    -    Mar    Sun>=24    0:00    0    -
+  {
+    1939 /*from_year*/,
+    1940 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Peru    1986    1987    -    Jan     1    0:00    1:00    -
+  {
+    1986 /*from_year*/,
+    1987 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Peru    1986    1987    -    Apr     1    0:00    0    -
+  {
+    1986 /*from_year*/,
+    1987 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Peru    1990    only    -    Jan     1    0:00    1:00    -
+  {
+    1990 /*from_year*/,
+    1990 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Peru    1990    only    -    Apr     1    0:00    0    -
+  {
+    1990 /*from_year*/,
+    1990 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Peru    1994    only    -    Jan     1    0:00    1:00    -
+  {
+    1994 /*from_year*/,
+    1994 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Peru    1994    only    -    Apr     1    0:00    0    -
   {
     1994 /*from_year*/,
@@ -7050,17 +19581,89 @@ static const AtcZoneRule kAtcZoneRulesPeru[]  = {
 
 const AtcZonePolicy kAtcZonePolicyPeru  = {
   kAtcZoneRulesPeru /*rules*/,
-  1 /*num_rules*/,
+  11 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Phil
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 7
+// Memory (8-bit): 83
+// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPhil[]  = {
+  // Anchor: Rule    Phil    1937    only    -    Feb    1    0:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Phil    1936    only    -    Nov    1    0:00    1:00    D
+  {
+    1936 /*from_year*/,
+    1936 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Phil    1937    only    -    Feb    1    0:00    0    S
+  {
+    1937 /*from_year*/,
+    1937 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Phil    1954    only    -    Apr    12    0:00    1:00    D
+  {
+    1954 /*from_year*/,
+    1954 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Phil    1954    only    -    Jul    1    0:00    0    S
+  {
+    1954 /*from_year*/,
+    1954 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Phil    1978    only    -    Mar    22    0:00    1:00    D
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    Phil    1978    only    -    Sep    21    0:00    0    S
   {
     1978 /*from_year*/,
@@ -7071,24 +19674,1216 @@ static const AtcZoneRule kAtcZoneRulesPhil[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyPhil  = {
   kAtcZoneRulesPhil /*rules*/,
-  1 /*num_rules*/,
+  7 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Pike
+// Rules: 5
+// Memory (8-bit): 61
+// Memory (32-bit): 72
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesPike[]  = {
+  // Anchor: Rule    Pike    1955    1960    -    Sep    lastSun    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Pike    1955    only    -    May     1    0:00    1:00    D
+  {
+    1955 /*from_year*/,
+    1955 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Pike    1955    1960    -    Sep    lastSun    2:00    0    S
+  {
+    1955 /*from_year*/,
+    1960 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Pike    1956    1964    -    Apr    lastSun    2:00    1:00    D
+  {
+    1956 /*from_year*/,
+    1964 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Pike    1961    1964    -    Oct    lastSun    2:00    0    S
+  {
+    1961 /*from_year*/,
+    1964 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyPike  = {
+  kAtcZoneRulesPike /*rules*/,
+  5 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Poland
+// Rules: 21
+// Memory (8-bit): 237
+// Memory (32-bit): 264
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesPoland[]  = {
+  // Anchor: Rule    Poland    1918    1919    -    Sep    16    2:00s    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Poland    1918    1919    -    Sep    16    2:00s    0    -
+  {
+    1918 /*from_year*/,
+    1919 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Poland    1919    only    -    Apr    15    2:00s    1:00    S
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Poland    1944    only    -    Apr     3    2:00s    1:00    S
+  {
+    1944 /*from_year*/,
+    1944 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Poland    1944    only    -    Oct     4    2:00    0    -
+  {
+    1944 /*from_year*/,
+    1944 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Poland    1945    only    -    Apr    29    0:00    1:00    S
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Poland    1945    only    -    Nov     1    0:00    0    -
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Poland    1946    only    -    Apr    14    0:00s    1:00    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Poland    1946    only    -    Oct     7    2:00s    0    -
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Poland    1947    only    -    May     4    2:00s    1:00    S
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Poland    1947    1949    -    Oct    Sun>=1    2:00s    0    -
+  {
+    1947 /*from_year*/,
+    1949 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Poland    1948    only    -    Apr    18    2:00s    1:00    S
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Poland    1949    only    -    Apr    10    2:00s    1:00    S
+  {
+    1949 /*from_year*/,
+    1949 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Poland    1957    only    -    Jun     2    1:00s    1:00    S
+  {
+    1957 /*from_year*/,
+    1957 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Poland    1957    1958    -    Sep    lastSun    1:00s    0    -
+  {
+    1957 /*from_year*/,
+    1958 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Poland    1958    only    -    Mar    30    1:00s    1:00    S
+  {
+    1958 /*from_year*/,
+    1958 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Poland    1959    only    -    May    31    1:00s    1:00    S
+  {
+    1959 /*from_year*/,
+    1959 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Poland    1959    1961    -    Oct    Sun>=1    1:00s    0    -
+  {
+    1959 /*from_year*/,
+    1961 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Poland    1960    only    -    Apr     3    1:00s    1:00    S
+  {
+    1960 /*from_year*/,
+    1960 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Poland    1961    1964    -    May    lastSun    1:00s    1:00    S
+  {
+    1961 /*from_year*/,
+    1964 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Poland    1962    1964    -    Sep    lastSun    1:00s    0    -
+  {
+    1962 /*from_year*/,
+    1964 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyPoland  = {
+  kAtcZoneRulesPoland /*rules*/,
+  21 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Port
+// Rules: 49
+// Memory (8-bit): 545
+// Memory (32-bit): 600
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesPort[]  = {
+  // Anchor: Rule    Port    1916    only    -    Nov     1     1:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Port    1916    only    -    Jun    17    23:00    1:00    S
+  {
+    1916 /*from_year*/,
+    1916 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1916    only    -    Nov     1     1:00    0    -
+  {
+    1916 /*from_year*/,
+    1916 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Port    1917    only    -    Feb    28    23:00s    1:00    S
+  {
+    1917 /*from_year*/,
+    1917 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1917    1921    -    Oct    14    23:00s    0    -
+  {
+    1917 /*from_year*/,
+    1921 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Port    1918    only    -    Mar     1    23:00s    1:00    S
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1919    only    -    Feb    28    23:00s    1:00    S
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1920    only    -    Feb    29    23:00s    1:00    S
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1921    only    -    Feb    28    23:00s    1:00    S
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1924    only    -    Apr    16    23:00s    1:00    S
+  {
+    1924 /*from_year*/,
+    1924 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1924    only    -    Oct    14    23:00s    0    -
+  {
+    1924 /*from_year*/,
+    1924 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Port    1926    only    -    Apr    17    23:00s    1:00    S
+  {
+    1926 /*from_year*/,
+    1926 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1926    1929    -    Oct    Sat>=1    23:00s    0    -
+  {
+    1926 /*from_year*/,
+    1929 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Port    1927    only    -    Apr     9    23:00s    1:00    S
+  {
+    1927 /*from_year*/,
+    1927 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1928    only    -    Apr    14    23:00s    1:00    S
+  {
+    1928 /*from_year*/,
+    1928 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1929    only    -    Apr    20    23:00s    1:00    S
+  {
+    1929 /*from_year*/,
+    1929 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1931    only    -    Apr    18    23:00s    1:00    S
+  {
+    1931 /*from_year*/,
+    1931 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1931    1932    -    Oct    Sat>=1    23:00s    0    -
+  {
+    1931 /*from_year*/,
+    1932 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Port    1932    only    -    Apr     2    23:00s    1:00    S
+  {
+    1932 /*from_year*/,
+    1932 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1934    only    -    Apr     7    23:00s    1:00    S
+  {
+    1934 /*from_year*/,
+    1934 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1934    1938    -    Oct    Sat>=1    23:00s    0    -
+  {
+    1934 /*from_year*/,
+    1938 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Port    1935    only    -    Mar    30    23:00s    1:00    S
+  {
+    1935 /*from_year*/,
+    1935 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1936    only    -    Apr    18    23:00s    1:00    S
+  {
+    1936 /*from_year*/,
+    1936 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1937    only    -    Apr     3    23:00s    1:00    S
+  {
+    1937 /*from_year*/,
+    1937 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1938    only    -    Mar    26    23:00s    1:00    S
+  {
+    1938 /*from_year*/,
+    1938 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1939    only    -    Apr    15    23:00s    1:00    S
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1939    only    -    Nov    18    23:00s    0    -
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Port    1940    only    -    Feb    24    23:00s    1:00    S
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1940    1941    -    Oct     5    23:00s    0    -
+  {
+    1940 /*from_year*/,
+    1941 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Port    1941    only    -    Apr     5    23:00s    1:00    S
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1942    1945    -    Mar    Sat>=8    23:00s    1:00    S
+  {
+    1942 /*from_year*/,
+    1945 /*to_year*/,
+    3 /*in_month*/,
+    6 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1942    only    -    Apr    25    22:00s    2:00    M
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5280 /*at_time_code (79200/15)*/,
+    120 /*delta_minutes*/,
+    18 /*letterIndex ("M")*/,
+  },
+  // Rule    Port    1942    only    -    Aug    15    22:00s    1:00    S
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5280 /*at_time_code (79200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1942    1945    -    Oct    Sat>=24    23:00s    0    -
+  {
+    1942 /*from_year*/,
+    1945 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Port    1943    only    -    Apr    17    22:00s    2:00    M
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5280 /*at_time_code (79200/15)*/,
+    120 /*delta_minutes*/,
+    18 /*letterIndex ("M")*/,
+  },
+  // Rule    Port    1943    1945    -    Aug    Sat>=25    22:00s    1:00    S
+  {
+    1943 /*from_year*/,
+    1945 /*to_year*/,
+    8 /*in_month*/,
+    6 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5280 /*at_time_code (79200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1944    1945    -    Apr    Sat>=21    22:00s    2:00    M
+  {
+    1944 /*from_year*/,
+    1945 /*to_year*/,
+    4 /*in_month*/,
+    6 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5280 /*at_time_code (79200/15)*/,
+    120 /*delta_minutes*/,
+    18 /*letterIndex ("M")*/,
+  },
+  // Rule    Port    1946    only    -    Apr    Sat>=1    23:00s    1:00    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    4 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1946    only    -    Oct    Sat>=1    23:00s    0    -
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Port    1947    1965    -    Apr    Sun>=1     2:00s    1:00    S
+  {
+    1947 /*from_year*/,
+    1965 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1947    1965    -    Oct    Sun>=1     2:00s    0    -
+  {
+    1947 /*from_year*/,
+    1965 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Port    1977    only    -    Mar    27     0:00s    1:00    S
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1977    only    -    Sep    25     0:00s    0    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Port    1978    1979    -    Apr    Sun>=1     0:00s    1:00    S
+  {
+    1978 /*from_year*/,
+    1979 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1978    only    -    Oct     1     0:00s    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Port    1979    1982    -    Sep    lastSun     1:00s    0    -
+  {
+    1979 /*from_year*/,
+    1982 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Port    1980    only    -    Mar    lastSun     0:00s    1:00    S
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1981    1982    -    Mar    lastSun     1:00s    1:00    S
+  {
+    1981 /*from_year*/,
+    1982 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1983    only    -    Mar    lastSun     2:00s    1:00    S
+  {
+    1983 /*from_year*/,
+    1983 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyPort  = {
+  kAtcZoneRulesPort /*rules*/,
+  49 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Pulaski
+// Rules: 5
+// Memory (8-bit): 61
+// Memory (32-bit): 72
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesPulaski[]  = {
+  // Anchor: Rule    Pulaski    1946    1954    -    Sep    lastSun    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Pulaski    1946    1960    -    Apr    lastSun    2:00    1:00    D
+  {
+    1946 /*from_year*/,
+    1960 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Pulaski    1946    1954    -    Sep    lastSun    2:00    0    S
+  {
+    1946 /*from_year*/,
+    1954 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Pulaski    1955    1956    -    Oct    lastSun    2:00    0    S
+  {
+    1955 /*from_year*/,
+    1956 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Pulaski    1957    1960    -    Sep    lastSun    2:00    0    S
+  {
+    1957 /*from_year*/,
+    1960 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyPulaski  = {
+  kAtcZoneRulesPulaski /*rules*/,
+  5 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: ROK
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 15
+// Memory (8-bit): 171
+// Memory (32-bit): 192
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesROK[]  = {
+  // Anchor: Rule    ROK    1948    only    -    Sep    12    24:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    ROK    1948    only    -    Jun     1     0:00    1:00    D
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    ROK    1948    only    -    Sep    12    24:00    0    S
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    ROK    1949    only    -    Apr     3     0:00    1:00    D
+  {
+    1949 /*from_year*/,
+    1949 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    ROK    1949    1951    -    Sep    Sat>=7    24:00    0    S
+  {
+    1949 /*from_year*/,
+    1951 /*to_year*/,
+    9 /*in_month*/,
+    6 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    ROK    1950    only    -    Apr     1     0:00    1:00    D
+  {
+    1950 /*from_year*/,
+    1950 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    ROK    1951    only    -    May     6     0:00    1:00    D
+  {
+    1951 /*from_year*/,
+    1951 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    ROK    1955    only    -    May     5     0:00    1:00    D
+  {
+    1955 /*from_year*/,
+    1955 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    ROK    1955    only    -    Sep     8    24:00    0    S
+  {
+    1955 /*from_year*/,
+    1955 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    ROK    1956    only    -    May    20     0:00    1:00    D
+  {
+    1956 /*from_year*/,
+    1956 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    ROK    1956    only    -    Sep    29    24:00    0    S
+  {
+    1956 /*from_year*/,
+    1956 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    ROK    1957    1960    -    May    Sun>=1     0:00    1:00    D
+  {
+    1957 /*from_year*/,
+    1960 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    ROK    1957    1960    -    Sep    Sat>=17    24:00    0    S
+  {
+    1957 /*from_year*/,
+    1960 /*to_year*/,
+    9 /*in_month*/,
+    6 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    ROK    1987    1988    -    May    Sun>=8     2:00    1:00    D
+  {
+    1987 /*from_year*/,
+    1988 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    ROK    1987    1988    -    Oct    Sun>=8     3:00    0    S
   {
     1987 /*from_year*/,
@@ -7099,24 +20894,560 @@ static const AtcZoneRule kAtcZoneRulesROK[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     720 /*at_time_code (10800/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyROK  = {
   kAtcZoneRulesROK /*rules*/,
-  1 /*num_rules*/,
+  15 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Regina
+// Rules: 18
+// Memory (8-bit): 204
+// Memory (32-bit): 228
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesRegina[]  = {
+  // Anchor: Rule    Regina    1918    only    -    Oct    27    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Regina    1918    only    -    Apr    14    2:00    1:00    D
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Regina    1918    only    -    Oct    27    2:00    0    S
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Regina    1930    1934    -    May    Sun>=1    0:00    1:00    D
+  {
+    1930 /*from_year*/,
+    1934 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Regina    1930    1934    -    Oct    Sun>=1    0:00    0    S
+  {
+    1930 /*from_year*/,
+    1934 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Regina    1937    1941    -    Apr    Sun>=8    0:00    1:00    D
+  {
+    1937 /*from_year*/,
+    1941 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Regina    1937    only    -    Oct    Sun>=8    0:00    0    S
+  {
+    1937 /*from_year*/,
+    1937 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Regina    1938    only    -    Oct    Sun>=1    0:00    0    S
+  {
+    1938 /*from_year*/,
+    1938 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Regina    1939    1941    -    Oct    Sun>=8    0:00    0    S
+  {
+    1939 /*from_year*/,
+    1941 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Regina    1942    only    -    Feb     9    2:00    1:00    W
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    26 /*letterIndex ("W")*/,
+  },
+  // Rule    Regina    1945    only    -    Aug    14    23:00u    1:00    P
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    24 /*letterIndex ("P")*/,
+  },
+  // Rule    Regina    1945    only    -    Sep    lastSun    2:00    0    S
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Regina    1946    only    -    Apr    Sun>=8    2:00    1:00    D
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Regina    1946    only    -    Oct    Sun>=8    2:00    0    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Regina    1947    1957    -    Apr    lastSun    2:00    1:00    D
+  {
+    1947 /*from_year*/,
+    1957 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Regina    1947    1957    -    Sep    lastSun    2:00    0    S
+  {
+    1947 /*from_year*/,
+    1957 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Regina    1959    only    -    Apr    lastSun    2:00    1:00    D
+  {
+    1959 /*from_year*/,
+    1959 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Regina    1959    only    -    Oct    lastSun    2:00    0    S
+  {
+    1959 /*from_year*/,
+    1959 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyRegina  = {
+  kAtcZoneRulesRegina /*rules*/,
+  18 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Romania
+// Rules: 10
+// Memory (8-bit): 116
+// Memory (32-bit): 132
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesRomania[]  = {
+  // Anchor: Rule    Romania    1932    1939    -    Oct    Sun>=1     0:00s    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Romania    1932    only    -    May    21     0:00s    1:00    S
+  {
+    1932 /*from_year*/,
+    1932 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Romania    1932    1939    -    Oct    Sun>=1     0:00s    0    -
+  {
+    1932 /*from_year*/,
+    1939 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Romania    1933    1939    -    Apr    Sun>=2     0:00s    1:00    S
+  {
+    1933 /*from_year*/,
+    1939 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Romania    1979    only    -    May    27     0:00    1:00    S
+  {
+    1979 /*from_year*/,
+    1979 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Romania    1979    only    -    Sep    lastSun     0:00    0    -
+  {
+    1979 /*from_year*/,
+    1979 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Romania    1980    only    -    Apr     5    23:00    1:00    S
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Romania    1980    only    -    Sep    lastSun     1:00    0    -
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Romania    1991    1993    -    Mar    lastSun     0:00s    1:00    S
+  {
+    1991 /*from_year*/,
+    1993 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Romania    1991    1993    -    Sep    lastSun     0:00s    0    -
+  {
+    1991 /*from_year*/,
+    1993 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyRomania  = {
+  kAtcZoneRulesRomania /*rules*/,
+  10 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Russia
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 17
+// Memory (8-bit): 193
+// Memory (32-bit): 216
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesRussia[]  = {
+  // Anchor: Rule    Russia    1917    only    -    Dec    28     0:00    0    MMT
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    20 /*letterIndex ("MMT")*/,
+  },
+  // Rule    Russia    1917    only    -    Jul     1    23:00    1:00    MST
+  {
+    1917 /*from_year*/,
+    1917 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    23 /*letterIndex ("MST")*/,
+  },
+  // Rule    Russia    1917    only    -    Dec    28     0:00    0    MMT
+  {
+    1917 /*from_year*/,
+    1917 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    20 /*letterIndex ("MMT")*/,
+  },
+  // Rule    Russia    1918    only    -    May    31    22:00    2:00    MDST
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5280 /*at_time_code (79200/15)*/,
+    120 /*delta_minutes*/,
+    19 /*letterIndex ("MDST")*/,
+  },
+  // Rule    Russia    1918    only    -    Sep    16     1:00    1:00    MST
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    23 /*letterIndex ("MST")*/,
+  },
+  // Rule    Russia    1919    only    -    May    31    23:00    2:00    MDST
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    120 /*delta_minutes*/,
+    19 /*letterIndex ("MDST")*/,
+  },
+  // Rule    Russia    1919    only    -    Jul     1     0:00u    1:00    MSD
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    21 /*letterIndex ("MSD")*/,
+  },
+  // Rule    Russia    1919    only    -    Aug    16     0:00    0    MSK
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    22 /*letterIndex ("MSK")*/,
+  },
+  // Rule    Russia    1921    only    -    Feb    14    23:00    1:00    MSD
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    21 /*letterIndex ("MSD")*/,
+  },
+  // Rule    Russia    1921    only    -    Mar    20    23:00    2:00    +05
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    120 /*delta_minutes*/,
+    3 /*letterIndex ("+05")*/,
+  },
+  // Rule    Russia    1921    only    -    Sep     1     0:00    1:00    MSD
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    21 /*letterIndex ("MSD")*/,
+  },
+  // Rule    Russia    1921    only    -    Oct     1     0:00    0    -
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Russia    1981    1984    -    Apr     1     0:00    1:00    S
+  {
+    1981 /*from_year*/,
+    1984 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Russia    1981    1983    -    Oct     1     0:00    0    -
+  {
+    1981 /*from_year*/,
+    1983 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Russia    1984    1995    -    Sep    lastSun     2:00s    0    -
   {
     1984 /*from_year*/,
@@ -7139,7 +21470,7 @@ static const AtcZoneRule kAtcZoneRulesRussia[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Russia    1996    2010    -    Oct    lastSun     2:00s    0    -
   {
@@ -7158,17 +21489,53 @@ static const AtcZoneRule kAtcZoneRulesRussia[]  = {
 
 const AtcZonePolicy kAtcZonePolicyRussia  = {
   kAtcZoneRulesRussia /*rules*/,
-  3 /*num_rules*/,
+  17 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: RussiaAsia
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 6
+// Memory (8-bit): 72
+// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesRussiaAsia[]  = {
+  // Anchor: Rule RussiaAsia    1981    1983    -    Oct    1     0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule RussiaAsia    1981    1984    -    Apr    1     0:00    1:00    -
+  {
+    1981 /*from_year*/,
+    1984 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule RussiaAsia    1981    1983    -    Oct    1     0:00    0    -
+  {
+    1981 /*from_year*/,
+    1983 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule RussiaAsia    1984    1995    -    Sep    lastSun     2:00s    0    -
   {
     1984 /*from_year*/,
@@ -7210,17 +21577,41 @@ static const AtcZoneRule kAtcZoneRulesRussiaAsia[]  = {
 
 const AtcZonePolicy kAtcZonePolicyRussiaAsia  = {
   kAtcZoneRulesRussiaAsia /*rules*/,
-  3 /*num_rules*/,
+  6 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: SA
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 3
+// Memory (8-bit): 39
+// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSA[]  = {
+  // Anchor: Rule    SA    1943    1944    -    Mar    Sun>=15    2:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    SA    1942    1943    -    Sep    Sun>=15    2:00    1:00    -
+  {
+    1942 /*from_year*/,
+    1943 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    SA    1943    1944    -    Mar    Sun>=15    2:00    0    -
   {
     1943 /*from_year*/,
@@ -7238,17 +21629,41 @@ static const AtcZoneRule kAtcZoneRulesSA[]  = {
 
 const AtcZonePolicy kAtcZonePolicySA  = {
   kAtcZoneRulesSA /*rules*/,
-  1 /*num_rules*/,
+  3 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Salv
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 3
+// Memory (8-bit): 39
+// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSalv[]  = {
+  // Anchor: Rule    Salv    1987    1988    -    Sep    lastSun    0:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Salv    1987    1988    -    May    Sun>=1    0:00    1:00    D
+  {
+    1987 /*from_year*/,
+    1988 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    Salv    1987    1988    -    Sep    lastSun    0:00    0    S
   {
     1987 /*from_year*/,
@@ -7259,14 +21674,14 @@ static const AtcZoneRule kAtcZoneRulesSalv[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicySalv  = {
   kAtcZoneRulesSalv /*rules*/,
-  1 /*num_rules*/,
+  3 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7322,13 +21737,977 @@ const AtcZonePolicy kAtcZonePolicySanLuis  = {
 };
 
 //---------------------------------------------------------------------------
+// Policy name: Shang
+// Rules: 15
+// Memory (8-bit): 171
+// Memory (32-bit): 192
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesShang[]  = {
+  // Anchor: Rule    Shang    1919    only    -    Sep    30    24:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Shang    1919    only    -    Apr    12    24:00    1:00    D
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Shang    1919    only    -    Sep    30    24:00    0    S
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Shang    1940    only    -    Jun     1     0:00    1:00    D
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Shang    1940    only    -    Oct    12    24:00    0    S
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Shang    1941    only    -    Mar    15     0:00    1:00    D
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Shang    1941    only    -    Nov     1    24:00    0    S
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Shang    1942    only    -    Jan    31     0:00    1:00    D
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Shang    1945    only    -    Sep     1    24:00    0    S
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Shang    1946    only    -    May    15     0:00    1:00    D
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Shang    1946    only    -    Sep    30    24:00    0    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Shang    1947    only    -    Apr    15     0:00    1:00    D
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Shang    1947    only    -    Oct    31    24:00    0    S
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Shang    1948    1949    -    May     1     0:00    1:00    D
+  {
+    1948 /*from_year*/,
+    1949 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Shang    1948    1949    -    Sep    30    24:00    0    S
+  {
+    1948 /*from_year*/,
+    1949 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyShang  = {
+  kAtcZoneRulesShang /*rules*/,
+  15 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: SovietZone
+// Rules: 4
+// Memory (8-bit): 50
+// Memory (32-bit): 60
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesSovietZone[]  = {
+  // Anchor: Rule SovietZone    1945    only    -    Nov    18    2:00s    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule SovietZone    1945    only    -    May    24    2:00    2:00    M
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    120 /*delta_minutes*/,
+    18 /*letterIndex ("M")*/,
+  },
+  // Rule SovietZone    1945    only    -    Sep    24    3:00    1:00    S
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule SovietZone    1945    only    -    Nov    18    2:00s    0    -
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicySovietZone  = {
+  kAtcZoneRulesSovietZone /*rules*/,
+  4 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Spain
+// Rules: 31
+// Memory (8-bit): 347
+// Memory (32-bit): 384
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesSpain[]  = {
+  // Anchor: Rule    Spain    1918    1919    -    Oct     6    24:00s    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Spain    1918    only    -    Apr    15    23:00    1:00    S
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1918    1919    -    Oct     6    24:00s    0    -
+  {
+    1918 /*from_year*/,
+    1919 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Spain    1919    only    -    Apr     6    23:00    1:00    S
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1924    only    -    Apr    16    23:00    1:00    S
+  {
+    1924 /*from_year*/,
+    1924 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1924    only    -    Oct     4    24:00s    0    -
+  {
+    1924 /*from_year*/,
+    1924 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Spain    1926    only    -    Apr    17    23:00    1:00    S
+  {
+    1926 /*from_year*/,
+    1926 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1926    1929    -    Oct    Sat>=1    24:00s    0    -
+  {
+    1926 /*from_year*/,
+    1929 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Spain    1927    only    -    Apr     9    23:00    1:00    S
+  {
+    1927 /*from_year*/,
+    1927 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1928    only    -    Apr    15     0:00    1:00    S
+  {
+    1928 /*from_year*/,
+    1928 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1929    only    -    Apr    20    23:00    1:00    S
+  {
+    1929 /*from_year*/,
+    1929 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1937    only    -    Jun    16    23:00    1:00    S
+  {
+    1937 /*from_year*/,
+    1937 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1937    only    -    Oct     2    24:00s    0    -
+  {
+    1937 /*from_year*/,
+    1937 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Spain    1938    only    -    Apr     2    23:00    1:00    S
+  {
+    1938 /*from_year*/,
+    1938 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1938    only    -    Apr    30    23:00    2:00    M
+  {
+    1938 /*from_year*/,
+    1938 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    120 /*delta_minutes*/,
+    18 /*letterIndex ("M")*/,
+  },
+  // Rule    Spain    1938    only    -    Oct     2    24:00    1:00    S
+  {
+    1938 /*from_year*/,
+    1938 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1939    only    -    Oct     7    24:00s    0    -
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Spain    1942    only    -    May     2    23:00    1:00    S
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1942    only    -    Sep     1     1:00    0    -
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Spain    1943    1946    -    Apr    Sat>=13    23:00    1:00    S
+  {
+    1943 /*from_year*/,
+    1946 /*to_year*/,
+    4 /*in_month*/,
+    6 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1943    1944    -    Oct    Sun>=1     1:00    0    -
+  {
+    1943 /*from_year*/,
+    1944 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Spain    1945    1946    -    Sep    lastSun     1:00    0    -
+  {
+    1945 /*from_year*/,
+    1946 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Spain    1949    only    -    Apr    30    23:00    1:00    S
+  {
+    1949 /*from_year*/,
+    1949 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1949    only    -    Oct     2     1:00    0    -
+  {
+    1949 /*from_year*/,
+    1949 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Spain    1974    1975    -    Apr    Sat>=12    23:00    1:00    S
+  {
+    1974 /*from_year*/,
+    1975 /*to_year*/,
+    4 /*in_month*/,
+    6 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1974    1975    -    Oct    Sun>=1     1:00    0    -
+  {
+    1974 /*from_year*/,
+    1975 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Spain    1976    only    -    Mar    27    23:00    1:00    S
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1976    1977    -    Sep    lastSun     1:00    0    -
+  {
+    1976 /*from_year*/,
+    1977 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Spain    1977    only    -    Apr     2    23:00    1:00    S
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1978    only    -    Apr     2     2:00s    1:00    S
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Spain    1978    only    -    Oct     1     2:00s    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicySpain  = {
+  kAtcZoneRulesSpain /*rules*/,
+  31 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: SpainAfrica
+// Rules: 10
+// Memory (8-bit): 116
+// Memory (32-bit): 132
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesSpainAfrica[]  = {
+  // Anchor: Rule SpainAfrica 1967    only    -    Oct     1     0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule SpainAfrica 1967    only    -    Jun     3    12:00    1:00    S
+  {
+    1967 /*from_year*/,
+    1967 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    2880 /*at_time_code (43200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule SpainAfrica 1967    only    -    Oct     1     0:00    0    -
+  {
+    1967 /*from_year*/,
+    1967 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule SpainAfrica 1974    only    -    Jun    24     0:00    1:00    S
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule SpainAfrica 1974    only    -    Sep     1     0:00    0    -
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule SpainAfrica 1976    1977    -    May     1     0:00    1:00    S
+  {
+    1976 /*from_year*/,
+    1977 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule SpainAfrica 1976    only    -    Aug     1     0:00    0    -
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule SpainAfrica 1977    only    -    Sep    28     0:00    0    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule SpainAfrica 1978    only    -    Jun     1     0:00    1:00    S
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule SpainAfrica 1978    only    -    Aug     4     0:00    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicySpainAfrica  = {
+  kAtcZoneRulesSpainAfrica /*rules*/,
+  10 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
 // Policy name: StJohns
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 20
+// Memory (8-bit): 226
+// Memory (32-bit): 252
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
+  // Anchor: Rule    StJohns    1917    only    -    Sep    17    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    StJohns    1917    only    -    Apr     8    2:00    1:00    D
+  {
+    1917 /*from_year*/,
+    1917 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    StJohns    1917    only    -    Sep    17    2:00    0    S
+  {
+    1917 /*from_year*/,
+    1917 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    StJohns    1919    only    -    May     5    23:00    1:00    D
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    StJohns    1919    only    -    Aug    12    23:00    0    S
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    StJohns    1920    1935    -    May    Sun>=1    23:00    1:00    D
+  {
+    1920 /*from_year*/,
+    1935 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    StJohns    1920    1935    -    Oct    lastSun    23:00    0    S
+  {
+    1920 /*from_year*/,
+    1935 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    StJohns    1936    1941    -    May    Mon>=9    0:00    1:00    D
+  {
+    1936 /*from_year*/,
+    1941 /*to_year*/,
+    5 /*in_month*/,
+    1 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    StJohns    1936    1941    -    Oct    Mon>=2    0:00    0    S
+  {
+    1936 /*from_year*/,
+    1941 /*to_year*/,
+    10 /*in_month*/,
+    1 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    StJohns    1946    1950    -    May    Sun>=8    2:00    1:00    D
+  {
+    1946 /*from_year*/,
+    1950 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    StJohns    1946    1950    -    Oct    Sun>=2    2:00    0    S
+  {
+    1946 /*from_year*/,
+    1950 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    StJohns    1951    1986    -    Apr    lastSun    2:00    1:00    D
+  {
+    1951 /*from_year*/,
+    1986 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    StJohns    1951    1959    -    Sep    lastSun    2:00    0    S
+  {
+    1951 /*from_year*/,
+    1959 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    StJohns    1960    1986    -    Oct    lastSun    2:00    0    S
+  {
+    1960 /*from_year*/,
+    1986 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    StJohns    1987    only    -    Apr    Sun>=1    0:01    1:00    D
+  {
+    1987 /*from_year*/,
+    1987 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    4 /*at_time_code (60/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    StJohns    1987    2006    -    Oct    lastSun    0:01    0    S
   {
     1987 /*from_year*/,
@@ -7339,7 +22718,7 @@ static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     4 /*at_time_code (60/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    StJohns    1988    only    -    Apr    Sun>=1    0:01    2:00    DD
   {
@@ -7351,7 +22730,7 @@ static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     4 /*at_time_code (60/15)*/,
     120 /*delta_minutes*/,
-    6 /*letterIndex ("DD")*/,
+    14 /*letterIndex ("DD")*/,
   },
   // Rule    StJohns    1989    2006    -    Apr    Sun>=1    0:01    1:00    D
   {
@@ -7363,7 +22742,7 @@ static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     4 /*at_time_code (60/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    StJohns    2007    2011    -    Mar    Sun>=8    0:01    1:00    D
   {
@@ -7375,7 +22754,7 @@ static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     4 /*at_time_code (60/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    StJohns    2007    2010    -    Nov    Sun>=1    0:01    0    S
   {
@@ -7387,24 +22766,136 @@ static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     4 /*at_time_code (60/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyStJohns  = {
   kAtcZoneRulesStJohns /*rules*/,
-  5 /*num_rules*/,
+  20 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Starke
+// Rules: 6
+// Memory (8-bit): 72
+// Memory (32-bit): 84
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesStarke[]  = {
+  // Anchor: Rule    Starke    1947    1954    -    Sep    lastSun    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Starke    1947    1961    -    Apr    lastSun    2:00    1:00    D
+  {
+    1947 /*from_year*/,
+    1961 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Starke    1947    1954    -    Sep    lastSun    2:00    0    S
+  {
+    1947 /*from_year*/,
+    1954 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Starke    1955    1956    -    Oct    lastSun    2:00    0    S
+  {
+    1955 /*from_year*/,
+    1956 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Starke    1957    1958    -    Sep    lastSun    2:00    0    S
+  {
+    1957 /*from_year*/,
+    1958 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Starke    1959    1961    -    Oct    lastSun    2:00    0    S
+  {
+    1959 /*from_year*/,
+    1961 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyStarke  = {
+  kAtcZoneRulesStarke /*rules*/,
+  6 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Sudan
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 5
+// Memory (8-bit): 61
+// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSudan[]  = {
+  // Anchor: Rule    Sudan    1970    1985    -    Oct    15    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Sudan    1970    only    -    May     1    0:00    1:00    S
+  {
+    1970 /*from_year*/,
+    1970 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    Sudan    1970    1985    -    Oct    15    0:00    0    -
   {
     1970 /*from_year*/,
@@ -7417,22 +22908,546 @@ static const AtcZoneRule kAtcZoneRulesSudan[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
+  // Rule    Sudan    1971    only    -    Apr    30    0:00    1:00    S
+  {
+    1971 /*from_year*/,
+    1971 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Sudan    1972    1985    -    Apr    lastSun    0:00    1:00    S
+  {
+    1972 /*from_year*/,
+    1985 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
 
 };
 
 const AtcZonePolicy kAtcZonePolicySudan  = {
   kAtcZoneRulesSudan /*rules*/,
-  1 /*num_rules*/,
+  5 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Swift
+// Rules: 6
+// Memory (8-bit): 72
+// Memory (32-bit): 84
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesSwift[]  = {
+  // Anchor: Rule    Swift    1957    only    -    Oct    lastSun    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Swift    1957    only    -    Apr    lastSun    2:00    1:00    D
+  {
+    1957 /*from_year*/,
+    1957 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Swift    1957    only    -    Oct    lastSun    2:00    0    S
+  {
+    1957 /*from_year*/,
+    1957 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Swift    1959    1961    -    Apr    lastSun    2:00    1:00    D
+  {
+    1959 /*from_year*/,
+    1961 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Swift    1959    only    -    Oct    lastSun    2:00    0    S
+  {
+    1959 /*from_year*/,
+    1959 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Swift    1960    1961    -    Sep    lastSun    2:00    0    S
+  {
+    1960 /*from_year*/,
+    1961 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicySwift  = {
+  kAtcZoneRulesSwift /*rules*/,
+  6 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Swiss
+// Rules: 3
+// Memory (8-bit): 39
+// Memory (32-bit): 48
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesSwiss[]  = {
+  // Anchor: Rule    Swiss    1941    1942    -    Oct    Mon>=1    2:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Swiss    1941    1942    -    May    Mon>=1    1:00    1:00    S
+  {
+    1941 /*from_year*/,
+    1942 /*to_year*/,
+    5 /*in_month*/,
+    1 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Swiss    1941    1942    -    Oct    Mon>=1    2:00    0    -
+  {
+    1941 /*from_year*/,
+    1942 /*to_year*/,
+    10 /*in_month*/,
+    1 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicySwiss  = {
+  kAtcZoneRulesSwiss /*rules*/,
+  3 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Syria
-// Rules: 12
-// Memory (8-bit): 138
-// Memory (32-bit): 156
+// Rules: 42
+// Memory (8-bit): 468
+// Memory (32-bit): 516
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSyria[]  = {
+  // Anchor: Rule    Syria    1920    1923    -    Oct    Sun>=1    2:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Syria    1920    1923    -    Apr    Sun>=15    2:00    1:00    S
+  {
+    1920 /*from_year*/,
+    1923 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Syria    1920    1923    -    Oct    Sun>=1    2:00    0    -
+  {
+    1920 /*from_year*/,
+    1923 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Syria    1962    only    -    Apr    29    2:00    1:00    S
+  {
+    1962 /*from_year*/,
+    1962 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Syria    1962    only    -    Oct    1    2:00    0    -
+  {
+    1962 /*from_year*/,
+    1962 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Syria    1963    1965    -    May    1    2:00    1:00    S
+  {
+    1963 /*from_year*/,
+    1965 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Syria    1963    only    -    Sep    30    2:00    0    -
+  {
+    1963 /*from_year*/,
+    1963 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Syria    1964    only    -    Oct    1    2:00    0    -
+  {
+    1964 /*from_year*/,
+    1964 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Syria    1965    only    -    Sep    30    2:00    0    -
+  {
+    1965 /*from_year*/,
+    1965 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Syria    1966    only    -    Apr    24    2:00    1:00    S
+  {
+    1966 /*from_year*/,
+    1966 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Syria    1966    1976    -    Oct    1    2:00    0    -
+  {
+    1966 /*from_year*/,
+    1976 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Syria    1967    1978    -    May    1    2:00    1:00    S
+  {
+    1967 /*from_year*/,
+    1978 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Syria    1977    1978    -    Sep    1    2:00    0    -
+  {
+    1977 /*from_year*/,
+    1978 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Syria    1983    1984    -    Apr    9    2:00    1:00    S
+  {
+    1983 /*from_year*/,
+    1984 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Syria    1983    1984    -    Oct    1    2:00    0    -
+  {
+    1983 /*from_year*/,
+    1984 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Syria    1986    only    -    Feb    16    2:00    1:00    S
+  {
+    1986 /*from_year*/,
+    1986 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Syria    1986    only    -    Oct    9    2:00    0    -
+  {
+    1986 /*from_year*/,
+    1986 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Syria    1987    only    -    Mar    1    2:00    1:00    S
+  {
+    1987 /*from_year*/,
+    1987 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Syria    1987    1988    -    Oct    31    2:00    0    -
+  {
+    1987 /*from_year*/,
+    1988 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Syria    1988    only    -    Mar    15    2:00    1:00    S
+  {
+    1988 /*from_year*/,
+    1988 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Syria    1989    only    -    Mar    31    2:00    1:00    S
+  {
+    1989 /*from_year*/,
+    1989 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Syria    1989    only    -    Oct    1    2:00    0    -
+  {
+    1989 /*from_year*/,
+    1989 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Syria    1990    only    -    Apr    1    2:00    1:00    S
+  {
+    1990 /*from_year*/,
+    1990 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Syria    1990    only    -    Sep    30    2:00    0    -
+  {
+    1990 /*from_year*/,
+    1990 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Syria    1991    only    -    Apr     1    0:00    1:00    S
+  {
+    1991 /*from_year*/,
+    1991 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Syria    1991    1992    -    Oct     1    0:00    0    -
+  {
+    1991 /*from_year*/,
+    1992 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Syria    1992    only    -    Apr     8    0:00    1:00    S
+  {
+    1992 /*from_year*/,
+    1992 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Syria    1993    only    -    Mar    26    0:00    1:00    S
+  {
+    1993 /*from_year*/,
+    1993 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Syria    1993    only    -    Sep    25    0:00    0    -
+  {
+    1993 /*from_year*/,
+    1993 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Syria    1994    1996    -    Apr     1    0:00    1:00    S
+  {
+    1994 /*from_year*/,
+    1996 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    Syria    1994    2005    -    Oct     1    0:00    0    -
   {
     1994 /*from_year*/,
@@ -7455,7 +23470,7 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Syria    1999    2006    -    Apr     1    0:00    1:00    S
   {
@@ -7467,7 +23482,7 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Syria    2006    only    -    Sep    22    0:00    0    -
   {
@@ -7491,7 +23506,7 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Syria    2007    only    -    Nov     Fri>=1    0:00    0    -
   {
@@ -7515,7 +23530,7 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Syria    2008    only    -    Nov    1    0:00    0    -
   {
@@ -7539,7 +23554,7 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Syria    2010    2011    -    Apr    Fri>=1    0:00    1:00    S
   {
@@ -7551,7 +23566,7 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Syria    2012    2022    -    Mar    lastFri    0:00    1:00    S
   {
@@ -7563,7 +23578,7 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Syria    2009    2022    -    Oct    lastFri    0:00    0    -
   {
@@ -7582,17 +23597,197 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
 
 const AtcZonePolicy kAtcZonePolicySyria  = {
   kAtcZoneRulesSyria /*rules*/,
-  12 /*num_rules*/,
+  42 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Taiwan
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 16
+// Memory (8-bit): 182
+// Memory (32-bit): 204
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesTaiwan[]  = {
+  // Anchor: Rule    Taiwan    1946    only    -    Oct    1    0:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Taiwan    1946    only    -    May    15    0:00    1:00    D
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Taiwan    1946    only    -    Oct    1    0:00    0    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Taiwan    1947    only    -    Apr    15    0:00    1:00    D
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Taiwan    1947    only    -    Nov    1    0:00    0    S
+  {
+    1947 /*from_year*/,
+    1947 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Taiwan    1948    1951    -    May    1    0:00    1:00    D
+  {
+    1948 /*from_year*/,
+    1951 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Taiwan    1948    1951    -    Oct    1    0:00    0    S
+  {
+    1948 /*from_year*/,
+    1951 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Taiwan    1952    only    -    Mar    1    0:00    1:00    D
+  {
+    1952 /*from_year*/,
+    1952 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Taiwan    1952    1954    -    Nov    1    0:00    0    S
+  {
+    1952 /*from_year*/,
+    1954 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Taiwan    1953    1959    -    Apr    1    0:00    1:00    D
+  {
+    1953 /*from_year*/,
+    1959 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Taiwan    1955    1961    -    Oct    1    0:00    0    S
+  {
+    1955 /*from_year*/,
+    1961 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Taiwan    1960    1961    -    Jun    1    0:00    1:00    D
+  {
+    1960 /*from_year*/,
+    1961 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Taiwan    1974    1975    -    Apr    1    0:00    1:00    D
+  {
+    1974 /*from_year*/,
+    1975 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Taiwan    1974    1975    -    Oct    1    0:00    0    S
+  {
+    1974 /*from_year*/,
+    1975 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Taiwan    1979    only    -    Jul    1    0:00    1:00    D
+  {
+    1979 /*from_year*/,
+    1979 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    Taiwan    1979    only    -    Oct    1    0:00    0    S
   {
     1979 /*from_year*/,
@@ -7603,24 +23798,48 @@ static const AtcZoneRule kAtcZoneRulesTaiwan[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyTaiwan  = {
   kAtcZoneRulesTaiwan /*rules*/,
-  1 /*num_rules*/,
+  16 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Thule
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 7
+// Memory (8-bit): 83
+// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesThule[]  = {
+  // Anchor: Rule    Thule    1991    1992    -    Sep    lastSun    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Thule    1991    1992    -    Mar    lastSun    2:00    1:00    D
+  {
+    1991 /*from_year*/,
+    1992 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    Thule    1991    1992    -    Sep    lastSun    2:00    0    S
   {
     1991 /*from_year*/,
@@ -7631,7 +23850,7 @@ static const AtcZoneRule kAtcZoneRulesThule[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Thule    1993    2006    -    Apr    Sun>=1    2:00    1:00    D
   {
@@ -7643,7 +23862,7 @@ static const AtcZoneRule kAtcZoneRulesThule[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Thule    1993    2006    -    Oct    lastSun    2:00    0    S
   {
@@ -7655,7 +23874,7 @@ static const AtcZoneRule kAtcZoneRulesThule[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Thule    2007    max    -    Mar    Sun>=8    2:00    1:00    D
   {
@@ -7667,7 +23886,7 @@ static const AtcZoneRule kAtcZoneRulesThule[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Thule    2007    max    -    Nov    Sun>=1    2:00    0    S
   {
@@ -7679,14 +23898,14 @@ static const AtcZoneRule kAtcZoneRulesThule[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyThule  = {
   kAtcZoneRulesThule /*rules*/,
-  5 /*num_rules*/,
+  7 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
@@ -7790,6 +24009,298 @@ const AtcZonePolicy kAtcZonePolicyTonga  = {
 };
 
 //---------------------------------------------------------------------------
+// Policy name: Toronto
+// Rules: 23
+// Memory (8-bit): 259
+// Memory (32-bit): 288
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesToronto[]  = {
+  // Anchor: Rule    Toronto    1919    only    -    Oct    26    0:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Toronto    1919    only    -    Mar    30    23:30    1:00    D
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5640 /*at_time_code (84600/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Toronto    1919    only    -    Oct    26    0:00    0    S
+  {
+    1919 /*from_year*/,
+    1919 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Toronto    1920    only    -    May     2    2:00    1:00    D
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Toronto    1920    only    -    Sep    26    0:00    0    S
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Toronto    1921    only    -    May    15    2:00    1:00    D
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Toronto    1921    only    -    Sep    15    2:00    0    S
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Toronto    1922    1923    -    May    Sun>=8    2:00    1:00    D
+  {
+    1922 /*from_year*/,
+    1923 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Toronto    1922    1926    -    Sep    Sun>=15    2:00    0    S
+  {
+    1922 /*from_year*/,
+    1926 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Toronto    1924    1927    -    May    Sun>=1    2:00    1:00    D
+  {
+    1924 /*from_year*/,
+    1927 /*to_year*/,
+    5 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Toronto    1927    1937    -    Sep    Sun>=25    2:00    0    S
+  {
+    1927 /*from_year*/,
+    1937 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Toronto    1928    1937    -    Apr    Sun>=25    2:00    1:00    D
+  {
+    1928 /*from_year*/,
+    1937 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Toronto    1938    1940    -    Apr    lastSun    2:00    1:00    D
+  {
+    1938 /*from_year*/,
+    1940 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Toronto    1938    1939    -    Sep    lastSun    2:00    0    S
+  {
+    1938 /*from_year*/,
+    1939 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Toronto    1945    1946    -    Sep    lastSun    2:00    0    S
+  {
+    1945 /*from_year*/,
+    1946 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Toronto    1946    only    -    Apr    lastSun    2:00    1:00    D
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Toronto    1947    1949    -    Apr    lastSun    0:00    1:00    D
+  {
+    1947 /*from_year*/,
+    1949 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Toronto    1947    1948    -    Sep    lastSun    0:00    0    S
+  {
+    1947 /*from_year*/,
+    1948 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Toronto    1949    only    -    Nov    lastSun    0:00    0    S
+  {
+    1949 /*from_year*/,
+    1949 /*to_year*/,
+    11 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Toronto    1950    1973    -    Apr    lastSun    2:00    1:00    D
+  {
+    1950 /*from_year*/,
+    1973 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Toronto    1950    only    -    Nov    lastSun    2:00    0    S
+  {
+    1950 /*from_year*/,
+    1950 /*to_year*/,
+    11 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Toronto    1951    1956    -    Sep    lastSun    2:00    0    S
+  {
+    1951 /*from_year*/,
+    1956 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Toronto    1957    1973    -    Oct    lastSun    2:00    0    S
+  {
+    1957 /*from_year*/,
+    1973 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyToronto  = {
+  kAtcZoneRulesToronto /*rules*/,
+  23 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
 // Policy name: Troll
 // Rules: 3
 // Memory (8-bit): 39
@@ -7843,12 +24354,240 @@ const AtcZonePolicy kAtcZonePolicyTroll  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Tunisia
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 26
+// Memory (8-bit): 292
+// Memory (32-bit): 324
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
+  // Anchor: Rule    Tunisia    1939    only    -    Nov    18    23:00s    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Tunisia    1939    only    -    Apr    15    23:00s    1:00    S
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Tunisia    1939    only    -    Nov    18    23:00s    0    -
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Tunisia    1940    only    -    Feb    25    23:00s    1:00    S
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Tunisia    1941    only    -    Oct     6     0:00    0    -
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Tunisia    1942    only    -    Mar     9     0:00    1:00    S
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Tunisia    1942    only    -    Nov     2     3:00    0    -
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Tunisia    1943    only    -    Mar    29     2:00    1:00    S
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Tunisia    1943    only    -    Apr    17     2:00    0    -
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Tunisia    1943    only    -    Apr    25     2:00    1:00    S
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Tunisia    1943    only    -    Oct     4     2:00    0    -
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Tunisia    1944    1945    -    Apr    Mon>=1     2:00    1:00    S
+  {
+    1944 /*from_year*/,
+    1945 /*to_year*/,
+    4 /*in_month*/,
+    1 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Tunisia    1944    only    -    Oct     8     0:00    0    -
+  {
+    1944 /*from_year*/,
+    1944 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Tunisia    1945    only    -    Sep    16     0:00    0    -
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Tunisia    1977    only    -    Apr    30     0:00s    1:00    S
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Tunisia    1977    only    -    Sep    24     0:00s    0    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Tunisia    1978    only    -    May     1     0:00s    1:00    S
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Tunisia    1978    only    -    Oct     1     0:00s    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Tunisia    1988    only    -    Jun     1     0:00s    1:00    S
+  {
+    1988 /*from_year*/,
+    1988 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    Tunisia    1988    1990    -    Sep    lastSun     0:00s    0    -
   {
     1988 /*from_year*/,
@@ -7861,6 +24600,30 @@ static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
+  // Rule    Tunisia    1989    only    -    Mar    26     0:00s    1:00    S
+  {
+    1989 /*from_year*/,
+    1989 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Tunisia    1990    only    -    May     1     0:00s    1:00    S
+  {
+    1990 /*from_year*/,
+    1990 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    Tunisia    2005    only    -    May     1     0:00s    1:00    S
   {
     2005 /*from_year*/,
@@ -7871,7 +24634,7 @@ static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Tunisia    2005    only    -    Sep    30     1:00s    0    -
   {
@@ -7895,7 +24658,7 @@ static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Tunisia    2006    2008    -    Oct    lastSun     2:00s    0    -
   {
@@ -7914,17 +24677,521 @@ static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
 
 const AtcZonePolicy kAtcZonePolicyTunisia  = {
   kAtcZoneRulesTunisia /*rules*/,
-  5 /*num_rules*/,
+  26 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Turkey
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 46
+// Memory (8-bit): 512
+// Memory (32-bit): 564
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesTurkey[]  = {
+  // Anchor: Rule    Turkey    1916    only    -    Oct     1    0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1916    only    -    May     1    0:00    1:00    S
+  {
+    1916 /*from_year*/,
+    1916 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1916    only    -    Oct     1    0:00    0    -
+  {
+    1916 /*from_year*/,
+    1916 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1920    only    -    Mar    28    0:00    1:00    S
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1920    only    -    Oct    25    0:00    0    -
+  {
+    1920 /*from_year*/,
+    1920 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1921    only    -    Apr     3    0:00    1:00    S
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1921    only    -    Oct     3    0:00    0    -
+  {
+    1921 /*from_year*/,
+    1921 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1922    only    -    Mar    26    0:00    1:00    S
+  {
+    1922 /*from_year*/,
+    1922 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1922    only    -    Oct     8    0:00    0    -
+  {
+    1922 /*from_year*/,
+    1922 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1924    only    -    May    13    0:00    1:00    S
+  {
+    1924 /*from_year*/,
+    1924 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1924    1925    -    Oct     1    0:00    0    -
+  {
+    1924 /*from_year*/,
+    1925 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1925    only    -    May     1    0:00    1:00    S
+  {
+    1925 /*from_year*/,
+    1925 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1940    only    -    Jul     1    0:00    1:00    S
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1940    only    -    Oct     6    0:00    0    -
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1940    only    -    Dec     1    0:00    1:00    S
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1941    only    -    Sep    21    0:00    0    -
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1942    only    -    Apr     1    0:00    1:00    S
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1945    only    -    Oct     8    0:00    0    -
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    8 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1946    only    -    Jun     1    0:00    1:00    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1946    only    -    Oct     1    0:00    0    -
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1947    1948    -    Apr    Sun>=16    0:00    1:00    S
+  {
+    1947 /*from_year*/,
+    1948 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1947    1951    -    Oct    Sun>=2    0:00    0    -
+  {
+    1947 /*from_year*/,
+    1951 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1949    only    -    Apr    10    0:00    1:00    S
+  {
+    1949 /*from_year*/,
+    1949 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1950    only    -    Apr    16    0:00    1:00    S
+  {
+    1950 /*from_year*/,
+    1950 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1951    only    -    Apr    22    0:00    1:00    S
+  {
+    1951 /*from_year*/,
+    1951 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1962    only    -    Jul    15    0:00    1:00    S
+  {
+    1962 /*from_year*/,
+    1962 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1963    only    -    Oct    30    0:00    0    -
+  {
+    1963 /*from_year*/,
+    1963 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1964    only    -    May    15    0:00    1:00    S
+  {
+    1964 /*from_year*/,
+    1964 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1964    only    -    Oct     1    0:00    0    -
+  {
+    1964 /*from_year*/,
+    1964 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1973    only    -    Jun     3    1:00    1:00    S
+  {
+    1973 /*from_year*/,
+    1973 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1973    1976    -    Oct    Sun>=31    2:00    0    -
+  {
+    1973 /*from_year*/,
+    1976 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1974    only    -    Mar    31    2:00    1:00    S
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1975    only    -    Mar    22    2:00    1:00    S
+  {
+    1975 /*from_year*/,
+    1975 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1976    only    -    Mar    21    2:00    1:00    S
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1977    1978    -    Apr    Sun>=1    2:00    1:00    S
+  {
+    1977 /*from_year*/,
+    1978 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1977    1978    -    Oct    Sun>=15    2:00    0    -
+  {
+    1977 /*from_year*/,
+    1978 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1978    only    -    Jun    29    0:00    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1983    only    -    Jul    31    2:00    1:00    S
+  {
+    1983 /*from_year*/,
+    1983 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1983    only    -    Oct     2    2:00    0    -
+  {
+    1983 /*from_year*/,
+    1983 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1985    only    -    Apr    20    1:00s    1:00    S
+  {
+    1985 /*from_year*/,
+    1985 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Turkey    1985    only    -    Sep    28    1:00s    0    -
+  {
+    1985 /*from_year*/,
+    1985 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Turkey    1986    1993    -    Mar    lastSun    1:00s    1:00    S
+  {
+    1986 /*from_year*/,
+    1993 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    Turkey    1986    1995    -    Sep    lastSun    1:00s    0    -
   {
     1986 /*from_year*/,
@@ -7937,6 +25204,18 @@ static const AtcZoneRule kAtcZoneRulesTurkey[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
+  // Rule    Turkey    1994    only    -    Mar    20    1:00s    1:00    S
+  {
+    1994 /*from_year*/,
+    1994 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    Turkey    1995    2006    -    Mar    lastSun    1:00s    1:00    S
   {
     1995 /*from_year*/,
@@ -7947,7 +25226,7 @@ static const AtcZoneRule kAtcZoneRulesTurkey[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Turkey    1996    2006    -    Oct    lastSun    1:00s    0    -
   {
@@ -7966,17 +25245,89 @@ static const AtcZoneRule kAtcZoneRulesTurkey[]  = {
 
 const AtcZonePolicy kAtcZonePolicyTurkey  = {
   kAtcZoneRulesTurkey /*rules*/,
-  3 /*num_rules*/,
+  46 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: US
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 14
+// Memory (8-bit): 160
+// Memory (32-bit): 180
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesUS[]  = {
+  // Anchor: Rule    US    1918    1919    -    Oct    lastSun    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    US    1918    1919    -    Mar    lastSun    2:00    1:00    D
+  {
+    1918 /*from_year*/,
+    1919 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    US    1918    1919    -    Oct    lastSun    2:00    0    S
+  {
+    1918 /*from_year*/,
+    1919 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    US    1942    only    -    Feb    9    2:00    1:00    W
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    26 /*letterIndex ("W")*/,
+  },
+  // Rule    US    1945    only    -    Aug    14    23:00u    1:00    P
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    24 /*letterIndex ("P")*/,
+  },
+  // Rule    US    1945    only    -    Sep    30    2:00    0    S
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    US    1967    2006    -    Oct    lastSun    2:00    0    S
   {
     1967 /*from_year*/,
@@ -7987,7 +25338,43 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    US    1967    1973    -    Apr    lastSun    2:00    1:00    D
+  {
+    1967 /*from_year*/,
+    1973 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    US    1974    only    -    Jan    6    2:00    1:00    D
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    US    1975    only    -    Feb    lastSun    2:00    1:00    D
+  {
+    1975 /*from_year*/,
+    1975 /*to_year*/,
+    2 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    US    1976    1986    -    Apr    lastSun    2:00    1:00    D
   {
@@ -7999,7 +25386,7 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    US    1987    2006    -    Apr    Sun>=1    2:00    1:00    D
   {
@@ -8011,7 +25398,7 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    US    2007    max    -    Mar    Sun>=8    2:00    1:00    D
   {
@@ -8023,7 +25410,7 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    US    2007    max    -    Nov    Sun>=1    2:00    0    S
   {
@@ -8035,24 +25422,540 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyUS  = {
   kAtcZoneRulesUS /*rules*/,
-  5 /*num_rules*/,
+  14 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Uruguay
-// Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
+// Rules: 49
+// Memory (8-bit): 545
+// Memory (32-bit): 600
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
+  // Anchor: Rule    Uruguay    1924    1926    -    Apr     1     0:00    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1923    1925    -    Oct     1     0:00    0:30    -
+  {
+    1923 /*from_year*/,
+    1925 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    30 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1924    1926    -    Apr     1     0:00    0    -
+  {
+    1924 /*from_year*/,
+    1926 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1933    1938    -    Oct    lastSun     0:00    0:30    -
+  {
+    1933 /*from_year*/,
+    1938 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    30 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1934    1941    -    Mar    lastSat    24:00    0    -
+  {
+    1934 /*from_year*/,
+    1941 /*to_year*/,
+    3 /*in_month*/,
+    6 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1939    only    -    Oct     1     0:00    0:30    -
+  {
+    1939 /*from_year*/,
+    1939 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    30 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1940    only    -    Oct    27     0:00    0:30    -
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    30 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1941    only    -    Aug     1     0:00    0:30    -
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    30 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1942    only    -    Dec    14     0:00    0:30    -
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    30 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1943    only    -    Mar    14     0:00    0    -
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1959    only    -    May    24     0:00    0:30    -
+  {
+    1959 /*from_year*/,
+    1959 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    30 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1959    only    -    Nov    15     0:00    0    -
+  {
+    1959 /*from_year*/,
+    1959 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1960    only    -    Jan    17     0:00    1:00    -
+  {
+    1960 /*from_year*/,
+    1960 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1960    only    -    Mar     6     0:00    0    -
+  {
+    1960 /*from_year*/,
+    1960 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1965    only    -    Apr     4     0:00    1:00    -
+  {
+    1965 /*from_year*/,
+    1965 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1965    only    -    Sep    26     0:00    0    -
+  {
+    1965 /*from_year*/,
+    1965 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1968    only    -    May    27     0:00    0:30    -
+  {
+    1968 /*from_year*/,
+    1968 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    30 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1968    only    -    Dec     1     0:00    0    -
+  {
+    1968 /*from_year*/,
+    1968 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1970    only    -    Apr    25     0:00    1:00    -
+  {
+    1970 /*from_year*/,
+    1970 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1970    only    -    Jun    14     0:00    0    -
+  {
+    1970 /*from_year*/,
+    1970 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1972    only    -    Apr    23     0:00    1:00    -
+  {
+    1972 /*from_year*/,
+    1972 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1972    only    -    Jul    16     0:00    0    -
+  {
+    1972 /*from_year*/,
+    1972 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1974    only    -    Jan    13     0:00    1:30    -
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    90 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1974    only    -    Mar    10     0:00    0:30    -
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    30 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1974    only    -    Sep     1     0:00    0    -
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1974    only    -    Dec    22     0:00    1:00    -
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1975    only    -    Mar    30     0:00    0    -
+  {
+    1975 /*from_year*/,
+    1975 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1976    only    -    Dec    19     0:00    1:00    -
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1977    only    -    Mar     6     0:00    0    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1977    only    -    Dec     4     0:00    1:00    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1978    1979    -    Mar    Sun>=1     0:00    0    -
+  {
+    1978 /*from_year*/,
+    1979 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1978    only    -    Dec    17     0:00    1:00    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1979    only    -    Apr    29     0:00    1:00    -
+  {
+    1979 /*from_year*/,
+    1979 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1980    only    -    Mar    16     0:00    0    -
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1987    only    -    Dec    14     0:00    1:00    -
+  {
+    1987 /*from_year*/,
+    1987 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1988    only    -    Feb    28     0:00    0    -
+  {
+    1988 /*from_year*/,
+    1988 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1988    only    -    Dec    11     0:00    1:00    -
+  {
+    1988 /*from_year*/,
+    1988 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1989    only    -    Mar     5     0:00    0    -
+  {
+    1989 /*from_year*/,
+    1989 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1989    only    -    Oct    29     0:00    1:00    -
+  {
+    1989 /*from_year*/,
+    1989 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1990    only    -    Feb    25     0:00    0    -
+  {
+    1990 /*from_year*/,
+    1990 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1990    1991    -    Oct    Sun>=21     0:00    1:00    -
+  {
+    1990 /*from_year*/,
+    1991 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1991    1992    -    Mar    Sun>=1     0:00    0    -
+  {
+    1991 /*from_year*/,
+    1992 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Uruguay    1992    only    -    Oct    18     0:00    1:00    -
+  {
+    1992 /*from_year*/,
+    1992 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Uruguay    1993    only    -    Feb    28     0:00    0    -
   {
     1993 /*from_year*/,
@@ -8130,17 +26033,213 @@ static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
 
 const AtcZonePolicy kAtcZonePolicyUruguay  = {
   kAtcZoneRulesUruguay /*rules*/,
-  6 /*num_rules*/,
+  49 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Vanc
+// Rules: 10
+// Memory (8-bit): 116
+// Memory (32-bit): 132
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesVanc[]  = {
+  // Anchor: Rule    Vanc    1918    only    -    Oct    27    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Vanc    1918    only    -    Apr    14    2:00    1:00    D
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Vanc    1918    only    -    Oct    27    2:00    0    S
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Vanc    1942    only    -    Feb     9    2:00    1:00    W
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    26 /*letterIndex ("W")*/,
+  },
+  // Rule    Vanc    1945    only    -    Aug    14    23:00u    1:00    P
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    24 /*letterIndex ("P")*/,
+  },
+  // Rule    Vanc    1945    only    -    Sep    30    2:00    0    S
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Vanc    1946    1986    -    Apr    lastSun    2:00    1:00    D
+  {
+    1946 /*from_year*/,
+    1986 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Vanc    1946    only    -    Sep    29    2:00    0    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Vanc    1947    1961    -    Sep    lastSun    2:00    0    S
+  {
+    1947 /*from_year*/,
+    1961 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Vanc    1962    2006    -    Oct    lastSun    2:00    0    S
+  {
+    1962 /*from_year*/,
+    2006 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyVanc  = {
+  kAtcZoneRulesVanc /*rules*/,
+  10 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Vanuatu
-// Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
+// Rules: 7
+// Memory (8-bit): 83
+// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesVanuatu[]  = {
+  // Anchor: Rule    Vanuatu    1974    only    -    Mar    30    12:00u    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Vanuatu    1973    only    -    Dec    22    12:00u    1:00    -
+  {
+    1973 /*from_year*/,
+    1973 /*to_year*/,
+    12 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    2880 /*at_time_code (43200/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Vanuatu    1974    only    -    Mar    30    12:00u    0    -
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    2880 /*at_time_code (43200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Vanuatu    1983    1991    -    Sep    Sat>=22    24:00    1:00    -
+  {
+    1983 /*from_year*/,
+    1991 /*to_year*/,
+    9 /*in_month*/,
+    6 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Vanuatu    1984    1991    -    Mar    Sat>=22    24:00    0    -
+  {
+    1984 /*from_year*/,
+    1991 /*to_year*/,
+    3 /*in_month*/,
+    6 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Vanuatu    1992    1993    -    Jan    Sat>=22    24:00    0    -
   {
     1992 /*from_year*/,
@@ -8153,12 +26252,248 @@ static const AtcZoneRule kAtcZoneRulesVanuatu[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
+  // Rule    Vanuatu    1992    only    -    Oct    Sat>=22    24:00    1:00    -
+  {
+    1992 /*from_year*/,
+    1992 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyVanuatu  = {
   kAtcZoneRulesVanuatu /*rules*/,
-  1 /*num_rules*/,
+  7 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Vincennes
+// Rules: 10
+// Memory (8-bit): 116
+// Memory (32-bit): 132
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesVincennes[]  = {
+  // Anchor: Rule Vincennes    1946    only    -    Sep    lastSun    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule Vincennes    1946    only    -    Apr    lastSun    2:00    1:00    D
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule Vincennes    1946    only    -    Sep    lastSun    2:00    0    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule Vincennes    1953    1954    -    Apr    lastSun    2:00    1:00    D
+  {
+    1953 /*from_year*/,
+    1954 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule Vincennes    1953    1959    -    Sep    lastSun    2:00    0    S
+  {
+    1953 /*from_year*/,
+    1959 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule Vincennes    1955    only    -    May     1    0:00    1:00    D
+  {
+    1955 /*from_year*/,
+    1955 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule Vincennes    1956    1963    -    Apr    lastSun    2:00    1:00    D
+  {
+    1956 /*from_year*/,
+    1963 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule Vincennes    1960    only    -    Oct    lastSun    2:00    0    S
+  {
+    1960 /*from_year*/,
+    1960 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule Vincennes    1961    only    -    Sep    lastSun    2:00    0    S
+  {
+    1961 /*from_year*/,
+    1961 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule Vincennes    1962    1963    -    Oct    lastSun    2:00    0    S
+  {
+    1962 /*from_year*/,
+    1963 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyVincennes  = {
+  kAtcZoneRulesVincennes /*rules*/,
+  10 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: W-Eur
+// Rules: 6
+// Memory (8-bit): 72
+// Memory (32-bit): 84
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesW_Eur[]  = {
+  // Anchor: Rule    W-Eur    1977    only    -    Sep    lastSun     1:00s    0    -
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    W-Eur    1977    1980    -    Apr    Sun>=1     1:00s    1:00    S
+  {
+    1977 /*from_year*/,
+    1980 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    W-Eur    1977    only    -    Sep    lastSun     1:00s    0    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    W-Eur    1978    only    -    Oct     1     1:00s    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    W-Eur    1979    1995    -    Sep    lastSun     1:00s    0    -
+  {
+    1979 /*from_year*/,
+    1995 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    W-Eur    1981    max    -    Mar    lastSun     1:00s    1:00    S
+  {
+    1981 /*from_year*/,
+    9999 /*to_year*/,
+    3 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyW_Eur  = {
+  kAtcZoneRulesW_Eur /*rules*/,
+  6 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8251,12 +26586,276 @@ const AtcZonePolicy kAtcZonePolicyWS  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Winn
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 25
+// Memory (8-bit): 281
+// Memory (32-bit): 312
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesWinn[]  = {
+  // Anchor: Rule    Winn    1916    only    -    Sep    17    0:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Winn    1916    only    -    Apr    23    0:00    1:00    D
+  {
+    1916 /*from_year*/,
+    1916 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Winn    1916    only    -    Sep    17    0:00    0    S
+  {
+    1916 /*from_year*/,
+    1916 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Winn    1918    only    -    Apr    14    2:00    1:00    D
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Winn    1918    only    -    Oct    27    2:00    0    S
+  {
+    1918 /*from_year*/,
+    1918 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Winn    1937    only    -    May    16    2:00    1:00    D
+  {
+    1937 /*from_year*/,
+    1937 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Winn    1937    only    -    Sep    26    2:00    0    S
+  {
+    1937 /*from_year*/,
+    1937 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    26 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Winn    1942    only    -    Feb     9    2:00    1:00    W
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    2 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    26 /*letterIndex ("W")*/,
+  },
+  // Rule    Winn    1945    only    -    Aug    14    23:00u    1:00    P
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
+    24 /*letterIndex ("P")*/,
+  },
+  // Rule    Winn    1945    only    -    Sep    lastSun    2:00    0    S
+  {
+    1945 /*from_year*/,
+    1945 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Winn    1946    only    -    May    12    2:00    1:00    D
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Winn    1946    only    -    Oct    13    2:00    0    S
+  {
+    1946 /*from_year*/,
+    1946 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Winn    1947    1949    -    Apr    lastSun    2:00    1:00    D
+  {
+    1947 /*from_year*/,
+    1949 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Winn    1947    1949    -    Sep    lastSun    2:00    0    S
+  {
+    1947 /*from_year*/,
+    1949 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Winn    1950    only    -    May     1    2:00    1:00    D
+  {
+    1950 /*from_year*/,
+    1950 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Winn    1950    only    -    Sep    30    2:00    0    S
+  {
+    1950 /*from_year*/,
+    1950 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Winn    1951    1960    -    Apr    lastSun    2:00    1:00    D
+  {
+    1951 /*from_year*/,
+    1960 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Winn    1951    1958    -    Sep    lastSun    2:00    0    S
+  {
+    1951 /*from_year*/,
+    1958 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Winn    1959    only    -    Oct    lastSun    2:00    0    S
+  {
+    1959 /*from_year*/,
+    1959 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Winn    1960    only    -    Sep    lastSun    2:00    0    S
+  {
+    1960 /*from_year*/,
+    1960 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Winn    1963    only    -    Apr    lastSun    2:00    1:00    D
+  {
+    1963 /*from_year*/,
+    1963 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Winn    1963    only    -    Sep    22    2:00    0    S
+  {
+    1963 /*from_year*/,
+    1963 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
   // Rule    Winn    1966    1986    -    Apr    lastSun    2:00s    1:00    D
   {
     1966 /*from_year*/,
@@ -8267,7 +26866,7 @@ static const AtcZoneRule kAtcZoneRulesWinn[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Winn    1966    2005    -    Oct    lastSun    2:00s    0    S
   {
@@ -8279,7 +26878,7 @@ static const AtcZoneRule kAtcZoneRulesWinn[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Winn    1987    2005    -    Apr    Sun>=1    2:00s    1:00    D
   {
@@ -8291,24 +26890,820 @@ static const AtcZoneRule kAtcZoneRulesWinn[]  = {
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyWinn  = {
   kAtcZoneRulesWinn /*rules*/,
+  25 /*num_rules*/,
+};
+
+//---------------------------------------------------------------------------
+// Policy name: Yukon
+// Rules: 3
+// Memory (8-bit): 39
+// Memory (32-bit): 48
+//---------------------------------------------------------------------------
+
+static const AtcZoneRule kAtcZoneRulesYukon[]  = {
+  // Anchor: Rule    Yukon    1965    only    -    Oct    lastSun    2:00    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Yukon    1965    only    -    Apr    lastSun    0:00    2:00    DD
+  {
+    1965 /*from_year*/,
+    1965 /*to_year*/,
+    4 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    120 /*delta_minutes*/,
+    14 /*letterIndex ("DD")*/,
+  },
+  // Rule    Yukon    1965    only    -    Oct    lastSun    2:00    0    S
+  {
+    1965 /*from_year*/,
+    1965 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+
+};
+
+const AtcZonePolicy kAtcZonePolicyYukon  = {
+  kAtcZoneRulesYukon /*rules*/,
   3 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Zion
-// Rules: 24
-// Memory (8-bit): 270
-// Memory (32-bit): 300
+// Rules: 86
+// Memory (8-bit): 952
+// Memory (32-bit): 1044
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesZion[]  = {
+  // Anchor: Rule    Zion    1940    only    -    Sep    30    24:00u    0    S
+  {
+    0 /*from_year*/,
+    0 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1940    only    -    May    31    24:00u    1:00    D
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1940    only    -    Sep    30    24:00u    0    S
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1940    only    -    Nov    16    24:00u    1:00    D
+  {
+    1940 /*from_year*/,
+    1940 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1942    1946    -    Oct    31    24:00u    0    S
+  {
+    1942 /*from_year*/,
+    1946 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1943    1944    -    Mar    31    24:00u    1:00    D
+  {
+    1943 /*from_year*/,
+    1944 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1945    1946    -    Apr    15    24:00u    1:00    D
+  {
+    1945 /*from_year*/,
+    1946 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1948    only    -    May    22    24:00u    2:00    DD
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    120 /*delta_minutes*/,
+    14 /*letterIndex ("DD")*/,
+  },
+  // Rule    Zion    1948    only    -    Aug    31    24:00u    1:00    D
+  {
+    1948 /*from_year*/,
+    1948 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1948    1949    -    Oct    31    24:00u    0    S
+  {
+    1948 /*from_year*/,
+    1949 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1949    only    -    Apr    30    24:00u    1:00    D
+  {
+    1949 /*from_year*/,
+    1949 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1950    only    -    Apr    15    24:00u    1:00    D
+  {
+    1950 /*from_year*/,
+    1950 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1950    only    -    Sep    14    24:00u    0    S
+  {
+    1950 /*from_year*/,
+    1950 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1951    only    -    Mar    31    24:00u    1:00    D
+  {
+    1951 /*from_year*/,
+    1951 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1951    only    -    Nov    10    24:00u    0    S
+  {
+    1951 /*from_year*/,
+    1951 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1952    only    -    Apr    19    24:00u    1:00    D
+  {
+    1952 /*from_year*/,
+    1952 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1952    only    -    Oct    18    24:00u    0    S
+  {
+    1952 /*from_year*/,
+    1952 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1953    only    -    Apr    11    24:00u    1:00    D
+  {
+    1953 /*from_year*/,
+    1953 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1953    only    -    Sep    12    24:00u    0    S
+  {
+    1953 /*from_year*/,
+    1953 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1954    only    -    Jun    12    24:00u    1:00    D
+  {
+    1954 /*from_year*/,
+    1954 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1954    only    -    Sep    11    24:00u    0    S
+  {
+    1954 /*from_year*/,
+    1954 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1955    only    -    Jun    11    24:00u    1:00    D
+  {
+    1955 /*from_year*/,
+    1955 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1955    only    -    Sep    10    24:00u    0    S
+  {
+    1955 /*from_year*/,
+    1955 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1956    only    -    Jun     2    24:00u    1:00    D
+  {
+    1956 /*from_year*/,
+    1956 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1956    only    -    Sep    29    24:00u    0    S
+  {
+    1956 /*from_year*/,
+    1956 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1957    only    -    Apr    27    24:00u    1:00    D
+  {
+    1957 /*from_year*/,
+    1957 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1957    only    -    Sep    21    24:00u    0    S
+  {
+    1957 /*from_year*/,
+    1957 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1974    only    -    Jul     6    24:00    1:00    D
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1974    only    -    Oct    12    24:00    0    S
+  {
+    1974 /*from_year*/,
+    1974 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1975    only    -    Apr    19    24:00    1:00    D
+  {
+    1975 /*from_year*/,
+    1975 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1975    only    -    Aug    30    24:00    0    S
+  {
+    1975 /*from_year*/,
+    1975 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1980    only    -    Aug     2    24:00s    1:00    D
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1980    only    -    Sep    13    24:00s    0    S
+  {
+    1980 /*from_year*/,
+    1980 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1984    only    -    May     5    24:00s    1:00    D
+  {
+    1984 /*from_year*/,
+    1984 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1984    only    -    Aug    25    24:00s    0    S
+  {
+    1984 /*from_year*/,
+    1984 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1985    only    -    Apr    13    24:00    1:00    D
+  {
+    1985 /*from_year*/,
+    1985 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1985    only    -    Aug    31    24:00    0    S
+  {
+    1985 /*from_year*/,
+    1985 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1986    only    -    May    17    24:00    1:00    D
+  {
+    1986 /*from_year*/,
+    1986 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1986    only    -    Sep     6    24:00    0    S
+  {
+    1986 /*from_year*/,
+    1986 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1987    only    -    Apr    14    24:00    1:00    D
+  {
+    1987 /*from_year*/,
+    1987 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1987    only    -    Sep    12    24:00    0    S
+  {
+    1987 /*from_year*/,
+    1987 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1988    only    -    Apr     9    24:00    1:00    D
+  {
+    1988 /*from_year*/,
+    1988 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1988    only    -    Sep     3    24:00    0    S
+  {
+    1988 /*from_year*/,
+    1988 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1989    only    -    Apr    29    24:00    1:00    D
+  {
+    1989 /*from_year*/,
+    1989 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1989    only    -    Sep     2    24:00    0    S
+  {
+    1989 /*from_year*/,
+    1989 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1990    only    -    Mar    24    24:00    1:00    D
+  {
+    1990 /*from_year*/,
+    1990 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1990    only    -    Aug    25    24:00    0    S
+  {
+    1990 /*from_year*/,
+    1990 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1991    only    -    Mar    23    24:00    1:00    D
+  {
+    1991 /*from_year*/,
+    1991 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1991    only    -    Aug    31    24:00    0    S
+  {
+    1991 /*from_year*/,
+    1991 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1992    only    -    Mar    28    24:00    1:00    D
+  {
+    1992 /*from_year*/,
+    1992 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1992    only    -    Sep     5    24:00    0    S
+  {
+    1992 /*from_year*/,
+    1992 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1993    only    -    Apr     2    0:00    1:00    D
+  {
+    1993 /*from_year*/,
+    1993 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1993    only    -    Sep     5    0:00    0    S
+  {
+    1993 /*from_year*/,
+    1993 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1994    only    -    Apr     1    0:00    1:00    D
+  {
+    1994 /*from_year*/,
+    1994 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1994    only    -    Aug    28    0:00    0    S
+  {
+    1994 /*from_year*/,
+    1994 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1995    only    -    Mar    31    0:00    1:00    D
+  {
+    1995 /*from_year*/,
+    1995 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1995    only    -    Sep     3    0:00    0    S
+  {
+    1995 /*from_year*/,
+    1995 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1996    only    -    Mar    14    24:00    1:00    D
+  {
+    1996 /*from_year*/,
+    1996 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1996    only    -    Sep    15    24:00    0    S
+  {
+    1996 /*from_year*/,
+    1996 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1997    only    -    Mar    20    24:00    1:00    D
+  {
+    1997 /*from_year*/,
+    1997 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
+  // Rule    Zion    1997    only    -    Sep    13    24:00    0    S
+  {
+    1997 /*from_year*/,
+    1997 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    Zion    1998    only    -    Mar    20    0:00    1:00    D
+  {
+    1998 /*from_year*/,
+    1998 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    13 /*letterIndex ("D")*/,
+  },
   // Rule    Zion    1998    only    -    Sep     6    0:00    0    S
   {
     1998 /*from_year*/,
@@ -8319,7 +27714,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Zion    1999    only    -    Apr     2    2:00    1:00    D
   {
@@ -8331,7 +27726,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Zion    1999    only    -    Sep     3    2:00    0    S
   {
@@ -8343,7 +27738,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2000    only    -    Apr    14    2:00    1:00    D
   {
@@ -8355,7 +27750,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Zion    2000    only    -    Oct     6    1:00    0    S
   {
@@ -8367,7 +27762,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2001    only    -    Apr     9    1:00    1:00    D
   {
@@ -8379,7 +27774,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Zion    2001    only    -    Sep    24    1:00    0    S
   {
@@ -8391,7 +27786,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2002    only    -    Mar    29    1:00    1:00    D
   {
@@ -8403,7 +27798,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Zion    2002    only    -    Oct     7    1:00    0    S
   {
@@ -8415,7 +27810,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2003    only    -    Mar    28    1:00    1:00    D
   {
@@ -8427,7 +27822,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Zion    2003    only    -    Oct     3    1:00    0    S
   {
@@ -8439,7 +27834,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2004    only    -    Apr     7    1:00    1:00    D
   {
@@ -8451,7 +27846,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Zion    2004    only    -    Sep    22    1:00    0    S
   {
@@ -8463,7 +27858,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     240 /*at_time_code (3600/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2005    2012    -    Apr    Fri<=1    2:00    1:00    D
   {
@@ -8475,7 +27870,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Zion    2005    only    -    Oct     9    2:00    0    S
   {
@@ -8487,7 +27882,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2006    only    -    Oct     1    2:00    0    S
   {
@@ -8499,7 +27894,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2007    only    -    Sep    16    2:00    0    S
   {
@@ -8511,7 +27906,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2008    only    -    Oct     5    2:00    0    S
   {
@@ -8523,7 +27918,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2009    only    -    Sep    27    2:00    0    S
   {
@@ -8535,7 +27930,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2010    only    -    Sep    12    2:00    0    S
   {
@@ -8547,7 +27942,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2011    only    -    Oct     2    2:00    0    S
   {
@@ -8559,7 +27954,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2012    only    -    Sep    23    2:00    0    S
   {
@@ -8571,7 +27966,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2013    max    -    Mar    Fri>=23    2:00    1:00    D
   {
@@ -8583,7 +27978,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
-    5 /*letterIndex ("D")*/,
+    13 /*letterIndex ("D")*/,
   },
   // Rule    Zion    2013    max    -    Oct    lastSun    2:00    0    S
   {
@@ -8595,14 +27990,14 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
+    25 /*letterIndex ("S")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyZion  = {
   kAtcZoneRulesZion /*rules*/,
-  24 /*num_rules*/,
+  86 /*num_rules*/,
 };
 
 
