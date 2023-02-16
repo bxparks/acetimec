@@ -1,4 +1,5 @@
-CFLAGS := -std=c11 -Wall -Wextra -Werror -pedantic
+CFLAGS := -std=c11 -Wall -Wextra -Werror -pedantic \
+	-D ATC_HIRES_ZONEDB=1
 
 .PHONY: zonedb
 
