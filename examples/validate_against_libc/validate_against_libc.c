@@ -89,11 +89,11 @@ int check_zone_names()
   const char doesnotexist[] = "Random/String";
   {
     int local_err = set_time_zone(doesnotexist);
-    if (! local_err) {
+    if (! local_err) { // error expected!
       printf("ERROR: libc time should have returned error for %s\n",
             doesnotexist);
+      err |= 1;
     }
-    err |= local_err;
   }
 
   // Check all the zones and links in the AceTimeC zonedb registry.
@@ -168,11 +168,13 @@ int check_epoch_seconds(const AtcTimeZone *tz, atc_time_t epoch_seconds)
         tz->zone_info->name, epoch_seconds, second, zdt.second);
     return kAtcErrGeneric;
   }
-  if (offset != (long) zdt.offset_minutes * 60) {
+  if (offset != (long) zdt.offset_seconds) {
     printf("ERROR: Zone %s: epoch_seconds=%d; "
         "mismatched UTC offset (%ld != %ld)\n",
-        tz->zone_info->name, epoch_seconds,
-        offset, (long) zdt.offset_minutes * 60);
+        tz->zone_info->name,
+        epoch_seconds,
+        offset,
+        (long) zdt.offset_seconds);
     return kAtcErrGeneric;
   }
   return kAtcErrOk;
@@ -276,5 +278,10 @@ int main()
   setup();
   int err = check_zone_names();
   err |= check_date_components();
+  if (err) {
+    printf("ERROR found\n");
+  } else {
+    printf("OK\n");
+  }
   return err;
 }
