@@ -45,26 +45,26 @@ const char *atc_zone_info_zone_name(const AtcZoneInfo *info);
  */
 const char *atc_zone_info_short_name(const AtcZoneInfo *info);
 
-/** Return the standard offset of the given era in minutes. */
-int16_t atc_zone_era_std_offset_minutes(const AtcZoneEra *era);
+/** Return the standard offset of the given era in seconds. */
+int32_t atc_zone_era_std_offset_seconds(const AtcZoneEra *era);
 
-/** Return the DST offset of the given era in minutes. */
-int16_t atc_zone_era_dst_offset_minutes(const AtcZoneEra *era);
+/** Return the DST offset of the given era in seconds. */
+int32_t atc_zone_era_dst_offset_seconds(const AtcZoneEra *era);
 
-/** Return the UNTIL time in minutes. */
-int16_t atc_zone_era_until_minutes(const AtcZoneEra *era);
+/** Return the UNTIL time in seconds. */
+int32_t atc_zone_era_until_seconds(const AtcZoneEra *era);
 
 /** Return the UNTIL time suffix ('w', 's', 'u') */
 uint8_t atc_zone_era_until_suffix(const AtcZoneEra *era);
 
-/** Return the AT time in minutes. */
-int16_t atc_zone_rule_at_minutes(const AtcZoneRule *rule);
+/** Return the AT time in seconds. */
+int32_t atc_zone_rule_at_seconds(const AtcZoneRule *rule);
 
 /** Return the AT time suffix ('w', 's', 'u') */
 uint8_t atc_zone_rule_at_suffix(const AtcZoneRule *rule);
 
-/** Return the DST offset in minutes. */
-int16_t atc_zone_rule_dst_offset_minutes(const AtcZoneRule *rule);
+/** Return the DST offset in seconds. */
+int32_t atc_zone_rule_dst_offset_seconds(const AtcZoneRule *rule);
 
 #ifdef __cplusplus
 }

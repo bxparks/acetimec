@@ -117,9 +117,9 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_fall_back)
   atc_processor_init(&processor);
   AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
-  // Start our sampling at 01:29:00-07:00, which is 31 minutes before the DST
+  // Start our sampling at 01:29:00-07:00, which is 31 seconds before the DST
   // fall-back.
-  AtcOffsetDateTime odt = { 2022, 11, 6, 1, 29, 0, 0 /*fold*/, -7*60 };
+  AtcOffsetDateTime odt = { 2022, 11, 6, 1, 29, 0, 0 /*fold*/, -7*3600 };
   atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(&odt);
 
   AtcZonedDateTime zdt;
@@ -131,7 +131,7 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_fall_back)
   ACU_ASSERT(1 == zdt.hour);
   ACU_ASSERT(29 == zdt.minute);
   ACU_ASSERT(0 == zdt.second);
-  ACU_ASSERT(-7*60 == zdt.offset_minutes);
+  ACU_ASSERT(-7*3600 == zdt.offset_seconds);
   ACU_ASSERT(0 == zdt.fold);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
@@ -146,7 +146,7 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_fall_back)
   ACU_ASSERT(1 == zdt.hour);
   ACU_ASSERT(29 == zdt.minute);
   ACU_ASSERT(0 == zdt.second);
-  ACU_ASSERT(-8*60 == zdt.offset_minutes);
+  ACU_ASSERT(-8*3600 == zdt.offset_seconds);
   ACU_ASSERT(1 == zdt.fold);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
@@ -161,7 +161,7 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_fall_back)
   ACU_ASSERT(2 == zdt.hour);
   ACU_ASSERT(29 == zdt.minute);
   ACU_ASSERT(0 == zdt.second);
-  ACU_ASSERT(-8*60 == zdt.offset_minutes);
+  ACU_ASSERT(-8*3600 == zdt.offset_seconds);
   ACU_ASSERT(0 == zdt.fold);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
@@ -177,9 +177,9 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward)
   atc_processor_init(&processor);
   AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
 
-  // Start our sampling at 01:29:00-08:00, which is 31 minutes before the DST
+  // Start our sampling at 01:29:00-08:00, which is 31 seconds before the DST
   // spring forward.
-  AtcOffsetDateTime odt = { 2022, 3, 13, 1, 29, 0, 0 /*fold*/, -8*60 };
+  AtcOffsetDateTime odt = { 2022, 3, 13, 1, 29, 0, 0 /*fold*/, -8*3600 };
   atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(&odt);
 
   AtcZonedDateTime zdt;
@@ -191,7 +191,7 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward)
   ACU_ASSERT(1 == zdt.hour);
   ACU_ASSERT(29 == zdt.minute);
   ACU_ASSERT(0 == zdt.second);
-  ACU_ASSERT(-8*60 == zdt.offset_minutes);
+  ACU_ASSERT(-8*3600 == zdt.offset_seconds);
   ACU_ASSERT(0 == zdt.fold);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
@@ -205,7 +205,7 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward)
   ACU_ASSERT(3 == zdt.hour);
   ACU_ASSERT(29 == zdt.minute);
   ACU_ASSERT(0 == zdt.second);
-  ACU_ASSERT(-7*60 == zdt.offset_minutes);
+  ACU_ASSERT(-7*3600 == zdt.offset_seconds);
   ACU_ASSERT(0 == zdt.fold);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
@@ -234,7 +234,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time)
   ACU_ASSERT(zdt.minute == 0);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
-  ACU_ASSERT(zdt.offset_minutes == -8*60);
+  ACU_ASSERT(zdt.offset_seconds == -8*3600);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
   ACU_ASSERT(8 * 60 * 60 == atc_zoned_date_time_to_epoch_seconds(&zdt));
 
@@ -250,7 +250,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time)
   ACU_ASSERT(zdt.minute == 0);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
-  ACU_ASSERT(zdt.offset_minutes == -8*60);
+  ACU_ASSERT(zdt.offset_seconds == -8*3600);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
   ACU_ASSERT(8 * 60 * 60 == atc_zoned_date_time_to_epoch_seconds(&zdt));
 
@@ -277,7 +277,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_epoch2050)
   ACU_ASSERT(zdt.minute == 0);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
-  ACU_ASSERT(zdt.offset_minutes == -8*60);
+  ACU_ASSERT(zdt.offset_seconds == -8*3600);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
   ACU_ASSERT(8 * 60 * 60 == atc_zoned_date_time_to_epoch_seconds(&zdt));
 
@@ -292,7 +292,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_epoch2050)
   ACU_ASSERT(zdt.minute == 0);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
-  ACU_ASSERT(zdt.offset_minutes == -8*60);
+  ACU_ASSERT(zdt.offset_seconds == -8*3600);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
   ACU_ASSERT(8 * 60 * 60 == atc_zoned_date_time_to_epoch_seconds(&zdt));
 
@@ -317,7 +317,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_dst)
   ACU_ASSERT(zdt.minute == 59);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
-  ACU_ASSERT(zdt.offset_minutes == -8*60);
+  ACU_ASSERT(zdt.offset_seconds == -8*3600);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
   // check that input fold=1 gives identical results, with output fold=0
@@ -331,7 +331,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_dst)
   ACU_ASSERT(zdt.minute == 59);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
-  ACU_ASSERT(zdt.offset_minutes == -8*60);
+  ACU_ASSERT(zdt.offset_seconds == -8*3600);
   ACU_ASSERT(zdt.tz.zone_info == &kAtcZoneAmerica_Los_Angeles);
 }
 
@@ -356,7 +356,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_gap)
   ACU_ASSERT(zdt.minute == 1);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0); // only a single matching transition
-  ACU_ASSERT(zdt.offset_minutes == -7*60);
+  ACU_ASSERT(zdt.offset_seconds == -7*3600);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
   // Setting (fold=1) causes the second transition to be selected, which has a
@@ -372,7 +372,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_gap)
   ACU_ASSERT(zdt.minute == 1);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0); // indicate the first transition
-  ACU_ASSERT(zdt.offset_minutes == -8*60);
+  ACU_ASSERT(zdt.offset_seconds == -8*3600);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 }
 
@@ -394,7 +394,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_dst)
   ACU_ASSERT(zdt.minute == 1);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
-  ACU_ASSERT(zdt.offset_minutes == -7*60);
+  ACU_ASSERT(zdt.offset_seconds == -7*3600);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
   // check that input fold=1 gives identical results, with output fold=0
@@ -408,7 +408,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_dst)
   ACU_ASSERT(zdt.minute == 1);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
-  ACU_ASSERT(zdt.offset_minutes == -7*60);
+  ACU_ASSERT(zdt.offset_seconds == -7*3600);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 }
 
@@ -431,7 +431,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_sdt)
   ACU_ASSERT(zdt.minute == 59);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
-  ACU_ASSERT(zdt.offset_minutes == -7*60);
+  ACU_ASSERT(zdt.offset_seconds == -7*3600);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
   // check that input fold=1 gives identical results, with output fold=0
@@ -445,7 +445,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_sdt)
   ACU_ASSERT(zdt.minute == 59);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
-  ACU_ASSERT(zdt.offset_minutes == -7*60);
+  ACU_ASSERT(zdt.offset_seconds == -7*3600);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 }
 
@@ -469,7 +469,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_overlap)
   ACU_ASSERT(zdt.minute == 1);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
-  ACU_ASSERT(zdt.offset_minutes == -7*60);
+  ACU_ASSERT(zdt.offset_seconds == -7*3600);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
   // Setting (fold==1) selects the second instance, resolves to 01:01-08:00.
@@ -483,7 +483,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_overlap)
   ACU_ASSERT(zdt.minute == 1);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 1);
-  ACU_ASSERT(zdt.offset_minutes == -8*60);
+  ACU_ASSERT(zdt.offset_seconds == -8*3600);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 }
 
@@ -505,7 +505,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_after_overlap)
   ACU_ASSERT(zdt.minute == 1);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
-  ACU_ASSERT(zdt.offset_minutes == -8*60);
+  ACU_ASSERT(zdt.offset_seconds == -8*3600);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
   // check that fold=1 gives identical results, while preserving fold
@@ -519,7 +519,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_after_overlap)
   ACU_ASSERT(zdt.minute == 1);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 1);
-  ACU_ASSERT(zdt.offset_minutes == -8*60);
+  ACU_ASSERT(zdt.offset_seconds == -8*3600);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 }
 
@@ -552,7 +552,7 @@ ACU_TEST(test_zoned_date_time_convert)
   ACU_ASSERT(zdtny.minute == 0);
   ACU_ASSERT(zdtny.second == 0);
   ACU_ASSERT(zdtny.fold == 0);
-  ACU_ASSERT(zdtny.offset_minutes == -4*60);
+  ACU_ASSERT(zdtny.offset_seconds == -4*3600);
   ACU_ASSERT(zdtny.tz.zone_info == &kAtcZoneAmerica_New_York);
 }
 
@@ -564,7 +564,7 @@ ACU_TEST(test_zoned_date_time_normalize)
 
   // 2018-03-11 02:30:00-08:00(fold=0) is in the gap. After normalization, it
   // should be 03:30-07:00.
-  AtcZonedDateTime zdt = {2018, 3, 11, 2, 30, 0, 0 /*fold*/, -8*60, tz};
+  AtcZonedDateTime zdt = {2018, 3, 11, 2, 30, 0, 0 /*fold*/, -8*3600, tz};
   int8_t err = atc_zoned_date_time_normalize(&zdt);
 
   ACU_ASSERT(err == kAtcErrOk);
@@ -575,7 +575,7 @@ ACU_TEST(test_zoned_date_time_normalize)
   ACU_ASSERT(zdt.minute == 30);
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
-  ACU_ASSERT(zdt.offset_minutes == -7*60);
+  ACU_ASSERT(zdt.offset_seconds == -7*3600);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 }
 

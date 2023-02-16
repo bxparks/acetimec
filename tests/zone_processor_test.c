@@ -58,13 +58,13 @@ ACU_TEST(test_atc_create_matching_era) {
   ACU_ASSERT(match1.start_dt.year == 2000);
   ACU_ASSERT(match1.start_dt.month == 12);
   ACU_ASSERT(match1.start_dt.day == 1);
-  ACU_ASSERT(match1.start_dt.minutes == 60*0);
+  ACU_ASSERT(match1.start_dt.seconds == 3600*0);
   ACU_ASSERT(match1.start_dt.suffix == kAtcSuffixW);
   //
   ACU_ASSERT(match1.until_dt.year == 2000);
   ACU_ASSERT(match1.until_dt.month == 12);
   ACU_ASSERT(match1.until_dt.day == 2);
-  ACU_ASSERT(match1.until_dt.minutes == 60*3);
+  ACU_ASSERT(match1.until_dt.seconds == 3600*3);
   ACU_ASSERT(match1.until_dt.suffix == kAtcSuffixW);
   //
   ACU_ASSERT(match1.era == &era1);
@@ -81,13 +81,13 @@ ACU_TEST(test_atc_create_matching_era) {
   ACU_ASSERT(match2.start_dt.year == 2000);
   ACU_ASSERT(match2.start_dt.month == 12);
   ACU_ASSERT(match2.start_dt.day == 2);
-  ACU_ASSERT(match2.start_dt.minutes == 60*3);
+  ACU_ASSERT(match2.start_dt.seconds == 3600*3);
   ACU_ASSERT(match2.start_dt.suffix == kAtcSuffixW);
   //
   ACU_ASSERT(match2.until_dt.year == 2001);
   ACU_ASSERT(match2.until_dt.month == 2);
   ACU_ASSERT(match2.until_dt.day == 3);
-  ACU_ASSERT(match2.until_dt.minutes == 60*4);
+  ACU_ASSERT(match2.until_dt.seconds == 3600*4);
   ACU_ASSERT(match2.until_dt.suffix == kAtcSuffixW);
   //
   ACU_ASSERT(match2.era == &era2);
@@ -104,13 +104,13 @@ ACU_TEST(test_atc_create_matching_era) {
   ACU_ASSERT(match3.start_dt.year == 2001);
   ACU_ASSERT(match3.start_dt.month == 2);
   ACU_ASSERT(match3.start_dt.day == 3);
-  ACU_ASSERT(match3.start_dt.minutes == 60*4);
+  ACU_ASSERT(match3.start_dt.seconds == 3600*4);
   ACU_ASSERT(match3.start_dt.suffix == kAtcSuffixW);
   //
   ACU_ASSERT(match3.until_dt.year == 2002);
   ACU_ASSERT(match3.until_dt.month == 2);
   ACU_ASSERT(match3.until_dt.day == 1);
-  ACU_ASSERT(match3.until_dt.minutes == 60*0);
+  ACU_ASSERT(match3.until_dt.seconds == 3600*0);
   ACU_ASSERT(match3.until_dt.suffix == kAtcSuffixW);
   //
   ACU_ASSERT(match3.era == &era3);
@@ -194,14 +194,14 @@ ACU_TEST(test_atc_processor_find_matches_simple) {
     ACU_ASSERT(sdt->year == 2018);
     ACU_ASSERT(sdt->month == 12);
     ACU_ASSERT(sdt->day == 1);
-    ACU_ASSERT(sdt->minutes == 0);
+    ACU_ASSERT(sdt->seconds == 0);
     ACU_ASSERT(sdt->suffix == kAtcSuffixW);
     //
     AtcDateTuple *udt = &matches[0].until_dt;
     ACU_ASSERT(udt->year == 2019);
     ACU_ASSERT(udt->month == 3);
     ACU_ASSERT(udt->day == 10);
-    ACU_ASSERT(udt->minutes == 15*8);
+    ACU_ASSERT(udt->seconds == 2*3600);
     ACU_ASSERT(udt->suffix == kAtcSuffixW);
     //
     const AtcZoneEra *eras =
@@ -214,14 +214,14 @@ ACU_TEST(test_atc_processor_find_matches_simple) {
     ACU_ASSERT(sdt->year == 2019);
     ACU_ASSERT(sdt->month == 3);
     ACU_ASSERT(sdt->day == 10);
-    ACU_ASSERT(sdt->minutes == 15*8);
+    ACU_ASSERT(sdt->seconds == 2*3600);
     ACU_ASSERT(sdt->suffix == kAtcSuffixW);
     //
     AtcDateTuple *udt = &matches[1].until_dt;
     ACU_ASSERT(udt->year == 2019);
     ACU_ASSERT(udt->month == 11);
     ACU_ASSERT(udt->day == 3);
-    ACU_ASSERT(udt->minutes == 15*8);
+    ACU_ASSERT(udt->seconds == 2*3600);
     ACU_ASSERT(udt->suffix == kAtcSuffixW);
     //
     const AtcZoneEra *eras =
@@ -234,14 +234,14 @@ ACU_TEST(test_atc_processor_find_matches_simple) {
     ACU_ASSERT(sdt->year == 2019);
     ACU_ASSERT(sdt->month == 11);
     ACU_ASSERT(sdt->day == 3);
-    ACU_ASSERT(sdt->minutes == 15*8);
+    ACU_ASSERT(sdt->seconds == 2*3600);
     ACU_ASSERT(sdt->suffix == kAtcSuffixW);
     //
     AtcDateTuple *udt = &matches[2].until_dt;
     ACU_ASSERT(udt->year == 2020);
     ACU_ASSERT(udt->month == 2);
     ACU_ASSERT(udt->day == 1);
-    ACU_ASSERT(udt->minutes == 0);
+    ACU_ASSERT(udt->seconds == 0);
     ACU_ASSERT(udt->suffix == kAtcSuffixW);
     //
     const AtcZoneEra *eras =
@@ -265,14 +265,14 @@ ACU_TEST(test_atc_processor_find_matches_named)
   ACU_ASSERT(sdt->year == 2018);
   ACU_ASSERT(sdt->month == 12);
   ACU_ASSERT(sdt->day == 1);
-  ACU_ASSERT(sdt->minutes == 0);
+  ACU_ASSERT(sdt->seconds == 0);
   ACU_ASSERT(sdt->suffix == kAtcSuffixW);
 
   AtcDateTuple *udt = &matches[0].until_dt;
   ACU_ASSERT(udt->year == 2020);
   ACU_ASSERT(udt->month == 2);
   ACU_ASSERT(udt->day == 1);
-  ACU_ASSERT(udt->minutes == 0);
+  ACU_ASSERT(udt->seconds == 0);
   ACU_ASSERT(udt->suffix == kAtcSuffixW);
 
   const AtcZoneEra *eras =
@@ -338,7 +338,7 @@ ACU_TEST(test_atc_processor_get_transition_time) {
   ACU_ASSERT(dt.year == 2018);
   ACU_ASSERT(dt.month == 11);
   ACU_ASSERT(dt.day == 4);
-  ACU_ASSERT(dt.minutes == 15*8);
+  ACU_ASSERT(dt.seconds == 2*3600);
   ACU_ASSERT(dt.suffix == kAtcSuffixW);
 
   // Nov 3 2019
@@ -346,7 +346,7 @@ ACU_TEST(test_atc_processor_get_transition_time) {
   ACU_ASSERT(dt.year == 2019);
   ACU_ASSERT(dt.month == 11);
   ACU_ASSERT(dt.day == 3);
-  ACU_ASSERT(dt.minutes == 15*8);
+  ACU_ASSERT(dt.seconds == 2*3600);
   ACU_ASSERT(dt.suffix == kAtcSuffixW);
 }
 
@@ -366,13 +366,13 @@ ACU_TEST(test_atc_processor_create_transition_for_year) {
   AtcTransition t;
   atc_processor_create_transition_for_year(
       &t, 2019, rule, &match, kAtcZoneContext.letters);
-  ACU_ASSERT(t.offset_minutes == -15*32);
-  ACU_ASSERT(t.delta_minutes == 0);
+  ACU_ASSERT(t.offset_seconds == -8*3600);
+  ACU_ASSERT(t.delta_seconds == 0);
   const AtcDateTuple *tt = &t.transition_time;
   ACU_ASSERT(tt->year == 2019);
   ACU_ASSERT(tt->month == 11);
   ACU_ASSERT(tt->day == 3);
-  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->seconds == 2*3600);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
 }
 
@@ -474,35 +474,35 @@ ACU_TEST(test_atc_processor_find_candidate_transitions) {
   ACU_ASSERT(tt->year == 2018);
   ACU_ASSERT(tt->month == 3);
   ACU_ASSERT(tt->day == 11);
-  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->seconds == 2*3600);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
   //
   tt = &(*t++)->transition_time;
   ACU_ASSERT(tt->year == 2018);
   ACU_ASSERT(tt->month == 11);
   ACU_ASSERT(tt->day == 4);
-  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->seconds == 2*3600);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
   //
   tt = &(*t++)->transition_time;
   ACU_ASSERT(tt->year == 2019);
   ACU_ASSERT(tt->month == 3);
   ACU_ASSERT(tt->day == 10);
-  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->seconds == 2*3600);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
   //
   tt = &(*t++)->transition_time;
   ACU_ASSERT(tt->year == 2019);
   ACU_ASSERT(tt->month == 11);
   ACU_ASSERT(tt->day == 3);
-  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->seconds == 2*3600);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
   //
   tt = &(*t++)->transition_time;
   ACU_ASSERT(tt->year == 2020);
   ACU_ASSERT(tt->month == 3);
   ACU_ASSERT(tt->day == 8);
-  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->seconds == 2*3600);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
 }
 
@@ -638,21 +638,21 @@ ACU_TEST(test_atc_processor_create_transitions_from_named_match)
   ACU_ASSERT(tt->year == 2018);
   ACU_ASSERT(tt->month == 12);
   ACU_ASSERT(tt->day == 1);
-  ACU_ASSERT(tt->minutes == 0);
+  ACU_ASSERT(tt->seconds == 0);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
   //
   tt = &(*t++)->transition_time;
   ACU_ASSERT(tt->year == 2019);
   ACU_ASSERT(tt->month == 3);
   ACU_ASSERT(tt->day == 10);
-  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->seconds == 2*3600);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
   //
   tt = &(*t++)->transition_time;
   ACU_ASSERT(tt->year == 2019);
   ACU_ASSERT(tt->month == 11);
   ACU_ASSERT(tt->day == 3);
-  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->seconds == 2*3600);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
 }
 
@@ -663,32 +663,35 @@ ACU_TEST(test_atc_processor_create_transitions_from_named_match)
 #if ENABLE_DEBUG >= 1
 static void print_date_tuple(const AtcDateTuple *dt)
 {
-  int16_t ms = dt->minutes;
-  int16_t h = ms / 60;
-  int16_t m = ms % 60;
+  int32_t seconds = dt->seconds;
+  int16_t s = seconds % 60;
+  int32_t minutes = seconds / 60;
+  int16_t m = minutes % 60;
+  int16_t h = minutes / 60;
   char suffix =
       (dt->suffix == kAtcSuffixW ? 'w' :
       (dt->suffix == kAtcSuffixS ? 's' :
       (dt->suffix == kAtcSuffixU ? 'u' : '?')));
-  printf("%04d-%02d-%02d %02d:%02d%c",
+  printf("%04d-%02d-%02d %02d:%02d:%02d%c",
       dt->year,
       dt->month,
       dt->day,
       h,
       m,
+      s,
       suffix);
 }
 
-static void print_transition(const AtcTransition *t)
+static void print_transition(const char *label, const AtcTransition *t)
 {
-  printf("tt=");
+  printf("%s: tt=", label);
   print_date_tuple(&t->transition_time);
   printf(";tts=");
   print_date_tuple(&t->transition_time_s);
   printf(";ttu=");
   print_date_tuple(&t->transition_time_u);
-  printf(";offset=%d", t->offset_minutes);
-  printf(";delta=%d", t->delta_minutes);
+  printf(";offset=%d", t->offset_seconds);
+  printf(";delta=%d", t->delta_seconds);
   printf("\n");
 }
 #endif
@@ -725,18 +728,18 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
   AtcTransition *transition1 = begin[1];
   AtcTransition *transition2 = begin[2];
 #if ENABLE_DEBUG >= 1
-  print_transition(transition0);
-  print_transition(transition1);
-  print_transition(transition2);
+  print_transition("t0", transition0);
+  print_transition("t1", transition1);
+  print_transition("t2", transition2);
 #endif
 
   // Step 3: Chain the transitions by fixing the transition times.
   atc_transition_fix_times(begin, end);
 
 #if ENABLE_DEBUG >= 1
-  print_transition(transition0);
-  print_transition(transition1);
-  print_transition(transition2);
+  print_transition("t0", transition0);
+  print_transition("t1", transition1);
+  print_transition("t2", transition2);
 #endif
 
   // Step 3: Verification: The first Transition starts at 2017-12-01.
@@ -744,19 +747,19 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
   ACU_ASSERT(tt->year == 2017);
   ACU_ASSERT(tt->month == 12);
   ACU_ASSERT(tt->day == 1);
-  ACU_ASSERT(tt->minutes == 0);
+  ACU_ASSERT(tt->seconds == 0);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
   AtcDateTuple *tts = &transition0->transition_time_s;
   ACU_ASSERT(tts->year == 2017);
   ACU_ASSERT(tts->month == 12);
   ACU_ASSERT(tts->day == 1);
-  ACU_ASSERT(tts->minutes == 0);
+  ACU_ASSERT(tts->seconds == 0);
   ACU_ASSERT(tts->suffix == kAtcSuffixS);
   AtcDateTuple *ttu = &transition0->transition_time_u;
   ACU_ASSERT(ttu->year == 2017);
   ACU_ASSERT(ttu->month == 12);
   ACU_ASSERT(ttu->day == 1);
-  ACU_ASSERT(ttu->minutes == 15*32);
+  ACU_ASSERT(ttu->seconds == 8*3600);
   ACU_ASSERT(ttu->suffix == kAtcSuffixU);
 
   // Step 3: Verification: Second transition springs forward at 2018-03-11
@@ -765,19 +768,19 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
   ACU_ASSERT(tt->year == 2018);
   ACU_ASSERT(tt->month == 3);
   ACU_ASSERT(tt->day == 11);
-  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->seconds == 2*3600);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
   tts = &transition1->transition_time_s;
   ACU_ASSERT(tts->year == 2018);
   ACU_ASSERT(tts->month == 3);
   ACU_ASSERT(tts->day == 11);
-  ACU_ASSERT(tts->minutes == 15*8);
+  ACU_ASSERT(tts->seconds == 2*3600);
   ACU_ASSERT(tts->suffix == kAtcSuffixS);
   ttu = &transition1->transition_time_u;
   ACU_ASSERT(ttu->year == 2018);
   ACU_ASSERT(ttu->month == 3);
   ACU_ASSERT(ttu->day == 11);
-  ACU_ASSERT(ttu->minutes == 15*40);
+  ACU_ASSERT(ttu->seconds == 10*3600);
   ACU_ASSERT(ttu->suffix == kAtcSuffixU);
 
   // Step 3: Verification: Third transition falls back at 2018-11-04 02:00.
@@ -785,19 +788,19 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
   ACU_ASSERT(tt->year == 2018);
   ACU_ASSERT(tt->month == 11);
   ACU_ASSERT(tt->day == 4);
-  ACU_ASSERT(tt->minutes == 15*8);
+  ACU_ASSERT(tt->seconds == 2*3600);
   ACU_ASSERT(tt->suffix == kAtcSuffixW);
   tts = &transition2->transition_time_s;
   ACU_ASSERT(tts->year == 2018);
   ACU_ASSERT(tts->month == 11);
   ACU_ASSERT(tts->day == 4);
-  ACU_ASSERT(tts->minutes == 15*4);
+  ACU_ASSERT(tts->seconds == 1*3600);
   ACU_ASSERT(tts->suffix == kAtcSuffixS);
   ttu = &transition2->transition_time_u;
   ACU_ASSERT(ttu->year == 2018);
   ACU_ASSERT(ttu->month == 11);
   ACU_ASSERT(ttu->day == 4);
-  ACU_ASSERT(ttu->minutes == 15*36);
+  ACU_ASSERT(ttu->seconds == 9*3600);
   ACU_ASSERT(ttu->suffix == kAtcSuffixU);
 
   // Step 4: Generate the startDateTime and untilDateTime of the transitions.
@@ -809,20 +812,22 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
   ACU_ASSERT(sdt->year == 2017);
   ACU_ASSERT(sdt->month == 12);
   ACU_ASSERT(sdt->day == 1);
-  ACU_ASSERT(sdt->minutes == 0);
+  ACU_ASSERT(sdt->seconds == 0);
   ACU_ASSERT(sdt->suffix == kAtcSuffixW);
   //
   AtcDateTuple *udt = &transition0->until_dt;
   ACU_ASSERT(udt->year == 2018);
   ACU_ASSERT(udt->month == 3);
   ACU_ASSERT(udt->day == 11);
-  ACU_ASSERT(udt->minutes == 15*8);
+  ACU_ASSERT(udt->seconds == 2*3600);
   ACU_ASSERT(udt->suffix == kAtcSuffixW);
   //
   AtcOffsetDateTime odt = {
-    2017, 12, 1, 0, 0, 0, 0 /*fold*/, -8*60 /*offset_minutes*/
+    2017, 12, 1, 0, 0, 0, 0 /*fold*/, -8*3600 /*offset_seconds*/
   };
   atc_time_t eps = atc_offset_date_time_to_epoch_seconds(&odt);
+  printf("eps=%d; transition->start_epoch_seconds=%d\n",
+      (int) eps, (int) transition0->start_epoch_seconds);
   ACU_ASSERT(eps == transition0->start_epoch_seconds);
 
   // Step 4: Verification: Second transition startTime is shifted forward one
@@ -831,18 +836,18 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
   ACU_ASSERT(sdt->year == 2018);
   ACU_ASSERT(sdt->month == 3);
   ACU_ASSERT(sdt->day == 11);
-  ACU_ASSERT(sdt->minutes == 15*12);
+  ACU_ASSERT(sdt->seconds == 3*3600);
   ACU_ASSERT(sdt->suffix == kAtcSuffixW);
   //
   udt = &transition1->until_dt;
   ACU_ASSERT(udt->year == 2018);
   ACU_ASSERT(udt->month == 11);
   ACU_ASSERT(udt->day == 4);
-  ACU_ASSERT(udt->minutes == 15*8);
+  ACU_ASSERT(udt->seconds == 2*3600);
   ACU_ASSERT(udt->suffix == kAtcSuffixW);
   //
   odt = (AtcOffsetDateTime) {
-    2018, 3, 11, 3, 0, 0, 0 /*fold*/, -7*60 /*offset_minutes*/
+    2018, 3, 11, 3, 0, 0, 0 /*fold*/, -7*3600 /*offset_seconds*/
   };
   eps = atc_offset_date_time_to_epoch_seconds(&odt);
   ACU_ASSERT(eps == transition1->start_epoch_seconds);
@@ -853,18 +858,18 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
   ACU_ASSERT(sdt->year == 2018);
   ACU_ASSERT(sdt->month == 11);
   ACU_ASSERT(sdt->day == 4);
-  ACU_ASSERT(sdt->minutes == 15*4);
+  ACU_ASSERT(sdt->seconds == 1*3600);
   ACU_ASSERT(sdt->suffix == kAtcSuffixW);
   //
   udt = &transition2->until_dt;
   ACU_ASSERT(udt->year == 2019);
   ACU_ASSERT(udt->month == 2);
   ACU_ASSERT(udt->day == 1);
-  ACU_ASSERT(udt->minutes == 0);
+  ACU_ASSERT(udt->seconds == 0);
   ACU_ASSERT(udt->suffix == kAtcSuffixW);
   //
   odt = (AtcOffsetDateTime) {
-    2018, 11, 4, 1, 0, 0, 0 /*fold*/, -8*60 /*offset_minutes*/
+    2018, 11, 4, 1, 0, 0, 0 /*fold*/, -8*3600 /*offset_seconds*/
   };
   eps = atc_offset_date_time_to_epoch_seconds(&odt);
   ACU_ASSERT(eps == transition2->start_epoch_seconds);

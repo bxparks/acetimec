@@ -36,20 +36,21 @@ const char *atc_zone_info_short_name(const AtcZoneInfo *info)
 
 //---------------------------------------------------------------------------
 
-int16_t atc_zone_era_std_offset_minutes(const AtcZoneEra *era)
+int32_t atc_zone_era_std_offset_seconds(const AtcZoneEra *era)
 {
-  return (era->offset_code * 15) + ((era->delta_code & 0xf0) >> 4);
+  return 60 * (int32_t)
+      ((era->offset_code * 15) + ((era->delta_code & 0xf0) >> 4));
 }
 
-int16_t atc_zone_era_dst_offset_minutes(const AtcZoneEra *era)
+int32_t atc_zone_era_dst_offset_seconds(const AtcZoneEra *era)
 {
-  return ((int16_t)(era->delta_code & 0x0f) - 4) * 15;
+  return ((int32_t)(era->delta_code & 0x0f) - 4) * 15 * 60;
 }
 
-int16_t atc_zone_era_until_minutes(const AtcZoneEra *era)
+int32_t atc_zone_era_until_seconds(const AtcZoneEra *era)
 {
-  return era->until_time_code * (uint16_t) 15
-      + (era->until_time_modifier & 0x0f);
+  return (era->until_time_code * (int32_t) 15
+      + (era->until_time_modifier & 0x0f)) * 60;
 }
 
 uint8_t atc_zone_era_until_suffix(const AtcZoneEra *era)
@@ -59,10 +60,10 @@ uint8_t atc_zone_era_until_suffix(const AtcZoneEra *era)
 
 //---------------------------------------------------------------------------
 
-int16_t atc_zone_rule_at_minutes(const AtcZoneRule *rule)
+int32_t atc_zone_rule_at_seconds(const AtcZoneRule *rule)
 {
-  return rule->at_time_code * (uint16_t) 15
-      + (rule->at_time_modifier & 0x0f);
+  return (rule->at_time_code * (int32_t) 15
+      + (rule->at_time_modifier & 0x0f)) * 60;
 }
 
 uint8_t atc_zone_rule_at_suffix(const AtcZoneRule *rule)
@@ -70,7 +71,7 @@ uint8_t atc_zone_rule_at_suffix(const AtcZoneRule *rule)
   return rule->at_time_modifier & 0xf0;
 }
 
-int16_t atc_zone_rule_dst_offset_minutes(const AtcZoneRule *rule)
+int32_t atc_zone_rule_dst_offset_seconds(const AtcZoneRule *rule)
 {
-  return ((int16_t)(rule->delta_code & 0x0f) - 4) * 15;
+  return ((int32_t)(rule->delta_code & 0x0f) - 4) * 15 * 60;
 }

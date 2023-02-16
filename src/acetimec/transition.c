@@ -177,8 +177,8 @@ void atc_transition_fix_times(
     AtcTransition *curr = *iter;
     atc_date_tuple_expand(
         &curr->transition_time,
-        prev->offset_minutes,
-        prev->delta_minutes,
+        prev->offset_seconds,
+        prev->delta_seconds,
         &curr->transition_time,
         &curr->transition_time_s,
         &curr->transition_time_u);
@@ -192,14 +192,14 @@ uint8_t atc_transition_compare_to_match(
     const AtcTransition *t, const AtcMatchingEra *match)
 {
   // Find the previous Match offsets.
-  int16_t prev_match_offset_minutes;
-  int16_t prev_match_delta_minutes;
+  int32_t prev_match_offset_seconds;
+  int32_t prev_match_delta_seconds;
   if (match->prev_match) {
-    prev_match_offset_minutes = match->prev_match->last_offset_minutes;
-    prev_match_delta_minutes = match->prev_match->last_delta_minutes;
+    prev_match_offset_seconds = match->prev_match->last_offset_seconds;
+    prev_match_delta_seconds = match->prev_match->last_delta_seconds;
   } else {
-    prev_match_offset_minutes = atc_zone_era_std_offset_minutes(match->era);
-    prev_match_delta_minutes = 0;
+    prev_match_offset_seconds = atc_zone_era_std_offset_seconds(match->era);
+    prev_match_delta_seconds = 0;
   }
 
   // Expand start times.
@@ -208,8 +208,8 @@ uint8_t atc_transition_compare_to_match(
   AtcDateTuple stu;
   atc_date_tuple_expand(
       &match->start_dt,
-      prev_match_offset_minutes,
-      prev_match_delta_minutes,
+      prev_match_offset_seconds,
+      prev_match_delta_seconds,
       &stw,
       &sts,
       &stu);
@@ -360,7 +360,7 @@ AtcTransitionForDateTime atc_transition_storage_find_for_date_time(
       ldt->year,
       ldt->month,
       ldt->day,
-      (int16_t) (ldt->hour * 60 + ldt->minute),
+      (ldt->hour * (int32_t) 60 + ldt->minute) * 60 + ldt->second,
       kAtcSuffixW
   };
 

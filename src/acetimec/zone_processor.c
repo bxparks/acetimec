@@ -25,8 +25,10 @@ int8_t atc_compare_era_to_year_month(
   if (era->until_month < month) return -1;
   if (era->until_month > month) return 1;
   if (era->until_day > 1) return 1;
-  //if (era->until_time_minutes < 0) return -1; // never possible
-  if (era->until_time_code > 0) return 1;
+
+  int32_t until_time_seconds = atc_zone_era_until_seconds(era);
+  // if (until_time_seconds < 0) return -1; // never possible
+  if (until_time_seconds > 0) return 1;
   return 0;
 }
 
@@ -73,13 +75,13 @@ void atc_create_matching_era(
     start_date.year = kAtcInvalidYear;
     start_date.month = 1;
     start_date.day = 1;
-    start_date.minutes = 0;
+    start_date.seconds = 0;
     start_date.suffix = kAtcSuffixW;
   } else {
     start_date.year = prev_match->era->until_year;
     start_date.month = prev_match->era->until_month;
     start_date.day = prev_match->era->until_day;
-    start_date.minutes = atc_zone_era_until_minutes(prev_match->era);
+    start_date.seconds = atc_zone_era_until_seconds(prev_match->era);
     start_date.suffix = atc_zone_era_until_suffix(prev_match->era);
   }
   AtcDateTuple lower_bound = {
@@ -97,7 +99,7 @@ void atc_create_matching_era(
     era->until_year,
     era->until_month,
     era->until_day,
-    atc_zone_era_until_minutes(era),
+    atc_zone_era_until_seconds(era),
     atc_zone_era_until_suffix(era),
   };
   AtcDateTuple upper_bound = {
@@ -115,8 +117,8 @@ void atc_create_matching_era(
   new_match->until_dt = until_date;
   new_match->era = era;
   new_match->prev_match = prev_match;
-  new_match->last_offset_minutes = 0;
-  new_match->last_delta_minutes = 0;
+  new_match->last_offset_seconds = 0;
+  new_match->last_delta_seconds = 0;
 }
 
 AtcMonthDay atc_processor_calc_start_day_of_month(
@@ -214,7 +216,7 @@ void atc_processor_get_transition_time(
   dt->year = year;
   dt->month = md.month;
   dt->day = md.day;
-  dt->minutes = atc_zone_rule_at_minutes(rule);
+  dt->seconds = atc_zone_rule_at_seconds(rule);
   dt->suffix = atc_zone_rule_at_suffix(rule);
 }
 
@@ -227,17 +229,17 @@ void atc_processor_create_transition_for_year(
 {
   t->match = match;
   t->rule = rule;
-  t->offset_minutes = atc_zone_era_std_offset_minutes(match->era);
+  t->offset_seconds = atc_zone_era_std_offset_seconds(match->era);
 
   if (rule) {
     atc_processor_get_transition_time(year, rule, &t->transition_time);
-    t->delta_minutes = atc_zone_rule_dst_offset_minutes(rule);
+    t->delta_seconds = atc_zone_rule_dst_offset_seconds(rule);
     t->letter = letters[rule->letter_index];
   } else {
     // Create a Transition using the MatchingEra for the transitionTime.
     // Used for simple MatchingEra.
     t->transition_time = match->start_dt;
-    t->delta_minutes = atc_zone_era_dst_offset_minutes(match->era);
+    t->delta_seconds = atc_zone_era_dst_offset_seconds(match->era);
     t->letter = "";
   }
 }
@@ -250,8 +252,8 @@ void atc_processor_create_transitions_from_simple_match(
   atc_processor_create_transition_for_year(
       free_agent, 0 /*year*/, NULL /*rule*/, match, NULL /*letters*/);
   free_agent->match_status = kAtcCompareExactMatch;
-  match->last_offset_minutes = free_agent->offset_minutes;
-  match->last_delta_minutes = free_agent->delta_minutes;
+  match->last_offset_seconds = free_agent->offset_seconds;
+  match->last_delta_seconds = free_agent->delta_seconds;
   atc_transition_storage_add_free_agent_to_active_pool(ts);
 }
 
@@ -429,8 +431,8 @@ void atc_processor_create_transitions_from_named_match(
       &ts->transitions[ts->index_free]);
   AtcTransition *last_transition =
       atc_transition_storage_add_active_candidates_to_active_pool(ts);
-  match->last_offset_minutes = last_transition->offset_minutes;
-  match->last_delta_minutes = last_transition->delta_minutes;
+  match->last_offset_seconds = last_transition->offset_seconds;
+  match->last_delta_seconds = last_transition->delta_seconds;
 }
 
 //---------------------------------------------------------------------------
@@ -483,13 +485,13 @@ void atc_processor_generate_start_until_times(
     // 2) Calculate the current startDateTime by shifting the
     // transitionTime (represented in the UTC offset of the previous
     // transition) into the UTC offset of the *current* transition.
-    int16_t minutes = tt->minutes + (
-        - prev->offset_minutes - prev->delta_minutes
-        + t->offset_minutes + t->delta_minutes);
+    int32_t seconds = tt->seconds + (
+        - prev->offset_seconds - prev->delta_seconds
+        + t->offset_seconds + t->delta_seconds);
     t->start_dt.year = tt->year;
     t->start_dt.month = tt->month;
     t->start_dt.day = tt->day;
-    t->start_dt.minutes = minutes;
+    t->start_dt.seconds = seconds;
     t->start_dt.suffix = tt->suffix;
     atc_date_tuple_normalize(&t->start_dt);
 
@@ -504,10 +506,10 @@ void atc_processor_generate_start_until_times(
     // hasn't been clobbered by 'untilDateTime' yet. Not sure if this saves
     // any CPU time though, since we still need to mutiply by 900.
     const AtcDateTuple *st = &t->start_dt;
-    const atc_time_t offset_seconds = (atc_time_t) 60
-        * (st->minutes - (t->offset_minutes + t->delta_minutes));
-    int32_t epoch_seconds = (int32_t) 86400 * atc_local_date_to_epoch_days(
-        st->year, st->month, st->day);
+    const atc_time_t offset_seconds = (atc_time_t)
+        (st->seconds - (t->offset_seconds + t->delta_seconds));
+    atc_time_t epoch_seconds = (atc_time_t) 86400
+        * atc_local_date_to_epoch_days(st->year, st->month, st->day);
     t->start_epoch_seconds = epoch_seconds + offset_seconds;
 
     prev = t;
@@ -520,8 +522,8 @@ void atc_processor_generate_start_until_times(
   AtcDateTuple until_time_u;
   atc_date_tuple_expand(
       &prev->match->until_dt,
-      prev->offset_minutes,
-      prev->delta_minutes,
+      prev->offset_seconds,
+      prev->delta_seconds,
       &until_time_w,
       &until_time_s,
       &until_time_u);
@@ -537,7 +539,7 @@ void atc_processor_create_abbreviation(
     char *dest,
     uint8_t dest_size,
     const char *format,
-    int16_t delta_minutes,
+    int32_t delta_seconds,
     const char *letter_string) {
 
   // Check if FORMAT contains a '%'.
@@ -554,7 +556,7 @@ void atc_processor_create_abbreviation(
     // Check if FORMAT contains a '/'.
     const char* slash_pos = strchr(format, '/');
     if (slash_pos != NULL) {
-      if (delta_minutes == 0) {
+      if (delta_seconds == 0) {
         uint8_t head_length = (slash_pos - format);
         if (head_length >= dest_size) head_length = dest_size - 1;
         memcpy(dest, format, head_length);
@@ -566,7 +568,7 @@ void atc_processor_create_abbreviation(
         dest[tail_length] = '\0';
       }
     } else {
-      // Just copy the FORMAT disregarding delta_minutes and letter_string.
+      // Just copy the FORMAT disregarding delta_seconds and letter_string.
       strncpy(dest, format, dest_size);
       dest[dest_size - 1] = '\0';
     }
@@ -583,7 +585,7 @@ void atc_processor_calc_abbreviations(
         t->abbrev,
         kAtcAbbrevSize,
         t->match->era->format,
-        t->delta_minutes,
+        t->delta_seconds,
         t->letter);
   }
 }
@@ -689,10 +691,10 @@ int8_t atc_processor_find_by_epoch_seconds(
   const AtcTransition *t = tfs.curr;
   if (! t) return kAtcErrGeneric;
 
-  result->std_offset_minutes = t->offset_minutes;
-  result->dst_offset_minutes = t->delta_minutes;
-  result->req_std_offset_minutes = t->offset_minutes;
-  result->req_dst_offset_minutes = t->delta_minutes;
+  result->std_offset_seconds = t->offset_seconds;
+  result->dst_offset_seconds = t->delta_seconds;
+  result->req_std_offset_seconds = t->offset_seconds;
+  result->req_dst_offset_seconds = t->delta_seconds;
   result->abbrev = t->abbrev;
   result->fold = tfs.fold;
   if (tfs.num == 2) {
@@ -724,8 +726,8 @@ int8_t atc_processor_find_by_local_date_time(
       transition = tfd.curr;
       result->type = kAtcFindResultExact;
       result->fold = 0;
-      result->req_std_offset_minutes = transition->offset_minutes;
-      result->req_dst_offset_minutes = transition->delta_minutes;
+      result->req_std_offset_seconds = transition->offset_seconds;
+      result->req_dst_offset_seconds = transition->delta_seconds;
     } else { // num = 0 or 2
       if (tfd.prev == NULL || tfd.curr == NULL) {
         // ldt was far past or far future
@@ -739,16 +741,16 @@ int8_t atc_processor_find_by_local_date_time(
           if (ldt->fold == 0) {
             // ldt wants to use the 'prev' transition to convert to
             // epochSeconds.
-            result->req_std_offset_minutes = tfd.prev->offset_minutes;
-            result->req_dst_offset_minutes = tfd.prev->delta_minutes;
+            result->req_std_offset_seconds = tfd.prev->offset_seconds;
+            result->req_dst_offset_seconds = tfd.prev->delta_seconds;
             // But after normalization, it will be shifted into the curr
             // transition, so select 'curr' as the target transition.
             transition = tfd.curr;
           } else {
             // ldt wants to use the 'curr' transition to convert to
             // epochSeconds.
-            result->req_std_offset_minutes = tfd.curr->offset_minutes;
-            result->req_dst_offset_minutes = tfd.curr->delta_minutes;
+            result->req_std_offset_seconds = tfd.curr->offset_seconds;
+            result->req_dst_offset_seconds = tfd.curr->delta_seconds;
             // But after normalization, it will be shifted into the prev
             // transition, so select 'prev' as the target transition.
             transition = tfd.prev;
@@ -757,8 +759,8 @@ int8_t atc_processor_find_by_local_date_time(
           transition = (ldt->fold == 0) ? tfd.prev : tfd.curr;
           result->type = kAtcFindResultOverlap;
           result->fold = ldt->fold;
-          result->req_std_offset_minutes = transition->offset_minutes;
-          result->req_dst_offset_minutes = transition->delta_minutes;
+          result->req_std_offset_seconds = transition->offset_seconds;
+          result->req_dst_offset_seconds = transition->delta_seconds;
         }
       }
     }
@@ -768,8 +770,8 @@ int8_t atc_processor_find_by_local_date_time(
       return kAtcErrGeneric; // TOOD: should this be kAtcErrOk?
     }
 
-    result->std_offset_minutes = transition->offset_minutes;
-    result->dst_offset_minutes = transition->delta_minutes;
+    result->std_offset_seconds = transition->offset_seconds;
+    result->dst_offset_seconds = transition->delta_seconds;
     result->abbrev = transition->abbrev;
 
     return kAtcErrOk;

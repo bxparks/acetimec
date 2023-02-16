@@ -8,8 +8,8 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
     {2001, 1, 1, 0, kAtcSuffixW} /* until_dt */,
     NULL /*era*/,
     NULL /*prev_match*/,
-    0 /*last_offset_minutes*/,
-    0 /*last_delta_minutes*/
+    0 /*last_offset_seconds*/,
+    0 /*last_delta_seconds*/
   };
 
   AtcTransition transition = {
@@ -19,8 +19,8 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
     {{0, 0, 0, 0, 0}} /*start_dt*/,
     {{0, 0, 0, 0, 0}} /*until_dt*/,
     0 /*start_epoch_seconds*/,
-    0 /*offset_minutes*/,
-    0 /*delta_minutes*/,
+    0 /*offset_seconds*/,
+    0 /*delta_seconds*/,
     {0} /*abbrev*/,
     NULL /*letter*/,
     {0} /*match_status*/
@@ -35,8 +35,8 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
     {{0, 0, 0, 0, 0}} /*start_dt*/,
     {{0, 0, 0, 0, 0}} /*until_dt*/,
     0 /*start_epoch_seconds*/,
-    0 /*offset_minutes*/,
-    0 /*delta_minutes*/,
+    0 /*offset_seconds*/,
+    0 /*delta_seconds*/,
     {0} /*abbrev*/,
     NULL /*letter*/,
     {0} /*match_status*/
@@ -51,8 +51,8 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
     {{0, 0, 0, 0, 0}} /*start_dt*/,
     {{0, 0, 0, 0, 0}} /*until_dt*/,
     0 /*start_epoch_seconds*/,
-    0 /*offset_minutes*/,
-    0 /*delta_minutes*/,
+    0 /*offset_seconds*/,
+    0 /*delta_seconds*/,
     {0} /*abbrev*/,
     NULL /*letter*/,
     {0} /*match_status*/
@@ -67,8 +67,8 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
     {{0, 0, 0, 0, 0}} /*start_dt*/,
     {{0, 0, 0, 0, 0}} /*until_dt*/,
     0 /*start_epoch_seconds*/,
-    0 /*offset_minutes*/,
-    0 /*delta_minutes*/,
+    0 /*offset_seconds*/,
+    0 /*delta_seconds*/,
     {0} /*abbrev*/,
     NULL /*letter*/,
     {0} /*match_status*/
@@ -83,8 +83,8 @@ ACU_TEST(test_atc_transition_compare_to_match_fuzzy)
     {{0, 0, 0, 0, 0}} /*start_dt*/,
     {{0, 0, 0, 0, 0}} /*until_dt*/,
     0 /*start_epoch_seconds*/,
-    0 /*offset_minutes*/,
-    0 /*delta_minutes*/,
+    0 /*offset_seconds*/,
+    0 /*delta_seconds*/,
     {0} /*abbrev*/,
     NULL /*letter*/,
     {0} /*match_status*/
@@ -310,13 +310,13 @@ ACU_TEST(test_atc_transition_storage_set_free_agent_as_prior_if_valid) {
   ACU_ASSERT(prior->transition_time.year == 2002);
   ACU_ASSERT(prior->transition_time.month == 3);
   ACU_ASSERT(prior->transition_time.day == 4);
-  ACU_ASSERT(prior->transition_time.minutes == 0);
+  ACU_ASSERT(prior->transition_time.seconds == 0);
   ACU_ASSERT(prior->transition_time.suffix == kAtcSuffixW);
   //
   ACU_ASSERT(free_agent->transition_time.year == 2002);
   ACU_ASSERT(free_agent->transition_time.month == 3);
   ACU_ASSERT(free_agent->transition_time.day == 4);
-  ACU_ASSERT(free_agent->transition_time.minutes == 5);
+  ACU_ASSERT(free_agent->transition_time.seconds == 5);
   ACU_ASSERT(free_agent->transition_time.suffix == kAtcSuffixW);
 
   // Another Candidate prior.
@@ -336,13 +336,13 @@ ACU_TEST(test_atc_transition_storage_set_free_agent_as_prior_if_valid) {
   ACU_ASSERT(prior->transition_time.year == 2002);
   ACU_ASSERT(prior->transition_time.month == 3);
   ACU_ASSERT(prior->transition_time.day == 4);
-  ACU_ASSERT(prior->transition_time.minutes == 6);
+  ACU_ASSERT(prior->transition_time.seconds == 6);
   ACU_ASSERT(prior->transition_time.suffix == kAtcSuffixW);
   //
   ACU_ASSERT(free_agent->transition_time.year == 2002);
   ACU_ASSERT(free_agent->transition_time.month == 3);
   ACU_ASSERT(free_agent->transition_time.day == 4);
-  ACU_ASSERT(free_agent->transition_time.minutes == 0);
+  ACU_ASSERT(free_agent->transition_time.seconds == 0);
   ACU_ASSERT(free_agent->transition_time.suffix == kAtcSuffixW);
 }
 

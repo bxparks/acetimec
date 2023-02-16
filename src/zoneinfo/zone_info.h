@@ -82,6 +82,34 @@ typedef struct AtcZoneRule {
    */
   int8_t const on_day_of_month;
 
+#if ATC_HIRES_ZONEDB
+
+  /**
+   * The at_time_modifier is a packed field containing 2 pieces of info:
+   *
+   * * The upper 4 bits represent the AT time suffix: 'w', 's' or 'u',
+   *   represented by kAtcSuffixW, kAtcSuffixS and kAtcSuffixU.
+   * * The lower 4 bits represent the remaining 0-14 seconds of the AT time
+   *   field after truncation into at_time_seconds_code. In other words, the
+   *   full AT field in one-second resolution is (15 * at_time_seconds_code +
+   *   (at_time_modifier & 0x0f)).
+   */
+  uint8_t const at_time_modifier;
+
+  /**
+   * Determined by the AT column in units of 15-seconds from 00:00. The range
+   * corresponds to [0h,25h], or [0,6000] in 15-second units.
+   */
+  uint16_t const at_time_code;
+
+  /**
+   * Determined by the SAVE column, containing the offset from UTC in minutes,
+   * in the range of [-128,+127].
+   */
+  int8_t const delta_minutes;
+
+#else
+
   /**
    * Determined by the AT column in units of 15-minutes from 00:00. The range
    * is (0 - 100) corresponding to 00:00 to 25:00.
@@ -91,12 +119,11 @@ typedef struct AtcZoneRule {
   /**
    * The at_time_modifier is a packed field containing 2 pieces of info:
    *
-   *    * The upper 4 bits represent the AT time suffix: 'w', 's' or 'u',
-   *    represented by kAtcSuffixW, kAtcSuffixS and kAtcSuffixU.
-   *    * The lower 4 bits represent the remaining 0-14 minutes of the AT field
-   *    after truncation into at_time_code. In other words, the full AT field in
-   *    one-minute resolution is (15 * at_time_code + (at_time_modifier &
-   *    0x0f)).
+   * * The upper 4 bits represent the AT time suffix: 'w', 's' or 'u',
+   *   represented by kAtcSuffixW, kAtcSuffixS and kAtcSuffixU.
+   * * The lower 4 bits represent the remaining 0-14 minutes of the AT field
+   *   after truncation into at_time_code. In other words, the full AT field in
+   *   one-minute resolution is (15 * at_time_code + (at_time_modifier & 0x0f)).
    */
   uint8_t const at_time_modifier;
 
@@ -111,6 +138,8 @@ typedef struct AtcZoneRule {
    * field into minutes.
    */
   uint8_t const delta_code;
+
+#endif
 
   /**
    * An index into an array of strings defined by AtcZoneContext.letters. The
@@ -236,6 +265,26 @@ typedef struct AtcZoneEra {
    */
   const char * const format;
 
+#if ATC_HIRES_ZONEDB
+
+  /**
+   * UTC offset seconds in units of 15-seconds. The remainder goes into
+   * offset_seconds_remainder.
+   */
+  int16_t const offset_code;
+
+  /** UTC offset seconds remainder from the offset_seconds_code. */
+  uint8_t const offset_remainder;
+
+  /**
+   * If zone_policy is nullptr, then this indicates the DST offset in minutes
+   * as defined by the RULES column in 'hh:mm' format. If the
+   * 'RULES' column is '-', then the delta_minutes is 0.
+   */
+  int8_t const delta_minutes;
+
+#else
+
   /** UTC offset in 15 min increments. Determined by the STDOFF column. */
   int8_t const offset_code;
 
@@ -258,6 +307,8 @@ typedef struct AtcZoneEra {
    */
   uint8_t const delta_code;
 
+#endif
+
   /**
    * Era is valid until currentTime < untilYear. Comes from the UNTIL column.
    */
@@ -273,6 +324,27 @@ typedef struct AtcZoneEra {
    */
   uint8_t const until_day;
 
+#if ATC_HIRES_ZONEDB
+
+  /**
+   * The time field of UNTIL field in 15-second increments. A range is [0h,25h],
+   * corresponding to [0,6000] in units of 15-seconds.
+   */
+  uint16_t const until_time_code;
+
+  /**
+   * The until_time_modifier is a packed field containing 2 pieces of info:
+   *
+   * * The upper 4 bits represent the UNTIL time suffix: 'w', 's' or 'u',
+   *   represented by kAtcSuffixW, kAtcSuffixS and kAtcSuffixU.
+   * * The lower 4 bits represent the remaining 0-14 seconds of the UNTIL
+   *   field after truncation into until_time_seconds_code. In other words, the
+   *   full UNTIL field in one-second resolution is (15 *
+   *   until_time_seconds_code + (until_time_modifier & 0x0f)).
+   */
+  uint8_t const until_time_modifier;
+#else
+
   /**
    * The time field of UNTIL field in 15-minute increments. A range of 00:00 to
    * 25:00 corresponds to 0-100.
@@ -282,14 +354,16 @@ typedef struct AtcZoneEra {
   /**
    * The until_time_modifier is a packed field containing 2 pieces of info:
    *
-   *    * The upper 4 bits represent the UNTIL time suffix: 'w', 's' or 'u',
-   *    represented by kAtcSuffixW, kAtcSuffixS and kAtcSuffixU.
-   *    * The lower 4 bits represent the remaining 0-14 minutes of the UNTIL
-   *    field after truncation into untilTimeCode. In other words, the full
-   *    UNTIL field in one-minute resolution is (15 * untilTimeCode +
-   *    (until_time_modifier & 0x0f)).
+   * * The upper 4 bits represent the UNTIL time suffix: 'w', 's' or 'u',
+   *   represented by kAtcSuffixW, kAtcSuffixS and kAtcSuffixU.
+   * * The lower 4 bits represent the remaining 0-14 minutes of the UNTIL
+   *   field after truncation into untilTimeCode. In other words, the full
+   *   UNTIL field in one-minute resolution is (15 * until_time_code +
+   *   (until_time_modifier & 0x0f)).
    */
   uint8_t const until_time_modifier;
+
+#endif
 } AtcZoneEra;
 
 /**

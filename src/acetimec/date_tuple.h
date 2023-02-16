@@ -15,17 +15,12 @@
 
 /**
  * An internal simplified version of the AtcDateTime class that uses the
- * (year, month, day, minutes, suffix) fields.
+ * (year, month, day, seconds, suffix) fields.
  *
- * The order of 'minutes' and 'suffix' are reversed from the DateTuple class in
- * the AceTime library because C does not support constructors, so the
- * initializer list must be in the same order as the field order. But I have a
- * bunch of code ported from the C++ code in AceTime which assumes that
- * 'minutes' comes before 'suffix'. So it is easier to fix the ordering here.
- *
- * This causes the field alignment to be slightly less than ideal, but the class
- * already consumes 2 x 4-byte slots on 32-bit processors, so the new ordering
- * does not change the overall sizeof(AtcDateTuple).
+ * TODO: We only need about 24-bits (3-bytes) the seconds field. It should be
+ * possible to reduce this struct by 1-byte so that the object fits entirely
+ * within 8-bytes, a multiple of 4 or 8 bytes which reduces memory consumption
+ * on 32-bit and 64-bit processors.
  */
 typedef struct AtcDateTuple {
   /** [0,10000] */
@@ -38,7 +33,7 @@ typedef struct AtcDateTuple {
   uint8_t day;
 
   /** negative values allowed */
-  int16_t minutes;
+  int32_t seconds;
 
   /** kAtcSuffixS, kAtcSuffixW, kAtcSuffixU */
   uint8_t suffix;
@@ -67,7 +62,7 @@ atc_time_t atc_date_tuple_subtract(
     const AtcDateTuple *a,
     const AtcDateTuple *b);
 
-/** Normalize AtcDateTuple::minutes if its magnitude is more than 24 hours. */
+/** Normalize AtcDateTuple::seconds if its magnitude is more than 24 hours. */
 void atc_date_tuple_normalize(AtcDateTuple *dt);
 
 /**
@@ -77,8 +72,8 @@ void atc_date_tuple_normalize(AtcDateTuple *dt);
  */
 void atc_date_tuple_expand(
     const AtcDateTuple *tt,
-    int16_t offset_minutes,
-    int16_t delta_minutes,
+    int32_t offset_seconds,
+    int32_t delta_seconds,
     AtcDateTuple *ttw,
     AtcDateTuple *tts,
     AtcDateTuple *ttu);
@@ -86,7 +81,7 @@ void atc_date_tuple_expand(
 /**
  * Compare the given 't' with the interval defined by [start, until). The
  * comparison is fuzzy, with a slop of about one month so that we can ignore the
- * day and minutes fields.
+ * day and seconds fields.
  *
  * The following values are returned:
  *

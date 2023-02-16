@@ -26,10 +26,10 @@ ACU_TEST(test_atc_date_tuple_compare)
 ACU_TEST(test_atc_date_tuple_subtract)
 {
   {
-    AtcDateTuple dta = {2000, 1, 1, 0, kAtcSuffixW}; // 2000-01-01 00:00
-    AtcDateTuple dtb = {2000, 1, 1, 1, kAtcSuffixW}; // 2000-01-01 00:01
+    AtcDateTuple dta = {2000, 1, 1, 0, kAtcSuffixW}; // 2000-01-01 00:00:00
+    AtcDateTuple dtb = {2000, 1, 1, 1, kAtcSuffixW}; // 2000-01-01 00:00:01
     atc_time_t diff = atc_date_tuple_subtract(&dta, &dtb);
-    ACU_ASSERT(-60 == diff);
+    ACU_ASSERT(-1 == diff);
   }
 
   {
@@ -57,10 +57,10 @@ ACU_TEST(test_atc_date_tuple_subtract)
 ACU_TEST(test_atc_date_tuple_subtract_no_overflow)
 {
   {
-    AtcDateTuple dta = {6000, 1, 1, 0, kAtcSuffixW}; // 6000-01-01 00:00
-    AtcDateTuple dtb = {6000, 1, 1, 1, kAtcSuffixW}; // 6000-01-01 00:01
+    AtcDateTuple dta = {6000, 1, 1, 0, kAtcSuffixW}; // 6000-01-01 00:00:00
+    AtcDateTuple dtb = {6000, 1, 1, 1, kAtcSuffixW}; // 6000-01-01 00:00:01
     atc_time_t diff = atc_date_tuple_subtract(&dta, &dtb);
-    ACU_ASSERT(-60 == diff);
+    ACU_ASSERT(-1 == diff);
   }
 
   {
@@ -93,52 +93,52 @@ ACU_TEST(test_atc_date_tuple_normalize)
   ACU_ASSERT(dt.year == 2000);
   ACU_ASSERT(dt.month == 1);
   ACU_ASSERT(dt.day == 1);
-  ACU_ASSERT(dt.minutes == 0);
+  ACU_ASSERT(dt.seconds == 0);
   ACU_ASSERT(dt.suffix == kAtcSuffixW);
 
   // 23:45
-  dt = (AtcDateTuple) {2000, 1, 1, 15*95, kAtcSuffixW};
+  dt = (AtcDateTuple) {2000, 1, 1, 23*3600 + 45*60, kAtcSuffixW};
   atc_date_tuple_normalize(&dt);
   ACU_ASSERT(dt.year == 2000);
   ACU_ASSERT(dt.month == 1);
   ACU_ASSERT(dt.day == 1);
-  ACU_ASSERT(dt.minutes == 15*95);
+  ACU_ASSERT(dt.seconds == 23*3600 + 45*60);
   ACU_ASSERT(dt.suffix == kAtcSuffixW);
 
   // 24:00
-  dt = (AtcDateTuple) {2000, 1, 1, 15*96, kAtcSuffixW};
+  dt = (AtcDateTuple) {2000, 1, 1, 24*3600, kAtcSuffixW};
   atc_date_tuple_normalize(&dt);
   ACU_ASSERT(dt.year == 2000);
   ACU_ASSERT(dt.month == 1);
   ACU_ASSERT(dt.day == 2);
-  ACU_ASSERT(dt.minutes == 0);
+  ACU_ASSERT(dt.seconds == 0);
   ACU_ASSERT(dt.suffix == kAtcSuffixW);
 
   // 24:15
-  dt = (AtcDateTuple) {2000, 1, 1, 15*97, kAtcSuffixW};
+  dt = (AtcDateTuple) {2000, 1, 1, 24*3600 + 15*60, kAtcSuffixW};
   atc_date_tuple_normalize(&dt);
   ACU_ASSERT(dt.year == 2000);
   ACU_ASSERT(dt.month == 1);
   ACU_ASSERT(dt.day == 2);
-  ACU_ASSERT(dt.minutes == 15);
+  ACU_ASSERT(dt.seconds == 15*60);
   ACU_ASSERT(dt.suffix == kAtcSuffixW);
 
   // -24:00
-  dt = (AtcDateTuple) {2000, 1, 1, -15*96, kAtcSuffixW};
+  dt = (AtcDateTuple) {2000, 1, 1, -24*3600, kAtcSuffixW};
   atc_date_tuple_normalize(&dt);
   ACU_ASSERT(dt.year == 1999);
   ACU_ASSERT(dt.month == 12);
   ACU_ASSERT(dt.day == 31);
-  ACU_ASSERT(dt.minutes == 0);
+  ACU_ASSERT(dt.seconds == 0);
   ACU_ASSERT(dt.suffix == kAtcSuffixW);
 
   // -24:15
-  dt = (AtcDateTuple) {2000, 1, 1, -15*97, kAtcSuffixW};
+  dt = (AtcDateTuple) {2000, 1, 1, -24*3600 - 15*60, kAtcSuffixW};
   atc_date_tuple_normalize(&dt);
   ACU_ASSERT(dt.year == 1999);
   ACU_ASSERT(dt.month == 12);
   ACU_ASSERT(dt.day == 31);
-  ACU_ASSERT(dt.minutes == -15);
+  ACU_ASSERT(dt.seconds == -15*60);
   ACU_ASSERT(dt.suffix == kAtcSuffixW);
 }
 
@@ -148,70 +148,70 @@ ACU_TEST(test_atc_date_tuple_expand)
   AtcDateTuple tts;
   AtcDateTuple ttu;
 
-  int16_t offset_minutes = 2*60;
-  int16_t delta_minutes = 1*60;
+  int32_t offset_seconds = 2*3600;
+  int32_t delta_seconds = 1*3600;
 
-  AtcDateTuple tt = {2000, 1, 30, 15*16, kAtcSuffixW}; // 04:00
+  AtcDateTuple tt = {2000, 1, 30, 4*3600, kAtcSuffixW}; // 04:00
   atc_date_tuple_expand(
-      &tt, offset_minutes, delta_minutes, &ttw, &tts, &ttu);
+      &tt, offset_seconds, delta_seconds, &ttw, &tts, &ttu);
   ACU_ASSERT(ttw.year == 2000);
   ACU_ASSERT(ttw.month == 1);
   ACU_ASSERT(ttw.day == 30);
-  ACU_ASSERT(ttw.minutes == 15*16);
+  ACU_ASSERT(ttw.seconds == 4*3600);
   ACU_ASSERT(ttw.suffix == kAtcSuffixW);
   //
   ACU_ASSERT(tts.year == 2000);
   ACU_ASSERT(tts.month == 1);
   ACU_ASSERT(tts.day == 30);
-  ACU_ASSERT(tts.minutes == 15*12);
+  ACU_ASSERT(tts.seconds == 3*3600);
   ACU_ASSERT(tts.suffix == kAtcSuffixS);
   //
   ACU_ASSERT(ttu.year == 2000);
   ACU_ASSERT(ttu.month == 1);
   ACU_ASSERT(ttu.day == 30);
-  ACU_ASSERT(ttu.minutes == 15*4);
+  ACU_ASSERT(ttu.seconds == 1*3600);
   ACU_ASSERT(ttu.suffix == kAtcSuffixU);
 
-  tt = (AtcDateTuple) {2000, 1, 30, 15*12, kAtcSuffixS};
+  tt = (AtcDateTuple) {2000, 1, 30, 3*3600, kAtcSuffixS};
   atc_date_tuple_expand(
-      &tt, offset_minutes, delta_minutes, &ttw, &tts, &ttu);
+      &tt, offset_seconds, delta_seconds, &ttw, &tts, &ttu);
   ACU_ASSERT(ttw.year == 2000);
   ACU_ASSERT(ttw.month == 1);
   ACU_ASSERT(ttw.day == 30);
-  ACU_ASSERT(ttw.minutes == 15*16);
+  ACU_ASSERT(ttw.seconds == 4*3600);
   ACU_ASSERT(ttw.suffix == kAtcSuffixW);
   //
   ACU_ASSERT(tts.year == 2000);
   ACU_ASSERT(tts.month == 1);
   ACU_ASSERT(tts.day == 30);
-  ACU_ASSERT(tts.minutes == 15*12);
+  ACU_ASSERT(tts.seconds == 3*3600);
   ACU_ASSERT(tts.suffix == kAtcSuffixS);
   //
   ACU_ASSERT(ttu.year == 2000);
   ACU_ASSERT(ttu.month == 1);
   ACU_ASSERT(ttu.day == 30);
-  ACU_ASSERT(ttu.minutes == 15*4);
+  ACU_ASSERT(ttu.seconds == 1*3600);
   ACU_ASSERT(ttu.suffix == kAtcSuffixU);
 
-  tt = (AtcDateTuple) {2000, 1, 30, 15*4, kAtcSuffixU};
+  tt = (AtcDateTuple) {2000, 1, 30, 1*3600, kAtcSuffixU};
   atc_date_tuple_expand(
-      &tt, offset_minutes, delta_minutes, &ttw, &tts, &ttu);
+      &tt, offset_seconds, delta_seconds, &ttw, &tts, &ttu);
   ACU_ASSERT(ttw.year == 2000);
   ACU_ASSERT(ttw.month == 1);
   ACU_ASSERT(ttw.day == 30);
-  ACU_ASSERT(ttw.minutes == 15*16);
+  ACU_ASSERT(ttw.seconds == 4*3600);
   ACU_ASSERT(ttw.suffix == kAtcSuffixW);
   //
   ACU_ASSERT(tts.year == 2000);
   ACU_ASSERT(tts.month == 1);
   ACU_ASSERT(tts.day == 30);
-  ACU_ASSERT(tts.minutes == 15*12);
+  ACU_ASSERT(tts.seconds == 3*3600);
   ACU_ASSERT(tts.suffix == kAtcSuffixS);
   //
   ACU_ASSERT(ttu.year == 2000);
   ACU_ASSERT(ttu.month == 1);
   ACU_ASSERT(ttu.day == 30);
-  ACU_ASSERT(ttu.minutes == 15*4);
+  ACU_ASSERT(ttu.seconds == 1*3600);
   ACU_ASSERT(ttu.suffix == kAtcSuffixU);
 }
 

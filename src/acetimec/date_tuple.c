@@ -20,8 +20,8 @@ int8_t atc_date_tuple_compare(
   if (a->month > b->month) return 1;
   if (a->day < b->day) return -1;
   if (a->day > b->day) return 1;
-  if (a->minutes < b->minutes) return -1;
-  if (a->minutes > b->minutes) return 1;
+  if (a->seconds < b->seconds) return -1;
+  if (a->seconds > b->seconds) return 1;
   return 0;
 }
 
@@ -35,13 +35,13 @@ atc_time_t atc_date_tuple_subtract(
   // Subtract the days, before converting to seconds, to avoid overflowing the
   // int32_t when a.year or b.year is more than 68 years from the
   // atc_current_epoch_year.
-  return (da - db) * 86400 + (a->minutes - b->minutes) * 60;
+  return (da - db) * 86400 + (a->seconds - b->seconds);
 }
 
 void atc_date_tuple_expand(
     const AtcDateTuple *tt,
-    int16_t offset_minutes,
-    int16_t delta_minutes,
+    int32_t offset_seconds,
+    int32_t delta_seconds,
     AtcDateTuple *ttw,
     AtcDateTuple *tts,
     AtcDateTuple *ttu)
@@ -53,13 +53,13 @@ void atc_date_tuple_expand(
     ttu->year = tt->year;
     ttu->month = tt->month;
     ttu->day = tt->day;
-    ttu->minutes = (int16_t) (tt->minutes - offset_minutes);
+    ttu->seconds = tt->seconds - offset_seconds;
     ttu->suffix = kAtcSuffixU;
 
     ttw->year = tt->year;
     ttw->month = tt->month;
     ttw->day = tt->day;
-    ttw->minutes = (int16_t) (tt->minutes + delta_minutes);
+    ttw->seconds = tt->seconds + delta_seconds;
     ttw->suffix = kAtcSuffixW;
   } else if (tt->suffix == kAtcSuffixU) {
     *ttu = *tt;
@@ -67,13 +67,13 @@ void atc_date_tuple_expand(
     tts->year = tt->year;
     tts->month = tt->month;
     tts->day = tt->day;
-    tts->minutes = (int16_t) (tt->minutes + offset_minutes);
+    tts->seconds = tt->seconds + offset_seconds;
     tts->suffix = kAtcSuffixS;
 
     ttw->year = tt->year;
     ttw->month = tt->month;
     ttw->day = tt->day;
-    ttw->minutes = (int16_t) (tt->minutes + (offset_minutes + delta_minutes));
+    ttw->seconds = tt->seconds + (offset_seconds + delta_seconds);
     ttw->suffix = kAtcSuffixW;
   } else {
     // Explicit set the suffix to 'w' in case it was something else.
@@ -83,13 +83,13 @@ void atc_date_tuple_expand(
     tts->year = tt->year;
     tts->month = tt->month;
     tts->day = tt->day;
-    tts->minutes = (int16_t) (tt->minutes - delta_minutes);
+    tts->seconds = tt->seconds - delta_seconds;
     tts->suffix = kAtcSuffixS;
 
     ttu->year = tt->year;
     ttu->month = tt->month;
     ttu->day = tt->day;
-    ttu->minutes = (int16_t) (tt->minutes - (delta_minutes + offset_minutes));
+    ttu->seconds = tt->seconds - (delta_seconds + offset_seconds);
     ttu->suffix = kAtcSuffixU;
   }
 
@@ -100,14 +100,14 @@ void atc_date_tuple_expand(
 
 void atc_date_tuple_normalize(AtcDateTuple *dt)
 {
-  const int16_t kOneDayAsMinutes = 60 * 24;
+  const int32_t kOneDayAsSeconds = 60 * 60 * 24;
 
-  if (dt->minutes <= -kOneDayAsMinutes) {
+  if (dt->seconds <= -kOneDayAsSeconds) {
     atc_local_date_decrement_one_day(&dt->year, &dt->month, &dt->day);
-    dt->minutes += kOneDayAsMinutes;
-  } else if (kOneDayAsMinutes <= dt->minutes) {
+    dt->seconds += kOneDayAsSeconds;
+  } else if (kOneDayAsSeconds <= dt->seconds) {
     atc_local_date_increment_one_day(&dt->year, &dt->month, &dt->day);
-    dt->minutes -= kOneDayAsMinutes;
+    dt->seconds -= kOneDayAsSeconds;
   } else {
     // do nothing
   }
