@@ -434,7 +434,8 @@ ACU_TEST(test_atc_processor_find_matches_named)
 
   AtcMatchingEra matches[kMaxMatches];
   uint8_t num_matches = atc_processor_find_matches(
-      &kAtcZoneAmerica_Los_Angeles, start_ym, until_ym, matches, kMaxMatches);
+      &kAtcTestingZoneAmerica_Los_Angeles, start_ym, until_ym, matches,
+      kMaxMatches);
   ACU_ASSERT(1 == num_matches);
 
   AtcDateTuple *sdt = &matches[0].start_dt;
@@ -452,7 +453,7 @@ ACU_TEST(test_atc_processor_find_matches_named)
   ACU_ASSERT(udt->suffix == kAtcSuffixW);
 
   const AtcZoneEra *eras =
-      (const AtcZoneEra *) kAtcZoneAmerica_Los_Angeles.eras;
+      (const AtcZoneEra *) kAtcTestingZoneAmerica_Los_Angeles.eras;
   ACU_ASSERT(matches[0].era == &eras[0]);
 }
 
@@ -506,7 +507,7 @@ ACU_TEST(test_atc_calc_start_day_of_month) {
 ACU_TEST(test_atc_processor_get_transition_time) {
   // Rule 4, [2007,9999]
   // Rule    US    2007    max    -    Nov    Sun>=1    2:00    0    S
-  const AtcZoneRule *rule = &kAtcZonePolicyUS.rules[4];
+  const AtcZoneRule *rule = &kAtcTestingZonePolicyUS.rules[4];
 
   // Nov 4 2018
   AtcDateTuple dt;
@@ -530,7 +531,7 @@ ACU_TEST(test_atc_processor_create_transition_for_year) {
   const AtcMatchingEra match = {
     .start_dt = {2018, 12, 1, 0, kAtcSuffixW},
     .until_dt = {2020, 2, 1, 0, kAtcSuffixW},
-    .era = &kAtcZoneAmerica_Los_Angeles.eras[0],
+    .era = &kAtcTestingZoneAmerica_Los_Angeles.eras[0],
     .prev_match = NULL,
     .last_offset_seconds = 0,
     .last_delta_seconds = 0,
@@ -538,10 +539,10 @@ ACU_TEST(test_atc_processor_create_transition_for_year) {
 
   // Rule 4
   // Rule    US    2007    max    -    Nov    Sun>=1    2:00    0    S
-  const AtcZoneRule *rule = &kAtcZonePolicyUS.rules[4];
+  const AtcZoneRule *rule = &kAtcTestingZonePolicyUS.rules[4];
   AtcTransition t;
   atc_processor_create_transition_for_year(
-      &t, 2019, rule, &match, kAtcZoneContext.letters);
+      &t, 2019, rule, &match, kAtcTestingZoneContext.letters);
   ACU_ASSERT(t.offset_seconds == -8*3600);
   ACU_ASSERT(t.delta_seconds == 0);
   const AtcDateTuple *tt = &t.transition_time;
@@ -620,7 +621,7 @@ ACU_TEST(test_atc_processor_find_candidate_transitions) {
   AtcMatchingEra match = {
     .start_dt = {2018, 12, 1, 0, kAtcSuffixW},
     .until_dt = {2020, 2, 1, 0, kAtcSuffixW},
-    .era = &kAtcZoneAmerica_Los_Angeles.eras[0],
+    .era = &kAtcTestingZoneAmerica_Los_Angeles.eras[0],
     .prev_match = NULL,
     .last_offset_seconds = 0,
     .last_delta_seconds = 0,
@@ -628,7 +629,7 @@ ACU_TEST(test_atc_processor_find_candidate_transitions) {
 
   // Reserve storage for the Transitions
   AtcTransitionStorage storage;
-  atc_transition_storage_init(&storage, &kAtcZoneAmerica_Los_Angeles);
+  atc_transition_storage_init(&storage, &kAtcTestingZoneAmerica_Los_Angeles);
 
   // Verify compareTransitionToMatchFuzzy() elminates various transitions
   // to get down to 5:
@@ -825,7 +826,7 @@ ACU_TEST(test_atc_processor_create_transitions_from_named_match)
   AtcMatchingEra match = {
     .start_dt = {2018, 12, 1, 0, kAtcSuffixW},
     .until_dt = {2020, 2, 1, 0, kAtcSuffixW},
-    .era = &kAtcZoneAmerica_Los_Angeles.eras[0],
+    .era = &kAtcTestingZoneAmerica_Los_Angeles.eras[0],
     .prev_match = NULL,
     .last_offset_seconds = 0,
     .last_delta_seconds = 0,
@@ -833,7 +834,7 @@ ACU_TEST(test_atc_processor_create_transitions_from_named_match)
 
   // Reserve storage for the Transitions
   AtcTransitionStorage storage;
-  atc_transition_storage_init(&storage, &kAtcZoneAmerica_Los_Angeles);
+  atc_transition_storage_init(&storage, &kAtcTestingZoneAmerica_Los_Angeles);
 
   atc_processor_create_transitions_from_named_match(&storage, &match);
   AtcTransition **end =
@@ -915,12 +916,13 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
   const uint8_t kMaxMatches = 4;
   AtcMatchingEra matches[kMaxMatches];
   uint8_t num_matches = atc_processor_find_matches(
-      &kAtcZoneAmerica_Los_Angeles, start_ym, until_ym, matches, kMaxMatches);
+      &kAtcTestingZoneAmerica_Los_Angeles, start_ym, until_ym, matches,
+      kMaxMatches);
   ACU_ASSERT(1 == num_matches);
 
   // Step 2: Create transitions.
   AtcTransitionStorage storage;
-  atc_transition_storage_init(&storage, &kAtcZoneAmerica_Los_Angeles);
+  atc_transition_storage_init(&storage, &kAtcTestingZoneAmerica_Los_Angeles);
   atc_processor_create_transitions(&storage, matches, num_matches);
 
   // Step 2: Verification: there are 3 transitions:

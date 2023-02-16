@@ -84,7 +84,7 @@ ACU_TEST(test_atc_time_zone_print_los_angeles)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   char buf[80];
   AtcStringBuffer sb;
@@ -99,7 +99,7 @@ ACU_TEST(test_atc_time_zone_offset_date_time_from_epoch_seconds_los_angeles)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   atc_time_t epoch_seconds = 0;
   AtcOffsetDateTime odt;
@@ -119,7 +119,7 @@ ACU_TEST(test_atc_time_zone_offset_date_time_from_local_date_time_los_angeles)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   AtcLocalDateTime ldt = {2023, 2, 14, 12, 32, 0, 1 /*fold*/};
   AtcOffsetDateTime odt;
@@ -139,7 +139,7 @@ ACU_TEST(test_atc_time_zone_zoned_extra_from_epoch_seconds_los_angeles)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   atc_time_t epoch_seconds = 0;
   AtcZonedExtra extra;
@@ -157,7 +157,7 @@ ACU_TEST(test_atc_time_zone_zoned_extra_from_local_date_time_los_angeles)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   AtcLocalDateTime ldt = {2023, 2, 14, 12, 32, 0, 1 /*fold*/};
   AtcZonedExtra extra;

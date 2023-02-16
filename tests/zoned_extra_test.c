@@ -14,7 +14,7 @@ ACU_TEST(test_atc_zoned_extra_from_epoch_seconds_invalid)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneEtc_UTC, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneEtc_UTC, &processor};
 
   AtcZonedExtra zet;
   atc_time_t epoch_seconds = kAtcInvalidEpochSeconds;
@@ -27,7 +27,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_fall_back)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // Start our sampling at 01:29:00-07:00, which is 31 seconds before the DST
   // fall-back.
@@ -60,7 +60,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_spring_forward)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // Start our sampling at 01:29:00-08:00, which is 31 seconds before the DST
   // spring forward.
@@ -93,7 +93,7 @@ ACU_TEST(test_zoned_extra_from_local_date_time_fall_back)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // Start our sampling at 01:29:00(fold=0), which is 31 seconds before the DST
   // fall-back, and occurs within an overlap.
@@ -125,7 +125,7 @@ ACU_TEST(test_zoned_extra_from_local_date_time_spring_forward)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   AtcLocalDateTime ldt = {2022, 3, 13, 2, 29, 0, 0 /*fold*/};
 

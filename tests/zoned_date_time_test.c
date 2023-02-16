@@ -15,7 +15,7 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds)
 
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   AtcZonedDateTime zdt;
   atc_time_t epoch_seconds = 0;
@@ -44,7 +44,7 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_epoch2050)
 
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   AtcZonedDateTime zdt;
   atc_time_t epoch_seconds = 0;
@@ -73,7 +73,7 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_unix_max)
 
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneEtc_UTC, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneEtc_UTC, &processor};
 
   AtcZonedDateTime zdt;
   atc_time_t epoch_seconds = 1200798847;
@@ -99,7 +99,7 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_invalid)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneEtc_UTC, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneEtc_UTC, &processor};
 
   AtcZonedDateTime zdt;
   atc_time_t epoch_seconds = kAtcInvalidEpochSeconds;
@@ -115,7 +115,7 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_fall_back)
 
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // Start our sampling at 01:29:00-07:00, which is 31 seconds before the DST
   // fall-back.
@@ -175,7 +175,7 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward)
 
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // Start our sampling at 01:29:00-08:00, which is 31 seconds before the DST
   // spring forward.
@@ -221,7 +221,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time)
 
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   AtcLocalDateTime ldt = {2000, 1, 1, 0, 0, 0, 0 /*fold*/};
   AtcZonedDateTime zdt;
@@ -264,7 +264,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_epoch2050)
 
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   AtcLocalDateTime ldt = {2050, 1, 1, 0, 0, 0, 0 /*fold*/};
   AtcZonedDateTime zdt;
@@ -303,7 +303,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_dst)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // 01:59 should resolve to 01:59-08:00
   AtcZonedDateTime zdt;
@@ -332,14 +332,14 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_dst)
   ACU_ASSERT(zdt.second == 0);
   ACU_ASSERT(zdt.fold == 0);
   ACU_ASSERT(zdt.offset_seconds == -8*3600);
-  ACU_ASSERT(zdt.tz.zone_info == &kAtcZoneAmerica_Los_Angeles);
+  ACU_ASSERT(zdt.tz.zone_info == &kAtcTestingZoneAmerica_Los_Angeles);
 }
 
 ACU_TEST(test_zoned_date_time_from_local_date_time_in_gap)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // 02:01 doesn't exist.
   // Setting (fold=0) causes the first transition to be selected, which has a
@@ -380,7 +380,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_dst)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // 03:01 should resolve to 03:01-07:00.
   AtcLocalDateTime ldt = { 2018, 3, 11, 3, 1, 0, 0 /*fold*/};
@@ -416,7 +416,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_sdt)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // 00:59 is an hour before the DST->STD transition, so should return
   // 00:59-07:00.
@@ -453,7 +453,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_overlap)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // There were two instances of 01:01
 
@@ -491,7 +491,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_after_overlap)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // 02:01 should resolve to 02:01-08:00
   AtcZonedDateTime zdt;
@@ -531,8 +531,8 @@ ACU_TEST(test_zoned_date_time_convert)
   AtcZoneProcessor new_york;
   atc_processor_init(&los_angeles);
   atc_processor_init(&new_york);
-  AtcTimeZone tzla = {&kAtcZoneAmerica_Los_Angeles, &los_angeles};
-  AtcTimeZone tzny = {&kAtcZoneAmerica_New_York, &new_york};
+  AtcTimeZone tzla = {&kAtcTestingZoneAmerica_Los_Angeles, &los_angeles};
+  AtcTimeZone tzny = {&kAtcTestingZoneAmerica_New_York, &new_york};
 
   // 2022-08-30 20:00-07:00 in LA
   AtcLocalDateTime ldt = {2022, 8, 30, 20, 0, 0, 0 /*fold*/};
@@ -553,14 +553,14 @@ ACU_TEST(test_zoned_date_time_convert)
   ACU_ASSERT(zdtny.second == 0);
   ACU_ASSERT(zdtny.fold == 0);
   ACU_ASSERT(zdtny.offset_seconds == -4*3600);
-  ACU_ASSERT(zdtny.tz.zone_info == &kAtcZoneAmerica_New_York);
+  ACU_ASSERT(zdtny.tz.zone_info == &kAtcTestingZoneAmerica_New_York);
 }
 
 ACU_TEST(test_zoned_date_time_normalize)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // 2018-03-11 02:30:00-08:00(fold=0) is in the gap. After normalization, it
   // should be 03:30-07:00.
@@ -583,7 +583,7 @@ ACU_TEST(test_zoned_date_time_print)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
-  AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   AtcZonedDateTime zdt;
   AtcLocalDateTime ldt = {2018, 3, 11, 2, 30, 0, 0 /*fold*/};
