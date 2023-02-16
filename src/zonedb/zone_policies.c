@@ -7,6 +7,7 @@
 //     --action zonedb
 //     --language c
 //     --scope extended
+//     --db_namespace Atc
 //     --offset_granularity 1
 //     --delta_granularity 60
 //     --until_at_granularity 1

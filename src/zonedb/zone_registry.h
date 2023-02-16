@@ -7,6 +7,7 @@
 //     --action zonedb
 //     --language c
 //     --scope extended
+//     --db_namespace Atc
 //     --offset_granularity 1
 //     --delta_granularity 60
 //     --until_at_granularity 1
@@ -37,8 +38,8 @@
 //
 // DO NOT EDIT
 
-#ifndef ACE_TIME_C_ZONEDBX_ZONE_REGISTRY_H
-#define ACE_TIME_C_ZONEDBX_ZONE_REGISTRY_H
+#ifndef ACE_TIME_C_ZONEDB_ATC_ZONE_REGISTRY_H
+#define ACE_TIME_C_ZONEDB_ATC_ZONE_REGISTRY_H
 
 #include "../zoneinfo/zone_info.h"
 

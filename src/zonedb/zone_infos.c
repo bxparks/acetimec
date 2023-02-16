@@ -7,6 +7,7 @@
 //     --action zonedb
 //     --language c
 //     --scope extended
+//     --db_namespace Atc
 //     --offset_granularity 1
 //     --delta_granularity 60
 //     --until_at_granularity 1
@@ -44,9 +45,9 @@
 // ZoneContext (should not be in PROGMEM)
 //---------------------------------------------------------------------------
 
-const char kAtcTzDatabaseVersion[] = "2022g";
+static const char kAtcTzDatabaseVersion[] = "2022g";
 
-const char * const kAtcFragments[] = {
+static const char * const kAtcFragments[] = {
 /*\x00*/ NULL,
 /*\x01*/ "Africa/",
 /*\x02*/ "America/",
@@ -65,7 +66,7 @@ const char * const kAtcFragments[] = {
 
 };
 
-const char* const kAtcLetters[] = {
+static const char* const kAtcLetters[] = {
 /*0*/ "",
 /*1*/ "+00",
 /*2*/ "+02",
