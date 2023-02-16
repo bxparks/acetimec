@@ -4,7 +4,7 @@
 APP_NAME := MemoryBenchmark
 ARDUINO_LIBS := AUnit AceTimeC
 MORE_CLEAN := more_clean
-EXTRA_CFLAGS := -std=c11 -Wall -Wextra -Werror -DATC_HIRES_ZONEDB
+EXTRA_CFLAGS := -std=c11 -Wall -Wextra -Werror
 include ../../../EpoxyDuino/EpoxyDuino.mk
 
 .PHONY: benchmarks

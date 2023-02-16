@@ -16,6 +16,10 @@
 #include <stddef.h>
 #include <stdint.h>
 
+#ifndef ATC_HIRES_ZONEDB
+#define ATC_HIRES_ZONEDB 1
+#endif
+
 #ifdef __cplusplus
 extern "C" {
 #endif
