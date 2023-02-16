@@ -26,7 +26,7 @@ ACU_TEST(test_atc_time_zone_offset_date_time_from_epoch_seconds_utc)
   ACU_ASSERT(odt.hour == 0);
   ACU_ASSERT(odt.minute == 0);
   ACU_ASSERT(odt.second == 0);
-  ACU_ASSERT(odt.offset_minutes == 0);
+  ACU_ASSERT(odt.offset_seconds == 0);
   ACU_ASSERT(odt.fold == 0);
 }
 
@@ -43,7 +43,7 @@ ACU_TEST(test_atc_time_zone_offset_date_time_from_local_date_time_utc)
   ACU_ASSERT(odt.hour == 12);
   ACU_ASSERT(odt.minute == 32);
   ACU_ASSERT(odt.second == 0);
-  ACU_ASSERT(odt.offset_minutes == 0);
+  ACU_ASSERT(odt.offset_seconds == 0);
   ACU_ASSERT(odt.fold == 0);
 }
 
@@ -55,10 +55,11 @@ ACU_TEST(test_atc_time_zone_zoned_extra_from_epoch_seconds_utc)
   atc_time_zone_zoned_extra_from_epoch_seconds(tz, epoch_seconds, &extra);
 
   ACU_ASSERT(extra.type == kAtcZonedExtraExact);
-  ACU_ASSERT(extra.std_offset_minutes == 0);
-  ACU_ASSERT(extra.dst_offset_minutes == 0);
-  ACU_ASSERT(extra.req_std_offset_minutes == 0);
-  ACU_ASSERT(extra.req_dst_offset_minutes == 0);
+  ACU_ASSERT(extra.std_offset_seconds == 0);
+  printf("%d\n", extra.dst_offset_seconds);
+  ACU_ASSERT(extra.dst_offset_seconds == 0);
+  ACU_ASSERT(extra.req_std_offset_seconds == 0);
+  ACU_ASSERT(extra.req_dst_offset_seconds == 0);
   ACU_ASSERT(strcmp(extra.abbrev, "UTC") ==0);
 }
 
@@ -70,10 +71,10 @@ ACU_TEST(test_atc_time_zone_zoned_extra_from_local_date_time_utc)
   atc_time_zone_zoned_extra_from_local_date_time(tz, &ldt, &extra);
 
   ACU_ASSERT(extra.type == kAtcZonedExtraExact);
-  ACU_ASSERT(extra.std_offset_minutes == 0);
-  ACU_ASSERT(extra.dst_offset_minutes == 0);
-  ACU_ASSERT(extra.req_std_offset_minutes == 0);
-  ACU_ASSERT(extra.req_dst_offset_minutes == 0);
+  ACU_ASSERT(extra.std_offset_seconds == 0);
+  ACU_ASSERT(extra.dst_offset_seconds == 0);
+  ACU_ASSERT(extra.req_std_offset_seconds == 0);
+  ACU_ASSERT(extra.req_dst_offset_seconds == 0);
   ACU_ASSERT(strcmp(extra.abbrev, "UTC") ==0);
 }
 
@@ -110,7 +111,7 @@ ACU_TEST(test_atc_time_zone_offset_date_time_from_epoch_seconds_los_angeles)
   ACU_ASSERT(odt.hour == 16);
   ACU_ASSERT(odt.minute == 0);
   ACU_ASSERT(odt.second == 0);
-  ACU_ASSERT(odt.offset_minutes == -8*60);
+  ACU_ASSERT(odt.offset_seconds == -8*3600);
   ACU_ASSERT(odt.fold == 0);
 }
 
@@ -130,7 +131,7 @@ ACU_TEST(test_atc_time_zone_offset_date_time_from_local_date_time_los_angeles)
   ACU_ASSERT(odt.hour == 12);
   ACU_ASSERT(odt.minute == 32);
   ACU_ASSERT(odt.second == 0);
-  ACU_ASSERT(odt.offset_minutes == -8*60);
+  ACU_ASSERT(odt.offset_seconds == -8*3600);
   ACU_ASSERT(odt.fold == 0);
 }
 
@@ -145,10 +146,10 @@ ACU_TEST(test_atc_time_zone_zoned_extra_from_epoch_seconds_los_angeles)
   atc_time_zone_zoned_extra_from_epoch_seconds(&tz, epoch_seconds, &extra);
 
   ACU_ASSERT(extra.type == kAtcZonedExtraExact);
-  ACU_ASSERT(extra.std_offset_minutes == -8*60);
-  ACU_ASSERT(extra.dst_offset_minutes == 0);
-  ACU_ASSERT(extra.req_std_offset_minutes == -8*60);
-  ACU_ASSERT(extra.req_dst_offset_minutes == 0);
+  ACU_ASSERT(extra.std_offset_seconds == -8*3600);
+  ACU_ASSERT(extra.dst_offset_seconds == 0);
+  ACU_ASSERT(extra.req_std_offset_seconds == -8*3600);
+  ACU_ASSERT(extra.req_dst_offset_seconds == 0);
   ACU_ASSERT(strcmp(extra.abbrev, "PST") ==0);
 }
 
@@ -163,10 +164,10 @@ ACU_TEST(test_atc_time_zone_zoned_extra_from_local_date_time_los_angeles)
   atc_time_zone_zoned_extra_from_local_date_time(&tz, &ldt, &extra);
 
   ACU_ASSERT(extra.type == kAtcZonedExtraExact);
-  ACU_ASSERT(extra.std_offset_minutes == -8*60);
-  ACU_ASSERT(extra.dst_offset_minutes == 0);
-  ACU_ASSERT(extra.req_std_offset_minutes == -8*60);
-  ACU_ASSERT(extra.req_dst_offset_minutes == 0);
+  ACU_ASSERT(extra.std_offset_seconds == -8*3600);
+  ACU_ASSERT(extra.dst_offset_seconds == 0);
+  ACU_ASSERT(extra.req_std_offset_seconds == -8*3600);
+  ACU_ASSERT(extra.req_dst_offset_seconds == 0);
   ACU_ASSERT(strcmp(extra.abbrev, "PST") ==0);
 }
 

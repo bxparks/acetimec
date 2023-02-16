@@ -7,8 +7,12 @@
 //     --action zonedb
 //     --language c
 //     --scope extended
+//     --offset_granularity 1
+//     --delta_granularity 60
+//     --until_at_granularity 1
 //     --generate_int16_years
-//     --start_year 2000
+//     --generate_hires
+//     --start_year 1800
 //     --until_year 10000
 //     --nocompress
 //
@@ -29,7 +33,7 @@
 // Supported Zones: 596 (351 zones, 245 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
 // Original Years: [1844,2087]
-// Generated Years: [1943,2087]
+// Generated Years: [1844,2087]
 //
 // DO NOT EDIT
 
@@ -1269,81 +1273,81 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 // over the given years. Used only in the AceTimeValidation/Extended*Test tests
 // for ExtendedZoneProcessor.
 //
-// MaxBufSize: 7
+// MaxBufSize: 8
 //---------------------------------------------------------------------------
 
-#define kAtcZoneBufSizeAfrica_Abidjan 1  /* Africa/Abidjan in 1999 */
-#define kAtcZoneBufSizeAfrica_Algiers 1  /* Africa/Algiers in 1999 */
-#define kAtcZoneBufSizeAfrica_Bissau 1  /* Africa/Bissau in 1999 */
-#define kAtcZoneBufSizeAfrica_Cairo 5  /* Africa/Cairo in 2010 */
+#define kAtcZoneBufSizeAfrica_Abidjan 2  /* Africa/Abidjan in 1911 */
+#define kAtcZoneBufSizeAfrica_Algiers 6  /* Africa/Algiers in 1977 */
+#define kAtcZoneBufSizeAfrica_Bissau 2  /* Africa/Bissau in 1911 */
+#define kAtcZoneBufSizeAfrica_Cairo 5  /* Africa/Cairo in 1944 */
 #define kAtcZoneBufSizeAfrica_Casablanca 7  /* Africa/Casablanca in 2013 */
-#define kAtcZoneBufSizeAfrica_Ceuta 5  /* Africa/Ceuta in 1999 */
+#define kAtcZoneBufSizeAfrica_Ceuta 6  /* Africa/Ceuta in 1986 */
 #define kAtcZoneBufSizeAfrica_El_Aaiun 7  /* Africa/El_Aaiun in 2013 */
-#define kAtcZoneBufSizeAfrica_Johannesburg 2  /* Africa/Johannesburg in 1999 */
-#define kAtcZoneBufSizeAfrica_Juba 2  /* Africa/Juba in 1999 */
-#define kAtcZoneBufSizeAfrica_Khartoum 2  /* Africa/Khartoum in 1999 */
-#define kAtcZoneBufSizeAfrica_Lagos 1  /* Africa/Lagos in 1999 */
-#define kAtcZoneBufSizeAfrica_Maputo 1  /* Africa/Maputo in 1999 */
-#define kAtcZoneBufSizeAfrica_Monrovia 1  /* Africa/Monrovia in 1999 */
-#define kAtcZoneBufSizeAfrica_Nairobi 1  /* Africa/Nairobi in 1999 */
-#define kAtcZoneBufSizeAfrica_Ndjamena 1  /* Africa/Ndjamena in 1999 */
+#define kAtcZoneBufSizeAfrica_Johannesburg 4  /* Africa/Johannesburg in 1943 */
+#define kAtcZoneBufSizeAfrica_Juba 4  /* Africa/Juba in 1970 */
+#define kAtcZoneBufSizeAfrica_Khartoum 4  /* Africa/Khartoum in 1970 */
+#define kAtcZoneBufSizeAfrica_Lagos 2  /* Africa/Lagos in 1905 */
+#define kAtcZoneBufSizeAfrica_Maputo 2  /* Africa/Maputo in 1903 */
+#define kAtcZoneBufSizeAfrica_Monrovia 2  /* Africa/Monrovia in 1881 */
+#define kAtcZoneBufSizeAfrica_Nairobi 2  /* Africa/Nairobi in 1908 */
+#define kAtcZoneBufSizeAfrica_Ndjamena 2  /* Africa/Ndjamena in 1911 */
 #define kAtcZoneBufSizeAfrica_Sao_Tome 3  /* Africa/Sao_Tome in 2018 */
-#define kAtcZoneBufSizeAfrica_Tripoli 4  /* Africa/Tripoli in 2012 */
-#define kAtcZoneBufSizeAfrica_Tunis 5  /* Africa/Tunis in 2005 */
-#define kAtcZoneBufSizeAfrica_Windhoek 4  /* Africa/Windhoek in 1999 */
-#define kAtcZoneBufSizeAmerica_Adak 6  /* America/Adak in 2008 */
-#define kAtcZoneBufSizeAmerica_Anchorage 6  /* America/Anchorage in 2008 */
-#define kAtcZoneBufSizeAmerica_Araguaina 5  /* America/Araguaina in 1999 */
-#define kAtcZoneBufSizeAmerica_Argentina_Buenos_Aires 5  /* America/Argentina/Buenos_Aires in 2008 */
-#define kAtcZoneBufSizeAmerica_Argentina_Catamarca 4  /* America/Argentina/Catamarca in 1999 */
-#define kAtcZoneBufSizeAmerica_Argentina_Cordoba 5  /* America/Argentina/Cordoba in 2008 */
-#define kAtcZoneBufSizeAmerica_Argentina_Jujuy 4  /* America/Argentina/Jujuy in 1999 */
-#define kAtcZoneBufSizeAmerica_Argentina_La_Rioja 4  /* America/Argentina/La_Rioja in 1999 */
-#define kAtcZoneBufSizeAmerica_Argentina_Mendoza 4  /* America/Argentina/Mendoza in 1999 */
-#define kAtcZoneBufSizeAmerica_Argentina_Rio_Gallegos 4  /* America/Argentina/Rio_Gallegos in 1999 */
-#define kAtcZoneBufSizeAmerica_Argentina_Salta 4  /* America/Argentina/Salta in 1999 */
-#define kAtcZoneBufSizeAmerica_Argentina_San_Juan 4  /* America/Argentina/San_Juan in 1999 */
+#define kAtcZoneBufSizeAfrica_Tripoli 5  /* Africa/Tripoli in 1982 */
+#define kAtcZoneBufSizeAfrica_Tunis 7  /* Africa/Tunis in 1943 */
+#define kAtcZoneBufSizeAfrica_Windhoek 4  /* Africa/Windhoek in 1994 */
+#define kAtcZoneBufSizeAmerica_Adak 6  /* America/Adak in 1983 */
+#define kAtcZoneBufSizeAmerica_Anchorage 6  /* America/Anchorage in 1983 */
+#define kAtcZoneBufSizeAmerica_Araguaina 6  /* America/Araguaina in 1964 */
+#define kAtcZoneBufSizeAmerica_Argentina_Buenos_Aires 6  /* America/Argentina/Buenos_Aires in 1931 */
+#define kAtcZoneBufSizeAmerica_Argentina_Catamarca 6  /* America/Argentina/Catamarca in 1931 */
+#define kAtcZoneBufSizeAmerica_Argentina_Cordoba 6  /* America/Argentina/Cordoba in 1931 */
+#define kAtcZoneBufSizeAmerica_Argentina_Jujuy 6  /* America/Argentina/Jujuy in 1931 */
+#define kAtcZoneBufSizeAmerica_Argentina_La_Rioja 6  /* America/Argentina/La_Rioja in 1931 */
+#define kAtcZoneBufSizeAmerica_Argentina_Mendoza 6  /* America/Argentina/Mendoza in 1931 */
+#define kAtcZoneBufSizeAmerica_Argentina_Rio_Gallegos 6  /* America/Argentina/Rio_Gallegos in 1931 */
+#define kAtcZoneBufSizeAmerica_Argentina_Salta 6  /* America/Argentina/Salta in 1931 */
+#define kAtcZoneBufSizeAmerica_Argentina_San_Juan 6  /* America/Argentina/San_Juan in 1931 */
 #define kAtcZoneBufSizeAmerica_Argentina_San_Luis 7  /* America/Argentina/San_Luis in 2008 */
-#define kAtcZoneBufSizeAmerica_Argentina_Tucuman 5  /* America/Argentina/Tucuman in 2008 */
-#define kAtcZoneBufSizeAmerica_Argentina_Ushuaia 4  /* America/Argentina/Ushuaia in 1999 */
-#define kAtcZoneBufSizeAmerica_Asuncion 5  /* America/Asuncion in 2000 */
-#define kAtcZoneBufSizeAmerica_Bahia 5  /* America/Bahia in 1999 */
+#define kAtcZoneBufSizeAmerica_Argentina_Tucuman 6  /* America/Argentina/Tucuman in 1931 */
+#define kAtcZoneBufSizeAmerica_Argentina_Ushuaia 6  /* America/Argentina/Ushuaia in 1931 */
+#define kAtcZoneBufSizeAmerica_Asuncion 5  /* America/Asuncion in 1977 */
+#define kAtcZoneBufSizeAmerica_Bahia 6  /* America/Bahia in 1964 */
 #define kAtcZoneBufSizeAmerica_Bahia_Banderas 5  /* America/Bahia_Banderas in 2010 */
-#define kAtcZoneBufSizeAmerica_Barbados 2  /* America/Barbados in 1999 */
-#define kAtcZoneBufSizeAmerica_Belem 1  /* America/Belem in 1999 */
-#define kAtcZoneBufSizeAmerica_Belize 2  /* America/Belize in 1999 */
-#define kAtcZoneBufSizeAmerica_Boa_Vista 5  /* America/Boa_Vista in 1999 */
-#define kAtcZoneBufSizeAmerica_Bogota 2  /* America/Bogota in 1999 */
-#define kAtcZoneBufSizeAmerica_Boise 6  /* America/Boise in 2008 */
+#define kAtcZoneBufSizeAmerica_Barbados 6  /* America/Barbados in 1944 */
+#define kAtcZoneBufSizeAmerica_Belem 6  /* America/Belem in 1964 */
+#define kAtcZoneBufSizeAmerica_Belize 5  /* America/Belize in 1921 */
+#define kAtcZoneBufSizeAmerica_Boa_Vista 6  /* America/Boa_Vista in 1964 */
+#define kAtcZoneBufSizeAmerica_Bogota 3  /* America/Bogota in 1914 */
+#define kAtcZoneBufSizeAmerica_Boise 6  /* America/Boise in 1974 */
 #define kAtcZoneBufSizeAmerica_Cambridge_Bay 6  /* America/Cambridge_Bay in 2008 */
-#define kAtcZoneBufSizeAmerica_Campo_Grande 6  /* America/Campo_Grande in 2003 */
-#define kAtcZoneBufSizeAmerica_Cancun 4  /* America/Cancun in 1999 */
-#define kAtcZoneBufSizeAmerica_Caracas 2  /* America/Caracas in 2007 */
-#define kAtcZoneBufSizeAmerica_Cayenne 1  /* America/Cayenne in 1999 */
+#define kAtcZoneBufSizeAmerica_Campo_Grande 6  /* America/Campo_Grande in 1964 */
+#define kAtcZoneBufSizeAmerica_Cancun 5  /* America/Cancun in 1998 */
+#define kAtcZoneBufSizeAmerica_Caracas 2  /* America/Caracas in 1889 */
+#define kAtcZoneBufSizeAmerica_Cayenne 2  /* America/Cayenne in 1911 */
 #define kAtcZoneBufSizeAmerica_Chicago 6  /* America/Chicago in 2008 */
-#define kAtcZoneBufSizeAmerica_Chihuahua 4  /* America/Chihuahua in 1999 */
+#define kAtcZoneBufSizeAmerica_Chihuahua 6  /* America/Chihuahua in 1998 */
 #define kAtcZoneBufSizeAmerica_Ciudad_Juarez 7  /* America/Ciudad_Juarez in 2022 */
-#define kAtcZoneBufSizeAmerica_Costa_Rica 2  /* America/Costa_Rica in 1999 */
-#define kAtcZoneBufSizeAmerica_Cuiaba 6  /* America/Cuiaba in 2005 */
-#define kAtcZoneBufSizeAmerica_Danmarkshavn 1  /* America/Danmarkshavn in 1999 */
+#define kAtcZoneBufSizeAmerica_Costa_Rica 5  /* America/Costa_Rica in 1979 */
+#define kAtcZoneBufSizeAmerica_Cuiaba 6  /* America/Cuiaba in 1964 */
+#define kAtcZoneBufSizeAmerica_Danmarkshavn 5  /* America/Danmarkshavn in 1980 */
 #define kAtcZoneBufSizeAmerica_Dawson 6  /* America/Dawson in 2008 */
-#define kAtcZoneBufSizeAmerica_Dawson_Creek 1  /* America/Dawson_Creek in 1999 */
-#define kAtcZoneBufSizeAmerica_Denver 6  /* America/Denver in 2008 */
+#define kAtcZoneBufSizeAmerica_Dawson_Creek 5  /* America/Dawson_Creek in 1947 */
+#define kAtcZoneBufSizeAmerica_Denver 6  /* America/Denver in 1919 */
 #define kAtcZoneBufSizeAmerica_Detroit 6  /* America/Detroit in 2008 */
 #define kAtcZoneBufSizeAmerica_Edmonton 6  /* America/Edmonton in 2008 */
-#define kAtcZoneBufSizeAmerica_Eirunepe 2  /* America/Eirunepe in 2008 */
-#define kAtcZoneBufSizeAmerica_El_Salvador 2  /* America/El_Salvador in 1999 */
+#define kAtcZoneBufSizeAmerica_Eirunepe 6  /* America/Eirunepe in 1964 */
+#define kAtcZoneBufSizeAmerica_El_Salvador 4  /* America/El_Salvador in 1987 */
 #define kAtcZoneBufSizeAmerica_Fort_Nelson 6  /* America/Fort_Nelson in 2008 */
-#define kAtcZoneBufSizeAmerica_Fortaleza 5  /* America/Fortaleza in 1999 */
+#define kAtcZoneBufSizeAmerica_Fortaleza 6  /* America/Fortaleza in 1964 */
 #define kAtcZoneBufSizeAmerica_Glace_Bay 6  /* America/Glace_Bay in 2008 */
 #define kAtcZoneBufSizeAmerica_Goose_Bay 6  /* America/Goose_Bay in 2008 */
 #define kAtcZoneBufSizeAmerica_Grand_Turk 6  /* America/Grand_Turk in 2008 */
-#define kAtcZoneBufSizeAmerica_Guatemala 3  /* America/Guatemala in 2006 */
-#define kAtcZoneBufSizeAmerica_Guayaquil 2  /* America/Guayaquil in 1999 */
-#define kAtcZoneBufSizeAmerica_Guyana 1  /* America/Guyana in 1999 */
-#define kAtcZoneBufSizeAmerica_Halifax 6  /* America/Halifax in 2008 */
+#define kAtcZoneBufSizeAmerica_Guatemala 3  /* America/Guatemala in 1918 */
+#define kAtcZoneBufSizeAmerica_Guayaquil 3  /* America/Guayaquil in 1930 */
+#define kAtcZoneBufSizeAmerica_Guyana 2  /* America/Guyana in 1911 */
+#define kAtcZoneBufSizeAmerica_Halifax 6  /* America/Halifax in 1918 */
 #define kAtcZoneBufSizeAmerica_Havana 6  /* America/Havana in 2015 */
-#define kAtcZoneBufSizeAmerica_Hermosillo 2  /* America/Hermosillo in 1999 */
+#define kAtcZoneBufSizeAmerica_Hermosillo 4  /* America/Hermosillo in 1996 */
 #define kAtcZoneBufSizeAmerica_Indiana_Indianapolis 6  /* America/Indiana/Indianapolis in 2006 */
 #define kAtcZoneBufSizeAmerica_Indiana_Knox 6  /* America/Indiana/Knox in 2006 */
 #define kAtcZoneBufSizeAmerica_Indiana_Marengo 6  /* America/Indiana/Marengo in 2006 */
@@ -1354,275 +1358,275 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeAmerica_Indiana_Winamac 6  /* America/Indiana/Winamac in 2006 */
 #define kAtcZoneBufSizeAmerica_Inuvik 6  /* America/Inuvik in 2008 */
 #define kAtcZoneBufSizeAmerica_Iqaluit 6  /* America/Iqaluit in 2008 */
-#define kAtcZoneBufSizeAmerica_Jamaica 1  /* America/Jamaica in 1999 */
-#define kAtcZoneBufSizeAmerica_Juneau 6  /* America/Juneau in 2008 */
+#define kAtcZoneBufSizeAmerica_Jamaica 5  /* America/Jamaica in 1974 */
+#define kAtcZoneBufSizeAmerica_Juneau 6  /* America/Juneau in 1983 */
 #define kAtcZoneBufSizeAmerica_Kentucky_Louisville 6  /* America/Kentucky/Louisville in 2008 */
 #define kAtcZoneBufSizeAmerica_Kentucky_Monticello 6  /* America/Kentucky/Monticello in 2008 */
-#define kAtcZoneBufSizeAmerica_La_Paz 1  /* America/La_Paz in 1999 */
-#define kAtcZoneBufSizeAmerica_Lima 2  /* America/Lima in 1999 */
+#define kAtcZoneBufSizeAmerica_La_Paz 2  /* America/La_Paz in 1889 */
+#define kAtcZoneBufSizeAmerica_Lima 5  /* America/Lima in 1938 */
 #define kAtcZoneBufSizeAmerica_Los_Angeles 6  /* America/Los_Angeles in 2008 */
-#define kAtcZoneBufSizeAmerica_Maceio 5  /* America/Maceio in 1999 */
-#define kAtcZoneBufSizeAmerica_Managua 4  /* America/Managua in 2005 */
-#define kAtcZoneBufSizeAmerica_Manaus 1  /* America/Manaus in 1999 */
-#define kAtcZoneBufSizeAmerica_Martinique 1  /* America/Martinique in 1999 */
-#define kAtcZoneBufSizeAmerica_Matamoros 6  /* America/Matamoros in 2009 */
-#define kAtcZoneBufSizeAmerica_Mazatlan 4  /* America/Mazatlan in 1999 */
+#define kAtcZoneBufSizeAmerica_Maceio 6  /* America/Maceio in 1964 */
+#define kAtcZoneBufSizeAmerica_Managua 5  /* America/Managua in 1979 */
+#define kAtcZoneBufSizeAmerica_Manaus 6  /* America/Manaus in 1964 */
+#define kAtcZoneBufSizeAmerica_Martinique 3  /* America/Martinique in 1980 */
+#define kAtcZoneBufSizeAmerica_Matamoros 6  /* America/Matamoros in 1988 */
+#define kAtcZoneBufSizeAmerica_Mazatlan 4  /* America/Mazatlan in 1996 */
 #define kAtcZoneBufSizeAmerica_Menominee 6  /* America/Menominee in 2008 */
-#define kAtcZoneBufSizeAmerica_Merida 4  /* America/Merida in 1999 */
+#define kAtcZoneBufSizeAmerica_Merida 4  /* America/Merida in 1982 */
 #define kAtcZoneBufSizeAmerica_Metlakatla 6  /* America/Metlakatla in 2016 */
 #define kAtcZoneBufSizeAmerica_Mexico_City 5  /* America/Mexico_City in 2002 */
 #define kAtcZoneBufSizeAmerica_Miquelon 6  /* America/Miquelon in 2008 */
 #define kAtcZoneBufSizeAmerica_Moncton 6  /* America/Moncton in 2006 */
-#define kAtcZoneBufSizeAmerica_Monterrey 4  /* America/Monterrey in 1999 */
-#define kAtcZoneBufSizeAmerica_Montevideo 5  /* America/Montevideo in 2005 */
-#define kAtcZoneBufSizeAmerica_New_York 6  /* America/New_York in 2008 */
-#define kAtcZoneBufSizeAmerica_Nome 6  /* America/Nome in 2008 */
-#define kAtcZoneBufSizeAmerica_Noronha 5  /* America/Noronha in 1999 */
+#define kAtcZoneBufSizeAmerica_Monterrey 6  /* America/Monterrey in 1988 */
+#define kAtcZoneBufSizeAmerica_Montevideo 8  /* America/Montevideo in 1974 */
+#define kAtcZoneBufSizeAmerica_New_York 6  /* America/New_York in 1919 */
+#define kAtcZoneBufSizeAmerica_Nome 6  /* America/Nome in 1983 */
+#define kAtcZoneBufSizeAmerica_Noronha 6  /* America/Noronha in 1964 */
 #define kAtcZoneBufSizeAmerica_North_Dakota_Beulah 6  /* America/North_Dakota/Beulah in 2008 */
 #define kAtcZoneBufSizeAmerica_North_Dakota_Center 6  /* America/North_Dakota/Center in 2008 */
 #define kAtcZoneBufSizeAmerica_North_Dakota_New_Salem 6  /* America/North_Dakota/New_Salem in 2008 */
-#define kAtcZoneBufSizeAmerica_Nuuk 5  /* America/Nuuk in 1999 */
+#define kAtcZoneBufSizeAmerica_Nuuk 5  /* America/Nuuk in 1980 */
 #define kAtcZoneBufSizeAmerica_Ojinaga 7  /* America/Ojinaga in 2022 */
-#define kAtcZoneBufSizeAmerica_Panama 1  /* America/Panama in 1999 */
-#define kAtcZoneBufSizeAmerica_Paramaribo 1  /* America/Paramaribo in 1999 */
-#define kAtcZoneBufSizeAmerica_Phoenix 1  /* America/Phoenix in 1999 */
+#define kAtcZoneBufSizeAmerica_Panama 2  /* America/Panama in 1889 */
+#define kAtcZoneBufSizeAmerica_Paramaribo 2  /* America/Paramaribo in 1910 */
+#define kAtcZoneBufSizeAmerica_Phoenix 5  /* America/Phoenix in 1918 */
 #define kAtcZoneBufSizeAmerica_Port_au_Prince 6  /* America/Port-au-Prince in 2013 */
-#define kAtcZoneBufSizeAmerica_Porto_Velho 1  /* America/Porto_Velho in 1999 */
-#define kAtcZoneBufSizeAmerica_Puerto_Rico 1  /* America/Puerto_Rico in 1999 */
-#define kAtcZoneBufSizeAmerica_Punta_Arenas 5  /* America/Punta_Arenas in 2002 */
+#define kAtcZoneBufSizeAmerica_Porto_Velho 6  /* America/Porto_Velho in 1964 */
+#define kAtcZoneBufSizeAmerica_Puerto_Rico 4  /* America/Puerto_Rico in 1945 */
+#define kAtcZoneBufSizeAmerica_Punta_Arenas 6  /* America/Punta_Arenas in 1969 */
 #define kAtcZoneBufSizeAmerica_Rankin_Inlet 6  /* America/Rankin_Inlet in 2008 */
-#define kAtcZoneBufSizeAmerica_Recife 5  /* America/Recife in 1999 */
-#define kAtcZoneBufSizeAmerica_Regina 1  /* America/Regina in 1999 */
+#define kAtcZoneBufSizeAmerica_Recife 6  /* America/Recife in 1964 */
+#define kAtcZoneBufSizeAmerica_Regina 4  /* America/Regina in 1930 */
 #define kAtcZoneBufSizeAmerica_Resolute 6  /* America/Resolute in 2007 */
-#define kAtcZoneBufSizeAmerica_Rio_Branco 2  /* America/Rio_Branco in 2008 */
-#define kAtcZoneBufSizeAmerica_Santarem 2  /* America/Santarem in 2008 */
-#define kAtcZoneBufSizeAmerica_Santiago 5  /* America/Santiago in 2002 */
-#define kAtcZoneBufSizeAmerica_Santo_Domingo 4  /* America/Santo_Domingo in 2000 */
-#define kAtcZoneBufSizeAmerica_Sao_Paulo 6  /* America/Sao_Paulo in 2003 */
-#define kAtcZoneBufSizeAmerica_Scoresbysund 5  /* America/Scoresbysund in 1999 */
-#define kAtcZoneBufSizeAmerica_Sitka 6  /* America/Sitka in 2008 */
-#define kAtcZoneBufSizeAmerica_St_Johns 6  /* America/St_Johns in 2008 */
-#define kAtcZoneBufSizeAmerica_Swift_Current 1  /* America/Swift_Current in 1999 */
-#define kAtcZoneBufSizeAmerica_Tegucigalpa 3  /* America/Tegucigalpa in 2006 */
+#define kAtcZoneBufSizeAmerica_Rio_Branco 6  /* America/Rio_Branco in 1964 */
+#define kAtcZoneBufSizeAmerica_Santarem 6  /* America/Santarem in 1964 */
+#define kAtcZoneBufSizeAmerica_Santiago 6  /* America/Santiago in 1969 */
+#define kAtcZoneBufSizeAmerica_Santo_Domingo 4  /* America/Santo_Domingo in 1970 */
+#define kAtcZoneBufSizeAmerica_Sao_Paulo 6  /* America/Sao_Paulo in 1964 */
+#define kAtcZoneBufSizeAmerica_Scoresbysund 5  /* America/Scoresbysund in 1980 */
+#define kAtcZoneBufSizeAmerica_Sitka 6  /* America/Sitka in 1983 */
+#define kAtcZoneBufSizeAmerica_St_Johns 6  /* America/St_Johns in 1918 */
+#define kAtcZoneBufSizeAmerica_Swift_Current 5  /* America/Swift_Current in 1946 */
+#define kAtcZoneBufSizeAmerica_Tegucigalpa 4  /* America/Tegucigalpa in 1987 */
 #define kAtcZoneBufSizeAmerica_Thule 6  /* America/Thule in 2008 */
 #define kAtcZoneBufSizeAmerica_Tijuana 6  /* America/Tijuana in 2009 */
-#define kAtcZoneBufSizeAmerica_Toronto 6  /* America/Toronto in 2008 */
+#define kAtcZoneBufSizeAmerica_Toronto 6  /* America/Toronto in 1918 */
 #define kAtcZoneBufSizeAmerica_Vancouver 6  /* America/Vancouver in 2008 */
 #define kAtcZoneBufSizeAmerica_Whitehorse 6  /* America/Whitehorse in 2008 */
 #define kAtcZoneBufSizeAmerica_Winnipeg 6  /* America/Winnipeg in 2006 */
-#define kAtcZoneBufSizeAmerica_Yakutat 6  /* America/Yakutat in 2008 */
+#define kAtcZoneBufSizeAmerica_Yakutat 6  /* America/Yakutat in 1983 */
 #define kAtcZoneBufSizeAmerica_Yellowknife 6  /* America/Yellowknife in 2008 */
 #define kAtcZoneBufSizeAntarctica_Casey 3  /* Antarctica/Casey in 2018 */
-#define kAtcZoneBufSizeAntarctica_Davis 2  /* Antarctica/Davis in 2009 */
-#define kAtcZoneBufSizeAntarctica_Macquarie 5  /* Antarctica/Macquarie in 1999 */
-#define kAtcZoneBufSizeAntarctica_Mawson 2  /* Antarctica/Mawson in 2009 */
-#define kAtcZoneBufSizeAntarctica_Palmer 5  /* Antarctica/Palmer in 2002 */
-#define kAtcZoneBufSizeAntarctica_Rothera 1  /* Antarctica/Rothera in 1999 */
+#define kAtcZoneBufSizeAntarctica_Davis 2  /* Antarctica/Davis in 1956 */
+#define kAtcZoneBufSizeAntarctica_Macquarie 5  /* Antarctica/Macquarie in 1967 */
+#define kAtcZoneBufSizeAntarctica_Mawson 2  /* Antarctica/Mawson in 1954 */
+#define kAtcZoneBufSizeAntarctica_Palmer 6  /* Antarctica/Palmer in 1965 */
+#define kAtcZoneBufSizeAntarctica_Rothera 2  /* Antarctica/Rothera in 1976 */
 #define kAtcZoneBufSizeAntarctica_Troll 6  /* Antarctica/Troll in 2005 */
-#define kAtcZoneBufSizeAsia_Almaty 5  /* Asia/Almaty in 1999 */
+#define kAtcZoneBufSizeAsia_Almaty 6  /* Asia/Almaty in 1991 */
 #define kAtcZoneBufSizeAsia_Amman 6  /* Asia/Amman in 2014 */
-#define kAtcZoneBufSizeAsia_Anadyr 5  /* Asia/Anadyr in 1999 */
-#define kAtcZoneBufSizeAsia_Aqtau 5  /* Asia/Aqtau in 1999 */
-#define kAtcZoneBufSizeAsia_Aqtobe 5  /* Asia/Aqtobe in 1999 */
-#define kAtcZoneBufSizeAsia_Ashgabat 1  /* Asia/Ashgabat in 1999 */
-#define kAtcZoneBufSizeAsia_Atyrau 6  /* Asia/Atyrau in 1999 */
-#define kAtcZoneBufSizeAsia_Baghdad 4  /* Asia/Baghdad in 1999 */
-#define kAtcZoneBufSizeAsia_Baku 5  /* Asia/Baku in 1999 */
-#define kAtcZoneBufSizeAsia_Bangkok 1  /* Asia/Bangkok in 1999 */
-#define kAtcZoneBufSizeAsia_Barnaul 5  /* Asia/Barnaul in 1999 */
-#define kAtcZoneBufSizeAsia_Beirut 5  /* Asia/Beirut in 1999 */
-#define kAtcZoneBufSizeAsia_Bishkek 5  /* Asia/Bishkek in 1999 */
-#define kAtcZoneBufSizeAsia_Chita 5  /* Asia/Chita in 1999 */
-#define kAtcZoneBufSizeAsia_Choibalsan 5  /* Asia/Choibalsan in 2004 */
-#define kAtcZoneBufSizeAsia_Colombo 2  /* Asia/Colombo in 2006 */
+#define kAtcZoneBufSizeAsia_Anadyr 6  /* Asia/Anadyr in 1991 */
+#define kAtcZoneBufSizeAsia_Aqtau 6  /* Asia/Aqtau in 1991 */
+#define kAtcZoneBufSizeAsia_Aqtobe 6  /* Asia/Aqtobe in 1991 */
+#define kAtcZoneBufSizeAsia_Ashgabat 5  /* Asia/Ashgabat in 1987 */
+#define kAtcZoneBufSizeAsia_Atyrau 6  /* Asia/Atyrau in 1991 */
+#define kAtcZoneBufSizeAsia_Baghdad 5  /* Asia/Baghdad in 1982 */
+#define kAtcZoneBufSizeAsia_Baku 7  /* Asia/Baku in 1996 */
+#define kAtcZoneBufSizeAsia_Bangkok 2  /* Asia/Bangkok in 1879 */
+#define kAtcZoneBufSizeAsia_Barnaul 6  /* Asia/Barnaul in 1991 */
+#define kAtcZoneBufSizeAsia_Beirut 5  /* Asia/Beirut in 1921 */
+#define kAtcZoneBufSizeAsia_Bishkek 5  /* Asia/Bishkek in 1987 */
+#define kAtcZoneBufSizeAsia_Chita 6  /* Asia/Chita in 1991 */
+#define kAtcZoneBufSizeAsia_Choibalsan 5  /* Asia/Choibalsan in 1983 */
+#define kAtcZoneBufSizeAsia_Colombo 3  /* Asia/Colombo in 1942 */
 #define kAtcZoneBufSizeAsia_Damascus 6  /* Asia/Damascus in 2008 */
 #define kAtcZoneBufSizeAsia_Dhaka 4  /* Asia/Dhaka in 2009 */
-#define kAtcZoneBufSizeAsia_Dili 2  /* Asia/Dili in 2000 */
-#define kAtcZoneBufSizeAsia_Dubai 1  /* Asia/Dubai in 1999 */
-#define kAtcZoneBufSizeAsia_Dushanbe 1  /* Asia/Dushanbe in 1999 */
-#define kAtcZoneBufSizeAsia_Famagusta 5  /* Asia/Famagusta in 1999 */
+#define kAtcZoneBufSizeAsia_Dili 2  /* Asia/Dili in 1911 */
+#define kAtcZoneBufSizeAsia_Dubai 2  /* Asia/Dubai in 1919 */
+#define kAtcZoneBufSizeAsia_Dushanbe 5  /* Asia/Dushanbe in 1987 */
+#define kAtcZoneBufSizeAsia_Famagusta 6  /* Asia/Famagusta in 1998 */
 #define kAtcZoneBufSizeAsia_Gaza 7  /* Asia/Gaza in 2008 */
 #define kAtcZoneBufSizeAsia_Hebron 7  /* Asia/Hebron in 2011 */
-#define kAtcZoneBufSizeAsia_Ho_Chi_Minh 1  /* Asia/Ho_Chi_Minh in 1999 */
-#define kAtcZoneBufSizeAsia_Hong_Kong 2  /* Asia/Hong_Kong in 1999 */
-#define kAtcZoneBufSizeAsia_Hovd 5  /* Asia/Hovd in 2004 */
-#define kAtcZoneBufSizeAsia_Irkutsk 5  /* Asia/Irkutsk in 1999 */
-#define kAtcZoneBufSizeAsia_Jakarta 1  /* Asia/Jakarta in 1999 */
-#define kAtcZoneBufSizeAsia_Jayapura 1  /* Asia/Jayapura in 1999 */
-#define kAtcZoneBufSizeAsia_Jerusalem 5  /* Asia/Jerusalem in 2001 */
-#define kAtcZoneBufSizeAsia_Kabul 1  /* Asia/Kabul in 1999 */
-#define kAtcZoneBufSizeAsia_Kamchatka 5  /* Asia/Kamchatka in 1999 */
+#define kAtcZoneBufSizeAsia_Ho_Chi_Minh 3  /* Asia/Ho_Chi_Minh in 1945 */
+#define kAtcZoneBufSizeAsia_Hong_Kong 6  /* Asia/Hong_Kong in 1956 */
+#define kAtcZoneBufSizeAsia_Hovd 5  /* Asia/Hovd in 1984 */
+#define kAtcZoneBufSizeAsia_Irkutsk 6  /* Asia/Irkutsk in 1991 */
+#define kAtcZoneBufSizeAsia_Jakarta 2  /* Asia/Jakarta in 1867 */
+#define kAtcZoneBufSizeAsia_Jayapura 2  /* Asia/Jayapura in 1932 */
+#define kAtcZoneBufSizeAsia_Jerusalem 5  /* Asia/Jerusalem in 1948 */
+#define kAtcZoneBufSizeAsia_Kabul 2  /* Asia/Kabul in 1889 */
+#define kAtcZoneBufSizeAsia_Kamchatka 6  /* Asia/Kamchatka in 1991 */
 #define kAtcZoneBufSizeAsia_Karachi 4  /* Asia/Karachi in 2008 */
-#define kAtcZoneBufSizeAsia_Kathmandu 1  /* Asia/Kathmandu in 1999 */
-#define kAtcZoneBufSizeAsia_Khandyga 6  /* Asia/Khandyga in 2003 */
-#define kAtcZoneBufSizeAsia_Kolkata 1  /* Asia/Kolkata in 1999 */
-#define kAtcZoneBufSizeAsia_Krasnoyarsk 5  /* Asia/Krasnoyarsk in 1999 */
-#define kAtcZoneBufSizeAsia_Kuching 1  /* Asia/Kuching in 1999 */
-#define kAtcZoneBufSizeAsia_Macau 2  /* Asia/Macau in 1999 */
-#define kAtcZoneBufSizeAsia_Magadan 5  /* Asia/Magadan in 1999 */
-#define kAtcZoneBufSizeAsia_Makassar 1  /* Asia/Makassar in 1999 */
-#define kAtcZoneBufSizeAsia_Manila 2  /* Asia/Manila in 1999 */
-#define kAtcZoneBufSizeAsia_Nicosia 5  /* Asia/Nicosia in 1999 */
-#define kAtcZoneBufSizeAsia_Novokuznetsk 5  /* Asia/Novokuznetsk in 1999 */
-#define kAtcZoneBufSizeAsia_Novosibirsk 5  /* Asia/Novosibirsk in 1999 */
-#define kAtcZoneBufSizeAsia_Omsk 5  /* Asia/Omsk in 1999 */
-#define kAtcZoneBufSizeAsia_Oral 5  /* Asia/Oral in 1999 */
-#define kAtcZoneBufSizeAsia_Pontianak 1  /* Asia/Pontianak in 1999 */
-#define kAtcZoneBufSizeAsia_Pyongyang 2  /* Asia/Pyongyang in 2015 */
-#define kAtcZoneBufSizeAsia_Qatar 1  /* Asia/Qatar in 1999 */
-#define kAtcZoneBufSizeAsia_Qostanay 5  /* Asia/Qostanay in 1999 */
-#define kAtcZoneBufSizeAsia_Qyzylorda 5  /* Asia/Qyzylorda in 1999 */
-#define kAtcZoneBufSizeAsia_Riyadh 1  /* Asia/Riyadh in 1999 */
-#define kAtcZoneBufSizeAsia_Sakhalin 5  /* Asia/Sakhalin in 1999 */
-#define kAtcZoneBufSizeAsia_Samarkand 1  /* Asia/Samarkand in 1999 */
-#define kAtcZoneBufSizeAsia_Seoul 2  /* Asia/Seoul in 1999 */
-#define kAtcZoneBufSizeAsia_Shanghai 2  /* Asia/Shanghai in 1999 */
-#define kAtcZoneBufSizeAsia_Singapore 1  /* Asia/Singapore in 1999 */
-#define kAtcZoneBufSizeAsia_Srednekolymsk 5  /* Asia/Srednekolymsk in 1999 */
-#define kAtcZoneBufSizeAsia_Taipei 2  /* Asia/Taipei in 1999 */
-#define kAtcZoneBufSizeAsia_Tashkent 1  /* Asia/Tashkent in 1999 */
-#define kAtcZoneBufSizeAsia_Tbilisi 6  /* Asia/Tbilisi in 2004 */
-#define kAtcZoneBufSizeAsia_Tehran 5  /* Asia/Tehran in 1999 */
-#define kAtcZoneBufSizeAsia_Thimphu 1  /* Asia/Thimphu in 1999 */
-#define kAtcZoneBufSizeAsia_Tokyo 2  /* Asia/Tokyo in 1999 */
-#define kAtcZoneBufSizeAsia_Tomsk 6  /* Asia/Tomsk in 2002 */
-#define kAtcZoneBufSizeAsia_Ulaanbaatar 5  /* Asia/Ulaanbaatar in 2004 */
-#define kAtcZoneBufSizeAsia_Urumqi 1  /* Asia/Urumqi in 1999 */
-#define kAtcZoneBufSizeAsia_Ust_Nera 5  /* Asia/Ust-Nera in 1999 */
-#define kAtcZoneBufSizeAsia_Vladivostok 5  /* Asia/Vladivostok in 1999 */
-#define kAtcZoneBufSizeAsia_Yakutsk 5  /* Asia/Yakutsk in 1999 */
-#define kAtcZoneBufSizeAsia_Yangon 1  /* Asia/Yangon in 1999 */
-#define kAtcZoneBufSizeAsia_Yekaterinburg 5  /* Asia/Yekaterinburg in 1999 */
-#define kAtcZoneBufSizeAsia_Yerevan 6  /* Asia/Yerevan in 2010 */
-#define kAtcZoneBufSizeAtlantic_Azores 5  /* Atlantic/Azores in 1999 */
+#define kAtcZoneBufSizeAsia_Kathmandu 2  /* Asia/Kathmandu in 1919 */
+#define kAtcZoneBufSizeAsia_Khandyga 6  /* Asia/Khandyga in 1991 */
+#define kAtcZoneBufSizeAsia_Kolkata 3  /* Asia/Kolkata in 1942 */
+#define kAtcZoneBufSizeAsia_Krasnoyarsk 6  /* Asia/Krasnoyarsk in 1991 */
+#define kAtcZoneBufSizeAsia_Kuching 5  /* Asia/Kuching in 1936 */
+#define kAtcZoneBufSizeAsia_Macau 6  /* Asia/Macau in 1959 */
+#define kAtcZoneBufSizeAsia_Magadan 6  /* Asia/Magadan in 1991 */
+#define kAtcZoneBufSizeAsia_Makassar 2  /* Asia/Makassar in 1919 */
+#define kAtcZoneBufSizeAsia_Manila 3  /* Asia/Manila in 1899 */
+#define kAtcZoneBufSizeAsia_Nicosia 6  /* Asia/Nicosia in 1998 */
+#define kAtcZoneBufSizeAsia_Novokuznetsk 6  /* Asia/Novokuznetsk in 1991 */
+#define kAtcZoneBufSizeAsia_Novosibirsk 6  /* Asia/Novosibirsk in 1991 */
+#define kAtcZoneBufSizeAsia_Omsk 6  /* Asia/Omsk in 1991 */
+#define kAtcZoneBufSizeAsia_Oral 7  /* Asia/Oral in 1992 */
+#define kAtcZoneBufSizeAsia_Pontianak 2  /* Asia/Pontianak in 1908 */
+#define kAtcZoneBufSizeAsia_Pyongyang 2  /* Asia/Pyongyang in 1908 */
+#define kAtcZoneBufSizeAsia_Qatar 2  /* Asia/Qatar in 1919 */
+#define kAtcZoneBufSizeAsia_Qostanay 6  /* Asia/Qostanay in 1991 */
+#define kAtcZoneBufSizeAsia_Qyzylorda 7  /* Asia/Qyzylorda in 1992 */
+#define kAtcZoneBufSizeAsia_Riyadh 2  /* Asia/Riyadh in 1947 */
+#define kAtcZoneBufSizeAsia_Sakhalin 6  /* Asia/Sakhalin in 1991 */
+#define kAtcZoneBufSizeAsia_Samarkand 5  /* Asia/Samarkand in 1982 */
+#define kAtcZoneBufSizeAsia_Seoul 4  /* Asia/Seoul in 1948 */
+#define kAtcZoneBufSizeAsia_Shanghai 5  /* Asia/Shanghai in 1940 */
+#define kAtcZoneBufSizeAsia_Singapore 2  /* Asia/Singapore in 1900 */
+#define kAtcZoneBufSizeAsia_Srednekolymsk 6  /* Asia/Srednekolymsk in 1991 */
+#define kAtcZoneBufSizeAsia_Taipei 5  /* Asia/Taipei in 1948 */
+#define kAtcZoneBufSizeAsia_Tashkent 5  /* Asia/Tashkent in 1987 */
+#define kAtcZoneBufSizeAsia_Tbilisi 6  /* Asia/Tbilisi in 1991 */
+#define kAtcZoneBufSizeAsia_Tehran 6  /* Asia/Tehran in 1977 */
+#define kAtcZoneBufSizeAsia_Thimphu 2  /* Asia/Thimphu in 1947 */
+#define kAtcZoneBufSizeAsia_Tokyo 4  /* Asia/Tokyo in 1948 */
+#define kAtcZoneBufSizeAsia_Tomsk 6  /* Asia/Tomsk in 1991 */
+#define kAtcZoneBufSizeAsia_Ulaanbaatar 5  /* Asia/Ulaanbaatar in 1984 */
+#define kAtcZoneBufSizeAsia_Urumqi 2  /* Asia/Urumqi in 1927 */
+#define kAtcZoneBufSizeAsia_Ust_Nera 6  /* Asia/Ust-Nera in 1991 */
+#define kAtcZoneBufSizeAsia_Vladivostok 6  /* Asia/Vladivostok in 1991 */
+#define kAtcZoneBufSizeAsia_Yakutsk 6  /* Asia/Yakutsk in 1991 */
+#define kAtcZoneBufSizeAsia_Yangon 2  /* Asia/Yangon in 1879 */
+#define kAtcZoneBufSizeAsia_Yekaterinburg 6  /* Asia/Yekaterinburg in 1991 */
+#define kAtcZoneBufSizeAsia_Yerevan 6  /* Asia/Yerevan in 1991 */
+#define kAtcZoneBufSizeAtlantic_Azores 8  /* Atlantic/Azores in 1942 */
 #define kAtcZoneBufSizeAtlantic_Bermuda 6  /* Atlantic/Bermuda in 2008 */
-#define kAtcZoneBufSizeAtlantic_Canary 5  /* Atlantic/Canary in 1999 */
-#define kAtcZoneBufSizeAtlantic_Cape_Verde 1  /* Atlantic/Cape_Verde in 1999 */
-#define kAtcZoneBufSizeAtlantic_Faroe 5  /* Atlantic/Faroe in 1999 */
-#define kAtcZoneBufSizeAtlantic_Madeira 5  /* Atlantic/Madeira in 1999 */
-#define kAtcZoneBufSizeAtlantic_South_Georgia 1  /* Atlantic/South_Georgia in 1999 */
-#define kAtcZoneBufSizeAtlantic_Stanley 4  /* Atlantic/Stanley in 1999 */
-#define kAtcZoneBufSizeAustralia_Adelaide 5  /* Australia/Adelaide in 1999 */
-#define kAtcZoneBufSizeAustralia_Brisbane 2  /* Australia/Brisbane in 1999 */
-#define kAtcZoneBufSizeAustralia_Broken_Hill 6  /* Australia/Broken_Hill in 1999 */
-#define kAtcZoneBufSizeAustralia_Darwin 2  /* Australia/Darwin in 1999 */
-#define kAtcZoneBufSizeAustralia_Eucla 6  /* Australia/Eucla in 2007 */
-#define kAtcZoneBufSizeAustralia_Hobart 5  /* Australia/Hobart in 1999 */
-#define kAtcZoneBufSizeAustralia_Lindeman 2  /* Australia/Lindeman in 1999 */
-#define kAtcZoneBufSizeAustralia_Lord_Howe 5  /* Australia/Lord_Howe in 1999 */
-#define kAtcZoneBufSizeAustralia_Melbourne 5  /* Australia/Melbourne in 1999 */
-#define kAtcZoneBufSizeAustralia_Perth 6  /* Australia/Perth in 2007 */
-#define kAtcZoneBufSizeAustralia_Sydney 5  /* Australia/Sydney in 1999 */
-#define kAtcZoneBufSizeCET 5  /* CET in 1999 */
+#define kAtcZoneBufSizeAtlantic_Canary 5  /* Atlantic/Canary in 1980 */
+#define kAtcZoneBufSizeAtlantic_Cape_Verde 2  /* Atlantic/Cape_Verde in 1911 */
+#define kAtcZoneBufSizeAtlantic_Faroe 5  /* Atlantic/Faroe in 1981 */
+#define kAtcZoneBufSizeAtlantic_Madeira 8  /* Atlantic/Madeira in 1942 */
+#define kAtcZoneBufSizeAtlantic_South_Georgia 2  /* Atlantic/South_Georgia in 1889 */
+#define kAtcZoneBufSizeAtlantic_Stanley 5  /* Atlantic/Stanley in 1938 */
+#define kAtcZoneBufSizeAustralia_Adelaide 6  /* Australia/Adelaide in 1942 */
+#define kAtcZoneBufSizeAustralia_Brisbane 6  /* Australia/Brisbane in 1942 */
+#define kAtcZoneBufSizeAustralia_Broken_Hill 6  /* Australia/Broken_Hill in 1942 */
+#define kAtcZoneBufSizeAustralia_Darwin 6  /* Australia/Darwin in 1942 */
+#define kAtcZoneBufSizeAustralia_Eucla 6  /* Australia/Eucla in 1942 */
+#define kAtcZoneBufSizeAustralia_Hobart 6  /* Australia/Hobart in 1942 */
+#define kAtcZoneBufSizeAustralia_Lindeman 6  /* Australia/Lindeman in 1942 */
+#define kAtcZoneBufSizeAustralia_Lord_Howe 6  /* Australia/Lord_Howe in 1985 */
+#define kAtcZoneBufSizeAustralia_Melbourne 6  /* Australia/Melbourne in 1942 */
+#define kAtcZoneBufSizeAustralia_Perth 6  /* Australia/Perth in 1942 */
+#define kAtcZoneBufSizeAustralia_Sydney 6  /* Australia/Sydney in 1942 */
+#define kAtcZoneBufSizeCET 5  /* CET in 1943 */
 #define kAtcZoneBufSizeCST6CDT 6  /* CST6CDT in 2008 */
-#define kAtcZoneBufSizeEET 5  /* EET in 1999 */
-#define kAtcZoneBufSizeEST 1  /* EST in 1999 */
+#define kAtcZoneBufSizeEET 5  /* EET in 1983 */
+#define kAtcZoneBufSizeEST 1  /* EST in 1843 */
 #define kAtcZoneBufSizeEST5EDT 6  /* EST5EDT in 2008 */
-#define kAtcZoneBufSizeEtc_GMT 1  /* Etc/GMT in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_1 1  /* Etc/GMT+1 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_10 1  /* Etc/GMT+10 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_11 1  /* Etc/GMT+11 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_12 1  /* Etc/GMT+12 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_2 1  /* Etc/GMT+2 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_3 1  /* Etc/GMT+3 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_4 1  /* Etc/GMT+4 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_5 1  /* Etc/GMT+5 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_6 1  /* Etc/GMT+6 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_7 1  /* Etc/GMT+7 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_8 1  /* Etc/GMT+8 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_9 1  /* Etc/GMT+9 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_1 1  /* Etc/GMT-1 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_10 1  /* Etc/GMT-10 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_11 1  /* Etc/GMT-11 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_12 1  /* Etc/GMT-12 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_13 1  /* Etc/GMT-13 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_14 1  /* Etc/GMT-14 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_2 1  /* Etc/GMT-2 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_3 1  /* Etc/GMT-3 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_4 1  /* Etc/GMT-4 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_5 1  /* Etc/GMT-5 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_6 1  /* Etc/GMT-6 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_7 1  /* Etc/GMT-7 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_8 1  /* Etc/GMT-8 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_9 1  /* Etc/GMT-9 in 1999 */
-#define kAtcZoneBufSizeEtc_UTC 1  /* Etc/UTC in 1999 */
-#define kAtcZoneBufSizeEurope_Andorra 5  /* Europe/Andorra in 1999 */
-#define kAtcZoneBufSizeEurope_Astrakhan 5  /* Europe/Astrakhan in 1999 */
-#define kAtcZoneBufSizeEurope_Athens 5  /* Europe/Athens in 1999 */
-#define kAtcZoneBufSizeEurope_Belgrade 5  /* Europe/Belgrade in 1999 */
-#define kAtcZoneBufSizeEurope_Berlin 5  /* Europe/Berlin in 1999 */
-#define kAtcZoneBufSizeEurope_Brussels 5  /* Europe/Brussels in 1999 */
-#define kAtcZoneBufSizeEurope_Bucharest 5  /* Europe/Bucharest in 1999 */
-#define kAtcZoneBufSizeEurope_Budapest 5  /* Europe/Budapest in 1999 */
-#define kAtcZoneBufSizeEurope_Chisinau 5  /* Europe/Chisinau in 1999 */
-#define kAtcZoneBufSizeEurope_Dublin 5  /* Europe/Dublin in 1999 */
-#define kAtcZoneBufSizeEurope_Gibraltar 5  /* Europe/Gibraltar in 1999 */
-#define kAtcZoneBufSizeEurope_Helsinki 5  /* Europe/Helsinki in 1999 */
+#define kAtcZoneBufSizeEtc_GMT 1  /* Etc/GMT in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_1 1  /* Etc/GMT+1 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_10 1  /* Etc/GMT+10 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_11 1  /* Etc/GMT+11 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_12 1  /* Etc/GMT+12 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_2 1  /* Etc/GMT+2 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_3 1  /* Etc/GMT+3 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_4 1  /* Etc/GMT+4 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_5 1  /* Etc/GMT+5 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_6 1  /* Etc/GMT+6 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_7 1  /* Etc/GMT+7 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_8 1  /* Etc/GMT+8 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_9 1  /* Etc/GMT+9 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_1 1  /* Etc/GMT-1 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_10 1  /* Etc/GMT-10 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_11 1  /* Etc/GMT-11 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_12 1  /* Etc/GMT-12 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_13 1  /* Etc/GMT-13 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_14 1  /* Etc/GMT-14 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_2 1  /* Etc/GMT-2 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_3 1  /* Etc/GMT-3 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_4 1  /* Etc/GMT-4 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_5 1  /* Etc/GMT-5 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_6 1  /* Etc/GMT-6 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_7 1  /* Etc/GMT-7 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_8 1  /* Etc/GMT-8 in 1843 */
+#define kAtcZoneBufSizeEtc_GMT_9 1  /* Etc/GMT-9 in 1843 */
+#define kAtcZoneBufSizeEtc_UTC 1  /* Etc/UTC in 1843 */
+#define kAtcZoneBufSizeEurope_Andorra 6  /* Europe/Andorra in 1985 */
+#define kAtcZoneBufSizeEurope_Astrakhan 6  /* Europe/Astrakhan in 1989 */
+#define kAtcZoneBufSizeEurope_Athens 5  /* Europe/Athens in 1941 */
+#define kAtcZoneBufSizeEurope_Belgrade 5  /* Europe/Belgrade in 1943 */
+#define kAtcZoneBufSizeEurope_Berlin 7  /* Europe/Berlin in 1945 */
+#define kAtcZoneBufSizeEurope_Brussels 6  /* Europe/Brussels in 1918 */
+#define kAtcZoneBufSizeEurope_Bucharest 6  /* Europe/Bucharest in 1990 */
+#define kAtcZoneBufSizeEurope_Budapest 6  /* Europe/Budapest in 1945 */
+#define kAtcZoneBufSizeEurope_Chisinau 6  /* Europe/Chisinau in 1990 */
+#define kAtcZoneBufSizeEurope_Dublin 6  /* Europe/Dublin in 1921 */
+#define kAtcZoneBufSizeEurope_Gibraltar 7  /* Europe/Gibraltar in 1947 */
+#define kAtcZoneBufSizeEurope_Helsinki 6  /* Europe/Helsinki in 1982 */
 #define kAtcZoneBufSizeEurope_Istanbul 7  /* Europe/Istanbul in 2011 */
-#define kAtcZoneBufSizeEurope_Kaliningrad 5  /* Europe/Kaliningrad in 1999 */
-#define kAtcZoneBufSizeEurope_Kirov 5  /* Europe/Kirov in 1999 */
-#define kAtcZoneBufSizeEurope_Kyiv 5  /* Europe/Kyiv in 1999 */
-#define kAtcZoneBufSizeEurope_Lisbon 5  /* Europe/Lisbon in 1999 */
-#define kAtcZoneBufSizeEurope_London 5  /* Europe/London in 1999 */
-#define kAtcZoneBufSizeEurope_Madrid 5  /* Europe/Madrid in 1999 */
-#define kAtcZoneBufSizeEurope_Malta 5  /* Europe/Malta in 1999 */
-#define kAtcZoneBufSizeEurope_Minsk 5  /* Europe/Minsk in 1999 */
-#define kAtcZoneBufSizeEurope_Moscow 5  /* Europe/Moscow in 1999 */
-#define kAtcZoneBufSizeEurope_Paris 5  /* Europe/Paris in 1999 */
-#define kAtcZoneBufSizeEurope_Prague 5  /* Europe/Prague in 1999 */
-#define kAtcZoneBufSizeEurope_Riga 6  /* Europe/Riga in 2001 */
-#define kAtcZoneBufSizeEurope_Rome 5  /* Europe/Rome in 1999 */
-#define kAtcZoneBufSizeEurope_Samara 5  /* Europe/Samara in 1999 */
-#define kAtcZoneBufSizeEurope_Saratov 5  /* Europe/Saratov in 1999 */
-#define kAtcZoneBufSizeEurope_Simferopol 5  /* Europe/Simferopol in 1999 */
-#define kAtcZoneBufSizeEurope_Sofia 5  /* Europe/Sofia in 1999 */
-#define kAtcZoneBufSizeEurope_Tallinn 6  /* Europe/Tallinn in 2002 */
-#define kAtcZoneBufSizeEurope_Tirane 5  /* Europe/Tirane in 1999 */
-#define kAtcZoneBufSizeEurope_Ulyanovsk 5  /* Europe/Ulyanovsk in 1999 */
-#define kAtcZoneBufSizeEurope_Vienna 5  /* Europe/Vienna in 1999 */
-#define kAtcZoneBufSizeEurope_Vilnius 6  /* Europe/Vilnius in 2003 */
-#define kAtcZoneBufSizeEurope_Volgograd 5  /* Europe/Volgograd in 1999 */
-#define kAtcZoneBufSizeEurope_Warsaw 5  /* Europe/Warsaw in 1999 */
-#define kAtcZoneBufSizeEurope_Zurich 5  /* Europe/Zurich in 1999 */
-#define kAtcZoneBufSizeHST 1  /* HST in 1999 */
-#define kAtcZoneBufSizeIndian_Chagos 1  /* Indian/Chagos in 1999 */
-#define kAtcZoneBufSizeIndian_Maldives 1  /* Indian/Maldives in 1999 */
-#define kAtcZoneBufSizeIndian_Mauritius 3  /* Indian/Mauritius in 2008 */
-#define kAtcZoneBufSizeMET 5  /* MET in 1999 */
-#define kAtcZoneBufSizeMST 1  /* MST in 1999 */
+#define kAtcZoneBufSizeEurope_Kaliningrad 6  /* Europe/Kaliningrad in 1945 */
+#define kAtcZoneBufSizeEurope_Kirov 6  /* Europe/Kirov in 1989 */
+#define kAtcZoneBufSizeEurope_Kyiv 6  /* Europe/Kyiv in 1996 */
+#define kAtcZoneBufSizeEurope_Lisbon 7  /* Europe/Lisbon in 1942 */
+#define kAtcZoneBufSizeEurope_London 7  /* Europe/London in 1947 */
+#define kAtcZoneBufSizeEurope_Madrid 5  /* Europe/Madrid in 1938 */
+#define kAtcZoneBufSizeEurope_Malta 5  /* Europe/Malta in 1917 */
+#define kAtcZoneBufSizeEurope_Minsk 6  /* Europe/Minsk in 1991 */
+#define kAtcZoneBufSizeEurope_Moscow 7  /* Europe/Moscow in 1921 */
+#define kAtcZoneBufSizeEurope_Paris 5  /* Europe/Paris in 1919 */
+#define kAtcZoneBufSizeEurope_Prague 6  /* Europe/Prague in 1945 */
+#define kAtcZoneBufSizeEurope_Riga 6  /* Europe/Riga in 1989 */
+#define kAtcZoneBufSizeEurope_Rome 5  /* Europe/Rome in 1917 */
+#define kAtcZoneBufSizeEurope_Samara 7  /* Europe/Samara in 1991 */
+#define kAtcZoneBufSizeEurope_Saratov 6  /* Europe/Saratov in 1988 */
+#define kAtcZoneBufSizeEurope_Simferopol 6  /* Europe/Simferopol in 1992 */
+#define kAtcZoneBufSizeEurope_Sofia 6  /* Europe/Sofia in 1982 */
+#define kAtcZoneBufSizeEurope_Tallinn 6  /* Europe/Tallinn in 1989 */
+#define kAtcZoneBufSizeEurope_Tirane 6  /* Europe/Tirane in 1984 */
+#define kAtcZoneBufSizeEurope_Ulyanovsk 6  /* Europe/Ulyanovsk in 1989 */
+#define kAtcZoneBufSizeEurope_Vienna 5  /* Europe/Vienna in 1943 */
+#define kAtcZoneBufSizeEurope_Vilnius 7  /* Europe/Vilnius in 1998 */
+#define kAtcZoneBufSizeEurope_Volgograd 6  /* Europe/Volgograd in 1988 */
+#define kAtcZoneBufSizeEurope_Warsaw 6  /* Europe/Warsaw in 1987 */
+#define kAtcZoneBufSizeEurope_Zurich 5  /* Europe/Zurich in 1981 */
+#define kAtcZoneBufSizeHST 1  /* HST in 1843 */
+#define kAtcZoneBufSizeIndian_Chagos 2  /* Indian/Chagos in 1906 */
+#define kAtcZoneBufSizeIndian_Maldives 2  /* Indian/Maldives in 1879 */
+#define kAtcZoneBufSizeIndian_Mauritius 3  /* Indian/Mauritius in 1906 */
+#define kAtcZoneBufSizeMET 5  /* MET in 1943 */
+#define kAtcZoneBufSizeMST 1  /* MST in 1843 */
 #define kAtcZoneBufSizeMST7MDT 6  /* MST7MDT in 2008 */
 #define kAtcZoneBufSizePST8PDT 6  /* PST8PDT in 2008 */
 #define kAtcZoneBufSizePacific_Apia 5  /* Pacific/Apia in 2011 */
-#define kAtcZoneBufSizePacific_Auckland 5  /* Pacific/Auckland in 1999 */
-#define kAtcZoneBufSizePacific_Bougainville 2  /* Pacific/Bougainville in 2014 */
-#define kAtcZoneBufSizePacific_Chatham 5  /* Pacific/Chatham in 1999 */
-#define kAtcZoneBufSizePacific_Easter 5  /* Pacific/Easter in 2002 */
-#define kAtcZoneBufSizePacific_Efate 2  /* Pacific/Efate in 1999 */
-#define kAtcZoneBufSizePacific_Fakaofo 2  /* Pacific/Fakaofo in 2011 */
+#define kAtcZoneBufSizePacific_Auckland 5  /* Pacific/Auckland in 1928 */
+#define kAtcZoneBufSizePacific_Bougainville 2  /* Pacific/Bougainville in 1879 */
+#define kAtcZoneBufSizePacific_Chatham 5  /* Pacific/Chatham in 1975 */
+#define kAtcZoneBufSizePacific_Easter 6  /* Pacific/Easter in 1969 */
+#define kAtcZoneBufSizePacific_Efate 5  /* Pacific/Efate in 1986 */
+#define kAtcZoneBufSizePacific_Fakaofo 2  /* Pacific/Fakaofo in 1900 */
 #define kAtcZoneBufSizePacific_Fiji 6  /* Pacific/Fiji in 2017 */
-#define kAtcZoneBufSizePacific_Galapagos 2  /* Pacific/Galapagos in 1999 */
-#define kAtcZoneBufSizePacific_Gambier 1  /* Pacific/Gambier in 1999 */
-#define kAtcZoneBufSizePacific_Guadalcanal 1  /* Pacific/Guadalcanal in 1999 */
-#define kAtcZoneBufSizePacific_Guam 2  /* Pacific/Guam in 1999 */
-#define kAtcZoneBufSizePacific_Honolulu 1  /* Pacific/Honolulu in 1999 */
-#define kAtcZoneBufSizePacific_Kanton 1  /* Pacific/Kanton in 1999 */
-#define kAtcZoneBufSizePacific_Kiritimati 1  /* Pacific/Kiritimati in 1999 */
-#define kAtcZoneBufSizePacific_Kosrae 2  /* Pacific/Kosrae in 1999 */
-#define kAtcZoneBufSizePacific_Kwajalein 1  /* Pacific/Kwajalein in 1999 */
-#define kAtcZoneBufSizePacific_Marquesas 1  /* Pacific/Marquesas in 1999 */
-#define kAtcZoneBufSizePacific_Nauru 1  /* Pacific/Nauru in 1999 */
-#define kAtcZoneBufSizePacific_Niue 1  /* Pacific/Niue in 1999 */
+#define kAtcZoneBufSizePacific_Galapagos 3  /* Pacific/Galapagos in 1985 */
+#define kAtcZoneBufSizePacific_Gambier 2  /* Pacific/Gambier in 1912 */
+#define kAtcZoneBufSizePacific_Guadalcanal 2  /* Pacific/Guadalcanal in 1912 */
+#define kAtcZoneBufSizePacific_Guam 5  /* Pacific/Guam in 1969 */
+#define kAtcZoneBufSizePacific_Honolulu 4  /* Pacific/Honolulu in 1933 */
+#define kAtcZoneBufSizePacific_Kanton 2  /* Pacific/Kanton in 1937 */
+#define kAtcZoneBufSizePacific_Kiritimati 2  /* Pacific/Kiritimati in 1900 */
+#define kAtcZoneBufSizePacific_Kosrae 2  /* Pacific/Kosrae in 1844 */
+#define kAtcZoneBufSizePacific_Kwajalein 2  /* Pacific/Kwajalein in 1900 */
+#define kAtcZoneBufSizePacific_Marquesas 2  /* Pacific/Marquesas in 1912 */
+#define kAtcZoneBufSizePacific_Nauru 2  /* Pacific/Nauru in 1920 */
+#define kAtcZoneBufSizePacific_Niue 2  /* Pacific/Niue in 1952 */
 #define kAtcZoneBufSizePacific_Norfolk 4  /* Pacific/Norfolk in 2019 */
-#define kAtcZoneBufSizePacific_Noumea 2  /* Pacific/Noumea in 1999 */
-#define kAtcZoneBufSizePacific_Pago_Pago 1  /* Pacific/Pago_Pago in 1999 */
-#define kAtcZoneBufSizePacific_Palau 1  /* Pacific/Palau in 1999 */
-#define kAtcZoneBufSizePacific_Pitcairn 1  /* Pacific/Pitcairn in 1999 */
-#define kAtcZoneBufSizePacific_Port_Moresby 1  /* Pacific/Port_Moresby in 1999 */
-#define kAtcZoneBufSizePacific_Rarotonga 2  /* Pacific/Rarotonga in 1999 */
-#define kAtcZoneBufSizePacific_Tahiti 1  /* Pacific/Tahiti in 1999 */
-#define kAtcZoneBufSizePacific_Tarawa 1  /* Pacific/Tarawa in 1999 */
+#define kAtcZoneBufSizePacific_Noumea 5  /* Pacific/Noumea in 1978 */
+#define kAtcZoneBufSizePacific_Pago_Pago 2  /* Pacific/Pago_Pago in 1892 */
+#define kAtcZoneBufSizePacific_Palau 2  /* Pacific/Palau in 1844 */
+#define kAtcZoneBufSizePacific_Pitcairn 2  /* Pacific/Pitcairn in 1900 */
+#define kAtcZoneBufSizePacific_Port_Moresby 2  /* Pacific/Port_Moresby in 1879 */
+#define kAtcZoneBufSizePacific_Rarotonga 6  /* Pacific/Rarotonga in 1979 */
+#define kAtcZoneBufSizePacific_Tahiti 2  /* Pacific/Tahiti in 1912 */
+#define kAtcZoneBufSizePacific_Tarawa 2  /* Pacific/Tarawa in 1900 */
 #define kAtcZoneBufSizePacific_Tongatapu 5  /* Pacific/Tongatapu in 1999 */
-#define kAtcZoneBufSizeWET 5  /* WET in 1999 */
+#define kAtcZoneBufSizeWET 5  /* WET in 1983 */
 
 
 //---------------------------------------------------------------------------
@@ -1632,47 +1636,831 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 
 
 //---------------------------------------------------------------------------
-// Notable zones: 6
+// Notable zones: 298
 //---------------------------------------------------------------------------
 
+// Africa/Abidjan {
+//   STDOFF '-0:16:08' not at :00 or :30 mark,
+//   STDOFF '-0:16:08' not on 15-minute boundary,
+// }
+// Africa/Algiers {
+//   STDOFF '0:09:21' not on 15-minute boundary,
+//   STDOFF '0:12:12' not at :00 or :30 mark,
+//   STDOFF '0:12:12' not on 15-minute boundary,
+//   Algeria {Added anchor rule at year 0}
+// }
+// Africa/Bissau {
+//   STDOFF '-1:02:20' not at :00 or :30 mark,
+//   STDOFF '-1:02:20' not on 15-minute boundary,
+// }
+// Africa/Cairo {
+//   STDOFF '2:05:09' not at :00 or :30 mark,
+//   STDOFF '2:05:09' not on 15-minute boundary,
+//   Egypt {Added anchor rule at year 0}
+// }
 // Africa/Casablanca {
-//   Morocco {SAVE '-1:00' different from 1:00}
+//   STDOFF '-0:30:20' not at :00 or :30 mark,
+//   STDOFF '-0:30:20' not on 15-minute boundary,
+//   Morocco {
+//     Added anchor rule at year 0,
+//     SAVE '-1:00' different from 1:00,
+//   }
+// }
+// Africa/Ceuta {
+//   STDOFF '-0:21:16' not at :00 or :30 mark,
+//   STDOFF '-0:21:16' not on 15-minute boundary,
+//   EU {Added anchor rule at year 0}
+//   Spain {
+//     Added anchor rule at year 0,
+//     SAVE '2:00' different from 1:00,
+//   }
+//   SpainAfrica {Added anchor rule at year 0}
 // }
 // Africa/El_Aaiun {
-//   Morocco {SAVE '-1:00' different from 1:00}
+//   STDOFF '-0:52:48' not at :00 or :30 mark,
+//   STDOFF '-0:52:48' not on 15-minute boundary,
+//   Morocco {
+//     Added anchor rule at year 0,
+//     SAVE '-1:00' different from 1:00,
+//   }
 // }
-// Africa/Johannesburg {RULES not fixed but FORMAT is missing '%' or '/'}
+// Africa/Johannesburg {
+//   RULES not fixed but FORMAT is missing '%' or '/',
+//   STDOFF '1:52:00' not at :00 or :30 mark,
+//   STDOFF '1:52:00' not on 15-minute boundary,
+//   SA {Added anchor rule at year 0}
+// }
+// Africa/Juba {
+//   STDOFF '2:06:28' not at :00 or :30 mark,
+//   STDOFF '2:06:28' not on 15-minute boundary,
+//   Sudan {Added anchor rule at year 0}
+// }
+// Africa/Khartoum {
+//   STDOFF '2:10:08' not at :00 or :30 mark,
+//   STDOFF '2:10:08' not on 15-minute boundary,
+//   Sudan {Added anchor rule at year 0}
+// }
+// Africa/Lagos {
+//   STDOFF '0:13:35' not at :00 or :30 mark,
+//   STDOFF '0:13:35' not on 15-minute boundary,
+// }
+// Africa/Maputo {
+//   STDOFF '2:10:20' not at :00 or :30 mark,
+//   STDOFF '2:10:20' not on 15-minute boundary,
+// }
+// Africa/Monrovia {
+//   STDOFF '-0:43:08' not at :00 or :30 mark,
+//   STDOFF '-0:43:08' not on 15-minute boundary,
+// }
+// Africa/Nairobi {
+//   STDOFF '2:27:16' not at :00 or :30 mark,
+//   STDOFF '2:27:16' not on 15-minute boundary,
+// }
+// Africa/Ndjamena {STDOFF '1:00:12' not at :00 or :30 mark}
+// Africa/Sao_Tome {
+//   STDOFF '-0:36:45' not on 15-minute boundary,
+//   STDOFF '0:26:56' not at :00 or :30 mark,
+//   STDOFF '0:26:56' not on 15-minute boundary,
+// }
+// Africa/Tripoli {
+//   STDOFF '0:52:44' not at :00 or :30 mark,
+//   STDOFF '0:52:44' not on 15-minute boundary,
+//   Libya {Added anchor rule at year 0}
+// }
+// Africa/Tunis {
+//   STDOFF '0:09:21' not on 15-minute boundary,
+//   STDOFF '0:40:44' not at :00 or :30 mark,
+//   STDOFF '0:40:44' not on 15-minute boundary,
+//   Tunisia {Added anchor rule at year 0}
+// }
 // Africa/Windhoek {
+//   STDOFF '1:08:24' not at :00 or :30 mark,
+//   STDOFF '1:08:24' not on 15-minute boundary,
 //   Namibia {
+//     Added anchor rule at year 0,
 //     LETTER 'CAT' not single character,
 //     LETTER 'WAT' not single character,
 //     SAVE '-1:00' different from 1:00,
 //   }
 // }
+// America/Adak {
+//   STDOFF '-11:46:38' not on 15-minute boundary,
+//   STDOFF '12:13:22' not at :00 or :30 mark,
+//   STDOFF '12:13:22' not on 15-minute boundary,
+//   UNTIL '12:44:35' not on 15-minute boundary,
+//   UNTIL time '12:44:35' not multiple of 1-min,
+//   US {Added anchor rule at year 0}
+// }
+// America/Anchorage {
+//   STDOFF '14:00:24' not at :00 or :30 mark,
+//   UNTIL '14:31:37' not on 15-minute boundary,
+//   UNTIL time '14:31:37' not multiple of 1-min,
+//   US {Added anchor rule at year 0}
+// }
+// America/Araguaina {
+//   STDOFF '-3:12:48' not at :00 or :30 mark,
+//   STDOFF '-3:12:48' not on 15-minute boundary,
+//   Brazil {Added anchor rule at year 0}
+// }
+// America/Argentina/Buenos_Aires {
+//   STDOFF '-3:53:48' not at :00 or :30 mark,
+//   STDOFF '-3:53:48' not on 15-minute boundary,
+//   STDOFF '-4:16:48' not on 15-minute boundary,
+//   Arg {Added anchor rule at year 0}
+// }
+// America/Argentina/Catamarca {
+//   STDOFF '-4:16:48' not on 15-minute boundary,
+//   STDOFF '-4:23:08' not at :00 or :30 mark,
+//   STDOFF '-4:23:08' not on 15-minute boundary,
+//   Arg {Added anchor rule at year 0}
+// }
+// America/Argentina/Cordoba {
+//   STDOFF '-4:16:48' not at :00 or :30 mark,
+//   STDOFF '-4:16:48' not on 15-minute boundary,
+//   Arg {Added anchor rule at year 0}
+// }
+// America/Argentina/Jujuy {
+//   STDOFF '-4:16:48' not on 15-minute boundary,
+//   STDOFF '-4:21:12' not at :00 or :30 mark,
+//   STDOFF '-4:21:12' not on 15-minute boundary,
+//   Arg {Added anchor rule at year 0}
+// }
+// America/Argentina/La_Rioja {
+//   STDOFF '-4:16:48' not on 15-minute boundary,
+//   STDOFF '-4:27:24' not at :00 or :30 mark,
+//   STDOFF '-4:27:24' not on 15-minute boundary,
+//   Arg {Added anchor rule at year 0}
+// }
+// America/Argentina/Mendoza {
+//   STDOFF '-4:16:48' not on 15-minute boundary,
+//   STDOFF '-4:35:16' not at :00 or :30 mark,
+//   STDOFF '-4:35:16' not on 15-minute boundary,
+//   Arg {Added anchor rule at year 0}
+// }
+// America/Argentina/Rio_Gallegos {
+//   STDOFF '-4:16:48' not on 15-minute boundary,
+//   STDOFF '-4:36:52' not at :00 or :30 mark,
+//   STDOFF '-4:36:52' not on 15-minute boundary,
+//   Arg {Added anchor rule at year 0}
+// }
+// America/Argentina/Salta {
+//   STDOFF '-4:16:48' not on 15-minute boundary,
+//   STDOFF '-4:21:40' not at :00 or :30 mark,
+//   STDOFF '-4:21:40' not on 15-minute boundary,
+//   Arg {Added anchor rule at year 0}
+// }
+// America/Argentina/San_Juan {
+//   STDOFF '-4:16:48' not on 15-minute boundary,
+//   STDOFF '-4:34:04' not at :00 or :30 mark,
+//   STDOFF '-4:34:04' not on 15-minute boundary,
+//   Arg {Added anchor rule at year 0}
+// }
 // America/Argentina/San_Luis {
+//   STDOFF '-4:16:48' not on 15-minute boundary,
+//   STDOFF '-4:25:24' not at :00 or :30 mark,
+//   STDOFF '-4:25:24' not on 15-minute boundary,
+//   Arg {Added anchor rule at year 0}
 //   SanLuis {Added anchor rule at year 0}
 // }
+// America/Argentina/Tucuman {
+//   STDOFF '-4:16:48' not on 15-minute boundary,
+//   STDOFF '-4:20:52' not at :00 or :30 mark,
+//   STDOFF '-4:20:52' not on 15-minute boundary,
+//   Arg {Added anchor rule at year 0}
+// }
+// America/Argentina/Ushuaia {
+//   STDOFF '-4:16:48' not on 15-minute boundary,
+//   STDOFF '-4:33:12' not at :00 or :30 mark,
+//   STDOFF '-4:33:12' not on 15-minute boundary,
+//   Arg {Added anchor rule at year 0}
+// }
+// America/Asuncion {
+//   STDOFF '-3:50:40' not at :00 or :30 mark,
+//   STDOFF '-3:50:40' not on 15-minute boundary,
+//   Para {Added anchor rule at year 0}
+// }
+// America/Bahia {
+//   STDOFF '-2:34:04' not at :00 or :30 mark,
+//   STDOFF '-2:34:04' not on 15-minute boundary,
+//   Brazil {Added anchor rule at year 0}
+// }
+// America/Bahia_Banderas {
+//   STDOFF '-7:01:00' not at :00 or :30 mark,
+//   STDOFF '-7:01:00' not on 15-minute boundary,
+//   Mexico {Added anchor rule at year 0}
+// }
+// America/Barbados {
+//   STDOFF '-3:58:29' not at :00 or :30 mark,
+//   STDOFF '-3:58:29' not on 15-minute boundary,
+//   Barb {
+//     Added anchor rule at year 0,
+//     SAVE '0:30' different from 1:00,
+//   }
+// }
+// America/Belem {
+//   STDOFF '-3:13:56' not at :00 or :30 mark,
+//   STDOFF '-3:13:56' not on 15-minute boundary,
+//   Brazil {Added anchor rule at year 0}
+// }
 // America/Belize {
-//   Belize {LETTER 'CST' not single character}
+//   STDOFF '-5:52:48' not at :00 or :30 mark,
+//   STDOFF '-5:52:48' not on 15-minute boundary,
+//   Belize {
+//     Added anchor rule at year 0,
+//     LETTER '-0530' not single character,
+//     LETTER 'CDT' not single character,
+//     LETTER 'CPT' not single character,
+//     LETTER 'CST' not single character,
+//     LETTER 'CWT' not single character,
+//     SAVE '0:30' different from 1:00,
+//   }
+// }
+// America/Boa_Vista {
+//   STDOFF '-4:02:40' not at :00 or :30 mark,
+//   STDOFF '-4:02:40' not on 15-minute boundary,
+//   Brazil {Added anchor rule at year 0}
+// }
+// America/Bogota {
+//   STDOFF '-4:56:16' not at :00 or :30 mark,
+//   STDOFF '-4:56:16' not on 15-minute boundary,
+//   CO {Added anchor rule at year 0}
+// }
+// America/Boise {
+//   STDOFF '-7:44:49' not at :00 or :30 mark,
+//   US {Added anchor rule at year 0}
+// }
+// America/Cambridge_Bay {
+//   Canada {Added anchor rule at year 0}
+//   NT_YK {Added anchor rule at year 0}
+// }
+// America/Campo_Grande {
+//   STDOFF '-3:38:28' not at :00 or :30 mark,
+//   STDOFF '-3:38:28' not on 15-minute boundary,
+//   Brazil {Added anchor rule at year 0}
+// }
+// America/Cancun {
+//   STDOFF '-5:47:04' not at :00 or :30 mark,
+//   STDOFF '-5:47:04' not on 15-minute boundary,
+//   Mexico {Added anchor rule at year 0}
+// }
+// America/Caracas {
+//   STDOFF '-4:27:40' not on 15-minute boundary,
+//   STDOFF '-4:27:44' not at :00 or :30 mark,
+//   STDOFF '-4:27:44' not on 15-minute boundary,
+// }
+// America/Cayenne {STDOFF '-3:29:20' not at :00 or :30 mark}
+// America/Chicago {
+//   STDOFF '-5:50:36' not at :00 or :30 mark,
+//   STDOFF '-5:50:36' not on 15-minute boundary,
+//   Chicago {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// America/Chihuahua {
+//   STDOFF '-7:04:20' not at :00 or :30 mark,
+//   STDOFF '-7:04:20' not on 15-minute boundary,
+//   Mexico {Added anchor rule at year 0}
+// }
+// America/Ciudad_Juarez {
+//   STDOFF '-7:05:56' not at :00 or :30 mark,
+//   STDOFF '-7:05:56' not on 15-minute boundary,
+//   Mexico {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// America/Costa_Rica {
+//   STDOFF '-5:36:13' not at :00 or :30 mark,
+//   STDOFF '-5:36:13' not on 15-minute boundary,
+//   CR {Added anchor rule at year 0}
+// }
+// America/Cuiaba {
+//   STDOFF '-3:44:20' not at :00 or :30 mark,
+//   Brazil {Added anchor rule at year 0}
+// }
+// America/Danmarkshavn {
+//   STDOFF '-1:14:40' not at :00 or :30 mark,
+//   EU {Added anchor rule at year 0}
+// }
+// America/Dawson {
+//   STDOFF '-9:17:40' not at :00 or :30 mark,
+//   STDOFF '-9:17:40' not on 15-minute boundary,
+//   Canada {Added anchor rule at year 0}
+//   NT_YK {Added anchor rule at year 0}
+//   Yukon {
+//     Added anchor rule at year 0,
+//     LETTER 'DD' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// America/Dawson_Creek {
+//   STDOFF '-8:00:56' not at :00 or :30 mark,
+//   STDOFF '-8:00:56' not on 15-minute boundary,
+//   Canada {Added anchor rule at year 0}
+//   Vanc {Added anchor rule at year 0}
+// }
+// America/Denver {
+//   STDOFF '-6:59:56' not at :00 or :30 mark,
+//   Denver {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// America/Detroit {
+//   STDOFF '-5:32:11' not at :00 or :30 mark,
+//   STDOFF '-5:32:11' not on 15-minute boundary,
+//   UNTIL '0:01' not on 15-minute boundary,
+//   Detroit {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// America/Edmonton {
+//   STDOFF '-7:33:52' not at :00 or :30 mark,
+//   STDOFF '-7:33:52' not on 15-minute boundary,
+//   Canada {Added anchor rule at year 0}
+//   Edm {Added anchor rule at year 0}
+// }
+// America/Eirunepe {
+//   STDOFF '-4:39:28' not at :00 or :30 mark,
+//   STDOFF '-4:39:28' not on 15-minute boundary,
+//   Brazil {Added anchor rule at year 0}
+// }
+// America/El_Salvador {
+//   STDOFF '-5:56:48' not at :00 or :30 mark,
+//   STDOFF '-5:56:48' not on 15-minute boundary,
+//   Salv {Added anchor rule at year 0}
+// }
+// America/Fort_Nelson {
+//   STDOFF '-8:10:47' not at :00 or :30 mark,
+//   STDOFF '-8:10:47' not on 15-minute boundary,
+//   Canada {Added anchor rule at year 0}
+//   Vanc {Added anchor rule at year 0}
+// }
+// America/Fortaleza {
+//   STDOFF '-2:34:00' not at :00 or :30 mark,
+//   STDOFF '-2:34:00' not on 15-minute boundary,
+//   Brazil {Added anchor rule at year 0}
+// }
+// America/Glace_Bay {
+//   STDOFF '-3:59:48' not at :00 or :30 mark,
+//   Canada {Added anchor rule at year 0}
+//   Halifax {Added anchor rule at year 0}
 // }
 // America/Goose_Bay {
+//   STDOFF '-3:30:52' not on 15-minute boundary,
+//   STDOFF '-4:01:40' not at :00 or :30 mark,
+//   STDOFF '-4:01:40' not on 15-minute boundary,
+//   Canada {Added anchor rule at year 0}
 //   StJohns {
 //     AT '0:01' not on 15-minute boundary,
+//     Added anchor rule at year 0,
 //     LETTER 'DD' not single character,
 //     SAVE '2:00' different from 1:00,
 //   }
+// }
+// America/Grand_Turk {
+//   STDOFF '-4:44:32' not at :00 or :30 mark,
+//   STDOFF '-5:07:10' not on 15-minute boundary,
+//   US {Added anchor rule at year 0}
+// }
+// America/Guatemala {
+//   STDOFF '-6:02:04' not at :00 or :30 mark,
+//   STDOFF '-6:02:04' not on 15-minute boundary,
+//   Guat {Added anchor rule at year 0}
+// }
+// America/Guayaquil {
+//   STDOFF '-5:14:00' not on 15-minute boundary,
+//   STDOFF '-5:19:20' not at :00 or :30 mark,
+//   STDOFF '-5:19:20' not on 15-minute boundary,
+//   Ecuador {Added anchor rule at year 0}
+// }
+// America/Guyana {
+//   STDOFF '-3:52:39' not at :00 or :30 mark,
+//   STDOFF '-3:52:39' not on 15-minute boundary,
+// }
+// America/Halifax {
+//   STDOFF '-4:14:24' not at :00 or :30 mark,
+//   Canada {Added anchor rule at year 0}
+//   Halifax {Added anchor rule at year 0}
+// }
+// America/Havana {
+//   STDOFF '-5:29:28' not at :00 or :30 mark,
+//   Cuba {Added anchor rule at year 0}
+// }
+// America/Hermosillo {
+//   STDOFF '-7:23:52' not at :00 or :30 mark,
+//   STDOFF '-7:23:52' not on 15-minute boundary,
+//   Mexico {Added anchor rule at year 0}
+// }
+// America/Indiana/Indianapolis {
+//   STDOFF '-5:44:38' not at :00 or :30 mark,
+//   Indianapolis {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// America/Indiana/Knox {
+//   STDOFF '-5:46:30' not at :00 or :30 mark,
+//   STDOFF '-5:46:30' not on 15-minute boundary,
+//   Starke {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// America/Indiana/Marengo {
+//   STDOFF '-5:45:23' not at :00 or :30 mark,
+//   STDOFF '-5:45:23' not on 15-minute boundary,
+//   Marengo {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// America/Indiana/Petersburg {
+//   STDOFF '-5:49:07' not at :00 or :30 mark,
+//   STDOFF '-5:49:07' not on 15-minute boundary,
+//   Pike {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// America/Indiana/Tell_City {
+//   STDOFF '-5:47:03' not at :00 or :30 mark,
+//   STDOFF '-5:47:03' not on 15-minute boundary,
+//   Perry {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// America/Indiana/Vevay {
+//   STDOFF '-5:40:16' not at :00 or :30 mark,
+//   STDOFF '-5:40:16' not on 15-minute boundary,
+//   US {Added anchor rule at year 0}
+// }
+// America/Indiana/Vincennes {
+//   STDOFF '-5:50:07' not at :00 or :30 mark,
+//   STDOFF '-5:50:07' not on 15-minute boundary,
+//   US {Added anchor rule at year 0}
+//   Vincennes {Added anchor rule at year 0}
+// }
+// America/Indiana/Winamac {
+//   STDOFF '-5:46:25' not at :00 or :30 mark,
+//   STDOFF '-5:46:25' not on 15-minute boundary,
+//   Pulaski {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// America/Inuvik {
+//   Canada {Added anchor rule at year 0}
+//   NT_YK {Added anchor rule at year 0}
+// }
+// America/Iqaluit {
+//   Canada {Added anchor rule at year 0}
+//   NT_YK {Added anchor rule at year 0}
+// }
+// America/Jamaica {
+//   STDOFF '-5:07:10' not at :00 or :30 mark,
+//   STDOFF '-5:07:10' not on 15-minute boundary,
+//   US {Added anchor rule at year 0}
+// }
+// America/Juneau {
+//   STDOFF '-8:57:41' not on 15-minute boundary,
+//   STDOFF '15:02:19' not at :00 or :30 mark,
+//   STDOFF '15:02:19' not on 15-minute boundary,
+//   UNTIL '15:33:32' not on 15-minute boundary,
+//   UNTIL time '15:33:32' not multiple of 1-min,
+//   US {Added anchor rule at year 0}
+// }
+// America/Kentucky/Louisville {
+//   STDOFF '-5:43:02' not at :00 or :30 mark,
+//   STDOFF '-5:43:02' not on 15-minute boundary,
+//   Louisville {
+//     AT '0:01' not on 15-minute boundary,
+//     Added anchor rule at year 0,
+//   }
+//   US {Added anchor rule at year 0}
+// }
+// America/Kentucky/Monticello {
+//   STDOFF '-5:39:24' not at :00 or :30 mark,
+//   STDOFF '-5:39:24' not on 15-minute boundary,
+//   US {Added anchor rule at year 0}
+// }
+// America/La_Paz {
+//   STDOFF '-4:32:36' not at :00 or :30 mark,
+//   STDOFF '-4:32:36' not on 15-minute boundary,
+// }
+// America/Lima {
+//   STDOFF '-5:08:12' not at :00 or :30 mark,
+//   STDOFF '-5:08:12' not on 15-minute boundary,
+//   STDOFF '-5:08:36' not on 15-minute boundary,
+//   Peru {Added anchor rule at year 0}
+// }
+// America/Los_Angeles {
+//   STDOFF '-7:52:58' not at :00 or :30 mark,
+//   STDOFF '-7:52:58' not on 15-minute boundary,
+//   CA {
+//     AT '2:01' not on 15-minute boundary,
+//     Added anchor rule at year 0,
+//   }
+//   US {Added anchor rule at year 0}
+// }
+// America/Maceio {
+//   STDOFF '-2:22:52' not at :00 or :30 mark,
+//   STDOFF '-2:22:52' not on 15-minute boundary,
+//   Brazil {Added anchor rule at year 0}
+// }
+// America/Managua {
+//   STDOFF '-5:45:08' not at :00 or :30 mark,
+//   STDOFF '-5:45:08' not on 15-minute boundary,
+//   STDOFF '-5:45:12' not on 15-minute boundary,
+//   Nic {Added anchor rule at year 0}
+// }
+// America/Manaus {
+//   STDOFF '-4:00:04' not at :00 or :30 mark,
+//   STDOFF '-4:00:04' not on 15-minute boundary,
+//   Brazil {Added anchor rule at year 0}
+// }
+// America/Martinique {
+//   STDOFF '-4:04:20' not at :00 or :30 mark,
+//   STDOFF '-4:04:20' not on 15-minute boundary,
+// }
+// America/Matamoros {
+//   Mexico {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// America/Mazatlan {
+//   STDOFF '-7:05:40' not at :00 or :30 mark,
+//   STDOFF '-7:05:40' not on 15-minute boundary,
+//   Mexico {Added anchor rule at year 0}
+// }
+// America/Menominee {
+//   STDOFF '-5:50:27' not at :00 or :30 mark,
+//   STDOFF '-5:50:27' not on 15-minute boundary,
+//   Menominee {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// America/Merida {
+//   STDOFF '-5:58:28' not at :00 or :30 mark,
+//   STDOFF '-5:58:28' not on 15-minute boundary,
+//   Mexico {Added anchor rule at year 0}
+// }
+// America/Metlakatla {
+//   STDOFF '-8:46:18' not on 15-minute boundary,
+//   STDOFF '15:13:42' not at :00 or :30 mark,
+//   STDOFF '15:13:42' not on 15-minute boundary,
+//   UNTIL '15:44:55' not on 15-minute boundary,
+//   UNTIL time '15:44:55' not multiple of 1-min,
+//   US {Added anchor rule at year 0}
+// }
+// America/Mexico_City {
+//   STDOFF '-6:36:36' not at :00 or :30 mark,
+//   STDOFF '-6:36:36' not on 15-minute boundary,
+//   Mexico {Added anchor rule at year 0}
+// }
+// America/Miquelon {
+//   STDOFF '-3:44:40' not at :00 or :30 mark,
+//   Canada {Added anchor rule at year 0}
 // }
 // America/Moncton {
-//   Moncton {AT '0:01' not on 15-minute boundary}
+//   STDOFF '-4:19:08' not at :00 or :30 mark,
+//   STDOFF '-4:19:08' not on 15-minute boundary,
+//   Canada {Added anchor rule at year 0}
+//   Moncton {
+//     AT '0:01' not on 15-minute boundary,
+//     Added anchor rule at year 0,
+//   }
+// }
+// America/Monterrey {
+//   STDOFF '-6:41:16' not at :00 or :30 mark,
+//   STDOFF '-6:41:16' not on 15-minute boundary,
+//   Mexico {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// America/Montevideo {
+//   STDOFF '-3:44:51' not at :00 or :30 mark,
+//   Uruguay {
+//     Added anchor rule at year 0,
+//     SAVE '0:30' different from 1:00,
+//     SAVE '1:30' different from 1:00,
+//   }
+// }
+// America/New_York {
+//   STDOFF '-4:56:02' not at :00 or :30 mark,
+//   STDOFF '-4:56:02' not on 15-minute boundary,
+//   NYC {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// America/Nome {
+//   STDOFF '-11:01:38' not on 15-minute boundary,
+//   STDOFF '12:58:22' not at :00 or :30 mark,
+//   STDOFF '12:58:22' not on 15-minute boundary,
+//   UNTIL '13:29:35' not on 15-minute boundary,
+//   UNTIL time '13:29:35' not multiple of 1-min,
+//   US {Added anchor rule at year 0}
+// }
+// America/Noronha {
+//   STDOFF '-2:09:40' not at :00 or :30 mark,
+//   STDOFF '-2:09:40' not on 15-minute boundary,
+//   Brazil {Added anchor rule at year 0}
+// }
+// America/North_Dakota/Beulah {
+//   STDOFF '-6:47:07' not at :00 or :30 mark,
+//   STDOFF '-6:47:07' not on 15-minute boundary,
+//   US {Added anchor rule at year 0}
+// }
+// America/North_Dakota/Center {
+//   STDOFF '-6:45:12' not at :00 or :30 mark,
+//   STDOFF '-6:45:12' not on 15-minute boundary,
+//   US {Added anchor rule at year 0}
+// }
+// America/North_Dakota/New_Salem {
+//   STDOFF '-6:45:39' not at :00 or :30 mark,
+//   STDOFF '-6:45:39' not on 15-minute boundary,
+//   US {Added anchor rule at year 0}
+// }
+// America/Nuuk {
+//   STDOFF '-3:26:56' not at :00 or :30 mark,
+//   STDOFF '-3:26:56' not on 15-minute boundary,
+//   EU {Added anchor rule at year 0}
+// }
+// America/Ojinaga {
+//   STDOFF '-6:57:40' not at :00 or :30 mark,
+//   STDOFF '-6:57:40' not on 15-minute boundary,
+//   Mexico {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// America/Panama {
+//   STDOFF '-5:18:08' not at :00 or :30 mark,
+//   STDOFF '-5:18:08' not on 15-minute boundary,
+//   STDOFF '-5:19:36' not on 15-minute boundary,
+// }
+// America/Paramaribo {
+//   STDOFF '-3:40:36' not on 15-minute boundary,
+//   STDOFF '-3:40:40' not at :00 or :30 mark,
+//   STDOFF '-3:40:40' not on 15-minute boundary,
+//   STDOFF '-3:40:52' not on 15-minute boundary,
+// }
+// America/Phoenix {
+//   STDOFF '-7:28:18' not at :00 or :30 mark,
+//   STDOFF '-7:28:18' not on 15-minute boundary,
+//   UNTIL '0:01' not on 15-minute boundary,
+//   US {Added anchor rule at year 0}
+// }
+// America/Port-au-Prince {
+//   STDOFF '-4:49' not on 15-minute boundary,
+//   STDOFF '-4:49:20' not at :00 or :30 mark,
+//   STDOFF '-4:49:20' not on 15-minute boundary,
+//   Haiti {Added anchor rule at year 0}
+// }
+// America/Porto_Velho {
+//   STDOFF '-4:15:36' not at :00 or :30 mark,
+//   STDOFF '-4:15:36' not on 15-minute boundary,
+//   Brazil {Added anchor rule at year 0}
+// }
+// America/Puerto_Rico {
+//   STDOFF '-4:24:25' not at :00 or :30 mark,
+//   STDOFF '-4:24:25' not on 15-minute boundary,
+//   US {Added anchor rule at year 0}
+// }
+// America/Punta_Arenas {
+//   STDOFF '-4:42:45' not on 15-minute boundary,
+//   STDOFF '-4:43:40' not at :00 or :30 mark,
+//   STDOFF '-4:43:40' not on 15-minute boundary,
+//   Chile {Added anchor rule at year 0}
+// }
+// America/Rankin_Inlet {
+//   Canada {Added anchor rule at year 0}
+//   NT_YK {Added anchor rule at year 0}
+// }
+// America/Recife {
+//   STDOFF '-2:19:36' not at :00 or :30 mark,
+//   STDOFF '-2:19:36' not on 15-minute boundary,
+//   Brazil {Added anchor rule at year 0}
+// }
+// America/Regina {
+//   STDOFF '-6:58:36' not at :00 or :30 mark,
+//   STDOFF '-6:58:36' not on 15-minute boundary,
+//   Regina {Added anchor rule at year 0}
+// }
+// America/Resolute {
+//   Canada {Added anchor rule at year 0}
+//   NT_YK {Added anchor rule at year 0}
+// }
+// America/Rio_Branco {
+//   STDOFF '-4:31:12' not at :00 or :30 mark,
+//   STDOFF '-4:31:12' not on 15-minute boundary,
+//   Brazil {Added anchor rule at year 0}
+// }
+// America/Santarem {
+//   STDOFF '-3:38:48' not at :00 or :30 mark,
+//   STDOFF '-3:38:48' not on 15-minute boundary,
+//   Brazil {Added anchor rule at year 0}
+// }
+// America/Santiago {
+//   STDOFF '-4:42:45' not at :00 or :30 mark,
+//   STDOFF '-4:42:45' not on 15-minute boundary,
+//   Chile {Added anchor rule at year 0}
+// }
+// America/Santo_Domingo {
+//   STDOFF '-4:39:36' not at :00 or :30 mark,
+//   STDOFF '-4:39:36' not on 15-minute boundary,
+//   STDOFF '-4:40' not on 15-minute boundary,
+//   DR {
+//     Added anchor rule at year 0,
+//     LETTER '-0430' not single character,
+//     LETTER 'EDT' not single character,
+//     LETTER 'EST' not single character,
+//     SAVE '0:30' different from 1:00,
+//   }
+//   US {Added anchor rule at year 0}
+// }
+// America/Sao_Paulo {
+//   STDOFF '-3:06:28' not at :00 or :30 mark,
+//   STDOFF '-3:06:28' not on 15-minute boundary,
+//   Brazil {Added anchor rule at year 0}
+// }
+// America/Scoresbysund {
+//   STDOFF '-1:27:52' not at :00 or :30 mark,
+//   STDOFF '-1:27:52' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+// }
+// America/Sitka {
+//   STDOFF '-9:01:13' not on 15-minute boundary,
+//   STDOFF '14:58:47' not at :00 or :30 mark,
+//   STDOFF '14:58:47' not on 15-minute boundary,
+//   US {Added anchor rule at year 0}
 // }
 // America/St_Johns {
+//   STDOFF '-3:30:52' not at :00 or :30 mark,
+//   STDOFF '-3:30:52' not on 15-minute boundary,
+//   Canada {Added anchor rule at year 0}
 //   StJohns {
 //     AT '0:01' not on 15-minute boundary,
+//     Added anchor rule at year 0,
 //     LETTER 'DD' not single character,
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
+// America/Swift_Current {
+//   STDOFF '-7:11:20' not at :00 or :30 mark,
+//   STDOFF '-7:11:20' not on 15-minute boundary,
+//   Canada {Added anchor rule at year 0}
+//   Regina {Added anchor rule at year 0}
+//   Swift {Added anchor rule at year 0}
+// }
+// America/Tegucigalpa {
+//   STDOFF '-5:48:52' not at :00 or :30 mark,
+//   STDOFF '-5:48:52' not on 15-minute boundary,
+//   Hond {Added anchor rule at year 0}
+// }
+// America/Thule {
+//   STDOFF '-4:35:08' not at :00 or :30 mark,
+//   STDOFF '-4:35:08' not on 15-minute boundary,
+//   Thule {Added anchor rule at year 0}
+// }
+// America/Tijuana {
+//   STDOFF '-7:48:04' not at :00 or :30 mark,
+//   STDOFF '-7:48:04' not on 15-minute boundary,
+//   CA {
+//     AT '2:01' not on 15-minute boundary,
+//     Added anchor rule at year 0,
+//   }
+//   Mexico {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// America/Toronto {
+//   STDOFF '-5:17:32' not at :00 or :30 mark,
+//   STDOFF '-5:17:32' not on 15-minute boundary,
+//   Canada {Added anchor rule at year 0}
+//   Toronto {Added anchor rule at year 0}
+// }
+// America/Vancouver {
+//   STDOFF '-8:12:28' not at :00 or :30 mark,
+//   STDOFF '-8:12:28' not on 15-minute boundary,
+//   Canada {Added anchor rule at year 0}
+//   Vanc {Added anchor rule at year 0}
+// }
+// America/Whitehorse {
+//   STDOFF '-9:00:12' not at :00 or :30 mark,
+//   STDOFF '-9:00:12' not on 15-minute boundary,
+//   Canada {Added anchor rule at year 0}
+//   NT_YK {Added anchor rule at year 0}
+//   Yukon {
+//     Added anchor rule at year 0,
+//     LETTER 'DD' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// America/Winnipeg {
+//   STDOFF '-6:28:36' not at :00 or :30 mark,
+//   STDOFF '-6:28:36' not on 15-minute boundary,
+//   Canada {Added anchor rule at year 0}
+//   Winn {Added anchor rule at year 0}
+// }
+// America/Yakutat {
+//   STDOFF '-9:18:55' not on 15-minute boundary,
+//   STDOFF '14:41:05' not at :00 or :30 mark,
+//   STDOFF '14:41:05' not on 15-minute boundary,
+//   UNTIL '15:12:18' not on 15-minute boundary,
+//   UNTIL time '15:12:18' not multiple of 1-min,
+//   US {Added anchor rule at year 0}
+// }
+// America/Yellowknife {
+//   Canada {Added anchor rule at year 0}
+//   NT_YK {Added anchor rule at year 0}
+// }
 // Antarctica/Casey {UNTIL '0:01' not on 15-minute boundary}
+// Antarctica/Macquarie {
+//   AT {Added anchor rule at year 0}
+//   Aus {Added anchor rule at year 0}
+// }
+// Antarctica/Palmer {
+//   Arg {Added anchor rule at year 0}
+//   Chile {Added anchor rule at year 0}
+// }
 // Antarctica/Troll {
 //   Troll {
 //     Added anchor rule at year 0,
@@ -1681,42 +2469,1304 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
+// Asia/Almaty {
+//   STDOFF '5:07:48' not at :00 or :30 mark,
+//   STDOFF '5:07:48' not on 15-minute boundary,
+//   RussiaAsia {Added anchor rule at year 0}
+// }
+// Asia/Amman {
+//   STDOFF '2:23:44' not at :00 or :30 mark,
+//   STDOFF '2:23:44' not on 15-minute boundary,
+//   Jordan {Added anchor rule at year 0}
+// }
+// Asia/Anadyr {
+//   STDOFF '11:49:56' not at :00 or :30 mark,
+//   STDOFF '11:49:56' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Aqtau {
+//   STDOFF '3:21:04' not at :00 or :30 mark,
+//   STDOFF '3:21:04' not on 15-minute boundary,
+//   RussiaAsia {Added anchor rule at year 0}
+// }
+// Asia/Aqtobe {
+//   STDOFF '3:48:40' not at :00 or :30 mark,
+//   STDOFF '3:48:40' not on 15-minute boundary,
+//   RussiaAsia {Added anchor rule at year 0}
+// }
+// Asia/Ashgabat {
+//   STDOFF '3:53:32' not at :00 or :30 mark,
+//   STDOFF '3:53:32' not on 15-minute boundary,
+//   RussiaAsia {Added anchor rule at year 0}
+// }
+// Asia/Atyrau {
+//   STDOFF '3:27:44' not at :00 or :30 mark,
+//   STDOFF '3:27:44' not on 15-minute boundary,
+//   RussiaAsia {Added anchor rule at year 0}
+// }
+// Asia/Baghdad {
+//   STDOFF '2:57:36' not on 15-minute boundary,
+//   STDOFF '2:57:40' not at :00 or :30 mark,
+//   STDOFF '2:57:40' not on 15-minute boundary,
+//   Iraq {Added anchor rule at year 0}
+// }
+// Asia/Baku {
+//   STDOFF '3:19:24' not at :00 or :30 mark,
+//   STDOFF '3:19:24' not on 15-minute boundary,
+//   Azer {Added anchor rule at year 0}
+//   EUAsia {Added anchor rule at year 0}
+//   RussiaAsia {Added anchor rule at year 0}
+// }
+// Asia/Bangkok {
+//   STDOFF '6:42:04' not at :00 or :30 mark,
+//   STDOFF '6:42:04' not on 15-minute boundary,
+// }
+// Asia/Barnaul {
+//   STDOFF '5:35:00' not at :00 or :30 mark,
+//   STDOFF '5:35:00' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Beirut {
+//   STDOFF '2:22:00' not at :00 or :30 mark,
+//   STDOFF '2:22:00' not on 15-minute boundary,
+//   Lebanon {Added anchor rule at year 0}
+// }
+// Asia/Bishkek {
+//   STDOFF '4:58:24' not at :00 or :30 mark,
+//   STDOFF '4:58:24' not on 15-minute boundary,
+//   Kyrgyz {Added anchor rule at year 0}
+//   RussiaAsia {Added anchor rule at year 0}
+// }
+// Asia/Chita {
+//   STDOFF '7:33:52' not at :00 or :30 mark,
+//   STDOFF '7:33:52' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Choibalsan {
+//   STDOFF '7:38:00' not at :00 or :30 mark,
+//   STDOFF '7:38:00' not on 15-minute boundary,
+//   Mongol {Added anchor rule at year 0}
+// }
+// Asia/Colombo {
+//   RULES delta offset '0:30' different from 1:00,
+//   STDOFF '5:19:24' not at :00 or :30 mark,
+//   STDOFF '5:19:24' not on 15-minute boundary,
+//   STDOFF '5:19:32' not on 15-minute boundary,
+// }
+// Asia/Damascus {
+//   STDOFF '2:25:12' not at :00 or :30 mark,
+//   STDOFF '2:25:12' not on 15-minute boundary,
+//   Syria {Added anchor rule at year 0}
+// }
 // Asia/Dhaka {
+//   STDOFF '5:53:20' not on 15-minute boundary,
+//   STDOFF '6:01:40' not at :00 or :30 mark,
+//   STDOFF '6:01:40' not on 15-minute boundary,
 //   Dhaka {Added anchor rule at year 0}
 // }
+// Asia/Dili {
+//   STDOFF '8:22:20' not at :00 or :30 mark,
+//   STDOFF '8:22:20' not on 15-minute boundary,
+// }
+// Asia/Dubai {
+//   STDOFF '3:41:12' not at :00 or :30 mark,
+//   STDOFF '3:41:12' not on 15-minute boundary,
+// }
+// Asia/Dushanbe {
+//   STDOFF '4:35:12' not at :00 or :30 mark,
+//   STDOFF '4:35:12' not on 15-minute boundary,
+//   RussiaAsia {Added anchor rule at year 0}
+// }
+// Asia/Famagusta {
+//   STDOFF '2:15:48' not at :00 or :30 mark,
+//   Cyprus {Added anchor rule at year 0}
+//   EUAsia {Added anchor rule at year 0}
+// }
 // Asia/Gaza {
+//   STDOFF '2:17:52' not at :00 or :30 mark,
+//   STDOFF '2:17:52' not on 15-minute boundary,
 //   UNTIL '0:01' not on 15-minute boundary,
+//   EgyptAsia {Added anchor rule at year 0}
+//   Jordan {Added anchor rule at year 0}
 //   Palestine {
 //     AT '0:01' not on 15-minute boundary,
 //     Added anchor rule at year 0,
+//   }
+//   Zion {
+//     Added anchor rule at year 0,
+//     LETTER 'DD' not single character,
+//     SAVE '2:00' different from 1:00,
 //   }
 // }
 // Asia/Hebron {
+//   STDOFF '2:20:23' not at :00 or :30 mark,
+//   STDOFF '2:20:23' not on 15-minute boundary,
+//   EgyptAsia {Added anchor rule at year 0}
+//   Jordan {Added anchor rule at year 0}
 //   Palestine {
 //     AT '0:01' not on 15-minute boundary,
 //     Added anchor rule at year 0,
 //   }
+//   Zion {
+//     Added anchor rule at year 0,
+//     LETTER 'DD' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Ho_Chi_Minh {
+//   STDOFF '7:06:30' not at :00 or :30 mark,
+//   STDOFF '7:06:30' not on 15-minute boundary,
+// }
+// Asia/Hong_Kong {
+//   RULES delta offset '0:30' different from 1:00,
+//   STDOFF '7:36:42' not at :00 or :30 mark,
+//   STDOFF '7:36:42' not on 15-minute boundary,
+//   HK {Added anchor rule at year 0}
+// }
+// Asia/Hovd {
+//   STDOFF '6:06:36' not at :00 or :30 mark,
+//   STDOFF '6:06:36' not on 15-minute boundary,
+//   Mongol {Added anchor rule at year 0}
+// }
+// Asia/Irkutsk {
+//   STDOFF '6:57:05' not at :00 or :30 mark,
+//   STDOFF '6:57:05' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Jakarta {
+//   STDOFF '7:07:12' not at :00 or :30 mark,
+//   STDOFF '7:07:12' not on 15-minute boundary,
+//   STDOFF '7:20' not on 15-minute boundary,
+//   UNTIL '16:40' not on 15-minute boundary,
+// }
+// Asia/Jayapura {
+//   STDOFF '9:22:48' not at :00 or :30 mark,
+//   STDOFF '9:22:48' not on 15-minute boundary,
+// }
+// Asia/Jerusalem {
+//   STDOFF '2:20:40' not on 15-minute boundary,
+//   STDOFF '2:20:54' not at :00 or :30 mark,
+//   STDOFF '2:20:54' not on 15-minute boundary,
+//   Zion {
+//     Added anchor rule at year 0,
+//     LETTER 'DD' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Kabul {
+//   STDOFF '4:36:48' not at :00 or :30 mark,
+//   STDOFF '4:36:48' not on 15-minute boundary,
+// }
+// Asia/Kamchatka {
+//   STDOFF '10:34:36' not at :00 or :30 mark,
+//   STDOFF '10:34:36' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
 // }
 // Asia/Karachi {
+//   STDOFF '4:28:12' not at :00 or :30 mark,
+//   STDOFF '4:28:12' not on 15-minute boundary,
 //   Pakistan {Added anchor rule at year 0}
 // }
-// Asia/Kathmandu {STDOFF '5:45' not at :00 or :30 mark}
-// Asia/Yerevan {
-//   Armenia {Added anchor rule at year 0}
+// Asia/Kathmandu {
+//   STDOFF '5:41:16' not at :00 or :30 mark,
+//   STDOFF '5:41:16' not on 15-minute boundary,
 // }
-// Australia/Eucla {STDOFF '8:45' not at :00 or :30 mark}
+// Asia/Khandyga {
+//   STDOFF '9:02:13' not at :00 or :30 mark,
+//   STDOFF '9:02:13' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Kolkata {
+//   STDOFF '5:21:10' not on 15-minute boundary,
+//   STDOFF '5:53:20' not on 15-minute boundary,
+//   STDOFF '5:53:28' not at :00 or :30 mark,
+//   STDOFF '5:53:28' not on 15-minute boundary,
+// }
+// Asia/Krasnoyarsk {
+//   STDOFF '6:11:26' not at :00 or :30 mark,
+//   STDOFF '6:11:26' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Kuching {
+//   STDOFF '7:21:20' not at :00 or :30 mark,
+//   STDOFF '7:21:20' not on 15-minute boundary,
+//   NBorneo {
+//     Added anchor rule at year 0,
+//     SAVE '0:20' different from 1:00,
+//   }
+// }
+// Asia/Macau {
+//   STDOFF '7:34:10' not at :00 or :30 mark,
+//   STDOFF '7:34:10' not on 15-minute boundary,
+//   Macau {Added anchor rule at year 0}
+// }
+// Asia/Magadan {
+//   STDOFF '10:03:12' not at :00 or :30 mark,
+//   STDOFF '10:03:12' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Makassar {
+//   STDOFF '7:57:36' not at :00 or :30 mark,
+//   STDOFF '7:57:36' not on 15-minute boundary,
+// }
+// Asia/Manila {
+//   STDOFF '-15:56:00' not at :00 or :30 mark,
+//   STDOFF '-15:56:00' not on 15-minute boundary,
+//   STDOFF '8:04:00' not on 15-minute boundary,
+//   Phil {Added anchor rule at year 0}
+// }
+// Asia/Nicosia {
+//   STDOFF '2:13:28' not at :00 or :30 mark,
+//   STDOFF '2:13:28' not on 15-minute boundary,
+//   Cyprus {Added anchor rule at year 0}
+//   EUAsia {Added anchor rule at year 0}
+// }
+// Asia/Novokuznetsk {
+//   STDOFF '5:48:48' not at :00 or :30 mark,
+//   STDOFF '5:48:48' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Novosibirsk {
+//   STDOFF '5:31:40' not at :00 or :30 mark,
+//   STDOFF '5:31:40' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Omsk {
+//   STDOFF '4:53:30' not at :00 or :30 mark,
+//   STDOFF '4:53:30' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Oral {
+//   STDOFF '3:25:24' not at :00 or :30 mark,
+//   STDOFF '3:25:24' not on 15-minute boundary,
+//   RussiaAsia {Added anchor rule at year 0}
+// }
+// Asia/Pontianak {
+//   STDOFF '7:17:20' not at :00 or :30 mark,
+//   STDOFF '7:17:20' not on 15-minute boundary,
+// }
+// Asia/Pyongyang {
+//   STDOFF '8:23:00' not at :00 or :30 mark,
+//   STDOFF '8:23:00' not on 15-minute boundary,
+// }
+// Asia/Qatar {
+//   STDOFF '3:26:08' not at :00 or :30 mark,
+//   STDOFF '3:26:08' not on 15-minute boundary,
+// }
+// Asia/Qostanay {
+//   STDOFF '4:14:28' not at :00 or :30 mark,
+//   STDOFF '4:14:28' not on 15-minute boundary,
+//   RussiaAsia {Added anchor rule at year 0}
+// }
+// Asia/Qyzylorda {
+//   STDOFF '4:21:52' not at :00 or :30 mark,
+//   STDOFF '4:21:52' not on 15-minute boundary,
+//   RussiaAsia {Added anchor rule at year 0}
+// }
+// Asia/Riyadh {
+//   STDOFF '3:06:52' not at :00 or :30 mark,
+//   STDOFF '3:06:52' not on 15-minute boundary,
+// }
+// Asia/Sakhalin {
+//   STDOFF '9:30:48' not at :00 or :30 mark,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Samarkand {
+//   STDOFF '4:27:53' not at :00 or :30 mark,
+//   STDOFF '4:27:53' not on 15-minute boundary,
+//   RussiaAsia {Added anchor rule at year 0}
+// }
+// Asia/Seoul {
+//   STDOFF '8:27:52' not at :00 or :30 mark,
+//   STDOFF '8:27:52' not on 15-minute boundary,
+//   ROK {Added anchor rule at year 0}
+// }
+// Asia/Shanghai {
+//   STDOFF '8:05:43' not at :00 or :30 mark,
+//   STDOFF '8:05:43' not on 15-minute boundary,
+//   PRC {Added anchor rule at year 0}
+//   Shang {Added anchor rule at year 0}
+// }
+// Asia/Singapore {
+//   RULES delta offset '0:20' different from 1:00,
+//   STDOFF '6:55:25' not at :00 or :30 mark,
+//   STDOFF '6:55:25' not on 15-minute boundary,
+//   STDOFF '7:20' not on 15-minute boundary,
+// }
+// Asia/Srednekolymsk {
+//   STDOFF '10:14:52' not at :00 or :30 mark,
+//   STDOFF '10:14:52' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Taipei {
+//   STDOFF '8:06:00' not at :00 or :30 mark,
+//   STDOFF '8:06:00' not on 15-minute boundary,
+//   Taiwan {Added anchor rule at year 0}
+// }
+// Asia/Tashkent {
+//   STDOFF '4:37:11' not at :00 or :30 mark,
+//   STDOFF '4:37:11' not on 15-minute boundary,
+//   RussiaAsia {Added anchor rule at year 0}
+// }
+// Asia/Tbilisi {
+//   STDOFF '2:59:11' not at :00 or :30 mark,
+//   STDOFF '2:59:11' not on 15-minute boundary,
+//   E-EurAsia {Added anchor rule at year 0}
+//   RussiaAsia {Added anchor rule at year 0}
+// }
+// Asia/Tehran {
+//   STDOFF '3:25:44' not at :00 or :30 mark,
+//   STDOFF '3:25:44' not on 15-minute boundary,
+//   Iran {Added anchor rule at year 0}
+// }
+// Asia/Thimphu {
+//   STDOFF '5:58:36' not at :00 or :30 mark,
+//   STDOFF '5:58:36' not on 15-minute boundary,
+// }
+// Asia/Tokyo {
+//   STDOFF '9:18:59' not at :00 or :30 mark,
+//   STDOFF '9:18:59' not on 15-minute boundary,
+//   Japan {Added anchor rule at year 0}
+// }
+// Asia/Tomsk {
+//   STDOFF '5:39:51' not at :00 or :30 mark,
+//   STDOFF '5:39:51' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Ulaanbaatar {
+//   STDOFF '7:07:32' not at :00 or :30 mark,
+//   STDOFF '7:07:32' not on 15-minute boundary,
+//   Mongol {Added anchor rule at year 0}
+// }
+// Asia/Urumqi {
+//   STDOFF '5:50:20' not at :00 or :30 mark,
+//   STDOFF '5:50:20' not on 15-minute boundary,
+// }
+// Asia/Ust-Nera {
+//   STDOFF '9:32:54' not at :00 or :30 mark,
+//   STDOFF '9:32:54' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Vladivostok {
+//   STDOFF '8:47:31' not at :00 or :30 mark,
+//   STDOFF '8:47:31' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Yakutsk {
+//   STDOFF '8:38:58' not at :00 or :30 mark,
+//   STDOFF '8:38:58' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Yangon {
+//   STDOFF '6:24:47' not at :00 or :30 mark,
+//   STDOFF '6:24:47' not on 15-minute boundary,
+// }
+// Asia/Yekaterinburg {
+//   STDOFF '4:02:33' not at :00 or :30 mark,
+//   STDOFF '4:02:33' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Asia/Yerevan {
+//   STDOFF '2:58:00' not at :00 or :30 mark,
+//   STDOFF '2:58:00' not on 15-minute boundary,
+//   Armenia {Added anchor rule at year 0}
+//   RussiaAsia {Added anchor rule at year 0}
+// }
+// Atlantic/Azores {
+//   RULES not fixed but FORMAT is missing '%' or '/',
+//   STDOFF '-1:42:40' not at :00 or :30 mark,
+//   STDOFF '-1:42:40' not on 15-minute boundary,
+//   STDOFF '-1:54:32' not on 15-minute boundary,
+//   EU {Added anchor rule at year 0}
+//   Port {
+//     Added anchor rule at year 0,
+//     SAVE '2:00' different from 1:00,
+//   }
+//   W-Eur {Added anchor rule at year 0}
+// }
+// Atlantic/Bermuda {
+//   STDOFF '-4:19:18' not at :00 or :30 mark,
+//   STDOFF '-4:19:18' not on 15-minute boundary,
+//   Bermuda {Added anchor rule at year 0}
+//   Canada {Added anchor rule at year 0}
+//   US {Added anchor rule at year 0}
+// }
+// Atlantic/Canary {
+//   STDOFF '-1:01:36' not at :00 or :30 mark,
+//   STDOFF '-1:01:36' not on 15-minute boundary,
+//   EU {Added anchor rule at year 0}
+// }
+// Atlantic/Cape_Verde {
+//   STDOFF '-1:34:04' not at :00 or :30 mark,
+//   STDOFF '-1:34:04' not on 15-minute boundary,
+// }
+// Atlantic/Faroe {
+//   STDOFF '-0:27:04' not at :00 or :30 mark,
+//   STDOFF '-0:27:04' not on 15-minute boundary,
+//   EU {Added anchor rule at year 0}
+// }
+// Atlantic/Madeira {
+//   RULES not fixed but FORMAT is missing '%' or '/',
+//   STDOFF '-1:07:36' not at :00 or :30 mark,
+//   STDOFF '-1:07:36' not on 15-minute boundary,
+//   EU {Added anchor rule at year 0}
+//   Port {
+//     Added anchor rule at year 0,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Atlantic/South_Georgia {
+//   STDOFF '-2:26:08' not at :00 or :30 mark,
+//   STDOFF '-2:26:08' not on 15-minute boundary,
+// }
+// Atlantic/Stanley {
+//   STDOFF '-3:51:24' not at :00 or :30 mark,
+//   STDOFF '-3:51:24' not on 15-minute boundary,
+//   Falk {Added anchor rule at year 0}
+// }
+// Australia/Adelaide {
+//   STDOFF '9:14:20' not at :00 or :30 mark,
+//   STDOFF '9:14:20' not on 15-minute boundary,
+//   AS {Added anchor rule at year 0}
+//   Aus {Added anchor rule at year 0}
+// }
+// Australia/Brisbane {
+//   STDOFF '10:12:08' not at :00 or :30 mark,
+//   STDOFF '10:12:08' not on 15-minute boundary,
+//   AQ {Added anchor rule at year 0}
+//   Aus {Added anchor rule at year 0}
+// }
+// Australia/Broken_Hill {
+//   STDOFF '9:25:48' not at :00 or :30 mark,
+//   STDOFF '9:25:48' not on 15-minute boundary,
+//   AN {Added anchor rule at year 0}
+//   AS {Added anchor rule at year 0}
+//   Aus {Added anchor rule at year 0}
+// }
+// Australia/Darwin {
+//   STDOFF '8:43:20' not at :00 or :30 mark,
+//   STDOFF '8:43:20' not on 15-minute boundary,
+//   Aus {Added anchor rule at year 0}
+// }
+// Australia/Eucla {
+//   STDOFF '8:35:28' not at :00 or :30 mark,
+//   STDOFF '8:35:28' not on 15-minute boundary,
+//   AW {Added anchor rule at year 0}
+//   Aus {Added anchor rule at year 0}
+// }
+// Australia/Hobart {
+//   STDOFF '9:49:16' not at :00 or :30 mark,
+//   STDOFF '9:49:16' not on 15-minute boundary,
+//   AT {Added anchor rule at year 0}
+//   Aus {Added anchor rule at year 0}
+// }
+// Australia/Lindeman {
+//   STDOFF '9:55:56' not at :00 or :30 mark,
+//   STDOFF '9:55:56' not on 15-minute boundary,
+//   AQ {Added anchor rule at year 0}
+//   Aus {Added anchor rule at year 0}
+//   Holiday {Added anchor rule at year 0}
+// }
 // Australia/Lord_Howe {
-//   LH {SAVE '0:30' different from 1:00}
+//   STDOFF '10:36:20' not at :00 or :30 mark,
+//   STDOFF '10:36:20' not on 15-minute boundary,
+//   LH {
+//     Added anchor rule at year 0,
+//     SAVE '0:30' different from 1:00,
+//   }
+// }
+// Australia/Melbourne {
+//   STDOFF '9:39:52' not at :00 or :30 mark,
+//   STDOFF '9:39:52' not on 15-minute boundary,
+//   AV {Added anchor rule at year 0}
+//   Aus {Added anchor rule at year 0}
+// }
+// Australia/Perth {
+//   STDOFF '7:43:24' not at :00 or :30 mark,
+//   STDOFF '7:43:24' not on 15-minute boundary,
+//   AW {Added anchor rule at year 0}
+//   Aus {Added anchor rule at year 0}
+// }
+// Australia/Sydney {
+//   STDOFF '10:04:52' not at :00 or :30 mark,
+//   STDOFF '10:04:52' not on 15-minute boundary,
+//   AN {Added anchor rule at year 0}
+//   Aus {Added anchor rule at year 0}
+// }
+// CET {
+//   C-Eur {Added anchor rule at year 0}
+// }
+// CST6CDT {
+//   US {Added anchor rule at year 0}
+// }
+// EET {
+//   EU {Added anchor rule at year 0}
+// }
+// EST5EDT {
+//   US {Added anchor rule at year 0}
+// }
+// Europe/Andorra {
+//   STDOFF '0:06:04' not at :00 or :30 mark,
+//   STDOFF '0:06:04' not on 15-minute boundary,
+//   EU {Added anchor rule at year 0}
+// }
+// Europe/Astrakhan {
+//   STDOFF '3:12:12' not at :00 or :30 mark,
+//   STDOFF '3:12:12' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Athens {
+//   STDOFF '1:34:52' not at :00 or :30 mark,
+//   STDOFF '1:34:52' not on 15-minute boundary,
+//   UNTIL '0:01' not on 15-minute boundary,
+//   EU {Added anchor rule at year 0}
+//   Greece {Added anchor rule at year 0}
+// }
+// Europe/Belgrade {
+//   STDOFF '1:22:00' not at :00 or :30 mark,
+//   STDOFF '1:22:00' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+// }
+// Europe/Berlin {
+//   STDOFF '0:53:28' not at :00 or :30 mark,
+//   STDOFF '0:53:28' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+//   Germany {
+//     Added anchor rule at year 0,
+//     SAVE '2:00' different from 1:00,
+//   }
+//   SovietZone {
+//     Added anchor rule at year 0,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Brussels {
+//   STDOFF '0:17:30' not at :00 or :30 mark,
+//   STDOFF '0:17:30' not on 15-minute boundary,
+//   UNTIL '00:17:30' not on 15-minute boundary,
+//   UNTIL time '00:17:30' not multiple of 1-min,
+//   Belgium {Added anchor rule at year 0}
+//   C-Eur {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+// }
+// Europe/Bucharest {
+//   STDOFF '1:44:24' not at :00 or :30 mark,
+//   STDOFF '1:44:24' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   E-Eur {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+//   Romania {Added anchor rule at year 0}
+// }
+// Europe/Budapest {
+//   STDOFF '1:16:20' not at :00 or :30 mark,
+//   STDOFF '1:16:20' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+//   Hungary {Added anchor rule at year 0}
+// }
+// Europe/Chisinau {
+//   STDOFF '1:44:24' not on 15-minute boundary,
+//   STDOFF '1:55' not on 15-minute boundary,
+//   STDOFF '1:55:20' not at :00 or :30 mark,
+//   STDOFF '1:55:20' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   E-Eur {Added anchor rule at year 0}
+//   Moldova {Added anchor rule at year 0}
+//   Romania {Added anchor rule at year 0}
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
 // }
 // Europe/Dublin {
-//   Eire {SAVE '-1:00' different from 1:00}
+//   STDOFF '-0:25:21' not at :00 or :30 mark,
+//   STDOFF '-0:25:21' not on 15-minute boundary,
+//   Eire {
+//     Added anchor rule at year 0,
+//     SAVE '-1:00' different from 1:00,
+//   }
+//   GB-Eire {
+//     Added anchor rule at year 0,
+//     LETTER 'BDST' not single character,
+//     LETTER 'BST' not single character,
+//     LETTER 'GMT' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Gibraltar {
+//   STDOFF '-0:21:24' not at :00 or :30 mark,
+//   STDOFF '-0:21:24' not on 15-minute boundary,
+//   EU {Added anchor rule at year 0}
+//   GB-Eire {
+//     Added anchor rule at year 0,
+//     LETTER 'BDST' not single character,
+//     LETTER 'BST' not single character,
+//     LETTER 'GMT' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Helsinki {
+//   STDOFF '1:39:49' not at :00 or :30 mark,
+//   STDOFF '1:39:49' not on 15-minute boundary,
+//   EU {Added anchor rule at year 0}
+//   Finland {Added anchor rule at year 0}
+// }
+// Europe/Istanbul {
+//   STDOFF '1:55:52' not at :00 or :30 mark,
+//   STDOFF '1:55:52' not on 15-minute boundary,
+//   STDOFF '1:56:56' not on 15-minute boundary,
+//   EU {Added anchor rule at year 0}
+//   Turkey {Added anchor rule at year 0}
+// }
+// Europe/Kaliningrad {
+//   STDOFF '1:22:00' not at :00 or :30 mark,
+//   STDOFF '1:22:00' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   Poland {Added anchor rule at year 0}
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Kirov {
+//   STDOFF '3:18:48' not at :00 or :30 mark,
+//   STDOFF '3:18:48' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Kyiv {
+//   STDOFF '2:02:04' not at :00 or :30 mark,
+//   STDOFF '2:02:04' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Lisbon {
+//   STDOFF '-0:36:45' not at :00 or :30 mark,
+//   STDOFF '-0:36:45' not on 15-minute boundary,
+//   EU {Added anchor rule at year 0}
+//   Port {
+//     Added anchor rule at year 0,
+//     SAVE '2:00' different from 1:00,
+//   }
+//   W-Eur {Added anchor rule at year 0}
+// }
+// Europe/London {
+//   STDOFF '-0:01:15' not at :00 or :30 mark,
+//   STDOFF '-0:01:15' not on 15-minute boundary,
+//   EU {Added anchor rule at year 0}
+//   GB-Eire {
+//     Added anchor rule at year 0,
+//     LETTER 'BDST' not single character,
+//     LETTER 'BST' not single character,
+//     LETTER 'GMT' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Madrid {
+//   STDOFF '-0:14:44' not at :00 or :30 mark,
+//   EU {Added anchor rule at year 0}
+//   Spain {
+//     Added anchor rule at year 0,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Malta {
+//   STDOFF '0:58:04' not at :00 or :30 mark,
+//   STDOFF '0:58:04' not on 15-minute boundary,
+//   EU {Added anchor rule at year 0}
+//   Italy {Added anchor rule at year 0}
+//   Malta {Added anchor rule at year 0}
+// }
+// Europe/Minsk {
+//   STDOFF '1:50' not on 15-minute boundary,
+//   STDOFF '1:50:16' not at :00 or :30 mark,
+//   STDOFF '1:50:16' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Moscow {
+//   STDOFF '2:30:17' not at :00 or :30 mark,
+//   STDOFF '2:31:19' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Paris {
+//   STDOFF '0:09:21' not at :00 or :30 mark,
+//   STDOFF '0:09:21' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+//   France {
+//     Added anchor rule at year 0,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Prague {
+//   RULES delta offset '-1:00' different from 1:00,
+//   STDOFF '0:57:44' not at :00 or :30 mark,
+//   STDOFF '0:57:44' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   Czech {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+// }
+// Europe/Riga {
+//   STDOFF '1:36:34' not at :00 or :30 mark,
+//   STDOFF '1:36:34' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+//   Latvia {Added anchor rule at year 0}
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Rome {
+//   STDOFF '0:49:56' not at :00 or :30 mark,
+//   STDOFF '0:49:56' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+//   Italy {Added anchor rule at year 0}
+// }
+// Europe/Samara {
+//   STDOFF '3:20:20' not at :00 or :30 mark,
+//   STDOFF '3:20:20' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Saratov {
+//   STDOFF '3:04:18' not at :00 or :30 mark,
+//   STDOFF '3:04:18' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Simferopol {
+//   STDOFF '2:16' not on 15-minute boundary,
+//   STDOFF '2:16:24' not at :00 or :30 mark,
+//   STDOFF '2:16:24' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Sofia {
+//   STDOFF '1:33:16' not at :00 or :30 mark,
+//   STDOFF '1:33:16' not on 15-minute boundary,
+//   STDOFF '1:56:56' not on 15-minute boundary,
+//   Bulg {Added anchor rule at year 0}
+//   C-Eur {Added anchor rule at year 0}
+//   E-Eur {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+// }
+// Europe/Tallinn {
+//   STDOFF '1:39:00' not at :00 or :30 mark,
+//   STDOFF '1:39:00' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Tirane {
+//   STDOFF '1:19:20' not at :00 or :30 mark,
+//   STDOFF '1:19:20' not on 15-minute boundary,
+//   Albania {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+// }
+// Europe/Ulyanovsk {
+//   STDOFF '3:13:36' not at :00 or :30 mark,
+//   STDOFF '3:13:36' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Vienna {
+//   STDOFF '1:05:21' not at :00 or :30 mark,
+//   STDOFF '1:05:21' not on 15-minute boundary,
+//   Austria {Added anchor rule at year 0}
+//   C-Eur {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+// }
+// Europe/Vilnius {
+//   STDOFF '1:24:00' not on 15-minute boundary,
+//   STDOFF '1:35:36' not on 15-minute boundary,
+//   STDOFF '1:41:16' not at :00 or :30 mark,
+//   STDOFF '1:41:16' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Volgograd {
+//   STDOFF '2:57:40' not at :00 or :30 mark,
+//   STDOFF '2:57:40' not on 15-minute boundary,
+//   Russia {
+//     Added anchor rule at year 0,
+//     LETTER '+05' not single character,
+//     LETTER 'MDST' not single character,
+//     LETTER 'MMT' not single character,
+//     LETTER 'MSD' not single character,
+//     LETTER 'MSK' not single character,
+//     LETTER 'MST' not single character,
+//     SAVE '2:00' different from 1:00,
+//   }
+// }
+// Europe/Warsaw {
+//   STDOFF '1:24:00' not at :00 or :30 mark,
+//   STDOFF '1:24:00' not on 15-minute boundary,
+//   C-Eur {Added anchor rule at year 0}
+//   EU {Added anchor rule at year 0}
+//   Poland {Added anchor rule at year 0}
+//   W-Eur {Added anchor rule at year 0}
+// }
+// Europe/Zurich {
+//   STDOFF '0:29:46' not on 15-minute boundary,
+//   STDOFF '0:34:08' not at :00 or :30 mark,
+//   STDOFF '0:34:08' not on 15-minute boundary,
+//   EU {Added anchor rule at year 0}
+//   Swiss {Added anchor rule at year 0}
+// }
+// Indian/Chagos {
+//   STDOFF '4:49:40' not at :00 or :30 mark,
+//   STDOFF '4:49:40' not on 15-minute boundary,
+// }
+// Indian/Maldives {
+//   STDOFF '4:54:00' not at :00 or :30 mark,
+//   STDOFF '4:54:00' not on 15-minute boundary,
+// }
+// Indian/Mauritius {
+//   STDOFF '3:50:00' not at :00 or :30 mark,
+//   STDOFF '3:50:00' not on 15-minute boundary,
+//   Mauritius {Added anchor rule at year 0}
+// }
+// MET {
+//   C-Eur {Added anchor rule at year 0}
+// }
+// MST7MDT {
+//   US {Added anchor rule at year 0}
+// }
+// PST8PDT {
+//   US {Added anchor rule at year 0}
 // }
 // Pacific/Apia {
+//   STDOFF '-11:26:56' not on 15-minute boundary,
+//   STDOFF '12:33:04' not at :00 or :30 mark,
+//   STDOFF '12:33:04' not on 15-minute boundary,
 //   WS {Added anchor rule at year 0}
 // }
-// Pacific/Chatham {STDOFF '12:45' not at :00 or :30 mark}
+// Pacific/Auckland {
+//   STDOFF '11:39:04' not at :00 or :30 mark,
+//   STDOFF '11:39:04' not on 15-minute boundary,
+//   NZ {
+//     Added anchor rule at year 0,
+//     SAVE '0:30' different from 1:00,
+//   }
+// }
+// Pacific/Bougainville {
+//   STDOFF '10:22:16' not at :00 or :30 mark,
+//   STDOFF '10:22:16' not on 15-minute boundary,
+//   STDOFF '9:48:32' not on 15-minute boundary,
+// }
+// Pacific/Chatham {
+//   STDOFF '12:13:48' not at :00 or :30 mark,
+//   STDOFF '12:13:48' not on 15-minute boundary,
+//   Chatham {Added anchor rule at year 0}
+// }
+// Pacific/Easter {
+//   STDOFF '-7:17:28' not at :00 or :30 mark,
+//   STDOFF '-7:17:28' not on 15-minute boundary,
+//   Chile {Added anchor rule at year 0}
+// }
+// Pacific/Efate {
+//   STDOFF '11:13:16' not at :00 or :30 mark,
+//   STDOFF '11:13:16' not on 15-minute boundary,
+//   Vanuatu {Added anchor rule at year 0}
+// }
+// Pacific/Fakaofo {
+//   STDOFF '-11:24:56' not at :00 or :30 mark,
+//   STDOFF '-11:24:56' not on 15-minute boundary,
+// }
+// Pacific/Fiji {
+//   STDOFF '11:55:44' not at :00 or :30 mark,
+//   STDOFF '11:55:44' not on 15-minute boundary,
+//   Fiji {Added anchor rule at year 0}
+// }
+// Pacific/Galapagos {
+//   STDOFF '-5:58:24' not at :00 or :30 mark,
+//   STDOFF '-5:58:24' not on 15-minute boundary,
+//   Ecuador {Added anchor rule at year 0}
+// }
+// Pacific/Gambier {STDOFF '-8:59:48' not at :00 or :30 mark}
+// Pacific/Guadalcanal {
+//   STDOFF '10:39:48' not at :00 or :30 mark,
+//   STDOFF '10:39:48' not on 15-minute boundary,
+// }
+// Pacific/Guam {
+//   STDOFF '-14:21:00' not at :00 or :30 mark,
+//   STDOFF '-14:21:00' not on 15-minute boundary,
+//   STDOFF '9:39:00' not on 15-minute boundary,
+//   Guam {
+//     AT '0:01' not on 15-minute boundary,
+//     AT '2:01' not on 15-minute boundary,
+//     Added anchor rule at year 0,
+//   }
+// }
+// Pacific/Honolulu {
+//   STDOFF '-10:31:26' not at :00 or :30 mark,
+//   STDOFF '-10:31:26' not on 15-minute boundary,
+//   US {Added anchor rule at year 0}
+// }
+// Pacific/Kiritimati {
+//   STDOFF '-10:29:20' not at :00 or :30 mark,
+//   STDOFF '-10:40' not on 15-minute boundary,
+// }
+// Pacific/Kosrae {
+//   STDOFF '-13:08:04' not at :00 or :30 mark,
+//   STDOFF '-13:08:04' not on 15-minute boundary,
+//   STDOFF '10:51:56' not on 15-minute boundary,
+// }
+// Pacific/Kwajalein {
+//   STDOFF '11:09:20' not at :00 or :30 mark,
+//   STDOFF '11:09:20' not on 15-minute boundary,
+// }
+// Pacific/Marquesas {
+//   STDOFF '-9:18:00' not at :00 or :30 mark,
+//   STDOFF '-9:18:00' not on 15-minute boundary,
+// }
+// Pacific/Nauru {
+//   STDOFF '11:07:40' not at :00 or :30 mark,
+//   STDOFF '11:07:40' not on 15-minute boundary,
+// }
+// Pacific/Niue {
+//   STDOFF '-11:19:40' not at :00 or :30 mark,
+//   STDOFF '-11:19:40' not on 15-minute boundary,
+//   STDOFF '-11:20' not on 15-minute boundary,
+// }
+// Pacific/Norfolk {
+//   STDOFF '11:11:52' not at :00 or :30 mark,
+//   STDOFF '11:11:52' not on 15-minute boundary,
+//   STDOFF '11:12' not on 15-minute boundary,
+//   AN {Added anchor rule at year 0}
+// }
+// Pacific/Noumea {
+//   STDOFF '11:05:48' not at :00 or :30 mark,
+//   STDOFF '11:05:48' not on 15-minute boundary,
+//   NC {Added anchor rule at year 0}
+// }
+// Pacific/Pago_Pago {
+//   STDOFF '-11:22:48' not on 15-minute boundary,
+//   STDOFF '12:37:12' not at :00 or :30 mark,
+//   STDOFF '12:37:12' not on 15-minute boundary,
+// }
+// Pacific/Palau {
+//   STDOFF '-15:02:04' not at :00 or :30 mark,
+//   STDOFF '-15:02:04' not on 15-minute boundary,
+//   STDOFF '8:57:56' not on 15-minute boundary,
+// }
+// Pacific/Pitcairn {
+//   STDOFF '-8:40:20' not at :00 or :30 mark,
+//   STDOFF '-8:40:20' not on 15-minute boundary,
+// }
+// Pacific/Port_Moresby {
+//   STDOFF '9:48:32' not on 15-minute boundary,
+//   STDOFF '9:48:40' not at :00 or :30 mark,
+//   STDOFF '9:48:40' not on 15-minute boundary,
+// }
+// Pacific/Rarotonga {
+//   STDOFF '-10:39:04' not on 15-minute boundary,
+//   STDOFF '13:20:56' not at :00 or :30 mark,
+//   STDOFF '13:20:56' not on 15-minute boundary,
+//   Cook {
+//     Added anchor rule at year 0,
+//     SAVE '0:30' different from 1:00,
+//   }
+// }
+// Pacific/Tahiti {
+//   STDOFF '-9:58:16' not at :00 or :30 mark,
+//   STDOFF '-9:58:16' not on 15-minute boundary,
+// }
+// Pacific/Tarawa {
+//   STDOFF '11:32:04' not at :00 or :30 mark,
+//   STDOFF '11:32:04' not on 15-minute boundary,
+// }
 // Pacific/Tongatapu {
+//   STDOFF '12:19:12' not at :00 or :30 mark,
+//   STDOFF '12:19:12' not on 15-minute boundary,
+//   STDOFF '12:20' not on 15-minute boundary,
 //   Tonga {Added anchor rule at year 0}
+// }
+// WET {
+//   EU {Added anchor rule at year 0}
 // }
 
 

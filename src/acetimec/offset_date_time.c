@@ -13,32 +13,43 @@ atc_time_t atc_offset_date_time_to_epoch_seconds(
   const AtcLocalDateTime *ldt = (const AtcLocalDateTime *) odt;
   atc_time_t es = atc_local_date_time_to_epoch_seconds(ldt);
   if (es == kAtcInvalidEpochSeconds) return es;
-  return es - odt->offset_minutes * 60;
+  return es - odt->offset_seconds;
 }
 
 int8_t atc_offset_date_time_from_epoch_seconds(
     atc_time_t epoch_seconds,
-    int16_t offset_minutes,
+    int32_t offset_seconds,
     AtcOffsetDateTime *odt)
 {
   if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
 
-  epoch_seconds += offset_minutes * 60;
+  epoch_seconds += offset_seconds;
   int8_t err = atc_local_date_time_from_epoch_seconds(
       (AtcLocalDateTime *) odt, epoch_seconds);
   if (err) return err;
 
-  odt->offset_minutes = offset_minutes;
+  odt->offset_seconds = offset_seconds;
   return kAtcErrOk;
 }
 
-static void print_offset_minutes(AtcStringBuffer *sb, uint16_t offset_minutes)
+// Print +/-hh:mm, ignoring any ss component.
+static void print_offset_seconds(AtcStringBuffer *sb, int32_t seconds)
 {
-  uint16_t hours = offset_minutes / 60;
-  uint16_t minutes = offset_minutes % 60;
-  atc_print_uint16_pad2(sb, hours);
+  if (seconds < 0) {
+    atc_print_char(sb, '-');
+    seconds = -seconds;
+  } else {
+    atc_print_char(sb, '+');
+  }
+
+  //uint16_t ss = seconds % 60; // ignore
+  uint16_t minutes = seconds / 60;
+  uint16_t mm = minutes % 60;
+  uint16_t hh = minutes / 60;
+
+  atc_print_uint16_pad2(sb, hh);
   atc_print_char(sb, ':');
-  atc_print_uint16_pad2(sb, minutes);
+  atc_print_uint16_pad2(sb, mm);
 }
 
 void atc_offset_date_time_print(
@@ -46,11 +57,5 @@ void atc_offset_date_time_print(
     AtcStringBuffer *sb)
 {
   atc_local_date_time_print((const AtcLocalDateTime *) odt, sb);
-  if (odt->offset_minutes < 0) {
-    atc_print_char(sb, '-');
-    print_offset_minutes(sb, -odt->offset_minutes);
-  } else {
-    atc_print_char(sb, '+');
-    print_offset_minutes(sb, odt->offset_minutes);
-  }
+  print_offset_seconds(sb, odt->offset_seconds);
 }

@@ -49,9 +49,9 @@ ACU_TEST(test_zone_era)
       (const AtcZoneEra *) kAtcZoneAmerica_Los_Angeles.eras;
   const AtcZoneEra *era = &eras[0];
 
-  ACU_ASSERT(-8*60 == atc_zone_era_std_offset_minutes(era));
-  ACU_ASSERT(0*60 == atc_zone_era_dst_offset_minutes(era));
-  ACU_ASSERT(0 == atc_zone_era_until_minutes(era));
+  ACU_ASSERT(-8*3600 == atc_zone_era_std_offset_seconds(era));
+  ACU_ASSERT(0*3600 == atc_zone_era_dst_offset_seconds(era));
+  ACU_ASSERT(0 == atc_zone_era_until_seconds(era));
   ACU_ASSERT(kAtcSuffixW == atc_zone_era_until_suffix(era));
 }
 
@@ -63,9 +63,9 @@ ACU_TEST(test_zone_rule)
   const AtcZonePolicy *policy = era->zone_policy;
   const AtcZoneRule *rule = &policy->rules[0];
 
-  ACU_ASSERT(2*60 == atc_zone_rule_at_minutes(rule));
+  ACU_ASSERT(2*3600 == atc_zone_rule_at_seconds(rule));
   ACU_ASSERT(kAtcSuffixW == atc_zone_rule_at_suffix(rule));
-  ACU_ASSERT(0 == atc_zone_rule_dst_offset_minutes(rule));
+  ACU_ASSERT(0 == atc_zone_rule_dst_offset_seconds(rule));
 }
 
 //---------------------------------------------------------------------------

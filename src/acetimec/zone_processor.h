@@ -153,24 +153,24 @@ typedef struct AtcFindResult {
   uint8_t fold;
 
   /** The STD offset of the target OffsetDateTime. */
-  int16_t std_offset_minutes;
+  int32_t std_offset_seconds;
 
   /** The DST offset of the target OffsetDateTime. */
-  int16_t dst_offset_minutes;
+  int32_t dst_offset_seconds;
 
   /**
    * The STD offset of the requested LocalDateTime when
    * atc_processor_find_by_local_date_time() finds a gap. Otherwise, this will
-   * be identical to std_offset_minutes.
+   * be identical to std_offset_seconds.
    */
-  int16_t req_std_offset_minutes;
+  int32_t req_std_offset_seconds;
 
   /**
    * The DST offset of the requested LocalDateTime when
    * atc_processor_find_by_local_date_time() finds a gap. Otherwise, this will
-   * be identical to dst_offset_minutes.
+   * be identical to dst_offset_seconds.
    */
-  int16_t req_dst_offset_minutes;
+  int32_t req_dst_offset_seconds;
 
   /**
    * Contains a pointer to a transition string buffer. The string should be
@@ -349,7 +349,7 @@ void atc_processor_create_abbreviation(
     char *dest,
     uint8_t dest_size,
     const char *format,
-    int16_t delta_minutes,
+    int32_t delta_seconds,
     const char *letter_string);
 
 //---------------------------------------------------------------------------

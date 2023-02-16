@@ -7,7 +7,7 @@
  * @file offset_date_time.h
  *
  * Functions that relate to the local date time along with a UTC offset measured
- * in minutes. For example, this can be used to represent a fixed offset from
+ * in seconds. For example, this can be used to represent a fixed offset from
  * UTC, such as "2022-08-30 14:45:00-08:00".
  */
 
@@ -23,7 +23,7 @@ extern "C" {
 #endif
 
 /**
- * Date and time fields with a UTC offset in minutes.
+ * Date and time fields with a UTC offset in seconds.
  *
  * In the AceTime library, the 'fold' parameter was included in the low-level
  * LocalTime class, which then got absorbed into the LocalDatetime class. This
@@ -52,8 +52,8 @@ typedef struct AtcOffsetDateTime {
   /** fold [0,1] */
   uint8_t fold;
 
-  /** offset_minutes [-840, 960] */
-  int16_t offset_minutes;
+  /** offset_seconds [-10h,+14h] roughly */
+  int32_t offset_seconds;
 } AtcOffsetDateTime;
 
 /** Return the epoch seconds for the given AtcOffsetDateTime. */
@@ -61,13 +61,13 @@ atc_time_t atc_offset_date_time_to_epoch_seconds(
     const AtcOffsetDateTime *odt);
 
 /**
- * Create the AtcOffsetDateTime from the epoch_seconds and total offset minutes.
+ * Create the AtcOffsetDateTime from the epoch_seconds and total offset seconds.
  * The 'fold' parameter is explicitly set to 0.
  * Returns non-zero error code upon failure.
  */
 int8_t atc_offset_date_time_from_epoch_seconds(
     atc_time_t epoch_seconds,
-    int16_t offset_minutes,
+    int32_t offset_seconds,
     AtcOffsetDateTime *odt);
 
 /** Print the offset date time in ISO 8601 format. */

@@ -53,11 +53,11 @@ int8_t atc_zoned_date_time_convert(
 
 // The current implementation looks up the LocalDateTime using
 // atc_time_zone_offset_date_time_from_local_date_time(). This uses the fold and
-// ignores the offset_minutes.
+// ignores the offset_seconds.
 //
 // An alternative implementation is to convert zdt into epoch_seconds, then call
 // atc_time_zone_offset_date_time_from_epoch_seconds() instead. This uses the
-// offset_minutes, and ignores the fold.
+// offset_seconds, and ignores the fold.
 //
 // It's not clear which implementation is better.
 //
