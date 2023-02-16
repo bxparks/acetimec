@@ -6,6 +6,23 @@
     * Move `AtcZonedExtra` factory functions to `AtcTimeZone`.
         * Simplify initialization sequence of `AtcZoneProcessor` by channeling
           all factory operations through `AtcTimeZone`.
+    * Create `zonedbtesting` subset for unit tests.
+    * High resolution zonedb
+        * Support one-second resolution for Zone.UNTIL and Rule.AT fields.
+            * Enables support all zones before ~1972.
+        * Support one-minute resolution for Zone.DSTOFF (i.e. Zone.RULES) and
+          Rule.SAVE fields.
+            * Handles a few zones around ~1930 whose DSTOFF is a 00:20 minutes,
+            instead of a multiple of 00:15 minutes.
+        * Extend year interval of `zonedb/` to `[1800,10000)`, which is
+          slightly larger than the raw TZDB year range of `[1844,2087]` (as of
+          TZDB 2022g).
+        * Increases flash consumption by roughly 100%, 40kB to 80kB on 32-bit
+          processors.
+        * The old format still available through `-D ATC_HIRES_ZONEDB=0`.
+        * Validation program `validate_against_libc/` shows that transitions
+          are identical to the C libc library for all zones, for all years
+          `[1800,2100)`.
     * MemoryBenchmark
         * Use my Arduino MemoryBenchmark infrastructure to extract flash and
           static memory consumption of the AceTimeC library across various
