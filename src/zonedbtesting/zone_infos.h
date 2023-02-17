@@ -83,6 +83,7 @@ extern const AtcZoneContext kAtcTestingZoneContext;
 
 //---------------------------------------------------------------------------
 // Supported zones: 16
+// Supported eras: 22
 //---------------------------------------------------------------------------
 
 extern const AtcZoneInfo kAtcTestingZoneAfrica_Casablanca; // Africa/Casablanca

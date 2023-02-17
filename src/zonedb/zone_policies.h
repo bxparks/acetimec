@@ -74,7 +74,8 @@ extern "C" {
 #endif
 
 //---------------------------------------------------------------------------
-// Supported zone policies: 134
+// Supported policies: 134
+// Supported rules: 2151
 //---------------------------------------------------------------------------
 
 extern const AtcZonePolicy kAtcZonePolicyAN;

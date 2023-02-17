@@ -82,6 +82,7 @@ extern const AtcZoneContext kAtcZoneContext;
 
 //---------------------------------------------------------------------------
 // Supported zones: 351
+// Supported eras: 1952
 //---------------------------------------------------------------------------
 
 extern const AtcZoneInfo kAtcZoneAfrica_Abidjan; // Africa/Abidjan
