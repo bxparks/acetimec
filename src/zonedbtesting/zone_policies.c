@@ -37,6 +37,32 @@
 // Original Years: [1844,2087]
 // Generated Years: [1943,2087]
 //
+// Memory (8-bits):
+//   Rules: 2340
+//   Policies: 24
+//   Eras: 330
+//   Infos: 208
+//   Links: 13
+//   Registry: 34
+//   Formats: 78
+//   Letters: 23
+//   Fragments: 0
+//   Name: 268 (original: 268)
+//   TOTAL: 3318
+//
+// Memory (32-bits):
+//   Rules: 2340
+//   Policies: 64
+//   Eras: 440
+//   Infos: 384
+//   Links: 24
+//   Registry: 68
+//   Formats: 78
+//   Letters: 33
+//   Fragments: 0
+//   Name: 268 (original: 268)
+//   TOTAL: 3699
+//
 // DO NOT EDIT
 
 #include "zone_policies.h"
@@ -49,8 +75,6 @@
 //---------------------------------------------------------------------------
 // Policy name: Aus
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAus[]  = {
@@ -77,8 +101,6 @@ const AtcZonePolicy kAtcTestingZonePolicyAus  = {
 //---------------------------------------------------------------------------
 // Policy name: Canada
 // Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCanada[]  = {
@@ -153,8 +175,6 @@ const AtcZonePolicy kAtcTestingZonePolicyCanada  = {
 //---------------------------------------------------------------------------
 // Policy name: EU
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEU[]  = {
@@ -205,8 +225,6 @@ const AtcZonePolicy kAtcTestingZonePolicyEU  = {
 //---------------------------------------------------------------------------
 // Policy name: Morocco
 // Rules: 169
-// Memory (8-bit): 1865
-// Memory (32-bit): 2040
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
@@ -2249,8 +2267,6 @@ const AtcZonePolicy kAtcTestingZonePolicyMorocco  = {
 //---------------------------------------------------------------------------
 // Policy name: Namibia
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
@@ -2301,8 +2317,6 @@ const AtcZonePolicy kAtcTestingZonePolicyNamibia  = {
 //---------------------------------------------------------------------------
 // Policy name: US
 // Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesUS[]  = {
@@ -2377,8 +2391,6 @@ const AtcZonePolicy kAtcTestingZonePolicyUS  = {
 //---------------------------------------------------------------------------
 // Policy name: WS
 // Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesWS[]  = {
@@ -2465,8 +2477,6 @@ const AtcZonePolicy kAtcTestingZonePolicyWS  = {
 //---------------------------------------------------------------------------
 // Policy name: Winn
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesWinn[]  = {

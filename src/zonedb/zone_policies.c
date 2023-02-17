@@ -36,6 +36,32 @@
 // Original Years: [1844,2087]
 // Generated Years: [1844,2087]
 //
+// Memory (8-bits):
+//   Rules: 25812
+//   Policies: 402
+//   Eras: 29280
+//   Infos: 4563
+//   Links: 3185
+//   Registry: 1192
+//   Formats: 1032
+//   Letters: 160
+//   Fragments: 0
+//   Name: 9076 (original: 9076)
+//   TOTAL: 74702
+//
+// Memory (32-bits):
+//   Rules: 25812
+//   Policies: 1072
+//   Eras: 39040
+//   Infos: 8424
+//   Links: 5880
+//   Registry: 2384
+//   Formats: 1032
+//   Letters: 216
+//   Fragments: 0
+//   Name: 9076 (original: 9076)
+//   TOTAL: 92936
+//
 // DO NOT EDIT
 
 #include "zone_policies.h"
@@ -48,8 +74,6 @@
 //---------------------------------------------------------------------------
 // Policy name: AN
 // Rules: 17
-// Memory (8-bit): 193
-// Memory (32-bit): 216
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAN[]  = {
@@ -268,8 +292,6 @@ const AtcZonePolicy kAtcZonePolicyAN  = {
 //---------------------------------------------------------------------------
 // Policy name: AQ
 // Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAQ[]  = {
@@ -344,8 +366,6 @@ const AtcZonePolicy kAtcZonePolicyAQ  = {
 //---------------------------------------------------------------------------
 // Policy name: AS
 // Rules: 16
-// Memory (8-bit): 182
-// Memory (32-bit): 204
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAS[]  = {
@@ -552,8 +572,6 @@ const AtcZonePolicy kAtcZonePolicyAS  = {
 //---------------------------------------------------------------------------
 // Policy name: AT
 // Rules: 24
-// Memory (8-bit): 270
-// Memory (32-bit): 300
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAT[]  = {
@@ -856,8 +874,6 @@ const AtcZonePolicy kAtcZonePolicyAT  = {
 //---------------------------------------------------------------------------
 // Policy name: AV
 // Rules: 15
-// Memory (8-bit): 171
-// Memory (32-bit): 192
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAV[]  = {
@@ -1052,8 +1068,6 @@ const AtcZonePolicy kAtcZonePolicyAV  = {
 //---------------------------------------------------------------------------
 // Policy name: AW
 // Rules: 10
-// Memory (8-bit): 116
-// Memory (32-bit): 132
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAW[]  = {
@@ -1188,8 +1202,6 @@ const AtcZonePolicy kAtcZonePolicyAW  = {
 //---------------------------------------------------------------------------
 // Policy name: Albania
 // Rules: 26
-// Memory (8-bit): 292
-// Memory (32-bit): 324
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAlbania[]  = {
@@ -1516,8 +1528,6 @@ const AtcZonePolicy kAtcZonePolicyAlbania  = {
 //---------------------------------------------------------------------------
 // Policy name: Algeria
 // Rules: 23
-// Memory (8-bit): 259
-// Memory (32-bit): 288
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAlgeria[]  = {
@@ -1808,8 +1818,6 @@ const AtcZonePolicy kAtcZonePolicyAlgeria  = {
 //---------------------------------------------------------------------------
 // Policy name: Arg
 // Rules: 30
-// Memory (8-bit): 336
-// Memory (32-bit): 372
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesArg[]  = {
@@ -2184,8 +2192,6 @@ const AtcZonePolicy kAtcZonePolicyArg  = {
 //---------------------------------------------------------------------------
 // Policy name: Armenia
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesArmenia[]  = {
@@ -2236,8 +2242,6 @@ const AtcZonePolicy kAtcZonePolicyArmenia  = {
 //---------------------------------------------------------------------------
 // Policy name: Aus
 // Rules: 8
-// Memory (8-bit): 94
-// Memory (32-bit): 108
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAus[]  = {
@@ -2348,8 +2352,6 @@ const AtcZonePolicy kAtcZonePolicyAus  = {
 //---------------------------------------------------------------------------
 // Policy name: Austria
 // Rules: 10
-// Memory (8-bit): 116
-// Memory (32-bit): 132
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAustria[]  = {
@@ -2484,8 +2486,6 @@ const AtcZonePolicy kAtcZonePolicyAustria  = {
 //---------------------------------------------------------------------------
 // Policy name: Azer
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAzer[]  = {
@@ -2536,8 +2536,6 @@ const AtcZonePolicy kAtcZonePolicyAzer  = {
 //---------------------------------------------------------------------------
 // Policy name: Barb
 // Rules: 12
-// Memory (8-bit): 138
-// Memory (32-bit): 156
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesBarb[]  = {
@@ -2696,8 +2694,6 @@ const AtcZonePolicy kAtcZonePolicyBarb  = {
 //---------------------------------------------------------------------------
 // Policy name: Belgium
 // Rules: 35
-// Memory (8-bit): 391
-// Memory (32-bit): 432
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesBelgium[]  = {
@@ -3132,8 +3128,6 @@ const AtcZonePolicy kAtcZonePolicyBelgium  = {
 //---------------------------------------------------------------------------
 // Policy name: Belize
 // Rules: 12
-// Memory (8-bit): 138
-// Memory (32-bit): 156
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesBelize[]  = {
@@ -3292,8 +3286,6 @@ const AtcZonePolicy kAtcZonePolicyBelize  = {
 //---------------------------------------------------------------------------
 // Policy name: Bermuda
 // Rules: 17
-// Memory (8-bit): 193
-// Memory (32-bit): 216
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesBermuda[]  = {
@@ -3512,8 +3504,6 @@ const AtcZonePolicy kAtcZonePolicyBermuda  = {
 //---------------------------------------------------------------------------
 // Policy name: Brazil
 // Rules: 58
-// Memory (8-bit): 644
-// Memory (32-bit): 708
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
@@ -4224,8 +4214,6 @@ const AtcZonePolicy kAtcZonePolicyBrazil  = {
 //---------------------------------------------------------------------------
 // Policy name: Bulg
 // Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesBulg[]  = {
@@ -4312,8 +4300,6 @@ const AtcZonePolicy kAtcZonePolicyBulg  = {
 //---------------------------------------------------------------------------
 // Policy name: C-Eur
 // Rules: 18
-// Memory (8-bit): 204
-// Memory (32-bit): 228
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesC_Eur[]  = {
@@ -4544,8 +4530,6 @@ const AtcZonePolicy kAtcZonePolicyC_Eur  = {
 //---------------------------------------------------------------------------
 // Policy name: CA
 // Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCA[]  = {
@@ -4632,8 +4616,6 @@ const AtcZonePolicy kAtcZonePolicyCA  = {
 //---------------------------------------------------------------------------
 // Policy name: CO
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCO[]  = {
@@ -4684,8 +4666,6 @@ const AtcZonePolicy kAtcZonePolicyCO  = {
 //---------------------------------------------------------------------------
 // Policy name: CR
 // Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCR[]  = {
@@ -4772,8 +4752,6 @@ const AtcZonePolicy kAtcZonePolicyCR  = {
 //---------------------------------------------------------------------------
 // Policy name: Canada
 // Rules: 11
-// Memory (8-bit): 127
-// Memory (32-bit): 144
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCanada[]  = {
@@ -4920,8 +4898,6 @@ const AtcZonePolicy kAtcZonePolicyCanada  = {
 //---------------------------------------------------------------------------
 // Policy name: Chatham
 // Rules: 10
-// Memory (8-bit): 116
-// Memory (32-bit): 132
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesChatham[]  = {
@@ -5056,8 +5032,6 @@ const AtcZonePolicy kAtcZonePolicyChatham  = {
 //---------------------------------------------------------------------------
 // Policy name: Chicago
 // Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesChicago[]  = {
@@ -5156,8 +5130,6 @@ const AtcZonePolicy kAtcZonePolicyChicago  = {
 //---------------------------------------------------------------------------
 // Policy name: Chile
 // Rules: 37
-// Memory (8-bit): 413
-// Memory (32-bit): 456
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesChile[]  = {
@@ -5616,8 +5588,6 @@ const AtcZonePolicy kAtcZonePolicyChile  = {
 //---------------------------------------------------------------------------
 // Policy name: Cook
 // Rules: 4
-// Memory (8-bit): 50
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCook[]  = {
@@ -5680,8 +5650,6 @@ const AtcZonePolicy kAtcZonePolicyCook  = {
 //---------------------------------------------------------------------------
 // Policy name: Cuba
 // Rules: 40
-// Memory (8-bit): 446
-// Memory (32-bit): 492
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCuba[]  = {
@@ -6176,8 +6144,6 @@ const AtcZonePolicy kAtcZonePolicyCuba  = {
 //---------------------------------------------------------------------------
 // Policy name: Cyprus
 // Rules: 10
-// Memory (8-bit): 116
-// Memory (32-bit): 132
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCyprus[]  = {
@@ -6312,8 +6278,6 @@ const AtcZonePolicy kAtcZonePolicyCyprus  = {
 //---------------------------------------------------------------------------
 // Policy name: Czech
 // Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCzech[]  = {
@@ -6412,8 +6376,6 @@ const AtcZonePolicy kAtcZonePolicyCzech  = {
 //---------------------------------------------------------------------------
 // Policy name: DR
 // Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesDR[]  = {
@@ -6512,8 +6474,6 @@ const AtcZonePolicy kAtcZonePolicyDR  = {
 //---------------------------------------------------------------------------
 // Policy name: Denver
 // Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesDenver[]  = {
@@ -6600,8 +6560,6 @@ const AtcZonePolicy kAtcZonePolicyDenver  = {
 //---------------------------------------------------------------------------
 // Policy name: Detroit
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesDetroit[]  = {
@@ -6652,8 +6610,6 @@ const AtcZonePolicy kAtcZonePolicyDetroit  = {
 //---------------------------------------------------------------------------
 // Policy name: Dhaka
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesDhaka[]  = {
@@ -6704,8 +6660,6 @@ const AtcZonePolicy kAtcZonePolicyDhaka  = {
 //---------------------------------------------------------------------------
 // Policy name: E-Eur
 // Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesE_Eur[]  = {
@@ -6780,8 +6734,6 @@ const AtcZonePolicy kAtcZonePolicyE_Eur  = {
 //---------------------------------------------------------------------------
 // Policy name: E-EurAsia
 // Rules: 4
-// Memory (8-bit): 50
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesE_EurAsia[]  = {
@@ -6844,8 +6796,6 @@ const AtcZonePolicy kAtcZonePolicyE_EurAsia  = {
 //---------------------------------------------------------------------------
 // Policy name: EU
 // Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEU[]  = {
@@ -6944,8 +6894,6 @@ const AtcZonePolicy kAtcZonePolicyEU  = {
 //---------------------------------------------------------------------------
 // Policy name: EUAsia
 // Rules: 4
-// Memory (8-bit): 50
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEUAsia[]  = {
@@ -7008,8 +6956,6 @@ const AtcZonePolicy kAtcZonePolicyEUAsia  = {
 //---------------------------------------------------------------------------
 // Policy name: Ecuador
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEcuador[]  = {
@@ -7060,8 +7006,6 @@ const AtcZonePolicy kAtcZonePolicyEcuador  = {
 //---------------------------------------------------------------------------
 // Policy name: Edm
 // Rules: 14
-// Memory (8-bit): 160
-// Memory (32-bit): 180
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEdm[]  = {
@@ -7244,8 +7188,6 @@ const AtcZonePolicy kAtcZonePolicyEdm  = {
 //---------------------------------------------------------------------------
 // Policy name: Egypt
 // Rules: 33
-// Memory (8-bit): 369
-// Memory (32-bit): 408
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
@@ -7656,8 +7598,6 @@ const AtcZonePolicy kAtcZonePolicyEgypt  = {
 //---------------------------------------------------------------------------
 // Policy name: EgyptAsia
 // Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEgyptAsia[]  = {
@@ -7756,8 +7696,6 @@ const AtcZonePolicy kAtcZonePolicyEgyptAsia  = {
 //---------------------------------------------------------------------------
 // Policy name: Eire
 // Rules: 8
-// Memory (8-bit): 94
-// Memory (32-bit): 108
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEire[]  = {
@@ -7868,8 +7806,6 @@ const AtcZonePolicy kAtcZonePolicyEire  = {
 //---------------------------------------------------------------------------
 // Policy name: Falk
 // Rules: 13
-// Memory (8-bit): 149
-// Memory (32-bit): 168
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesFalk[]  = {
@@ -8040,8 +7976,6 @@ const AtcZonePolicy kAtcZonePolicyFalk  = {
 //---------------------------------------------------------------------------
 // Policy name: Fiji
 // Rules: 13
-// Memory (8-bit): 149
-// Memory (32-bit): 168
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesFiji[]  = {
@@ -8212,8 +8146,6 @@ const AtcZonePolicy kAtcZonePolicyFiji  = {
 //---------------------------------------------------------------------------
 // Policy name: Finland
 // Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesFinland[]  = {
@@ -8288,8 +8220,6 @@ const AtcZonePolicy kAtcZonePolicyFinland  = {
 //---------------------------------------------------------------------------
 // Policy name: France
 // Rules: 39
-// Memory (8-bit): 435
-// Memory (32-bit): 480
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesFrance[]  = {
@@ -8772,8 +8702,6 @@ const AtcZonePolicy kAtcZonePolicyFrance  = {
 //---------------------------------------------------------------------------
 // Policy name: GB-Eire
 // Rules: 66
-// Memory (8-bit): 732
-// Memory (32-bit): 804
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesGB_Eire[]  = {
@@ -9580,8 +9508,6 @@ const AtcZonePolicy kAtcZonePolicyGB_Eire  = {
 //---------------------------------------------------------------------------
 // Policy name: Germany
 // Rules: 9
-// Memory (8-bit): 105
-// Memory (32-bit): 120
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesGermany[]  = {
@@ -9704,8 +9630,6 @@ const AtcZonePolicy kAtcZonePolicyGermany  = {
 //---------------------------------------------------------------------------
 // Policy name: Greece
 // Rules: 20
-// Memory (8-bit): 226
-// Memory (32-bit): 252
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesGreece[]  = {
@@ -9960,8 +9884,6 @@ const AtcZonePolicy kAtcZonePolicyGreece  = {
 //---------------------------------------------------------------------------
 // Policy name: Guam
 // Rules: 15
-// Memory (8-bit): 171
-// Memory (32-bit): 192
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesGuam[]  = {
@@ -10156,8 +10078,6 @@ const AtcZonePolicy kAtcZonePolicyGuam  = {
 //---------------------------------------------------------------------------
 // Policy name: Guat
 // Rules: 9
-// Memory (8-bit): 105
-// Memory (32-bit): 120
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesGuat[]  = {
@@ -10280,8 +10200,6 @@ const AtcZonePolicy kAtcZonePolicyGuat  = {
 //---------------------------------------------------------------------------
 // Policy name: HK
 // Rules: 15
-// Memory (8-bit): 171
-// Memory (32-bit): 192
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesHK[]  = {
@@ -10476,8 +10394,6 @@ const AtcZonePolicy kAtcZonePolicyHK  = {
 //---------------------------------------------------------------------------
 // Policy name: Haiti
 // Rules: 12
-// Memory (8-bit): 138
-// Memory (32-bit): 156
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
@@ -10636,8 +10552,6 @@ const AtcZonePolicy kAtcZonePolicyHaiti  = {
 //---------------------------------------------------------------------------
 // Policy name: Halifax
 // Rules: 42
-// Memory (8-bit): 468
-// Memory (32-bit): 516
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesHalifax[]  = {
@@ -11156,8 +11070,6 @@ const AtcZonePolicy kAtcZonePolicyHalifax  = {
 //---------------------------------------------------------------------------
 // Policy name: Holiday
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesHoliday[]  = {
@@ -11208,8 +11120,6 @@ const AtcZonePolicy kAtcZonePolicyHoliday  = {
 //---------------------------------------------------------------------------
 // Policy name: Hond
 // Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesHond[]  = {
@@ -11284,8 +11194,6 @@ const AtcZonePolicy kAtcZonePolicyHond  = {
 //---------------------------------------------------------------------------
 // Policy name: Hungary
 // Rules: 20
-// Memory (8-bit): 226
-// Memory (32-bit): 252
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesHungary[]  = {
@@ -11540,8 +11448,6 @@ const AtcZonePolicy kAtcZonePolicyHungary  = {
 //---------------------------------------------------------------------------
 // Policy name: Indianapolis
 // Rules: 4
-// Memory (8-bit): 50
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesIndianapolis[]  = {
@@ -11604,8 +11510,6 @@ const AtcZonePolicy kAtcZonePolicyIndianapolis  = {
 //---------------------------------------------------------------------------
 // Policy name: Iran
 // Rules: 41
-// Memory (8-bit): 457
-// Memory (32-bit): 504
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesIran[]  = {
@@ -12112,8 +12016,6 @@ const AtcZonePolicy kAtcZonePolicyIran  = {
 //---------------------------------------------------------------------------
 // Policy name: Iraq
 // Rules: 9
-// Memory (8-bit): 105
-// Memory (32-bit): 120
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesIraq[]  = {
@@ -12236,8 +12138,6 @@ const AtcZonePolicy kAtcZonePolicyIraq  = {
 //---------------------------------------------------------------------------
 // Policy name: Italy
 // Rules: 42
-// Memory (8-bit): 468
-// Memory (32-bit): 516
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesItaly[]  = {
@@ -12756,8 +12656,6 @@ const AtcZonePolicy kAtcZonePolicyItaly  = {
 //---------------------------------------------------------------------------
 // Policy name: Japan
 // Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesJapan[]  = {
@@ -12832,8 +12730,6 @@ const AtcZonePolicy kAtcZonePolicyJapan  = {
 //---------------------------------------------------------------------------
 // Policy name: Jordan
 // Rules: 33
-// Memory (8-bit): 369
-// Memory (32-bit): 408
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesJordan[]  = {
@@ -13244,8 +13140,6 @@ const AtcZonePolicy kAtcZonePolicyJordan  = {
 //---------------------------------------------------------------------------
 // Policy name: Kyrgyz
 // Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesKyrgyz[]  = {
@@ -13320,8 +13214,6 @@ const AtcZonePolicy kAtcZonePolicyKyrgyz  = {
 //---------------------------------------------------------------------------
 // Policy name: LH
 // Rules: 15
-// Memory (8-bit): 171
-// Memory (32-bit): 192
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesLH[]  = {
@@ -13516,8 +13408,6 @@ const AtcZonePolicy kAtcZonePolicyLH  = {
 //---------------------------------------------------------------------------
 // Policy name: Latvia
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesLatvia[]  = {
@@ -13568,8 +13458,6 @@ const AtcZonePolicy kAtcZonePolicyLatvia  = {
 //---------------------------------------------------------------------------
 // Policy name: Lebanon
 // Rules: 25
-// Memory (8-bit): 281
-// Memory (32-bit): 312
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesLebanon[]  = {
@@ -13884,8 +13772,6 @@ const AtcZonePolicy kAtcZonePolicyLebanon  = {
 //---------------------------------------------------------------------------
 // Policy name: Libya
 // Rules: 18
-// Memory (8-bit): 204
-// Memory (32-bit): 228
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesLibya[]  = {
@@ -14116,8 +14002,6 @@ const AtcZonePolicy kAtcZonePolicyLibya  = {
 //---------------------------------------------------------------------------
 // Policy name: Louisville
 // Rules: 10
-// Memory (8-bit): 116
-// Memory (32-bit): 132
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesLouisville[]  = {
@@ -14252,8 +14136,6 @@ const AtcZonePolicy kAtcZonePolicyLouisville  = {
 //---------------------------------------------------------------------------
 // Policy name: Macau
 // Rules: 28
-// Memory (8-bit): 314
-// Memory (32-bit): 348
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMacau[]  = {
@@ -14604,8 +14486,6 @@ const AtcZonePolicy kAtcZonePolicyMacau  = {
 //---------------------------------------------------------------------------
 // Policy name: Malta
 // Rules: 8
-// Memory (8-bit): 94
-// Memory (32-bit): 108
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMalta[]  = {
@@ -14716,8 +14596,6 @@ const AtcZonePolicy kAtcZonePolicyMalta  = {
 //---------------------------------------------------------------------------
 // Policy name: Marengo
 // Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMarengo[]  = {
@@ -14792,8 +14670,6 @@ const AtcZonePolicy kAtcZonePolicyMarengo  = {
 //---------------------------------------------------------------------------
 // Policy name: Mauritius
 // Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMauritius[]  = {
@@ -14868,8 +14744,6 @@ const AtcZonePolicy kAtcZonePolicyMauritius  = {
 //---------------------------------------------------------------------------
 // Policy name: Menominee
 // Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMenominee[]  = {
@@ -14944,8 +14818,6 @@ const AtcZonePolicy kAtcZonePolicyMenominee  = {
 //---------------------------------------------------------------------------
 // Policy name: Mexico
 // Rules: 17
-// Memory (8-bit): 193
-// Memory (32-bit): 216
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMexico[]  = {
@@ -15164,8 +15036,6 @@ const AtcZonePolicy kAtcZonePolicyMexico  = {
 //---------------------------------------------------------------------------
 // Policy name: Moldova
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMoldova[]  = {
@@ -15216,8 +15086,6 @@ const AtcZonePolicy kAtcZonePolicyMoldova  = {
 //---------------------------------------------------------------------------
 // Policy name: Moncton
 // Rules: 14
-// Memory (8-bit): 160
-// Memory (32-bit): 180
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMoncton[]  = {
@@ -15400,8 +15268,6 @@ const AtcZonePolicy kAtcZonePolicyMoncton  = {
 //---------------------------------------------------------------------------
 // Policy name: Mongol
 // Rules: 10
-// Memory (8-bit): 116
-// Memory (32-bit): 132
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMongol[]  = {
@@ -15536,8 +15402,6 @@ const AtcZonePolicy kAtcZonePolicyMongol  = {
 //---------------------------------------------------------------------------
 // Policy name: Morocco
 // Rules: 184
-// Memory (8-bit): 2030
-// Memory (32-bit): 2220
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
@@ -17760,8 +17624,6 @@ const AtcZonePolicy kAtcZonePolicyMorocco  = {
 //---------------------------------------------------------------------------
 // Policy name: NBorneo
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNBorneo[]  = {
@@ -17812,8 +17674,6 @@ const AtcZonePolicy kAtcZonePolicyNBorneo  = {
 //---------------------------------------------------------------------------
 // Policy name: NC
 // Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNC[]  = {
@@ -17888,8 +17748,6 @@ const AtcZonePolicy kAtcZonePolicyNC  = {
 //---------------------------------------------------------------------------
 // Policy name: NT_YK
 // Rules: 11
-// Memory (8-bit): 127
-// Memory (32-bit): 144
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
@@ -18036,8 +17894,6 @@ const AtcZonePolicy kAtcZonePolicyNT_YK  = {
 //---------------------------------------------------------------------------
 // Policy name: NYC
 // Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNYC[]  = {
@@ -18124,8 +17980,6 @@ const AtcZonePolicy kAtcZonePolicyNYC  = {
 //---------------------------------------------------------------------------
 // Policy name: NZ
 // Rules: 17
-// Memory (8-bit): 193
-// Memory (32-bit): 216
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNZ[]  = {
@@ -18344,8 +18198,6 @@ const AtcZonePolicy kAtcZonePolicyNZ  = {
 //---------------------------------------------------------------------------
 // Policy name: Namibia
 // Rules: 4
-// Memory (8-bit): 50
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
@@ -18408,8 +18260,6 @@ const AtcZonePolicy kAtcZonePolicyNamibia  = {
 //---------------------------------------------------------------------------
 // Policy name: Nic
 // Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNic[]  = {
@@ -18508,8 +18358,6 @@ const AtcZonePolicy kAtcZonePolicyNic  = {
 //---------------------------------------------------------------------------
 // Policy name: PRC
 // Rules: 4
-// Memory (8-bit): 50
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPRC[]  = {
@@ -18572,8 +18420,6 @@ const AtcZonePolicy kAtcZonePolicyPRC  = {
 //---------------------------------------------------------------------------
 // Policy name: Pakistan
 // Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
@@ -18660,8 +18506,6 @@ const AtcZonePolicy kAtcZonePolicyPakistan  = {
 //---------------------------------------------------------------------------
 // Policy name: Palestine
 // Rules: 33
-// Memory (8-bit): 369
-// Memory (32-bit): 408
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
@@ -19072,8 +18916,6 @@ const AtcZonePolicy kAtcZonePolicyPalestine  = {
 //---------------------------------------------------------------------------
 // Policy name: Para
 // Rules: 23
-// Memory (8-bit): 259
-// Memory (32-bit): 288
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPara[]  = {
@@ -19364,8 +19206,6 @@ const AtcZonePolicy kAtcZonePolicyPara  = {
 //---------------------------------------------------------------------------
 // Policy name: Perry
 // Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPerry[]  = {
@@ -19440,8 +19280,6 @@ const AtcZonePolicy kAtcZonePolicyPerry  = {
 //---------------------------------------------------------------------------
 // Policy name: Peru
 // Rules: 11
-// Memory (8-bit): 127
-// Memory (32-bit): 144
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPeru[]  = {
@@ -19588,8 +19426,6 @@ const AtcZonePolicy kAtcZonePolicyPeru  = {
 //---------------------------------------------------------------------------
 // Policy name: Phil
 // Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPhil[]  = {
@@ -19688,8 +19524,6 @@ const AtcZonePolicy kAtcZonePolicyPhil  = {
 //---------------------------------------------------------------------------
 // Policy name: Pike
 // Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPike[]  = {
@@ -19764,8 +19598,6 @@ const AtcZonePolicy kAtcZonePolicyPike  = {
 //---------------------------------------------------------------------------
 // Policy name: Poland
 // Rules: 21
-// Memory (8-bit): 237
-// Memory (32-bit): 264
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPoland[]  = {
@@ -20032,8 +19864,6 @@ const AtcZonePolicy kAtcZonePolicyPoland  = {
 //---------------------------------------------------------------------------
 // Policy name: Port
 // Rules: 49
-// Memory (8-bit): 545
-// Memory (32-bit): 600
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPort[]  = {
@@ -20636,8 +20466,6 @@ const AtcZonePolicy kAtcZonePolicyPort  = {
 //---------------------------------------------------------------------------
 // Policy name: Pulaski
 // Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPulaski[]  = {
@@ -20712,8 +20540,6 @@ const AtcZonePolicy kAtcZonePolicyPulaski  = {
 //---------------------------------------------------------------------------
 // Policy name: ROK
 // Rules: 15
-// Memory (8-bit): 171
-// Memory (32-bit): 192
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesROK[]  = {
@@ -20908,8 +20734,6 @@ const AtcZonePolicy kAtcZonePolicyROK  = {
 //---------------------------------------------------------------------------
 // Policy name: Regina
 // Rules: 18
-// Memory (8-bit): 204
-// Memory (32-bit): 228
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesRegina[]  = {
@@ -21140,8 +20964,6 @@ const AtcZonePolicy kAtcZonePolicyRegina  = {
 //---------------------------------------------------------------------------
 // Policy name: Romania
 // Rules: 10
-// Memory (8-bit): 116
-// Memory (32-bit): 132
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesRomania[]  = {
@@ -21276,8 +21098,6 @@ const AtcZonePolicy kAtcZonePolicyRomania  = {
 //---------------------------------------------------------------------------
 // Policy name: Russia
 // Rules: 17
-// Memory (8-bit): 193
-// Memory (32-bit): 216
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesRussia[]  = {
@@ -21496,8 +21316,6 @@ const AtcZonePolicy kAtcZonePolicyRussia  = {
 //---------------------------------------------------------------------------
 // Policy name: RussiaAsia
 // Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesRussiaAsia[]  = {
@@ -21584,8 +21402,6 @@ const AtcZonePolicy kAtcZonePolicyRussiaAsia  = {
 //---------------------------------------------------------------------------
 // Policy name: SA
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSA[]  = {
@@ -21636,8 +21452,6 @@ const AtcZonePolicy kAtcZonePolicySA  = {
 //---------------------------------------------------------------------------
 // Policy name: Salv
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSalv[]  = {
@@ -21688,8 +21502,6 @@ const AtcZonePolicy kAtcZonePolicySalv  = {
 //---------------------------------------------------------------------------
 // Policy name: SanLuis
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSanLuis[]  = {
@@ -21740,8 +21552,6 @@ const AtcZonePolicy kAtcZonePolicySanLuis  = {
 //---------------------------------------------------------------------------
 // Policy name: Shang
 // Rules: 15
-// Memory (8-bit): 171
-// Memory (32-bit): 192
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesShang[]  = {
@@ -21936,8 +21746,6 @@ const AtcZonePolicy kAtcZonePolicyShang  = {
 //---------------------------------------------------------------------------
 // Policy name: SovietZone
 // Rules: 4
-// Memory (8-bit): 50
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSovietZone[]  = {
@@ -22000,8 +21808,6 @@ const AtcZonePolicy kAtcZonePolicySovietZone  = {
 //---------------------------------------------------------------------------
 // Policy name: Spain
 // Rules: 31
-// Memory (8-bit): 347
-// Memory (32-bit): 384
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSpain[]  = {
@@ -22388,8 +22194,6 @@ const AtcZonePolicy kAtcZonePolicySpain  = {
 //---------------------------------------------------------------------------
 // Policy name: SpainAfrica
 // Rules: 10
-// Memory (8-bit): 116
-// Memory (32-bit): 132
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSpainAfrica[]  = {
@@ -22524,8 +22328,6 @@ const AtcZonePolicy kAtcZonePolicySpainAfrica  = {
 //---------------------------------------------------------------------------
 // Policy name: StJohns
 // Rules: 20
-// Memory (8-bit): 226
-// Memory (32-bit): 252
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
@@ -22780,8 +22582,6 @@ const AtcZonePolicy kAtcZonePolicyStJohns  = {
 //---------------------------------------------------------------------------
 // Policy name: Starke
 // Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesStarke[]  = {
@@ -22868,8 +22668,6 @@ const AtcZonePolicy kAtcZonePolicyStarke  = {
 //---------------------------------------------------------------------------
 // Policy name: Sudan
 // Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSudan[]  = {
@@ -22944,8 +22742,6 @@ const AtcZonePolicy kAtcZonePolicySudan  = {
 //---------------------------------------------------------------------------
 // Policy name: Swift
 // Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSwift[]  = {
@@ -23032,8 +22828,6 @@ const AtcZonePolicy kAtcZonePolicySwift  = {
 //---------------------------------------------------------------------------
 // Policy name: Swiss
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSwiss[]  = {
@@ -23084,8 +22878,6 @@ const AtcZonePolicy kAtcZonePolicySwiss  = {
 //---------------------------------------------------------------------------
 // Policy name: Syria
 // Rules: 42
-// Memory (8-bit): 468
-// Memory (32-bit): 516
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSyria[]  = {
@@ -23604,8 +23396,6 @@ const AtcZonePolicy kAtcZonePolicySyria  = {
 //---------------------------------------------------------------------------
 // Policy name: Taiwan
 // Rules: 16
-// Memory (8-bit): 182
-// Memory (32-bit): 204
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesTaiwan[]  = {
@@ -23812,8 +23602,6 @@ const AtcZonePolicy kAtcZonePolicyTaiwan  = {
 //---------------------------------------------------------------------------
 // Policy name: Thule
 // Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesThule[]  = {
@@ -23912,8 +23700,6 @@ const AtcZonePolicy kAtcZonePolicyThule  = {
 //---------------------------------------------------------------------------
 // Policy name: Tonga
 // Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesTonga[]  = {
@@ -24012,8 +23798,6 @@ const AtcZonePolicy kAtcZonePolicyTonga  = {
 //---------------------------------------------------------------------------
 // Policy name: Toronto
 // Rules: 23
-// Memory (8-bit): 259
-// Memory (32-bit): 288
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesToronto[]  = {
@@ -24304,8 +24088,6 @@ const AtcZonePolicy kAtcZonePolicyToronto  = {
 //---------------------------------------------------------------------------
 // Policy name: Troll
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesTroll[]  = {
@@ -24356,8 +24138,6 @@ const AtcZonePolicy kAtcZonePolicyTroll  = {
 //---------------------------------------------------------------------------
 // Policy name: Tunisia
 // Rules: 26
-// Memory (8-bit): 292
-// Memory (32-bit): 324
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
@@ -24684,8 +24464,6 @@ const AtcZonePolicy kAtcZonePolicyTunisia  = {
 //---------------------------------------------------------------------------
 // Policy name: Turkey
 // Rules: 46
-// Memory (8-bit): 512
-// Memory (32-bit): 564
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesTurkey[]  = {
@@ -25252,8 +25030,6 @@ const AtcZonePolicy kAtcZonePolicyTurkey  = {
 //---------------------------------------------------------------------------
 // Policy name: US
 // Rules: 14
-// Memory (8-bit): 160
-// Memory (32-bit): 180
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesUS[]  = {
@@ -25436,8 +25212,6 @@ const AtcZonePolicy kAtcZonePolicyUS  = {
 //---------------------------------------------------------------------------
 // Policy name: Uruguay
 // Rules: 49
-// Memory (8-bit): 545
-// Memory (32-bit): 600
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
@@ -26040,8 +25814,6 @@ const AtcZonePolicy kAtcZonePolicyUruguay  = {
 //---------------------------------------------------------------------------
 // Policy name: Vanc
 // Rules: 10
-// Memory (8-bit): 116
-// Memory (32-bit): 132
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesVanc[]  = {
@@ -26176,8 +25948,6 @@ const AtcZonePolicy kAtcZonePolicyVanc  = {
 //---------------------------------------------------------------------------
 // Policy name: Vanuatu
 // Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesVanuatu[]  = {
@@ -26276,8 +26046,6 @@ const AtcZonePolicy kAtcZonePolicyVanuatu  = {
 //---------------------------------------------------------------------------
 // Policy name: Vincennes
 // Rules: 10
-// Memory (8-bit): 116
-// Memory (32-bit): 132
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesVincennes[]  = {
@@ -26412,8 +26180,6 @@ const AtcZonePolicy kAtcZonePolicyVincennes  = {
 //---------------------------------------------------------------------------
 // Policy name: W-Eur
 // Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesW_Eur[]  = {
@@ -26500,8 +26266,6 @@ const AtcZonePolicy kAtcZonePolicyW_Eur  = {
 //---------------------------------------------------------------------------
 // Policy name: WS
 // Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesWS[]  = {
@@ -26588,8 +26352,6 @@ const AtcZonePolicy kAtcZonePolicyWS  = {
 //---------------------------------------------------------------------------
 // Policy name: Winn
 // Rules: 25
-// Memory (8-bit): 281
-// Memory (32-bit): 312
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesWinn[]  = {
@@ -26904,8 +26666,6 @@ const AtcZonePolicy kAtcZonePolicyWinn  = {
 //---------------------------------------------------------------------------
 // Policy name: Yukon
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesYukon[]  = {
@@ -26956,8 +26716,6 @@ const AtcZonePolicy kAtcZonePolicyYukon  = {
 //---------------------------------------------------------------------------
 // Policy name: Zion
 // Rules: 86
-// Memory (8-bit): 952
-// Memory (32-bit): 1044
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesZion[]  = {

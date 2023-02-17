@@ -37,6 +37,32 @@
 // Original Years: [1844,2087]
 // Generated Years: [1943,2087]
 //
+// Memory (8-bits):
+//   Rules: 2340
+//   Policies: 24
+//   Eras: 330
+//   Infos: 208
+//   Links: 13
+//   Registry: 34
+//   Formats: 78
+//   Letters: 23
+//   Fragments: 0
+//   Name: 268 (original: 268)
+//   TOTAL: 3318
+//
+// Memory (32-bits):
+//   Rules: 2340
+//   Policies: 64
+//   Eras: 440
+//   Infos: 384
+//   Links: 24
+//   Registry: 68
+//   Formats: 78
+//   Letters: 33
+//   Fragments: 0
+//   Name: 268 (original: 268)
+//   TOTAL: 3699
+//
 // DO NOT EDIT
 
 #include "zone_policies.h"
@@ -50,7 +76,6 @@ static const char kAtcTzDatabaseVersion[] = "2022g";
 
 static const char * const kAtcFragments[] = {
 /*\x00*/ NULL,
-/*\x01*/ "America/",
 
 };
 
@@ -67,7 +92,7 @@ const AtcZoneContext kAtcTestingZoneContext = {
   2000 /*startYear*/,
   10000 /*untilYear*/,
   kAtcTzDatabaseVersion /*tzVersion*/,
-  2 /*numFragments*/,
+  1 /*numFragments*/,
   5 /*numLetters*/,
   kAtcFragments /*fragments*/,
   kAtcLetters /*letters*/,
@@ -80,9 +105,6 @@ const AtcZoneContext kAtcTestingZoneContext = {
 //---------------------------------------------------------------------------
 // Zone name: Africa/Casablanca
 // Zone Eras: 2
-// Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 71
-// Memory (32-bit): 90
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Casablanca[]  = {
@@ -129,9 +151,6 @@ const AtcZoneInfo kAtcTestingZoneAfrica_Casablanca  = {
 //---------------------------------------------------------------------------
 // Zone name: Africa/Windhoek
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Windhoek[]  = {
@@ -165,9 +184,6 @@ const AtcZoneInfo kAtcTestingZoneAfrica_Windhoek  = {
 //---------------------------------------------------------------------------
 // Zone name: America/Caracas
 // Zone Eras: 3
-// Strings (bytes): 30 (originally 30)
-// Memory (8-bit): 79
-// Memory (32-bit): 102
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Caracas[]  = {
@@ -227,9 +243,6 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Caracas  = {
 //---------------------------------------------------------------------------
 // Zone name: America/Chicago
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Chicago[]  = {
@@ -263,9 +276,6 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Chicago  = {
 //---------------------------------------------------------------------------
 // Zone name: America/Denver
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Denver[]  = {
@@ -299,9 +309,6 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Denver  = {
 //---------------------------------------------------------------------------
 // Zone name: America/Edmonton
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Edmonton[]  = {
@@ -335,9 +342,6 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Edmonton  = {
 //---------------------------------------------------------------------------
 // Zone name: America/Los_Angeles
 // Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 49
-// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Los_Angeles[]  = {
@@ -371,9 +375,6 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Los_Angeles  = {
 //---------------------------------------------------------------------------
 // Zone name: America/New_York
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_New_York[]  = {
@@ -407,9 +408,6 @@ const AtcZoneInfo kAtcTestingZoneAmerica_New_York  = {
 //---------------------------------------------------------------------------
 // Zone name: America/Toronto
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Toronto[]  = {
@@ -443,9 +441,6 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Toronto  = {
 //---------------------------------------------------------------------------
 // Zone name: America/Vancouver
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Vancouver[]  = {
@@ -479,9 +474,6 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Vancouver  = {
 //---------------------------------------------------------------------------
 // Zone name: America/Whitehorse
 // Zone Eras: 2
-// Strings (bytes): 27 (originally 27)
-// Memory (8-bit): 64
-// Memory (32-bit): 83
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Whitehorse[]  = {
@@ -528,9 +520,6 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Whitehorse  = {
 //---------------------------------------------------------------------------
 // Zone name: America/Winnipeg
 // Zone Eras: 2
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 62
-// Memory (32-bit): 81
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Winnipeg[]  = {
@@ -577,9 +566,6 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Winnipeg  = {
 //---------------------------------------------------------------------------
 // Zone name: Australia/Darwin
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Darwin[]  = {
@@ -613,9 +599,6 @@ const AtcZoneInfo kAtcTestingZoneAustralia_Darwin  = {
 //---------------------------------------------------------------------------
 // Zone name: Etc/UTC
 // Zone Eras: 1
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 37
-// Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_UTC[]  = {
@@ -649,9 +632,6 @@ const AtcZoneInfo kAtcTestingZoneEtc_UTC  = {
 //---------------------------------------------------------------------------
 // Zone name: Europe/Lisbon
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Lisbon[]  = {
@@ -685,9 +665,6 @@ const AtcZoneInfo kAtcTestingZoneEurope_Lisbon  = {
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Apia
 // Zone Eras: 2
-// Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 66
-// Memory (32-bit): 85
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Apia[]  = {
@@ -739,9 +716,6 @@ const AtcZoneInfo kAtcTestingZonePacific_Apia  = {
 
 //---------------------------------------------------------------------------
 // Link name: US/Pacific -> America/Los_Angeles
-// Strings (bytes): 11 (originally 11)
-// Memory (8-bit): 24
-// Memory (32-bit): 35
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Pacific[]  = "US/Pacific";

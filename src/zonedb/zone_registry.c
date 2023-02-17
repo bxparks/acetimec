@@ -36,6 +36,32 @@
 // Original Years: [1844,2087]
 // Generated Years: [1844,2087]
 //
+// Memory (8-bits):
+//   Rules: 25812
+//   Policies: 402
+//   Eras: 29280
+//   Infos: 4563
+//   Links: 3185
+//   Registry: 1192
+//   Formats: 1032
+//   Letters: 160
+//   Fragments: 0
+//   Name: 9076 (original: 9076)
+//   TOTAL: 74702
+//
+// Memory (32-bits):
+//   Rules: 25812
+//   Policies: 1072
+//   Eras: 39040
+//   Infos: 8424
+//   Links: 5880
+//   Registry: 2384
+//   Formats: 1032
+//   Letters: 216
+//   Fragments: 0
+//   Name: 9076 (original: 9076)
+//   TOTAL: 92936
+//
 // DO NOT EDIT
 
 #include "zone_infos.h"
