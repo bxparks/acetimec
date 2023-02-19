@@ -203,6 +203,9 @@ typedef struct AtcZoneContext {
   /** Until year of the zone files. */
   int16_t until_year;
 
+  /** The maximum transitions required in TransitionStorage. */
+  int16_t max_transitions;
+
   /** TZ Database version which generated the zone info. */
   const char *tz_version;
 

@@ -89,11 +89,12 @@ static const char* const kAtcLetters[] = {
 };
 
 const AtcZoneContext kAtcTestingZoneContext = {
-  2000 /*startYear*/,
-  10000 /*untilYear*/,
-  kAtcTzDatabaseVersion /*tzVersion*/,
-  1 /*numFragments*/,
-  5 /*numLetters*/,
+  2000 /*start_year*/,
+  10000 /*until_year*/,
+  7 /*max_transitions*/,
+  kAtcTzDatabaseVersion /*tz_version*/,
+  1 /*num_fragments*/,
+  5 /*num_letters*/,
   kAtcFragments /*fragments*/,
   kAtcLetters /*letters*/,
 };
@@ -146,7 +147,7 @@ const AtcZoneInfo kAtcTestingZoneAfrica_Casablanca  = {
   &kAtcTestingZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Casablanca /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -179,7 +180,7 @@ const AtcZoneInfo kAtcTestingZoneAfrica_Windhoek  = {
   &kAtcTestingZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Windhoek /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -238,7 +239,7 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Caracas  = {
   &kAtcTestingZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Caracas /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -271,7 +272,7 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Chicago  = {
   &kAtcTestingZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Chicago /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -304,7 +305,7 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Denver  = {
   &kAtcTestingZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Denver /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -337,7 +338,7 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Edmonton  = {
   &kAtcTestingZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Edmonton /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -370,7 +371,7 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Los_Angeles  = {
   &kAtcTestingZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Los_Angeles /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -403,7 +404,7 @@ const AtcZoneInfo kAtcTestingZoneAmerica_New_York  = {
   &kAtcTestingZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_New_York /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -436,7 +437,7 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Toronto  = {
   &kAtcTestingZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -469,7 +470,7 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Vancouver  = {
   &kAtcTestingZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Vancouver /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -515,7 +516,7 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Whitehorse  = {
   &kAtcTestingZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Whitehorse /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -561,7 +562,7 @@ const AtcZoneInfo kAtcTestingZoneAmerica_Winnipeg  = {
   &kAtcTestingZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Winnipeg /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -594,7 +595,7 @@ const AtcZoneInfo kAtcTestingZoneAustralia_Darwin  = {
   &kAtcTestingZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Darwin /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -627,7 +628,7 @@ const AtcZoneInfo kAtcTestingZoneEtc_UTC  = {
   &kAtcTestingZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -660,7 +661,7 @@ const AtcZoneInfo kAtcTestingZoneEurope_Lisbon  = {
   &kAtcTestingZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Lisbon /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -706,7 +707,7 @@ const AtcZoneInfo kAtcTestingZonePacific_Apia  = {
   &kAtcTestingZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Apia /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 
@@ -723,11 +724,11 @@ static const char kAtcZoneNameUS_Pacific[]  = "US/Pacific";
 
 const AtcZoneInfo kAtcTestingZoneUS_Pacific  = {
   kAtcZoneNameUS_Pacific /*name*/,
-  0xa950f6ab /*zoneId*/,
-  &kAtcTestingZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xa950f6ab /*zone_id*/,
+  &kAtcTestingZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Los_Angeles /*eras*/,
-  &kAtcTestingZoneAmerica_Los_Angeles /*targetInfo*/,
+  &kAtcTestingZoneAmerica_Los_Angeles /*target_info*/,
 };
 
 
