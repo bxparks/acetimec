@@ -41,26 +41,26 @@
 //   Rules: 2340
 //   Policies: 24
 //   Eras: 330
-//   Infos: 208
+//   Zones: 208
 //   Links: 13
 //   Registry: 34
 //   Formats: 78
 //   Letters: 23
 //   Fragments: 0
-//   Name: 268 (original: 268)
+//   Names: 268 (original: 268)
 //   TOTAL: 3318
 //
 // Memory (32-bits):
 //   Rules: 2340
 //   Policies: 64
 //   Eras: 440
-//   Infos: 384
+//   Zones: 384
 //   Links: 24
 //   Registry: 68
 //   Formats: 78
 //   Letters: 33
 //   Fragments: 0
-//   Name: 268 (original: 268)
+//   Names: 268 (original: 268)
 //   TOTAL: 3699
 //
 // DO NOT EDIT
