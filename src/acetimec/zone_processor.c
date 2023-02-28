@@ -33,15 +33,29 @@ int8_t atc_compare_era_to_year_month(
 }
 
 /**
- * Determines if era overlaps the interval [startYm, untilYm). This does
- * not need to be exact since the startYm and untilYm are created to have
- * some slop of about one month at the low and high end, so we can ignore
- * the day, time and timeSuffix fields of the era. The start date of the
- * current era is represented by the UNTIL fields of the previous era, so
- * the interval of the current era is [era.start=prev.UNTIL,
- * era.until=era.UNTIL). Overlap happens if (era.start < untilYm) and
- * (era.until > startYm). If prev.isNull(), then interpret prev as the
- * earliest ZoneEra.
+ * Determines if `era` overlaps the interval defined by `[start_ym, until_ym)`.
+ *
+ * The start date of the current era is defined by the UNTIL fields of the
+ * previous era. The interval of current era is `[prev.until, era.until)`.
+ * This function determines if the two intervals overlap.
+ *
+ * This can be visualized by the following diagram:
+ *
+ * @code
+ * 	      start						until
+ * 			    [								)
+ * -------------)[--------------)[-----------------
+ * 				  prev.until			 era.until
+ * @endcode
+ *
+ * The 2 intervals overlap if:
+ *
+ * @code
+ * (prev.until < until) && (era.until > start)
+ * @endcode
+ *
+ * If `prev == NULL`, then `prev.until` is assigned to be `-infinity`, so the
+ * `era` extends back to earliest possible time.
  */
 static bool atc_era_overlaps_interval(
   const AtcZoneEra *prev_era,
