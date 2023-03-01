@@ -33,14 +33,14 @@ enum {
    * by synthetic entries for certain zones, to guarantee that all zones have at
    * least one transition.
    */
-  kAtcMinZoneRuleYear = 0,
+  kAtcMinZoneRuleYear = -32767,
 
   /**
    * The maximum value of AtcZoneRule::from_year and AtcZoneRule::to_year,
    * representing the sentinel value "max" in the TO and FROM columns of the
    * TZDB files. Must be less than kAtcMaxZoneEraUntilYear.
    */
-  kAtcMaxZoneRuleYear = 9999,
+  kAtcMaxZoneRuleYear = 32766,
 
   /**
    * The maximum value of ZoneEra::until_year, representing the sentinel value
