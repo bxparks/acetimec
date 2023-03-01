@@ -34,11 +34,13 @@
 //
 // Supported Zones: 17 (16 zones, 1 links)
 // Unsupported Zones: 579 (335 zones, 244 links)
-// Original Years: [1844,2087]
-// Generated Years: [1943,2087]
+// Original Years:  [1844,2087]
+// Generated Years: [1966,2087]
+// Estimator Years: [1966,2090]
+// Max Buffer Size: 7
 //
 // Memory (8-bits):
-//   Rules: 2340
+//   Rules: 2412
 //   Policies: 24
 //   Eras: 330
 //   Zones: 208
@@ -48,10 +50,10 @@
 //   Letters: 23
 //   Fragments: 0
 //   Names: 268 (original: 268)
-//   TOTAL: 3318
+//   TOTAL: 3390
 //
 // Memory (32-bits):
-//   Rules: 2340
+//   Rules: 2412
 //   Policies: 64
 //   Eras: 440
 //   Zones: 384
@@ -61,7 +63,7 @@
 //   Letters: 33
 //   Fragments: 0
 //   Names: 268 (original: 268)
-//   TOTAL: 3699
+//   TOTAL: 3771
 //
 // DO NOT EDIT
 
@@ -145,7 +147,7 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 //---------------------------------------------------------------------------
 
 #define kAtcTestingZoneBufSizeAfrica_Casablanca 7  /* Africa/Casablanca in 2013 */
-#define kAtcTestingZoneBufSizeAfrica_Windhoek 4  /* Africa/Windhoek in 1999 */
+#define kAtcTestingZoneBufSizeAfrica_Windhoek 4  /* Africa/Windhoek in 1994 */
 #define kAtcTestingZoneBufSizeAmerica_Caracas 2  /* America/Caracas in 2007 */
 #define kAtcTestingZoneBufSizeAmerica_Chicago 6  /* America/Chicago in 2008 */
 #define kAtcTestingZoneBufSizeAmerica_Denver 6  /* America/Denver in 2008 */
@@ -156,9 +158,9 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 #define kAtcTestingZoneBufSizeAmerica_Vancouver 6  /* America/Vancouver in 2008 */
 #define kAtcTestingZoneBufSizeAmerica_Whitehorse 6  /* America/Whitehorse in 2008 */
 #define kAtcTestingZoneBufSizeAmerica_Winnipeg 6  /* America/Winnipeg in 2006 */
-#define kAtcTestingZoneBufSizeAustralia_Darwin 2  /* Australia/Darwin in 1999 */
-#define kAtcTestingZoneBufSizeEtc_UTC 1  /* Etc/UTC in 1999 */
-#define kAtcTestingZoneBufSizeEurope_Lisbon 5  /* Europe/Lisbon in 1999 */
+#define kAtcTestingZoneBufSizeAustralia_Darwin 2  /* Australia/Darwin in 1965 */
+#define kAtcTestingZoneBufSizeEtc_UTC 1  /* Etc/UTC in 1965 */
+#define kAtcTestingZoneBufSizeEurope_Lisbon 5  /* Europe/Lisbon in 1983 */
 #define kAtcTestingZoneBufSizePacific_Apia 5  /* Pacific/Apia in 2011 */
 
 
@@ -516,9 +518,6 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 //     LETTER 'WAT' not single character,
 //     SAVE '-1:00' different from 1:00,
 //   }
-// }
-// Pacific/Apia {
-//   WS {Added anchor rule at year -32767}
 // }
 
 

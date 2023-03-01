@@ -59,7 +59,7 @@ ACU_TEST(test_zone_rule)
   const AtcZoneEra *eras = kAtcTestingZoneAmerica_Los_Angeles.eras;
   const AtcZoneEra *era = &eras[0];
   const AtcZonePolicy *policy = era->zone_policy;
-  const AtcZoneRule *rule = &policy->rules[0];
+  const AtcZoneRule *rule = &policy->rules[1];
 
   ACU_ASSERT(2*3600 == atc_zone_rule_at_seconds(rule));
   ACU_ASSERT(kAtcSuffixW == atc_zone_rule_at_suffix(rule));

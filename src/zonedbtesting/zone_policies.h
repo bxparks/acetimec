@@ -34,11 +34,13 @@
 //
 // Supported Zones: 17 (16 zones, 1 links)
 // Unsupported Zones: 579 (335 zones, 244 links)
-// Original Years: [1844,2087]
-// Generated Years: [1943,2087]
+// Original Years:  [1844,2087]
+// Generated Years: [1966,2087]
+// Estimator Years: [1966,2090]
+// Max Buffer Size: 7
 //
 // Memory (8-bits):
-//   Rules: 2340
+//   Rules: 2412
 //   Policies: 24
 //   Eras: 330
 //   Zones: 208
@@ -48,10 +50,10 @@
 //   Letters: 23
 //   Fragments: 0
 //   Names: 268 (original: 268)
-//   TOTAL: 3318
+//   TOTAL: 3390
 //
 // Memory (32-bits):
-//   Rules: 2340
+//   Rules: 2412
 //   Policies: 64
 //   Eras: 440
 //   Zones: 384
@@ -61,7 +63,7 @@
 //   Letters: 33
 //   Fragments: 0
 //   Names: 268 (original: 268)
-//   TOTAL: 3699
+//   TOTAL: 3771
 //
 // DO NOT EDIT
 
@@ -76,7 +78,7 @@ extern "C" {
 
 //---------------------------------------------------------------------------
 // Supported policies: 8
-// Supported rules: 195
+// Supported rules: 201
 //---------------------------------------------------------------------------
 
 extern const AtcZonePolicy kAtcTestingZonePolicyAus;
@@ -222,7 +224,7 @@ extern const AtcZonePolicy kAtcTestingZonePolicyWinn;
 
 
 //---------------------------------------------------------------------------
-// Notable zone policies: 3
+// Notable zone policies: 2
 //---------------------------------------------------------------------------
 
 // Morocco {SAVE '-1:00' different from 1:00}
@@ -231,7 +233,6 @@ extern const AtcZonePolicy kAtcTestingZonePolicyWinn;
 //   LETTER 'WAT' not single character,
 //   SAVE '-1:00' different from 1:00,
 // }
-// WS {Added anchor rule at year -32767}
 
 
 //---------------------------------------------------------------------------

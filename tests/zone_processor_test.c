@@ -505,9 +505,9 @@ ACU_TEST(test_atc_calc_start_day_of_month) {
 }
 
 ACU_TEST(test_atc_processor_get_transition_time) {
-  // Rule 4, [2007,9999]
+  // Rule 5, [2007,9999]
   // Rule    US    2007    max    -    Nov    Sun>=1    2:00    0    S
-  const AtcZoneRule *rule = &kAtcTestingZonePolicyUS.rules[4];
+  const AtcZoneRule *rule = &kAtcTestingZonePolicyUS.rules[5];
 
   // Nov 4 2018
   AtcDateTuple dt;
@@ -537,9 +537,9 @@ ACU_TEST(test_atc_processor_create_transition_for_year) {
     .last_delta_seconds = 0,
   };
 
-  // Rule 4
+  // Rule 5
   // Rule    US    2007    max    -    Nov    Sun>=1    2:00    0    S
-  const AtcZoneRule *rule = &kAtcTestingZonePolicyUS.rules[4];
+  const AtcZoneRule *rule = &kAtcTestingZonePolicyUS.rules[5];
   AtcTransition t;
   atc_processor_create_transition_for_year(
       &t, 2019, rule, &match, kAtcTestingZoneContext.letters);

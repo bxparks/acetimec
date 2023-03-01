@@ -33,8 +33,10 @@
 //
 // Supported Zones: 596 (351 zones, 245 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
-// Original Years: [1844,2087]
+// Original Years:  [1844,2087]
 // Generated Years: [1844,2087]
+// Estimator Years: [1800,2090]
+// Max Buffer Size: 8
 //
 // Memory (8-bits):
 //   Rules: 25812
@@ -221,29 +223,11 @@ extern const AtcZonePolicy kAtcZonePolicyZion;
 
 
 //---------------------------------------------------------------------------
-// Notable zone policies: 134
+// Notable zone policies: 27
 //---------------------------------------------------------------------------
 
-// AN {Added anchor rule at year -32767}
-// AQ {Added anchor rule at year -32767}
-// AS {Added anchor rule at year -32767}
-// AT {Added anchor rule at year -32767}
-// AV {Added anchor rule at year -32767}
-// AW {Added anchor rule at year -32767}
-// Albania {Added anchor rule at year -32767}
-// Algeria {Added anchor rule at year -32767}
-// Arg {Added anchor rule at year -32767}
-// Armenia {Added anchor rule at year -32767}
-// Aus {Added anchor rule at year -32767}
-// Austria {Added anchor rule at year -32767}
-// Azer {Added anchor rule at year -32767}
-// Barb {
-//   Added anchor rule at year -32767,
-//   SAVE '0:30' different from 1:00,
-// }
-// Belgium {Added anchor rule at year -32767}
+// Barb {SAVE '0:30' different from 1:00}
 // Belize {
-//   Added anchor rule at year -32767,
 //   LETTER '-0530' not single character,
 //   LETTER 'CDT' not single character,
 //   LETTER 'CPT' not single character,
@@ -251,154 +235,41 @@ extern const AtcZonePolicy kAtcZonePolicyZion;
 //   LETTER 'CWT' not single character,
 //   SAVE '0:30' different from 1:00,
 // }
-// Bermuda {Added anchor rule at year -32767}
-// Brazil {Added anchor rule at year -32767}
-// Bulg {Added anchor rule at year -32767}
-// C-Eur {Added anchor rule at year -32767}
-// CA {
-//   AT '2:01' not on 15-minute boundary,
-//   Added anchor rule at year -32767,
-// }
-// CO {Added anchor rule at year -32767}
-// CR {Added anchor rule at year -32767}
-// Canada {Added anchor rule at year -32767}
-// Chatham {Added anchor rule at year -32767}
-// Chicago {Added anchor rule at year -32767}
-// Chile {Added anchor rule at year -32767}
-// Cook {
-//   Added anchor rule at year -32767,
-//   SAVE '0:30' different from 1:00,
-// }
-// Cuba {Added anchor rule at year -32767}
-// Cyprus {Added anchor rule at year -32767}
-// Czech {Added anchor rule at year -32767}
+// CA {AT '2:01' not on 15-minute boundary}
+// Cook {SAVE '0:30' different from 1:00}
 // DR {
-//   Added anchor rule at year -32767,
 //   LETTER '-0430' not single character,
 //   LETTER 'EDT' not single character,
 //   LETTER 'EST' not single character,
 //   SAVE '0:30' different from 1:00,
 // }
-// Denver {Added anchor rule at year -32767}
-// Detroit {Added anchor rule at year -32767}
-// Dhaka {Added anchor rule at year -32767}
-// E-Eur {Added anchor rule at year -32767}
-// E-EurAsia {Added anchor rule at year -32767}
-// EU {Added anchor rule at year -32767}
-// EUAsia {Added anchor rule at year -32767}
-// Ecuador {Added anchor rule at year -32767}
-// Edm {Added anchor rule at year -32767}
-// Egypt {Added anchor rule at year -32767}
-// EgyptAsia {Added anchor rule at year -32767}
-// Eire {
-//   Added anchor rule at year -32767,
-//   SAVE '-1:00' different from 1:00,
-// }
-// Falk {Added anchor rule at year -32767}
-// Fiji {Added anchor rule at year -32767}
-// Finland {Added anchor rule at year -32767}
-// France {
-//   Added anchor rule at year -32767,
-//   SAVE '2:00' different from 1:00,
-// }
+// Eire {SAVE '-1:00' different from 1:00}
+// France {SAVE '2:00' different from 1:00}
 // GB-Eire {
-//   Added anchor rule at year -32767,
 //   LETTER 'BDST' not single character,
 //   LETTER 'BST' not single character,
 //   LETTER 'GMT' not single character,
 //   SAVE '2:00' different from 1:00,
 // }
-// Germany {
-//   Added anchor rule at year -32767,
-//   SAVE '2:00' different from 1:00,
-// }
-// Greece {Added anchor rule at year -32767}
+// Germany {SAVE '2:00' different from 1:00}
 // Guam {
 //   AT '0:01' not on 15-minute boundary,
 //   AT '2:01' not on 15-minute boundary,
-//   Added anchor rule at year -32767,
 // }
-// Guat {Added anchor rule at year -32767}
-// HK {Added anchor rule at year -32767}
-// Haiti {Added anchor rule at year -32767}
-// Halifax {Added anchor rule at year -32767}
-// Holiday {Added anchor rule at year -32767}
-// Hond {Added anchor rule at year -32767}
-// Hungary {Added anchor rule at year -32767}
-// Indianapolis {Added anchor rule at year -32767}
-// Iran {Added anchor rule at year -32767}
-// Iraq {Added anchor rule at year -32767}
-// Italy {Added anchor rule at year -32767}
-// Japan {Added anchor rule at year -32767}
-// Jordan {Added anchor rule at year -32767}
-// Kyrgyz {Added anchor rule at year -32767}
-// LH {
-//   Added anchor rule at year -32767,
-//   SAVE '0:30' different from 1:00,
-// }
-// Latvia {Added anchor rule at year -32767}
-// Lebanon {Added anchor rule at year -32767}
-// Libya {Added anchor rule at year -32767}
-// Louisville {
-//   AT '0:01' not on 15-minute boundary,
-//   Added anchor rule at year -32767,
-// }
-// Macau {Added anchor rule at year -32767}
-// Malta {Added anchor rule at year -32767}
-// Marengo {Added anchor rule at year -32767}
-// Mauritius {Added anchor rule at year -32767}
-// Menominee {Added anchor rule at year -32767}
-// Mexico {Added anchor rule at year -32767}
-// Moldova {Added anchor rule at year -32767}
-// Moncton {
-//   AT '0:01' not on 15-minute boundary,
-//   Added anchor rule at year -32767,
-// }
-// Mongol {Added anchor rule at year -32767}
-// Morocco {
-//   Added anchor rule at year -32767,
-//   SAVE '-1:00' different from 1:00,
-// }
-// NBorneo {
-//   Added anchor rule at year -32767,
-//   SAVE '0:20' different from 1:00,
-// }
-// NC {Added anchor rule at year -32767}
-// NT_YK {Added anchor rule at year -32767}
-// NYC {Added anchor rule at year -32767}
-// NZ {
-//   Added anchor rule at year -32767,
-//   SAVE '0:30' different from 1:00,
-// }
+// LH {SAVE '0:30' different from 1:00}
+// Louisville {AT '0:01' not on 15-minute boundary}
+// Moncton {AT '0:01' not on 15-minute boundary}
+// Morocco {SAVE '-1:00' different from 1:00}
+// NBorneo {SAVE '0:20' different from 1:00}
+// NZ {SAVE '0:30' different from 1:00}
 // Namibia {
-//   Added anchor rule at year -32767,
 //   LETTER 'CAT' not single character,
 //   LETTER 'WAT' not single character,
 //   SAVE '-1:00' different from 1:00,
 // }
-// Nic {Added anchor rule at year -32767}
-// PRC {Added anchor rule at year -32767}
-// Pakistan {Added anchor rule at year -32767}
-// Palestine {
-//   AT '0:01' not on 15-minute boundary,
-//   Added anchor rule at year -32767,
-// }
-// Para {Added anchor rule at year -32767}
-// Perry {Added anchor rule at year -32767}
-// Peru {Added anchor rule at year -32767}
-// Phil {Added anchor rule at year -32767}
-// Pike {Added anchor rule at year -32767}
-// Poland {Added anchor rule at year -32767}
-// Port {
-//   Added anchor rule at year -32767,
-//   SAVE '2:00' different from 1:00,
-// }
-// Pulaski {Added anchor rule at year -32767}
-// ROK {Added anchor rule at year -32767}
-// Regina {Added anchor rule at year -32767}
-// Romania {Added anchor rule at year -32767}
+// Palestine {AT '0:01' not on 15-minute boundary}
+// Port {SAVE '2:00' different from 1:00}
 // Russia {
-//   Added anchor rule at year -32767,
 //   LETTER '+05' not single character,
 //   LETTER 'MDST' not single character,
 //   LETTER 'MMT' not single character,
@@ -407,62 +278,27 @@ extern const AtcZonePolicy kAtcZonePolicyZion;
 //   LETTER 'MST' not single character,
 //   SAVE '2:00' different from 1:00,
 // }
-// RussiaAsia {Added anchor rule at year -32767}
-// SA {Added anchor rule at year -32767}
-// Salv {Added anchor rule at year -32767}
-// SanLuis {Added anchor rule at year -32767}
-// Shang {Added anchor rule at year -32767}
-// SovietZone {
-//   Added anchor rule at year -32767,
-//   SAVE '2:00' different from 1:00,
-// }
-// Spain {
-//   Added anchor rule at year -32767,
-//   SAVE '2:00' different from 1:00,
-// }
-// SpainAfrica {Added anchor rule at year -32767}
+// SovietZone {SAVE '2:00' different from 1:00}
+// Spain {SAVE '2:00' different from 1:00}
 // StJohns {
 //   AT '0:01' not on 15-minute boundary,
-//   Added anchor rule at year -32767,
 //   LETTER 'DD' not single character,
 //   SAVE '2:00' different from 1:00,
 // }
-// Starke {Added anchor rule at year -32767}
-// Sudan {Added anchor rule at year -32767}
-// Swift {Added anchor rule at year -32767}
-// Swiss {Added anchor rule at year -32767}
-// Syria {Added anchor rule at year -32767}
-// Taiwan {Added anchor rule at year -32767}
-// Thule {Added anchor rule at year -32767}
-// Tonga {Added anchor rule at year -32767}
-// Toronto {Added anchor rule at year -32767}
 // Troll {
-//   Added anchor rule at year -32767,
 //   LETTER '+00' not single character,
 //   LETTER '+02' not single character,
 //   SAVE '2:00' different from 1:00,
 // }
-// Tunisia {Added anchor rule at year -32767}
-// Turkey {Added anchor rule at year -32767}
-// US {Added anchor rule at year -32767}
 // Uruguay {
-//   Added anchor rule at year -32767,
 //   SAVE '0:30' different from 1:00,
 //   SAVE '1:30' different from 1:00,
 // }
-// Vanc {Added anchor rule at year -32767}
-// Vanuatu {Added anchor rule at year -32767}
-// Vincennes {Added anchor rule at year -32767}
-// W-Eur {Added anchor rule at year -32767}
-// WS {Added anchor rule at year -32767}
-// Winn {Added anchor rule at year -32767}
 // Yukon {
-//   Added anchor rule at year -32767,
 //   LETTER 'DD' not single character,
 //   SAVE '2:00' different from 1:00,
 // }
 // Zion {
-//   Added anchor rule at year -32767,
 //   LETTER 'DD' not single character,
 //   SAVE '2:00' different from 1:00,
 // }
