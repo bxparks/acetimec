@@ -29,6 +29,12 @@
           microcontrollers.
         * The library does not support `PROGMEM` so AVR and ESP8266 processors
           consume excessive RAM.
+    * Always generate anchor rules in zonedb.
+        * Allows `zone_processor.c` to work over all years `[0,10000)`
+          even with truncated zonedb (e.g. `[2000,2100)`).
+        * Accuracy is guaranteed only for the requested interval (e.g.
+          `[2000,2100)`.
+        * But the code won't crash outside of that interval.
 * 0.7.0 (2023-02-12, TZDB 2022g)
     * Links
         * Remove `kAtcLinkRegistry` and support for thin links.
