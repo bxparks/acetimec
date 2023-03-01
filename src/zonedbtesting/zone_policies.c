@@ -143,7 +143,7 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
   // Rule    Canada    2007    max    -    Mar    Sun>=8    2:00    1:00    D
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -155,7 +155,7 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
   // Rule    Canada    2007    max    -    Nov    Sun>=1    2:00    0    S
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -193,7 +193,7 @@ static const AtcZoneRule kAtcZoneRulesEU[]  = {
   // Rule    EU    1981    max    -    Mar    lastSun     1:00u    1:00    S
   {
     1981 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -205,7 +205,7 @@ static const AtcZoneRule kAtcZoneRulesEU[]  = {
   // Rule    EU    1996    max    -    Oct    lastSun     1:00u    0    -
   {
     1996 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -2359,7 +2359,7 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
   // Rule    US    2007    max    -    Mar    Sun>=8    2:00    1:00    D
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -2371,7 +2371,7 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
   // Rule    US    2007    max    -    Nov    Sun>=1    2:00    0    S
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2396,8 +2396,8 @@ const AtcZonePolicy kAtcTestingZonePolicyUS  = {
 static const AtcZoneRule kAtcZoneRulesWS[]  = {
   // Anchor: Rule    WS    2011    only    -    Apr    Sat>=1    4:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,

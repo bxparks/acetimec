@@ -518,7 +518,7 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 //   }
 // }
 // Pacific/Apia {
-//   WS {Added anchor rule at year 0}
+//   WS {Added anchor rule at year -32767}
 // }
 
 

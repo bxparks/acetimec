@@ -79,8 +79,8 @@
 static const AtcZoneRule kAtcZoneRulesAN[]  = {
   // Anchor: Rule    AN    1972    only    -    Feb    27    2:00s    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -260,7 +260,7 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
   // Rule    AN    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -272,7 +272,7 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
   // Rule    AN    2008    max    -    Oct    Sun>=1    2:00s    1:00    D
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -297,8 +297,8 @@ const AtcZonePolicy kAtcZonePolicyAN  = {
 static const AtcZoneRule kAtcZoneRulesAQ[]  = {
   // Anchor: Rule    AQ    1972    only    -    Feb    lastSun    2:00s    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -371,8 +371,8 @@ const AtcZonePolicy kAtcZonePolicyAQ  = {
 static const AtcZoneRule kAtcZoneRulesAS[]  = {
   // Anchor: Rule    AS    1972    only    -    Feb    27    2:00s    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -540,7 +540,7 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
   // Rule    AS    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -552,7 +552,7 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
   // Rule    AS    2008    max    -    Oct    Sun>=1    2:00s    1:00    D
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -577,8 +577,8 @@ const AtcZonePolicy kAtcZonePolicyAS  = {
 static const AtcZoneRule kAtcZoneRulesAT[]  = {
   // Anchor: Rule    AT    1917    only    -    Mar    lastSun    2:00s    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -818,7 +818,7 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
   // Rule    AT    2001    max    -    Oct    Sun>=1    2:00s    1:00    D
   {
     2001 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -854,7 +854,7 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
   // Rule    AT    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -879,8 +879,8 @@ const AtcZonePolicy kAtcZonePolicyAT  = {
 static const AtcZoneRule kAtcZoneRulesAV[]  = {
   // Anchor: Rule    AV    1972    only    -    Feb    lastSun    2:00s    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1036,7 +1036,7 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
   // Rule    AV    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1048,7 +1048,7 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
   // Rule    AV    2008    max    -    Oct    Sun>=1    2:00s    1:00    D
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1073,8 +1073,8 @@ const AtcZonePolicy kAtcZonePolicyAV  = {
 static const AtcZoneRule kAtcZoneRulesAW[]  = {
   // Anchor: Rule    AW    1975    only    -    Mar    Sun>=1    2:00s    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1207,8 +1207,8 @@ const AtcZonePolicy kAtcZonePolicyAW  = {
 static const AtcZoneRule kAtcZoneRulesAlbania[]  = {
   // Anchor: Rule    Albania    1942    only    -    Nov     2    3:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1533,8 +1533,8 @@ const AtcZonePolicy kAtcZonePolicyAlbania  = {
 static const AtcZoneRule kAtcZoneRulesAlgeria[]  = {
   // Anchor: Rule    Algeria    1916    1919    -    Oct    Sun>=1    23:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -1823,8 +1823,8 @@ const AtcZonePolicy kAtcZonePolicyAlgeria  = {
 static const AtcZoneRule kAtcZoneRulesArg[]  = {
   // Anchor: Rule    Arg    1931    only    -    Apr     1    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2197,8 +2197,8 @@ const AtcZonePolicy kAtcZonePolicyArg  = {
 static const AtcZoneRule kAtcZoneRulesArmenia[]  = {
   // Anchor: Rule Armenia    2011    only    -    Oct    lastSun     2:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2247,8 +2247,8 @@ const AtcZonePolicy kAtcZonePolicyArmenia  = {
 static const AtcZoneRule kAtcZoneRulesAus[]  = {
   // Anchor: Rule    Aus    1917    only    -    Mar    lastSun    2:00s    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2357,8 +2357,8 @@ const AtcZonePolicy kAtcZonePolicyAus  = {
 static const AtcZoneRule kAtcZoneRulesAustria[]  = {
   // Anchor: Rule    Austria    1920    only    -    Sep    13    2:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2491,8 +2491,8 @@ const AtcZonePolicy kAtcZonePolicyAustria  = {
 static const AtcZoneRule kAtcZoneRulesAzer[]  = {
   // Anchor: Rule    Azer    1997    2015    -    Oct    lastSun     5:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2541,8 +2541,8 @@ const AtcZonePolicy kAtcZonePolicyAzer  = {
 static const AtcZoneRule kAtcZoneRulesBarb[]  = {
   // Anchor: Rule    Barb    1942    only    -    Aug    31    6:00u    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -2699,8 +2699,8 @@ const AtcZonePolicy kAtcZonePolicyBarb  = {
 static const AtcZoneRule kAtcZoneRulesBelgium[]  = {
   // Anchor: Rule    Belgium    1918    1919    -    Oct    Sat>=1    23:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -3133,8 +3133,8 @@ const AtcZonePolicy kAtcZonePolicyBelgium  = {
 static const AtcZoneRule kAtcZoneRulesBelize[]  = {
   // Anchor: Rule    Belize    1919    1942    -    Feb    Sat>=8    24:00    0    CST
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -3291,8 +3291,8 @@ const AtcZonePolicy kAtcZonePolicyBelize  = {
 static const AtcZoneRule kAtcZoneRulesBermuda[]  = {
   // Anchor: Rule    Bermuda    1917    only    -    Sep    30    24:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -3509,8 +3509,8 @@ const AtcZonePolicy kAtcZonePolicyBermuda  = {
 static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
   // Anchor: Rule    Brazil    1932    1933    -    Apr     1     0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -4219,8 +4219,8 @@ const AtcZonePolicy kAtcZonePolicyBrazil  = {
 static const AtcZoneRule kAtcZoneRulesBulg[]  = {
   // Anchor: Rule    Bulg    1979    only    -    Oct     1     1:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -4305,8 +4305,8 @@ const AtcZonePolicy kAtcZonePolicyBulg  = {
 static const AtcZoneRule kAtcZoneRulesC_Eur[]  = {
   // Anchor: Rule    C-Eur    1916    only    -    Oct     1     1:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -4498,7 +4498,7 @@ static const AtcZoneRule kAtcZoneRulesC_Eur[]  = {
   // Rule    C-Eur    1981    max    -    Mar    lastSun     2:00s    1:00    S
   {
     1981 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4510,7 +4510,7 @@ static const AtcZoneRule kAtcZoneRulesC_Eur[]  = {
   // Rule    C-Eur    1996    max    -    Oct    lastSun     2:00s    0    -
   {
     1996 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -4535,8 +4535,8 @@ const AtcZonePolicy kAtcZonePolicyC_Eur  = {
 static const AtcZoneRule kAtcZoneRulesCA[]  = {
   // Anchor: Rule    CA    1949    only    -    Jan     1    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -4621,8 +4621,8 @@ const AtcZonePolicy kAtcZonePolicyCA  = {
 static const AtcZoneRule kAtcZoneRulesCO[]  = {
   // Anchor: Rule    CO    1993    only    -    Feb     6    24:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -4671,8 +4671,8 @@ const AtcZonePolicy kAtcZonePolicyCO  = {
 static const AtcZoneRule kAtcZoneRulesCR[]  = {
   // Anchor: Rule    CR    1979    1980    -    Jun    Sun>=1    0:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -4757,8 +4757,8 @@ const AtcZonePolicy kAtcZonePolicyCR  = {
 static const AtcZoneRule kAtcZoneRulesCanada[]  = {
   // Anchor: Rule    Canada    1918    only    -    Oct    27    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -4866,7 +4866,7 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
   // Rule    Canada    2007    max    -    Mar    Sun>=8    2:00    1:00    D
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -4878,7 +4878,7 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
   // Rule    Canada    2007    max    -    Nov    Sun>=1    2:00    0    S
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -4903,8 +4903,8 @@ const AtcZonePolicy kAtcZonePolicyCanada  = {
 static const AtcZoneRule kAtcZoneRulesChatham[]  = {
   // Anchor: Rule    Chatham    1975    only    -    Feb    lastSun    2:45s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5000,7 +5000,7 @@ static const AtcZoneRule kAtcZoneRulesChatham[]  = {
   // Rule    Chatham    2007    max    -    Sep    lastSun    2:45s    1:00    -
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -5012,7 +5012,7 @@ static const AtcZoneRule kAtcZoneRulesChatham[]  = {
   // Rule    Chatham    2008    max    -    Apr    Sun>=1    2:45s    0    -
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5037,8 +5037,8 @@ const AtcZonePolicy kAtcZonePolicyChatham  = {
 static const AtcZoneRule kAtcZoneRulesChicago[]  = {
   // Anchor: Rule    Chicago    1920    1921    -    Oct    lastSun    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5135,8 +5135,8 @@ const AtcZonePolicy kAtcZonePolicyChicago  = {
 static const AtcZoneRule kAtcZoneRulesChile[]  = {
   // Anchor: Rule    Chile    1928    1932    -    Apr     1    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5532,7 +5532,7 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   // Rule    Chile    2019    max    -    Apr    Sun>=2    3:00u    0    -
   {
     2019 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -5568,7 +5568,7 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
   // Rule    Chile    2023    max    -    Sep    Sun>=2    4:00u    1:00    -
   {
     2023 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
@@ -5593,8 +5593,8 @@ const AtcZonePolicy kAtcZonePolicyChile  = {
 static const AtcZoneRule kAtcZoneRulesCook[]  = {
   // Anchor: Rule    Cook    1979    1991    -    Mar    Sun>=1    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -5655,8 +5655,8 @@ const AtcZonePolicy kAtcZonePolicyCook  = {
 static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   // Anchor: Rule    Cuba    1928    only    -    Oct    10    0:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6112,7 +6112,7 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   // Rule    Cuba    2012    max    -    Nov    Sun>=1    0:00s    0    S
   {
     2012 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6124,7 +6124,7 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
   // Rule    Cuba    2013    max    -    Mar    Sun>=8    0:00s    1:00    D
   {
     2013 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -6149,8 +6149,8 @@ const AtcZonePolicy kAtcZonePolicyCuba  = {
 static const AtcZoneRule kAtcZoneRulesCyprus[]  = {
   // Anchor: Rule    Cyprus    1975    only    -    Oct    12    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6283,8 +6283,8 @@ const AtcZonePolicy kAtcZonePolicyCyprus  = {
 static const AtcZoneRule kAtcZoneRulesCzech[]  = {
   // Anchor: Rule    Czech    1945    only    -    Oct     1    2:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6381,8 +6381,8 @@ const AtcZonePolicy kAtcZonePolicyCzech  = {
 static const AtcZoneRule kAtcZoneRulesDR[]  = {
   // Anchor: Rule    DR    1967    only    -    Feb    28    0:00    0    EST
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6479,8 +6479,8 @@ const AtcZonePolicy kAtcZonePolicyDR  = {
 static const AtcZoneRule kAtcZoneRulesDenver[]  = {
   // Anchor: Rule    Denver    1920    only    -    Oct    lastSun    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6565,8 +6565,8 @@ const AtcZonePolicy kAtcZonePolicyDenver  = {
 static const AtcZoneRule kAtcZoneRulesDetroit[]  = {
   // Anchor: Rule    Detroit    1948    only    -    Sep    lastSun    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6615,8 +6615,8 @@ const AtcZonePolicy kAtcZonePolicyDetroit  = {
 static const AtcZoneRule kAtcZoneRulesDhaka[]  = {
   // Anchor: Rule    Dhaka    2009    only    -    Dec    31    24:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6665,8 +6665,8 @@ const AtcZonePolicy kAtcZonePolicyDhaka  = {
 static const AtcZoneRule kAtcZoneRulesE_Eur[]  = {
   // Anchor: Rule    E-Eur    1979    1995    -    Sep    lastSun     0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6702,7 +6702,7 @@ static const AtcZoneRule kAtcZoneRulesE_Eur[]  = {
   // Rule    E-Eur    1981    max    -    Mar    lastSun     0:00    1:00    S
   {
     1981 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6714,7 +6714,7 @@ static const AtcZoneRule kAtcZoneRulesE_Eur[]  = {
   // Rule    E-Eur    1996    max    -    Oct    lastSun     0:00    0    -
   {
     1996 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6739,8 +6739,8 @@ const AtcZonePolicy kAtcZonePolicyE_Eur  = {
 static const AtcZoneRule kAtcZoneRulesE_EurAsia[]  = {
   // Anchor: Rule E-EurAsia    1979    1995    -    Sep    lastSun     0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6752,7 +6752,7 @@ static const AtcZoneRule kAtcZoneRulesE_EurAsia[]  = {
   // Rule E-EurAsia    1981    max    -    Mar    lastSun     0:00    1:00    -
   {
     1981 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6776,7 +6776,7 @@ static const AtcZoneRule kAtcZoneRulesE_EurAsia[]  = {
   // Rule E-EurAsia    1996    max    -    Oct    lastSun     0:00    0    -
   {
     1996 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6801,8 +6801,8 @@ const AtcZonePolicy kAtcZonePolicyE_EurAsia  = {
 static const AtcZoneRule kAtcZoneRulesEU[]  = {
   // Anchor: Rule    EU    1977    only    -    Sep    lastSun     1:00u    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6862,7 +6862,7 @@ static const AtcZoneRule kAtcZoneRulesEU[]  = {
   // Rule    EU    1981    max    -    Mar    lastSun     1:00u    1:00    S
   {
     1981 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6874,7 +6874,7 @@ static const AtcZoneRule kAtcZoneRulesEU[]  = {
   // Rule    EU    1996    max    -    Oct    lastSun     1:00u    0    -
   {
     1996 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6899,8 +6899,8 @@ const AtcZonePolicy kAtcZonePolicyEU  = {
 static const AtcZoneRule kAtcZoneRulesEUAsia[]  = {
   // Anchor: Rule    EUAsia    1979    1995    -    Sep    lastSun     1:00u    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -6912,7 +6912,7 @@ static const AtcZoneRule kAtcZoneRulesEUAsia[]  = {
   // Rule    EUAsia    1981    max    -    Mar    lastSun     1:00u    1:00    S
   {
     1981 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6936,7 +6936,7 @@ static const AtcZoneRule kAtcZoneRulesEUAsia[]  = {
   // Rule    EUAsia    1996    max    -    Oct    lastSun     1:00u    0    -
   {
     1996 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -6961,8 +6961,8 @@ const AtcZonePolicy kAtcZonePolicyEUAsia  = {
 static const AtcZoneRule kAtcZoneRulesEcuador[]  = {
   // Anchor: Rule    Ecuador    1993    only    -    Feb     5    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7011,8 +7011,8 @@ const AtcZonePolicy kAtcZonePolicyEcuador  = {
 static const AtcZoneRule kAtcZoneRulesEdm[]  = {
   // Anchor: Rule    Edm    1918    only    -    Oct    27    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7193,8 +7193,8 @@ const AtcZonePolicy kAtcZonePolicyEdm  = {
 static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
   // Anchor: Rule    Egypt    1940    only    -    Oct     1    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7603,8 +7603,8 @@ const AtcZonePolicy kAtcZonePolicyEgypt  = {
 static const AtcZoneRule kAtcZoneRulesEgyptAsia[]  = {
   // Anchor: Rule EgyptAsia    1957    1958    -    Oct     1    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7701,8 +7701,8 @@ const AtcZonePolicy kAtcZonePolicyEgyptAsia  = {
 static const AtcZoneRule kAtcZoneRulesEire[]  = {
   // Anchor: Rule    Eire    1972    1980    -    Mar    Sun>=16     2:00u    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7750,7 +7750,7 @@ static const AtcZoneRule kAtcZoneRulesEire[]  = {
   // Rule    Eire    1981    max    -    Mar    lastSun     1:00u    0    -
   {
     1981 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7786,7 +7786,7 @@ static const AtcZoneRule kAtcZoneRulesEire[]  = {
   // Rule    Eire    1996    max    -    Oct    lastSun     1:00u    -1:00    -
   {
     1996 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -7811,8 +7811,8 @@ const AtcZonePolicy kAtcZonePolicyEire  = {
 static const AtcZoneRule kAtcZoneRulesFalk[]  = {
   // Anchor: Rule    Falk    1938    1942    -    Mar    Sun>=19    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -7981,8 +7981,8 @@ const AtcZonePolicy kAtcZonePolicyFalk  = {
 static const AtcZoneRule kAtcZoneRulesFiji[]  = {
   // Anchor: Rule    Fiji    1999    2000    -    Feb    lastSun    3:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -8151,8 +8151,8 @@ const AtcZonePolicy kAtcZonePolicyFiji  = {
 static const AtcZoneRule kAtcZoneRulesFinland[]  = {
   // Anchor: Rule    Finland    1942    only    -    Oct    4    1:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -8225,8 +8225,8 @@ const AtcZonePolicy kAtcZonePolicyFinland  = {
 static const AtcZoneRule kAtcZoneRulesFrance[]  = {
   // Anchor: Rule    France    1916    1919    -    Oct    Sun>=1    23:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -8707,8 +8707,8 @@ const AtcZonePolicy kAtcZonePolicyFrance  = {
 static const AtcZoneRule kAtcZoneRulesGB_Eire[]  = {
   // Anchor: Rule    GB-Eire    1916    only    -    Oct     1    2:00s    0    GMT
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -9513,8 +9513,8 @@ const AtcZonePolicy kAtcZonePolicyGB_Eire  = {
 static const AtcZoneRule kAtcZoneRulesGermany[]  = {
   // Anchor: Rule    Germany    1946    only    -    Oct     7    2:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -9635,8 +9635,8 @@ const AtcZonePolicy kAtcZonePolicyGermany  = {
 static const AtcZoneRule kAtcZoneRulesGreece[]  = {
   // Anchor: Rule    Greece    1932    only    -    Sep     1    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -9889,8 +9889,8 @@ const AtcZonePolicy kAtcZonePolicyGreece  = {
 static const AtcZoneRule kAtcZoneRulesGuam[]  = {
   // Anchor: Rule    Guam    1961    only    -    Jan    29    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -10083,8 +10083,8 @@ const AtcZonePolicy kAtcZonePolicyGuam  = {
 static const AtcZoneRule kAtcZoneRulesGuat[]  = {
   // Anchor: Rule    Guat    1974    only    -    Feb    24    0:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -10205,8 +10205,8 @@ const AtcZonePolicy kAtcZonePolicyGuat  = {
 static const AtcZoneRule kAtcZoneRulesHK[]  = {
   // Anchor: Rule    HK    1946    only    -    Dec    1    3:30s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -10399,8 +10399,8 @@ const AtcZonePolicy kAtcZonePolicyHK  = {
 static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
   // Anchor: Rule    Haiti    1983    1987    -    Oct    lastSun    0:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -10520,7 +10520,7 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
   // Rule    Haiti    2017    max    -    Mar    Sun>=8    2:00    1:00    D
   {
     2017 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -10532,7 +10532,7 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
   // Rule    Haiti    2017    max    -    Nov    Sun>=1    2:00    0    S
   {
     2017 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -10557,8 +10557,8 @@ const AtcZonePolicy kAtcZonePolicyHaiti  = {
 static const AtcZoneRule kAtcZoneRulesHalifax[]  = {
   // Anchor: Rule    Halifax    1916    only    -    Oct     1    0:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -11075,8 +11075,8 @@ const AtcZonePolicy kAtcZonePolicyHalifax  = {
 static const AtcZoneRule kAtcZoneRulesHoliday[]  = {
   // Anchor: Rule    Holiday    1993    1994    -    Mar    Sun>=1    2:00s    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -11125,8 +11125,8 @@ const AtcZonePolicy kAtcZonePolicyHoliday  = {
 static const AtcZoneRule kAtcZoneRulesHond[]  = {
   // Anchor: Rule    Hond    1987    1988    -    Sep    lastSun    0:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -11199,8 +11199,8 @@ const AtcZonePolicy kAtcZonePolicyHond  = {
 static const AtcZoneRule kAtcZoneRulesHungary[]  = {
   // Anchor: Rule    Hungary    1918    1920    -    Sep    Mon>=15     3:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -11453,8 +11453,8 @@ const AtcZonePolicy kAtcZonePolicyHungary  = {
 static const AtcZoneRule kAtcZoneRulesIndianapolis[]  = {
   // Anchor: Rule Indianapolis 1941    1954    -    Sep    lastSun    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -11515,8 +11515,8 @@ const AtcZonePolicy kAtcZonePolicyIndianapolis  = {
 static const AtcZoneRule kAtcZoneRulesIran[]  = {
   // Anchor: Rule    Iran    1910    only    -    Jan     1    00:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -12021,8 +12021,8 @@ const AtcZonePolicy kAtcZonePolicyIran  = {
 static const AtcZoneRule kAtcZoneRulesIraq[]  = {
   // Anchor: Rule    Iraq    1982    1984    -    Oct    1    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -12143,8 +12143,8 @@ const AtcZonePolicy kAtcZonePolicyIraq  = {
 static const AtcZoneRule kAtcZoneRulesItaly[]  = {
   // Anchor: Rule    Italy    1916    1917    -    Sep    30    24:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -12661,8 +12661,8 @@ const AtcZonePolicy kAtcZonePolicyItaly  = {
 static const AtcZoneRule kAtcZoneRulesJapan[]  = {
   // Anchor: Rule    Japan    1948    1951    -    Sep    Sat>=8    25:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -12735,8 +12735,8 @@ const AtcZonePolicy kAtcZonePolicyJapan  = {
 static const AtcZoneRule kAtcZoneRulesJordan[]  = {
   // Anchor: Rule    Jordan    1973    1975    -    Oct    1    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -13145,8 +13145,8 @@ const AtcZonePolicy kAtcZonePolicyJordan  = {
 static const AtcZoneRule kAtcZoneRulesKyrgyz[]  = {
   // Anchor: Rule    Kyrgyz    1992    1996    -    Sep    lastSun    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -13219,8 +13219,8 @@ const AtcZonePolicy kAtcZonePolicyKyrgyz  = {
 static const AtcZoneRule kAtcZoneRulesLH[]  = {
   // Anchor: Rule    LH    1982    1985    -    Mar    Sun>=1    2:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -13376,7 +13376,7 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
   // Rule    LH    2008    max    -    Apr    Sun>=1    2:00    0    -
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -13388,7 +13388,7 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
   // Rule    LH    2008    max    -    Oct    Sun>=1    2:00    0:30    -
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -13413,8 +13413,8 @@ const AtcZonePolicy kAtcZonePolicyLH  = {
 static const AtcZoneRule kAtcZoneRulesLatvia[]  = {
   // Anchor: Rule    Latvia    1989    1996    -    Sep    lastSun     2:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -13463,8 +13463,8 @@ const AtcZonePolicy kAtcZonePolicyLatvia  = {
 static const AtcZoneRule kAtcZoneRulesLebanon[]  = {
   // Anchor: Rule    Lebanon    1920    only    -    Oct    25    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -13728,7 +13728,7 @@ static const AtcZoneRule kAtcZoneRulesLebanon[]  = {
   // Rule    Lebanon    1993    max    -    Mar    lastSun    0:00    1:00    S
   {
     1993 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -13752,7 +13752,7 @@ static const AtcZoneRule kAtcZoneRulesLebanon[]  = {
   // Rule    Lebanon    1999    max    -    Oct    lastSun    0:00    0    -
   {
     1999 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -13777,8 +13777,8 @@ const AtcZonePolicy kAtcZonePolicyLebanon  = {
 static const AtcZoneRule kAtcZoneRulesLibya[]  = {
   // Anchor: Rule    Libya    1952    only    -    Jan     1    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -14007,8 +14007,8 @@ const AtcZonePolicy kAtcZonePolicyLibya  = {
 static const AtcZoneRule kAtcZoneRulesLouisville[]  = {
   // Anchor: Rule Louisville    1921    only    -    Sep    1    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -14141,8 +14141,8 @@ const AtcZonePolicy kAtcZonePolicyLouisville  = {
 static const AtcZoneRule kAtcZoneRulesMacau[]  = {
   // Anchor: Rule    Macau    1942    only    -    Nov    17    23:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -14491,8 +14491,8 @@ const AtcZonePolicy kAtcZonePolicyMacau  = {
 static const AtcZoneRule kAtcZoneRulesMalta[]  = {
   // Anchor: Rule    Malta    1973    only    -    Sep    29    0:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -14601,8 +14601,8 @@ const AtcZonePolicy kAtcZonePolicyMalta  = {
 static const AtcZoneRule kAtcZoneRulesMarengo[]  = {
   // Anchor: Rule    Marengo    1951    only    -    Sep    lastSun    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -14675,8 +14675,8 @@ const AtcZonePolicy kAtcZonePolicyMarengo  = {
 static const AtcZoneRule kAtcZoneRulesMauritius[]  = {
   // Anchor: Rule Mauritius    1983    only    -    Mar    21    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -14749,8 +14749,8 @@ const AtcZonePolicy kAtcZonePolicyMauritius  = {
 static const AtcZoneRule kAtcZoneRulesMenominee[]  = {
   // Anchor: Rule Menominee    1946    only    -    Sep    lastSun    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -14823,8 +14823,8 @@ const AtcZonePolicy kAtcZonePolicyMenominee  = {
 static const AtcZoneRule kAtcZoneRulesMexico[]  = {
   // Anchor: Rule    Mexico    1931    only    -    Oct    1    0:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -15041,8 +15041,8 @@ const AtcZonePolicy kAtcZonePolicyMexico  = {
 static const AtcZoneRule kAtcZoneRulesMoldova[]  = {
   // Anchor: Rule    Moldova    1997    max    -    Oct    lastSun     3:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -15054,7 +15054,7 @@ static const AtcZoneRule kAtcZoneRulesMoldova[]  = {
   // Rule    Moldova    1997    max    -    Mar    lastSun     2:00    1:00    S
   {
     1997 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -15066,7 +15066,7 @@ static const AtcZoneRule kAtcZoneRulesMoldova[]  = {
   // Rule    Moldova    1997    max    -    Oct    lastSun     3:00    0    -
   {
     1997 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -15091,8 +15091,8 @@ const AtcZonePolicy kAtcZonePolicyMoldova  = {
 static const AtcZoneRule kAtcZoneRulesMoncton[]  = {
   // Anchor: Rule    Moncton    1933    1935    -    Sep    Sun>=8    1:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -15273,8 +15273,8 @@ const AtcZonePolicy kAtcZonePolicyMoncton  = {
 static const AtcZoneRule kAtcZoneRulesMongol[]  = {
   // Anchor: Rule    Mongol    1983    only    -    Oct    1    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -15407,8 +15407,8 @@ const AtcZonePolicy kAtcZonePolicyMongol  = {
 static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
   // Anchor: Rule    Morocco    1939    only    -    Nov    19     0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -17629,8 +17629,8 @@ const AtcZonePolicy kAtcZonePolicyMorocco  = {
 static const AtcZoneRule kAtcZoneRulesNBorneo[]  = {
   // Anchor: Rule    NBorneo    1935    1941    -    Dec    14    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -17679,8 +17679,8 @@ const AtcZonePolicy kAtcZonePolicyNBorneo  = {
 static const AtcZoneRule kAtcZoneRulesNC[]  = {
   // Anchor: Rule    NC    1978    1979    -    Feb    27    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -17753,8 +17753,8 @@ const AtcZonePolicy kAtcZonePolicyNC  = {
 static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
   // Anchor: Rule    NT_YK    1918    only    -    Oct    27    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -17899,8 +17899,8 @@ const AtcZonePolicy kAtcZonePolicyNT_YK  = {
 static const AtcZoneRule kAtcZoneRulesNYC[]  = {
   // Anchor: Rule    NYC    1920    only    -    Oct    lastSun    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -17985,8 +17985,8 @@ const AtcZonePolicy kAtcZonePolicyNYC  = {
 static const AtcZoneRule kAtcZoneRulesNZ[]  = {
   // Anchor: Rule    NZ    1928    only    -    Mar     4    2:00    0    M
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -18166,7 +18166,7 @@ static const AtcZoneRule kAtcZoneRulesNZ[]  = {
   // Rule    NZ    2007    max    -    Sep    lastSun    2:00s    1:00    D
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -18178,7 +18178,7 @@ static const AtcZoneRule kAtcZoneRulesNZ[]  = {
   // Rule    NZ    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -18203,8 +18203,8 @@ const AtcZonePolicy kAtcZonePolicyNZ  = {
 static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
   // Anchor: Rule    Namibia    1994    2017    -    Sep    Sun>=1    2:00    0    CAT
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -18265,8 +18265,8 @@ const AtcZonePolicy kAtcZonePolicyNamibia  = {
 static const AtcZoneRule kAtcZoneRulesNic[]  = {
   // Anchor: Rule    Nic    1979    1980    -    Jun    Mon>=23    0:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -18363,8 +18363,8 @@ const AtcZonePolicy kAtcZonePolicyNic  = {
 static const AtcZoneRule kAtcZoneRulesPRC[]  = {
   // Anchor: Rule    PRC    1986    1991    -    Sep    Sun>=11     2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -18425,8 +18425,8 @@ const AtcZonePolicy kAtcZonePolicyPRC  = {
 static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
   // Anchor: Rule Pakistan    2002    only    -    Oct    Sun>=2    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -18511,8 +18511,8 @@ const AtcZonePolicy kAtcZonePolicyPakistan  = {
 static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   // Anchor: Rule Palestine    1999    2003    -    Oct    Fri>=15    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -18884,7 +18884,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   // Rule Palestine    2022    max    -    Oct    Sat<=30    2:00    0    -
   {
     2022 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     6 /*on_day_of_week*/,
     -30 /*on_day_of_month*/,
@@ -18896,7 +18896,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   // Rule Palestine    2023    max    -    Mar    Sat<=30    2:00    1:00    S
   {
     2023 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     6 /*on_day_of_week*/,
     -30 /*on_day_of_month*/,
@@ -18921,8 +18921,8 @@ const AtcZonePolicy kAtcZonePolicyPalestine  = {
 static const AtcZoneRule kAtcZoneRulesPara[]  = {
   // Anchor: Rule    Para    1975    1978    -    Mar     1    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -19162,7 +19162,7 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
   // Rule    Para    2010    max    -    Oct    Sun>=1    0:00    1:00    -
   {
     2010 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -19186,7 +19186,7 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
   // Rule    Para    2013    max    -    Mar    Sun>=22    0:00    0    -
   {
     2013 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
@@ -19211,8 +19211,8 @@ const AtcZonePolicy kAtcZonePolicyPara  = {
 static const AtcZoneRule kAtcZoneRulesPerry[]  = {
   // Anchor: Rule Perry    1955    1960    -    Sep    lastSun    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -19285,8 +19285,8 @@ const AtcZonePolicy kAtcZonePolicyPerry  = {
 static const AtcZoneRule kAtcZoneRulesPeru[]  = {
   // Anchor: Rule    Peru    1938    only    -    Apr     1    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -19431,8 +19431,8 @@ const AtcZonePolicy kAtcZonePolicyPeru  = {
 static const AtcZoneRule kAtcZoneRulesPhil[]  = {
   // Anchor: Rule    Phil    1937    only    -    Feb    1    0:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -19529,8 +19529,8 @@ const AtcZonePolicy kAtcZonePolicyPhil  = {
 static const AtcZoneRule kAtcZoneRulesPike[]  = {
   // Anchor: Rule    Pike    1955    1960    -    Sep    lastSun    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -19603,8 +19603,8 @@ const AtcZonePolicy kAtcZonePolicyPike  = {
 static const AtcZoneRule kAtcZoneRulesPoland[]  = {
   // Anchor: Rule    Poland    1918    1919    -    Sep    16    2:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -19869,8 +19869,8 @@ const AtcZonePolicy kAtcZonePolicyPoland  = {
 static const AtcZoneRule kAtcZoneRulesPort[]  = {
   // Anchor: Rule    Port    1916    only    -    Nov     1     1:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -20471,8 +20471,8 @@ const AtcZonePolicy kAtcZonePolicyPort  = {
 static const AtcZoneRule kAtcZoneRulesPulaski[]  = {
   // Anchor: Rule    Pulaski    1946    1954    -    Sep    lastSun    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -20545,8 +20545,8 @@ const AtcZonePolicy kAtcZonePolicyPulaski  = {
 static const AtcZoneRule kAtcZoneRulesROK[]  = {
   // Anchor: Rule    ROK    1948    only    -    Sep    12    24:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -20739,8 +20739,8 @@ const AtcZonePolicy kAtcZonePolicyROK  = {
 static const AtcZoneRule kAtcZoneRulesRegina[]  = {
   // Anchor: Rule    Regina    1918    only    -    Oct    27    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -20969,8 +20969,8 @@ const AtcZonePolicy kAtcZonePolicyRegina  = {
 static const AtcZoneRule kAtcZoneRulesRomania[]  = {
   // Anchor: Rule    Romania    1932    1939    -    Oct    Sun>=1     0:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -21103,8 +21103,8 @@ const AtcZonePolicy kAtcZonePolicyRomania  = {
 static const AtcZoneRule kAtcZoneRulesRussia[]  = {
   // Anchor: Rule    Russia    1917    only    -    Dec    28     0:00    0    MMT
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -21321,8 +21321,8 @@ const AtcZonePolicy kAtcZonePolicyRussia  = {
 static const AtcZoneRule kAtcZoneRulesRussiaAsia[]  = {
   // Anchor: Rule RussiaAsia    1981    1983    -    Oct    1     0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -21407,8 +21407,8 @@ const AtcZonePolicy kAtcZonePolicyRussiaAsia  = {
 static const AtcZoneRule kAtcZoneRulesSA[]  = {
   // Anchor: Rule    SA    1943    1944    -    Mar    Sun>=15    2:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -21457,8 +21457,8 @@ const AtcZonePolicy kAtcZonePolicySA  = {
 static const AtcZoneRule kAtcZoneRulesSalv[]  = {
   // Anchor: Rule    Salv    1987    1988    -    Sep    lastSun    0:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -21507,8 +21507,8 @@ const AtcZonePolicy kAtcZonePolicySalv  = {
 static const AtcZoneRule kAtcZoneRulesSanLuis[]  = {
   // Anchor: Rule    SanLuis    2008    2009    -    Mar    Sun>=8    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -21557,8 +21557,8 @@ const AtcZonePolicy kAtcZonePolicySanLuis  = {
 static const AtcZoneRule kAtcZoneRulesShang[]  = {
   // Anchor: Rule    Shang    1919    only    -    Sep    30    24:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -21751,8 +21751,8 @@ const AtcZonePolicy kAtcZonePolicyShang  = {
 static const AtcZoneRule kAtcZoneRulesSovietZone[]  = {
   // Anchor: Rule SovietZone    1945    only    -    Nov    18    2:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -21813,8 +21813,8 @@ const AtcZonePolicy kAtcZonePolicySovietZone  = {
 static const AtcZoneRule kAtcZoneRulesSpain[]  = {
   // Anchor: Rule    Spain    1918    1919    -    Oct     6    24:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -22199,8 +22199,8 @@ const AtcZonePolicy kAtcZonePolicySpain  = {
 static const AtcZoneRule kAtcZoneRulesSpainAfrica[]  = {
   // Anchor: Rule SpainAfrica 1967    only    -    Oct     1     0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -22333,8 +22333,8 @@ const AtcZonePolicy kAtcZonePolicySpainAfrica  = {
 static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
   // Anchor: Rule    StJohns    1917    only    -    Sep    17    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -22587,8 +22587,8 @@ const AtcZonePolicy kAtcZonePolicyStJohns  = {
 static const AtcZoneRule kAtcZoneRulesStarke[]  = {
   // Anchor: Rule    Starke    1947    1954    -    Sep    lastSun    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -22673,8 +22673,8 @@ const AtcZonePolicy kAtcZonePolicyStarke  = {
 static const AtcZoneRule kAtcZoneRulesSudan[]  = {
   // Anchor: Rule    Sudan    1970    1985    -    Oct    15    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -22747,8 +22747,8 @@ const AtcZonePolicy kAtcZonePolicySudan  = {
 static const AtcZoneRule kAtcZoneRulesSwift[]  = {
   // Anchor: Rule    Swift    1957    only    -    Oct    lastSun    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -22833,8 +22833,8 @@ const AtcZonePolicy kAtcZonePolicySwift  = {
 static const AtcZoneRule kAtcZoneRulesSwiss[]  = {
   // Anchor: Rule    Swiss    1941    1942    -    Oct    Mon>=1    2:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -22883,8 +22883,8 @@ const AtcZonePolicy kAtcZonePolicySwiss  = {
 static const AtcZoneRule kAtcZoneRulesSyria[]  = {
   // Anchor: Rule    Syria    1920    1923    -    Oct    Sun>=1    2:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -23401,8 +23401,8 @@ const AtcZonePolicy kAtcZonePolicySyria  = {
 static const AtcZoneRule kAtcZoneRulesTaiwan[]  = {
   // Anchor: Rule    Taiwan    1946    only    -    Oct    1    0:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -23607,8 +23607,8 @@ const AtcZonePolicy kAtcZonePolicyTaiwan  = {
 static const AtcZoneRule kAtcZoneRulesThule[]  = {
   // Anchor: Rule    Thule    1991    1992    -    Sep    lastSun    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -23668,7 +23668,7 @@ static const AtcZoneRule kAtcZoneRulesThule[]  = {
   // Rule    Thule    2007    max    -    Mar    Sun>=8    2:00    1:00    D
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -23680,7 +23680,7 @@ static const AtcZoneRule kAtcZoneRulesThule[]  = {
   // Rule    Thule    2007    max    -    Nov    Sun>=1    2:00    0    S
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -23705,8 +23705,8 @@ const AtcZonePolicy kAtcZonePolicyThule  = {
 static const AtcZoneRule kAtcZoneRulesTonga[]  = {
   // Anchor: Rule    Tonga    2000    only    -    Mar    19    2:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -23803,8 +23803,8 @@ const AtcZonePolicy kAtcZonePolicyTonga  = {
 static const AtcZoneRule kAtcZoneRulesToronto[]  = {
   // Anchor: Rule    Toronto    1919    only    -    Oct    26    0:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -24093,8 +24093,8 @@ const AtcZonePolicy kAtcZonePolicyToronto  = {
 static const AtcZoneRule kAtcZoneRulesTroll[]  = {
   // Anchor: Rule    Troll    2004    max    -    Oct    lastSun    1:00u    0:00    +00
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -24106,7 +24106,7 @@ static const AtcZoneRule kAtcZoneRulesTroll[]  = {
   // Rule    Troll    2005    max    -    Mar    lastSun    1:00u    2:00    +02
   {
     2005 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -24118,7 +24118,7 @@ static const AtcZoneRule kAtcZoneRulesTroll[]  = {
   // Rule    Troll    2004    max    -    Oct    lastSun    1:00u    0:00    +00
   {
     2004 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -24143,8 +24143,8 @@ const AtcZonePolicy kAtcZonePolicyTroll  = {
 static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
   // Anchor: Rule    Tunisia    1939    only    -    Nov    18    23:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -24469,8 +24469,8 @@ const AtcZonePolicy kAtcZonePolicyTunisia  = {
 static const AtcZoneRule kAtcZoneRulesTurkey[]  = {
   // Anchor: Rule    Turkey    1916    only    -    Oct     1    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -25035,8 +25035,8 @@ const AtcZonePolicy kAtcZonePolicyTurkey  = {
 static const AtcZoneRule kAtcZoneRulesUS[]  = {
   // Anchor: Rule    US    1918    1919    -    Oct    lastSun    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -25180,7 +25180,7 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
   // Rule    US    2007    max    -    Mar    Sun>=8    2:00    1:00    D
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
@@ -25192,7 +25192,7 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
   // Rule    US    2007    max    -    Nov    Sun>=1    2:00    0    S
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -25217,8 +25217,8 @@ const AtcZonePolicy kAtcZonePolicyUS  = {
 static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
   // Anchor: Rule    Uruguay    1924    1926    -    Apr     1     0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -25819,8 +25819,8 @@ const AtcZonePolicy kAtcZonePolicyUruguay  = {
 static const AtcZoneRule kAtcZoneRulesVanc[]  = {
   // Anchor: Rule    Vanc    1918    only    -    Oct    27    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -25953,8 +25953,8 @@ const AtcZonePolicy kAtcZonePolicyVanc  = {
 static const AtcZoneRule kAtcZoneRulesVanuatu[]  = {
   // Anchor: Rule    Vanuatu    1974    only    -    Mar    30    12:00u    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -26051,8 +26051,8 @@ const AtcZonePolicy kAtcZonePolicyVanuatu  = {
 static const AtcZoneRule kAtcZoneRulesVincennes[]  = {
   // Anchor: Rule Vincennes    1946    only    -    Sep    lastSun    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -26185,8 +26185,8 @@ const AtcZonePolicy kAtcZonePolicyVincennes  = {
 static const AtcZoneRule kAtcZoneRulesW_Eur[]  = {
   // Anchor: Rule    W-Eur    1977    only    -    Sep    lastSun     1:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -26246,7 +26246,7 @@ static const AtcZoneRule kAtcZoneRulesW_Eur[]  = {
   // Rule    W-Eur    1981    max    -    Mar    lastSun     1:00s    1:00    S
   {
     1981 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -26271,8 +26271,8 @@ const AtcZonePolicy kAtcZonePolicyW_Eur  = {
 static const AtcZoneRule kAtcZoneRulesWS[]  = {
   // Anchor: Rule    WS    2011    only    -    Apr    Sat>=1    4:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -26357,8 +26357,8 @@ const AtcZonePolicy kAtcZonePolicyWS  = {
 static const AtcZoneRule kAtcZoneRulesWinn[]  = {
   // Anchor: Rule    Winn    1916    only    -    Sep    17    0:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -26671,8 +26671,8 @@ const AtcZonePolicy kAtcZonePolicyWinn  = {
 static const AtcZoneRule kAtcZoneRulesYukon[]  = {
   // Anchor: Rule    Yukon    1965    only    -    Oct    lastSun    2:00    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -26721,8 +26721,8 @@ const AtcZonePolicy kAtcZonePolicyYukon  = {
 static const AtcZoneRule kAtcZoneRulesZion[]  = {
   // Anchor: Rule    Zion    1940    only    -    Sep    30    24:00u    0    S
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -27730,7 +27730,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   // Rule    Zion    2013    max    -    Mar    Fri>=23    2:00    1:00    D
   {
     2013 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     5 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
@@ -27742,7 +27742,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
   // Rule    Zion    2013    max    -    Oct    lastSun    2:00    0    S
   {
     2013 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,

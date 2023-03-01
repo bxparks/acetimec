@@ -231,7 +231,7 @@ extern const AtcZonePolicy kAtcTestingZonePolicyWinn;
 //   LETTER 'WAT' not single character,
 //   SAVE '-1:00' different from 1:00,
 // }
-// WS {Added anchor rule at year 0}
+// WS {Added anchor rule at year -32767}
 
 
 //---------------------------------------------------------------------------
