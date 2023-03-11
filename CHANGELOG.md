@@ -35,6 +35,9 @@
         * Accuracy is guaranteed only for the requested interval (e.g.
           `[2000,2100)`.
         * But the code won't crash outside of that interval.
+        * Extend range of `from_year`, `to_year`, `until_year` to +/-32767.
+    * Zonedb Rule filtering
+        * Use simplified ZoneRule filtering from AceTimeTools.
 * 0.7.0 (2023-02-12, TZDB 2022g)
     * Links
         * Remove `kAtcLinkRegistry` and support for thin links.
