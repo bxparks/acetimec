@@ -39,7 +39,7 @@
 // Max Buffer Size: 8
 //
 // Memory (8-bits):
-//   Rules: 25812
+//   Rules: 25896
 //   Policies: 402
 //   Eras: 29280
 //   Zones: 4563
@@ -49,10 +49,10 @@
 //   Letters: 160
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 74702
+//   TOTAL: 74786
 //
 // Memory (32-bits):
-//   Rules: 25812
+//   Rules: 25896
 //   Policies: 1072
 //   Eras: 39040
 //   Zones: 8424
@@ -62,7 +62,7 @@
 //   Letters: 216
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 92936
+//   TOTAL: 93020
 //
 // DO NOT EDIT
 
@@ -70,7 +70,7 @@
 
 //---------------------------------------------------------------------------
 // Policies: 134
-// Rules: 2151
+// Rules: 2158
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
@@ -6661,11 +6661,11 @@ const AtcZonePolicy kAtcZonePolicyDhaka  = {
 
 //---------------------------------------------------------------------------
 // Policy name: E-Eur
-// Rules: 5
+// Rules: 7
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesE_Eur[]  = {
-  // Anchor: Rule    E-Eur    1979    1995    -    Sep    lastSun     0:00    0    -
+  // Anchor: Rule    E-Eur    1977    only    -    Sep    lastSun     0:00    0    -
   {
     -32767 /*from_year*/,
     -32767 /*to_year*/,
@@ -6688,6 +6688,30 @@ static const AtcZoneRule kAtcZoneRulesE_Eur[]  = {
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
     25 /*letterIndex ("S")*/,
+  },
+  // Rule    E-Eur    1977    only    -    Sep    lastSun     0:00    0    -
+  {
+    1977 /*from_year*/,
+    1977 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    E-Eur    1978    only    -    Oct     1     0:00    0    -
+  {
+    1978 /*from_year*/,
+    1978 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
   },
   // Rule    E-Eur    1979    1995    -    Sep    lastSun     0:00    0    -
   {
@@ -6730,7 +6754,7 @@ static const AtcZoneRule kAtcZoneRulesE_Eur[]  = {
 
 const AtcZonePolicy kAtcZonePolicyE_Eur  = {
   kAtcZoneRulesE_Eur /*rules*/,
-  5 /*num_rules*/,
+  7 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
@@ -8221,7 +8245,7 @@ const AtcZonePolicy kAtcZonePolicyFinland  = {
 
 //---------------------------------------------------------------------------
 // Policy name: France
-// Rules: 39
+// Rules: 43
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesFrance[]  = {
@@ -8609,6 +8633,54 @@ static const AtcZoneRule kAtcZoneRulesFrance[]  = {
     120 /*delta_minutes*/,
     18 /*letterIndex ("M")*/,
   },
+  // Rule    France    1941    only    -    Oct     6     0:00    1:00    S
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1942    only    -    Mar     9     0:00    2:00    M
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    120 /*delta_minutes*/,
+    18 /*letterIndex ("M")*/,
+  },
+  // Rule    France    1942    only    -    Nov     2     3:00    1:00    S
+  {
+    1942 /*from_year*/,
+    1942 /*to_year*/,
+    11 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    60 /*delta_minutes*/,
+    25 /*letterIndex ("S")*/,
+  },
+  // Rule    France    1943    only    -    Mar    29     2:00    2:00    M
+  {
+    1943 /*from_year*/,
+    1943 /*to_year*/,
+    3 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    120 /*delta_minutes*/,
+    18 /*letterIndex ("M")*/,
+  },
   // Rule    France    1943    only    -    Oct     4     3:00    1:00    S
   {
     1943 /*from_year*/,
@@ -8698,7 +8770,7 @@ static const AtcZoneRule kAtcZoneRulesFrance[]  = {
 
 const AtcZonePolicy kAtcZonePolicyFrance  = {
   kAtcZoneRulesFrance /*rules*/,
-  39 /*num_rules*/,
+  43 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
@@ -26181,7 +26253,7 @@ const AtcZonePolicy kAtcZonePolicyVincennes  = {
 
 //---------------------------------------------------------------------------
 // Policy name: W-Eur
-// Rules: 6
+// Rules: 7
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesW_Eur[]  = {
@@ -26257,12 +26329,24 @@ static const AtcZoneRule kAtcZoneRulesW_Eur[]  = {
     60 /*delta_minutes*/,
     25 /*letterIndex ("S")*/,
   },
+  // Rule    W-Eur    1996    max    -    Oct    lastSun     1:00s    0    -
+  {
+    1996 /*from_year*/,
+    32766 /*to_year*/,
+    10 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
 
 };
 
 const AtcZonePolicy kAtcZonePolicyW_Eur  = {
   kAtcZoneRulesW_Eur /*rules*/,
-  6 /*num_rules*/,
+  7 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------

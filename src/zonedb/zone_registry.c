@@ -39,7 +39,7 @@
 // Max Buffer Size: 8
 //
 // Memory (8-bits):
-//   Rules: 25812
+//   Rules: 25896
 //   Policies: 402
 //   Eras: 29280
 //   Zones: 4563
@@ -49,10 +49,10 @@
 //   Letters: 160
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 74702
+//   TOTAL: 74786
 //
 // Memory (32-bits):
-//   Rules: 25812
+//   Rules: 25896
 //   Policies: 1072
 //   Eras: 39040
 //   Zones: 8424
@@ -62,7 +62,7 @@
 //   Letters: 216
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 92936
+//   TOTAL: 93020
 //
 // DO NOT EDIT
 
