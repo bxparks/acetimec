@@ -1,6 +1,6 @@
 CFLAGS := -std=c11 -Wall -Wextra -Werror -pedantic
 
-.PHONY: zonedb
+.PHONY: zonedbs
 
 OBJS := \
 	zoneinfo/zone_info_utils.o \
@@ -28,7 +28,7 @@ OBJS := \
 acetimec.a: $(OBJS) Makefile
 	$(AR) -c -v -r $@ $(OBJS)
 
-zonedb:
+zonedbs:
 	make -C zonedb
 	make -C zonedbtesting
 

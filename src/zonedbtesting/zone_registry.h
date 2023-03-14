@@ -34,10 +34,17 @@
 //
 // Supported Zones: 17 (16 zones, 1 links)
 // Unsupported Zones: 579 (335 zones, 244 links)
+//
 // Original Years:  [1844,2087]
 // Generated Years: [1966,2087]
 // Estimator Years: [1966,2090]
 // Max Buffer Size: 7
+//
+// Records:
+//   Infos: 17
+//   Eras: 22
+//   Policies: 8
+//   Rules: 201
 //
 // Memory (8-bits):
 //   Rules: 2412
