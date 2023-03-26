@@ -20,7 +20,7 @@ void print_dates()
   printf("Epoch Seconds: %ld\n", (long) seconds);
 
   // Convert epoch seconds to date/time components for given time zone.
-  AtcTimeZone tzla = {&kAtcAllZoneAmerica_Los_Angeles, &processor_la};
+  AtcTimeZone tzla = {&kAtcZoneAmerica_Los_Angeles, &processor_la};
   AtcZonedDateTime zdtla;
   int8_t err = atc_zoned_date_time_from_epoch_seconds(&zdtla, seconds, &tzla);
   if (err) { 
@@ -78,7 +78,7 @@ void print_dates()
   printf("======== ZonedDateTime to different time zone\n");
 
   // convert America/Los_Angles to America/New_York
-  AtcTimeZone tzny = {&kAtcAllZoneAmerica_New_York, &processor_ny};
+  AtcTimeZone tzny = {&kAtcZoneAmerica_New_York, &processor_ny};
   AtcZonedDateTime zdtny;
   err = atc_zoned_date_time_convert(&zdtla, &tzny, &zdtny);
   if (err) { 
