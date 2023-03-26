@@ -68,20 +68,20 @@ ACU_TEST(test_transitions_for_all_zones_all_years) {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
 
-  for (uint16_t i = 0; i < kAtcZoneRegistrySize; i++) {
-    const AtcZoneInfo *info = kAtcZoneRegistry[i];
+  for (uint16_t i = 0; i < kAtcAllZoneRegistrySize; i++) {
+    const AtcZoneInfo *info = kAtcAllZoneRegistry[i];
 
     // Loop from start_year to until_year, in chunks of 100 years, shifting
     // the current_epoch_year by 100 years.
     for (
-        int16_t start_year = kAtcZoneContext.start_year;
-        start_year < kAtcZoneContext.until_year;
+        int16_t start_year = kAtcAllZoneContext.start_year;
+        start_year < kAtcAllZoneContext.until_year;
         start_year += 100) {
 
       atc_set_current_epoch_year(start_year + 50);
       int16_t until_year = start_year + 100;
-      if (until_year > kAtcZoneContext.until_year) {
-        until_year = kAtcZoneContext.until_year;
+      if (until_year > kAtcAllZoneContext.until_year) {
+        until_year = kAtcAllZoneContext.until_year;
       }
 
       ACU_ASSERT_NO_FATAL_FAILURE(

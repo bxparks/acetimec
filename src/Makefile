@@ -18,9 +18,9 @@ OBJS := \
 	acetimec/zone_registrar.o \
 	acetimec/zoned_date_time.o \
 	acetimec/zoned_extra.o \
-	zonedb/zone_infos.o \
-	zonedb/zone_policies.o \
-	zonedb/zone_registry.o \
+	zonedball/zone_infos.o \
+	zonedball/zone_policies.o \
+	zonedball/zone_registry.o \
 	zonedbtesting/zone_infos.o \
 	zonedbtesting/zone_policies.o \
 	zonedbtesting/zone_registry.o
@@ -29,7 +29,7 @@ acetimec.a: $(OBJS) Makefile
 	$(AR) -c -v -r $@ $(OBJS)
 
 zonedbs:
-	make -C zonedb
+	make -C zonedball
 	make -C zonedbtesting
 
 clean:
