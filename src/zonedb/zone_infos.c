@@ -13,7 +13,7 @@
 //     --until_at_granularity 1
 //     --generate_int16_years
 //     --generate_hires
-//     --start_year 1800
+//     --start_year 2000
 //     --until_year 10000
 //     --nocompress
 //
@@ -35,41 +35,41 @@
 // Unsupported Zones: 0 (0 zones, 0 links)
 //
 // Original Years:  [1844,2087]
-// Generated Years: [1844,2087]
-// Estimator Years: [1800,2090]
-// Max Buffer Size: 8
+// Generated Years: [1950,2087]
+// Estimator Years: [1950,2090]
+// Max Buffer Size: 7
 //
 // Records:
 //   Infos: 596
-//   Eras: 1952
-//   Policies: 134
-//   Rules: 2158
+//   Eras: 647
+//   Policies: 83
+//   Rules: 655
 //
 // Memory (8-bits):
-//   Rules: 25896
-//   Policies: 402
-//   Eras: 29280
+//   Rules: 7860
+//   Policies: 249
+//   Eras: 9705
 //   Zones: 4563
 //   Links: 3185
 //   Registry: 1192
-//   Formats: 1032
-//   Letters: 160
+//   Formats: 597
+//   Letters: 46
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 74786
+//   TOTAL: 36473
 //
 // Memory (32-bits):
-//   Rules: 25896
-//   Policies: 1072
-//   Eras: 39040
+//   Rules: 7860
+//   Policies: 664
+//   Eras: 12940
 //   Zones: 8424
 //   Links: 5880
 //   Registry: 2384
-//   Formats: 1032
-//   Letters: 216
+//   Formats: 597
+//   Letters: 64
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 93020
+//   TOTAL: 47889
 //
 // DO NOT EDIT
 
@@ -91,69 +91,37 @@ static const char* const kAtcLetters[] = {
 /*0*/ "",
 /*1*/ "+00",
 /*2*/ "+02",
-/*3*/ "+05",
-/*4*/ "-0430",
-/*5*/ "-0530",
-/*6*/ "BDST",
-/*7*/ "BST",
-/*8*/ "CAT",
-/*9*/ "CDT",
-/*10*/ "CPT",
-/*11*/ "CST",
-/*12*/ "CWT",
-/*13*/ "D",
-/*14*/ "DD",
-/*15*/ "EDT",
-/*16*/ "EST",
-/*17*/ "GMT",
-/*18*/ "M",
-/*19*/ "MDST",
-/*20*/ "MMT",
-/*21*/ "MSD",
-/*22*/ "MSK",
-/*23*/ "MST",
-/*24*/ "P",
-/*25*/ "S",
-/*26*/ "W",
-/*27*/ "WAT",
+/*3*/ "CAT",
+/*4*/ "CST",
+/*5*/ "D",
+/*6*/ "DD",
+/*7*/ "S",
+/*8*/ "WAT",
 
 };
 
 const AtcZoneContext kAtcZoneContext = {
-  1800 /*start_year*/,
+  2000 /*start_year*/,
   10000 /*until_year*/,
-  8 /*max_transitions*/,
+  7 /*max_transitions*/,
   kAtcTzDatabaseVersion /*tz_version*/,
   1 /*num_fragments*/,
-  28 /*num_letters*/,
+  9 /*num_letters*/,
   kAtcFragments /*fragments*/,
   kAtcLetters /*letters*/,
 };
 
 //---------------------------------------------------------------------------
 // Zones: 351
-// Eras: 1952
+// Eras: 647
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Abidjan
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Abidjan[]  = {
-  // -0:16:08 - LMT 1912
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -65 /*offset_code (-968/15)*/,
-    7 /*offset_remainder (-968%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              0:00    -    GMT
   {
     NULL /*zone_policy*/,
@@ -176,134 +144,17 @@ const AtcZoneInfo kAtcZoneAfrica_Abidjan  = {
   kAtcZoneNameAfrica_Abidjan /*name*/,
   0xc21305a3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Algiers
-// Zone Eras: 10
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Algiers[]  = {
-  // 0:12:12 - LMT 1891 Mar 16
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    48 /*offset_code (732/15)*/,
-    12 /*offset_remainder (732%15)*/,
-    0 /*delta_minutes*/,
-    1891 /*until_year*/,
-    3 /*until_month*/,
-    16 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:09:21    -    PMT    1911 Mar 11
-  {
-    NULL /*zone_policy*/,
-    "PMT" /*format*/,
-    37 /*offset_code (561/15)*/,
-    6 /*offset_remainder (561%15)*/,
-    0 /*delta_minutes*/,
-    1911 /*until_year*/,
-    3 /*until_month*/,
-    11 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:00    Algeria    WE%sT    1940 Feb 25  2:00
-  {
-    &kAtcZonePolicyAlgeria /*zone_policy*/,
-    "WE%T" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1940 /*until_year*/,
-    2 /*until_month*/,
-    25 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Algeria    CE%sT    1946 Oct  7
-  {
-    &kAtcZonePolicyAlgeria /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    10 /*until_month*/,
-    7 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:00    -    WET    1956 Jan 29
-  {
-    NULL /*zone_policy*/,
-    "WET" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1956 /*until_year*/,
-    1 /*until_month*/,
-    29 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    -    CET    1963 Apr 14
-  {
-    NULL /*zone_policy*/,
-    "CET" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1963 /*until_year*/,
-    4 /*until_month*/,
-    14 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:00    Algeria    WE%sT    1977 Oct 21
-  {
-    &kAtcZonePolicyAlgeria /*zone_policy*/,
-    "WE%T" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1977 /*until_year*/,
-    10 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Algeria    CE%sT    1979 Oct 26
-  {
-    &kAtcZonePolicyAlgeria /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1979 /*until_year*/,
-    10 /*until_month*/,
-    26 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:00    Algeria    WE%sT    1981 May
-  {
-    &kAtcZonePolicyAlgeria /*zone_policy*/,
-    "WE%T" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    -    CET
   {
     NULL /*zone_policy*/,
@@ -326,43 +177,17 @@ const AtcZoneInfo kAtcZoneAfrica_Algiers  = {
   kAtcZoneNameAfrica_Algiers /*name*/,
   0xd94515c1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Algiers /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Bissau
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Bissau[]  = {
-  // -1:02:20 - LMT 1912 Jan 1 1:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -250 /*offset_code (-3740/15)*/,
-    10 /*offset_remainder (-3740%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    240 /*until_time_code (3600/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -1:00    -    -01    1975
-  {
-    NULL /*zone_policy*/,
-    "-01" /*format*/,
-    -240 /*offset_code (-3600/15)*/,
-    0 /*offset_remainder (-3600%15)*/,
-    0 /*delta_minutes*/,
-    1975 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              0:00    -    GMT
   {
     NULL /*zone_policy*/,
@@ -385,30 +210,17 @@ const AtcZoneInfo kAtcZoneAfrica_Bissau  = {
   kAtcZoneNameAfrica_Bissau /*name*/,
   0x75564141 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Bissau /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Cairo
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Cairo[]  = {
-  // 2:05:09 - LMT 1900 Oct
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    500 /*offset_code (7509/15)*/,
-    9 /*offset_remainder (7509%15)*/,
-    0 /*delta_minutes*/,
-    1900 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    Egypt    EE%sT
   {
     &kAtcZonePolicyEgypt /*zone_policy*/,
@@ -431,56 +243,17 @@ const AtcZoneInfo kAtcZoneAfrica_Cairo  = {
   kAtcZoneNameAfrica_Cairo /*name*/,
   0x77f8e228 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Cairo /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Casablanca
-// Zone Eras: 5
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Casablanca[]  = {
-  // -0:30:20 - LMT 1913 Oct 26
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -122 /*offset_code (-1820/15)*/,
-    10 /*offset_remainder (-1820%15)*/,
-    0 /*delta_minutes*/,
-    1913 /*until_year*/,
-    10 /*until_month*/,
-    26 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              0:00    Morocco    +00/+01    1984 Mar 16
-  {
-    &kAtcZonePolicyMorocco /*zone_policy*/,
-    "+00/+01" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1984 /*until_year*/,
-    3 /*until_month*/,
-    16 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              1:00    -    +01    1986
-  {
-    NULL /*zone_policy*/,
-    "+01" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1986 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              0:00    Morocco    +00/+01    2018 Oct 28  3:00
   {
     &kAtcZonePolicyMorocco /*zone_policy*/,
@@ -516,121 +289,17 @@ const AtcZoneInfo kAtcZoneAfrica_Casablanca  = {
   kAtcZoneNameAfrica_Casablanca /*name*/,
   0xc59f1b33 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAfrica_Casablanca /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Ceuta
-// Zone Eras: 9
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Ceuta[]  = {
-  // -0:21:16 - LMT 1901 Jan 1 0:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -86 /*offset_code (-1276/15)*/,
-    14 /*offset_remainder (-1276%15)*/,
-    0 /*delta_minutes*/,
-    1901 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //              0:00    -    WET    1918 May  6 23:00
-  {
-    NULL /*zone_policy*/,
-    "WET" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1918 /*until_year*/,
-    5 /*until_month*/,
-    6 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              0:00    1:00    WEST    1918 Oct  7 23:00
-  {
-    NULL /*zone_policy*/,
-    "WEST" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    60 /*delta_minutes*/,
-    1918 /*until_year*/,
-    10 /*until_month*/,
-    7 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              0:00    -    WET    1924
-  {
-    NULL /*zone_policy*/,
-    "WET" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              0:00    Spain    WE%sT    1929
-  {
-    &kAtcZonePolicySpain /*zone_policy*/,
-    "WE%T" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1929 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              0:00    -    WET    1967
-  {
-    NULL /*zone_policy*/,
-    "WET" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1967 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              0:00 SpainAfrica WE%sT    1984 Mar 16
-  {
-    &kAtcZonePolicySpainAfrica /*zone_policy*/,
-    "WE%T" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1984 /*until_year*/,
-    3 /*until_month*/,
-    16 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              1:00    -    CET    1986
-  {
-    NULL /*zone_policy*/,
-    "CET" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1986 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              1:00    EU    CE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -653,43 +322,17 @@ const AtcZoneInfo kAtcZoneAfrica_Ceuta  = {
   kAtcZoneNameAfrica_Ceuta /*name*/,
   0x77fb46ec /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Ceuta /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/El_Aaiun
-// Zone Eras: 4
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_El_Aaiun[]  = {
-  // -0:52:48 - LMT 1934 Jan
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -212 /*offset_code (-3168/15)*/,
-    12 /*offset_remainder (-3168%15)*/,
-    0 /*delta_minutes*/,
-    1934 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -1:00    -    -01    1976 Apr 14
-  {
-    NULL /*zone_policy*/,
-    "-01" /*format*/,
-    -240 /*offset_code (-3600/15)*/,
-    0 /*offset_remainder (-3600%15)*/,
-    0 /*delta_minutes*/,
-    1976 /*until_year*/,
-    4 /*until_month*/,
-    14 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              0:00    Morocco    +00/+01    2018 Oct 28  3:00
   {
     &kAtcZonePolicyMorocco /*zone_policy*/,
@@ -725,43 +368,17 @@ const AtcZoneInfo kAtcZoneAfrica_El_Aaiun  = {
   kAtcZoneNameAfrica_El_Aaiun /*name*/,
   0x9d6fb118 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAfrica_El_Aaiun /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Johannesburg
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Johannesburg[]  = {
-  // 1:52:00 - LMT 1892 Feb 8
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    448 /*offset_code (6720/15)*/,
-    0 /*offset_remainder (6720%15)*/,
-    0 /*delta_minutes*/,
-    1892 /*until_year*/,
-    2 /*until_month*/,
-    8 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:30    -    SAST    1903 Mar
-  {
-    NULL /*zone_policy*/,
-    "SAST" /*format*/,
-    360 /*offset_code (5400/15)*/,
-    0 /*offset_remainder (5400%15)*/,
-    0 /*delta_minutes*/,
-    1903 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    SA    SAST
   {
     &kAtcZonePolicySA /*zone_policy*/,
@@ -784,30 +401,17 @@ const AtcZoneInfo kAtcZoneAfrica_Johannesburg  = {
   kAtcZoneNameAfrica_Johannesburg /*name*/,
   0xd5d157a0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Johannesburg /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Juba
-// Zone Eras: 4
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Juba[]  = {
-  // 2:06:28 - LMT 1931
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    505 /*offset_code (7588/15)*/,
-    13 /*offset_remainder (7588%15)*/,
-    0 /*delta_minutes*/,
-    1931 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    Sudan    CA%sT    2000 Jan 15 12:00
   {
     &kAtcZonePolicySudan /*zone_policy*/,
@@ -856,30 +460,17 @@ const AtcZoneInfo kAtcZoneAfrica_Juba  = {
   kAtcZoneNameAfrica_Juba /*name*/,
   0xd51b395c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAfrica_Juba /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Khartoum
-// Zone Eras: 4
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Khartoum[]  = {
-  // 2:10:08 - LMT 1931
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    520 /*offset_code (7808/15)*/,
-    8 /*offset_remainder (7808%15)*/,
-    0 /*delta_minutes*/,
-    1931 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    Sudan    CA%sT    2000 Jan 15 12:00
   {
     &kAtcZonePolicySudan /*zone_policy*/,
@@ -928,69 +519,17 @@ const AtcZoneInfo kAtcZoneAfrica_Khartoum  = {
   kAtcZoneNameAfrica_Khartoum /*name*/,
   0xfb3d4205 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAfrica_Khartoum /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Lagos
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Lagos[]  = {
-  // 0:13:35 - LMT 1905 Jul 1
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    54 /*offset_code (815/15)*/,
-    5 /*offset_remainder (815%15)*/,
-    0 /*delta_minutes*/,
-    1905 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:00    -    GMT    1908 Jul  1
-  {
-    NULL /*zone_policy*/,
-    "GMT" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1908 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:13:35    -    LMT    1914 Jan  1
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    54 /*offset_code (815/15)*/,
-    5 /*offset_remainder (815%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:30    -    +0030    1919 Sep  1
-  {
-    NULL /*zone_policy*/,
-    "+0030" /*format*/,
-    120 /*offset_code (1800/15)*/,
-    0 /*offset_remainder (1800%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    -    WAT
   {
     NULL /*zone_policy*/,
@@ -1013,30 +552,17 @@ const AtcZoneInfo kAtcZoneAfrica_Lagos  = {
   kAtcZoneNameAfrica_Lagos /*name*/,
   0x789bb5d0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Maputo
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Maputo[]  = {
-  // 2:10:20 - LMT 1903 Mar
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    521 /*offset_code (7820/15)*/,
-    5 /*offset_remainder (7820%15)*/,
-    0 /*delta_minutes*/,
-    1903 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    -    CAT
   {
     NULL /*zone_policy*/,
@@ -1059,56 +585,17 @@ const AtcZoneInfo kAtcZoneAfrica_Maputo  = {
   kAtcZoneNameAfrica_Maputo /*name*/,
   0x8e6ca1f0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Monrovia
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Monrovia[]  = {
-  // -0:43:08 - LMT 1882
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -173 /*offset_code (-2588/15)*/,
-    7 /*offset_remainder (-2588%15)*/,
-    0 /*delta_minutes*/,
-    1882 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -0:43:08 -    MMT    1919 Mar
-  {
-    NULL /*zone_policy*/,
-    "MMT" /*format*/,
-    -173 /*offset_code (-2588/15)*/,
-    7 /*offset_remainder (-2588%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -0:44:30 -    MMT    1972 Jan 7
-  {
-    NULL /*zone_policy*/,
-    "MMT" /*format*/,
-    -178 /*offset_code (-2670/15)*/,
-    0 /*offset_remainder (-2670%15)*/,
-    0 /*delta_minutes*/,
-    1972 /*until_year*/,
-    1 /*until_month*/,
-    7 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              0:00    -    GMT
   {
     NULL /*zone_policy*/,
@@ -1131,82 +618,17 @@ const AtcZoneInfo kAtcZoneAfrica_Monrovia  = {
   kAtcZoneNameAfrica_Monrovia /*name*/,
   0x0ce90385 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Monrovia /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Nairobi
-// Zone Eras: 6
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Nairobi[]  = {
-  // 2:27:16 - LMT 1908 May
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    589 /*offset_code (8836/15)*/,
-    1 /*offset_remainder (8836%15)*/,
-    0 /*delta_minutes*/,
-    1908 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:30    -    +0230    1928 Jun 30 24:00
-  {
-    NULL /*zone_policy*/,
-    "+0230" /*format*/,
-    600 /*offset_code (9000/15)*/,
-    0 /*offset_remainder (9000%15)*/,
-    0 /*delta_minutes*/,
-    1928 /*until_year*/,
-    6 /*until_month*/,
-    30 /*until_day*/,
-    5760 /*until_time_code (86400/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    -    EAT    1930 Jan  4 24:00
-  {
-    NULL /*zone_policy*/,
-    "EAT" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    1 /*until_month*/,
-    4 /*until_day*/,
-    5760 /*until_time_code (86400/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:30    -    +0230    1936 Dec 31 24:00
-  {
-    NULL /*zone_policy*/,
-    "+0230" /*format*/,
-    600 /*offset_code (9000/15)*/,
-    0 /*offset_remainder (9000%15)*/,
-    0 /*delta_minutes*/,
-    1936 /*until_year*/,
-    12 /*until_month*/,
-    31 /*until_day*/,
-    5760 /*until_time_code (86400/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:45    -    +0245    1942 Jul 31 24:00
-  {
-    NULL /*zone_policy*/,
-    "+0245" /*format*/,
-    660 /*offset_code (9900/15)*/,
-    0 /*offset_remainder (9900%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    7 /*until_month*/,
-    31 /*until_day*/,
-    5760 /*until_time_code (86400/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             3:00    -    EAT
   {
     NULL /*zone_policy*/,
@@ -1229,56 +651,17 @@ const AtcZoneInfo kAtcZoneAfrica_Nairobi  = {
   kAtcZoneNameAfrica_Nairobi /*name*/,
   0xa87ab57e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Ndjamena
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Ndjamena[]  = {
-  // 1:00:12 - LMT 1912
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    240 /*offset_code (3612/15)*/,
-    12 /*offset_remainder (3612%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    -    WAT    1979 Oct 14
-  {
-    NULL /*zone_policy*/,
-    "WAT" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1979 /*until_year*/,
-    10 /*until_month*/,
-    14 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    1:00    WAST    1980 Mar  8
-  {
-    NULL /*zone_policy*/,
-    "WAST" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    60 /*delta_minutes*/,
-    1980 /*until_year*/,
-    3 /*until_month*/,
-    8 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    -    WAT
   {
     NULL /*zone_policy*/,
@@ -1301,43 +684,17 @@ const AtcZoneInfo kAtcZoneAfrica_Ndjamena  = {
   kAtcZoneNameAfrica_Ndjamena /*name*/,
   0x9fe09898 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Ndjamena /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Sao_Tome
-// Zone Eras: 5
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Sao_Tome[]  = {
-  // 0:26:56 - LMT 1884
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    107 /*offset_code (1616/15)*/,
-    11 /*offset_remainder (1616%15)*/,
-    0 /*delta_minutes*/,
-    1884 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -0:36:45 -    LMT    1912 Jan  1 00:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -147 /*offset_code (-2205/15)*/,
-    0 /*offset_remainder (-2205%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
   //              0:00    -    GMT    2018 Jan  1 01:00
   {
     NULL /*zone_policy*/,
@@ -1386,95 +743,17 @@ const AtcZoneInfo kAtcZoneAfrica_Sao_Tome  = {
   kAtcZoneNameAfrica_Sao_Tome /*name*/,
   0x61b319d1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAfrica_Sao_Tome /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Tripoli
-// Zone Eras: 9
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Tripoli[]  = {
-  // 0:52:44 - LMT 1920
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    210 /*offset_code (3164/15)*/,
-    14 /*offset_remainder (3164%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Libya    CE%sT    1959
-  {
-    &kAtcZonePolicyLibya /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1959 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    -    EET    1982
-  {
-    NULL /*zone_policy*/,
-    "EET" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1982 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Libya    CE%sT    1990 May  4
-  {
-    &kAtcZonePolicyLibya /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    5 /*until_month*/,
-    4 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    -    EET    1996 Sep 30
-  {
-    NULL /*zone_policy*/,
-    "EET" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    9 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Libya    CE%sT    1997 Oct  4
-  {
-    &kAtcZonePolicyLibya /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1997 /*until_year*/,
-    10 /*until_month*/,
-    4 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    -    EET    2012 Nov 10  2:00
   {
     NULL /*zone_policy*/,
@@ -1523,43 +802,17 @@ const AtcZoneInfo kAtcZoneAfrica_Tripoli  = {
   kAtcZoneNameAfrica_Tripoli /*name*/,
   0x9dfebd3d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAfrica_Tripoli /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Tunis
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Tunis[]  = {
-  // 0:40:44 - LMT 1881 May 12
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    162 /*offset_code (2444/15)*/,
-    14 /*offset_remainder (2444%15)*/,
-    0 /*delta_minutes*/,
-    1881 /*until_year*/,
-    5 /*until_month*/,
-    12 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:09:21    -    PMT    1911 Mar 11
-  {
-    NULL /*zone_policy*/,
-    "PMT" /*format*/,
-    37 /*offset_code (561/15)*/,
-    6 /*offset_remainder (561%15)*/,
-    0 /*delta_minutes*/,
-    1911 /*until_year*/,
-    3 /*until_month*/,
-    11 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    Tunisia    CE%sT
   {
     &kAtcZonePolicyTunisia /*zone_policy*/,
@@ -1582,82 +835,17 @@ const AtcZoneInfo kAtcZoneAfrica_Tunis  = {
   kAtcZoneNameAfrica_Tunis /*name*/,
   0x79378e6d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Tunis /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Windhoek
-// Zone Eras: 6
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Windhoek[]  = {
-  // 1:08:24 - LMT 1892 Feb 8
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    273 /*offset_code (4104/15)*/,
-    9 /*offset_remainder (4104%15)*/,
-    0 /*delta_minutes*/,
-    1892 /*until_year*/,
-    2 /*until_month*/,
-    8 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:30    -    +0130    1903 Mar
-  {
-    NULL /*zone_policy*/,
-    "+0130" /*format*/,
-    360 /*offset_code (5400/15)*/,
-    0 /*offset_remainder (5400%15)*/,
-    0 /*delta_minutes*/,
-    1903 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    -    SAST    1942 Sep 20  2:00
-  {
-    NULL /*zone_policy*/,
-    "SAST" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    9 /*until_month*/,
-    20 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    1:00    SAST    1943 Mar 21  2:00
-  {
-    NULL /*zone_policy*/,
-    "SAST" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    60 /*delta_minutes*/,
-    1943 /*until_year*/,
-    3 /*until_month*/,
-    21 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    -    SAST    1990 Mar 21
-  {
-    NULL /*zone_policy*/,
-    "SAST" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    3 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    Namibia    %s
   {
     &kAtcZonePolicyNamibia /*zone_policy*/,
@@ -1680,121 +868,17 @@ const AtcZoneInfo kAtcZoneAfrica_Windhoek  = {
   kAtcZoneNameAfrica_Windhoek /*name*/,
   0x789c9bd3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Windhoek /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Adak
-// Zone Eras: 9
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Adak[]  = {
-  // 12:13:22 - LMT 1867 Oct 19 12:44:35
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2933 /*offset_code (44002/15)*/,
-    7 /*offset_remainder (44002%15)*/,
-    0 /*delta_minutes*/,
-    1867 /*until_year*/,
-    10 /*until_month*/,
-    19 /*until_day*/,
-    3058 /*until_time_code (45875/15)*/,
-    5 /*until_time_modifier (kAtcSuffixW + seconds=5)*/,
-  },
-  //             -11:46:38 -    LMT    1900 Aug 20 12:00
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2827 /*offset_code (-42398/15)*/,
-    7 /*offset_remainder (-42398%15)*/,
-    0 /*delta_minutes*/,
-    1900 /*until_year*/,
-    8 /*until_month*/,
-    20 /*until_day*/,
-    2880 /*until_time_code (43200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -11:00    -    NST    1942
-  {
-    NULL /*zone_policy*/,
-    "NST" /*format*/,
-    -2640 /*offset_code (-39600/15)*/,
-    0 /*offset_remainder (-39600%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -11:00    US    N%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "N%T" /*format*/,
-    -2640 /*offset_code (-39600/15)*/,
-    0 /*offset_remainder (-39600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -11:00    -    NST    1967 Apr
-  {
-    NULL /*zone_policy*/,
-    "NST" /*format*/,
-    -2640 /*offset_code (-39600/15)*/,
-    0 /*offset_remainder (-39600%15)*/,
-    0 /*delta_minutes*/,
-    1967 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -11:00    -    BST    1969
-  {
-    NULL /*zone_policy*/,
-    "BST" /*format*/,
-    -2640 /*offset_code (-39600/15)*/,
-    0 /*offset_remainder (-39600%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -11:00    US    B%sT    1983 Oct 30  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "B%T" /*format*/,
-    -2640 /*offset_code (-39600/15)*/,
-    0 /*offset_remainder (-39600%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    10 /*until_month*/,
-    30 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -10:00    US    AH%sT    1983 Nov 30
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "AH%T" /*format*/,
-    -2400 /*offset_code (-36000/15)*/,
-    0 /*offset_remainder (-36000%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    11 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -10:00    US    H%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -1817,108 +901,17 @@ const AtcZoneInfo kAtcZoneAmerica_Adak  = {
   kAtcZoneNameAmerica_Adak /*name*/,
   0x97fe49d7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Adak /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Anchorage
-// Zone Eras: 8
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Anchorage[]  = {
-  // 14:00:24 - LMT 1867 Oct 19 14:31:37
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    3361 /*offset_code (50424/15)*/,
-    9 /*offset_remainder (50424%15)*/,
-    0 /*delta_minutes*/,
-    1867 /*until_year*/,
-    10 /*until_month*/,
-    19 /*until_day*/,
-    3486 /*until_time_code (52297/15)*/,
-    7 /*until_time_modifier (kAtcSuffixW + seconds=7)*/,
-  },
-  //              -9:59:36 -    LMT    1900 Aug 20 12:00
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2399 /*offset_code (-35976/15)*/,
-    9 /*offset_remainder (-35976%15)*/,
-    0 /*delta_minutes*/,
-    1900 /*until_year*/,
-    8 /*until_month*/,
-    20 /*until_day*/,
-    2880 /*until_time_code (43200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -10:00    -    AST    1942
-  {
-    NULL /*zone_policy*/,
-    "AST" /*format*/,
-    -2400 /*offset_code (-36000/15)*/,
-    0 /*offset_remainder (-36000%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -10:00    US    A%sT    1967 Apr
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "A%T" /*format*/,
-    -2400 /*offset_code (-36000/15)*/,
-    0 /*offset_remainder (-36000%15)*/,
-    0 /*delta_minutes*/,
-    1967 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -10:00    -    AHST    1969
-  {
-    NULL /*zone_policy*/,
-    "AHST" /*format*/,
-    -2400 /*offset_code (-36000/15)*/,
-    0 /*offset_remainder (-36000%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -10:00    US    AH%sT    1983 Oct 30  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "AH%T" /*format*/,
-    -2400 /*offset_code (-36000/15)*/,
-    0 /*offset_remainder (-36000%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    10 /*until_month*/,
-    30 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -9:00    US    Y%sT    1983 Nov 30
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "Y%T" /*format*/,
-    -2160 /*offset_code (-32400/15)*/,
-    0 /*offset_remainder (-32400%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    11 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              -9:00    US    AK%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -1941,56 +934,17 @@ const AtcZoneInfo kAtcZoneAmerica_Anchorage  = {
   kAtcZoneNameAmerica_Anchorage /*name*/,
   0x5a79260e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Anchorage /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Araguaina
-// Zone Eras: 7
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Araguaina[]  = {
-  // -3:12:48 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -772 /*offset_code (-11568/15)*/,
-    12 /*offset_remainder (-11568%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Brazil    -03/-02    1990 Sep 17
-  {
-    &kAtcZonePolicyBrazil /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    9 /*until_month*/,
-    17 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    -    -03    1995 Sep 14
-  {
-    NULL /*zone_policy*/,
-    "-03" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1995 /*until_year*/,
-    9 /*until_month*/,
-    14 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    Brazil    -03/-02    2003 Sep 24
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
@@ -2052,69 +1006,17 @@ const AtcZoneInfo kAtcZoneAmerica_Araguaina  = {
   kAtcZoneNameAmerica_Araguaina /*name*/,
   0x6f9a3aef /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAmerica_Araguaina /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Buenos_Aires
-// Zone Eras: 7
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Buenos_Aires[]  = {
-  // -3:53:48 - LMT 1894 Oct 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -936 /*offset_code (-14028/15)*/,
-    12 /*offset_remainder (-14028%15)*/,
-    0 /*delta_minutes*/,
-    1894 /*until_year*/,
-    10 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:16:48 -    CMT    1920 May
-  {
-    NULL /*zone_policy*/,
-    "CMT" /*format*/,
-    -1028 /*offset_code (-15408/15)*/,
-    12 /*offset_remainder (-15408%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1930 Dec
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Arg    -04/-03    1969 Oct  5
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    10 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
@@ -2163,95 +1065,17 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Buenos_Aires  = {
   kAtcZoneNameAmerica_Argentina_Buenos_Aires /*name*/,
   0xd43b4c0d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Buenos_Aires /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Catamarca
-// Zone Eras: 12
+// Zone Eras: 6
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Catamarca[]  = {
-  // -4:23:08 - LMT 1894 Oct 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1053 /*offset_code (-15788/15)*/,
-    7 /*offset_remainder (-15788%15)*/,
-    0 /*delta_minutes*/,
-    1894 /*until_year*/,
-    10 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:16:48 -    CMT    1920 May
-  {
-    NULL /*zone_policy*/,
-    "CMT" /*format*/,
-    -1028 /*offset_code (-15408/15)*/,
-    12 /*offset_remainder (-15408%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1930 Dec
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Arg    -04/-03    1969 Oct  5
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    10 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Arg    -03/-02    1991 Mar  3
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    3 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1991 Oct 20
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    10 /*until_month*/,
-    20 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
@@ -2339,95 +1163,17 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Catamarca  = {
   kAtcZoneNameAmerica_Argentina_Catamarca /*name*/,
   0x8d40986b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  12 /*num_eras*/,
+  6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Catamarca /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Cordoba
-// Zone Eras: 9
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Cordoba[]  = {
-  // -4:16:48 - LMT 1894 Oct 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1028 /*offset_code (-15408/15)*/,
-    12 /*offset_remainder (-15408%15)*/,
-    0 /*delta_minutes*/,
-    1894 /*until_year*/,
-    10 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:16:48 -    CMT    1920 May
-  {
-    NULL /*zone_policy*/,
-    "CMT" /*format*/,
-    -1028 /*offset_code (-15408/15)*/,
-    12 /*offset_remainder (-15408%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1930 Dec
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Arg    -04/-03    1969 Oct  5
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    10 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Arg    -03/-02    1991 Mar  3
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    3 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1991 Oct 20
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    10 /*until_month*/,
-    20 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
@@ -2476,134 +1222,17 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Cordoba  = {
   kAtcZoneNameAmerica_Argentina_Cordoba /*name*/,
   0xbfccc308 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Cordoba /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Jujuy
-// Zone Eras: 13
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Jujuy[]  = {
-  // -4:21:12 - LMT 1894 Oct 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1045 /*offset_code (-15672/15)*/,
-    3 /*offset_remainder (-15672%15)*/,
-    0 /*delta_minutes*/,
-    1894 /*until_year*/,
-    10 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:16:48 -    CMT    1920 May
-  {
-    NULL /*zone_policy*/,
-    "CMT" /*format*/,
-    -1028 /*offset_code (-15408/15)*/,
-    12 /*offset_remainder (-15408%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1930 Dec
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Arg    -04/-03    1969 Oct  5
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    10 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Arg    -03/-02    1990 Mar  4
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    3 /*until_month*/,
-    4 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1990 Oct 28
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    10 /*until_month*/,
-    28 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    1:00    -03    1991 Mar 17
-  {
-    NULL /*zone_policy*/,
-    "-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    60 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    17 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1991 Oct  6
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    10 /*until_month*/,
-    6 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    1:00    -02    1992
-  {
-    NULL /*zone_policy*/,
-    "-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    60 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
@@ -2665,95 +1294,17 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Jujuy  = {
   kAtcZoneNameAmerica_Argentina_Jujuy /*name*/,
   0x5f2f46c5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  13 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Jujuy /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/La_Rioja
-// Zone Eras: 12
+// Zone Eras: 6
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_La_Rioja[]  = {
-  // -4:27:24 - LMT 1894 Oct 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1070 /*offset_code (-16044/15)*/,
-    6 /*offset_remainder (-16044%15)*/,
-    0 /*delta_minutes*/,
-    1894 /*until_year*/,
-    10 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:16:48 -    CMT    1920 May
-  {
-    NULL /*zone_policy*/,
-    "CMT" /*format*/,
-    -1028 /*offset_code (-15408/15)*/,
-    12 /*offset_remainder (-15408%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1930 Dec
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Arg    -04/-03    1969 Oct  5
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    10 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Arg    -03/-02    1991 Mar  1
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1991 May  7
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    5 /*until_month*/,
-    7 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
@@ -2841,147 +1392,17 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_La_Rioja  = {
   kAtcZoneNameAmerica_Argentina_La_Rioja /*name*/,
   0xa46b7eef /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  12 /*num_eras*/,
+  6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_La_Rioja /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Mendoza
-// Zone Eras: 16
+// Zone Eras: 6
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Mendoza[]  = {
-  // -4:35:16 - LMT 1894 Oct 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1102 /*offset_code (-16516/15)*/,
-    14 /*offset_remainder (-16516%15)*/,
-    0 /*delta_minutes*/,
-    1894 /*until_year*/,
-    10 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:16:48 -    CMT    1920 May
-  {
-    NULL /*zone_policy*/,
-    "CMT" /*format*/,
-    -1028 /*offset_code (-15408/15)*/,
-    12 /*offset_remainder (-15408%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1930 Dec
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Arg    -04/-03    1969 Oct  5
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    10 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Arg    -03/-02    1990 Mar  4
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    3 /*until_month*/,
-    4 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1990 Oct 15
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    10 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    1:00    -03    1991 Mar  1
-  {
-    NULL /*zone_policy*/,
-    "-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    60 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1991 Oct 15
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    10 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    1:00    -03    1992 Mar  1
-  {
-    NULL /*zone_policy*/,
-    "-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    60 /*delta_minutes*/,
-    1992 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1992 Oct 18
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    10 /*until_month*/,
-    18 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
@@ -3069,69 +1490,17 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Mendoza  = {
   kAtcZoneNameAmerica_Argentina_Mendoza /*name*/,
   0xa9f72d5c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  16 /*num_eras*/,
+  6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Mendoza /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Rio_Gallegos
-// Zone Eras: 10
+// Zone Eras: 6
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Rio_Gallegos[]  = {
-  // -4:36:52 - LMT 1894 Oct 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1108 /*offset_code (-16612/15)*/,
-    8 /*offset_remainder (-16612%15)*/,
-    0 /*delta_minutes*/,
-    1894 /*until_year*/,
-    10 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:16:48 -    CMT    1920 May
-  {
-    NULL /*zone_policy*/,
-    "CMT" /*format*/,
-    -1028 /*offset_code (-15408/15)*/,
-    12 /*offset_remainder (-15408%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1930 Dec
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Arg    -04/-03    1969 Oct  5
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    10 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
@@ -3219,95 +1588,17 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Rio_Gallegos  = {
   kAtcZoneNameAmerica_Argentina_Rio_Gallegos /*name*/,
   0xc5b0f565 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Rio_Gallegos /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Salta
-// Zone Eras: 10
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Salta[]  = {
-  // -4:21:40 - LMT 1894 Oct 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1047 /*offset_code (-15700/15)*/,
-    5 /*offset_remainder (-15700%15)*/,
-    0 /*delta_minutes*/,
-    1894 /*until_year*/,
-    10 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:16:48 -    CMT    1920 May
-  {
-    NULL /*zone_policy*/,
-    "CMT" /*format*/,
-    -1028 /*offset_code (-15408/15)*/,
-    12 /*offset_remainder (-15408%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1930 Dec
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Arg    -04/-03    1969 Oct  5
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    10 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Arg    -03/-02    1991 Mar  3
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    3 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1991 Oct 20
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    10 /*until_month*/,
-    20 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
@@ -3369,95 +1660,17 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Salta  = {
   kAtcZoneNameAmerica_Argentina_Salta /*name*/,
   0x5fc73403 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Salta /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/San_Juan
-// Zone Eras: 12
+// Zone Eras: 6
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Juan[]  = {
-  // -4:34:04 - LMT 1894 Oct 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1097 /*offset_code (-16444/15)*/,
-    11 /*offset_remainder (-16444%15)*/,
-    0 /*delta_minutes*/,
-    1894 /*until_year*/,
-    10 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:16:48 -    CMT    1920 May
-  {
-    NULL /*zone_policy*/,
-    "CMT" /*format*/,
-    -1028 /*offset_code (-15408/15)*/,
-    12 /*offset_remainder (-15408%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1930 Dec
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Arg    -04/-03    1969 Oct  5
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    10 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Arg    -03/-02    1991 Mar  1
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1991 May  7
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    5 /*until_month*/,
-    7 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
@@ -3545,134 +1758,17 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_San_Juan  = {
   kAtcZoneNameAmerica_Argentina_San_Juan /*name*/,
   0x3e1009bd /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  12 /*num_eras*/,
+  6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_San_Juan /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/San_Luis
-// Zone Eras: 16
+// Zone Eras: 7
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Luis[]  = {
-  // -4:25:24 - LMT 1894 Oct 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1062 /*offset_code (-15924/15)*/,
-    6 /*offset_remainder (-15924%15)*/,
-    0 /*delta_minutes*/,
-    1894 /*until_year*/,
-    10 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:16:48 -    CMT    1920 May
-  {
-    NULL /*zone_policy*/,
-    "CMT" /*format*/,
-    -1028 /*offset_code (-15408/15)*/,
-    12 /*offset_remainder (-15408%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1930 Dec
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Arg    -04/-03    1969 Oct  5
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    10 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Arg    -03/-02    1990
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    1:00    -02    1990 Mar 14
-  {
-    NULL /*zone_policy*/,
-    "-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    60 /*delta_minutes*/,
-    1990 /*until_year*/,
-    3 /*until_month*/,
-    14 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1990 Oct 15
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    10 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    1:00    -03    1991 Mar  1
-  {
-    NULL /*zone_policy*/,
-    "-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    60 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1991 Jun  1
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    6 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    -    -03    1999 Oct  3
   {
     NULL /*zone_policy*/,
@@ -3773,95 +1869,17 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_San_Luis  = {
   kAtcZoneNameAmerica_Argentina_San_Luis /*name*/,
   0x3e11238c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  16 /*num_eras*/,
+  7 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_San_Luis /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Tucuman
-// Zone Eras: 11
+// Zone Eras: 5
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Tucuman[]  = {
-  // -4:20:52 - LMT 1894 Oct 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1044 /*offset_code (-15652/15)*/,
-    8 /*offset_remainder (-15652%15)*/,
-    0 /*delta_minutes*/,
-    1894 /*until_year*/,
-    10 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:16:48 -    CMT    1920 May
-  {
-    NULL /*zone_policy*/,
-    "CMT" /*format*/,
-    -1028 /*offset_code (-15408/15)*/,
-    12 /*offset_remainder (-15408%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1930 Dec
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Arg    -04/-03    1969 Oct  5
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    10 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Arg    -03/-02    1991 Mar  3
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    3 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1991 Oct 20
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    10 /*until_month*/,
-    20 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
@@ -3936,69 +1954,17 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Tucuman  = {
   kAtcZoneNameAmerica_Argentina_Tucuman /*name*/,
   0xe96399eb /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  11 /*num_eras*/,
+  5 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Tucuman /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Ushuaia
-// Zone Eras: 10
+// Zone Eras: 6
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Ushuaia[]  = {
-  // -4:33:12 - LMT 1894 Oct 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1093 /*offset_code (-16392/15)*/,
-    3 /*offset_remainder (-16392%15)*/,
-    0 /*delta_minutes*/,
-    1894 /*until_year*/,
-    10 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:16:48 -    CMT    1920 May
-  {
-    NULL /*zone_policy*/,
-    "CMT" /*format*/,
-    -1028 /*offset_code (-15408/15)*/,
-    12 /*offset_remainder (-15408%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1930 Dec
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Arg    -04/-03    1969 Oct  5
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    10 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    Arg    -03/-02    1999 Oct  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
@@ -4086,69 +2052,17 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Ushuaia  = {
   kAtcZoneNameAmerica_Argentina_Ushuaia /*name*/,
   0x320dcdde /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Ushuaia /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Asuncion
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Asuncion[]  = {
-  // -3:50:40 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -923 /*offset_code (-13840/15)*/,
-    5 /*offset_remainder (-13840%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:50:40 -    AMT    1931 Oct 10
-  {
-    NULL /*zone_policy*/,
-    "AMT" /*format*/,
-    -923 /*offset_code (-13840/15)*/,
-    5 /*offset_remainder (-13840%15)*/,
-    0 /*delta_minutes*/,
-    1931 /*until_year*/,
-    10 /*until_month*/,
-    10 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1972 Oct
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1972 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    -    -03    1974 Apr
-  {
-    NULL /*zone_policy*/,
-    "-03" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1974 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    Para    -04/-03
   {
     &kAtcZonePolicyPara /*zone_policy*/,
@@ -4171,30 +2085,17 @@ const AtcZoneInfo kAtcZoneAmerica_Asuncion  = {
   kAtcZoneNameAmerica_Asuncion /*name*/,
   0x50ec79a6 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Asuncion /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Bahia
-// Zone Eras: 5
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Bahia[]  = {
-  // -2:34:04 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -617 /*offset_code (-9244/15)*/,
-    11 /*offset_remainder (-9244%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    Brazil    -03/-02    2003 Sep 24
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
@@ -4256,108 +2157,17 @@ const AtcZoneInfo kAtcZoneAmerica_Bahia  = {
   kAtcZoneNameAmerica_Bahia /*name*/,
   0x97d815fb /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAmerica_Bahia /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Bahia_Banderas
-// Zone Eras: 9
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Bahia_Banderas[]  = {
-  // -7:01:00 - LMT 1922 Jan 1 7:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1684 /*offset_code (-25260/15)*/,
-    0 /*offset_remainder (-25260%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    1680 /*until_time_code (25200/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -7:00    -    MST    1927 Jun 10 23:00
-  {
-    NULL /*zone_policy*/,
-    "MST" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1927 /*until_year*/,
-    6 /*until_month*/,
-    10 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1930 Nov 15
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    11 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    Mexico    M%sT    1932 Apr  1
-  {
-    &kAtcZonePolicyMexico /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1932 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1942 Apr 24
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    4 /*until_month*/,
-    24 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    -    MST    1949 Jan 14
-  {
-    NULL /*zone_policy*/,
-    "MST" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1949 /*until_year*/,
-    1 /*until_month*/,
-    14 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    -    PST    1970
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1970 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -7:00    Mexico    M%sT    2010 Apr  4  2:00
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
@@ -4393,56 +2203,17 @@ const AtcZoneInfo kAtcZoneAmerica_Bahia_Banderas  = {
   kAtcZoneNameAmerica_Bahia_Banderas /*name*/,
   0x14f6329a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Bahia_Banderas /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Barbados
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Barbados[]  = {
-  // -3:58:29 - LMT 1911 Aug 28
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -954 /*offset_code (-14309/15)*/,
-    1 /*offset_remainder (-14309%15)*/,
-    0 /*delta_minutes*/,
-    1911 /*until_year*/,
-    8 /*until_month*/,
-    28 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Barb    A%sT    1944
-  {
-    &kAtcZonePolicyBarb /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Barb    AST/-0330 1945
-  {
-    &kAtcZonePolicyBarb /*zone_policy*/,
-    "AST/-0330" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    Barb    A%sT
   {
     &kAtcZonePolicyBarb /*zone_policy*/,
@@ -4465,43 +2236,17 @@ const AtcZoneInfo kAtcZoneAmerica_Barbados  = {
   kAtcZoneNameAmerica_Barbados /*name*/,
   0xcbbc3b04 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Barbados /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Belem
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Belem[]  = {
-  // -3:13:56 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -776 /*offset_code (-11636/15)*/,
-    4 /*offset_remainder (-11636%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Brazil    -03/-02    1988 Sep 12
-  {
-    &kAtcZonePolicyBrazil /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1988 /*until_year*/,
-    9 /*until_month*/,
-    12 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
@@ -4524,30 +2269,17 @@ const AtcZoneInfo kAtcZoneAmerica_Belem  = {
   kAtcZoneNameAmerica_Belem /*name*/,
   0x97da580b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Belem /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Belize
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Belize[]  = {
-  // -5:52:48 - LMT 1912 Apr 1
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1412 /*offset_code (-21168/15)*/,
-    12 /*offset_remainder (-21168%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    Belize    %s
   {
     &kAtcZonePolicyBelize /*zone_policy*/,
@@ -4570,43 +2302,17 @@ const AtcZoneInfo kAtcZoneAmerica_Belize  = {
   kAtcZoneNameAmerica_Belize /*name*/,
   0x93256c81 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Belize /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Boa_Vista
-// Zone Eras: 5
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Boa_Vista[]  = {
-  // -4:02:40 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -971 /*offset_code (-14560/15)*/,
-    5 /*offset_remainder (-14560%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Brazil    -04/-03    1988 Sep 12
-  {
-    &kAtcZonePolicyBrazil /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1988 /*until_year*/,
-    9 /*until_month*/,
-    12 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    -    -04    1999 Sep 30
   {
     NULL /*zone_policy*/,
@@ -4655,43 +2361,17 @@ const AtcZoneInfo kAtcZoneAmerica_Boa_Vista  = {
   kAtcZoneNameAmerica_Boa_Vista /*name*/,
   0x0a7b7efe /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Boa_Vista /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Bogota
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Bogota[]  = {
-  // -4:56:16 - LMT 1884 Mar 13
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1186 /*offset_code (-17776/15)*/,
-    14 /*offset_remainder (-17776%15)*/,
-    0 /*delta_minutes*/,
-    1884 /*until_year*/,
-    3 /*until_month*/,
-    13 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:56:16 -    BMT    1914 Nov 23
-  {
-    NULL /*zone_policy*/,
-    "BMT" /*format*/,
-    -1186 /*offset_code (-17776/15)*/,
-    14 /*offset_remainder (-17776%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    11 /*until_month*/,
-    23 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    CO    -05/-04
   {
     &kAtcZonePolicyCO /*zone_policy*/,
@@ -4714,69 +2394,17 @@ const AtcZoneInfo kAtcZoneAmerica_Bogota  = {
   kAtcZoneNameAmerica_Bogota /*name*/,
   0x93d7bc62 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Bogota /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Boise
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Boise[]  = {
-  // -7:44:49 - LMT 1883 Nov 18 20:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1860 /*offset_code (-27889/15)*/,
-    11 /*offset_remainder (-27889%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4800 /*until_time_code (72000/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -8:00    US    P%sT    1923 May 13  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1923 /*until_year*/,
-    5 /*until_month*/,
-    13 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    US    M%sT    1974
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1974 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    -    MST    1974 Feb  3  2:00
-  {
-    NULL /*zone_policy*/,
-    "MST" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1974 /*until_year*/,
-    2 /*until_month*/,
-    3 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -7:00    US    M%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -4799,30 +2427,17 @@ const AtcZoneInfo kAtcZoneAmerica_Boise  = {
   kAtcZoneNameAmerica_Boise /*name*/,
   0x97dfc8d8 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Boise /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Cambridge_Bay
-// Zone Eras: 6
+// Zone Eras: 5
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Cambridge_Bay[]  = {
-  // 0 - -00 1920
-  {
-    NULL /*zone_policy*/,
-    "-00" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -7:00    NT_YK    M%sT    1999 Oct 31  2:00
   {
     &kAtcZonePolicyNT_YK /*zone_policy*/,
@@ -4897,30 +2512,17 @@ const AtcZoneInfo kAtcZoneAmerica_Cambridge_Bay  = {
   kAtcZoneNameAmerica_Cambridge_Bay /*name*/,
   0xd5a44aff /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  5 /*num_eras*/,
   kAtcZoneEraAmerica_Cambridge_Bay /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Campo_Grande
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Campo_Grande[]  = {
-  // -3:38:28 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -874 /*offset_code (-13108/15)*/,
-    2 /*offset_remainder (-13108%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    Brazil    -04/-03
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
@@ -4943,56 +2545,17 @@ const AtcZoneInfo kAtcZoneAmerica_Campo_Grande  = {
   kAtcZoneNameAmerica_Campo_Grande /*name*/,
   0xfec3e7a6 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Campo_Grande /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Cancun
-// Zone Eras: 5
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Cancun[]  = {
-  // -5:47:04 - LMT 1922 Jan 1 6:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1389 /*offset_code (-20824/15)*/,
-    11 /*offset_remainder (-20824%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    1440 /*until_time_code (21600/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1981 Dec 23
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    12 /*until_month*/,
-    23 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    Mexico    E%sT    1998 Aug  2  2:00
-  {
-    &kAtcZonePolicyMexico /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1998 /*until_year*/,
-    8 /*until_month*/,
-    2 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    Mexico    C%sT    2015 Feb  1  2:00
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
@@ -5028,56 +2591,17 @@ const AtcZoneInfo kAtcZoneAmerica_Cancun  = {
   kAtcZoneNameAmerica_Cancun /*name*/,
   0x953331be /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Cancun /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Caracas
-// Zone Eras: 6
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Caracas[]  = {
-  // -4:27:44 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1071 /*offset_code (-16064/15)*/,
-    1 /*offset_remainder (-16064%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:27:40 -    CMT    1912 Feb 12
-  {
-    NULL /*zone_policy*/,
-    "CMT" /*format*/,
-    -1071 /*offset_code (-16060/15)*/,
-    5 /*offset_remainder (-16060%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    2 /*until_month*/,
-    12 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:30    -    -0430    1965 Jan  1  0:00
-  {
-    NULL /*zone_policy*/,
-    "-0430" /*format*/,
-    -1080 /*offset_code (-16200/15)*/,
-    0 /*offset_remainder (-16200%15)*/,
-    0 /*delta_minutes*/,
-    1965 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    -    -04    2007 Dec  9  3:00
   {
     NULL /*zone_policy*/,
@@ -5126,43 +2650,17 @@ const AtcZoneInfo kAtcZoneAmerica_Caracas  = {
   kAtcZoneNameAmerica_Caracas /*name*/,
   0x3be064f4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Caracas /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Cayenne
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Cayenne[]  = {
-  // -3:29:20 - LMT 1911 Jul
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -838 /*offset_code (-12560/15)*/,
-    10 /*offset_remainder (-12560%15)*/,
-    0 /*delta_minutes*/,
-    1911 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1967 Oct
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1967 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
@@ -5185,108 +2683,17 @@ const AtcZoneInfo kAtcZoneAmerica_Cayenne  = {
   kAtcZoneNameAmerica_Cayenne /*name*/,
   0x3c617269 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Cayenne /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Chicago
-// Zone Eras: 8
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Chicago[]  = {
-  // -5:50:36 - LMT 1883 Nov 18 18:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1403 /*offset_code (-21036/15)*/,
-    9 /*offset_remainder (-21036%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4320 /*until_time_code (64800/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1920
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    Chicago    C%sT    1936 Mar  1  2:00
-  {
-    &kAtcZonePolicyChicago /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1936 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1936 Nov 15  2:00
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1936 /*until_year*/,
-    11 /*until_month*/,
-    15 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    Chicago    C%sT    1942
-  {
-    &kAtcZonePolicyChicago /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    Chicago    C%sT    1967
-  {
-    &kAtcZonePolicyChicago /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1967 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    US    C%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -5309,108 +2716,17 @@ const AtcZoneInfo kAtcZoneAmerica_Chicago  = {
   kAtcZoneNameAmerica_Chicago /*name*/,
   0x4b92b5d4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Chicago /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Chihuahua
-// Zone Eras: 9
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Chihuahua[]  = {
-  // -7:04:20 - LMT 1922 Jan 1 7:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1698 /*offset_code (-25460/15)*/,
-    10 /*offset_remainder (-25460%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    1680 /*until_time_code (25200/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -7:00    -    MST    1927 Jun 10 23:00
-  {
-    NULL /*zone_policy*/,
-    "MST" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1927 /*until_year*/,
-    6 /*until_month*/,
-    10 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1930 Nov 15
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    11 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    Mexico    M%sT    1932 Apr  1
-  {
-    &kAtcZonePolicyMexico /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1932 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1996
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    Mexico    C%sT    1998
-  {
-    &kAtcZonePolicyMexico /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1998 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1998 Apr Sun>=1  3:00
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1998 /*until_year*/,
-    4 /*until_month*/,
-    5 /*until_day*/,
-    720 /*until_time_code (10800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -7:00    Mexico    M%sT    2022 Oct 30  2:00
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
@@ -5446,108 +2762,17 @@ const AtcZoneInfo kAtcZoneAmerica_Chihuahua  = {
   kAtcZoneNameAmerica_Chihuahua /*name*/,
   0x8827d776 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Chihuahua /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Ciudad_Juarez
-// Zone Eras: 11
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Ciudad_Juarez[]  = {
-  // -7:05:56 - LMT 1922 Jan 1 7:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1704 /*offset_code (-25556/15)*/,
-    4 /*offset_remainder (-25556%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    1680 /*until_time_code (25200/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -7:00    -    MST    1927 Jun 10 23:00
-  {
-    NULL /*zone_policy*/,
-    "MST" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1927 /*until_year*/,
-    6 /*until_month*/,
-    10 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1930 Nov 15
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    11 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    Mexico    M%sT    1932 Apr  1
-  {
-    &kAtcZonePolicyMexico /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1932 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1996
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    Mexico    C%sT    1998
-  {
-    &kAtcZonePolicyMexico /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1998 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1998 Apr Sun>=1  3:00
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1998 /*until_year*/,
-    4 /*until_month*/,
-    5 /*until_day*/,
-    720 /*until_time_code (10800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -7:00    Mexico    M%sT    2010
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
@@ -5609,43 +2834,17 @@ const AtcZoneInfo kAtcZoneAmerica_Ciudad_Juarez  = {
   kAtcZoneNameAmerica_Ciudad_Juarez /*name*/,
   0x7347fc60 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  11 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAmerica_Ciudad_Juarez /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Costa_Rica
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Costa_Rica[]  = {
-  // -5:36:13 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1345 /*offset_code (-20173/15)*/,
-    2 /*offset_remainder (-20173%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:36:13 -    SJMT    1921 Jan 15
-  {
-    NULL /*zone_policy*/,
-    "SJMT" /*format*/,
-    -1345 /*offset_code (-20173/15)*/,
-    2 /*offset_remainder (-20173%15)*/,
-    0 /*delta_minutes*/,
-    1921 /*until_year*/,
-    1 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    CR    C%sT
   {
     &kAtcZonePolicyCR /*zone_policy*/,
@@ -5668,30 +2867,17 @@ const AtcZoneInfo kAtcZoneAmerica_Costa_Rica  = {
   kAtcZoneNameAmerica_Costa_Rica /*name*/,
   0x63ff66be /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Costa_Rica /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Cuiaba
-// Zone Eras: 4
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Cuiaba[]  = {
-  // -3:44:20 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -898 /*offset_code (-13460/15)*/,
-    10 /*offset_remainder (-13460%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    Brazil    -04/-03    2003 Sep 24
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
@@ -5740,56 +2926,17 @@ const AtcZoneInfo kAtcZoneAmerica_Cuiaba  = {
   kAtcZoneNameAmerica_Cuiaba /*name*/,
   0x969a52eb /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Cuiaba /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Danmarkshavn
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Danmarkshavn[]  = {
-  // -1:14:40 - LMT 1916 Jul 28
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -299 /*offset_code (-4480/15)*/,
-    5 /*offset_remainder (-4480%15)*/,
-    0 /*delta_minutes*/,
-    1916 /*until_year*/,
-    7 /*until_month*/,
-    28 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    -    -03    1980 Apr  6  2:00
-  {
-    NULL /*zone_policy*/,
-    "-03" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1980 /*until_year*/,
-    4 /*until_month*/,
-    6 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    EU    -03/-02    1996
-  {
-    &kAtcZonePolicyEU /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             0:00    -    GMT
   {
     NULL /*zone_policy*/,
@@ -5812,69 +2959,17 @@ const AtcZoneInfo kAtcZoneAmerica_Danmarkshavn  = {
   kAtcZoneNameAmerica_Danmarkshavn /*name*/,
   0xf554d204 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Danmarkshavn /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Dawson
-// Zone Eras: 6
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Dawson[]  = {
-  // -9:17:40 - LMT 1900 Aug 20
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2231 /*offset_code (-33460/15)*/,
-    5 /*offset_remainder (-33460%15)*/,
-    0 /*delta_minutes*/,
-    1900 /*until_year*/,
-    8 /*until_month*/,
-    20 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -9:00    NT_YK    Y%sT    1965
-  {
-    &kAtcZonePolicyNT_YK /*zone_policy*/,
-    "Y%T" /*format*/,
-    -2160 /*offset_code (-32400/15)*/,
-    0 /*offset_remainder (-32400%15)*/,
-    0 /*delta_minutes*/,
-    1965 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -9:00    Yukon    Y%sT    1973 Oct 28  0:00
-  {
-    &kAtcZonePolicyYukon /*zone_policy*/,
-    "Y%T" /*format*/,
-    -2160 /*offset_code (-32400/15)*/,
-    0 /*offset_remainder (-32400%15)*/,
-    0 /*delta_minutes*/,
-    1973 /*until_year*/,
-    10 /*until_month*/,
-    28 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    -    PST    1980
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1980 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -8:00    Canada    P%sT    2020 Nov  1
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
@@ -5910,56 +3005,17 @@ const AtcZoneInfo kAtcZoneAmerica_Dawson  = {
   kAtcZoneNameAmerica_Dawson /*name*/,
   0x978d8d12 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Dawson /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Dawson_Creek
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Dawson_Creek[]  = {
-  // -8:00:56 - LMT 1884
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1924 /*offset_code (-28856/15)*/,
-    4 /*offset_remainder (-28856%15)*/,
-    0 /*delta_minutes*/,
-    1884 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    Canada    P%sT    1947
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1947 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    Vanc    P%sT    1972 Aug 30  2:00
-  {
-    &kAtcZonePolicyVanc /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1972 /*until_year*/,
-    8 /*until_month*/,
-    30 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -7:00    -    MST
   {
     NULL /*zone_policy*/,
@@ -5982,82 +3038,17 @@ const AtcZoneInfo kAtcZoneAmerica_Dawson_Creek  = {
   kAtcZoneNameAmerica_Dawson_Creek /*name*/,
   0x6cf24e5b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Dawson_Creek /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Denver
-// Zone Eras: 6
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Denver[]  = {
-  // -6:59:56 - LMT 1883 Nov 18 19:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1680 /*offset_code (-25196/15)*/,
-    4 /*offset_remainder (-25196%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4560 /*until_time_code (68400/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -7:00    US    M%sT    1920
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    Denver    M%sT    1942
-  {
-    &kAtcZonePolicyDenver /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    US    M%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    Denver    M%sT    1967
-  {
-    &kAtcZonePolicyDenver /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1967 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -7:00    US    M%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -6080,134 +3071,17 @@ const AtcZoneInfo kAtcZoneAmerica_Denver  = {
   kAtcZoneNameAmerica_Denver /*name*/,
   0x97d10b2a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Denver /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Detroit
-// Zone Eras: 10
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Detroit[]  = {
-  // -5:32:11 - LMT 1905
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1329 /*offset_code (-19931/15)*/,
-    4 /*offset_remainder (-19931%15)*/,
-    0 /*delta_minutes*/,
-    1905 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1915 May 15  2:00
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1915 /*until_year*/,
-    5 /*until_month*/,
-    15 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1942
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    US    E%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    Detroit    E%sT    1967 Jun 14  0:01
-  {
-    &kAtcZonePolicyDetroit /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1967 /*until_year*/,
-    6 /*until_month*/,
-    14 /*until_day*/,
-    4 /*until_time_code (60/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    US    E%sT    1969
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1973
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1973 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    US    E%sT    1975
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1975 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1975 Apr 27  2:00
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1975 /*until_year*/,
-    4 /*until_month*/,
-    27 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    US    E%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -6230,43 +3104,17 @@ const AtcZoneInfo kAtcZoneAmerica_Detroit  = {
   kAtcZoneNameAmerica_Detroit /*name*/,
   0x925cfbc1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Detroit /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Edmonton
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Edmonton[]  = {
-  // -7:33:52 - LMT 1906 Sep
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1816 /*offset_code (-27232/15)*/,
-    8 /*offset_remainder (-27232%15)*/,
-    0 /*delta_minutes*/,
-    1906 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    Edm    M%sT    1987
-  {
-    &kAtcZonePolicyEdm /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1987 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -7:00    Canada    M%sT
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
@@ -6289,69 +3137,17 @@ const AtcZoneInfo kAtcZoneAmerica_Edmonton  = {
   kAtcZoneNameAmerica_Edmonton /*name*/,
   0x6cb9484a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Edmonton /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Eirunepe
-// Zone Eras: 7
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Eirunepe[]  = {
-  // -4:39:28 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1118 /*offset_code (-16768/15)*/,
-    2 /*offset_remainder (-16768%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    Brazil    -05/-04    1988 Sep 12
-  {
-    &kAtcZonePolicyBrazil /*zone_policy*/,
-    "-05/-04" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1988 /*until_year*/,
-    9 /*until_month*/,
-    12 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    -05    1993 Sep 28
-  {
-    NULL /*zone_policy*/,
-    "-05" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1993 /*until_year*/,
-    9 /*until_month*/,
-    28 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    Brazil    -05/-04    1994 Sep 22
-  {
-    &kAtcZonePolicyBrazil /*zone_policy*/,
-    "-05/-04" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1994 /*until_year*/,
-    9 /*until_month*/,
-    22 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    -    -05    2008 Jun 24  0:00
   {
     NULL /*zone_policy*/,
@@ -6400,30 +3196,17 @@ const AtcZoneInfo kAtcZoneAmerica_Eirunepe  = {
   kAtcZoneNameAmerica_Eirunepe /*name*/,
   0xf9b29683 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Eirunepe /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/El_Salvador
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_El_Salvador[]  = {
-  // -5:56:48 - LMT 1921
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1428 /*offset_code (-21408/15)*/,
-    12 /*offset_remainder (-21408%15)*/,
-    0 /*delta_minutes*/,
-    1921 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    Salv    C%sT
   {
     &kAtcZonePolicySalv /*zone_policy*/,
@@ -6446,69 +3229,17 @@ const AtcZoneInfo kAtcZoneAmerica_El_Salvador  = {
   kAtcZoneNameAmerica_El_Salvador /*name*/,
   0x752ad652 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_El_Salvador /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Fort_Nelson
-// Zone Eras: 6
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Fort_Nelson[]  = {
-  // -8:10:47 - LMT 1884
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1964 /*offset_code (-29447/15)*/,
-    13 /*offset_remainder (-29447%15)*/,
-    0 /*delta_minutes*/,
-    1884 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    Vanc    P%sT    1946
-  {
-    &kAtcZonePolicyVanc /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    -    PST    1947
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1947 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    Vanc    P%sT    1987
-  {
-    &kAtcZonePolicyVanc /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1987 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -8:00    Canada    P%sT    2015 Mar  8  2:00
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
@@ -6544,43 +3275,17 @@ const AtcZoneInfo kAtcZoneAmerica_Fort_Nelson  = {
   kAtcZoneNameAmerica_Fort_Nelson /*name*/,
   0x3f437e0f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Fort_Nelson /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Fortaleza
-// Zone Eras: 7
+// Zone Eras: 5
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Fortaleza[]  = {
-  // -2:34:00 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -616 /*offset_code (-9240/15)*/,
-    0 /*offset_remainder (-9240%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Brazil    -03/-02    1990 Sep 17
-  {
-    &kAtcZonePolicyBrazil /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    9 /*until_month*/,
-    17 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    -    -03    1999 Sep 30
   {
     NULL /*zone_policy*/,
@@ -6655,82 +3360,17 @@ const AtcZoneInfo kAtcZoneAmerica_Fortaleza  = {
   kAtcZoneNameAmerica_Fortaleza /*name*/,
   0x2ad018ee /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  5 /*num_eras*/,
   kAtcZoneEraAmerica_Fortaleza /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Glace_Bay
-// Zone Eras: 6
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Glace_Bay[]  = {
-  // -3:59:48 - LMT 1902 Jun 15
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -960 /*offset_code (-14388/15)*/,
-    12 /*offset_remainder (-14388%15)*/,
-    0 /*delta_minutes*/,
-    1902 /*until_year*/,
-    6 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Canada    A%sT    1953
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1953 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Halifax    A%sT    1954
-  {
-    &kAtcZonePolicyHalifax /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1954 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    AST    1972
-  {
-    NULL /*zone_policy*/,
-    "AST" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1972 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Halifax    A%sT    1974
-  {
-    &kAtcZonePolicyHalifax /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1974 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    Canada    A%sT
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
@@ -6753,121 +3393,17 @@ const AtcZoneInfo kAtcZoneAmerica_Glace_Bay  = {
   kAtcZoneNameAmerica_Glace_Bay /*name*/,
   0x9681f8dd /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Glace_Bay /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Goose_Bay
-// Zone Eras: 10
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Goose_Bay[]  = {
-  // -4:01:40 - LMT 1884
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -967 /*offset_code (-14500/15)*/,
-    5 /*offset_remainder (-14500%15)*/,
-    0 /*delta_minutes*/,
-    1884 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:30:52 -    NST    1918
-  {
-    NULL /*zone_policy*/,
-    "NST" /*format*/,
-    -844 /*offset_code (-12652/15)*/,
-    8 /*offset_remainder (-12652%15)*/,
-    0 /*delta_minutes*/,
-    1918 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:30:52 Canada N%sT    1919
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "N%T" /*format*/,
-    -844 /*offset_code (-12652/15)*/,
-    8 /*offset_remainder (-12652%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:30:52 -    NST    1935 Mar 30
-  {
-    NULL /*zone_policy*/,
-    "NST" /*format*/,
-    -844 /*offset_code (-12652/15)*/,
-    8 /*offset_remainder (-12652%15)*/,
-    0 /*delta_minutes*/,
-    1935 /*until_year*/,
-    3 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:30    -    NST    1936
-  {
-    NULL /*zone_policy*/,
-    "NST" /*format*/,
-    -840 /*offset_code (-12600/15)*/,
-    0 /*offset_remainder (-12600%15)*/,
-    0 /*delta_minutes*/,
-    1936 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:30    StJohns    N%sT    1942 May 11
-  {
-    &kAtcZonePolicyStJohns /*zone_policy*/,
-    "N%T" /*format*/,
-    -840 /*offset_code (-12600/15)*/,
-    0 /*offset_remainder (-12600%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    5 /*until_month*/,
-    11 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:30    Canada    N%sT    1946
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "N%T" /*format*/,
-    -840 /*offset_code (-12600/15)*/,
-    0 /*offset_remainder (-12600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:30    StJohns    N%sT    1966 Mar 15  2:00
-  {
-    &kAtcZonePolicyStJohns /*zone_policy*/,
-    "N%T" /*format*/,
-    -840 /*offset_code (-12600/15)*/,
-    0 /*offset_remainder (-12600%15)*/,
-    0 /*delta_minutes*/,
-    1966 /*until_year*/,
-    3 /*until_month*/,
-    15 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    StJohns    A%sT    2011 Nov
   {
     &kAtcZonePolicyStJohns /*zone_policy*/,
@@ -6903,56 +3439,17 @@ const AtcZoneInfo kAtcZoneAmerica_Goose_Bay  = {
   kAtcZoneNameAmerica_Goose_Bay /*name*/,
   0xb649541e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Goose_Bay /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Grand_Turk
-// Zone Eras: 6
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Grand_Turk[]  = {
-  // -4:44:32 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1139 /*offset_code (-17072/15)*/,
-    13 /*offset_remainder (-17072%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:07:10 -    KMT    1912 Feb
-  {
-    NULL /*zone_policy*/,
-    "KMT" /*format*/,
-    -1229 /*offset_code (-18430/15)*/,
-    5 /*offset_remainder (-18430%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    2 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1979
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1979 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    US    E%sT    2015 Mar  8  2:00
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -7001,30 +3498,17 @@ const AtcZoneInfo kAtcZoneAmerica_Grand_Turk  = {
   kAtcZoneNameAmerica_Grand_Turk /*name*/,
   0x6e216197 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Grand_Turk /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Guatemala
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Guatemala[]  = {
-  // -6:02:04 - LMT 1918 Oct 5
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1449 /*offset_code (-21724/15)*/,
-    11 /*offset_remainder (-21724%15)*/,
-    0 /*delta_minutes*/,
-    1918 /*until_year*/,
-    10 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    Guat    C%sT
   {
     &kAtcZonePolicyGuat /*zone_policy*/,
@@ -7047,43 +3531,17 @@ const AtcZoneInfo kAtcZoneAmerica_Guatemala  = {
   kAtcZoneNameAmerica_Guatemala /*name*/,
   0x0c8259f7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Guatemala /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Guayaquil
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Guayaquil[]  = {
-  // -5:19:20 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1278 /*offset_code (-19160/15)*/,
-    10 /*offset_remainder (-19160%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:14:00 -    QMT    1931
-  {
-    NULL /*zone_policy*/,
-    "QMT" /*format*/,
-    -1256 /*offset_code (-18840/15)*/,
-    0 /*offset_remainder (-18840%15)*/,
-    0 /*delta_minutes*/,
-    1931 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    Ecuador    -05/-04
   {
     &kAtcZonePolicyEcuador /*zone_policy*/,
@@ -7106,69 +3564,17 @@ const AtcZoneInfo kAtcZoneAmerica_Guayaquil  = {
   kAtcZoneNameAmerica_Guayaquil /*name*/,
   0x17e64958 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Guayaquil /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Guyana
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Guyana[]  = {
-  // -3:52:39 - LMT 1911 Aug 1
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -931 /*offset_code (-13959/15)*/,
-    6 /*offset_remainder (-13959%15)*/,
-    0 /*delta_minutes*/,
-    1911 /*until_year*/,
-    8 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1915 Mar  1
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1915 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:45    -    -0345    1975 Aug  1
-  {
-    NULL /*zone_policy*/,
-    "-0345" /*format*/,
-    -900 /*offset_code (-13500/15)*/,
-    0 /*offset_remainder (-13500%15)*/,
-    0 /*delta_minutes*/,
-    1975 /*until_year*/,
-    8 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    -    -03    1992 Mar 29  1:00
-  {
-    NULL /*zone_policy*/,
-    "-03" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    3 /*until_month*/,
-    29 /*until_day*/,
-    240 /*until_time_code (3600/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    -    -04
   {
     NULL /*zone_policy*/,
@@ -7191,95 +3597,17 @@ const AtcZoneInfo kAtcZoneAmerica_Guyana  = {
   kAtcZoneNameAmerica_Guyana /*name*/,
   0x9ff7bd0b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Guyana /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Halifax
-// Zone Eras: 7
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Halifax[]  = {
-  // -4:14:24 - LMT 1902 Jun 15
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1018 /*offset_code (-15264/15)*/,
-    6 /*offset_remainder (-15264%15)*/,
-    0 /*delta_minutes*/,
-    1902 /*until_year*/,
-    6 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Halifax    A%sT    1918
-  {
-    &kAtcZonePolicyHalifax /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1918 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Canada    A%sT    1919
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Halifax    A%sT    1942 Feb  9  2:00s
-  {
-    &kAtcZonePolicyHalifax /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    2 /*until_month*/,
-    9 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -4:00    Canada    A%sT    1946
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Halifax    A%sT    1974
-  {
-    &kAtcZonePolicyHalifax /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1974 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    Canada    A%sT
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
@@ -7302,43 +3630,17 @@ const AtcZoneInfo kAtcZoneAmerica_Halifax  = {
   kAtcZoneNameAmerica_Halifax /*name*/,
   0xbc5b7183 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Halifax /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Havana
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Havana[]  = {
-  // -5:29:28 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1318 /*offset_code (-19768/15)*/,
-    2 /*offset_remainder (-19768%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:29:36 -    HMT    1925 Jul 19 12:00
-  {
-    NULL /*zone_policy*/,
-    "HMT" /*format*/,
-    -1319 /*offset_code (-19776/15)*/,
-    9 /*offset_remainder (-19776%15)*/,
-    0 /*delta_minutes*/,
-    1925 /*until_year*/,
-    7 /*until_month*/,
-    19 /*until_day*/,
-    2880 /*until_time_code (43200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    Cuba    C%sT
   {
     &kAtcZonePolicyCuba /*zone_policy*/,
@@ -7361,108 +3663,17 @@ const AtcZoneInfo kAtcZoneAmerica_Havana  = {
   kAtcZoneNameAmerica_Havana /*name*/,
   0xa0e15675 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Havana /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Hermosillo
-// Zone Eras: 9
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Hermosillo[]  = {
-  // -7:23:52 - LMT 1922 Jan 1 7:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1776 /*offset_code (-26632/15)*/,
-    8 /*offset_remainder (-26632%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    1680 /*until_time_code (25200/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -7:00    -    MST    1927 Jun 10 23:00
-  {
-    NULL /*zone_policy*/,
-    "MST" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1927 /*until_year*/,
-    6 /*until_month*/,
-    10 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1930 Nov 15
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    11 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    Mexico    M%sT    1932 Apr  1
-  {
-    &kAtcZonePolicyMexico /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1932 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1942 Apr 24
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    4 /*until_month*/,
-    24 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    -    MST    1949 Jan 14
-  {
-    NULL /*zone_policy*/,
-    "MST" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1949 /*until_year*/,
-    1 /*until_month*/,
-    14 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    -    PST    1970
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1970 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -7:00    Mexico    M%sT    1999
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
@@ -7498,134 +3709,17 @@ const AtcZoneInfo kAtcZoneAmerica_Hermosillo  = {
   kAtcZoneNameAmerica_Hermosillo /*name*/,
   0x065d21c4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Hermosillo /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Indiana/Indianapolis
-// Zone Eras: 11
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Indianapolis[]  = {
-  // -5:44:38 - LMT 1883 Nov 18 18:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1379 /*offset_code (-20678/15)*/,
-    7 /*offset_remainder (-20678%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4320 /*until_time_code (64800/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1920
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00 Indianapolis C%sT    1942
-  {
-    &kAtcZonePolicyIndianapolis /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00 Indianapolis C%sT    1955 Apr 24  2:00
-  {
-    &kAtcZonePolicyIndianapolis /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1955 /*until_year*/,
-    4 /*until_month*/,
-    24 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1957 Sep 29  2:00
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1957 /*until_year*/,
-    9 /*until_month*/,
-    29 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1958 Apr 27  2:00
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1958 /*until_year*/,
-    4 /*until_month*/,
-    27 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1969
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    US    E%sT    1971
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1971 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    -    EST    2006
   {
     NULL /*zone_policy*/,
@@ -7661,82 +3755,17 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Indianapolis  = {
   kAtcZoneNameAmerica_Indiana_Indianapolis /*name*/,
   0x28a669a4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  11 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Indianapolis /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Indiana/Knox
-// Zone Eras: 7
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Knox[]  = {
-  // -5:46:30 - LMT 1883 Nov 18 18:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1386 /*offset_code (-20790/15)*/,
-    0 /*offset_remainder (-20790%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4320 /*until_time_code (64800/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1947
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1947 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    Starke    C%sT    1962 Apr 29  2:00
-  {
-    &kAtcZonePolicyStarke /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1962 /*until_year*/,
-    4 /*until_month*/,
-    29 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1963 Oct 27  2:00
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1963 /*until_year*/,
-    10 /*until_month*/,
-    27 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1991 Oct 27  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    10 /*until_month*/,
-    27 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    -    EST    2006 Apr  2  2:00
   {
     NULL /*zone_policy*/,
@@ -7772,108 +3801,17 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Knox  = {
   kAtcZoneNameAmerica_Indiana_Knox /*name*/,
   0x6554adc9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Knox /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Indiana/Marengo
-// Zone Eras: 9
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Marengo[]  = {
-  // -5:45:23 - LMT 1883 Nov 18 18:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1382 /*offset_code (-20723/15)*/,
-    7 /*offset_remainder (-20723%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4320 /*until_time_code (64800/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1951
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1951 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    Marengo    C%sT    1961 Apr 30  2:00
-  {
-    &kAtcZonePolicyMarengo /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1961 /*until_year*/,
-    4 /*until_month*/,
-    30 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1969
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    US    E%sT    1974 Jan  6  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1974 /*until_year*/,
-    1 /*until_month*/,
-    6 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    1:00    CDT    1974 Oct 27  2:00
-  {
-    NULL /*zone_policy*/,
-    "CDT" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    60 /*delta_minutes*/,
-    1974 /*until_year*/,
-    10 /*until_month*/,
-    27 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    US    E%sT    1976
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1976 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    -    EST    2006
   {
     NULL /*zone_policy*/,
@@ -7909,82 +3847,17 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Marengo  = {
   kAtcZoneNameAmerica_Indiana_Marengo /*name*/,
   0x2feeee72 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Marengo /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Indiana/Petersburg
-// Zone Eras: 8
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Petersburg[]  = {
-  // -5:49:07 - LMT 1883 Nov 18 18:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1397 /*offset_code (-20947/15)*/,
-    8 /*offset_remainder (-20947%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4320 /*until_time_code (64800/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1955
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1955 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    Pike    C%sT    1965 Apr 25  2:00
-  {
-    &kAtcZonePolicyPike /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1965 /*until_year*/,
-    4 /*until_month*/,
-    25 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1966 Oct 30  2:00
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1966 /*until_year*/,
-    10 /*until_month*/,
-    30 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1977 Oct 30  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1977 /*until_year*/,
-    10 /*until_month*/,
-    30 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    -    EST    2006 Apr  2  2:00
   {
     NULL /*zone_policy*/,
@@ -8033,95 +3906,17 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Petersburg  = {
   kAtcZoneNameAmerica_Indiana_Petersburg /*name*/,
   0x94ac7acc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Petersburg /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Indiana/Tell_City
-// Zone Eras: 8
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Tell_City[]  = {
-  // -5:47:03 - LMT 1883 Nov 18 18:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1389 /*offset_code (-20823/15)*/,
-    12 /*offset_remainder (-20823%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4320 /*until_time_code (64800/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00 Perry    C%sT    1964 Apr 26  2:00
-  {
-    &kAtcZonePolicyPerry /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1964 /*until_year*/,
-    4 /*until_month*/,
-    26 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1967 Oct 29  2:00
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1967 /*until_year*/,
-    10 /*until_month*/,
-    29 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1969 Apr 27  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    4 /*until_month*/,
-    27 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    US    E%sT    1971
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1971 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    -    EST    2006 Apr  2  2:00
   {
     NULL /*zone_policy*/,
@@ -8157,69 +3952,17 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Tell_City  = {
   kAtcZoneNameAmerica_Indiana_Tell_City /*name*/,
   0x09263612 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Tell_City /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Indiana/Vevay
-// Zone Eras: 6
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vevay[]  = {
-  // -5:40:16 - LMT 1883 Nov 18 18:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1362 /*offset_code (-20416/15)*/,
-    14 /*offset_remainder (-20416%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4320 /*until_time_code (64800/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1954 Apr 25  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1954 /*until_year*/,
-    4 /*until_month*/,
-    25 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1969
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    US    E%sT    1973
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1973 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    -    EST    2006
   {
     NULL /*zone_policy*/,
@@ -8255,82 +3998,17 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Vevay  = {
   kAtcZoneNameAmerica_Indiana_Vevay /*name*/,
   0x10aca054 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Vevay /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Indiana/Vincennes
-// Zone Eras: 8
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vincennes[]  = {
-  // -5:50:07 - LMT 1883 Nov 18 18:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1401 /*offset_code (-21007/15)*/,
-    8 /*offset_remainder (-21007%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4320 /*until_time_code (64800/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00 Vincennes    C%sT    1964 Apr 26  2:00
-  {
-    &kAtcZonePolicyVincennes /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1964 /*until_year*/,
-    4 /*until_month*/,
-    26 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1969
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    US    E%sT    1971
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1971 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    -    EST    2006 Apr  2  2:00
   {
     NULL /*zone_policy*/,
@@ -8379,82 +4057,17 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Vincennes  = {
   kAtcZoneNameAmerica_Indiana_Vincennes /*name*/,
   0x28a0b212 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Vincennes /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Indiana/Winamac
-// Zone Eras: 8
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Winamac[]  = {
-  // -5:46:25 - LMT 1883 Nov 18 18:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1386 /*offset_code (-20785/15)*/,
-    5 /*offset_remainder (-20785%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4320 /*until_time_code (64800/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    Pulaski    C%sT    1961 Apr 30  2:00
-  {
-    &kAtcZonePolicyPulaski /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1961 /*until_year*/,
-    4 /*until_month*/,
-    30 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1969
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    US    E%sT    1971
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1971 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    -    EST    2006 Apr  2  2:00
   {
     NULL /*zone_policy*/,
@@ -8503,56 +4116,17 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Winamac  = {
   kAtcZoneNameAmerica_Indiana_Winamac /*name*/,
   0x4413fa69 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Winamac /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Inuvik
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Inuvik[]  = {
-  // 0 - -00 1953
-  {
-    NULL /*zone_policy*/,
-    "-00" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1953 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    NT_YK    P%sT    1979 Apr lastSun  2:00
-  {
-    &kAtcZonePolicyNT_YK /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1979 /*until_year*/,
-    4 /*until_month*/,
-    29 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    NT_YK    M%sT    1980
-  {
-    &kAtcZonePolicyNT_YK /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1980 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -7:00    Canada    M%sT
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
@@ -8575,30 +4149,17 @@ const AtcZoneInfo kAtcZoneAmerica_Inuvik  = {
   kAtcZoneNameAmerica_Inuvik /*name*/,
   0xa42189fc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Inuvik /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Iqaluit
-// Zone Eras: 4
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Iqaluit[]  = {
-  // 0 - -00 1942 Aug
-  {
-    NULL /*zone_policy*/,
-    "-00" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    8 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    NT_YK    E%sT    1999 Oct 31  2:00
   {
     &kAtcZonePolicyNT_YK /*zone_policy*/,
@@ -8647,69 +4208,17 @@ const AtcZoneInfo kAtcZoneAmerica_Iqaluit  = {
   kAtcZoneNameAmerica_Iqaluit /*name*/,
   0x2de310bf /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Iqaluit /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Jamaica
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Jamaica[]  = {
-  // -5:07:10 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1229 /*offset_code (-18430/15)*/,
-    5 /*offset_remainder (-18430%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:07:10 -    KMT    1912 Feb
-  {
-    NULL /*zone_policy*/,
-    "KMT" /*format*/,
-    -1229 /*offset_code (-18430/15)*/,
-    5 /*offset_remainder (-18430%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    2 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1974
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1974 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    US    E%sT    1984
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1984 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    -    EST
   {
     NULL /*zone_policy*/,
@@ -8732,134 +4241,17 @@ const AtcZoneInfo kAtcZoneAmerica_Jamaica  = {
   kAtcZoneNameAmerica_Jamaica /*name*/,
   0x565dad6c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Jamaica /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Juneau
-// Zone Eras: 10
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Juneau[]  = {
-  // 15:02:19 - LMT 1867 Oct 19 15:33:32
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    3609 /*offset_code (54139/15)*/,
-    4 /*offset_remainder (54139%15)*/,
-    0 /*delta_minutes*/,
-    1867 /*until_year*/,
-    10 /*until_month*/,
-    19 /*until_day*/,
-    3734 /*until_time_code (56012/15)*/,
-    2 /*until_time_modifier (kAtcSuffixW + seconds=2)*/,
-  },
-  //              -8:57:41 -    LMT    1900 Aug 20 12:00
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2151 /*offset_code (-32261/15)*/,
-    4 /*offset_remainder (-32261%15)*/,
-    0 /*delta_minutes*/,
-    1900 /*until_year*/,
-    8 /*until_month*/,
-    20 /*until_day*/,
-    2880 /*until_time_code (43200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -8:00    -    PST    1942
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -8:00    US    P%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -8:00    -    PST    1969
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -8:00    US    P%sT    1980 Apr 27  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1980 /*until_year*/,
-    4 /*until_month*/,
-    27 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -9:00    US    Y%sT    1980 Oct 26  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "Y%T" /*format*/,
-    -2160 /*offset_code (-32400/15)*/,
-    0 /*offset_remainder (-32400%15)*/,
-    0 /*delta_minutes*/,
-    1980 /*until_year*/,
-    10 /*until_month*/,
-    26 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -8:00    US    P%sT    1983 Oct 30  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    10 /*until_month*/,
-    30 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -9:00    US    Y%sT    1983 Nov 30
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "Y%T" /*format*/,
-    -2160 /*offset_code (-32400/15)*/,
-    0 /*offset_remainder (-32400%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    11 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              -9:00    US    AK%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -8882,121 +4274,17 @@ const AtcZoneInfo kAtcZoneAmerica_Juneau  = {
   kAtcZoneNameAmerica_Juneau /*name*/,
   0xa6f13e2e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Juneau /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Kentucky/Louisville
-// Zone Eras: 9
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Louisville[]  = {
-  // -5:43:02 - LMT 1883 Nov 18 18:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1373 /*offset_code (-20582/15)*/,
-    13 /*offset_remainder (-20582%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4320 /*until_time_code (64800/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1921
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1921 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00 Louisville C%sT    1942
-  {
-    &kAtcZonePolicyLouisville /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00 Louisville C%sT    1961 Jul 23  2:00
-  {
-    &kAtcZonePolicyLouisville /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1961 /*until_year*/,
-    7 /*until_month*/,
-    23 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1968
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1968 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    US    E%sT    1974 Jan  6  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1974 /*until_year*/,
-    1 /*until_month*/,
-    6 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    1:00    CDT    1974 Oct 27  2:00
-  {
-    NULL /*zone_policy*/,
-    "CDT" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    60 /*delta_minutes*/,
-    1974 /*until_year*/,
-    10 /*until_month*/,
-    27 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    US    E%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -9019,56 +4307,17 @@ const AtcZoneInfo kAtcZoneAmerica_Kentucky_Louisville  = {
   kAtcZoneNameAmerica_Kentucky_Louisville /*name*/,
   0x1a21024b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Kentucky_Louisville /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Kentucky/Monticello
-// Zone Eras: 5
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Monticello[]  = {
-  // -5:39:24 - LMT 1883 Nov 18 18:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1358 /*offset_code (-20364/15)*/,
-    6 /*offset_remainder (-20364%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4320 /*until_time_code (64800/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1968
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1968 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    US    C%sT    2000 Oct 29  2:00
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -9104,56 +4353,17 @@ const AtcZoneInfo kAtcZoneAmerica_Kentucky_Monticello  = {
   kAtcZoneNameAmerica_Kentucky_Monticello /*name*/,
   0xde71c439 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Kentucky_Monticello /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/La_Paz
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_La_Paz[]  = {
-  // -4:32:36 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1091 /*offset_code (-16356/15)*/,
-    9 /*offset_remainder (-16356%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:32:36 -    CMT    1931 Oct 15
-  {
-    NULL /*zone_policy*/,
-    "CMT" /*format*/,
-    -1091 /*offset_code (-16356/15)*/,
-    9 /*offset_remainder (-16356%15)*/,
-    0 /*delta_minutes*/,
-    1931 /*until_year*/,
-    10 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:32:36 1:00    BST    1932 Mar 21
-  {
-    NULL /*zone_policy*/,
-    "BST" /*format*/,
-    -1091 /*offset_code (-16356/15)*/,
-    9 /*offset_remainder (-16356%15)*/,
-    60 /*delta_minutes*/,
-    1932 /*until_year*/,
-    3 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    -    -04
   {
     NULL /*zone_policy*/,
@@ -9176,43 +4386,17 @@ const AtcZoneInfo kAtcZoneAmerica_La_Paz  = {
   kAtcZoneNameAmerica_La_Paz /*name*/,
   0xaa29125d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_La_Paz /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Lima
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Lima[]  = {
-  // -5:08:12 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1233 /*offset_code (-18492/15)*/,
-    3 /*offset_remainder (-18492%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:08:36 -    LMT    1908 Jul 28
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1235 /*offset_code (-18516/15)*/,
-    9 /*offset_remainder (-18516%15)*/,
-    0 /*delta_minutes*/,
-    1908 /*until_year*/,
-    7 /*until_month*/,
-    28 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    Peru    -05/-04
   {
     &kAtcZonePolicyPeru /*zone_policy*/,
@@ -9235,56 +4419,17 @@ const AtcZoneInfo kAtcZoneAmerica_Lima  = {
   kAtcZoneNameAmerica_Lima /*name*/,
   0x980468c9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Lima /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Los_Angeles
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Los_Angeles[]  = {
-  // -7:52:58 - LMT 1883 Nov 18 20:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1892 /*offset_code (-28378/15)*/,
-    2 /*offset_remainder (-28378%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4800 /*until_time_code (72000/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -8:00    US    P%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    CA    P%sT    1967
-  {
-    &kAtcZonePolicyCA /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1967 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -8:00    US    P%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -9307,69 +4452,17 @@ const AtcZoneInfo kAtcZoneAmerica_Los_Angeles  = {
   kAtcZoneNameAmerica_Los_Angeles /*name*/,
   0xb7f7e8f2 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Los_Angeles /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Maceio
-// Zone Eras: 9
+// Zone Eras: 5
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Maceio[]  = {
-  // -2:22:52 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -572 /*offset_code (-8572/15)*/,
-    8 /*offset_remainder (-8572%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Brazil    -03/-02    1990 Sep 17
-  {
-    &kAtcZonePolicyBrazil /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    9 /*until_month*/,
-    17 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    -    -03    1995 Oct 13
-  {
-    NULL /*zone_policy*/,
-    "-03" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1995 /*until_year*/,
-    10 /*until_month*/,
-    13 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Brazil    -03/-02    1996 Sep  4
-  {
-    &kAtcZonePolicyBrazil /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    9 /*until_month*/,
-    4 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    -    -03    1999 Sep 30
   {
     NULL /*zone_policy*/,
@@ -9444,121 +4537,17 @@ const AtcZoneInfo kAtcZoneAmerica_Maceio  = {
   kAtcZoneNameAmerica_Maceio /*name*/,
   0xac80c6d4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  5 /*num_eras*/,
   kAtcZoneEraAmerica_Maceio /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Managua
-// Zone Eras: 9
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Managua[]  = {
-  // -5:45:08 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1381 /*offset_code (-20708/15)*/,
-    7 /*offset_remainder (-20708%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:45:12 -    MMT    1934 Jun 23
-  {
-    NULL /*zone_policy*/,
-    "MMT" /*format*/,
-    -1381 /*offset_code (-20712/15)*/,
-    3 /*offset_remainder (-20712%15)*/,
-    0 /*delta_minutes*/,
-    1934 /*until_year*/,
-    6 /*until_month*/,
-    23 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1973 May
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1973 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1975 Feb 16
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1975 /*until_year*/,
-    2 /*until_month*/,
-    16 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    Nic    C%sT    1992 Jan  1  4:00
-  {
-    &kAtcZonePolicyNic /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    960 /*until_time_code (14400/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1992 Sep 24
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    9 /*until_month*/,
-    24 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1993
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1993 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1997
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1997 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    Nic    C%sT
   {
     &kAtcZonePolicyNic /*zone_policy*/,
@@ -9581,69 +4570,17 @@ const AtcZoneInfo kAtcZoneAmerica_Managua  = {
   kAtcZoneNameAmerica_Managua /*name*/,
   0x3d5e7600 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Managua /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Manaus
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Manaus[]  = {
-  // -4:00:04 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -961 /*offset_code (-14404/15)*/,
-    11 /*offset_remainder (-14404%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Brazil    -04/-03    1988 Sep 12
-  {
-    &kAtcZonePolicyBrazil /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1988 /*until_year*/,
-    9 /*until_month*/,
-    12 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1993 Sep 28
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1993 /*until_year*/,
-    9 /*until_month*/,
-    28 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Brazil    -04/-03    1994 Sep 22
-  {
-    &kAtcZonePolicyBrazil /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1994 /*until_year*/,
-    9 /*until_month*/,
-    22 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    -    -04
   {
     NULL /*zone_policy*/,
@@ -9666,69 +4603,17 @@ const AtcZoneInfo kAtcZoneAmerica_Manaus  = {
   kAtcZoneNameAmerica_Manaus /*name*/,
   0xac86bf8b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Manaus /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Martinique
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Martinique[]  = {
-  // -4:04:20 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -978 /*offset_code (-14660/15)*/,
-    10 /*offset_remainder (-14660%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:04:20 -    FFMT    1911 May
-  {
-    NULL /*zone_policy*/,
-    "FFMT" /*format*/,
-    -978 /*offset_code (-14660/15)*/,
-    10 /*offset_remainder (-14660%15)*/,
-    0 /*delta_minutes*/,
-    1911 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    AST    1980 Apr  6
-  {
-    NULL /*zone_policy*/,
-    "AST" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1980 /*until_year*/,
-    4 /*until_month*/,
-    6 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    1:00    ADT    1980 Sep 28
-  {
-    NULL /*zone_policy*/,
-    "ADT" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    60 /*delta_minutes*/,
-    1980 /*until_year*/,
-    9 /*until_month*/,
-    28 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    -    AST
   {
     NULL /*zone_policy*/,
@@ -9751,56 +4636,17 @@ const AtcZoneInfo kAtcZoneAmerica_Martinique  = {
   kAtcZoneNameAmerica_Martinique /*name*/,
   0x551e84c5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Martinique /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Matamoros
-// Zone Eras: 5
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Matamoros[]  = {
-  // -6:30:00 - LMT 1922 Jan 1 6:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1560 /*offset_code (-23400/15)*/,
-    0 /*offset_remainder (-23400%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    1440 /*until_time_code (21600/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1988
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1988 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1989
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1989 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    Mexico    C%sT    2010
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
@@ -9836,108 +4682,17 @@ const AtcZoneInfo kAtcZoneAmerica_Matamoros  = {
   kAtcZoneNameAmerica_Matamoros /*name*/,
   0xdd1b0259 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Matamoros /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Mazatlan
-// Zone Eras: 8
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Mazatlan[]  = {
-  // -7:05:40 - LMT 1922 Jan 1 7:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1703 /*offset_code (-25540/15)*/,
-    5 /*offset_remainder (-25540%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    1680 /*until_time_code (25200/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -7:00    -    MST    1927 Jun 10 23:00
-  {
-    NULL /*zone_policy*/,
-    "MST" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1927 /*until_year*/,
-    6 /*until_month*/,
-    10 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1930 Nov 15
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    11 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    Mexico    M%sT    1932 Apr  1
-  {
-    &kAtcZonePolicyMexico /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1932 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1942 Apr 24
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    4 /*until_month*/,
-    24 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    -    MST    1949 Jan 14
-  {
-    NULL /*zone_policy*/,
-    "MST" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1949 /*until_year*/,
-    1 /*until_month*/,
-    14 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    -    PST    1970
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1970 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -7:00    Mexico    M%sT
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
@@ -9960,69 +4715,17 @@ const AtcZoneInfo kAtcZoneAmerica_Mazatlan  = {
   kAtcZoneNameAmerica_Mazatlan /*name*/,
   0x0532189e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Mazatlan /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Menominee
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Menominee[]  = {
-  // -5:50:27 - LMT 1885 Sep 18 12:00
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1402 /*offset_code (-21027/15)*/,
-    3 /*offset_remainder (-21027%15)*/,
-    0 /*delta_minutes*/,
-    1885 /*until_year*/,
-    9 /*until_month*/,
-    18 /*until_day*/,
-    2880 /*until_time_code (43200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00 Menominee    C%sT    1969 Apr 27  2:00
-  {
-    &kAtcZonePolicyMenominee /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    4 /*until_month*/,
-    27 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1973 Apr 29  2:00
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1973 /*until_year*/,
-    4 /*until_month*/,
-    29 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    US    C%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -10045,56 +4748,17 @@ const AtcZoneInfo kAtcZoneAmerica_Menominee  = {
   kAtcZoneNameAmerica_Menominee /*name*/,
   0xe0e9c583 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Menominee /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Merida
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Merida[]  = {
-  // -5:58:28 - LMT 1922 Jan 1 6:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1434 /*offset_code (-21508/15)*/,
-    2 /*offset_remainder (-21508%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    1440 /*until_time_code (21600/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1981 Dec 23
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    12 /*until_month*/,
-    23 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1982 Dec  2
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1982 /*until_year*/,
-    12 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    Mexico    C%sT
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
@@ -10117,95 +4781,17 @@ const AtcZoneInfo kAtcZoneAmerica_Merida  = {
   kAtcZoneNameAmerica_Merida /*name*/,
   0xacd172d8 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Merida /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Metlakatla
-// Zone Eras: 10
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Metlakatla[]  = {
-  // 15:13:42 - LMT 1867 Oct 19 15:44:55
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    3654 /*offset_code (54822/15)*/,
-    12 /*offset_remainder (54822%15)*/,
-    0 /*delta_minutes*/,
-    1867 /*until_year*/,
-    10 /*until_month*/,
-    19 /*until_day*/,
-    3779 /*until_time_code (56695/15)*/,
-    10 /*until_time_modifier (kAtcSuffixW + seconds=10)*/,
-  },
-  //              -8:46:18 -    LMT    1900 Aug 20 12:00
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2106 /*offset_code (-31578/15)*/,
-    12 /*offset_remainder (-31578%15)*/,
-    0 /*delta_minutes*/,
-    1900 /*until_year*/,
-    8 /*until_month*/,
-    20 /*until_day*/,
-    2880 /*until_time_code (43200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -8:00    -    PST    1942
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -8:00    US    P%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -8:00    -    PST    1969
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -8:00    US    P%sT    1983 Oct 30  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    10 /*until_month*/,
-    30 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              -8:00    -    PST    2015 Nov  1  2:00
   {
     NULL /*zone_policy*/,
@@ -10267,69 +4853,17 @@ const AtcZoneInfo kAtcZoneAmerica_Metlakatla  = {
   kAtcZoneNameAmerica_Metlakatla /*name*/,
   0x84de2686 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAmerica_Metlakatla /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Mexico_City
-// Zone Eras: 7
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Mexico_City[]  = {
-  // -6:36:36 - LMT 1922 Jan 1 7:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1587 /*offset_code (-23796/15)*/,
-    9 /*offset_remainder (-23796%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    1680 /*until_time_code (25200/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -7:00    -    MST    1927 Jun 10 23:00
-  {
-    NULL /*zone_policy*/,
-    "MST" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1927 /*until_year*/,
-    6 /*until_month*/,
-    10 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1930 Nov 15
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    11 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    Mexico    M%sT    1932 Apr  1
-  {
-    &kAtcZonePolicyMexico /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1932 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    Mexico    C%sT    2001 Sep 30  2:00
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
@@ -10378,56 +4912,17 @@ const AtcZoneInfo kAtcZoneAmerica_Mexico_City  = {
   kAtcZoneNameAmerica_Mexico_City /*name*/,
   0xd0d93f43 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Mexico_City /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Miquelon
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Miquelon[]  = {
-  // -3:44:40 - LMT 1911 May 15
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -899 /*offset_code (-13480/15)*/,
-    5 /*offset_remainder (-13480%15)*/,
-    0 /*delta_minutes*/,
-    1911 /*until_year*/,
-    5 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    AST    1980 May
-  {
-    NULL /*zone_policy*/,
-    "AST" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1980 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    -    -03    1987
-  {
-    NULL /*zone_policy*/,
-    "-03" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1987 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    Canada    -03/-02
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
@@ -10450,108 +4945,17 @@ const AtcZoneInfo kAtcZoneAmerica_Miquelon  = {
   kAtcZoneNameAmerica_Miquelon /*name*/,
   0x59674330 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Miquelon /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Moncton
-// Zone Eras: 9
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Moncton[]  = {
-  // -4:19:08 - LMT 1883 Dec 9
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1037 /*offset_code (-15548/15)*/,
-    7 /*offset_remainder (-15548%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    12 /*until_month*/,
-    9 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    EST    1902 Jun 15
-  {
-    NULL /*zone_policy*/,
-    "EST" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1902 /*until_year*/,
-    6 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Canada    A%sT    1933
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1933 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Moncton    A%sT    1942
-  {
-    &kAtcZonePolicyMoncton /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Canada    A%sT    1946
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Moncton    A%sT    1973
-  {
-    &kAtcZonePolicyMoncton /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1973 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Canada    A%sT    1993
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1993 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    Moncton    A%sT    2007
   {
     &kAtcZonePolicyMoncton /*zone_policy*/,
@@ -10587,56 +4991,17 @@ const AtcZoneInfo kAtcZoneAmerica_Moncton  = {
   kAtcZoneNameAmerica_Moncton /*name*/,
   0x5e07fe24 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Moncton /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Monterrey
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Monterrey[]  = {
-  // -6:41:16 - LMT 1922 Jan 1 6:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1606 /*offset_code (-24076/15)*/,
-    14 /*offset_remainder (-24076%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    1440 /*until_time_code (21600/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1988
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1988 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    US    C%sT    1989
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1989 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    Mexico    C%sT
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
@@ -10659,147 +5024,17 @@ const AtcZoneInfo kAtcZoneAmerica_Monterrey  = {
   kAtcZoneNameAmerica_Monterrey /*name*/,
   0x269a1deb /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Monterrey /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Montevideo
-// Zone Eras: 11
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Montevideo[]  = {
-  // -3:44:51 - LMT 1908 Jun 10
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -900 /*offset_code (-13491/15)*/,
-    9 /*offset_remainder (-13491%15)*/,
-    0 /*delta_minutes*/,
-    1908 /*until_year*/,
-    6 /*until_month*/,
-    10 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:44:51 -    MMT    1920 May  1
-  {
-    NULL /*zone_policy*/,
-    "MMT" /*format*/,
-    -900 /*offset_code (-13491/15)*/,
-    9 /*offset_remainder (-13491%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1923 Oct  1
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1923 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:30    Uruguay    -0330/-03 1942 Dec 14
-  {
-    &kAtcZonePolicyUruguay /*zone_policy*/,
-    "-0330/-03" /*format*/,
-    -840 /*offset_code (-12600/15)*/,
-    0 /*offset_remainder (-12600%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    12 /*until_month*/,
-    14 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Uruguay    -03/-0230 1960
-  {
-    &kAtcZonePolicyUruguay /*zone_policy*/,
-    "-03/-0230" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1960 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Uruguay    -03/-02    1968
-  {
-    &kAtcZonePolicyUruguay /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1968 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Uruguay    -03/-0230 1970
-  {
-    &kAtcZonePolicyUruguay /*zone_policy*/,
-    "-03/-0230" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1970 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Uruguay    -03/-02    1974
-  {
-    &kAtcZonePolicyUruguay /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1974 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Uruguay    -03/-0130 1974 Mar 10
-  {
-    &kAtcZonePolicyUruguay /*zone_policy*/,
-    "-03/-0130" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1974 /*until_year*/,
-    3 /*until_month*/,
-    10 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Uruguay    -03/-0230 1974 Dec 22
-  {
-    &kAtcZonePolicyUruguay /*zone_policy*/,
-    "-03/-0230" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1974 /*until_year*/,
-    12 /*until_month*/,
-    22 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    Uruguay    -03/-02
   {
     &kAtcZonePolicyUruguay /*zone_policy*/,
@@ -10822,82 +5057,17 @@ const AtcZoneInfo kAtcZoneAmerica_Montevideo  = {
   kAtcZoneNameAmerica_Montevideo /*name*/,
   0xfa214780 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  11 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Montevideo /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/New_York
-// Zone Eras: 6
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_New_York[]  = {
-  // -4:56:02 - LMT 1883 Nov 18 17:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1185 /*offset_code (-17762/15)*/,
-    13 /*offset_remainder (-17762%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4080 /*until_time_code (61200/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -5:00    US    E%sT    1920
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    NYC    E%sT    1942
-  {
-    &kAtcZonePolicyNYC /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    US    E%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    NYC    E%sT    1967
-  {
-    &kAtcZonePolicyNYC /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1967 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    US    E%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -10920,121 +5090,17 @@ const AtcZoneInfo kAtcZoneAmerica_New_York  = {
   kAtcZoneNameAmerica_New_York /*name*/,
   0x1e2a7654 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_New_York /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Nome
-// Zone Eras: 9
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Nome[]  = {
-  // 12:58:22 - LMT 1867 Oct 19 13:29:35
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    3113 /*offset_code (46702/15)*/,
-    7 /*offset_remainder (46702%15)*/,
-    0 /*delta_minutes*/,
-    1867 /*until_year*/,
-    10 /*until_month*/,
-    19 /*until_day*/,
-    3238 /*until_time_code (48575/15)*/,
-    5 /*until_time_modifier (kAtcSuffixW + seconds=5)*/,
-  },
-  //             -11:01:38 -    LMT    1900 Aug 20 12:00
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2647 /*offset_code (-39698/15)*/,
-    7 /*offset_remainder (-39698%15)*/,
-    0 /*delta_minutes*/,
-    1900 /*until_year*/,
-    8 /*until_month*/,
-    20 /*until_day*/,
-    2880 /*until_time_code (43200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -11:00    -    NST    1942
-  {
-    NULL /*zone_policy*/,
-    "NST" /*format*/,
-    -2640 /*offset_code (-39600/15)*/,
-    0 /*offset_remainder (-39600%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -11:00    US    N%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "N%T" /*format*/,
-    -2640 /*offset_code (-39600/15)*/,
-    0 /*offset_remainder (-39600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -11:00    -    NST    1967 Apr
-  {
-    NULL /*zone_policy*/,
-    "NST" /*format*/,
-    -2640 /*offset_code (-39600/15)*/,
-    0 /*offset_remainder (-39600%15)*/,
-    0 /*delta_minutes*/,
-    1967 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -11:00    -    BST    1969
-  {
-    NULL /*zone_policy*/,
-    "BST" /*format*/,
-    -2640 /*offset_code (-39600/15)*/,
-    0 /*offset_remainder (-39600%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -11:00    US    B%sT    1983 Oct 30  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "B%T" /*format*/,
-    -2640 /*offset_code (-39600/15)*/,
-    0 /*offset_remainder (-39600%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    10 /*until_month*/,
-    30 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -9:00    US    Y%sT    1983 Nov 30
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "Y%T" /*format*/,
-    -2160 /*offset_code (-32400/15)*/,
-    0 /*offset_remainder (-32400%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    11 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              -9:00    US    AK%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -11057,43 +5123,17 @@ const AtcZoneInfo kAtcZoneAmerica_Nome  = {
   kAtcZoneNameAmerica_Nome /*name*/,
   0x98059b15 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Nome /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Noronha
-// Zone Eras: 7
+// Zone Eras: 5
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Noronha[]  = {
-  // -2:09:40 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -519 /*offset_code (-7780/15)*/,
-    5 /*offset_remainder (-7780%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -2:00    Brazil    -02/-01    1990 Sep 17
-  {
-    &kAtcZonePolicyBrazil /*zone_policy*/,
-    "-02/-01" /*format*/,
-    -480 /*offset_code (-7200/15)*/,
-    0 /*offset_remainder (-7200%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    9 /*until_month*/,
-    17 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -2:00    -    -02    1999 Sep 30
   {
     NULL /*zone_policy*/,
@@ -11168,30 +5208,17 @@ const AtcZoneInfo kAtcZoneAmerica_Noronha  = {
   kAtcZoneNameAmerica_Noronha /*name*/,
   0xab5116fb /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  5 /*num_eras*/,
   kAtcZoneEraAmerica_Noronha /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/North_Dakota/Beulah
-// Zone Eras: 3
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Beulah[]  = {
-  // -6:47:07 - LMT 1883 Nov 18 19:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1629 /*offset_code (-24427/15)*/,
-    8 /*offset_remainder (-24427%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4560 /*until_time_code (68400/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
   //             -7:00    US    M%sT    2010 Nov  7  2:00
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -11227,43 +5254,17 @@ const AtcZoneInfo kAtcZoneAmerica_North_Dakota_Beulah  = {
   kAtcZoneNameAmerica_North_Dakota_Beulah /*name*/,
   0x9b52b384 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_North_Dakota_Beulah /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/North_Dakota/Center
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Center[]  = {
-  // -6:45:12 - LMT 1883 Nov 18 19:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1621 /*offset_code (-24312/15)*/,
-    3 /*offset_remainder (-24312%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4560 /*until_time_code (68400/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -7:00    US    M%sT    1992 Oct 25  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    10 /*until_month*/,
-    25 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    US    C%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -11286,30 +5287,17 @@ const AtcZoneInfo kAtcZoneAmerica_North_Dakota_Center  = {
   kAtcZoneNameAmerica_North_Dakota_Center /*name*/,
   0x9da42814 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_North_Dakota_Center /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/North_Dakota/New_Salem
-// Zone Eras: 3
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_New_Salem[]  = {
-  // -6:45:39 - LMT 1883 Nov 18 19:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1623 /*offset_code (-24339/15)*/,
-    6 /*offset_remainder (-24339%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4560 /*until_time_code (68400/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
   //             -7:00    US    M%sT    2003 Oct 26  2:00
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -11345,43 +5333,17 @@ const AtcZoneInfo kAtcZoneAmerica_North_Dakota_New_Salem  = {
   kAtcZoneNameAmerica_North_Dakota_New_Salem /*name*/,
   0x04f9958e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_North_Dakota_New_Salem /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Nuuk
-// Zone Eras: 4
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Nuuk[]  = {
-  // -3:26:56 - LMT 1916 Jul 28
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -828 /*offset_code (-12416/15)*/,
-    4 /*offset_remainder (-12416%15)*/,
-    0 /*delta_minutes*/,
-    1916 /*until_year*/,
-    7 /*until_month*/,
-    28 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    -    -03    1980 Apr  6  2:00
-  {
-    NULL /*zone_policy*/,
-    "-03" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1980 /*until_year*/,
-    4 /*until_month*/,
-    6 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    EU    -03/-02    2023 Mar 25 22:00
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -11417,108 +5379,17 @@ const AtcZoneInfo kAtcZoneAmerica_Nuuk  = {
   kAtcZoneNameAmerica_Nuuk /*name*/,
   0x9805b5a9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Nuuk /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Ojinaga
-// Zone Eras: 11
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Ojinaga[]  = {
-  // -6:57:40 - LMT 1922 Jan 1 7:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1671 /*offset_code (-25060/15)*/,
-    5 /*offset_remainder (-25060%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    1680 /*until_time_code (25200/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -7:00    -    MST    1927 Jun 10 23:00
-  {
-    NULL /*zone_policy*/,
-    "MST" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1927 /*until_year*/,
-    6 /*until_month*/,
-    10 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1930 Nov 15
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    11 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    Mexico    M%sT    1932 Apr  1
-  {
-    &kAtcZonePolicyMexico /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1932 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1996
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    Mexico    C%sT    1998
-  {
-    &kAtcZonePolicyMexico /*zone_policy*/,
-    "C%T" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1998 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -6:00    -    CST    1998 Apr Sun>=1  3:00
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    -1440 /*offset_code (-21600/15)*/,
-    0 /*offset_remainder (-21600%15)*/,
-    0 /*delta_minutes*/,
-    1998 /*until_year*/,
-    4 /*until_month*/,
-    5 /*until_day*/,
-    720 /*until_time_code (10800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -7:00    Mexico    M%sT    2010
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
@@ -11580,43 +5451,17 @@ const AtcZoneInfo kAtcZoneAmerica_Ojinaga  = {
   kAtcZoneNameAmerica_Ojinaga /*name*/,
   0xebfde83f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  11 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAmerica_Ojinaga /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Panama
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Panama[]  = {
-  // -5:18:08 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1273 /*offset_code (-19088/15)*/,
-    7 /*offset_remainder (-19088%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:19:36 -    CMT    1908 Apr 22
-  {
-    NULL /*zone_policy*/,
-    "CMT" /*format*/,
-    -1279 /*offset_code (-19176/15)*/,
-    9 /*offset_remainder (-19176%15)*/,
-    0 /*delta_minutes*/,
-    1908 /*until_year*/,
-    4 /*until_month*/,
-    22 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    -    EST
   {
     NULL /*zone_policy*/,
@@ -11639,69 +5484,17 @@ const AtcZoneInfo kAtcZoneAmerica_Panama  = {
   kAtcZoneNameAmerica_Panama /*name*/,
   0xb3863854 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Panama /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Paramaribo
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Paramaribo[]  = {
-  // -3:40:40 - LMT 1911
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -883 /*offset_code (-13240/15)*/,
-    5 /*offset_remainder (-13240%15)*/,
-    0 /*delta_minutes*/,
-    1911 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:40:52 -    PMT    1935
-  {
-    NULL /*zone_policy*/,
-    "PMT" /*format*/,
-    -884 /*offset_code (-13252/15)*/,
-    8 /*offset_remainder (-13252%15)*/,
-    0 /*delta_minutes*/,
-    1935 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:40:36 -    PMT    1945 Oct
-  {
-    NULL /*zone_policy*/,
-    "PMT" /*format*/,
-    -883 /*offset_code (-13236/15)*/,
-    9 /*offset_remainder (-13236%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:30    -    -0330    1984 Oct
-  {
-    NULL /*zone_policy*/,
-    "-0330" /*format*/,
-    -840 /*offset_code (-12600/15)*/,
-    0 /*offset_remainder (-12600%15)*/,
-    0 /*delta_minutes*/,
-    1984 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
@@ -11724,95 +5517,17 @@ const AtcZoneInfo kAtcZoneAmerica_Paramaribo  = {
   kAtcZoneNameAmerica_Paramaribo /*name*/,
   0xb319e4c4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Paramaribo /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Phoenix
-// Zone Eras: 7
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Phoenix[]  = {
-  // -7:28:18 - LMT 1883 Nov 18 19:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1794 /*offset_code (-26898/15)*/,
-    12 /*offset_remainder (-26898%15)*/,
-    0 /*delta_minutes*/,
-    1883 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    4560 /*until_time_code (68400/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -7:00    US    M%sT    1944 Jan  1  0:01
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    4 /*until_time_code (60/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    -    MST    1944 Apr  1  0:01
-  {
-    NULL /*zone_policy*/,
-    "MST" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    4 /*until_time_code (60/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    US    M%sT    1944 Oct  1  0:01
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    4 /*until_time_code (60/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    -    MST    1967
-  {
-    NULL /*zone_policy*/,
-    "MST" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1967 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    US    M%sT    1968 Mar 21
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1968 /*until_year*/,
-    3 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -7:00    -    MST
   {
     NULL /*zone_policy*/,
@@ -11835,43 +5550,17 @@ const AtcZoneInfo kAtcZoneAmerica_Phoenix  = {
   kAtcZoneNameAmerica_Phoenix /*name*/,
   0x34b5af01 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Phoenix /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Port-au-Prince
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Port_au_Prince[]  = {
-  // -4:49:20 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1158 /*offset_code (-17360/15)*/,
-    10 /*offset_remainder (-17360%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:49    -    PPMT    1917 Jan 24 12:00
-  {
-    NULL /*zone_policy*/,
-    "PPMT" /*format*/,
-    -1156 /*offset_code (-17340/15)*/,
-    0 /*offset_remainder (-17340%15)*/,
-    0 /*delta_minutes*/,
-    1917 /*until_year*/,
-    1 /*until_month*/,
-    24 /*until_day*/,
-    2880 /*until_time_code (43200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    Haiti    E%sT
   {
     &kAtcZonePolicyHaiti /*zone_policy*/,
@@ -11894,43 +5583,17 @@ const AtcZoneInfo kAtcZoneAmerica_Port_au_Prince  = {
   kAtcZoneNameAmerica_Port_au_Prince /*name*/,
   0x8e4a7bdc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Port_au_Prince /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Porto_Velho
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Porto_Velho[]  = {
-  // -4:15:36 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1023 /*offset_code (-15336/15)*/,
-    9 /*offset_remainder (-15336%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Brazil    -04/-03    1988 Sep 12
-  {
-    &kAtcZonePolicyBrazil /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1988 /*until_year*/,
-    9 /*until_month*/,
-    12 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    -    -04
   {
     NULL /*zone_policy*/,
@@ -11953,56 +5616,17 @@ const AtcZoneInfo kAtcZoneAmerica_Porto_Velho  = {
   kAtcZoneNameAmerica_Porto_Velho /*name*/,
   0x6b1aac77 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Porto_Velho /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Puerto_Rico
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Puerto_Rico[]  = {
-  // -4:24:25 - LMT 1899 Mar 28 12:00
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1058 /*offset_code (-15865/15)*/,
-    5 /*offset_remainder (-15865%15)*/,
-    0 /*delta_minutes*/,
-    1899 /*until_year*/,
-    3 /*until_month*/,
-    28 /*until_day*/,
-    2880 /*until_time_code (43200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    AST    1942 May  3
-  {
-    NULL /*zone_policy*/,
-    "AST" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    5 /*until_month*/,
-    3 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    US    A%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    -    AST
   {
     NULL /*zone_policy*/,
@@ -12025,173 +5649,17 @@ const AtcZoneInfo kAtcZoneAmerica_Puerto_Rico  = {
   kAtcZoneNameAmerica_Puerto_Rico /*name*/,
   0x6752ca31 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Punta_Arenas
-// Zone Eras: 14
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Punta_Arenas[]  = {
-  // -4:43:40 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1135 /*offset_code (-17020/15)*/,
-    5 /*offset_remainder (-17020%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:42:45 -    SMT    1910 Jan 10
-  {
-    NULL /*zone_policy*/,
-    "SMT" /*format*/,
-    -1131 /*offset_code (-16965/15)*/,
-    0 /*offset_remainder (-16965%15)*/,
-    0 /*delta_minutes*/,
-    1910 /*until_year*/,
-    1 /*until_month*/,
-    10 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    -05    1916 Jul  1
-  {
-    NULL /*zone_policy*/,
-    "-05" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1916 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:42:45 -    SMT    1918 Sep 10
-  {
-    NULL /*zone_policy*/,
-    "SMT" /*format*/,
-    -1131 /*offset_code (-16965/15)*/,
-    0 /*offset_remainder (-16965%15)*/,
-    0 /*delta_minutes*/,
-    1918 /*until_year*/,
-    9 /*until_month*/,
-    10 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1919 Jul  1
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:42:45 -    SMT    1927 Sep  1
-  {
-    NULL /*zone_policy*/,
-    "SMT" /*format*/,
-    -1131 /*offset_code (-16965/15)*/,
-    0 /*offset_remainder (-16965%15)*/,
-    0 /*delta_minutes*/,
-    1927 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    Chile    -05/-04    1932 Sep  1
-  {
-    &kAtcZonePolicyChile /*zone_policy*/,
-    "-05/-04" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1932 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1942 Jun  1
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    6 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    -05    1942 Aug  1
-  {
-    NULL /*zone_policy*/,
-    "-05" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    8 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1946 Aug 28 24:00
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    8 /*until_month*/,
-    28 /*until_day*/,
-    5760 /*until_time_code (86400/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    1:00    -04    1947 Mar 31 24:00
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    60 /*delta_minutes*/,
-    1947 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    5760 /*until_time_code (86400/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    -05    1947 May 21 23:00
-  {
-    NULL /*zone_policy*/,
-    "-05" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1947 /*until_year*/,
-    5 /*until_month*/,
-    21 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    Chile    -04/-03    2016 Dec  4
   {
     &kAtcZonePolicyChile /*zone_policy*/,
@@ -12227,30 +5695,17 @@ const AtcZoneInfo kAtcZoneAmerica_Punta_Arenas  = {
   kAtcZoneNameAmerica_Punta_Arenas /*name*/,
   0xc2c3bce7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  14 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Punta_Arenas /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Rankin_Inlet
-// Zone Eras: 4
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Rankin_Inlet[]  = {
-  // 0 - -00 1957
-  {
-    NULL /*zone_policy*/,
-    "-00" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1957 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    NT_YK    C%sT    2000 Oct 29  2:00
   {
     &kAtcZonePolicyNT_YK /*zone_policy*/,
@@ -12299,43 +5754,17 @@ const AtcZoneInfo kAtcZoneAmerica_Rankin_Inlet  = {
   kAtcZoneNameAmerica_Rankin_Inlet /*name*/,
   0xc8de4984 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Rankin_Inlet /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Recife
-// Zone Eras: 7
+// Zone Eras: 5
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Recife[]  = {
-  // -2:19:36 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -559 /*offset_code (-8376/15)*/,
-    9 /*offset_remainder (-8376%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Brazil    -03/-02    1990 Sep 17
-  {
-    &kAtcZonePolicyBrazil /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    9 /*until_month*/,
-    17 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    -    -03    1999 Sep 30
   {
     NULL /*zone_policy*/,
@@ -12410,43 +5839,17 @@ const AtcZoneInfo kAtcZoneAmerica_Recife  = {
   kAtcZoneNameAmerica_Recife /*name*/,
   0xb8730494 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  5 /*num_eras*/,
   kAtcZoneEraAmerica_Recife /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Regina
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Regina[]  = {
-  // -6:58:36 - LMT 1905 Sep
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1675 /*offset_code (-25116/15)*/,
-    9 /*offset_remainder (-25116%15)*/,
-    0 /*delta_minutes*/,
-    1905 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    Regina    M%sT    1960 Apr lastSun  2:00
-  {
-    &kAtcZonePolicyRegina /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1960 /*until_year*/,
-    4 /*until_month*/,
-    24 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    -    CST
   {
     NULL /*zone_policy*/,
@@ -12469,30 +5872,17 @@ const AtcZoneInfo kAtcZoneAmerica_Regina  = {
   kAtcZoneNameAmerica_Regina /*name*/,
   0xb875371c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Regina /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Resolute
-// Zone Eras: 6
+// Zone Eras: 5
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Resolute[]  = {
-  // 0 - -00 1947 Aug 31
-  {
-    NULL /*zone_policy*/,
-    "-00" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1947 /*until_year*/,
-    8 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    NT_YK    C%sT    2000 Oct 29  2:00
   {
     &kAtcZonePolicyNT_YK /*zone_policy*/,
@@ -12567,43 +5957,17 @@ const AtcZoneInfo kAtcZoneAmerica_Resolute  = {
   kAtcZoneNameAmerica_Resolute /*name*/,
   0xc7093459 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  5 /*num_eras*/,
   kAtcZoneEraAmerica_Resolute /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Rio_Branco
-// Zone Eras: 5
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Rio_Branco[]  = {
-  // -4:31:12 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1085 /*offset_code (-16272/15)*/,
-    3 /*offset_remainder (-16272%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    Brazil    -05/-04    1988 Sep 12
-  {
-    &kAtcZonePolicyBrazil /*zone_policy*/,
-    "-05/-04" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1988 /*until_year*/,
-    9 /*until_month*/,
-    12 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    -    -05    2008 Jun 24  0:00
   {
     NULL /*zone_policy*/,
@@ -12652,43 +6016,17 @@ const AtcZoneInfo kAtcZoneAmerica_Rio_Branco  = {
   kAtcZoneNameAmerica_Rio_Branco /*name*/,
   0x9d352764 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Rio_Branco /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Santarem
-// Zone Eras: 4
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Santarem[]  = {
-  // -3:38:48 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -876 /*offset_code (-13128/15)*/,
-    12 /*offset_remainder (-13128%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Brazil    -04/-03    1988 Sep 12
-  {
-    &kAtcZonePolicyBrazil /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1988 /*until_year*/,
-    9 /*until_month*/,
-    12 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    -    -04    2008 Jun 24  0:00
   {
     NULL /*zone_policy*/,
@@ -12724,186 +6062,17 @@ const AtcZoneInfo kAtcZoneAmerica_Santarem  = {
   kAtcZoneNameAmerica_Santarem /*name*/,
   0x740caec1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Santarem /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Santiago
-// Zone Eras: 14
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Santiago[]  = {
-  // -4:42:45 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1131 /*offset_code (-16965/15)*/,
-    0 /*offset_remainder (-16965%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:42:45 -    SMT    1910 Jan 10
-  {
-    NULL /*zone_policy*/,
-    "SMT" /*format*/,
-    -1131 /*offset_code (-16965/15)*/,
-    0 /*offset_remainder (-16965%15)*/,
-    0 /*delta_minutes*/,
-    1910 /*until_year*/,
-    1 /*until_month*/,
-    10 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    -05    1916 Jul  1
-  {
-    NULL /*zone_policy*/,
-    "-05" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1916 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:42:45 -    SMT    1918 Sep 10
-  {
-    NULL /*zone_policy*/,
-    "SMT" /*format*/,
-    -1131 /*offset_code (-16965/15)*/,
-    0 /*offset_remainder (-16965%15)*/,
-    0 /*delta_minutes*/,
-    1918 /*until_year*/,
-    9 /*until_month*/,
-    10 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1919 Jul  1
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:42:45 -    SMT    1927 Sep  1
-  {
-    NULL /*zone_policy*/,
-    "SMT" /*format*/,
-    -1131 /*offset_code (-16965/15)*/,
-    0 /*offset_remainder (-16965%15)*/,
-    0 /*delta_minutes*/,
-    1927 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    Chile    -05/-04    1932 Sep  1
-  {
-    &kAtcZonePolicyChile /*zone_policy*/,
-    "-05/-04" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1932 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1942 Jun  1
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    6 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    -05    1942 Aug  1
-  {
-    NULL /*zone_policy*/,
-    "-05" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    8 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    -    -04    1946 Jul 14 24:00
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    7 /*until_month*/,
-    14 /*until_day*/,
-    5760 /*until_time_code (86400/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    1:00    -03    1946 Aug 28 24:00
-  {
-    NULL /*zone_policy*/,
-    "-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    60 /*delta_minutes*/,
-    1946 /*until_year*/,
-    8 /*until_month*/,
-    28 /*until_day*/,
-    5760 /*until_time_code (86400/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    1:00    -04    1947 Mar 31 24:00
-  {
-    NULL /*zone_policy*/,
-    "-04" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    60 /*delta_minutes*/,
-    1947 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    5760 /*until_time_code (86400/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    -05    1947 May 21 23:00
-  {
-    NULL /*zone_policy*/,
-    "-05" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1947 /*until_year*/,
-    5 /*until_month*/,
-    21 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    Chile    -04/-03
   {
     &kAtcZonePolicyChile /*zone_policy*/,
@@ -12926,56 +6095,17 @@ const AtcZoneInfo kAtcZoneAmerica_Santiago  = {
   kAtcZoneNameAmerica_Santiago /*name*/,
   0x7410c9bc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  14 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Santiago /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Santo_Domingo
-// Zone Eras: 6
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Santo_Domingo[]  = {
-  // -4:39:36 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1119 /*offset_code (-16776/15)*/,
-    9 /*offset_remainder (-16776%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:40    -    SDMT    1933 Apr  1 12:00
-  {
-    NULL /*zone_policy*/,
-    "SDMT" /*format*/,
-    -1120 /*offset_code (-16800/15)*/,
-    0 /*offset_remainder (-16800%15)*/,
-    0 /*delta_minutes*/,
-    1933 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    2880 /*until_time_code (43200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    DR    %s    1974 Oct 27
-  {
-    &kAtcZonePolicyDR /*zone_policy*/,
-    "%" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1974 /*until_year*/,
-    10 /*until_month*/,
-    27 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    -    AST    2000 Oct 29  2:00
   {
     NULL /*zone_policy*/,
@@ -13024,56 +6154,17 @@ const AtcZoneInfo kAtcZoneAmerica_Santo_Domingo  = {
   kAtcZoneNameAmerica_Santo_Domingo /*name*/,
   0x75a0d177 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Santo_Domingo /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Sao_Paulo
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Sao_Paulo[]  = {
-  // -3:06:28 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -746 /*offset_code (-11188/15)*/,
-    2 /*offset_remainder (-11188%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Brazil    -03/-02    1963 Oct 23  0:00
-  {
-    &kAtcZonePolicyBrazil /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1963 /*until_year*/,
-    10 /*until_month*/,
-    23 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    1:00    -02    1964
-  {
-    NULL /*zone_policy*/,
-    "-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    60 /*delta_minutes*/,
-    1964 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    Brazil    -03/-02
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
@@ -13096,56 +6187,17 @@ const AtcZoneInfo kAtcZoneAmerica_Sao_Paulo  = {
   kAtcZoneNameAmerica_Sao_Paulo /*name*/,
   0x1063bfc9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Sao_Paulo /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Scoresbysund
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Scoresbysund[]  = {
-  // -1:27:52 - LMT 1916 Jul 28
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -352 /*offset_code (-5272/15)*/,
-    8 /*offset_remainder (-5272%15)*/,
-    0 /*delta_minutes*/,
-    1916 /*until_year*/,
-    7 /*until_month*/,
-    28 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -2:00    -    -02    1980 Apr  6  2:00
-  {
-    NULL /*zone_policy*/,
-    "-02" /*format*/,
-    -480 /*offset_code (-7200/15)*/,
-    0 /*offset_remainder (-7200%15)*/,
-    0 /*delta_minutes*/,
-    1980 /*until_year*/,
-    4 /*until_month*/,
-    6 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -2:00    C-Eur    -02/-01    1981 Mar 29
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "-02/-01" /*format*/,
-    -480 /*offset_code (-7200/15)*/,
-    0 /*offset_remainder (-7200%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    3 /*until_month*/,
-    29 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -1:00    EU    -01/+00
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -13168,108 +6220,17 @@ const AtcZoneInfo kAtcZoneAmerica_Scoresbysund  = {
   kAtcZoneNameAmerica_Scoresbysund /*name*/,
   0x123f8d2a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Scoresbysund /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Sitka
-// Zone Eras: 8
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Sitka[]  = {
-  // 14:58:47 - LMT 1867 Oct 19 15:30
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    3595 /*offset_code (53927/15)*/,
-    2 /*offset_remainder (53927%15)*/,
-    0 /*delta_minutes*/,
-    1867 /*until_year*/,
-    10 /*until_month*/,
-    19 /*until_day*/,
-    3720 /*until_time_code (55800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -9:01:13 -    LMT    1900 Aug 20 12:00
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2165 /*offset_code (-32473/15)*/,
-    2 /*offset_remainder (-32473%15)*/,
-    0 /*delta_minutes*/,
-    1900 /*until_year*/,
-    8 /*until_month*/,
-    20 /*until_day*/,
-    2880 /*until_time_code (43200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -8:00    -    PST    1942
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -8:00    US    P%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -8:00    -    PST    1969
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -8:00    US    P%sT    1983 Oct 30  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    10 /*until_month*/,
-    30 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -9:00    US    Y%sT    1983 Nov 30
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "Y%T" /*format*/,
-    -2160 /*offset_code (-32400/15)*/,
-    0 /*offset_remainder (-32400%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    11 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              -9:00    US    AK%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -13292,95 +6253,17 @@ const AtcZoneInfo kAtcZoneAmerica_Sitka  = {
   kAtcZoneNameAmerica_Sitka /*name*/,
   0x99104ce2 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Sitka /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/St_Johns
-// Zone Eras: 8
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_St_Johns[]  = {
-  // -3:30:52 - LMT 1884
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -844 /*offset_code (-12652/15)*/,
-    8 /*offset_remainder (-12652%15)*/,
-    0 /*delta_minutes*/,
-    1884 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:30:52 StJohns N%sT    1918
-  {
-    &kAtcZonePolicyStJohns /*zone_policy*/,
-    "N%T" /*format*/,
-    -844 /*offset_code (-12652/15)*/,
-    8 /*offset_remainder (-12652%15)*/,
-    0 /*delta_minutes*/,
-    1918 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:30:52 Canada    N%sT    1919
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "N%T" /*format*/,
-    -844 /*offset_code (-12652/15)*/,
-    8 /*offset_remainder (-12652%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:30:52 StJohns N%sT    1935 Mar 30
-  {
-    &kAtcZonePolicyStJohns /*zone_policy*/,
-    "N%T" /*format*/,
-    -844 /*offset_code (-12652/15)*/,
-    8 /*offset_remainder (-12652%15)*/,
-    0 /*delta_minutes*/,
-    1935 /*until_year*/,
-    3 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:30    StJohns    N%sT    1942 May 11
-  {
-    &kAtcZonePolicyStJohns /*zone_policy*/,
-    "N%T" /*format*/,
-    -840 /*offset_code (-12600/15)*/,
-    0 /*offset_remainder (-12600%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    5 /*until_month*/,
-    11 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:30    Canada    N%sT    1946
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "N%T" /*format*/,
-    -840 /*offset_code (-12600/15)*/,
-    0 /*offset_remainder (-12600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:30    StJohns    N%sT    2011 Nov
   {
     &kAtcZonePolicyStJohns /*zone_policy*/,
@@ -13416,69 +6299,17 @@ const AtcZoneInfo kAtcZoneAmerica_St_Johns  = {
   kAtcZoneNameAmerica_St_Johns /*name*/,
   0x04b14e6e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_St_Johns /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Swift_Current
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Swift_Current[]  = {
-  // -7:11:20 - LMT 1905 Sep
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1726 /*offset_code (-25880/15)*/,
-    10 /*offset_remainder (-25880%15)*/,
-    0 /*delta_minutes*/,
-    1905 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    Canada    M%sT    1946 Apr lastSun  2:00
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    4 /*until_month*/,
-    28 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    Regina    M%sT    1950
-  {
-    &kAtcZonePolicyRegina /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1950 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    Swift    M%sT    1972 Apr lastSun  2:00
-  {
-    &kAtcZonePolicySwift /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1972 /*until_year*/,
-    4 /*until_month*/,
-    30 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    -    CST
   {
     NULL /*zone_policy*/,
@@ -13501,30 +6332,17 @@ const AtcZoneInfo kAtcZoneAmerica_Swift_Current  = {
   kAtcZoneNameAmerica_Swift_Current /*name*/,
   0xdef98e55 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Swift_Current /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Tegucigalpa
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Tegucigalpa[]  = {
-  // -5:48:52 - LMT 1921 Apr
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1396 /*offset_code (-20932/15)*/,
-    8 /*offset_remainder (-20932%15)*/,
-    0 /*delta_minutes*/,
-    1921 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    Hond    C%sT
   {
     &kAtcZonePolicyHond /*zone_policy*/,
@@ -13547,30 +6365,17 @@ const AtcZoneInfo kAtcZoneAmerica_Tegucigalpa  = {
   kAtcZoneNameAmerica_Tegucigalpa /*name*/,
   0xbfd6fd4c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Tegucigalpa /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Thule
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Thule[]  = {
-  // -4:35:08 - LMT 1916 Jul 28
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1101 /*offset_code (-16508/15)*/,
-    7 /*offset_remainder (-16508%15)*/,
-    0 /*delta_minutes*/,
-    1916 /*until_year*/,
-    7 /*until_month*/,
-    28 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    Thule    A%sT
   {
     &kAtcZonePolicyThule /*zone_policy*/,
@@ -13593,212 +6398,17 @@ const AtcZoneInfo kAtcZoneAmerica_Thule  = {
   kAtcZoneNameAmerica_Thule /*name*/,
   0x9921dd68 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Thule /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Tijuana
-// Zone Eras: 19
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Tijuana[]  = {
-  // -7:48:04 - LMT 1922 Jan 1 7:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1873 /*offset_code (-28084/15)*/,
-    11 /*offset_remainder (-28084%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    1680 /*until_time_code (25200/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -7:00    -    MST    1924
-  {
-    NULL /*zone_policy*/,
-    "MST" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    -    PST    1927 Jun 10 23:00
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1927 /*until_year*/,
-    6 /*until_month*/,
-    10 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    -    MST    1930 Nov 15
-  {
-    NULL /*zone_policy*/,
-    "MST" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    11 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    -    PST    1931 Apr  1
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1931 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    1:00    PDT    1931 Sep 30
-  {
-    NULL /*zone_policy*/,
-    "PDT" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    60 /*delta_minutes*/,
-    1931 /*until_year*/,
-    9 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    -    PST    1942 Apr 24
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    4 /*until_month*/,
-    24 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    1:00    PWT    1945 Aug 14 23:00u
-  {
-    NULL /*zone_policy*/,
-    "PWT" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    60 /*delta_minutes*/,
-    1945 /*until_year*/,
-    8 /*until_month*/,
-    14 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -8:00    1:00    PPT    1945 Nov 12
-  {
-    NULL /*zone_policy*/,
-    "PPT" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    60 /*delta_minutes*/,
-    1945 /*until_year*/,
-    11 /*until_month*/,
-    12 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    -    PST    1948 Apr  5
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1948 /*until_year*/,
-    4 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    1:00    PDT    1949 Jan 14
-  {
-    NULL /*zone_policy*/,
-    "PDT" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    60 /*delta_minutes*/,
-    1949 /*until_year*/,
-    1 /*until_month*/,
-    14 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    -    PST    1954
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1954 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    CA    P%sT    1961
-  {
-    &kAtcZonePolicyCA /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1961 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    -    PST    1976
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1976 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    US    P%sT    1996
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -8:00    Mexico    P%sT    2001
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
@@ -13860,82 +6470,17 @@ const AtcZoneInfo kAtcZoneAmerica_Tijuana  = {
   kAtcZoneNameAmerica_Tijuana /*name*/,
   0x6aa1df72 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  19 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAmerica_Tijuana /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Toronto
-// Zone Eras: 6
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Toronto[]  = {
-  // -5:17:32 - LMT 1895
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1271 /*offset_code (-19052/15)*/,
-    13 /*offset_remainder (-19052%15)*/,
-    0 /*delta_minutes*/,
-    1895 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    Canada    E%sT    1919
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    Toronto    E%sT    1942 Feb  9  2:00s
-  {
-    &kAtcZonePolicyToronto /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    2 /*until_month*/,
-    9 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -5:00    Canada    E%sT    1946
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    Toronto    E%sT    1974
-  {
-    &kAtcZonePolicyToronto /*zone_policy*/,
-    "E%T" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1974 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -5:00    Canada    E%sT
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
@@ -13958,43 +6503,17 @@ const AtcZoneInfo kAtcZoneAmerica_Toronto  = {
   kAtcZoneNameAmerica_Toronto /*name*/,
   0x792e851b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Vancouver
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Vancouver[]  = {
-  // -8:12:28 - LMT 1884
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1970 /*offset_code (-29548/15)*/,
-    2 /*offset_remainder (-29548%15)*/,
-    0 /*delta_minutes*/,
-    1884 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    Vanc    P%sT    1987
-  {
-    &kAtcZonePolicyVanc /*zone_policy*/,
-    "P%T" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1987 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -8:00    Canada    P%sT
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
@@ -14017,69 +6536,17 @@ const AtcZoneInfo kAtcZoneAmerica_Vancouver  = {
   kAtcZoneNameAmerica_Vancouver /*name*/,
   0x2c6f6b1f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Vancouver /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Whitehorse
-// Zone Eras: 6
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Whitehorse[]  = {
-  // -9:00:12 - LMT 1900 Aug 20
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2161 /*offset_code (-32412/15)*/,
-    3 /*offset_remainder (-32412%15)*/,
-    0 /*delta_minutes*/,
-    1900 /*until_year*/,
-    8 /*until_month*/,
-    20 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -9:00    NT_YK    Y%sT    1965
-  {
-    &kAtcZonePolicyNT_YK /*zone_policy*/,
-    "Y%T" /*format*/,
-    -2160 /*offset_code (-32400/15)*/,
-    0 /*offset_remainder (-32400%15)*/,
-    0 /*delta_minutes*/,
-    1965 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -9:00    Yukon    Y%sT    1966 Feb 27  0:00
-  {
-    &kAtcZonePolicyYukon /*zone_policy*/,
-    "Y%T" /*format*/,
-    -2160 /*offset_code (-32400/15)*/,
-    0 /*offset_remainder (-32400%15)*/,
-    0 /*delta_minutes*/,
-    1966 /*until_year*/,
-    2 /*until_month*/,
-    27 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:00    -    PST    1980
-  {
-    NULL /*zone_policy*/,
-    "PST" /*format*/,
-    -1920 /*offset_code (-28800/15)*/,
-    0 /*offset_remainder (-28800%15)*/,
-    0 /*delta_minutes*/,
-    1980 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -8:00    Canada    P%sT    2020 Nov  1
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
@@ -14115,30 +6582,17 @@ const AtcZoneInfo kAtcZoneAmerica_Whitehorse  = {
   kAtcZoneNameAmerica_Whitehorse /*name*/,
   0x54e0e3e8 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Whitehorse /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Winnipeg
-// Zone Eras: 3
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Winnipeg[]  = {
-  // -6:28:36 - LMT 1887 Jul 16
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1555 /*offset_code (-23316/15)*/,
-    9 /*offset_remainder (-23316%15)*/,
-    0 /*delta_minutes*/,
-    1887 /*until_year*/,
-    7 /*until_month*/,
-    16 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    Winn    C%sT    2006
   {
     &kAtcZonePolicyWinn /*zone_policy*/,
@@ -14174,95 +6628,17 @@ const AtcZoneInfo kAtcZoneAmerica_Winnipeg  = {
   kAtcZoneNameAmerica_Winnipeg /*name*/,
   0x8c7dafc7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Winnipeg /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Yakutat
-// Zone Eras: 7
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Yakutat[]  = {
-  // 14:41:05 - LMT 1867 Oct 19 15:12:18
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    3524 /*offset_code (52865/15)*/,
-    5 /*offset_remainder (52865%15)*/,
-    0 /*delta_minutes*/,
-    1867 /*until_year*/,
-    10 /*until_month*/,
-    19 /*until_day*/,
-    3649 /*until_time_code (54738/15)*/,
-    3 /*until_time_modifier (kAtcSuffixW + seconds=3)*/,
-  },
-  //              -9:18:55 -    LMT    1900 Aug 20 12:00
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2236 /*offset_code (-33535/15)*/,
-    5 /*offset_remainder (-33535%15)*/,
-    0 /*delta_minutes*/,
-    1900 /*until_year*/,
-    8 /*until_month*/,
-    20 /*until_day*/,
-    2880 /*until_time_code (43200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -9:00    -    YST    1942
-  {
-    NULL /*zone_policy*/,
-    "YST" /*format*/,
-    -2160 /*offset_code (-32400/15)*/,
-    0 /*offset_remainder (-32400%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -9:00    US    Y%sT    1946
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "Y%T" /*format*/,
-    -2160 /*offset_code (-32400/15)*/,
-    0 /*offset_remainder (-32400%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -9:00    -    YST    1969
-  {
-    NULL /*zone_policy*/,
-    "YST" /*format*/,
-    -2160 /*offset_code (-32400/15)*/,
-    0 /*offset_remainder (-32400%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              -9:00    US    Y%sT    1983 Nov 30
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "Y%T" /*format*/,
-    -2160 /*offset_code (-32400/15)*/,
-    0 /*offset_remainder (-32400%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    11 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              -9:00    US    AK%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -14285,43 +6661,17 @@ const AtcZoneInfo kAtcZoneAmerica_Yakutat  = {
   kAtcZoneNameAmerica_Yakutat /*name*/,
   0xd8ee31e9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Yakutat /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Yellowknife
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Yellowknife[]  = {
-  // 0 - -00 1935
-  {
-    NULL /*zone_policy*/,
-    "-00" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1935 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    NT_YK    M%sT    1980
-  {
-    &kAtcZonePolicyNT_YK /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1980 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -7:00    Canada    M%sT
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
@@ -14344,30 +6694,17 @@ const AtcZoneInfo kAtcZoneAmerica_Yellowknife  = {
   kAtcZoneNameAmerica_Yellowknife /*name*/,
   0x0f76c76f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Yellowknife /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Antarctica/Casey
-// Zone Eras: 13
+// Zone Eras: 12
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Casey[]  = {
-  // 0 - -00 1969
-  {
-    NULL /*zone_policy*/,
-    "-00" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              8:00    -    +08    2009 Oct 18  2:00
   {
     NULL /*zone_policy*/,
@@ -14533,56 +6870,17 @@ const AtcZoneInfo kAtcZoneAntarctica_Casey  = {
   kAtcZoneNameAntarctica_Casey /*name*/,
   0xe2022583 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  13 /*num_eras*/,
+  12 /*num_eras*/,
   kAtcZoneEraAntarctica_Casey /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Antarctica/Davis
-// Zone Eras: 8
+// Zone Eras: 5
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Davis[]  = {
-  // 0 - -00 1957 Jan 13
-  {
-    NULL /*zone_policy*/,
-    "-00" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1957 /*until_year*/,
-    1 /*until_month*/,
-    13 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:00    -    +07    1964 Nov
-  {
-    NULL /*zone_policy*/,
-    "+07" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    0 /*delta_minutes*/,
-    1964 /*until_year*/,
-    11 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0    -    -00    1969 Feb
-  {
-    NULL /*zone_policy*/,
-    "-00" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    2 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             7:00    -    +07    2009 Oct 18  2:00
   {
     NULL /*zone_policy*/,
@@ -14657,95 +6955,17 @@ const AtcZoneInfo kAtcZoneAntarctica_Davis  = {
   kAtcZoneNameAntarctica_Davis /*name*/,
   0xe2144b45 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  5 /*num_eras*/,
   kAtcZoneEraAntarctica_Davis /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Antarctica/Macquarie
-// Zone Eras: 9
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Macquarie[]  = {
-  // 0 - -00 1899 Nov
-  {
-    NULL /*zone_policy*/,
-    "-00" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1899 /*until_year*/,
-    11 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    -    AEST    1916 Oct  1  2:00
-  {
-    NULL /*zone_policy*/,
-    "AEST" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1916 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    1:00    AEDT    1917 Feb
-  {
-    NULL /*zone_policy*/,
-    "AEDT" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    60 /*delta_minutes*/,
-    1917 /*until_year*/,
-    2 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    Aus    AE%sT    1919 Apr  1  0:00s
-  {
-    &kAtcZonePolicyAus /*zone_policy*/,
-    "AE%T" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             0    -    -00    1948 Mar 25
-  {
-    NULL /*zone_policy*/,
-    "-00" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1948 /*until_year*/,
-    3 /*until_month*/,
-    25 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    Aus    AE%sT    1967
-  {
-    &kAtcZonePolicyAus /*zone_policy*/,
-    "AE%T" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1967 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             10:00    AT    AE%sT    2010
   {
     &kAtcZonePolicyAT /*zone_policy*/,
@@ -14794,30 +7014,17 @@ const AtcZoneInfo kAtcZoneAntarctica_Macquarie  = {
   kAtcZoneNameAntarctica_Macquarie /*name*/,
   0x92f47626 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAntarctica_Macquarie /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Antarctica/Mawson
-// Zone Eras: 3
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Mawson[]  = {
-  // 0 - -00 1954 Feb 13
-  {
-    NULL /*zone_policy*/,
-    "-00" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1954 /*until_year*/,
-    2 /*until_month*/,
-    13 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             6:00    -    +06    2009 Oct 18  2:00
   {
     NULL /*zone_policy*/,
@@ -14853,56 +7060,17 @@ const AtcZoneInfo kAtcZoneAntarctica_Mawson  = {
   kAtcZoneNameAntarctica_Mawson /*name*/,
   0x399cd863 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAntarctica_Mawson /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Antarctica/Palmer
-// Zone Eras: 5
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Palmer[]  = {
-  // 0 - -00 1965
-  {
-    NULL /*zone_policy*/,
-    "-00" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1965 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Arg    -04/-03    1969 Oct  5
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    10 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Arg    -03/-02    1982 May
-  {
-    &kAtcZonePolicyArg /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1982 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    Chile    -04/-03    2016 Dec  4
   {
     &kAtcZonePolicyChile /*zone_policy*/,
@@ -14938,30 +7106,17 @@ const AtcZoneInfo kAtcZoneAntarctica_Palmer  = {
   kAtcZoneNameAntarctica_Palmer /*name*/,
   0x40962f4f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAntarctica_Palmer /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Antarctica/Rothera
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Rothera[]  = {
-  // 0 - -00 1976 Dec 1
-  {
-    NULL /*zone_policy*/,
-    "-00" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1976 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
@@ -14984,7 +7139,7 @@ const AtcZoneInfo kAtcZoneAntarctica_Rothera  = {
   kAtcZoneNameAntarctica_Rothera /*name*/,
   0x0e86d203 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAntarctica_Rothera /*eras*/,
   NULL /*target_info*/,
 };
@@ -15037,62 +7192,10 @@ const AtcZoneInfo kAtcZoneAntarctica_Troll  = {
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Almaty
-// Zone Eras: 6
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Almaty[]  = {
-  // 5:07:48 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1231 /*offset_code (18468/15)*/,
-    3 /*offset_remainder (18468%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    -    +05    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+05" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:00 RussiaAsia +06/+07    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+06/+07" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             5:00 RussiaAsia    +05/+06    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+05/+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             6:00 RussiaAsia    +06/+07    2004 Oct 31  2:00s
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
@@ -15128,30 +7231,17 @@ const AtcZoneInfo kAtcZoneAsia_Almaty  = {
   kAtcZoneNameAsia_Almaty /*name*/,
   0xa61f41fa /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Almaty /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Amman
-// Zone Eras: 3
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Amman[]  = {
-  // 2:23:44 - LMT 1931
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    574 /*offset_code (8624/15)*/,
-    14 /*offset_remainder (8624%15)*/,
-    0 /*delta_minutes*/,
-    1931 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    Jordan    EE%sT    2022 Oct 28 0:00s
   {
     &kAtcZonePolicyJordan /*zone_policy*/,
@@ -15187,82 +7277,17 @@ const AtcZoneInfo kAtcZoneAsia_Amman  = {
   kAtcZoneNameAsia_Amman /*name*/,
   0x148d21bc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Amman /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Anadyr
-// Zone Eras: 8
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Anadyr[]  = {
-  // 11:49:56 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2839 /*offset_code (42596/15)*/,
-    11 /*offset_remainder (42596%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             12:00    -    +12    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+12" /*format*/,
-    2880 /*offset_code (43200/15)*/,
-    0 /*offset_remainder (43200%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             13:00    Russia    +13/+14    1982 Apr  1  0:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+13/+14" /*format*/,
-    3120 /*offset_code (46800/15)*/,
-    0 /*offset_remainder (46800%15)*/,
-    0 /*delta_minutes*/,
-    1982 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             12:00    Russia    +12/+13    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+12/+13" /*format*/,
-    2880 /*offset_code (43200/15)*/,
-    0 /*offset_remainder (43200%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             11:00    Russia    +11/+12    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+11/+12" /*format*/,
-    2640 /*offset_code (39600/15)*/,
-    0 /*offset_remainder (39600%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             12:00    Russia    +12/+13    2010 Mar 28  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -15311,108 +7336,17 @@ const AtcZoneInfo kAtcZoneAsia_Anadyr  = {
   kAtcZoneNameAsia_Anadyr /*name*/,
   0xa63cebd1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Anadyr /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Aqtau
-// Zone Eras: 9
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Aqtau[]  = {
-  // 3:21:04 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    804 /*offset_code (12064/15)*/,
-    4 /*offset_remainder (12064%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:00    -    +04    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    -    +05    1981 Oct  1
-  {
-    NULL /*zone_policy*/,
-    "+05" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:00    -    +06    1982 Apr  1
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1982 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00 RussiaAsia    +05/+06    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+05/+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             4:00 RussiaAsia    +04/+05    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             5:00 RussiaAsia    +05/+06    1994 Sep 25  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+05/+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1994 /*until_year*/,
-    9 /*until_month*/,
-    25 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             4:00 RussiaAsia    +04/+05    2004 Oct 31  2:00s
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
@@ -15448,108 +7382,17 @@ const AtcZoneInfo kAtcZoneAsia_Aqtau  = {
   kAtcZoneNameAsia_Aqtau /*name*/,
   0x148f710e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Aqtau /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Aqtobe
-// Zone Eras: 9
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Aqtobe[]  = {
-  // 3:48:40 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    914 /*offset_code (13720/15)*/,
-    10 /*offset_remainder (13720%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:00    -    +04    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    -    +05    1981 Apr  1
-  {
-    NULL /*zone_policy*/,
-    "+05" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    1:00    +06    1981 Oct  1
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    60 /*delta_minutes*/,
-    1981 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:00    -    +06    1982 Apr  1
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1982 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00 RussiaAsia    +05/+06    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+05/+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             4:00 RussiaAsia    +04/+05    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             5:00 RussiaAsia    +05/+06    2004 Oct 31  2:00s
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
@@ -15585,69 +7428,17 @@ const AtcZoneInfo kAtcZoneAsia_Aqtobe  = {
   kAtcZoneNameAsia_Aqtobe /*name*/,
   0xa67dcc4e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Aqtobe /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Ashgabat
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Ashgabat[]  = {
-  // 3:53:32 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    934 /*offset_code (14012/15)*/,
-    2 /*offset_remainder (14012%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:00    -    +04    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00 RussiaAsia    +05/+06    1991 Mar 31  2:00
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+05/+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:00 RussiaAsia    +04/+05    1992 Jan 19  2:00
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             5:00    -    +05
   {
     NULL /*zone_policy*/,
@@ -15670,95 +7461,17 @@ const AtcZoneInfo kAtcZoneAsia_Ashgabat  = {
   kAtcZoneNameAsia_Ashgabat /*name*/,
   0xba87598d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Ashgabat /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Atyrau
-// Zone Eras: 9
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Atyrau[]  = {
-  // 3:27:44 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    830 /*offset_code (12464/15)*/,
-    14 /*offset_remainder (12464%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    -    +03    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+03" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    -    +05    1981 Oct  1
-  {
-    NULL /*zone_policy*/,
-    "+05" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:00    -    +06    1982 Apr  1
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1982 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00 RussiaAsia    +05/+06    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+05/+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             4:00 RussiaAsia    +04/+05    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             5:00 RussiaAsia    +05/+06    1999 Mar 28  2:00s
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
@@ -15807,56 +7520,17 @@ const AtcZoneInfo kAtcZoneAsia_Atyrau  = {
   kAtcZoneNameAsia_Atyrau /*name*/,
   0xa6b6e068 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Atyrau /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Baghdad
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Baghdad[]  = {
-  // 2:57:40 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    710 /*offset_code (10660/15)*/,
-    10 /*offset_remainder (10660%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:57:36    -    BMT    1918
-  {
-    NULL /*zone_policy*/,
-    "BMT" /*format*/,
-    710 /*offset_code (10656/15)*/,
-    6 /*offset_remainder (10656%15)*/,
-    0 /*delta_minutes*/,
-    1918 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    -    +03    1982 May
-  {
-    NULL /*zone_policy*/,
-    "+03" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1982 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             3:00    Iraq    +03/+04
   {
     &kAtcZonePolicyIraq /*zone_policy*/,
@@ -15879,95 +7553,17 @@ const AtcZoneInfo kAtcZoneAsia_Baghdad  = {
   kAtcZoneNameAsia_Baghdad /*name*/,
   0x9ceffbed /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Baghdad /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Baku
-// Zone Eras: 7
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Baku[]  = {
-  // 3:19:24 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    797 /*offset_code (11964/15)*/,
-    9 /*offset_remainder (11964%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    -    +03    1957 Mar
-  {
-    NULL /*zone_policy*/,
-    "+03" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1957 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:00 RussiaAsia +04/+05    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             3:00 RussiaAsia    +03/+04    1992 Sep lastSun  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+03/+04" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    9 /*until_month*/,
-    27 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             4:00    -    +04    1996
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:00    EUAsia    +04/+05    1997
-  {
-    &kAtcZonePolicyEUAsia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1997 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             4:00    Azer    +04/+05
   {
     &kAtcZonePolicyAzer /*zone_policy*/,
@@ -15990,43 +7586,17 @@ const AtcZoneInfo kAtcZoneAsia_Baku  = {
   kAtcZoneNameAsia_Baku /*name*/,
   0x1fa788b5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Baku /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Bangkok
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Bangkok[]  = {
-  // 6:42:04 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1608 /*offset_code (24124/15)*/,
-    4 /*offset_remainder (24124%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:42:04    -    BMT    1920 Apr
-  {
-    NULL /*zone_policy*/,
-    "BMT" /*format*/,
-    1608 /*offset_code (24124/15)*/,
-    4 /*offset_remainder (24124%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             7:00    -    +07
   {
     NULL /*zone_policy*/,
@@ -16049,82 +7619,17 @@ const AtcZoneInfo kAtcZoneAsia_Bangkok  = {
   kAtcZoneNameAsia_Bangkok /*name*/,
   0x9d6e3aaf /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Bangkok /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Barnaul
-// Zone Eras: 9
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Barnaul[]  = {
-  // 5:35:00 - LMT 1919 Dec 10
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1340 /*offset_code (20100/15)*/,
-    0 /*offset_remainder (20100%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    12 /*until_month*/,
-    10 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              6:00    -    +06    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              7:00    Russia    +07/+08    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+07/+08" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              6:00    Russia    +06/+07    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+06/+07" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              7:00    Russia    +07/+08    1995 May 28
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+07/+08" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    0 /*delta_minutes*/,
-    1995 /*until_year*/,
-    5 /*until_month*/,
-    28 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              6:00    Russia    +06/+07    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -16186,30 +7691,17 @@ const AtcZoneInfo kAtcZoneAsia_Barnaul  = {
   kAtcZoneNameAsia_Barnaul /*name*/,
   0x9dba4997 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAsia_Barnaul /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Beirut
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Beirut[]  = {
-  // 2:22:00 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    568 /*offset_code (8520/15)*/,
-    0 /*offset_remainder (8520%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    Lebanon    EE%sT
   {
     &kAtcZonePolicyLebanon /*zone_policy*/,
@@ -16232,69 +7724,17 @@ const AtcZoneInfo kAtcZoneAsia_Beirut  = {
   kAtcZoneNameAsia_Beirut /*name*/,
   0xa7f3d5fd /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Beirut /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Bishkek
-// Zone Eras: 6
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Bishkek[]  = {
-  // 4:58:24 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1193 /*offset_code (17904/15)*/,
-    9 /*offset_remainder (17904%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    -    +05    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+05" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:00 RussiaAsia +06/+07    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+06/+07" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             5:00 RussiaAsia    +05/+06    1991 Aug 31  2:00
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+05/+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    8 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             5:00    Kyrgyz    +05/+06    2005 Aug 12
   {
     &kAtcZonePolicyKyrgyz /*zone_policy*/,
@@ -16330,69 +7770,17 @@ const AtcZoneInfo kAtcZoneAsia_Bishkek  = {
   kAtcZoneNameAsia_Bishkek /*name*/,
   0xb0728553 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Bishkek /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Chita
-// Zone Eras: 8
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Chita[]  = {
-  // 7:33:52 - LMT 1919 Dec 15
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1815 /*offset_code (27232/15)*/,
-    7 /*offset_remainder (27232%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    12 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              8:00    -    +08    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+08" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              9:00    Russia    +09/+10    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+09/+10" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              8:00    Russia    +08/+09    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+08/+09" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              9:00    Russia    +09/+10    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -16454,56 +7842,17 @@ const AtcZoneInfo kAtcZoneAsia_Chita  = {
   kAtcZoneNameAsia_Chita /*name*/,
   0x14ae863b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAsia_Chita /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Choibalsan
-// Zone Eras: 5
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Choibalsan[]  = {
-  // 7:38:00 - LMT 1905 Aug
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1832 /*offset_code (27480/15)*/,
-    0 /*offset_remainder (27480%15)*/,
-    0 /*delta_minutes*/,
-    1905 /*until_year*/,
-    8 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:00    -    +07    1978
-  {
-    NULL /*zone_policy*/,
-    "+07" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    0 /*delta_minutes*/,
-    1978 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:00    -    +08    1983 Apr
-  {
-    NULL /*zone_policy*/,
-    "+08" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             9:00    Mongol    +09/+10    2008 Mar 31
   {
     &kAtcZonePolicyMongol /*zone_policy*/,
@@ -16539,108 +7888,17 @@ const AtcZoneInfo kAtcZoneAsia_Choibalsan  = {
   kAtcZoneNameAsia_Choibalsan /*name*/,
   0x928aa4a6 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Choibalsan /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Colombo
-// Zone Eras: 9
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Colombo[]  = {
-  // 5:19:24 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1277 /*offset_code (19164/15)*/,
-    9 /*offset_remainder (19164%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:19:32    -    MMT    1906
-  {
-    NULL /*zone_policy*/,
-    "MMT" /*format*/,
-    1278 /*offset_code (19172/15)*/,
-    2 /*offset_remainder (19172%15)*/,
-    0 /*delta_minutes*/,
-    1906 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:30    -    +0530    1942 Jan  5
-  {
-    NULL /*zone_policy*/,
-    "+0530" /*format*/,
-    1320 /*offset_code (19800/15)*/,
-    0 /*offset_remainder (19800%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    1 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:30    0:30    +06    1942 Sep
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1320 /*offset_code (19800/15)*/,
-    0 /*offset_remainder (19800%15)*/,
-    30 /*delta_minutes*/,
-    1942 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:30    1:00    +0630    1945 Oct 16  2:00
-  {
-    NULL /*zone_policy*/,
-    "+0630" /*format*/,
-    1320 /*offset_code (19800/15)*/,
-    0 /*offset_remainder (19800%15)*/,
-    60 /*delta_minutes*/,
-    1945 /*until_year*/,
-    10 /*until_month*/,
-    16 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:30    -    +0530    1996 May 25  0:00
-  {
-    NULL /*zone_policy*/,
-    "+0530" /*format*/,
-    1320 /*offset_code (19800/15)*/,
-    0 /*offset_remainder (19800%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    5 /*until_month*/,
-    25 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:30    -    +0630    1996 Oct 26  0:30
-  {
-    NULL /*zone_policy*/,
-    "+0630" /*format*/,
-    1560 /*offset_code (23400/15)*/,
-    0 /*offset_remainder (23400%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    10 /*until_month*/,
-    26 /*until_day*/,
-    120 /*until_time_code (1800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             6:00    -    +06    2006 Apr 15  0:30
   {
     NULL /*zone_policy*/,
@@ -16676,30 +7934,17 @@ const AtcZoneInfo kAtcZoneAsia_Colombo  = {
   kAtcZoneNameAsia_Colombo /*name*/,
   0x0af0e91d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Colombo /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Damascus
-// Zone Eras: 3
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Damascus[]  = {
-  // 2:25:12 - LMT 1920
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    580 /*offset_code (8712/15)*/,
-    12 /*offset_remainder (8712%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    Syria    EE%sT    2022 Oct 28 0:00
   {
     &kAtcZonePolicySyria /*zone_policy*/,
@@ -16735,82 +7980,17 @@ const AtcZoneInfo kAtcZoneAsia_Damascus  = {
   kAtcZoneNameAsia_Damascus /*name*/,
   0x20fbb063 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Damascus /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Dhaka
-// Zone Eras: 7
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Dhaka[]  = {
-  // 6:01:40 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1446 /*offset_code (21700/15)*/,
-    10 /*offset_remainder (21700%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:53:20    -    HMT    1941 Oct
-  {
-    NULL /*zone_policy*/,
-    "HMT" /*format*/,
-    1413 /*offset_code (21200/15)*/,
-    5 /*offset_remainder (21200%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:30    -    +0630    1942 May 15
-  {
-    NULL /*zone_policy*/,
-    "+0630" /*format*/,
-    1560 /*offset_code (23400/15)*/,
-    0 /*offset_remainder (23400%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    5 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:30    -    +0530    1942 Sep
-  {
-    NULL /*zone_policy*/,
-    "+0530" /*format*/,
-    1320 /*offset_code (19800/15)*/,
-    0 /*offset_remainder (19800%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:30    -    +0630    1951 Sep 30
-  {
-    NULL /*zone_policy*/,
-    "+0630" /*format*/,
-    1560 /*offset_code (23400/15)*/,
-    0 /*offset_remainder (23400%15)*/,
-    0 /*delta_minutes*/,
-    1951 /*until_year*/,
-    9 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             6:00    -    +06    2009
   {
     NULL /*zone_policy*/,
@@ -16846,56 +8026,17 @@ const AtcZoneInfo kAtcZoneAsia_Dhaka  = {
   kAtcZoneNameAsia_Dhaka /*name*/,
   0x14c07b8b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Dhaka /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Dili
-// Zone Eras: 5
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Dili[]  = {
-  // 8:22:20 - LMT 1912 Jan 1
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2009 /*offset_code (30140/15)*/,
-    5 /*offset_remainder (30140%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:00    -    +08    1942 Feb 21 23:00
-  {
-    NULL /*zone_policy*/,
-    "+08" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    2 /*until_month*/,
-    21 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    -    +09    1976 May  3
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1976 /*until_year*/,
-    5 /*until_month*/,
-    3 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             8:00    -    +08    2000 Sep 17  0:00
   {
     NULL /*zone_policy*/,
@@ -16931,30 +8072,17 @@ const AtcZoneInfo kAtcZoneAsia_Dili  = {
   kAtcZoneNameAsia_Dili /*name*/,
   0x1fa8c394 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Dili /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Dubai
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Dubai[]  = {
-  // 3:41:12 - LMT 1920
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    884 /*offset_code (13272/15)*/,
-    12 /*offset_remainder (13272%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             4:00    -    +04
   {
     NULL /*zone_policy*/,
@@ -16977,69 +8105,17 @@ const AtcZoneInfo kAtcZoneAsia_Dubai  = {
   kAtcZoneNameAsia_Dubai /*name*/,
   0x14c79f77 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Dubai /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Dushanbe
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Dushanbe[]  = {
-  // 4:35:12 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1100 /*offset_code (16512/15)*/,
-    12 /*offset_remainder (16512%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    -    +05    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+05" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:00 RussiaAsia +06/+07    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+06/+07" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             5:00    1:00    +06    1991 Sep  9  2:00s
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    60 /*delta_minutes*/,
-    1991 /*until_year*/,
-    9 /*until_month*/,
-    9 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             5:00    -    +05
   {
     NULL /*zone_policy*/,
@@ -17062,43 +8138,17 @@ const AtcZoneInfo kAtcZoneAsia_Dushanbe  = {
   kAtcZoneNameAsia_Dushanbe /*name*/,
   0x32fc5c3c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Dushanbe /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Famagusta
-// Zone Eras: 5
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Famagusta[]  = {
-  // 2:15:48 - LMT 1921 Nov 14
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    543 /*offset_code (8148/15)*/,
-    3 /*offset_remainder (8148%15)*/,
-    0 /*delta_minutes*/,
-    1921 /*until_year*/,
-    11 /*until_month*/,
-    14 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    Cyprus    EE%sT    1998 Sep
-  {
-    &kAtcZonePolicyCyprus /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1998 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    EUAsia    EE%sT    2016 Sep  8
   {
     &kAtcZonePolicyEUAsia /*zone_policy*/,
@@ -17147,69 +8197,17 @@ const AtcZoneInfo kAtcZoneAsia_Famagusta  = {
   kAtcZoneNameAsia_Famagusta /*name*/,
   0x289b4f8b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Famagusta /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Gaza
-// Zone Eras: 12
+// Zone Eras: 8
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Gaza[]  = {
-  // 2:17:52 - LMT 1900 Oct
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    551 /*offset_code (8272/15)*/,
-    7 /*offset_remainder (8272%15)*/,
-    0 /*delta_minutes*/,
-    1900 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    Zion    EET/EEST 1948 May 15
-  {
-    &kAtcZonePolicyZion /*zone_policy*/,
-    "EET/EEST" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1948 /*until_year*/,
-    5 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00 EgyptAsia    EE%sT    1967 Jun  5
-  {
-    &kAtcZonePolicyEgyptAsia /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1967 /*until_year*/,
-    6 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    Zion    I%sT    1996
-  {
-    &kAtcZonePolicyZion /*zone_policy*/,
-    "I%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    Jordan    EE%sT    1999
   {
     &kAtcZonePolicyJordan /*zone_policy*/,
@@ -17323,69 +8321,17 @@ const AtcZoneInfo kAtcZoneAsia_Gaza  = {
   kAtcZoneNameAsia_Gaza /*name*/,
   0x1faa4875 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  12 /*num_eras*/,
+  8 /*num_eras*/,
   kAtcZoneEraAsia_Gaza /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Hebron
-// Zone Eras: 6
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Hebron[]  = {
-  // 2:20:23 - LMT 1900 Oct
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    561 /*offset_code (8423/15)*/,
-    8 /*offset_remainder (8423%15)*/,
-    0 /*delta_minutes*/,
-    1900 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    Zion    EET/EEST 1948 May 15
-  {
-    &kAtcZonePolicyZion /*zone_policy*/,
-    "EET/EEST" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1948 /*until_year*/,
-    5 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00 EgyptAsia    EE%sT    1967 Jun  5
-  {
-    &kAtcZonePolicyEgyptAsia /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1967 /*until_year*/,
-    6 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    Zion    I%sT    1996
-  {
-    &kAtcZonePolicyZion /*zone_policy*/,
-    "I%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    Jordan    EE%sT    1999
   {
     &kAtcZonePolicyJordan /*zone_policy*/,
@@ -17421,134 +8367,17 @@ const AtcZoneInfo kAtcZoneAsia_Hebron  = {
   kAtcZoneNameAsia_Hebron /*name*/,
   0xb5eef250 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Hebron /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Ho_Chi_Minh
-// Zone Eras: 10
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Ho_Chi_Minh[]  = {
-  // 7:06:30 - LMT 1906 Jul 1
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1706 /*offset_code (25590/15)*/,
-    0 /*offset_remainder (25590%15)*/,
-    0 /*delta_minutes*/,
-    1906 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:06:30    -    PLMT    1911 May  1
-  {
-    NULL /*zone_policy*/,
-    "PLMT" /*format*/,
-    1706 /*offset_code (25590/15)*/,
-    0 /*offset_remainder (25590%15)*/,
-    0 /*delta_minutes*/,
-    1911 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:00    -    +07    1942 Dec 31 23:00
-  {
-    NULL /*zone_policy*/,
-    "+07" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    12 /*until_month*/,
-    31 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:00    -    +08    1945 Mar 14 23:00
-  {
-    NULL /*zone_policy*/,
-    "+08" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    3 /*until_month*/,
-    14 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    -    +09    1945 Sep  2
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    9 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:00    -    +07    1947 Apr  1
-  {
-    NULL /*zone_policy*/,
-    "+07" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    0 /*delta_minutes*/,
-    1947 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:00    -    +08    1955 Jul  1
-  {
-    NULL /*zone_policy*/,
-    "+08" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1955 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:00    -    +07    1959 Dec 31 23:00
-  {
-    NULL /*zone_policy*/,
-    "+07" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    0 /*delta_minutes*/,
-    1959 /*until_year*/,
-    12 /*until_month*/,
-    31 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:00    -    +08    1975 Jun 13
-  {
-    NULL /*zone_policy*/,
-    "+08" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1975 /*until_year*/,
-    6 /*until_month*/,
-    13 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             7:00    -    +07
   {
     NULL /*zone_policy*/,
@@ -17571,82 +8400,17 @@ const AtcZoneInfo kAtcZoneAsia_Ho_Chi_Minh  = {
   kAtcZoneNameAsia_Ho_Chi_Minh /*name*/,
   0x20f2d127 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Ho_Chi_Minh /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Hong_Kong
-// Zone Eras: 6
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Hong_Kong[]  = {
-  // 7:36:42 - LMT 1904 Oct 29 17:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1826 /*offset_code (27402/15)*/,
-    12 /*offset_remainder (27402%15)*/,
-    0 /*delta_minutes*/,
-    1904 /*until_year*/,
-    10 /*until_month*/,
-    29 /*until_day*/,
-    4080 /*until_time_code (61200/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             8:00    -    HKT    1941 Jun 15  3:00
-  {
-    NULL /*zone_policy*/,
-    "HKT" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    6 /*until_month*/,
-    15 /*until_day*/,
-    720 /*until_time_code (10800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:00    1:00    HKST    1941 Oct  1  4:00
-  {
-    NULL /*zone_policy*/,
-    "HKST" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    60 /*delta_minutes*/,
-    1941 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    960 /*until_time_code (14400/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:00    0:30    HKWT    1941 Dec 25
-  {
-    NULL /*zone_policy*/,
-    "HKWT" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    30 /*delta_minutes*/,
-    1941 /*until_year*/,
-    12 /*until_month*/,
-    25 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    -    JST    1945 Nov 18  2:00
-  {
-    NULL /*zone_policy*/,
-    "JST" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    11 /*until_month*/,
-    18 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             8:00    HK    HK%sT
   {
     &kAtcZonePolicyHK /*zone_policy*/,
@@ -17669,43 +8433,17 @@ const AtcZoneInfo kAtcZoneAsia_Hong_Kong  = {
   kAtcZoneNameAsia_Hong_Kong /*name*/,
   0x577f28ac /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Hong_Kong /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Hovd
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Hovd[]  = {
-  // 6:06:36 - LMT 1905 Aug
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1466 /*offset_code (21996/15)*/,
-    6 /*offset_remainder (21996%15)*/,
-    0 /*delta_minutes*/,
-    1905 /*until_year*/,
-    8 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:00    -    +06    1978
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1978 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             7:00    Mongol    +07/+08
   {
     &kAtcZonePolicyMongol /*zone_policy*/,
@@ -17728,82 +8466,17 @@ const AtcZoneInfo kAtcZoneAsia_Hovd  = {
   kAtcZoneNameAsia_Hovd /*name*/,
   0x1fab0fe3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Hovd /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Irkutsk
-// Zone Eras: 8
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Irkutsk[]  = {
-  // 6:57:05 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1668 /*offset_code (25025/15)*/,
-    5 /*offset_remainder (25025%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              6:57:05 -    IMT    1920 Jan 25
-  {
-    NULL /*zone_policy*/,
-    "IMT" /*format*/,
-    1668 /*offset_code (25025/15)*/,
-    5 /*offset_remainder (25025%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    1 /*until_month*/,
-    25 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              7:00    -    +07    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+07" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              8:00    Russia    +08/+09    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+08/+09" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              7:00    Russia    +07/+08    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+07/+08" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              8:00    Russia    +08/+09    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -17852,121 +8525,17 @@ const AtcZoneInfo kAtcZoneAsia_Irkutsk  = {
   kAtcZoneNameAsia_Irkutsk /*name*/,
   0xdfbf213f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Irkutsk /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Jakarta
-// Zone Eras: 9
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Jakarta[]  = {
-  // 7:07:12 - LMT 1867 Aug 10
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1708 /*offset_code (25632/15)*/,
-    12 /*offset_remainder (25632%15)*/,
-    0 /*delta_minutes*/,
-    1867 /*until_year*/,
-    8 /*until_month*/,
-    10 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:07:12    -    BMT    1923 Dec 31 16:40u
-  {
-    NULL /*zone_policy*/,
-    "BMT" /*format*/,
-    1708 /*offset_code (25632/15)*/,
-    12 /*offset_remainder (25632%15)*/,
-    0 /*delta_minutes*/,
-    1923 /*until_year*/,
-    12 /*until_month*/,
-    31 /*until_day*/,
-    4000 /*until_time_code (60000/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             7:20    -    +0720    1932 Nov
-  {
-    NULL /*zone_policy*/,
-    "+0720" /*format*/,
-    1760 /*offset_code (26400/15)*/,
-    0 /*offset_remainder (26400%15)*/,
-    0 /*delta_minutes*/,
-    1932 /*until_year*/,
-    11 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:30    -    +0730    1942 Mar 23
-  {
-    NULL /*zone_policy*/,
-    "+0730" /*format*/,
-    1800 /*offset_code (27000/15)*/,
-    0 /*offset_remainder (27000%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    3 /*until_month*/,
-    23 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    -    +09    1945 Sep 23
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    9 /*until_month*/,
-    23 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:30    -    +0730    1948 May
-  {
-    NULL /*zone_policy*/,
-    "+0730" /*format*/,
-    1800 /*offset_code (27000/15)*/,
-    0 /*offset_remainder (27000%15)*/,
-    0 /*delta_minutes*/,
-    1948 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:00    -    +08    1950 May
-  {
-    NULL /*zone_policy*/,
-    "+08" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1950 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:30    -    +0730    1964
-  {
-    NULL /*zone_policy*/,
-    "+0730" /*format*/,
-    1800 /*offset_code (27000/15)*/,
-    0 /*offset_remainder (27000%15)*/,
-    0 /*delta_minutes*/,
-    1964 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             7:00    -    WIB
   {
     NULL /*zone_policy*/,
@@ -17989,56 +8558,17 @@ const AtcZoneInfo kAtcZoneAsia_Jakarta  = {
   kAtcZoneNameAsia_Jakarta /*name*/,
   0x0506ab50 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Jakarta /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Jayapura
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Jayapura[]  = {
-  // 9:22:48 - LMT 1932 Nov
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2251 /*offset_code (33768/15)*/,
-    3 /*offset_remainder (33768%15)*/,
-    0 /*delta_minutes*/,
-    1932 /*until_year*/,
-    11 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    -    +09    1944 Sep  1
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:30    -    +0930    1964
-  {
-    NULL /*zone_policy*/,
-    "+0930" /*format*/,
-    2280 /*offset_code (34200/15)*/,
-    0 /*offset_remainder (34200%15)*/,
-    0 /*delta_minutes*/,
-    1964 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             9:00    -    WIT
   {
     NULL /*zone_policy*/,
@@ -18061,43 +8591,17 @@ const AtcZoneInfo kAtcZoneAsia_Jayapura  = {
   kAtcZoneNameAsia_Jayapura /*name*/,
   0xc6833c2f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Jayapura /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Jerusalem
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Jerusalem[]  = {
-  // 2:20:54 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    563 /*offset_code (8454/15)*/,
-    9 /*offset_remainder (8454%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:20:40    -    JMT    1918
-  {
-    NULL /*zone_policy*/,
-    "JMT" /*format*/,
-    562 /*offset_code (8440/15)*/,
-    10 /*offset_remainder (8440%15)*/,
-    0 /*delta_minutes*/,
-    1918 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    Zion    I%sT
   {
     &kAtcZonePolicyZion /*zone_policy*/,
@@ -18120,43 +8624,17 @@ const AtcZoneInfo kAtcZoneAsia_Jerusalem  = {
   kAtcZoneNameAsia_Jerusalem /*name*/,
   0x5becd23a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Jerusalem /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Kabul
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Kabul[]  = {
-  // 4:36:48 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1107 /*offset_code (16608/15)*/,
-    3 /*offset_remainder (16608%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:00    -    +04    1945
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             4:30    -    +0430
   {
     NULL /*zone_policy*/,
@@ -18179,69 +8657,17 @@ const AtcZoneInfo kAtcZoneAsia_Kabul  = {
   kAtcZoneNameAsia_Kabul /*name*/,
   0x153b5601 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Kabul /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Kamchatka
-// Zone Eras: 7
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Kamchatka[]  = {
-  // 10:34:36 - LMT 1922 Nov 10
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2538 /*offset_code (38076/15)*/,
-    6 /*offset_remainder (38076%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    11 /*until_month*/,
-    10 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             11:00    -    +11    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+11" /*format*/,
-    2640 /*offset_code (39600/15)*/,
-    0 /*offset_remainder (39600%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             12:00    Russia    +12/+13    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+12/+13" /*format*/,
-    2880 /*offset_code (43200/15)*/,
-    0 /*offset_remainder (43200%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             11:00    Russia    +11/+12    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+11/+12" /*format*/,
-    2640 /*offset_code (39600/15)*/,
-    0 /*offset_remainder (39600%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             12:00    Russia    +12/+13    2010 Mar 28  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -18290,82 +8716,17 @@ const AtcZoneInfo kAtcZoneAsia_Kamchatka  = {
   kAtcZoneNameAsia_Kamchatka /*name*/,
   0x73baf9d7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Kamchatka /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Karachi
-// Zone Eras: 6
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Karachi[]  = {
-  // 4:28:12 - LMT 1907
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1072 /*offset_code (16092/15)*/,
-    12 /*offset_remainder (16092%15)*/,
-    0 /*delta_minutes*/,
-    1907 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:30    -    +0530    1942 Sep
-  {
-    NULL /*zone_policy*/,
-    "+0530" /*format*/,
-    1320 /*offset_code (19800/15)*/,
-    0 /*offset_remainder (19800%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:30    1:00    +0630    1945 Oct 15
-  {
-    NULL /*zone_policy*/,
-    "+0630" /*format*/,
-    1320 /*offset_code (19800/15)*/,
-    0 /*offset_remainder (19800%15)*/,
-    60 /*delta_minutes*/,
-    1945 /*until_year*/,
-    10 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:30    -    +0530    1951 Sep 30
-  {
-    NULL /*zone_policy*/,
-    "+0530" /*format*/,
-    1320 /*offset_code (19800/15)*/,
-    0 /*offset_remainder (19800%15)*/,
-    0 /*delta_minutes*/,
-    1951 /*until_year*/,
-    9 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    -    +05    1971 Mar 26
-  {
-    NULL /*zone_policy*/,
-    "+05" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1971 /*until_year*/,
-    3 /*until_month*/,
-    26 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             5:00 Pakistan    PK%sT
   {
     &kAtcZonePolicyPakistan /*zone_policy*/,
@@ -18388,43 +8749,17 @@ const AtcZoneInfo kAtcZoneAsia_Karachi  = {
   kAtcZoneNameAsia_Karachi /*name*/,
   0x527f5245 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Karachi /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Kathmandu
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Kathmandu[]  = {
-  // 5:41:16 - LMT 1920
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1365 /*offset_code (20476/15)*/,
-    1 /*offset_remainder (20476%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:30    -    +0530    1986
-  {
-    NULL /*zone_policy*/,
-    "+0530" /*format*/,
-    1320 /*offset_code (19800/15)*/,
-    0 /*offset_remainder (19800%15)*/,
-    0 /*delta_minutes*/,
-    1986 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             5:45    -    +0545
   {
     NULL /*zone_policy*/,
@@ -18447,69 +8782,17 @@ const AtcZoneInfo kAtcZoneAsia_Kathmandu  = {
   kAtcZoneNameAsia_Kathmandu /*name*/,
   0x9a96ce6f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Kathmandu /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Khandyga
-// Zone Eras: 9
+// Zone Eras: 5
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Khandyga[]  = {
-  // 9:02:13 - LMT 1919 Dec 15
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2168 /*offset_code (32533/15)*/,
-    13 /*offset_remainder (32533%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    12 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              8:00    -    +08    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+08" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              9:00    Russia    +09/+10    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+09/+10" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              8:00    Russia    +08/+09    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+08/+09" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              9:00    Russia    +09/+10    2004
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -18584,108 +8867,17 @@ const AtcZoneInfo kAtcZoneAsia_Khandyga  = {
   kAtcZoneNameAsia_Khandyga /*name*/,
   0x9685a4d9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  5 /*num_eras*/,
   kAtcZoneEraAsia_Khandyga /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Kolkata
-// Zone Eras: 8
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Kolkata[]  = {
-  // 5:53:28 - LMT 1854 Jun 28
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1413 /*offset_code (21208/15)*/,
-    13 /*offset_remainder (21208%15)*/,
-    0 /*delta_minutes*/,
-    1854 /*until_year*/,
-    6 /*until_month*/,
-    28 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:53:20    -    HMT    1870
-  {
-    NULL /*zone_policy*/,
-    "HMT" /*format*/,
-    1413 /*offset_code (21200/15)*/,
-    5 /*offset_remainder (21200%15)*/,
-    0 /*delta_minutes*/,
-    1870 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:21:10    -    MMT    1906 Jan  1
-  {
-    NULL /*zone_policy*/,
-    "MMT" /*format*/,
-    1284 /*offset_code (19270/15)*/,
-    10 /*offset_remainder (19270%15)*/,
-    0 /*delta_minutes*/,
-    1906 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:30    -    IST    1941 Oct
-  {
-    NULL /*zone_policy*/,
-    "IST" /*format*/,
-    1320 /*offset_code (19800/15)*/,
-    0 /*offset_remainder (19800%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:30    1:00    +0630    1942 May 15
-  {
-    NULL /*zone_policy*/,
-    "+0630" /*format*/,
-    1320 /*offset_code (19800/15)*/,
-    0 /*offset_remainder (19800%15)*/,
-    60 /*delta_minutes*/,
-    1942 /*until_year*/,
-    5 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:30    -    IST    1942 Sep
-  {
-    NULL /*zone_policy*/,
-    "IST" /*format*/,
-    1320 /*offset_code (19800/15)*/,
-    0 /*offset_remainder (19800%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:30    1:00    +0630    1945 Oct 15
-  {
-    NULL /*zone_policy*/,
-    "+0630" /*format*/,
-    1320 /*offset_code (19800/15)*/,
-    0 /*offset_remainder (19800%15)*/,
-    60 /*delta_minutes*/,
-    1945 /*until_year*/,
-    10 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             5:30    -    IST
   {
     NULL /*zone_policy*/,
@@ -18708,69 +8900,17 @@ const AtcZoneInfo kAtcZoneAsia_Kolkata  = {
   kAtcZoneNameAsia_Kolkata /*name*/,
   0x72c06cd9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Kolkata /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Krasnoyarsk
-// Zone Eras: 7
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Krasnoyarsk[]  = {
-  // 6:11:26 - LMT 1920 Jan 6
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1485 /*offset_code (22286/15)*/,
-    11 /*offset_remainder (22286%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    1 /*until_month*/,
-    6 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              6:00    -    +06    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              7:00    Russia    +07/+08    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+07/+08" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              6:00    Russia    +06/+07    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+06/+07" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              7:00    Russia    +07/+08    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -18819,69 +8959,17 @@ const AtcZoneInfo kAtcZoneAsia_Krasnoyarsk  = {
   kAtcZoneNameAsia_Krasnoyarsk /*name*/,
   0xd0376c6a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Krasnoyarsk /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Kuching
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Kuching[]  = {
-  // 7:21:20 - LMT 1926 Mar
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1765 /*offset_code (26480/15)*/,
-    5 /*offset_remainder (26480%15)*/,
-    0 /*delta_minutes*/,
-    1926 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:30    -    +0730    1933
-  {
-    NULL /*zone_policy*/,
-    "+0730" /*format*/,
-    1800 /*offset_code (27000/15)*/,
-    0 /*offset_remainder (27000%15)*/,
-    0 /*delta_minutes*/,
-    1933 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:00 NBorneo  +08/+0820    1942 Feb 16
-  {
-    &kAtcZonePolicyNBorneo /*zone_policy*/,
-    "+08/+0820" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    2 /*until_month*/,
-    16 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    -    +09    1945 Sep 12
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    9 /*until_month*/,
-    12 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             8:00    -    +08
   {
     NULL /*zone_policy*/,
@@ -18904,56 +8992,17 @@ const AtcZoneInfo kAtcZoneAsia_Kuching  = {
   kAtcZoneNameAsia_Kuching /*name*/,
   0x801b003b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Kuching /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Macau
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Macau[]  = {
-  // 7:34:10 - LMT 1904 Oct 30
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1816 /*offset_code (27250/15)*/,
-    10 /*offset_remainder (27250%15)*/,
-    0 /*delta_minutes*/,
-    1904 /*until_year*/,
-    10 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:00    -    CST    1941 Dec 21 23:00
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    12 /*until_month*/,
-    21 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    Macau    +09/+10    1945 Sep 30 24:00
-  {
-    &kAtcZonePolicyMacau /*zone_policy*/,
-    "+09/+10" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    9 /*until_month*/,
-    30 /*until_day*/,
-    5760 /*until_time_code (86400/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             8:00    Macau    C%sT
   {
     &kAtcZonePolicyMacau /*zone_policy*/,
@@ -18976,69 +9025,17 @@ const AtcZoneInfo kAtcZoneAsia_Macau  = {
   kAtcZoneNameAsia_Macau /*name*/,
   0x155f88b9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Macau /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Magadan
-// Zone Eras: 8
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Magadan[]  = {
-  // 10:03:12 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2412 /*offset_code (36192/15)*/,
-    12 /*offset_remainder (36192%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    -    +10    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+10" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             11:00    Russia    +11/+12    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+11/+12" /*format*/,
-    2640 /*offset_code (39600/15)*/,
-    0 /*offset_remainder (39600%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             10:00    Russia    +10/+11    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+10/+11" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             11:00    Russia    +11/+12    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -19100,69 +9097,17 @@ const AtcZoneInfo kAtcZoneAsia_Magadan  = {
   kAtcZoneNameAsia_Magadan /*name*/,
   0xebacc19b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAsia_Magadan /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Makassar
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Makassar[]  = {
-  // 7:57:36 - LMT 1920
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1910 /*offset_code (28656/15)*/,
-    6 /*offset_remainder (28656%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:57:36    -    MMT    1932 Nov
-  {
-    NULL /*zone_policy*/,
-    "MMT" /*format*/,
-    1910 /*offset_code (28656/15)*/,
-    6 /*offset_remainder (28656%15)*/,
-    0 /*delta_minutes*/,
-    1932 /*until_year*/,
-    11 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:00    -    +08    1942 Feb  9
-  {
-    NULL /*zone_policy*/,
-    "+08" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    2 /*until_month*/,
-    9 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    -    +09    1945 Sep 23
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    9 /*until_month*/,
-    23 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             8:00    -    WITA
   {
     NULL /*zone_policy*/,
@@ -19185,69 +9130,17 @@ const AtcZoneInfo kAtcZoneAsia_Makassar  = {
   kAtcZoneNameAsia_Makassar /*name*/,
   0x6aa21c85 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Makassar /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Manila
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Manila[]  = {
-  // -15:56:00 - LMT 1844 Dec 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -3824 /*offset_code (-57360/15)*/,
-    0 /*offset_remainder (-57360%15)*/,
-    0 /*delta_minutes*/,
-    1844 /*until_year*/,
-    12 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:04:00 -    LMT    1899 May 11
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1936 /*offset_code (29040/15)*/,
-    0 /*offset_remainder (29040%15)*/,
-    0 /*delta_minutes*/,
-    1899 /*until_year*/,
-    5 /*until_month*/,
-    11 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:00    Phil    P%sT    1942 May
-  {
-    &kAtcZonePolicyPhil /*zone_policy*/,
-    "P%T" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    -    JST    1944 Nov
-  {
-    NULL /*zone_policy*/,
-    "JST" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    11 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             8:00    Phil    P%sT
   {
     &kAtcZonePolicyPhil /*zone_policy*/,
@@ -19270,43 +9163,17 @@ const AtcZoneInfo kAtcZoneAsia_Manila  = {
   kAtcZoneNameAsia_Manila /*name*/,
   0xc156c944 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Manila /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Nicosia
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Nicosia[]  = {
-  // 2:13:28 - LMT 1921 Nov 14
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    533 /*offset_code (8008/15)*/,
-    13 /*offset_remainder (8008%15)*/,
-    0 /*delta_minutes*/,
-    1921 /*until_year*/,
-    11 /*until_month*/,
-    14 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    Cyprus    EE%sT    1998 Sep
-  {
-    &kAtcZonePolicyCyprus /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1998 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    EUAsia    EE%sT
   {
     &kAtcZonePolicyEUAsia /*zone_policy*/,
@@ -19329,69 +9196,17 @@ const AtcZoneInfo kAtcZoneAsia_Nicosia  = {
   kAtcZoneNameAsia_Nicosia /*name*/,
   0x4b0fcf78 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Nicosia /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Novokuznetsk
-// Zone Eras: 7
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Novokuznetsk[]  = {
-  // 5:48:48 - LMT 1924 May 1
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1395 /*offset_code (20928/15)*/,
-    3 /*offset_remainder (20928%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              6:00    -    +06    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              7:00    Russia    +07/+08    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+07/+08" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              6:00    Russia    +06/+07    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+06/+07" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              7:00    Russia    +07/+08    2010 Mar 28  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -19440,82 +9255,17 @@ const AtcZoneInfo kAtcZoneAsia_Novokuznetsk  = {
   kAtcZoneNameAsia_Novokuznetsk /*name*/,
   0x69264f93 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Novokuznetsk /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Novosibirsk
-// Zone Eras: 9
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Novosibirsk[]  = {
-  // 5:31:40 - LMT 1919 Dec 14 6:00
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1326 /*offset_code (19900/15)*/,
-    10 /*offset_remainder (19900%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    12 /*until_month*/,
-    14 /*until_day*/,
-    1440 /*until_time_code (21600/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              6:00    -    +06    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              7:00    Russia    +07/+08    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+07/+08" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              6:00    Russia    +06/+07    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+06/+07" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              7:00    Russia    +07/+08    1993 May 23
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+07/+08" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    0 /*delta_minutes*/,
-    1993 /*until_year*/,
-    5 /*until_month*/,
-    23 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              6:00    Russia    +06/+07    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -19577,69 +9327,17 @@ const AtcZoneInfo kAtcZoneAsia_Novosibirsk  = {
   kAtcZoneNameAsia_Novosibirsk /*name*/,
   0xa2a435cb /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAsia_Novosibirsk /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Omsk
-// Zone Eras: 7
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Omsk[]  = {
-  // 4:53:30 - LMT 1919 Nov 14
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1174 /*offset_code (17610/15)*/,
-    0 /*offset_remainder (17610%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    11 /*until_month*/,
-    14 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              5:00    -    +05    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+05" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              6:00    Russia    +06/+07    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+06/+07" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              5:00    Russia    +05/+06    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+05/+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              6:00    Russia    +06/+07    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -19688,121 +9386,17 @@ const AtcZoneInfo kAtcZoneAsia_Omsk  = {
   kAtcZoneNameAsia_Omsk /*name*/,
   0x1faeddac /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Omsk /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Oral
-// Zone Eras: 10
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Oral[]  = {
-  // 3:25:24 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    821 /*offset_code (12324/15)*/,
-    9 /*offset_remainder (12324%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    -    +03    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+03" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    -    +05    1981 Apr  1
-  {
-    NULL /*zone_policy*/,
-    "+05" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    1:00    +06    1981 Oct  1
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    60 /*delta_minutes*/,
-    1981 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:00    -    +06    1982 Apr  1
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1982 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00 RussiaAsia    +05/+06    1989 Mar 26  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+05/+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1989 /*until_year*/,
-    3 /*until_month*/,
-    26 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             4:00 RussiaAsia    +04/+05    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             5:00 RussiaAsia    +05/+06    1992 Mar 29  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+05/+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    3 /*until_month*/,
-    29 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             4:00 RussiaAsia    +04/+05    2004 Oct 31  2:00s
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
@@ -19838,121 +9432,17 @@ const AtcZoneInfo kAtcZoneAsia_Oral  = {
   kAtcZoneNameAsia_Oral /*name*/,
   0x1faef0a0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Oral /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Pontianak
-// Zone Eras: 9
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Pontianak[]  = {
-  // 7:17:20 - LMT 1908 May
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1749 /*offset_code (26240/15)*/,
-    5 /*offset_remainder (26240%15)*/,
-    0 /*delta_minutes*/,
-    1908 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:17:20    -    PMT    1932 Nov
-  {
-    NULL /*zone_policy*/,
-    "PMT" /*format*/,
-    1749 /*offset_code (26240/15)*/,
-    5 /*offset_remainder (26240%15)*/,
-    0 /*delta_minutes*/,
-    1932 /*until_year*/,
-    11 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:30    -    +0730    1942 Jan 29
-  {
-    NULL /*zone_policy*/,
-    "+0730" /*format*/,
-    1800 /*offset_code (27000/15)*/,
-    0 /*offset_remainder (27000%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    1 /*until_month*/,
-    29 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    -    +09    1945 Sep 23
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    9 /*until_month*/,
-    23 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:30    -    +0730    1948 May
-  {
-    NULL /*zone_policy*/,
-    "+0730" /*format*/,
-    1800 /*offset_code (27000/15)*/,
-    0 /*offset_remainder (27000%15)*/,
-    0 /*delta_minutes*/,
-    1948 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:00    -    +08    1950 May
-  {
-    NULL /*zone_policy*/,
-    "+08" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1950 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:30    -    +0730    1964
-  {
-    NULL /*zone_policy*/,
-    "+0730" /*format*/,
-    1800 /*offset_code (27000/15)*/,
-    0 /*offset_remainder (27000%15)*/,
-    0 /*delta_minutes*/,
-    1964 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:00    -    WITA    1988 Jan  1
-  {
-    NULL /*zone_policy*/,
-    "WITA" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1988 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             7:00    -    WIB
   {
     NULL /*zone_policy*/,
@@ -19975,56 +9465,17 @@ const AtcZoneInfo kAtcZoneAsia_Pontianak  = {
   kAtcZoneNameAsia_Pontianak /*name*/,
   0x1a76c057 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Pontianak /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Pyongyang
-// Zone Eras: 6
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Pyongyang[]  = {
-  // 8:23:00 - LMT 1908 Apr 1
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2012 /*offset_code (30180/15)*/,
-    0 /*offset_remainder (30180%15)*/,
-    0 /*delta_minutes*/,
-    1908 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:30    -    KST    1912 Jan  1
-  {
-    NULL /*zone_policy*/,
-    "KST" /*format*/,
-    2040 /*offset_code (30600/15)*/,
-    0 /*offset_remainder (30600%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    -    JST    1945 Aug 24
-  {
-    NULL /*zone_policy*/,
-    "JST" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    8 /*until_month*/,
-    24 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             9:00    -    KST    2015 Aug 15 00:00
   {
     NULL /*zone_policy*/,
@@ -20073,43 +9524,17 @@ const AtcZoneInfo kAtcZoneAsia_Pyongyang  = {
   kAtcZoneNameAsia_Pyongyang /*name*/,
   0x93ed1c8e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Pyongyang /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Qatar
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Qatar[]  = {
-  // 3:26:08 - LMT 1920
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    824 /*offset_code (12368/15)*/,
-    8 /*offset_remainder (12368%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:00    -    +04    1972 Jun
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1972 /*until_year*/,
-    6 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             3:00    -    +03
   {
     NULL /*zone_policy*/,
@@ -20132,108 +9557,17 @@ const AtcZoneInfo kAtcZoneAsia_Qatar  = {
   kAtcZoneNameAsia_Qatar /*name*/,
   0x15a8330b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Qatar /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Qostanay
-// Zone Eras: 9
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Qostanay[]  = {
-  // 4:14:28 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1017 /*offset_code (15268/15)*/,
-    13 /*offset_remainder (15268%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:00    -    +04    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    -    +05    1981 Apr  1
-  {
-    NULL /*zone_policy*/,
-    "+05" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    1:00    +06    1981 Oct  1
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    60 /*delta_minutes*/,
-    1981 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:00    -    +06    1982 Apr  1
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1982 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00 RussiaAsia    +05/+06    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+05/+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             4:00 RussiaAsia    +04/+05    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             5:00 RussiaAsia    +05/+06    2004 Oct 31  2:00s
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
@@ -20269,134 +9603,17 @@ const AtcZoneInfo kAtcZoneAsia_Qostanay  = {
   kAtcZoneNameAsia_Qostanay /*name*/,
   0x654fe522 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Qostanay /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Qyzylorda
-// Zone Eras: 12
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Qyzylorda[]  = {
-  // 4:21:52 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1047 /*offset_code (15712/15)*/,
-    7 /*offset_remainder (15712%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:00    -    +04    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    -    +05    1981 Apr  1
-  {
-    NULL /*zone_policy*/,
-    "+05" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    1:00    +06    1981 Oct  1
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    60 /*delta_minutes*/,
-    1981 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:00    -    +06    1982 Apr  1
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1982 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00 RussiaAsia    +05/+06    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+05/+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             4:00 RussiaAsia    +04/+05    1991 Sep 29  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    9 /*until_month*/,
-    29 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             5:00 RussiaAsia    +05/+06    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+05/+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             6:00 RussiaAsia    +06/+07    1992 Mar 29  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+06/+07" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    3 /*until_month*/,
-    29 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             5:00 RussiaAsia    +05/+06    2004 Oct 31  2:00s
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
@@ -20445,30 +9662,17 @@ const AtcZoneInfo kAtcZoneAsia_Qyzylorda  = {
   kAtcZoneNameAsia_Qyzylorda /*name*/,
   0x71282e81 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  12 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Qyzylorda /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Riyadh
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Riyadh[]  = {
-  // 3:06:52 - LMT 1947 Mar 14
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    747 /*offset_code (11212/15)*/,
-    7 /*offset_remainder (11212%15)*/,
-    0 /*delta_minutes*/,
-    1947 /*until_year*/,
-    3 /*until_month*/,
-    14 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             3:00    -    +03
   {
     NULL /*zone_policy*/,
@@ -20491,82 +9695,17 @@ const AtcZoneInfo kAtcZoneAsia_Riyadh  = {
   kAtcZoneNameAsia_Riyadh /*name*/,
   0xcd973d93 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Riyadh /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Sakhalin
-// Zone Eras: 9
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Sakhalin[]  = {
-  // 9:30:48 - LMT 1905 Aug 23
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2283 /*offset_code (34248/15)*/,
-    3 /*offset_remainder (34248%15)*/,
-    0 /*delta_minutes*/,
-    1905 /*until_year*/,
-    8 /*until_month*/,
-    23 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              9:00    -    +09    1945 Aug 25
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    8 /*until_month*/,
-    25 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             11:00    Russia    +11/+12    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+11/+12" /*format*/,
-    2640 /*offset_code (39600/15)*/,
-    0 /*offset_remainder (39600%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             10:00    Russia    +10/+11    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+10/+11" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             11:00    Russia    +11/+12    1997 Mar lastSun  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+11/+12" /*format*/,
-    2640 /*offset_code (39600/15)*/,
-    0 /*offset_remainder (39600%15)*/,
-    0 /*delta_minutes*/,
-    1997 /*until_year*/,
-    3 /*until_month*/,
-    30 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             10:00    Russia    +10/+11    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -20628,95 +9767,17 @@ const AtcZoneInfo kAtcZoneAsia_Sakhalin  = {
   kAtcZoneNameAsia_Sakhalin /*name*/,
   0xf4a1c9bd /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAsia_Sakhalin /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Samarkand
-// Zone Eras: 7
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Samarkand[]  = {
-  // 4:27:53 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1071 /*offset_code (16073/15)*/,
-    8 /*offset_remainder (16073%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:00    -    +04    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    -    +05    1981 Apr  1
-  {
-    NULL /*zone_policy*/,
-    "+05" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    1:00    +06    1981 Oct  1
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    60 /*delta_minutes*/,
-    1981 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:00    -    +06    1982 Apr  1
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1982 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00 RussiaAsia    +05/+06    1992
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+05/+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             5:00    -    +05
   {
     NULL /*zone_policy*/,
@@ -20739,82 +9800,17 @@ const AtcZoneInfo kAtcZoneAsia_Samarkand  = {
   kAtcZoneNameAsia_Samarkand /*name*/,
   0x13ae5104 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Samarkand /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Seoul
-// Zone Eras: 6
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Seoul[]  = {
-  // 8:27:52 - LMT 1908 Apr 1
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2031 /*offset_code (30472/15)*/,
-    7 /*offset_remainder (30472%15)*/,
-    0 /*delta_minutes*/,
-    1908 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:30    -    KST    1912 Jan  1
-  {
-    NULL /*zone_policy*/,
-    "KST" /*format*/,
-    2040 /*offset_code (30600/15)*/,
-    0 /*offset_remainder (30600%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    -    JST    1945 Sep  8
-  {
-    NULL /*zone_policy*/,
-    "JST" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    9 /*until_month*/,
-    8 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    ROK    K%sT    1954 Mar 21
-  {
-    &kAtcZonePolicyROK /*zone_policy*/,
-    "K%T" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1954 /*until_year*/,
-    3 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:30    ROK    K%sT    1961 Aug 10
-  {
-    &kAtcZonePolicyROK /*zone_policy*/,
-    "K%T" /*format*/,
-    2040 /*offset_code (30600/15)*/,
-    0 /*offset_remainder (30600%15)*/,
-    0 /*delta_minutes*/,
-    1961 /*until_year*/,
-    8 /*until_month*/,
-    10 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             9:00    ROK    K%sT
   {
     &kAtcZonePolicyROK /*zone_policy*/,
@@ -20837,43 +9833,17 @@ const AtcZoneInfo kAtcZoneAsia_Seoul  = {
   kAtcZoneNameAsia_Seoul /*name*/,
   0x15ce82da /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Seoul /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Shanghai
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Shanghai[]  = {
-  // 8:05:43 - LMT 1901
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1942 /*offset_code (29143/15)*/,
-    13 /*offset_remainder (29143%15)*/,
-    0 /*delta_minutes*/,
-    1901 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:00    Shang    C%sT    1949 May 28
-  {
-    &kAtcZonePolicyShang /*zone_policy*/,
-    "C%T" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1949 /*until_year*/,
-    5 /*until_month*/,
-    28 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             8:00    PRC    C%sT
   {
     &kAtcZonePolicyPRC /*zone_policy*/,
@@ -20896,121 +9866,17 @@ const AtcZoneInfo kAtcZoneAsia_Shanghai  = {
   kAtcZoneNameAsia_Shanghai /*name*/,
   0xf895a7f5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Shanghai /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Singapore
-// Zone Eras: 9
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Singapore[]  = {
-  // 6:55:25 - LMT 1901 Jan 1
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1661 /*offset_code (24925/15)*/,
-    10 /*offset_remainder (24925%15)*/,
-    0 /*delta_minutes*/,
-    1901 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:55:25    -    SMT    1905 Jun  1
-  {
-    NULL /*zone_policy*/,
-    "SMT" /*format*/,
-    1661 /*offset_code (24925/15)*/,
-    10 /*offset_remainder (24925%15)*/,
-    0 /*delta_minutes*/,
-    1905 /*until_year*/,
-    6 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:00    -    +07    1933 Jan  1
-  {
-    NULL /*zone_policy*/,
-    "+07" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    0 /*delta_minutes*/,
-    1933 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:00    0:20    +0720    1936 Jan  1
-  {
-    NULL /*zone_policy*/,
-    "+0720" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    20 /*delta_minutes*/,
-    1936 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:20    -    +0720    1941 Sep  1
-  {
-    NULL /*zone_policy*/,
-    "+0720" /*format*/,
-    1760 /*offset_code (26400/15)*/,
-    0 /*offset_remainder (26400%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:30    -    +0730    1942 Feb 16
-  {
-    NULL /*zone_policy*/,
-    "+0730" /*format*/,
-    1800 /*offset_code (27000/15)*/,
-    0 /*offset_remainder (27000%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    2 /*until_month*/,
-    16 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    -    +09    1945 Sep 12
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    9 /*until_month*/,
-    12 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:30    -    +0730    1981 Dec 31 16:00u
-  {
-    NULL /*zone_policy*/,
-    "+0730" /*format*/,
-    1800 /*offset_code (27000/15)*/,
-    0 /*offset_remainder (27000%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    12 /*until_month*/,
-    31 /*until_day*/,
-    3840 /*until_time_code (57600/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
   //             8:00    -    +08
   {
     NULL /*zone_policy*/,
@@ -21033,69 +9899,17 @@ const AtcZoneInfo kAtcZoneAsia_Singapore  = {
   kAtcZoneNameAsia_Singapore /*name*/,
   0xcf8581fa /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Singapore /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Srednekolymsk
-// Zone Eras: 7
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Srednekolymsk[]  = {
-  // 10:14:52 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2459 /*offset_code (36892/15)*/,
-    7 /*offset_remainder (36892%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    -    +10    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+10" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             11:00    Russia    +11/+12    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+11/+12" /*format*/,
-    2640 /*offset_code (39600/15)*/,
-    0 /*offset_remainder (39600%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             10:00    Russia    +10/+11    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+10/+11" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             11:00    Russia    +11/+12    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -21144,56 +9958,17 @@ const AtcZoneInfo kAtcZoneAsia_Srednekolymsk  = {
   kAtcZoneNameAsia_Srednekolymsk /*name*/,
   0xbf8e337d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Srednekolymsk /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Taipei
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Taipei[]  = {
-  // 8:06:00 - LMT 1896 Jan 1
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1944 /*offset_code (29160/15)*/,
-    0 /*offset_remainder (29160%15)*/,
-    0 /*delta_minutes*/,
-    1896 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             8:00    -    CST    1937 Oct  1
-  {
-    NULL /*zone_policy*/,
-    "CST" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1937 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    -    JST    1945 Sep 21  1:00
-  {
-    NULL /*zone_policy*/,
-    "JST" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    9 /*until_month*/,
-    21 /*until_day*/,
-    240 /*until_time_code (3600/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             8:00    Taiwan    C%sT
   {
     &kAtcZonePolicyTaiwan /*zone_policy*/,
@@ -21216,69 +9991,17 @@ const AtcZoneInfo kAtcZoneAsia_Taipei  = {
   kAtcZoneNameAsia_Taipei /*name*/,
   0xd1a844ae /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Taipei /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Tashkent
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Tashkent[]  = {
-  // 4:37:11 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1108 /*offset_code (16631/15)*/,
-    11 /*offset_remainder (16631%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    -    +05    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+05" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:00 RussiaAsia    +06/+07    1991 Mar 31  2:00
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+06/+07" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00 RussiaAsia    +05/+06    1992
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+05/+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             5:00    -    +05
   {
     NULL /*zone_policy*/,
@@ -21301,121 +10024,17 @@ const AtcZoneInfo kAtcZoneAsia_Tashkent  = {
   kAtcZoneNameAsia_Tashkent /*name*/,
   0xf3924254 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Tashkent /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Tbilisi
-// Zone Eras: 11
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Tbilisi[]  = {
-  // 2:59:11 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    716 /*offset_code (10751/15)*/,
-    11 /*offset_remainder (10751%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:59:11    -    TBMT    1924 May  2
-  {
-    NULL /*zone_policy*/,
-    "TBMT" /*format*/,
-    716 /*offset_code (10751/15)*/,
-    11 /*offset_remainder (10751%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    -    +03    1957 Mar
-  {
-    NULL /*zone_policy*/,
-    "+03" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1957 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:00 RussiaAsia +04/+05    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             3:00 RussiaAsia +03/+04    1992
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+03/+04" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00 E-EurAsia    +03/+04    1994 Sep lastSun
-  {
-    &kAtcZonePolicyE_EurAsia /*zone_policy*/,
-    "+03/+04" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1994 /*until_year*/,
-    9 /*until_month*/,
-    25 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:00 E-EurAsia    +04/+05    1996 Oct lastSun
-  {
-    &kAtcZonePolicyE_EurAsia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    10 /*until_month*/,
-    27 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:00    1:00    +05    1997 Mar lastSun
-  {
-    NULL /*zone_policy*/,
-    "+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    60 /*delta_minutes*/,
-    1997 /*until_year*/,
-    3 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             4:00 E-EurAsia    +04/+05    2004 Jun 27
   {
     &kAtcZonePolicyE_EurAsia /*zone_policy*/,
@@ -21464,69 +10083,17 @@ const AtcZoneInfo kAtcZoneAsia_Tbilisi  = {
   kAtcZoneNameAsia_Tbilisi /*name*/,
   0x0903e442 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  11 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Tbilisi /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Tehran
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Tehran[]  = {
-  // 3:25:44 - LMT 1916
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    822 /*offset_code (12344/15)*/,
-    14 /*offset_remainder (12344%15)*/,
-    0 /*delta_minutes*/,
-    1916 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:25:44    -    TMT    1935 Jun 13
-  {
-    NULL /*zone_policy*/,
-    "TMT" /*format*/,
-    822 /*offset_code (12344/15)*/,
-    14 /*offset_remainder (12344%15)*/,
-    0 /*delta_minutes*/,
-    1935 /*until_year*/,
-    6 /*until_month*/,
-    13 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:30    Iran    +0330/+0430 1977 Oct 20 24:00
-  {
-    &kAtcZonePolicyIran /*zone_policy*/,
-    "+0330/+0430" /*format*/,
-    840 /*offset_code (12600/15)*/,
-    0 /*offset_remainder (12600%15)*/,
-    0 /*delta_minutes*/,
-    1977 /*until_year*/,
-    10 /*until_month*/,
-    20 /*until_day*/,
-    5760 /*until_time_code (86400/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:00    Iran    +04/+05    1979
-  {
-    &kAtcZonePolicyIran /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1979 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             3:30    Iran    +0330/+0430
   {
     &kAtcZonePolicyIran /*zone_policy*/,
@@ -21549,43 +10116,17 @@ const AtcZoneInfo kAtcZoneAsia_Tehran  = {
   kAtcZoneNameAsia_Tehran /*name*/,
   0xd1f02254 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Tehran /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Thimphu
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Thimphu[]  = {
-  // 5:58:36 - LMT 1947 Aug 15
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1434 /*offset_code (21516/15)*/,
-    6 /*offset_remainder (21516%15)*/,
-    0 /*delta_minutes*/,
-    1947 /*until_year*/,
-    8 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:30    -    +0530    1987 Oct
-  {
-    NULL /*zone_policy*/,
-    "+0530" /*format*/,
-    1320 /*offset_code (19800/15)*/,
-    0 /*offset_remainder (19800%15)*/,
-    0 /*delta_minutes*/,
-    1987 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             6:00    -    +06
   {
     NULL /*zone_policy*/,
@@ -21608,30 +10149,17 @@ const AtcZoneInfo kAtcZoneAsia_Thimphu  = {
   kAtcZoneNameAsia_Thimphu /*name*/,
   0x170380d1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Thimphu /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Tokyo
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Tokyo[]  = {
-  // 9:18:59 - LMT 1887 Dec 31 15:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2235 /*offset_code (33539/15)*/,
-    14 /*offset_remainder (33539%15)*/,
-    0 /*delta_minutes*/,
-    1887 /*until_year*/,
-    12 /*until_month*/,
-    31 /*until_day*/,
-    3600 /*until_time_code (54000/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
   //             9:00    Japan    J%sT
   {
     &kAtcZonePolicyJapan /*zone_policy*/,
@@ -21654,69 +10182,17 @@ const AtcZoneInfo kAtcZoneAsia_Tokyo  = {
   kAtcZoneNameAsia_Tokyo /*name*/,
   0x15e606a8 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Tokyo /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Tomsk
-// Zone Eras: 9
+// Zone Eras: 5
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Tomsk[]  = {
-  // 5:39:51 - LMT 1919 Dec 22
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1359 /*offset_code (20391/15)*/,
-    6 /*offset_remainder (20391%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    12 /*until_month*/,
-    22 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              6:00    -    +06    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+06" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              7:00    Russia    +07/+08    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+07/+08" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              6:00    Russia    +06/+07    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+06/+07" /*format*/,
-    1440 /*offset_code (21600/15)*/,
-    0 /*offset_remainder (21600%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              7:00    Russia    +07/+08    2002 May  1  3:00
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -21791,43 +10267,17 @@ const AtcZoneInfo kAtcZoneAsia_Tomsk  = {
   kAtcZoneNameAsia_Tomsk /*name*/,
   0x15e60e60 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  5 /*num_eras*/,
   kAtcZoneEraAsia_Tomsk /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Ulaanbaatar
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Ulaanbaatar[]  = {
-  // 7:07:32 - LMT 1905 Aug
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1710 /*offset_code (25652/15)*/,
-    2 /*offset_remainder (25652%15)*/,
-    0 /*delta_minutes*/,
-    1905 /*until_year*/,
-    8 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             7:00    -    +07    1978
-  {
-    NULL /*zone_policy*/,
-    "+07" /*format*/,
-    1680 /*offset_code (25200/15)*/,
-    0 /*offset_remainder (25200%15)*/,
-    0 /*delta_minutes*/,
-    1978 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             8:00    Mongol    +08/+09
   {
     &kAtcZonePolicyMongol /*zone_policy*/,
@@ -21850,30 +10300,17 @@ const AtcZoneInfo kAtcZoneAsia_Ulaanbaatar  = {
   kAtcZoneNameAsia_Ulaanbaatar /*name*/,
   0x30f0cc4e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Ulaanbaatar /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Urumqi
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Urumqi[]  = {
-  // 5:50:20 - LMT 1928
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1401 /*offset_code (21020/15)*/,
-    5 /*offset_remainder (21020%15)*/,
-    0 /*delta_minutes*/,
-    1928 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             6:00    -    +06
   {
     NULL /*zone_policy*/,
@@ -21896,82 +10333,17 @@ const AtcZoneInfo kAtcZoneAsia_Urumqi  = {
   kAtcZoneNameAsia_Urumqi /*name*/,
   0xd5379735 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Urumqi /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Ust-Nera
-// Zone Eras: 9
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Ust_Nera[]  = {
-  // 9:32:54 - LMT 1919 Dec 15
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2291 /*offset_code (34374/15)*/,
-    9 /*offset_remainder (34374%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    12 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              8:00    -    +08    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+08" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              9:00    Russia    +09/+10    1981 Apr  1
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+09/+10" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             11:00    Russia    +11/+12    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+11/+12" /*format*/,
-    2640 /*offset_code (39600/15)*/,
-    0 /*offset_remainder (39600%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             10:00    Russia    +10/+11    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+10/+11" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             11:00    Russia    +11/+12    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -22033,69 +10405,17 @@ const AtcZoneInfo kAtcZoneAsia_Ust_Nera  = {
   kAtcZoneNameAsia_Ust_Nera /*name*/,
   0x4785f921 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAsia_Ust_Nera /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Vladivostok
-// Zone Eras: 7
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Vladivostok[]  = {
-  // 8:47:31 - LMT 1922 Nov 15
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2110 /*offset_code (31651/15)*/,
-    1 /*offset_remainder (31651%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    11 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              9:00    -    +09    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    Russia    +10/+11    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+10/+11" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              9:00    Russia    +09/+10    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+09/+10" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             10:00    Russia    +10/+11    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -22144,69 +10464,17 @@ const AtcZoneInfo kAtcZoneAsia_Vladivostok  = {
   kAtcZoneNameAsia_Vladivostok /*name*/,
   0x29de34a8 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Vladivostok /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Yakutsk
-// Zone Eras: 7
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Yakutsk[]  = {
-  // 8:38:58 - LMT 1919 Dec 15
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2075 /*offset_code (31138/15)*/,
-    13 /*offset_remainder (31138%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    12 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              8:00    -    +08    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+08" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              9:00    Russia    +09/+10    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+09/+10" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              8:00    Russia    +08/+09    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+08/+09" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              9:00    Russia    +09/+10    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -22255,69 +10523,17 @@ const AtcZoneInfo kAtcZoneAsia_Yakutsk  = {
   kAtcZoneNameAsia_Yakutsk /*name*/,
   0x87bb3a9e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Yakutsk /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Yangon
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Yangon[]  = {
-  // 6:24:47 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1539 /*offset_code (23087/15)*/,
-    2 /*offset_remainder (23087%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:24:47    -    RMT    1920
-  {
-    NULL /*zone_policy*/,
-    "RMT" /*format*/,
-    1539 /*offset_code (23087/15)*/,
-    2 /*offset_remainder (23087%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             6:30    -    +0630    1942 May
-  {
-    NULL /*zone_policy*/,
-    "+0630" /*format*/,
-    1560 /*offset_code (23400/15)*/,
-    0 /*offset_remainder (23400%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    -    +09    1945 May  3
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    5 /*until_month*/,
-    3 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             6:30    -    +0630
   {
     NULL /*zone_policy*/,
@@ -22340,82 +10556,17 @@ const AtcZoneInfo kAtcZoneAsia_Yangon  = {
   kAtcZoneNameAsia_Yangon /*name*/,
   0xdd54a8be /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Yangon /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Yekaterinburg
-// Zone Eras: 8
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Yekaterinburg[]  = {
-  // 4:02:33 - LMT 1916 Jul 3
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    970 /*offset_code (14553/15)*/,
-    3 /*offset_remainder (14553%15)*/,
-    0 /*delta_minutes*/,
-    1916 /*until_year*/,
-    7 /*until_month*/,
-    3 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              3:45:05 -    PMT    1919 Jul 15  4:00
-  {
-    NULL /*zone_policy*/,
-    "PMT" /*format*/,
-    900 /*offset_code (13505/15)*/,
-    5 /*offset_remainder (13505%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    7 /*until_month*/,
-    15 /*until_day*/,
-    960 /*until_time_code (14400/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              4:00    -    +04    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              5:00    Russia    +05/+06    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+05/+06" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              4:00    Russia    +04/+05    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              5:00    Russia    +05/+06    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -22464,82 +10615,17 @@ const AtcZoneInfo kAtcZoneAsia_Yekaterinburg  = {
   kAtcZoneNameAsia_Yekaterinburg /*name*/,
   0xfb544c6e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Yekaterinburg /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Yerevan
-// Zone Eras: 7
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Yerevan[]  = {
-  // 2:58:00 - LMT 1924 May 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    712 /*offset_code (10680/15)*/,
-    0 /*offset_remainder (10680%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    -    +03    1957 Mar
-  {
-    NULL /*zone_policy*/,
-    "+03" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1957 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:00 RussiaAsia +04/+05    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             3:00 RussiaAsia    +03/+04    1995 Sep 24  2:00s
-  {
-    &kAtcZonePolicyRussiaAsia /*zone_policy*/,
-    "+03/+04" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1995 /*until_year*/,
-    9 /*until_month*/,
-    24 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             4:00    -    +04    1997
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1997 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             4:00 RussiaAsia    +04/+05    2011
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
@@ -22575,199 +10661,17 @@ const AtcZoneInfo kAtcZoneAsia_Yerevan  = {
   kAtcZoneNameAsia_Yerevan /*name*/,
   0x9185c8cc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Yerevan /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Atlantic/Azores
-// Zone Eras: 15
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Azores[]  = {
-  // -1:42:40 - LMT 1884
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -411 /*offset_code (-6160/15)*/,
-    5 /*offset_remainder (-6160%15)*/,
-    0 /*delta_minutes*/,
-    1884 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -1:54:32 -    HMT    1912 Jan  1  2:00u
-  {
-    NULL /*zone_policy*/,
-    "HMT" /*format*/,
-    -459 /*offset_code (-6872/15)*/,
-    13 /*offset_remainder (-6872%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -2:00    Port    -02/-01    1942 Apr 25 22:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "-02/-01" /*format*/,
-    -480 /*offset_code (-7200/15)*/,
-    0 /*offset_remainder (-7200%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    4 /*until_month*/,
-    25 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -2:00    Port    +00    1942 Aug 15 22:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "+00" /*format*/,
-    -480 /*offset_code (-7200/15)*/,
-    0 /*offset_remainder (-7200%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    8 /*until_month*/,
-    15 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -2:00    Port    -02/-01    1943 Apr 17 22:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "-02/-01" /*format*/,
-    -480 /*offset_code (-7200/15)*/,
-    0 /*offset_remainder (-7200%15)*/,
-    0 /*delta_minutes*/,
-    1943 /*until_year*/,
-    4 /*until_month*/,
-    17 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -2:00    Port    +00    1943 Aug 28 22:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "+00" /*format*/,
-    -480 /*offset_code (-7200/15)*/,
-    0 /*offset_remainder (-7200%15)*/,
-    0 /*delta_minutes*/,
-    1943 /*until_year*/,
-    8 /*until_month*/,
-    28 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -2:00    Port    -02/-01    1944 Apr 22 22:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "-02/-01" /*format*/,
-    -480 /*offset_code (-7200/15)*/,
-    0 /*offset_remainder (-7200%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    4 /*until_month*/,
-    22 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -2:00    Port    +00    1944 Aug 26 22:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "+00" /*format*/,
-    -480 /*offset_code (-7200/15)*/,
-    0 /*offset_remainder (-7200%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    8 /*until_month*/,
-    26 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -2:00    Port    -02/-01    1945 Apr 21 22:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "-02/-01" /*format*/,
-    -480 /*offset_code (-7200/15)*/,
-    0 /*offset_remainder (-7200%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    4 /*until_month*/,
-    21 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -2:00    Port    +00    1945 Aug 25 22:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "+00" /*format*/,
-    -480 /*offset_code (-7200/15)*/,
-    0 /*offset_remainder (-7200%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    8 /*until_month*/,
-    25 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -2:00    Port    -02/-01    1966 Apr  3  2:00
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "-02/-01" /*format*/,
-    -480 /*offset_code (-7200/15)*/,
-    0 /*offset_remainder (-7200%15)*/,
-    0 /*delta_minutes*/,
-    1966 /*until_year*/,
-    4 /*until_month*/,
-    3 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -1:00    Port    -01/+00    1983 Sep 25  1:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "-01/+00" /*format*/,
-    -240 /*offset_code (-3600/15)*/,
-    0 /*offset_remainder (-3600%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    9 /*until_month*/,
-    25 /*until_day*/,
-    240 /*until_time_code (3600/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -1:00    W-Eur    -01/+00    1992 Sep 27  1:00s
-  {
-    &kAtcZonePolicyW_Eur /*zone_policy*/,
-    "-01/+00" /*format*/,
-    -240 /*offset_code (-3600/15)*/,
-    0 /*offset_remainder (-3600%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    9 /*until_month*/,
-    27 /*until_day*/,
-    240 /*until_time_code (3600/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              0:00    EU    WE%sT    1993 Mar 28  1:00u
-  {
-    &kAtcZonePolicyEU /*zone_policy*/,
-    "WE%T" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1993 /*until_year*/,
-    3 /*until_month*/,
-    28 /*until_day*/,
-    240 /*until_time_code (3600/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
   //             -1:00    EU    -01/+00
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -22790,69 +10694,17 @@ const AtcZoneInfo kAtcZoneAtlantic_Azores  = {
   kAtcZoneNameAtlantic_Azores /*name*/,
   0xf93ed918 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  15 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAtlantic_Azores /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Atlantic/Bermuda
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Bermuda[]  = {
-  // -4:19:18 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1038 /*offset_code (-15558/15)*/,
-    12 /*offset_remainder (-15558%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:19:18 Bermuda BMT/BST 1930 Jan 1  2:00
-  {
-    &kAtcZonePolicyBermuda /*zone_policy*/,
-    "BMT/BST" /*format*/,
-    -1038 /*offset_code (-15558/15)*/,
-    12 /*offset_remainder (-15558%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Bermuda    A%sT    1974 Apr 28  2:00
-  {
-    &kAtcZonePolicyBermuda /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1974 /*until_year*/,
-    4 /*until_month*/,
-    28 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Canada    A%sT    1976
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "A%T" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1976 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    US    A%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
@@ -22875,69 +10727,17 @@ const AtcZoneInfo kAtcZoneAtlantic_Bermuda  = {
   kAtcZoneNameAtlantic_Bermuda /*name*/,
   0x3d4bb1c4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAtlantic_Bermuda /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Atlantic/Canary
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Canary[]  = {
-  // -1:01:36 - LMT 1922 Mar
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -247 /*offset_code (-3696/15)*/,
-    9 /*offset_remainder (-3696%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -1:00    -    -01    1946 Sep 30  1:00
-  {
-    NULL /*zone_policy*/,
-    "-01" /*format*/,
-    -240 /*offset_code (-3600/15)*/,
-    0 /*offset_remainder (-3600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    9 /*until_month*/,
-    30 /*until_day*/,
-    240 /*until_time_code (3600/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              0:00    -    WET    1980 Apr  6  0:00s
-  {
-    NULL /*zone_policy*/,
-    "WET" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1980 /*until_year*/,
-    4 /*until_month*/,
-    6 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              0:00    1:00    WEST    1980 Sep 28  1:00u
-  {
-    NULL /*zone_policy*/,
-    "WEST" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    60 /*delta_minutes*/,
-    1980 /*until_year*/,
-    9 /*until_month*/,
-    28 /*until_day*/,
-    240 /*until_time_code (3600/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
   //              0:00    EU    WE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -22960,69 +10760,17 @@ const AtcZoneInfo kAtcZoneAtlantic_Canary  = {
   kAtcZoneNameAtlantic_Canary /*name*/,
   0xfc23f2c2 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAtlantic_Canary /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Atlantic/Cape_Verde
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Cape_Verde[]  = {
-  // -1:34:04 - LMT 1912 Jan 01 2:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -377 /*offset_code (-5644/15)*/,
-    11 /*offset_remainder (-5644%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -2:00    -    -02    1942 Sep
-  {
-    NULL /*zone_policy*/,
-    "-02" /*format*/,
-    -480 /*offset_code (-7200/15)*/,
-    0 /*offset_remainder (-7200%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -2:00    1:00    -01    1945 Oct 15
-  {
-    NULL /*zone_policy*/,
-    "-01" /*format*/,
-    -480 /*offset_code (-7200/15)*/,
-    0 /*offset_remainder (-7200%15)*/,
-    60 /*delta_minutes*/,
-    1945 /*until_year*/,
-    10 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -2:00    -    -02    1975 Nov 25  2:00
-  {
-    NULL /*zone_policy*/,
-    "-02" /*format*/,
-    -480 /*offset_code (-7200/15)*/,
-    0 /*offset_remainder (-7200%15)*/,
-    0 /*delta_minutes*/,
-    1975 /*until_year*/,
-    11 /*until_month*/,
-    25 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -1:00    -    -01
   {
     NULL /*zone_policy*/,
@@ -23045,43 +10793,17 @@ const AtcZoneInfo kAtcZoneAtlantic_Cape_Verde  = {
   kAtcZoneNameAtlantic_Cape_Verde /*name*/,
   0x5c5e1772 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAtlantic_Cape_Verde /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Atlantic/Faroe
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Faroe[]  = {
-  // -0:27:04 - LMT 1908 Jan 11
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -109 /*offset_code (-1624/15)*/,
-    11 /*offset_remainder (-1624%15)*/,
-    0 /*delta_minutes*/,
-    1908 /*until_year*/,
-    1 /*until_month*/,
-    11 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              0:00    -    WET    1981
-  {
-    NULL /*zone_policy*/,
-    "WET" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              0:00    EU    WE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -23104,173 +10826,17 @@ const AtcZoneInfo kAtcZoneAtlantic_Faroe  = {
   kAtcZoneNameAtlantic_Faroe /*name*/,
   0xe110a971 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAtlantic_Faroe /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Atlantic/Madeira
-// Zone Eras: 13
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Madeira[]  = {
-  // -1:07:36 - LMT 1884
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -271 /*offset_code (-4056/15)*/,
-    9 /*offset_remainder (-4056%15)*/,
-    0 /*delta_minutes*/,
-    1884 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -1:07:36 -    FMT    1912 Jan  1  1:00u
-  {
-    NULL /*zone_policy*/,
-    "FMT" /*format*/,
-    -271 /*offset_code (-4056/15)*/,
-    9 /*offset_remainder (-4056%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    240 /*until_time_code (3600/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             -1:00    Port    -01/+00    1942 Apr 25 22:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "-01/+00" /*format*/,
-    -240 /*offset_code (-3600/15)*/,
-    0 /*offset_remainder (-3600%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    4 /*until_month*/,
-    25 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -1:00    Port    +01    1942 Aug 15 22:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "+01" /*format*/,
-    -240 /*offset_code (-3600/15)*/,
-    0 /*offset_remainder (-3600%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    8 /*until_month*/,
-    15 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -1:00    Port    -01/+00    1943 Apr 17 22:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "-01/+00" /*format*/,
-    -240 /*offset_code (-3600/15)*/,
-    0 /*offset_remainder (-3600%15)*/,
-    0 /*delta_minutes*/,
-    1943 /*until_year*/,
-    4 /*until_month*/,
-    17 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -1:00    Port    +01    1943 Aug 28 22:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "+01" /*format*/,
-    -240 /*offset_code (-3600/15)*/,
-    0 /*offset_remainder (-3600%15)*/,
-    0 /*delta_minutes*/,
-    1943 /*until_year*/,
-    8 /*until_month*/,
-    28 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -1:00    Port    -01/+00    1944 Apr 22 22:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "-01/+00" /*format*/,
-    -240 /*offset_code (-3600/15)*/,
-    0 /*offset_remainder (-3600%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    4 /*until_month*/,
-    22 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -1:00    Port    +01    1944 Aug 26 22:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "+01" /*format*/,
-    -240 /*offset_code (-3600/15)*/,
-    0 /*offset_remainder (-3600%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    8 /*until_month*/,
-    26 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -1:00    Port    -01/+00    1945 Apr 21 22:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "-01/+00" /*format*/,
-    -240 /*offset_code (-3600/15)*/,
-    0 /*offset_remainder (-3600%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    4 /*until_month*/,
-    21 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -1:00    Port    +01    1945 Aug 25 22:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "+01" /*format*/,
-    -240 /*offset_code (-3600/15)*/,
-    0 /*offset_remainder (-3600%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    8 /*until_month*/,
-    25 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -1:00    Port    -01/+00    1966 Apr  3  2:00
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "-01/+00" /*format*/,
-    -240 /*offset_code (-3600/15)*/,
-    0 /*offset_remainder (-3600%15)*/,
-    0 /*delta_minutes*/,
-    1966 /*until_year*/,
-    4 /*until_month*/,
-    3 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              0:00    Port    WE%sT    1983 Sep 25  1:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "WE%T" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    9 /*until_month*/,
-    25 /*until_day*/,
-    240 /*until_time_code (3600/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              0:00    EU    WE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -23293,30 +10859,17 @@ const AtcZoneInfo kAtcZoneAtlantic_Madeira  = {
   kAtcZoneNameAtlantic_Madeira /*name*/,
   0x81b5c037 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  13 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAtlantic_Madeira /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Atlantic/South_Georgia
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_South_Georgia[]  = {
-  // -2:26:08 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -585 /*offset_code (-8768/15)*/,
-    7 /*offset_remainder (-8768%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -2:00    -    -02
   {
     NULL /*zone_policy*/,
@@ -23339,69 +10892,17 @@ const AtcZoneInfo kAtcZoneAtlantic_South_Georgia  = {
   kAtcZoneNameAtlantic_South_Georgia /*name*/,
   0x33013174 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAtlantic_South_Georgia /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Atlantic/Stanley
-// Zone Eras: 6
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Stanley[]  = {
-  // -3:51:24 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -926 /*offset_code (-13884/15)*/,
-    6 /*offset_remainder (-13884%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:51:24 -    SMT    1912 Mar 12
-  {
-    NULL /*zone_policy*/,
-    "SMT" /*format*/,
-    -926 /*offset_code (-13884/15)*/,
-    6 /*offset_remainder (-13884%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    3 /*until_month*/,
-    12 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -4:00    Falk    -04/-03    1983 May
-  {
-    &kAtcZonePolicyFalk /*zone_policy*/,
-    "-04/-03" /*format*/,
-    -960 /*offset_code (-14400/15)*/,
-    0 /*offset_remainder (-14400%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -3:00    Falk    -03/-02    1985 Sep 15
-  {
-    &kAtcZonePolicyFalk /*zone_policy*/,
-    "-03/-02" /*format*/,
-    -720 /*offset_code (-10800/15)*/,
-    0 /*offset_remainder (-10800%15)*/,
-    0 /*delta_minutes*/,
-    1985 /*until_year*/,
-    9 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -4:00    Falk    -04/-03    2010 Sep  5  2:00
   {
     &kAtcZonePolicyFalk /*zone_policy*/,
@@ -23437,56 +10938,17 @@ const AtcZoneInfo kAtcZoneAtlantic_Stanley  = {
   kAtcZoneNameAtlantic_Stanley /*name*/,
   0x7bb3e1c4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAtlantic_Stanley /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Adelaide
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Adelaide[]  = {
-  // 9:14:20 - LMT 1895 Feb
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2217 /*offset_code (33260/15)*/,
-    5 /*offset_remainder (33260%15)*/,
-    0 /*delta_minutes*/,
-    1895 /*until_year*/,
-    2 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    -    ACST    1899 May
-  {
-    NULL /*zone_policy*/,
-    "ACST" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1899 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:30    Aus    AC%sT    1971
-  {
-    &kAtcZonePolicyAus /*zone_policy*/,
-    "AC%T" /*format*/,
-    2280 /*offset_code (34200/15)*/,
-    0 /*offset_remainder (34200%15)*/,
-    0 /*delta_minutes*/,
-    1971 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             9:30    AS    AC%sT
   {
     &kAtcZonePolicyAS /*zone_policy*/,
@@ -23509,43 +10971,17 @@ const AtcZoneInfo kAtcZoneAustralia_Adelaide  = {
   kAtcZoneNameAustralia_Adelaide /*name*/,
   0x2428e8a3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Adelaide /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Brisbane
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Brisbane[]  = {
-  // 10:12:08 - LMT 1895
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2448 /*offset_code (36728/15)*/,
-    8 /*offset_remainder (36728%15)*/,
-    0 /*delta_minutes*/,
-    1895 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    Aus    AE%sT    1971
-  {
-    &kAtcZonePolicyAus /*zone_policy*/,
-    "AE%T" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1971 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             10:00    AQ    AE%sT
   {
     &kAtcZonePolicyAQ /*zone_policy*/,
@@ -23568,69 +11004,17 @@ const AtcZoneInfo kAtcZoneAustralia_Brisbane  = {
   kAtcZoneNameAustralia_Brisbane /*name*/,
   0x4fedc9c0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Brisbane /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Broken_Hill
-// Zone Eras: 6
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Broken_Hill[]  = {
-  // 9:25:48 - LMT 1895 Feb
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2263 /*offset_code (33948/15)*/,
-    3 /*offset_remainder (33948%15)*/,
-    0 /*delta_minutes*/,
-    1895 /*until_year*/,
-    2 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    -    AEST    1896 Aug 23
-  {
-    NULL /*zone_policy*/,
-    "AEST" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1896 /*until_year*/,
-    8 /*until_month*/,
-    23 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:00    -    ACST    1899 May
-  {
-    NULL /*zone_policy*/,
-    "ACST" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1899 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:30    Aus    AC%sT    1971
-  {
-    &kAtcZonePolicyAus /*zone_policy*/,
-    "AC%T" /*format*/,
-    2280 /*offset_code (34200/15)*/,
-    0 /*offset_remainder (34200%15)*/,
-    0 /*delta_minutes*/,
-    1971 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             9:30    AN    AC%sT    2000
   {
     &kAtcZonePolicyAN /*zone_policy*/,
@@ -23666,43 +11050,17 @@ const AtcZoneInfo kAtcZoneAustralia_Broken_Hill  = {
   kAtcZoneNameAustralia_Broken_Hill /*name*/,
   0xb06eada3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAustralia_Broken_Hill /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Darwin
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Darwin[]  = {
-  // 8:43:20 - LMT 1895 Feb
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2093 /*offset_code (31400/15)*/,
-    5 /*offset_remainder (31400%15)*/,
-    0 /*delta_minutes*/,
-    1895 /*until_year*/,
-    2 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              9:00    -    ACST    1899 May
-  {
-    NULL /*zone_policy*/,
-    "ACST" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1899 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              9:30    Aus    AC%sT
   {
     &kAtcZonePolicyAus /*zone_policy*/,
@@ -23725,43 +11083,17 @@ const AtcZoneInfo kAtcZoneAustralia_Darwin  = {
   kAtcZoneNameAustralia_Darwin /*name*/,
   0x2876bdff /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Darwin /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Eucla
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Eucla[]  = {
-  // 8:35:28 - LMT 1895 Dec
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2061 /*offset_code (30928/15)*/,
-    13 /*offset_remainder (30928%15)*/,
-    0 /*delta_minutes*/,
-    1895 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              8:45    Aus +0845/+0945    1943 Jul
-  {
-    &kAtcZonePolicyAus /*zone_policy*/,
-    "+0845/+0945" /*format*/,
-    2100 /*offset_code (31500/15)*/,
-    0 /*offset_remainder (31500%15)*/,
-    0 /*delta_minutes*/,
-    1943 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              8:45    AW  +0845/+0945
   {
     &kAtcZonePolicyAW /*zone_policy*/,
@@ -23784,56 +11116,17 @@ const AtcZoneInfo kAtcZoneAustralia_Eucla  = {
   kAtcZoneNameAustralia_Eucla /*name*/,
   0x8cf99e44 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Eucla /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Hobart
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Hobart[]  = {
-  // 9:49:16 - LMT 1895 Sep
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2357 /*offset_code (35356/15)*/,
-    1 /*offset_remainder (35356%15)*/,
-    0 /*delta_minutes*/,
-    1895 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    AT    AE%sT    1919 Oct 24
-  {
-    &kAtcZonePolicyAT /*zone_policy*/,
-    "AE%T" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    10 /*until_month*/,
-    24 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    Aus    AE%sT    1967
-  {
-    &kAtcZonePolicyAus /*zone_policy*/,
-    "AE%T" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1967 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             10:00    AT    AE%sT
   {
     &kAtcZonePolicyAT /*zone_policy*/,
@@ -23856,56 +11149,17 @@ const AtcZoneInfo kAtcZoneAustralia_Hobart  = {
   kAtcZoneNameAustralia_Hobart /*name*/,
   0x32bf951a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Hobart /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Lindeman
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Lindeman[]  = {
-  // 9:55:56 - LMT 1895
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2383 /*offset_code (35756/15)*/,
-    11 /*offset_remainder (35756%15)*/,
-    0 /*delta_minutes*/,
-    1895 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    Aus    AE%sT    1971
-  {
-    &kAtcZonePolicyAus /*zone_policy*/,
-    "AE%T" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1971 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    AQ    AE%sT    1992 Jul
-  {
-    &kAtcZonePolicyAQ /*zone_policy*/,
-    "AE%T" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             10:00    Holiday    AE%sT
   {
     &kAtcZonePolicyHoliday /*zone_policy*/,
@@ -23928,56 +11182,17 @@ const AtcZoneInfo kAtcZoneAustralia_Lindeman  = {
   kAtcZoneNameAustralia_Lindeman /*name*/,
   0xe05029e2 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Lindeman /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Lord_Howe
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Lord_Howe[]  = {
-  // 10:36:20 - LMT 1895 Feb
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2545 /*offset_code (38180/15)*/,
-    5 /*offset_remainder (38180%15)*/,
-    0 /*delta_minutes*/,
-    1895 /*until_year*/,
-    2 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    -    AEST    1981 Mar
-  {
-    NULL /*zone_policy*/,
-    "AEST" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    3 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:30    LH    +1030/+1130 1985 Jul
-  {
-    &kAtcZonePolicyLH /*zone_policy*/,
-    "+1030/+1130" /*format*/,
-    2520 /*offset_code (37800/15)*/,
-    0 /*offset_remainder (37800%15)*/,
-    0 /*delta_minutes*/,
-    1985 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             10:30    LH    +1030/+11
   {
     &kAtcZonePolicyLH /*zone_policy*/,
@@ -24000,43 +11215,17 @@ const AtcZoneInfo kAtcZoneAustralia_Lord_Howe  = {
   kAtcZoneNameAustralia_Lord_Howe /*name*/,
   0xa748b67d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Lord_Howe /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Melbourne
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Melbourne[]  = {
-  // 9:39:52 - LMT 1895 Feb
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2319 /*offset_code (34792/15)*/,
-    7 /*offset_remainder (34792%15)*/,
-    0 /*delta_minutes*/,
-    1895 /*until_year*/,
-    2 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    Aus    AE%sT    1971
-  {
-    &kAtcZonePolicyAus /*zone_policy*/,
-    "AE%T" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1971 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             10:00    AV    AE%sT
   {
     &kAtcZonePolicyAV /*zone_policy*/,
@@ -24059,43 +11248,17 @@ const AtcZoneInfo kAtcZoneAustralia_Melbourne  = {
   kAtcZoneNameAustralia_Melbourne /*name*/,
   0x0fe559a3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Melbourne /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Perth
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Perth[]  = {
-  // 7:43:24 - LMT 1895 Dec
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1853 /*offset_code (27804/15)*/,
-    9 /*offset_remainder (27804%15)*/,
-    0 /*delta_minutes*/,
-    1895 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              8:00    Aus    AW%sT    1943 Jul
-  {
-    &kAtcZonePolicyAus /*zone_policy*/,
-    "AW%T" /*format*/,
-    1920 /*offset_code (28800/15)*/,
-    0 /*offset_remainder (28800%15)*/,
-    0 /*delta_minutes*/,
-    1943 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              8:00    AW    AW%sT
   {
     &kAtcZonePolicyAW /*zone_policy*/,
@@ -24118,43 +11281,17 @@ const AtcZoneInfo kAtcZoneAustralia_Perth  = {
   kAtcZoneNameAustralia_Perth /*name*/,
   0x8db8269d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Perth /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Sydney
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Sydney[]  = {
-  // 10:04:52 - LMT 1895 Feb
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2419 /*offset_code (36292/15)*/,
-    7 /*offset_remainder (36292%15)*/,
-    0 /*delta_minutes*/,
-    1895 /*until_year*/,
-    2 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    Aus    AE%sT    1971
-  {
-    &kAtcZonePolicyAus /*zone_policy*/,
-    "AE%T" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1971 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             10:00    AN    AE%sT
   {
     &kAtcZonePolicyAN /*zone_policy*/,
@@ -24177,7 +11314,7 @@ const AtcZoneInfo kAtcZoneAustralia_Sydney  = {
   kAtcZoneNameAustralia_Sydney /*name*/,
   0x4d1e9776 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Sydney /*eras*/,
   NULL /*target_info*/,
 };
@@ -25273,49 +12410,10 @@ const AtcZoneInfo kAtcZoneEtc_UTC  = {
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Andorra
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Andorra[]  = {
-  // 0:06:04 - LMT 1901
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    24 /*offset_code (364/15)*/,
-    4 /*offset_remainder (364%15)*/,
-    0 /*delta_minutes*/,
-    1901 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:00    -    WET    1946 Sep 30
-  {
-    NULL /*zone_policy*/,
-    "WET" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    9 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    -    CET    1985 Mar 31  2:00
-  {
-    NULL /*zone_policy*/,
-    "CET" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1985 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    EU    CE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -25338,82 +12436,17 @@ const AtcZoneInfo kAtcZoneEurope_Andorra  = {
   kAtcZoneNameEurope_Andorra /*name*/,
   0x97f6764b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Andorra /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Astrakhan
-// Zone Eras: 9
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Astrakhan[]  = {
-  // 3:12:12 - LMT 1924 May
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    768 /*offset_code (11532/15)*/,
-    12 /*offset_remainder (11532%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              3:00    -    +03    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+03" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              4:00    Russia    +04/+05    1989 Mar 26  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1989 /*until_year*/,
-    3 /*until_month*/,
-    26 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              3:00    Russia    +03/+04    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+03/+04" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              4:00    -    +04    1992 Mar 29  2:00s
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    3 /*until_month*/,
-    29 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              3:00    Russia    +03/+04    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -25475,82 +12508,17 @@ const AtcZoneInfo kAtcZoneEurope_Astrakhan  = {
   kAtcZoneNameEurope_Astrakhan /*name*/,
   0xe22256e1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraEurope_Astrakhan /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Athens
-// Zone Eras: 6
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Athens[]  = {
-  // 1:34:52 - LMT 1895 Sep 14
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    379 /*offset_code (5692/15)*/,
-    7 /*offset_remainder (5692%15)*/,
-    0 /*delta_minutes*/,
-    1895 /*until_year*/,
-    9 /*until_month*/,
-    14 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:34:52    -    AMT    1916 Jul 28  0:01
-  {
-    NULL /*zone_policy*/,
-    "AMT" /*format*/,
-    379 /*offset_code (5692/15)*/,
-    7 /*offset_remainder (5692%15)*/,
-    0 /*delta_minutes*/,
-    1916 /*until_year*/,
-    7 /*until_month*/,
-    28 /*until_day*/,
-    4 /*until_time_code (60/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    Greece    EE%sT    1941 Apr 30
-  {
-    &kAtcZonePolicyGreece /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    4 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Greece    CE%sT    1944 Apr  4
-  {
-    &kAtcZonePolicyGreece /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    4 /*until_month*/,
-    4 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    Greece    EE%sT    1981
-  {
-    &kAtcZonePolicyGreece /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    EU    EE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -25573,95 +12541,17 @@ const AtcZoneInfo kAtcZoneEurope_Athens  = {
   kAtcZoneNameEurope_Athens /*name*/,
   0x4318fa27 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Athens /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Belgrade
-// Zone Eras: 7
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Belgrade[]  = {
-  // 1:22:00 - LMT 1884
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    328 /*offset_code (4920/15)*/,
-    0 /*offset_remainder (4920%15)*/,
-    0 /*delta_minutes*/,
-    1884 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    -    CET    1941 Apr 18 23:00
-  {
-    NULL /*zone_policy*/,
-    "CET" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    4 /*until_month*/,
-    18 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1945
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    -    CET    1945 May  8  2:00s
-  {
-    NULL /*zone_policy*/,
-    "CET" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    5 /*until_month*/,
-    8 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             1:00    1:00    CEST    1945 Sep 16  2:00s
-  {
-    NULL /*zone_policy*/,
-    "CEST" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    60 /*delta_minutes*/,
-    1945 /*until_year*/,
-    9 /*until_month*/,
-    16 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             1:00    -    CET    1982 Nov 27
-  {
-    NULL /*zone_policy*/,
-    "CET" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1982 /*until_year*/,
-    11 /*until_month*/,
-    27 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    EU    CE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -25684,69 +12574,17 @@ const AtcZoneInfo kAtcZoneEurope_Belgrade  = {
   kAtcZoneNameEurope_Belgrade /*name*/,
   0xe0532b3a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Berlin
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Berlin[]  = {
-  // 0:53:28 - LMT 1893 Apr
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    213 /*offset_code (3208/15)*/,
-    13 /*offset_remainder (3208%15)*/,
-    0 /*delta_minutes*/,
-    1893 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1945 May 24  2:00
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    5 /*until_month*/,
-    24 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00 SovietZone    CE%sT    1946
-  {
-    &kAtcZonePolicySovietZone /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Germany    CE%sT    1980
-  {
-    &kAtcZonePolicyGermany /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1980 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    EU    CE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -25769,121 +12607,17 @@ const AtcZoneInfo kAtcZoneEurope_Berlin  = {
   kAtcZoneNameEurope_Berlin /*name*/,
   0x44644c20 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Brussels
-// Zone Eras: 9
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Brussels[]  = {
-  // 0:17:30 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    70 /*offset_code (1050/15)*/,
-    0 /*offset_remainder (1050%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:17:30    -    BMT    1892 May  1 00:17:30
-  {
-    NULL /*zone_policy*/,
-    "BMT" /*format*/,
-    70 /*offset_code (1050/15)*/,
-    0 /*offset_remainder (1050%15)*/,
-    0 /*delta_minutes*/,
-    1892 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    70 /*until_time_code (1050/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:00    -    WET    1914 Nov  8
-  {
-    NULL /*zone_policy*/,
-    "WET" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    11 /*until_month*/,
-    8 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    -    CET    1916 May  1  0:00
-  {
-    NULL /*zone_policy*/,
-    "CET" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1916 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1918 Nov 11 11:00u
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1918 /*until_year*/,
-    11 /*until_month*/,
-    11 /*until_day*/,
-    2640 /*until_time_code (39600/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             0:00    Belgium    WE%sT    1940 May 20  2:00s
-  {
-    &kAtcZonePolicyBelgium /*zone_policy*/,
-    "WE%T" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1940 /*until_year*/,
-    5 /*until_month*/,
-    20 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1944 Sep  3
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    9 /*until_month*/,
-    3 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Belgium    CE%sT    1977
-  {
-    &kAtcZonePolicyBelgium /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1977 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    EU    CE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -25906,95 +12640,17 @@ const AtcZoneInfo kAtcZoneEurope_Brussels  = {
   kAtcZoneNameEurope_Brussels /*name*/,
   0xdee07337 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Brussels /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Bucharest
-// Zone Eras: 7
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Bucharest[]  = {
-  // 1:44:24 - LMT 1891 Oct
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    417 /*offset_code (6264/15)*/,
-    9 /*offset_remainder (6264%15)*/,
-    0 /*delta_minutes*/,
-    1891 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:44:24    -    BMT    1931 Jul 24
-  {
-    NULL /*zone_policy*/,
-    "BMT" /*format*/,
-    417 /*offset_code (6264/15)*/,
-    9 /*offset_remainder (6264%15)*/,
-    0 /*delta_minutes*/,
-    1931 /*until_year*/,
-    7 /*until_month*/,
-    24 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    Romania    EE%sT    1981 Mar 29  2:00s
-  {
-    &kAtcZonePolicyRomania /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    3 /*until_month*/,
-    29 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             2:00    C-Eur    EE%sT    1991
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    Romania    EE%sT    1994
-  {
-    &kAtcZonePolicyRomania /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1994 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    E-Eur    EE%sT    1997
-  {
-    &kAtcZonePolicyE_Eur /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1997 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    EU    EE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -26017,82 +12673,17 @@ const AtcZoneInfo kAtcZoneEurope_Bucharest  = {
   kAtcZoneNameEurope_Bucharest /*name*/,
   0xfb349ec5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Bucharest /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Budapest
-// Zone Eras: 6
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Budapest[]  = {
-  // 1:16:20 - LMT 1890 Nov 1
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    305 /*offset_code (4580/15)*/,
-    5 /*offset_remainder (4580%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    11 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1918
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1918 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Hungary    CE%sT    1941 Apr  7 23:00
-  {
-    &kAtcZonePolicyHungary /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    4 /*until_month*/,
-    7 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1945
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Hungary    CE%sT    1984
-  {
-    &kAtcZonePolicyHungary /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1984 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    EU    CE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -26115,134 +12706,17 @@ const AtcZoneInfo kAtcZoneEurope_Budapest  = {
   kAtcZoneNameEurope_Budapest /*name*/,
   0x9ce0197c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Budapest /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Chisinau
-// Zone Eras: 10
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Chisinau[]  = {
-  // 1:55:20 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    461 /*offset_code (6920/15)*/,
-    5 /*offset_remainder (6920%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:55    -    CMT    1918 Feb 15
-  {
-    NULL /*zone_policy*/,
-    "CMT" /*format*/,
-    460 /*offset_code (6900/15)*/,
-    0 /*offset_remainder (6900%15)*/,
-    0 /*delta_minutes*/,
-    1918 /*until_year*/,
-    2 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:44:24    -    BMT    1931 Jul 24
-  {
-    NULL /*zone_policy*/,
-    "BMT" /*format*/,
-    417 /*offset_code (6264/15)*/,
-    9 /*offset_remainder (6264%15)*/,
-    0 /*delta_minutes*/,
-    1931 /*until_year*/,
-    7 /*until_month*/,
-    24 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    Romania    EE%sT    1940 Aug 15
-  {
-    &kAtcZonePolicyRomania /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1940 /*until_year*/,
-    8 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    1:00    EEST    1941 Jul 17
-  {
-    NULL /*zone_policy*/,
-    "EEST" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    60 /*delta_minutes*/,
-    1941 /*until_year*/,
-    7 /*until_month*/,
-    17 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1944 Aug 24
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    8 /*until_month*/,
-    24 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    Russia    MSK/MSD    1990 May  6  2:00
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "MSK/MSD" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    5 /*until_month*/,
-    6 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    Russia    EE%sT    1992
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    E-Eur    EE%sT    1997
-  {
-    &kAtcZonePolicyE_Eur /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1997 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    Moldova    EE%sT
   {
     &kAtcZonePolicyMoldova /*zone_policy*/,
@@ -26265,147 +12739,17 @@ const AtcZoneInfo kAtcZoneEurope_Chisinau  = {
   kAtcZoneNameEurope_Chisinau /*name*/,
   0xad58aa18 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Chisinau /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Dublin
-// Zone Eras: 11
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Dublin[]  = {
-  // -0:25:21 - LMT 1880 Aug 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -102 /*offset_code (-1521/15)*/,
-    9 /*offset_remainder (-1521%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    8 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -0:25:21 -    DMT    1916 May 21  2:00s
-  {
-    NULL /*zone_policy*/,
-    "DMT" /*format*/,
-    -102 /*offset_code (-1521/15)*/,
-    9 /*offset_remainder (-1521%15)*/,
-    0 /*delta_minutes*/,
-    1916 /*until_year*/,
-    5 /*until_month*/,
-    21 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             -0:25:21 1:00    IST    1916 Oct  1  2:00s
-  {
-    NULL /*zone_policy*/,
-    "IST" /*format*/,
-    -102 /*offset_code (-1521/15)*/,
-    9 /*offset_remainder (-1521%15)*/,
-    60 /*delta_minutes*/,
-    1916 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              0:00    GB-Eire    %s    1921 Dec  6
-  {
-    &kAtcZonePolicyGB_Eire /*zone_policy*/,
-    "%" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1921 /*until_year*/,
-    12 /*until_month*/,
-    6 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              0:00    GB-Eire    GMT/IST    1940 Feb 25  2:00s
-  {
-    &kAtcZonePolicyGB_Eire /*zone_policy*/,
-    "GMT/IST" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1940 /*until_year*/,
-    2 /*until_month*/,
-    25 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              0:00    1:00    IST    1946 Oct  6  2:00s
-  {
-    NULL /*zone_policy*/,
-    "IST" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    60 /*delta_minutes*/,
-    1946 /*until_year*/,
-    10 /*until_month*/,
-    6 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              0:00    -    GMT    1947 Mar 16  2:00s
-  {
-    NULL /*zone_policy*/,
-    "GMT" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1947 /*until_year*/,
-    3 /*until_month*/,
-    16 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              0:00    1:00    IST    1947 Nov  2  2:00s
-  {
-    NULL /*zone_policy*/,
-    "IST" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    60 /*delta_minutes*/,
-    1947 /*until_year*/,
-    11 /*until_month*/,
-    2 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              0:00    -    GMT    1948 Apr 18  2:00s
-  {
-    NULL /*zone_policy*/,
-    "GMT" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1948 /*until_year*/,
-    4 /*until_month*/,
-    18 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              0:00    GB-Eire    GMT/IST    1968 Oct 27
-  {
-    &kAtcZonePolicyGB_Eire /*zone_policy*/,
-    "GMT/IST" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1968 /*until_year*/,
-    10 /*until_month*/,
-    27 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              1:00    Eire    IST/GMT
   {
     &kAtcZonePolicyEire /*zone_policy*/,
@@ -26428,56 +12772,17 @@ const AtcZoneInfo kAtcZoneEurope_Dublin  = {
   kAtcZoneNameEurope_Dublin /*name*/,
   0x4a275f62 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  11 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Dublin /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Gibraltar
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Gibraltar[]  = {
-  // -0:21:24 - LMT 1880 Aug 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -86 /*offset_code (-1284/15)*/,
-    6 /*offset_remainder (-1284%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    8 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:00    GB-Eire    %s    1957 Apr 14  2:00
-  {
-    &kAtcZonePolicyGB_Eire /*zone_policy*/,
-    "%" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1957 /*until_year*/,
-    4 /*until_month*/,
-    14 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    -    CET    1982
-  {
-    NULL /*zone_policy*/,
-    "CET" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1982 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    EU    CE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -26500,56 +12805,17 @@ const AtcZoneInfo kAtcZoneEurope_Gibraltar  = {
   kAtcZoneNameEurope_Gibraltar /*name*/,
   0xf8e325fc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Gibraltar /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Helsinki
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Helsinki[]  = {
-  // 1:39:49 - LMT 1878 May 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    399 /*offset_code (5989/15)*/,
-    4 /*offset_remainder (5989%15)*/,
-    0 /*delta_minutes*/,
-    1878 /*until_year*/,
-    5 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:39:49    -    HMT    1921 May
-  {
-    NULL /*zone_policy*/,
-    "HMT" /*format*/,
-    399 /*offset_code (5989/15)*/,
-    4 /*offset_remainder (5989%15)*/,
-    0 /*delta_minutes*/,
-    1921 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    Finland    EE%sT    1983
-  {
-    &kAtcZonePolicyFinland /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    EU    EE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -26572,69 +12838,17 @@ const AtcZoneInfo kAtcZoneEurope_Helsinki  = {
   kAtcZoneNameEurope_Helsinki /*name*/,
   0x6ab2975b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Helsinki /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Istanbul
-// Zone Eras: 13
+// Zone Eras: 9
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Istanbul[]  = {
-  // 1:55:52 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    463 /*offset_code (6952/15)*/,
-    7 /*offset_remainder (6952%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:56:56    -    IMT    1910 Oct
-  {
-    NULL /*zone_policy*/,
-    "IMT" /*format*/,
-    467 /*offset_code (7016/15)*/,
-    11 /*offset_remainder (7016%15)*/,
-    0 /*delta_minutes*/,
-    1910 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    Turkey    EE%sT    1978 Jun 29
-  {
-    &kAtcZonePolicyTurkey /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1978 /*until_year*/,
-    6 /*until_month*/,
-    29 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    Turkey    +03/+04    1984 Nov  1  2:00
-  {
-    &kAtcZonePolicyTurkey /*zone_policy*/,
-    "+03/+04" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1984 /*until_year*/,
-    11 /*until_month*/,
-    1 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    Turkey    EE%sT    2007
   {
     &kAtcZonePolicyTurkey /*zone_policy*/,
@@ -26761,69 +12975,17 @@ const AtcZoneInfo kAtcZoneEurope_Istanbul  = {
   kAtcZoneNameEurope_Istanbul /*name*/,
   0x9e09d6e6 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  13 /*num_eras*/,
+  9 /*num_eras*/,
   kAtcZoneEraEurope_Istanbul /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Kaliningrad
-// Zone Eras: 7
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Kaliningrad[]  = {
-  // 1:22:00 - LMT 1893 Apr
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    328 /*offset_code (4920/15)*/,
-    0 /*offset_remainder (4920%15)*/,
-    0 /*delta_minutes*/,
-    1893 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              1:00    C-Eur    CE%sT    1945 Apr 10
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    4 /*until_month*/,
-    10 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              2:00    Poland    EE%sT    1946 Apr  7
-  {
-    &kAtcZonePolicyPoland /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    4 /*until_month*/,
-    7 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              3:00    Russia    MSK/MSD    1989 Mar 26  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "MSK/MSD" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1989 /*until_year*/,
-    3 /*until_month*/,
-    26 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              2:00    Russia    EE%sT    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -26872,82 +13034,17 @@ const AtcZoneInfo kAtcZoneEurope_Kaliningrad  = {
   kAtcZoneNameEurope_Kaliningrad /*name*/,
   0xd33b2f28 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraEurope_Kaliningrad /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Kirov
-// Zone Eras: 8
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Kirov[]  = {
-  // 3:18:48 - LMT 1919 Jul 1 0:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    795 /*offset_code (11928/15)*/,
-    3 /*offset_remainder (11928%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //              3:00    -    +03    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+03" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              4:00    Russia    +04/+05    1989 Mar 26  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1989 /*until_year*/,
-    3 /*until_month*/,
-    26 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              3:00    Russia    +03/+04    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+03/+04" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              4:00    -    +04    1992 Mar 29  2:00s
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    3 /*until_month*/,
-    29 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              3:00    Russia    +03/+04    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -26996,121 +13093,17 @@ const AtcZoneInfo kAtcZoneEurope_Kirov  = {
   kAtcZoneNameEurope_Kirov /*name*/,
   0xfaf5abef /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraEurope_Kirov /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Kyiv
-// Zone Eras: 9
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Kyiv[]  = {
-  // 2:02:04 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    488 /*offset_code (7324/15)*/,
-    4 /*offset_remainder (7324%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:02:04    -    KMT    1924 May  2
-  {
-    NULL /*zone_policy*/,
-    "KMT" /*format*/,
-    488 /*offset_code (7324/15)*/,
-    4 /*offset_remainder (7324%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    -    EET    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "EET" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    -    MSK    1941 Sep 20
-  {
-    NULL /*zone_policy*/,
-    "MSK" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    9 /*until_month*/,
-    20 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1943 Nov  6
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1943 /*until_year*/,
-    11 /*until_month*/,
-    6 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    Russia    MSK/MSD    1990 Jul  1  2:00
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "MSK/MSD" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    1:00    EEST    1991 Sep 29  3:00
-  {
-    NULL /*zone_policy*/,
-    "EEST" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    60 /*delta_minutes*/,
-    1991 /*until_year*/,
-    9 /*until_month*/,
-    29 /*until_day*/,
-    720 /*until_time_code (10800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    C-Eur    EE%sT    1996 May 13
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    5 /*until_month*/,
-    13 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    EU    EE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -27133,108 +13126,17 @@ const AtcZoneInfo kAtcZoneEurope_Kyiv  = {
   kAtcZoneNameEurope_Kyiv /*name*/,
   0xa2c1e347 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Kyiv /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Lisbon
-// Zone Eras: 8
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Lisbon[]  = {
-  // -0:36:45 - LMT 1884
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -147 /*offset_code (-2205/15)*/,
-    0 /*offset_remainder (-2205%15)*/,
-    0 /*delta_minutes*/,
-    1884 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -0:36:45 -    LMT    1912 Jan  1  0:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -147 /*offset_code (-2205/15)*/,
-    0 /*offset_remainder (-2205%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //              0:00    Port    WE%sT    1966 Apr  3  2:00
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "WE%T" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1966 /*until_year*/,
-    4 /*until_month*/,
-    3 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              1:00    -    CET    1976 Sep 26  1:00
-  {
-    NULL /*zone_policy*/,
-    "CET" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1976 /*until_year*/,
-    9 /*until_month*/,
-    26 /*until_day*/,
-    240 /*until_time_code (3600/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              0:00    Port    WE%sT    1983 Sep 25  1:00s
-  {
-    &kAtcZonePolicyPort /*zone_policy*/,
-    "WE%T" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1983 /*until_year*/,
-    9 /*until_month*/,
-    25 /*until_day*/,
-    240 /*until_time_code (3600/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              0:00    W-Eur    WE%sT    1992 Sep 27  1:00s
-  {
-    &kAtcZonePolicyW_Eur /*zone_policy*/,
-    "WE%T" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    9 /*until_month*/,
-    27 /*until_day*/,
-    240 /*until_time_code (3600/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              1:00    EU    CE%sT    1996 Mar 31  1:00u
-  {
-    &kAtcZonePolicyEU /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    240 /*until_time_code (3600/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
   //              0:00    EU    WE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -27257,69 +13159,17 @@ const AtcZoneInfo kAtcZoneEurope_Lisbon  = {
   kAtcZoneNameEurope_Lisbon /*name*/,
   0x5c00a70b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Lisbon /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/London
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_London[]  = {
-  // -0:01:15 - LMT 1847 Dec 1
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -5 /*offset_code (-75/15)*/,
-    0 /*offset_remainder (-75%15)*/,
-    0 /*delta_minutes*/,
-    1847 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              0:00    GB-Eire    %s    1968 Oct 27
-  {
-    &kAtcZonePolicyGB_Eire /*zone_policy*/,
-    "%" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1968 /*until_year*/,
-    10 /*until_month*/,
-    27 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              1:00    -    BST    1971 Oct 31  2:00u
-  {
-    NULL /*zone_policy*/,
-    "BST" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1971 /*until_year*/,
-    10 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //              0:00    GB-Eire    %s    1996
-  {
-    &kAtcZonePolicyGB_Eire /*zone_policy*/,
-    "%" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              0:00    EU    GMT/BST
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -27342,56 +13192,17 @@ const AtcZoneInfo kAtcZoneEurope_London  = {
   kAtcZoneNameEurope_London /*name*/,
   0x5c6a84ae /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Madrid
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Madrid[]  = {
-  // -0:14:44 - LMT 1901 Jan 1 0:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -59 /*offset_code (-884/15)*/,
-    1 /*offset_remainder (-884%15)*/,
-    0 /*delta_minutes*/,
-    1901 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //              0:00    Spain    WE%sT    1940 Mar 16 23:00
-  {
-    &kAtcZonePolicySpain /*zone_policy*/,
-    "WE%T" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1940 /*until_year*/,
-    3 /*until_month*/,
-    16 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              1:00    Spain    CE%sT    1979
-  {
-    &kAtcZonePolicySpain /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1979 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              1:00    EU    CE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -27414,56 +13225,17 @@ const AtcZoneInfo kAtcZoneEurope_Madrid  = {
   kAtcZoneNameEurope_Madrid /*name*/,
   0x5dbd1535 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Madrid /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Malta
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Malta[]  = {
-  // 0:58:04 - LMT 1893 Nov 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    232 /*offset_code (3484/15)*/,
-    4 /*offset_remainder (3484%15)*/,
-    0 /*delta_minutes*/,
-    1893 /*until_year*/,
-    11 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Italy    CE%sT    1973 Mar 31
-  {
-    &kAtcZonePolicyItaly /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1973 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Malta    CE%sT    1981
-  {
-    &kAtcZonePolicyMalta /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    EU    CE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -27486,108 +13258,17 @@ const AtcZoneInfo kAtcZoneEurope_Malta  = {
   kAtcZoneNameEurope_Malta /*name*/,
   0xfb1560f3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Malta /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Minsk
-// Zone Eras: 9
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Minsk[]  = {
-  // 1:50:16 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    441 /*offset_code (6616/15)*/,
-    1 /*offset_remainder (6616%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:50    -    MMT    1924 May  2
-  {
-    NULL /*zone_policy*/,
-    "MMT" /*format*/,
-    440 /*offset_code (6600/15)*/,
-    0 /*offset_remainder (6600%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    -    EET    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "EET" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    -    MSK    1941 Jun 28
-  {
-    NULL /*zone_policy*/,
-    "MSK" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    6 /*until_month*/,
-    28 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1944 Jul  3
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    7 /*until_month*/,
-    3 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    Russia    MSK/MSD    1990
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "MSK/MSD" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    -    MSK    1991 Mar 31  2:00s
-  {
-    NULL /*zone_policy*/,
-    "MSK" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             2:00    Russia    EE%sT    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -27623,121 +13304,17 @@ const AtcZoneInfo kAtcZoneEurope_Minsk  = {
   kAtcZoneNameEurope_Minsk /*name*/,
   0xfb19cc66 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraEurope_Minsk /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Moscow
-// Zone Eras: 11
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Moscow[]  = {
-  // 2:30:17 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    601 /*offset_code (9017/15)*/,
-    2 /*offset_remainder (9017%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              2:30:17 -    MMT    1916 Jul  3
-  {
-    NULL /*zone_policy*/,
-    "MMT" /*format*/,
-    601 /*offset_code (9017/15)*/,
-    2 /*offset_remainder (9017%15)*/,
-    0 /*delta_minutes*/,
-    1916 /*until_year*/,
-    7 /*until_month*/,
-    3 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              2:31:19 Russia    %s    1919 Jul  1  0:00u
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "%" /*format*/,
-    605 /*offset_code (9079/15)*/,
-    4 /*offset_remainder (9079%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //              3:00    Russia    %s    1921 Oct
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "%" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1921 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              3:00    Russia    MSK/MSD    1922 Oct
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "MSK/MSD" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              2:00    -    EET    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "EET" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              3:00    Russia    MSK/MSD    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "MSK/MSD" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              2:00    Russia    EE%sT    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              3:00    Russia    MSK/MSD    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -27786,95 +13363,17 @@ const AtcZoneInfo kAtcZoneEurope_Moscow  = {
   kAtcZoneNameEurope_Moscow /*name*/,
   0x5ec266fc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  11 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraEurope_Moscow /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Paris
-// Zone Eras: 7
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Paris[]  = {
-  // 0:09:21 - LMT 1891 Mar 16
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    37 /*offset_code (561/15)*/,
-    6 /*offset_remainder (561%15)*/,
-    0 /*delta_minutes*/,
-    1891 /*until_year*/,
-    3 /*until_month*/,
-    16 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:09:21    -    PMT    1911 Mar 11
-  {
-    NULL /*zone_policy*/,
-    "PMT" /*format*/,
-    37 /*offset_code (561/15)*/,
-    6 /*offset_remainder (561%15)*/,
-    0 /*delta_minutes*/,
-    1911 /*until_year*/,
-    3 /*until_month*/,
-    11 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:00    France    WE%sT    1940 Jun 14 23:00
-  {
-    &kAtcZonePolicyFrance /*zone_policy*/,
-    "WE%T" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1940 /*until_year*/,
-    6 /*until_month*/,
-    14 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1944 Aug 25
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    8 /*until_month*/,
-    25 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:00    France    WE%sT    1945 Sep 16  3:00
-  {
-    &kAtcZonePolicyFrance /*zone_policy*/,
-    "WE%T" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    9 /*until_month*/,
-    16 /*until_day*/,
-    720 /*until_time_code (10800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    France    CE%sT    1977
-  {
-    &kAtcZonePolicyFrance /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1977 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    EU    CE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -27897,95 +13396,17 @@ const AtcZoneInfo kAtcZoneEurope_Paris  = {
   kAtcZoneNameEurope_Paris /*name*/,
   0xfb4bc2a3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Paris /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Prague
-// Zone Eras: 7
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Prague[]  = {
-  // 0:57:44 - LMT 1850
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    230 /*offset_code (3464/15)*/,
-    14 /*offset_remainder (3464%15)*/,
-    0 /*delta_minutes*/,
-    1850 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:57:44    -    PMT    1891 Oct
-  {
-    NULL /*zone_policy*/,
-    "PMT" /*format*/,
-    230 /*offset_code (3464/15)*/,
-    14 /*offset_remainder (3464%15)*/,
-    0 /*delta_minutes*/,
-    1891 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1945 May  9
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    5 /*until_month*/,
-    9 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Czech    CE%sT    1946 Dec  1  3:00
-  {
-    &kAtcZonePolicyCzech /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    12 /*until_month*/,
-    1 /*until_day*/,
-    720 /*until_time_code (10800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    -1:00    GMT    1947 Feb 23  2:00
-  {
-    NULL /*zone_policy*/,
-    "GMT" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    -60 /*delta_minutes*/,
-    1947 /*until_year*/,
-    2 /*until_month*/,
-    23 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Czech    CE%sT    1979
-  {
-    &kAtcZonePolicyCzech /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1979 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    EU    CE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -28008,173 +13429,17 @@ const AtcZoneInfo kAtcZoneEurope_Prague  = {
   kAtcZoneNameEurope_Prague /*name*/,
   0x65ee5d48 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Prague /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Riga
-// Zone Eras: 15
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Riga[]  = {
-  // 1:36:34 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    386 /*offset_code (5794/15)*/,
-    4 /*offset_remainder (5794%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:36:34    -    RMT    1918 Apr 15  2:00
-  {
-    NULL /*zone_policy*/,
-    "RMT" /*format*/,
-    386 /*offset_code (5794/15)*/,
-    4 /*offset_remainder (5794%15)*/,
-    0 /*delta_minutes*/,
-    1918 /*until_year*/,
-    4 /*until_month*/,
-    15 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:36:34    1:00    LST    1918 Sep 16  3:00
-  {
-    NULL /*zone_policy*/,
-    "LST" /*format*/,
-    386 /*offset_code (5794/15)*/,
-    4 /*offset_remainder (5794%15)*/,
-    60 /*delta_minutes*/,
-    1918 /*until_year*/,
-    9 /*until_month*/,
-    16 /*until_day*/,
-    720 /*until_time_code (10800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:36:34    -    RMT    1919 Apr  1  2:00
-  {
-    NULL /*zone_policy*/,
-    "RMT" /*format*/,
-    386 /*offset_code (5794/15)*/,
-    4 /*offset_remainder (5794%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:36:34    1:00    LST    1919 May 22  3:00
-  {
-    NULL /*zone_policy*/,
-    "LST" /*format*/,
-    386 /*offset_code (5794/15)*/,
-    4 /*offset_remainder (5794%15)*/,
-    60 /*delta_minutes*/,
-    1919 /*until_year*/,
-    5 /*until_month*/,
-    22 /*until_day*/,
-    720 /*until_time_code (10800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:36:34    -    RMT    1926 May 11
-  {
-    NULL /*zone_policy*/,
-    "RMT" /*format*/,
-    386 /*offset_code (5794/15)*/,
-    4 /*offset_remainder (5794%15)*/,
-    0 /*delta_minutes*/,
-    1926 /*until_year*/,
-    5 /*until_month*/,
-    11 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    -    EET    1940 Aug  5
-  {
-    NULL /*zone_policy*/,
-    "EET" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1940 /*until_year*/,
-    8 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    -    MSK    1941 Jul
-  {
-    NULL /*zone_policy*/,
-    "MSK" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1944 Oct 13
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    10 /*until_month*/,
-    13 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    Russia    MSK/MSD    1989 Mar lastSun  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "MSK/MSD" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1989 /*until_year*/,
-    3 /*until_month*/,
-    26 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             2:00    1:00    EEST    1989 Sep lastSun  2:00s
-  {
-    NULL /*zone_policy*/,
-    "EEST" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    60 /*delta_minutes*/,
-    1989 /*until_year*/,
-    9 /*until_month*/,
-    24 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             2:00    Latvia    EE%sT    1997 Jan 21
-  {
-    &kAtcZonePolicyLatvia /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1997 /*until_year*/,
-    1 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    EU    EE%sT    2000 Feb 29
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -28223,82 +13488,17 @@ const AtcZoneInfo kAtcZoneEurope_Riga  = {
   kAtcZoneNameEurope_Riga /*name*/,
   0xa2c57587 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  15 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraEurope_Riga /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Rome
-// Zone Eras: 6
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Rome[]  = {
-  // 0:49:56 - LMT 1866 Dec 12
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    199 /*offset_code (2996/15)*/,
-    11 /*offset_remainder (2996%15)*/,
-    0 /*delta_minutes*/,
-    1866 /*until_year*/,
-    12 /*until_month*/,
-    12 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:49:56    -    RMT    1893 Oct 31 23:00u
-  {
-    NULL /*zone_policy*/,
-    "RMT" /*format*/,
-    199 /*offset_code (2996/15)*/,
-    11 /*offset_remainder (2996%15)*/,
-    0 /*delta_minutes*/,
-    1893 /*until_year*/,
-    10 /*until_month*/,
-    31 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //             1:00    Italy    CE%sT    1943 Sep 10
-  {
-    &kAtcZonePolicyItaly /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1943 /*until_year*/,
-    9 /*until_month*/,
-    10 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1944 Jun  4
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    6 /*until_month*/,
-    4 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Italy    CE%sT    1980
-  {
-    &kAtcZonePolicyItaly /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1980 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    EU    CE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -28321,108 +13521,17 @@ const AtcZoneInfo kAtcZoneEurope_Rome  = {
   kAtcZoneNameEurope_Rome /*name*/,
   0xa2c58fd7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Rome /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Samara
-// Zone Eras: 10
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Samara[]  = {
-  // 3:20:20 - LMT 1919 Jul 1 0:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    801 /*offset_code (12020/15)*/,
-    5 /*offset_remainder (12020%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //              3:00    -    +03    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+03" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              4:00    -    +04    1935 Jan 27
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1935 /*until_year*/,
-    1 /*until_month*/,
-    27 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              4:00    Russia    +04/+05    1989 Mar 26  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1989 /*until_year*/,
-    3 /*until_month*/,
-    26 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              3:00    Russia    +03/+04    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+03/+04" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              2:00    Russia    +02/+03    1991 Sep 29  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+02/+03" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    9 /*until_month*/,
-    29 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              3:00    -    +03    1991 Oct 20  3:00
-  {
-    NULL /*zone_policy*/,
-    "+03" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    10 /*until_month*/,
-    20 /*until_day*/,
-    720 /*until_time_code (10800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              4:00    Russia    +04/+05    2010 Mar 28  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -28471,82 +13580,17 @@ const AtcZoneInfo kAtcZoneEurope_Samara  = {
   kAtcZoneNameEurope_Samara /*name*/,
   0x6bc0b139 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraEurope_Samara /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Saratov
-// Zone Eras: 9
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Saratov[]  = {
-  // 3:04:18 - LMT 1919 Jul 1 0:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    737 /*offset_code (11058/15)*/,
-    3 /*offset_remainder (11058%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //              3:00    -    +03    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+03" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              4:00    Russia    +04/+05    1988 Mar 27  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1988 /*until_year*/,
-    3 /*until_month*/,
-    27 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              3:00    Russia    +03/+04    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+03/+04" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              4:00    -    +04    1992 Mar 29  2:00s
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    3 /*until_month*/,
-    29 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              3:00    Russia    +03/+04    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -28608,173 +13652,17 @@ const AtcZoneInfo kAtcZoneEurope_Saratov  = {
   kAtcZoneNameEurope_Saratov /*name*/,
   0xe4315da4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraEurope_Saratov /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Simferopol
-// Zone Eras: 15
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Simferopol[]  = {
-  // 2:16:24 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    545 /*offset_code (8184/15)*/,
-    9 /*offset_remainder (8184%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              2:16    -    SMT    1924 May  2
-  {
-    NULL /*zone_policy*/,
-    "SMT" /*format*/,
-    544 /*offset_code (8160/15)*/,
-    0 /*offset_remainder (8160%15)*/,
-    0 /*delta_minutes*/,
-    1924 /*until_year*/,
-    5 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              2:00    -    EET    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "EET" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              3:00    -    MSK    1941 Nov
-  {
-    NULL /*zone_policy*/,
-    "MSK" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    11 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              1:00    C-Eur    CE%sT    1944 Apr 13
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    4 /*until_month*/,
-    13 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              3:00    Russia    MSK/MSD    1990
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "MSK/MSD" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              3:00    -    MSK    1990 Jul  1  2:00
-  {
-    NULL /*zone_policy*/,
-    "MSK" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1990 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              2:00    -    EET    1992 Mar 20
-  {
-    NULL /*zone_policy*/,
-    "EET" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    3 /*until_month*/,
-    20 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              2:00    C-Eur    EE%sT    1994 May
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1994 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              3:00    C-Eur    MSK/MSD    1996 Mar 31  0:00s
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "MSK/MSD" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              3:00    1:00    MSD    1996 Oct 27  3:00s
-  {
-    NULL /*zone_policy*/,
-    "MSD" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    60 /*delta_minutes*/,
-    1996 /*until_year*/,
-    10 /*until_month*/,
-    27 /*until_day*/,
-    720 /*until_time_code (10800/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              3:00    -    MSK    1997 Mar lastSun  1:00u
-  {
-    NULL /*zone_policy*/,
-    "MSK" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1997 /*until_year*/,
-    3 /*until_month*/,
-    30 /*until_day*/,
-    240 /*until_time_code (3600/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
   //              2:00    EU    EE%sT    2014 Mar 30  2:00
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -28823,134 +13711,17 @@ const AtcZoneInfo kAtcZoneEurope_Simferopol  = {
   kAtcZoneNameEurope_Simferopol /*name*/,
   0xda9eb724 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  15 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraEurope_Simferopol /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Sofia
-// Zone Eras: 10
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Sofia[]  = {
-  // 1:33:16 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    373 /*offset_code (5596/15)*/,
-    1 /*offset_remainder (5596%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:56:56    -    IMT    1894 Nov 30
-  {
-    NULL /*zone_policy*/,
-    "IMT" /*format*/,
-    467 /*offset_code (7016/15)*/,
-    11 /*offset_remainder (7016%15)*/,
-    0 /*delta_minutes*/,
-    1894 /*until_year*/,
-    11 /*until_month*/,
-    30 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    -    EET    1942 Nov  2  3:00
-  {
-    NULL /*zone_policy*/,
-    "EET" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    11 /*until_month*/,
-    2 /*until_day*/,
-    720 /*until_time_code (10800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1945
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    -    CET    1945 Apr  2  3:00
-  {
-    NULL /*zone_policy*/,
-    "CET" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    4 /*until_month*/,
-    2 /*until_day*/,
-    720 /*until_time_code (10800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    -    EET    1979 Mar 31 23:00
-  {
-    NULL /*zone_policy*/,
-    "EET" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1979 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    5520 /*until_time_code (82800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    Bulg    EE%sT    1982 Sep 26  3:00
-  {
-    &kAtcZonePolicyBulg /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1982 /*until_year*/,
-    9 /*until_month*/,
-    26 /*until_day*/,
-    720 /*until_time_code (10800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    C-Eur    EE%sT    1991
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    E-Eur    EE%sT    1997
-  {
-    &kAtcZonePolicyE_Eur /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1997 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    EU    EE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -28973,147 +13744,17 @@ const AtcZoneInfo kAtcZoneEurope_Sofia  = {
   kAtcZoneNameEurope_Sofia /*name*/,
   0xfb898656 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Sofia /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Tallinn
-// Zone Eras: 13
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Tallinn[]  = {
-  // 1:39:00 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    396 /*offset_code (5940/15)*/,
-    0 /*offset_remainder (5940%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:39:00    -    TMT    1918 Feb
-  {
-    NULL /*zone_policy*/,
-    "TMT" /*format*/,
-    396 /*offset_code (5940/15)*/,
-    0 /*offset_remainder (5940%15)*/,
-    0 /*delta_minutes*/,
-    1918 /*until_year*/,
-    2 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1919 Jul
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:39:00    -    TMT    1921 May
-  {
-    NULL /*zone_policy*/,
-    "TMT" /*format*/,
-    396 /*offset_code (5940/15)*/,
-    0 /*offset_remainder (5940%15)*/,
-    0 /*delta_minutes*/,
-    1921 /*until_year*/,
-    5 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    -    EET    1940 Aug  6
-  {
-    NULL /*zone_policy*/,
-    "EET" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1940 /*until_year*/,
-    8 /*until_month*/,
-    6 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    -    MSK    1941 Sep 15
-  {
-    NULL /*zone_policy*/,
-    "MSK" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    9 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1944 Sep 22
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    9 /*until_month*/,
-    22 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    Russia    MSK/MSD    1989 Mar 26  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "MSK/MSD" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1989 /*until_year*/,
-    3 /*until_month*/,
-    26 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             2:00    1:00    EEST    1989 Sep 24  2:00s
-  {
-    NULL /*zone_policy*/,
-    "EEST" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    60 /*delta_minutes*/,
-    1989 /*until_year*/,
-    9 /*until_month*/,
-    24 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             2:00    C-Eur    EE%sT    1998 Sep 22
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1998 /*until_year*/,
-    9 /*until_month*/,
-    22 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             2:00    EU    EE%sT    1999 Oct 31  4:00
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -29162,56 +13803,17 @@ const AtcZoneInfo kAtcZoneEurope_Tallinn  = {
   kAtcZoneNameEurope_Tallinn /*name*/,
   0x30c4e096 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  13 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraEurope_Tallinn /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Tirane
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Tirane[]  = {
-  // 1:19:20 - LMT 1914
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    317 /*offset_code (4760/15)*/,
-    5 /*offset_remainder (4760%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    -    CET    1940 Jun 16
-  {
-    NULL /*zone_policy*/,
-    "CET" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1940 /*until_year*/,
-    6 /*until_month*/,
-    16 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Albania    CE%sT    1984 Jul
-  {
-    &kAtcZonePolicyAlbania /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1984 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    EU    CE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -29234,82 +13836,17 @@ const AtcZoneInfo kAtcZoneEurope_Tirane  = {
   kAtcZoneNameEurope_Tirane /*name*/,
   0x6ea95b47 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Tirane /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Ulyanovsk
-// Zone Eras: 9
+// Zone Eras: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Ulyanovsk[]  = {
-  // 3:13:36 - LMT 1919 Jul 1 0:00u
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    774 /*offset_code (11616/15)*/,
-    6 /*offset_remainder (11616%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
-  //              3:00    -    +03    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+03" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              4:00    Russia    +04/+05    1989 Mar 26  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1989 /*until_year*/,
-    3 /*until_month*/,
-    26 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              3:00    Russia    +03/+04    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+03/+04" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              2:00    Russia    +02/+03    1992 Jan 19  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+02/+03" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    1 /*until_month*/,
-    19 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              3:00    Russia    +03/+04    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -29371,108 +13908,17 @@ const AtcZoneInfo kAtcZoneEurope_Ulyanovsk  = {
   kAtcZoneNameEurope_Ulyanovsk /*name*/,
   0xe03783d0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraEurope_Ulyanovsk /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Vienna
-// Zone Eras: 8
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Vienna[]  = {
-  // 1:05:21 - LMT 1893 Apr
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    261 /*offset_code (3921/15)*/,
-    6 /*offset_remainder (3921%15)*/,
-    0 /*delta_minutes*/,
-    1893 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1920
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Austria    CE%sT    1940 Apr  1  2:00s
-  {
-    &kAtcZonePolicyAustria /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1940 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1945 Apr  2  2:00s
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    4 /*until_month*/,
-    2 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             1:00    1:00    CEST    1945 Apr 12  2:00s
-  {
-    NULL /*zone_policy*/,
-    "CEST" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    60 /*delta_minutes*/,
-    1945 /*until_year*/,
-    4 /*until_month*/,
-    12 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             1:00    -    CET    1946
-  {
-    NULL /*zone_policy*/,
-    "CET" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Austria    CE%sT    1981
-  {
-    &kAtcZonePolicyAustria /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    EU    CE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -29495,173 +13941,17 @@ const AtcZoneInfo kAtcZoneEurope_Vienna  = {
   kAtcZoneNameEurope_Vienna /*name*/,
   0x734cc2e5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Vienna /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Vilnius
-// Zone Eras: 15
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Vilnius[]  = {
-  // 1:41:16 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    405 /*offset_code (6076/15)*/,
-    1 /*offset_remainder (6076%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:24:00    -    WMT    1917
-  {
-    NULL /*zone_policy*/,
-    "WMT" /*format*/,
-    336 /*offset_code (5040/15)*/,
-    0 /*offset_remainder (5040%15)*/,
-    0 /*delta_minutes*/,
-    1917 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:35:36    -    KMT    1919 Oct 10
-  {
-    NULL /*zone_policy*/,
-    "KMT" /*format*/,
-    382 /*offset_code (5736/15)*/,
-    6 /*offset_remainder (5736%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    10 /*until_month*/,
-    10 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    -    CET    1920 Jul 12
-  {
-    NULL /*zone_policy*/,
-    "CET" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    7 /*until_month*/,
-    12 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    -    EET    1920 Oct  9
-  {
-    NULL /*zone_policy*/,
-    "EET" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    10 /*until_month*/,
-    9 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    -    CET    1940 Aug  3
-  {
-    NULL /*zone_policy*/,
-    "CET" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1940 /*until_year*/,
-    8 /*until_month*/,
-    3 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    -    MSK    1941 Jun 24
-  {
-    NULL /*zone_policy*/,
-    "MSK" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    6 /*until_month*/,
-    24 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1944 Aug
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    8 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             3:00    Russia    MSK/MSD    1989 Mar 26  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "MSK/MSD" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1989 /*until_year*/,
-    3 /*until_month*/,
-    26 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             2:00    Russia    EE%sT    1991 Sep 29  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    9 /*until_month*/,
-    29 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             2:00    C-Eur    EE%sT    1998
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1998 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    -    EET    1998 Mar 29  1:00u
-  {
-    NULL /*zone_policy*/,
-    "EET" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1998 /*until_year*/,
-    3 /*until_month*/,
-    29 /*until_day*/,
-    240 /*until_time_code (3600/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
   //             1:00    EU    CE%sT    1999 Oct 31  1:00u
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -29710,95 +14000,17 @@ const AtcZoneInfo kAtcZoneEurope_Vilnius  = {
   kAtcZoneNameEurope_Vilnius /*name*/,
   0xdd63b8ce /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  15 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraEurope_Vilnius /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Volgograd
-// Zone Eras: 11
+// Zone Eras: 5
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Volgograd[]  = {
-  // 2:57:40 - LMT 1920 Jan 3
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    710 /*offset_code (10660/15)*/,
-    10 /*offset_remainder (10660%15)*/,
-    0 /*delta_minutes*/,
-    1920 /*until_year*/,
-    1 /*until_month*/,
-    3 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              3:00    -    +03    1930 Jun 21
-  {
-    NULL /*zone_policy*/,
-    "+03" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1930 /*until_year*/,
-    6 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              4:00    -    +04    1961 Nov 11
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1961 /*until_year*/,
-    11 /*until_month*/,
-    11 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              4:00    Russia    +04/+05    1988 Mar 27  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+04/+05" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1988 /*until_year*/,
-    3 /*until_month*/,
-    27 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              3:00    Russia    +03/+04    1991 Mar 31  2:00s
-  {
-    &kAtcZonePolicyRussia /*zone_policy*/,
-    "+03/+04" /*format*/,
-    720 /*offset_code (10800/15)*/,
-    0 /*offset_remainder (10800%15)*/,
-    0 /*delta_minutes*/,
-    1991 /*until_year*/,
-    3 /*until_month*/,
-    31 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //              4:00    -    +04    1992 Mar 29  2:00s
-  {
-    NULL /*zone_policy*/,
-    "+04" /*format*/,
-    960 /*offset_code (14400/15)*/,
-    0 /*offset_remainder (14400%15)*/,
-    0 /*delta_minutes*/,
-    1992 /*until_year*/,
-    3 /*until_month*/,
-    29 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //              3:00    Russia    +03/+04    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
@@ -29873,121 +14085,17 @@ const AtcZoneInfo kAtcZoneEurope_Volgograd  = {
   kAtcZoneNameEurope_Volgograd /*name*/,
   0x3ed0f389 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  11 /*num_eras*/,
+  5 /*num_eras*/,
   kAtcZoneEraEurope_Volgograd /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Warsaw
-// Zone Eras: 9
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Warsaw[]  = {
-  // 1:24:00 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    336 /*offset_code (5040/15)*/,
-    0 /*offset_remainder (5040%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:24:00    -    WMT    1915 Aug  5
-  {
-    NULL /*zone_policy*/,
-    "WMT" /*format*/,
-    336 /*offset_code (5040/15)*/,
-    0 /*offset_remainder (5040%15)*/,
-    0 /*delta_minutes*/,
-    1915 /*until_year*/,
-    8 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1918 Sep 16  3:00
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1918 /*until_year*/,
-    9 /*until_month*/,
-    16 /*until_day*/,
-    720 /*until_time_code (10800/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             2:00    Poland    EE%sT    1922 Jun
-  {
-    &kAtcZonePolicyPoland /*zone_policy*/,
-    "EE%T" /*format*/,
-    480 /*offset_code (7200/15)*/,
-    0 /*offset_remainder (7200%15)*/,
-    0 /*delta_minutes*/,
-    1922 /*until_year*/,
-    6 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Poland    CE%sT    1940 Jun 23  2:00
-  {
-    &kAtcZonePolicyPoland /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1940 /*until_year*/,
-    6 /*until_month*/,
-    23 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    C-Eur    CE%sT    1944 Oct
-  {
-    &kAtcZonePolicyC_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Poland    CE%sT    1977
-  {
-    &kAtcZonePolicyPoland /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1977 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    W-Eur    CE%sT    1988
-  {
-    &kAtcZonePolicyW_Eur /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1988 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    EU    CE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -30010,56 +14118,17 @@ const AtcZoneInfo kAtcZoneEurope_Warsaw  = {
   kAtcZoneNameEurope_Warsaw /*name*/,
   0x75185c19 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Warsaw /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Zurich
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Zurich[]  = {
-  // 0:34:08 - LMT 1853 Jul 16
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    136 /*offset_code (2048/15)*/,
-    8 /*offset_remainder (2048%15)*/,
-    0 /*delta_minutes*/,
-    1853 /*until_year*/,
-    7 /*until_month*/,
-    16 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             0:29:46    -    BMT    1894 Jun
-  {
-    NULL /*zone_policy*/,
-    "BMT" /*format*/,
-    119 /*offset_code (1786/15)*/,
-    1 /*offset_remainder (1786%15)*/,
-    0 /*delta_minutes*/,
-    1894 /*until_year*/,
-    6 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             1:00    Swiss    CE%sT    1981
-  {
-    &kAtcZonePolicySwiss /*zone_policy*/,
-    "CE%T" /*format*/,
-    240 /*offset_code (3600/15)*/,
-    0 /*offset_remainder (3600%15)*/,
-    0 /*delta_minutes*/,
-    1981 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             1:00    EU    CE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
@@ -30082,7 +14151,7 @@ const AtcZoneInfo kAtcZoneEurope_Zurich  = {
   kAtcZoneNameEurope_Zurich /*name*/,
   0x7d8195b9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Zurich /*eras*/,
   NULL /*target_info*/,
 };
@@ -30122,36 +14191,10 @@ const AtcZoneInfo kAtcZoneHST  = {
 
 //---------------------------------------------------------------------------
 // Zone name: Indian/Chagos
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraIndian_Chagos[]  = {
-  // 4:49:40 - LMT 1907
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1158 /*offset_code (17380/15)*/,
-    10 /*offset_remainder (17380%15)*/,
-    0 /*delta_minutes*/,
-    1907 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             5:00    -    +05    1996
-  {
-    NULL /*zone_policy*/,
-    "+05" /*format*/,
-    1200 /*offset_code (18000/15)*/,
-    0 /*offset_remainder (18000%15)*/,
-    0 /*delta_minutes*/,
-    1996 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             6:00    -    +06
   {
     NULL /*zone_policy*/,
@@ -30174,43 +14217,17 @@ const AtcZoneInfo kAtcZoneIndian_Chagos  = {
   kAtcZoneNameIndian_Chagos /*name*/,
   0x456f7c3c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraIndian_Chagos /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Indian/Maldives
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraIndian_Maldives[]  = {
-  // 4:54:00 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    1176 /*offset_code (17640/15)*/,
-    0 /*offset_remainder (17640%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             4:54:00    -    MMT    1960
-  {
-    NULL /*zone_policy*/,
-    "MMT" /*format*/,
-    1176 /*offset_code (17640/15)*/,
-    0 /*offset_remainder (17640%15)*/,
-    0 /*delta_minutes*/,
-    1960 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             5:00    -    +05
   {
     NULL /*zone_policy*/,
@@ -30233,30 +14250,17 @@ const AtcZoneInfo kAtcZoneIndian_Maldives  = {
   kAtcZoneNameIndian_Maldives /*name*/,
   0x9869681c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraIndian_Maldives /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Indian/Mauritius
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraIndian_Mauritius[]  = {
-  // 3:50:00 - LMT 1907
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    920 /*offset_code (13800/15)*/,
-    0 /*offset_remainder (13800%15)*/,
-    0 /*delta_minutes*/,
-    1907 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             4:00 Mauritius    +04/+05
   {
     &kAtcZonePolicyMauritius /*zone_policy*/,
@@ -30279,7 +14283,7 @@ const AtcZoneInfo kAtcZoneIndian_Mauritius  = {
   kAtcZoneNameIndian_Mauritius /*name*/,
   0x7b09c02a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraIndian_Mauritius /*eras*/,
   NULL /*target_info*/,
 };
@@ -30418,49 +14422,10 @@ const AtcZoneInfo kAtcZonePST8PDT  = {
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Apia
-// Zone Eras: 5
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Apia[]  = {
-  // 12:33:04 - LMT 1892 Jul 5
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    3012 /*offset_code (45184/15)*/,
-    4 /*offset_remainder (45184%15)*/,
-    0 /*delta_minutes*/,
-    1892 /*until_year*/,
-    7 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -11:26:56 -    LMT    1911
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2748 /*offset_code (-41216/15)*/,
-    4 /*offset_remainder (-41216%15)*/,
-    0 /*delta_minutes*/,
-    1911 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -11:30    -    -1130    1950
-  {
-    NULL /*zone_policy*/,
-    "-1130" /*format*/,
-    -2760 /*offset_code (-41400/15)*/,
-    0 /*offset_remainder (-41400%15)*/,
-    0 /*delta_minutes*/,
-    1950 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -11:00    WS    -11/-10    2011 Dec 29 24:00
   {
     &kAtcZonePolicyWS /*zone_policy*/,
@@ -30496,43 +14461,17 @@ const AtcZoneInfo kAtcZonePacific_Apia  = {
   kAtcZoneNamePacific_Apia /*name*/,
   0x23359b5e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraPacific_Apia /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Auckland
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Auckland[]  = {
-  // 11:39:04 - LMT 1868 Nov 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2796 /*offset_code (41944/15)*/,
-    4 /*offset_remainder (41944%15)*/,
-    0 /*delta_minutes*/,
-    1868 /*until_year*/,
-    11 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             11:30    NZ    NZ%sT    1946 Jan  1
-  {
-    &kAtcZonePolicyNZ /*zone_policy*/,
-    "NZ%T" /*format*/,
-    2760 /*offset_code (41400/15)*/,
-    0 /*offset_remainder (41400%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             12:00    NZ    NZ%sT
   {
     &kAtcZonePolicyNZ /*zone_policy*/,
@@ -30555,69 +14494,17 @@ const AtcZoneInfo kAtcZonePacific_Auckland  = {
   kAtcZoneNamePacific_Auckland /*name*/,
   0x25062f86 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Auckland /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Bougainville
-// Zone Eras: 6
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Bougainville[]  = {
-  // 10:22:16 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2489 /*offset_code (37336/15)*/,
-    1 /*offset_remainder (37336%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              9:48:32 -    PMMT    1895
-  {
-    NULL /*zone_policy*/,
-    "PMMT" /*format*/,
-    2354 /*offset_code (35312/15)*/,
-    2 /*offset_remainder (35312%15)*/,
-    0 /*delta_minutes*/,
-    1895 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    -    +10    1942 Jul
-  {
-    NULL /*zone_policy*/,
-    "+10" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              9:00    -    +09    1945 Aug 21
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    8 /*until_month*/,
-    21 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             10:00    -    +10    2014 Dec 28  2:00
   {
     NULL /*zone_policy*/,
@@ -30653,43 +14540,17 @@ const AtcZoneInfo kAtcZonePacific_Bougainville  = {
   kAtcZoneNamePacific_Bougainville /*name*/,
   0x5e10f7a4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraPacific_Bougainville /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Chatham
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Chatham[]  = {
-  // 12:13:48 - LMT 1868 Nov 2
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2935 /*offset_code (44028/15)*/,
-    3 /*offset_remainder (44028%15)*/,
-    0 /*delta_minutes*/,
-    1868 /*until_year*/,
-    11 /*until_month*/,
-    2 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             12:15    -    +1215    1946 Jan  1
-  {
-    NULL /*zone_policy*/,
-    "+1215" /*format*/,
-    2940 /*offset_code (44100/15)*/,
-    0 /*offset_remainder (44100%15)*/,
-    0 /*delta_minutes*/,
-    1946 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             12:45    Chatham    +1245/+1345
   {
     &kAtcZonePolicyChatham /*zone_policy*/,
@@ -30712,56 +14573,17 @@ const AtcZoneInfo kAtcZonePacific_Chatham  = {
   kAtcZoneNamePacific_Chatham /*name*/,
   0x2f0de999 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Chatham /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Easter
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Easter[]  = {
-  // -7:17:28 - LMT 1890
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1750 /*offset_code (-26248/15)*/,
-    2 /*offset_remainder (-26248%15)*/,
-    0 /*delta_minutes*/,
-    1890 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:17:28 -    EMT    1932 Sep
-  {
-    NULL /*zone_policy*/,
-    "EMT" /*format*/,
-    -1750 /*offset_code (-26248/15)*/,
-    2 /*offset_remainder (-26248%15)*/,
-    0 /*delta_minutes*/,
-    1932 /*until_year*/,
-    9 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -7:00    Chile    -07/-06    1982 Mar 14 3:00u
-  {
-    &kAtcZonePolicyChile /*zone_policy*/,
-    "-07/-06" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    1982 /*until_year*/,
-    3 /*until_month*/,
-    14 /*until_day*/,
-    720 /*until_time_code (10800/15)*/,
-    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
-  },
   //             -6:00    Chile    -06/-05
   {
     &kAtcZonePolicyChile /*zone_policy*/,
@@ -30784,30 +14606,17 @@ const AtcZoneInfo kAtcZonePacific_Easter  = {
   kAtcZoneNamePacific_Easter /*name*/,
   0xcf54f7e7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Easter /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Efate
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Efate[]  = {
-  // 11:13:16 - LMT 1912 Jan 13
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2693 /*offset_code (40396/15)*/,
-    1 /*offset_remainder (40396%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    1 /*until_month*/,
-    13 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             11:00    Vanuatu    +11/+12
   {
     &kAtcZonePolicyVanuatu /*zone_policy*/,
@@ -30830,30 +14639,17 @@ const AtcZoneInfo kAtcZonePacific_Efate  = {
   kAtcZoneNamePacific_Efate /*name*/,
   0x8a2bce28 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Efate /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Fakaofo
-// Zone Eras: 3
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Fakaofo[]  = {
-  // -11:24:56 - LMT 1901
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2740 /*offset_code (-41096/15)*/,
-    4 /*offset_remainder (-41096%15)*/,
-    0 /*delta_minutes*/,
-    1901 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -11:00    -    -11    2011 Dec 30
   {
     NULL /*zone_policy*/,
@@ -30889,30 +14685,17 @@ const AtcZoneInfo kAtcZonePacific_Fakaofo  = {
   kAtcZoneNamePacific_Fakaofo /*name*/,
   0x06532bba /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraPacific_Fakaofo /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Fiji
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Fiji[]  = {
-  // 11:55:44 - LMT 1915 Oct 26
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2862 /*offset_code (42944/15)*/,
-    14 /*offset_remainder (42944%15)*/,
-    0 /*delta_minutes*/,
-    1915 /*until_year*/,
-    10 /*until_month*/,
-    26 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             12:00    Fiji    +12/+13
   {
     &kAtcZonePolicyFiji /*zone_policy*/,
@@ -30935,43 +14718,17 @@ const AtcZoneInfo kAtcZonePacific_Fiji  = {
   kAtcZoneNamePacific_Fiji /*name*/,
   0x23383ba5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Fiji /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Galapagos
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Galapagos[]  = {
-  // -5:58:24 - LMT 1931
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -1434 /*offset_code (-21504/15)*/,
-    6 /*offset_remainder (-21504%15)*/,
-    0 /*delta_minutes*/,
-    1931 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -5:00    -    -05    1986
-  {
-    NULL /*zone_policy*/,
-    "-05" /*format*/,
-    -1200 /*offset_code (-18000/15)*/,
-    0 /*offset_remainder (-18000%15)*/,
-    0 /*delta_minutes*/,
-    1986 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -6:00    Ecuador    -06/-05
   {
     &kAtcZonePolicyEcuador /*zone_policy*/,
@@ -30994,30 +14751,17 @@ const AtcZoneInfo kAtcZonePacific_Galapagos  = {
   kAtcZoneNamePacific_Galapagos /*name*/,
   0xa952f752 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Galapagos /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Gambier
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Gambier[]  = {
-  // -8:59:48 - LMT 1912 Oct
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2160 /*offset_code (-32388/15)*/,
-    12 /*offset_remainder (-32388%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              -9:00    -    -09
   {
     NULL /*zone_policy*/,
@@ -31040,30 +14784,17 @@ const AtcZoneInfo kAtcZonePacific_Gambier  = {
   kAtcZoneNamePacific_Gambier /*name*/,
   0x53720c3a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Gambier /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Guadalcanal
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Guadalcanal[]  = {
-  // 10:39:48 - LMT 1912 Oct
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2559 /*offset_code (38388/15)*/,
-    3 /*offset_remainder (38388%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             11:00    -    +11
   {
     NULL /*zone_policy*/,
@@ -31086,69 +14817,17 @@ const AtcZoneInfo kAtcZonePacific_Guadalcanal  = {
   kAtcZoneNamePacific_Guadalcanal /*name*/,
   0xf4dd25f0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Guadalcanal /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Guam
-// Zone Eras: 6
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Guam[]  = {
-  // -14:21:00 - LMT 1844 Dec 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -3444 /*offset_code (-51660/15)*/,
-    0 /*offset_remainder (-51660%15)*/,
-    0 /*delta_minutes*/,
-    1844 /*until_year*/,
-    12 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              9:39:00 -    LMT    1901
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2316 /*offset_code (34740/15)*/,
-    0 /*offset_remainder (34740%15)*/,
-    0 /*delta_minutes*/,
-    1901 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             10:00    -    GST    1941 Dec 10
-  {
-    NULL /*zone_policy*/,
-    "GST" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    12 /*until_month*/,
-    10 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              9:00    -    +09    1944 Jul 31
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    7 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             10:00    Guam    G%sT    2000 Dec 23
   {
     &kAtcZonePolicyGuam /*zone_policy*/,
@@ -31184,69 +14863,17 @@ const AtcZoneInfo kAtcZonePacific_Guam  = {
   kAtcZoneNamePacific_Guam /*name*/,
   0x2338f9ed /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraPacific_Guam /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Honolulu
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Honolulu[]  = {
-  // -10:31:26 - LMT 1896 Jan 13 12:00
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2526 /*offset_code (-37886/15)*/,
-    4 /*offset_remainder (-37886%15)*/,
-    0 /*delta_minutes*/,
-    1896 /*until_year*/,
-    1 /*until_month*/,
-    13 /*until_day*/,
-    2880 /*until_time_code (43200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -10:30    -    HST    1933 Apr 30  2:00
-  {
-    NULL /*zone_policy*/,
-    "HST" /*format*/,
-    -2520 /*offset_code (-37800/15)*/,
-    0 /*offset_remainder (-37800%15)*/,
-    0 /*delta_minutes*/,
-    1933 /*until_year*/,
-    4 /*until_month*/,
-    30 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -10:30    1:00    HDT    1933 May 21 12:00
-  {
-    NULL /*zone_policy*/,
-    "HDT" /*format*/,
-    -2520 /*offset_code (-37800/15)*/,
-    0 /*offset_remainder (-37800%15)*/,
-    60 /*delta_minutes*/,
-    1933 /*until_year*/,
-    5 /*until_month*/,
-    21 /*until_day*/,
-    2880 /*until_time_code (43200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -10:30    US    H%sT    1947 Jun  8  2:00
-  {
-    &kAtcZonePolicyUS /*zone_policy*/,
-    "H%T" /*format*/,
-    -2520 /*offset_code (-37800/15)*/,
-    0 /*offset_remainder (-37800%15)*/,
-    0 /*delta_minutes*/,
-    1947 /*until_year*/,
-    6 /*until_month*/,
-    8 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -10:00    -    HST
   {
     NULL /*zone_policy*/,
@@ -31269,56 +14896,17 @@ const AtcZoneInfo kAtcZonePacific_Honolulu  = {
   kAtcZoneNamePacific_Honolulu /*name*/,
   0xe6e70af9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Honolulu /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Kanton
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Kanton[]  = {
-  // 0 - -00 1937 Aug 31
-  {
-    NULL /*zone_policy*/,
-    "-00" /*format*/,
-    0 /*offset_code (0/15)*/,
-    0 /*offset_remainder (0%15)*/,
-    0 /*delta_minutes*/,
-    1937 /*until_year*/,
-    8 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -12:00    -    -12    1979 Oct
-  {
-    NULL /*zone_policy*/,
-    "-12" /*format*/,
-    -2880 /*offset_code (-43200/15)*/,
-    0 /*offset_remainder (-43200%15)*/,
-    0 /*delta_minutes*/,
-    1979 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -11:00    -    -11    1994 Dec 31
-  {
-    NULL /*zone_policy*/,
-    "-11" /*format*/,
-    -2640 /*offset_code (-39600/15)*/,
-    0 /*offset_remainder (-39600%15)*/,
-    0 /*delta_minutes*/,
-    1994 /*until_year*/,
-    12 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              13:00    -    +13
   {
     NULL /*zone_policy*/,
@@ -31341,56 +14929,17 @@ const AtcZoneInfo kAtcZonePacific_Kanton  = {
   kAtcZoneNamePacific_Kanton /*name*/,
   0xdd512f0e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Kanton /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Kiritimati
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Kiritimati[]  = {
-  // -10:29:20 - LMT 1901
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2518 /*offset_code (-37760/15)*/,
-    10 /*offset_remainder (-37760%15)*/,
-    0 /*delta_minutes*/,
-    1901 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -10:40    -    -1040    1979 Oct
-  {
-    NULL /*zone_policy*/,
-    "-1040" /*format*/,
-    -2560 /*offset_code (-38400/15)*/,
-    0 /*offset_remainder (-38400%15)*/,
-    0 /*delta_minutes*/,
-    1979 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -10:00    -    -10    1994 Dec 31
-  {
-    NULL /*zone_policy*/,
-    "-10" /*format*/,
-    -2400 /*offset_code (-36000/15)*/,
-    0 /*offset_remainder (-36000%15)*/,
-    0 /*delta_minutes*/,
-    1994 /*until_year*/,
-    12 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              14:00    -    +14
   {
     NULL /*zone_policy*/,
@@ -31413,121 +14962,17 @@ const AtcZoneInfo kAtcZonePacific_Kiritimati  = {
   kAtcZoneNamePacific_Kiritimati /*name*/,
   0x8305073a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Kiritimati /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Kosrae
-// Zone Eras: 10
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Kosrae[]  = {
-  // -13:08:04 - LMT 1844 Dec 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -3153 /*offset_code (-47284/15)*/,
-    11 /*offset_remainder (-47284%15)*/,
-    0 /*delta_minutes*/,
-    1844 /*until_year*/,
-    12 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              10:51:56 -    LMT    1901
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2607 /*offset_code (39116/15)*/,
-    11 /*offset_remainder (39116%15)*/,
-    0 /*delta_minutes*/,
-    1901 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              11:00    -    +11    1914 Oct
-  {
-    NULL /*zone_policy*/,
-    "+11" /*format*/,
-    2640 /*offset_code (39600/15)*/,
-    0 /*offset_remainder (39600%15)*/,
-    0 /*delta_minutes*/,
-    1914 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //               9:00    -    +09    1919 Feb  1
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1919 /*until_year*/,
-    2 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              11:00    -    +11    1937
-  {
-    NULL /*zone_policy*/,
-    "+11" /*format*/,
-    2640 /*offset_code (39600/15)*/,
-    0 /*offset_remainder (39600%15)*/,
-    0 /*delta_minutes*/,
-    1937 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              10:00    -    +10    1941 Apr  1
-  {
-    NULL /*zone_policy*/,
-    "+10" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //               9:00    -    +09    1945 Aug
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    8 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              11:00    -    +11    1969 Oct
-  {
-    NULL /*zone_policy*/,
-    "+11" /*format*/,
-    2640 /*offset_code (39600/15)*/,
-    0 /*offset_remainder (39600%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              12:00    -    +12    1999
   {
     NULL /*zone_policy*/,
@@ -31563,95 +15008,17 @@ const AtcZoneInfo kAtcZonePacific_Kosrae  = {
   kAtcZoneNamePacific_Kosrae /*name*/,
   0xde5139a8 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraPacific_Kosrae /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Kwajalein
-// Zone Eras: 7
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Kwajalein[]  = {
-  // 11:09:20 - LMT 1901
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2677 /*offset_code (40160/15)*/,
-    5 /*offset_remainder (40160%15)*/,
-    0 /*delta_minutes*/,
-    1901 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              11:00    -    +11    1937
-  {
-    NULL /*zone_policy*/,
-    "+11" /*format*/,
-    2640 /*offset_code (39600/15)*/,
-    0 /*offset_remainder (39600%15)*/,
-    0 /*delta_minutes*/,
-    1937 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              10:00    -    +10    1941 Apr  1
-  {
-    NULL /*zone_policy*/,
-    "+10" /*format*/,
-    2400 /*offset_code (36000/15)*/,
-    0 /*offset_remainder (36000%15)*/,
-    0 /*delta_minutes*/,
-    1941 /*until_year*/,
-    4 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //               9:00    -    +09    1944 Feb  6
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1944 /*until_year*/,
-    2 /*until_month*/,
-    6 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              11:00    -    +11    1969 Oct
-  {
-    NULL /*zone_policy*/,
-    "+11" /*format*/,
-    2640 /*offset_code (39600/15)*/,
-    0 /*offset_remainder (39600%15)*/,
-    0 /*delta_minutes*/,
-    1969 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -12:00    -    -12    1993 Aug 20 24:00
-  {
-    NULL /*zone_policy*/,
-    "-12" /*format*/,
-    -2880 /*offset_code (-43200/15)*/,
-    0 /*offset_remainder (-43200%15)*/,
-    0 /*delta_minutes*/,
-    1993 /*until_year*/,
-    8 /*until_month*/,
-    20 /*until_day*/,
-    5760 /*until_time_code (86400/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              12:00    -    +12
   {
     NULL /*zone_policy*/,
@@ -31674,30 +15041,17 @@ const AtcZoneInfo kAtcZonePacific_Kwajalein  = {
   kAtcZoneNamePacific_Kwajalein /*name*/,
   0x8e216759 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Kwajalein /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Marquesas
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Marquesas[]  = {
-  // -9:18:00 - LMT 1912 Oct
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2232 /*offset_code (-33480/15)*/,
-    0 /*offset_remainder (-33480%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              -9:30    -    -0930
   {
     NULL /*zone_policy*/,
@@ -31720,69 +15074,17 @@ const AtcZoneInfo kAtcZonePacific_Marquesas  = {
   kAtcZoneNamePacific_Marquesas /*name*/,
   0x57ca7135 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Marquesas /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Nauru
-// Zone Eras: 5
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Nauru[]  = {
-  // 11:07:40 - LMT 1921 Jan 15
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2670 /*offset_code (40060/15)*/,
-    10 /*offset_remainder (40060%15)*/,
-    0 /*delta_minutes*/,
-    1921 /*until_year*/,
-    1 /*until_month*/,
-    15 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             11:30    -    +1130    1942 Aug 29
-  {
-    NULL /*zone_policy*/,
-    "+1130" /*format*/,
-    2760 /*offset_code (41400/15)*/,
-    0 /*offset_remainder (41400%15)*/,
-    0 /*delta_minutes*/,
-    1942 /*until_year*/,
-    8 /*until_month*/,
-    29 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //              9:00    -    +09    1945 Sep  8
-  {
-    NULL /*zone_policy*/,
-    "+09" /*format*/,
-    2160 /*offset_code (32400/15)*/,
-    0 /*offset_remainder (32400%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    9 /*until_month*/,
-    8 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             11:30    -    +1130    1979 Feb 10  2:00
-  {
-    NULL /*zone_policy*/,
-    "+1130" /*format*/,
-    2760 /*offset_code (41400/15)*/,
-    0 /*offset_remainder (41400%15)*/,
-    0 /*delta_minutes*/,
-    1979 /*until_year*/,
-    2 /*until_month*/,
-    10 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             12:00    -    +12
   {
     NULL /*zone_policy*/,
@@ -31805,43 +15107,17 @@ const AtcZoneInfo kAtcZonePacific_Nauru  = {
   kAtcZoneNamePacific_Nauru /*name*/,
   0x8acc41ae /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Nauru /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Niue
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Niue[]  = {
-  // -11:19:40 - LMT 1952 Oct 16
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2719 /*offset_code (-40780/15)*/,
-    5 /*offset_remainder (-40780%15)*/,
-    0 /*delta_minutes*/,
-    1952 /*until_year*/,
-    10 /*until_month*/,
-    16 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -11:20    -    -1120    1964 Jul
-  {
-    NULL /*zone_policy*/,
-    "-1120" /*format*/,
-    -2720 /*offset_code (-40800/15)*/,
-    0 /*offset_remainder (-40800%15)*/,
-    0 /*delta_minutes*/,
-    1964 /*until_year*/,
-    7 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -11:00    -    -11
   {
     NULL /*zone_policy*/,
@@ -31864,69 +15140,17 @@ const AtcZoneInfo kAtcZonePacific_Niue  = {
   kAtcZoneNamePacific_Niue /*name*/,
   0x233ca014 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Niue /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Norfolk
-// Zone Eras: 7
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Norfolk[]  = {
-  // 11:11:52 - LMT 1901
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2687 /*offset_code (40312/15)*/,
-    7 /*offset_remainder (40312%15)*/,
-    0 /*delta_minutes*/,
-    1901 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             11:12    -    +1112    1951
-  {
-    NULL /*zone_policy*/,
-    "+1112" /*format*/,
-    2688 /*offset_code (40320/15)*/,
-    0 /*offset_remainder (40320%15)*/,
-    0 /*delta_minutes*/,
-    1951 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             11:30    -    +1130    1974 Oct 27 02:00s
-  {
-    NULL /*zone_policy*/,
-    "+1130" /*format*/,
-    2760 /*offset_code (41400/15)*/,
-    0 /*offset_remainder (41400%15)*/,
-    0 /*delta_minutes*/,
-    1974 /*until_year*/,
-    10 /*until_month*/,
-    27 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
-  //             11:30    1:00    +1230    1975 Mar  2 02:00s
-  {
-    NULL /*zone_policy*/,
-    "+1230" /*format*/,
-    2760 /*offset_code (41400/15)*/,
-    0 /*offset_remainder (41400%15)*/,
-    60 /*delta_minutes*/,
-    1975 /*until_year*/,
-    3 /*until_month*/,
-    2 /*until_day*/,
-    480 /*until_time_code (7200/15)*/,
-    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
-  },
   //             11:30    -    +1130    2015 Oct  4 02:00s
   {
     NULL /*zone_policy*/,
@@ -31975,30 +15199,17 @@ const AtcZoneInfo kAtcZonePacific_Norfolk  = {
   kAtcZoneNamePacific_Norfolk /*name*/,
   0x8f4eb4be /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraPacific_Norfolk /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Noumea
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Noumea[]  = {
-  // 11:05:48 - LMT 1912 Jan 13
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2663 /*offset_code (39948/15)*/,
-    3 /*offset_remainder (39948%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    1 /*until_month*/,
-    13 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             11:00    NC    +11/+12
   {
     &kAtcZonePolicyNC /*zone_policy*/,
@@ -32021,43 +15232,17 @@ const AtcZoneInfo kAtcZonePacific_Noumea  = {
   kAtcZoneNamePacific_Noumea /*name*/,
   0xe551b788 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Noumea /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Pago_Pago
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Pago_Pago[]  = {
-  // 12:37:12 - LMT 1892 Jul 5
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    3028 /*offset_code (45432/15)*/,
-    12 /*offset_remainder (45432%15)*/,
-    0 /*delta_minutes*/,
-    1892 /*until_year*/,
-    7 /*until_month*/,
-    5 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -11:22:48 -    LMT    1911
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2732 /*offset_code (-40968/15)*/,
-    12 /*offset_remainder (-40968%15)*/,
-    0 /*delta_minutes*/,
-    1911 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -11:00    -    SST
   {
     NULL /*zone_policy*/,
@@ -32080,43 +15265,17 @@ const AtcZoneInfo kAtcZonePacific_Pago_Pago  = {
   kAtcZoneNamePacific_Pago_Pago /*name*/,
   0x603aebd0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Pago_Pago /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Palau
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Palau[]  = {
-  // -15:02:04 - LMT 1844 Dec 31
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -3609 /*offset_code (-54124/15)*/,
-    11 /*offset_remainder (-54124%15)*/,
-    0 /*delta_minutes*/,
-    1844 /*until_year*/,
-    12 /*until_month*/,
-    31 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //               8:57:56 -    LMT    1901
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2151 /*offset_code (32276/15)*/,
-    11 /*offset_remainder (32276%15)*/,
-    0 /*delta_minutes*/,
-    1901 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //               9:00    -    +09
   {
     NULL /*zone_policy*/,
@@ -32139,43 +15298,17 @@ const AtcZoneInfo kAtcZonePacific_Palau  = {
   kAtcZoneNamePacific_Palau /*name*/,
   0x8af04a36 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Palau /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Pitcairn
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Pitcairn[]  = {
-  // -8:40:20 - LMT 1901
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2082 /*offset_code (-31220/15)*/,
-    10 /*offset_remainder (-31220%15)*/,
-    0 /*delta_minutes*/,
-    1901 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -8:30    -    -0830    1998 Apr 27  0:00
-  {
-    NULL /*zone_policy*/,
-    "-0830" /*format*/,
-    -2040 /*offset_code (-30600/15)*/,
-    0 /*offset_remainder (-30600%15)*/,
-    0 /*delta_minutes*/,
-    1998 /*until_year*/,
-    4 /*until_month*/,
-    27 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -8:00    -    -08
   {
     NULL /*zone_policy*/,
@@ -32198,43 +15331,17 @@ const AtcZoneInfo kAtcZonePacific_Pitcairn  = {
   kAtcZoneNamePacific_Pitcairn /*name*/,
   0x8837d8bd /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Pitcairn /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Port_Moresby
-// Zone Eras: 3
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Port_Moresby[]  = {
-  // 9:48:40 - LMT 1880
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2354 /*offset_code (35320/15)*/,
-    10 /*offset_remainder (35320%15)*/,
-    0 /*delta_minutes*/,
-    1880 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             9:48:32    -    PMMT    1895
-  {
-    NULL /*zone_policy*/,
-    "PMMT" /*format*/,
-    2354 /*offset_code (35312/15)*/,
-    2 /*offset_remainder (35312%15)*/,
-    0 /*delta_minutes*/,
-    1895 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             10:00    -    +10
   {
     NULL /*zone_policy*/,
@@ -32257,56 +15364,17 @@ const AtcZoneInfo kAtcZonePacific_Port_Moresby  = {
   kAtcZoneNamePacific_Port_Moresby /*name*/,
   0xa7ba7f68 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Port_Moresby /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Rarotonga
-// Zone Eras: 4
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Rarotonga[]  = {
-  // 13:20:56 - LMT 1899 Dec 26
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    3203 /*offset_code (48056/15)*/,
-    11 /*offset_remainder (48056%15)*/,
-    0 /*delta_minutes*/,
-    1899 /*until_year*/,
-    12 /*until_month*/,
-    26 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -10:39:04 -    LMT    1952 Oct 16
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2557 /*offset_code (-38344/15)*/,
-    11 /*offset_remainder (-38344%15)*/,
-    0 /*delta_minutes*/,
-    1952 /*until_year*/,
-    10 /*until_month*/,
-    16 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             -10:30    -    -1030    1978 Nov 12
-  {
-    NULL /*zone_policy*/,
-    "-1030" /*format*/,
-    -2520 /*offset_code (-37800/15)*/,
-    0 /*offset_remainder (-37800%15)*/,
-    0 /*delta_minutes*/,
-    1978 /*until_year*/,
-    11 /*until_month*/,
-    12 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -10:00    Cook    -10/-0930
   {
     &kAtcZonePolicyCook /*zone_policy*/,
@@ -32329,30 +15397,17 @@ const AtcZoneInfo kAtcZonePacific_Rarotonga  = {
   kAtcZoneNamePacific_Rarotonga /*name*/,
   0x9981a3b0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Rarotonga /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Tahiti
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Tahiti[]  = {
-  // -9:58:16 - LMT 1912 Oct
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    -2394 /*offset_code (-35896/15)*/,
-    14 /*offset_remainder (-35896%15)*/,
-    0 /*delta_minutes*/,
-    1912 /*until_year*/,
-    10 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             -10:00    -    -10
   {
     NULL /*zone_policy*/,
@@ -32375,30 +15430,17 @@ const AtcZoneInfo kAtcZonePacific_Tahiti  = {
   kAtcZoneNamePacific_Tahiti /*name*/,
   0xf24c2446 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Tahiti /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Tarawa
-// Zone Eras: 2
+// Zone Eras: 1
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Tarawa[]  = {
-  // 11:32:04 - LMT 1901
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2768 /*offset_code (41524/15)*/,
-    4 /*offset_remainder (41524%15)*/,
-    0 /*delta_minutes*/,
-    1901 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //              12:00    -    +12
   {
     NULL /*zone_policy*/,
@@ -32421,43 +15463,17 @@ const AtcZoneInfo kAtcZonePacific_Tarawa  = {
   kAtcZoneNamePacific_Tarawa /*name*/,
   0xf2517e63 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Tarawa /*eras*/,
   NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Tongatapu
-// Zone Eras: 4
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Tongatapu[]  = {
-  // 12:19:12 - LMT 1945 Sep 10
-  {
-    NULL /*zone_policy*/,
-    "LMT" /*format*/,
-    2956 /*offset_code (44352/15)*/,
-    12 /*offset_remainder (44352%15)*/,
-    0 /*delta_minutes*/,
-    1945 /*until_year*/,
-    9 /*until_month*/,
-    10 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-  //             12:20    -    +1220    1961
-  {
-    NULL /*zone_policy*/,
-    "+1220" /*format*/,
-    2960 /*offset_code (44400/15)*/,
-    0 /*offset_remainder (44400%15)*/,
-    0 /*delta_minutes*/,
-    1961 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
   //             13:00    -    +13    1999
   {
     NULL /*zone_policy*/,
@@ -32493,7 +15509,7 @@ const AtcZoneInfo kAtcZonePacific_Tongatapu  = {
   kAtcZoneNamePacific_Tongatapu /*name*/,
   0x262ca836 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraPacific_Tongatapu /*eras*/,
   NULL /*target_info*/,
 };
@@ -32547,7 +15563,7 @@ const AtcZoneInfo kAtcZoneAfrica_Accra  = {
   kAtcZoneNameAfrica_Accra /*name*/,
   0x77d5b054 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
   &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
@@ -32562,7 +15578,7 @@ const AtcZoneInfo kAtcZoneAfrica_Addis_Ababa  = {
   kAtcZoneNameAfrica_Addis_Ababa /*name*/,
   0x05ae1e65 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
   &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
@@ -32577,7 +15593,7 @@ const AtcZoneInfo kAtcZoneAfrica_Asmara  = {
   kAtcZoneNameAfrica_Asmara /*name*/,
   0x73b278ef /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
   &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
@@ -32592,7 +15608,7 @@ const AtcZoneInfo kAtcZoneAfrica_Asmera  = {
   kAtcZoneNameAfrica_Asmera /*name*/,
   0x73b289f3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
   &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
@@ -32607,7 +15623,7 @@ const AtcZoneInfo kAtcZoneAfrica_Bamako  = {
   kAtcZoneNameAfrica_Bamako /*name*/,
   0x74c1e7a5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
   &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
@@ -32622,7 +15638,7 @@ const AtcZoneInfo kAtcZoneAfrica_Bangui  = {
   kAtcZoneNameAfrica_Bangui /*name*/,
   0x74c28ed0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
   &kAtcZoneAfrica_Lagos /*target_info*/,
 };
@@ -32637,7 +15653,7 @@ const AtcZoneInfo kAtcZoneAfrica_Banjul  = {
   kAtcZoneNameAfrica_Banjul /*name*/,
   0x74c29b96 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
   &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
@@ -32652,7 +15668,7 @@ const AtcZoneInfo kAtcZoneAfrica_Blantyre  = {
   kAtcZoneNameAfrica_Blantyre /*name*/,
   0xe08d813b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
   &kAtcZoneAfrica_Maputo /*target_info*/,
 };
@@ -32667,7 +15683,7 @@ const AtcZoneInfo kAtcZoneAfrica_Brazzaville  = {
   kAtcZoneNameAfrica_Brazzaville /*name*/,
   0x39cda760 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
   &kAtcZoneAfrica_Lagos /*target_info*/,
 };
@@ -32682,7 +15698,7 @@ const AtcZoneInfo kAtcZoneAfrica_Bujumbura  = {
   kAtcZoneNameAfrica_Bujumbura /*name*/,
   0x05232a47 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
   &kAtcZoneAfrica_Maputo /*target_info*/,
 };
@@ -32697,7 +15713,7 @@ const AtcZoneInfo kAtcZoneAfrica_Conakry  = {
   kAtcZoneNameAfrica_Conakry /*name*/,
   0x7ab36b31 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
   &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
@@ -32712,7 +15728,7 @@ const AtcZoneInfo kAtcZoneAfrica_Dakar  = {
   kAtcZoneNameAfrica_Dakar /*name*/,
   0x780b00fd /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
   &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
@@ -32727,7 +15743,7 @@ const AtcZoneInfo kAtcZoneAfrica_Dar_es_Salaam  = {
   kAtcZoneNameAfrica_Dar_es_Salaam /*name*/,
   0xa04c47b6 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
   &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
@@ -32742,7 +15758,7 @@ const AtcZoneInfo kAtcZoneAfrica_Djibouti  = {
   kAtcZoneNameAfrica_Djibouti /*name*/,
   0x30ea01d4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
   &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
@@ -32757,7 +15773,7 @@ const AtcZoneInfo kAtcZoneAfrica_Douala  = {
   kAtcZoneNameAfrica_Douala /*name*/,
   0x7a6df310 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
   &kAtcZoneAfrica_Lagos /*target_info*/,
 };
@@ -32772,7 +15788,7 @@ const AtcZoneInfo kAtcZoneAfrica_Freetown  = {
   kAtcZoneNameAfrica_Freetown /*name*/,
   0x6823dd64 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
   &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
@@ -32787,7 +15803,7 @@ const AtcZoneInfo kAtcZoneAfrica_Gaborone  = {
   kAtcZoneNameAfrica_Gaborone /*name*/,
   0x317c0aa7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
   &kAtcZoneAfrica_Maputo /*target_info*/,
 };
@@ -32802,7 +15818,7 @@ const AtcZoneInfo kAtcZoneAfrica_Harare  = {
   kAtcZoneNameAfrica_Harare /*name*/,
   0x82c39a2d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
   &kAtcZoneAfrica_Maputo /*target_info*/,
 };
@@ -32817,7 +15833,7 @@ const AtcZoneInfo kAtcZoneAfrica_Kampala  = {
   kAtcZoneNameAfrica_Kampala /*name*/,
   0xc1d30e31 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
   &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
@@ -32832,7 +15848,7 @@ const AtcZoneInfo kAtcZoneAfrica_Kigali  = {
   kAtcZoneNameAfrica_Kigali /*name*/,
   0x8a4dcf2b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
   &kAtcZoneAfrica_Maputo /*target_info*/,
 };
@@ -32847,7 +15863,7 @@ const AtcZoneInfo kAtcZoneAfrica_Kinshasa  = {
   kAtcZoneNameAfrica_Kinshasa /*name*/,
   0x6695d70c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
   &kAtcZoneAfrica_Lagos /*target_info*/,
 };
@@ -32862,7 +15878,7 @@ const AtcZoneInfo kAtcZoneAfrica_Libreville  = {
   kAtcZoneNameAfrica_Libreville /*name*/,
   0x01d96de4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
   &kAtcZoneAfrica_Lagos /*target_info*/,
 };
@@ -32877,7 +15893,7 @@ const AtcZoneInfo kAtcZoneAfrica_Lome  = {
   kAtcZoneNameAfrica_Lome /*name*/,
   0xd51c3a07 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
   &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
@@ -32892,7 +15908,7 @@ const AtcZoneInfo kAtcZoneAfrica_Luanda  = {
   kAtcZoneNameAfrica_Luanda /*name*/,
   0x8d7909cf /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
   &kAtcZoneAfrica_Lagos /*target_info*/,
 };
@@ -32907,7 +15923,7 @@ const AtcZoneInfo kAtcZoneAfrica_Lubumbashi  = {
   kAtcZoneNameAfrica_Lubumbashi /*name*/,
   0x6fd88566 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
   &kAtcZoneAfrica_Maputo /*target_info*/,
 };
@@ -32922,7 +15938,7 @@ const AtcZoneInfo kAtcZoneAfrica_Lusaka  = {
   kAtcZoneNameAfrica_Lusaka /*name*/,
   0x8d82b23b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
   &kAtcZoneAfrica_Maputo /*target_info*/,
 };
@@ -32937,7 +15953,7 @@ const AtcZoneInfo kAtcZoneAfrica_Malabo  = {
   kAtcZoneNameAfrica_Malabo /*name*/,
   0x8e6a1906 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
   &kAtcZoneAfrica_Lagos /*target_info*/,
 };
@@ -32952,7 +15968,7 @@ const AtcZoneInfo kAtcZoneAfrica_Maseru  = {
   kAtcZoneNameAfrica_Maseru /*name*/,
   0x8e6e02c7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Johannesburg /*eras*/,
   &kAtcZoneAfrica_Johannesburg /*target_info*/,
 };
@@ -32967,7 +15983,7 @@ const AtcZoneInfo kAtcZoneAfrica_Mbabane  = {
   kAtcZoneNameAfrica_Mbabane /*name*/,
   0x5d3bdd40 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Johannesburg /*eras*/,
   &kAtcZoneAfrica_Johannesburg /*target_info*/,
 };
@@ -32982,7 +15998,7 @@ const AtcZoneInfo kAtcZoneAfrica_Mogadishu  = {
   kAtcZoneNameAfrica_Mogadishu /*name*/,
   0x66bc159b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
   &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
@@ -32997,7 +16013,7 @@ const AtcZoneInfo kAtcZoneAfrica_Niamey  = {
   kAtcZoneNameAfrica_Niamey /*name*/,
   0x914a30fd /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
   &kAtcZoneAfrica_Lagos /*target_info*/,
 };
@@ -33012,7 +16028,7 @@ const AtcZoneInfo kAtcZoneAfrica_Nouakchott  = {
   kAtcZoneNameAfrica_Nouakchott /*name*/,
   0x3dc49dba /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
   &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
@@ -33027,7 +16043,7 @@ const AtcZoneInfo kAtcZoneAfrica_Ouagadougou  = {
   kAtcZoneNameAfrica_Ouagadougou /*name*/,
   0x04d7219a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
   &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
@@ -33042,7 +16058,7 @@ const AtcZoneInfo kAtcZoneAfrica_Porto_Novo  = {
   kAtcZoneNameAfrica_Porto_Novo /*name*/,
   0x3d1bf95d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
   &kAtcZoneAfrica_Lagos /*target_info*/,
 };
@@ -33057,7 +16073,7 @@ const AtcZoneInfo kAtcZoneAfrica_Timbuktu  = {
   kAtcZoneNameAfrica_Timbuktu /*name*/,
   0xb164d56f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
   &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
@@ -33072,7 +16088,7 @@ const AtcZoneInfo kAtcZoneAmerica_Anguilla  = {
   kAtcZoneNameAmerica_Anguilla /*name*/,
   0xafe31333 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33087,7 +16103,7 @@ const AtcZoneInfo kAtcZoneAmerica_Antigua  = {
   kAtcZoneNameAmerica_Antigua /*name*/,
   0xc067a32f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33102,7 +16118,7 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_ComodRivadavia  = {
   kAtcZoneNameAmerica_Argentina_ComodRivadavia /*name*/,
   0x22758877 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  12 /*num_eras*/,
+  6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Catamarca /*eras*/,
   &kAtcZoneAmerica_Argentina_Catamarca /*target_info*/,
 };
@@ -33117,7 +16133,7 @@ const AtcZoneInfo kAtcZoneAmerica_Aruba  = {
   kAtcZoneNameAmerica_Aruba /*name*/,
   0x97cf8651 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33132,7 +16148,7 @@ const AtcZoneInfo kAtcZoneAmerica_Atikokan  = {
   kAtcZoneNameAmerica_Atikokan /*name*/,
   0x81b92098 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Panama /*eras*/,
   &kAtcZoneAmerica_Panama /*target_info*/,
 };
@@ -33147,7 +16163,7 @@ const AtcZoneInfo kAtcZoneAmerica_Atka  = {
   kAtcZoneNameAmerica_Atka /*name*/,
   0x97fe8f27 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Adak /*eras*/,
   &kAtcZoneAmerica_Adak /*target_info*/,
 };
@@ -33162,7 +16178,7 @@ const AtcZoneInfo kAtcZoneAmerica_Blanc_Sablon  = {
   kAtcZoneNameAmerica_Blanc_Sablon /*name*/,
   0x6e299892 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33177,7 +16193,7 @@ const AtcZoneInfo kAtcZoneAmerica_Buenos_Aires  = {
   kAtcZoneNameAmerica_Buenos_Aires /*name*/,
   0x67d79a05 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Buenos_Aires /*eras*/,
   &kAtcZoneAmerica_Argentina_Buenos_Aires /*target_info*/,
 };
@@ -33192,7 +16208,7 @@ const AtcZoneInfo kAtcZoneAmerica_Catamarca  = {
   kAtcZoneNameAmerica_Catamarca /*name*/,
   0x5036e963 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  12 /*num_eras*/,
+  6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Catamarca /*eras*/,
   &kAtcZoneAmerica_Argentina_Catamarca /*target_info*/,
 };
@@ -33207,7 +16223,7 @@ const AtcZoneInfo kAtcZoneAmerica_Cayman  = {
   kAtcZoneNameAmerica_Cayman /*name*/,
   0x953961df /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Panama /*eras*/,
   &kAtcZoneAmerica_Panama /*target_info*/,
 };
@@ -33222,7 +16238,7 @@ const AtcZoneInfo kAtcZoneAmerica_Coral_Harbour  = {
   kAtcZoneNameAmerica_Coral_Harbour /*name*/,
   0xabcb7569 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Panama /*eras*/,
   &kAtcZoneAmerica_Panama /*target_info*/,
 };
@@ -33237,7 +16253,7 @@ const AtcZoneInfo kAtcZoneAmerica_Cordoba  = {
   kAtcZoneNameAmerica_Cordoba /*name*/,
   0x5c8a7600 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Cordoba /*eras*/,
   &kAtcZoneAmerica_Argentina_Cordoba /*target_info*/,
 };
@@ -33252,7 +16268,7 @@ const AtcZoneInfo kAtcZoneAmerica_Creston  = {
   kAtcZoneNameAmerica_Creston /*name*/,
   0x62a70204 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Phoenix /*eras*/,
   &kAtcZoneAmerica_Phoenix /*target_info*/,
 };
@@ -33267,7 +16283,7 @@ const AtcZoneInfo kAtcZoneAmerica_Curacao  = {
   kAtcZoneNameAmerica_Curacao /*name*/,
   0x6a879184 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33282,7 +16298,7 @@ const AtcZoneInfo kAtcZoneAmerica_Dominica  = {
   kAtcZoneNameAmerica_Dominica /*name*/,
   0xcecb4c4a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33297,7 +16313,7 @@ const AtcZoneInfo kAtcZoneAmerica_Ensenada  = {
   kAtcZoneNameAmerica_Ensenada /*name*/,
   0x7bc95445 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  19 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAmerica_Tijuana /*eras*/,
   &kAtcZoneAmerica_Tijuana /*target_info*/,
 };
@@ -33312,7 +16328,7 @@ const AtcZoneInfo kAtcZoneAmerica_Fort_Wayne  = {
   kAtcZoneNameAmerica_Fort_Wayne /*name*/,
   0x7eaaaf24 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  11 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Indianapolis /*eras*/,
   &kAtcZoneAmerica_Indiana_Indianapolis /*target_info*/,
 };
@@ -33327,7 +16343,7 @@ const AtcZoneInfo kAtcZoneAmerica_Godthab  = {
   kAtcZoneNameAmerica_Godthab /*name*/,
   0x8f7eba1f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Nuuk /*eras*/,
   &kAtcZoneAmerica_Nuuk /*target_info*/,
 };
@@ -33342,7 +16358,7 @@ const AtcZoneInfo kAtcZoneAmerica_Grenada  = {
   kAtcZoneNameAmerica_Grenada /*name*/,
   0x968ce4d8 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33357,7 +16373,7 @@ const AtcZoneInfo kAtcZoneAmerica_Guadeloupe  = {
   kAtcZoneNameAmerica_Guadeloupe /*name*/,
   0xcd1f8a31 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33372,7 +16388,7 @@ const AtcZoneInfo kAtcZoneAmerica_Indianapolis  = {
   kAtcZoneNameAmerica_Indianapolis /*name*/,
   0x6a009ae1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  11 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Indianapolis /*eras*/,
   &kAtcZoneAmerica_Indiana_Indianapolis /*target_info*/,
 };
@@ -33387,7 +16403,7 @@ const AtcZoneInfo kAtcZoneAmerica_Jujuy  = {
   kAtcZoneNameAmerica_Jujuy /*name*/,
   0x9873dbbd /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  13 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Jujuy /*eras*/,
   &kAtcZoneAmerica_Argentina_Jujuy /*target_info*/,
 };
@@ -33402,7 +16418,7 @@ const AtcZoneInfo kAtcZoneAmerica_Knox_IN  = {
   kAtcZoneNameAmerica_Knox_IN /*name*/,
   0xc1db9a1c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Knox /*eras*/,
   &kAtcZoneAmerica_Indiana_Knox /*target_info*/,
 };
@@ -33417,7 +16433,7 @@ const AtcZoneInfo kAtcZoneAmerica_Kralendijk  = {
   kAtcZoneNameAmerica_Kralendijk /*name*/,
   0xe7c456c5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33432,7 +16448,7 @@ const AtcZoneInfo kAtcZoneAmerica_Louisville  = {
   kAtcZoneNameAmerica_Louisville /*name*/,
   0x3dcb47ee /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Kentucky_Louisville /*eras*/,
   &kAtcZoneAmerica_Kentucky_Louisville /*target_info*/,
 };
@@ -33447,7 +16463,7 @@ const AtcZoneInfo kAtcZoneAmerica_Lower_Princes  = {
   kAtcZoneNameAmerica_Lower_Princes /*name*/,
   0x6ae45b62 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33462,7 +16478,7 @@ const AtcZoneInfo kAtcZoneAmerica_Marigot  = {
   kAtcZoneNameAmerica_Marigot /*name*/,
   0x3dab3a59 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33477,7 +16493,7 @@ const AtcZoneInfo kAtcZoneAmerica_Mendoza  = {
   kAtcZoneNameAmerica_Mendoza /*name*/,
   0x46b4e054 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  16 /*num_eras*/,
+  6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Mendoza /*eras*/,
   &kAtcZoneAmerica_Argentina_Mendoza /*target_info*/,
 };
@@ -33492,7 +16508,7 @@ const AtcZoneInfo kAtcZoneAmerica_Montreal  = {
   kAtcZoneNameAmerica_Montreal /*name*/,
   0x203a1ea8 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
   &kAtcZoneAmerica_Toronto /*target_info*/,
 };
@@ -33507,7 +16523,7 @@ const AtcZoneInfo kAtcZoneAmerica_Montserrat  = {
   kAtcZoneNameAmerica_Montserrat /*name*/,
   0x199b0a35 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33522,7 +16538,7 @@ const AtcZoneInfo kAtcZoneAmerica_Nassau  = {
   kAtcZoneNameAmerica_Nassau /*name*/,
   0xaedef011 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
   &kAtcZoneAmerica_Toronto /*target_info*/,
 };
@@ -33537,7 +16553,7 @@ const AtcZoneInfo kAtcZoneAmerica_Nipigon  = {
   kAtcZoneNameAmerica_Nipigon /*name*/,
   0x9d2a8b1a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
   &kAtcZoneAmerica_Toronto /*target_info*/,
 };
@@ -33552,7 +16568,7 @@ const AtcZoneInfo kAtcZoneAmerica_Pangnirtung  = {
   kAtcZoneNameAmerica_Pangnirtung /*name*/,
   0x2d999193 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Iqaluit /*eras*/,
   &kAtcZoneAmerica_Iqaluit /*target_info*/,
 };
@@ -33567,7 +16583,7 @@ const AtcZoneInfo kAtcZoneAmerica_Port_of_Spain  = {
   kAtcZoneNameAmerica_Port_of_Spain /*name*/,
   0xd8b28d59 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33582,7 +16598,7 @@ const AtcZoneInfo kAtcZoneAmerica_Porto_Acre  = {
   kAtcZoneNameAmerica_Porto_Acre /*name*/,
   0xcce5bf54 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Rio_Branco /*eras*/,
   &kAtcZoneAmerica_Rio_Branco /*target_info*/,
 };
@@ -33597,7 +16613,7 @@ const AtcZoneInfo kAtcZoneAmerica_Rainy_River  = {
   kAtcZoneNameAmerica_Rainy_River /*name*/,
   0x9cd58a10 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Winnipeg /*eras*/,
   &kAtcZoneAmerica_Winnipeg /*target_info*/,
 };
@@ -33612,7 +16628,7 @@ const AtcZoneInfo kAtcZoneAmerica_Rosario  = {
   kAtcZoneNameAmerica_Rosario /*name*/,
   0xdf448665 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Cordoba /*eras*/,
   &kAtcZoneAmerica_Argentina_Cordoba /*target_info*/,
 };
@@ -33627,7 +16643,7 @@ const AtcZoneInfo kAtcZoneAmerica_Santa_Isabel  = {
   kAtcZoneNameAmerica_Santa_Isabel /*name*/,
   0xfd18a56c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  19 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAmerica_Tijuana /*eras*/,
   &kAtcZoneAmerica_Tijuana /*target_info*/,
 };
@@ -33642,7 +16658,7 @@ const AtcZoneInfo kAtcZoneAmerica_Shiprock  = {
   kAtcZoneNameAmerica_Shiprock /*name*/,
   0x82fb7049 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Denver /*eras*/,
   &kAtcZoneAmerica_Denver /*target_info*/,
 };
@@ -33657,7 +16673,7 @@ const AtcZoneInfo kAtcZoneAmerica_St_Barthelemy  = {
   kAtcZoneNameAmerica_St_Barthelemy /*name*/,
   0x054e6a79 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33672,7 +16688,7 @@ const AtcZoneInfo kAtcZoneAmerica_St_Kitts  = {
   kAtcZoneNameAmerica_St_Kitts /*name*/,
   0x04c0507b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33687,7 +16703,7 @@ const AtcZoneInfo kAtcZoneAmerica_St_Lucia  = {
   kAtcZoneNameAmerica_St_Lucia /*name*/,
   0x04d8b3ba /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33702,7 +16718,7 @@ const AtcZoneInfo kAtcZoneAmerica_St_Thomas  = {
   kAtcZoneNameAmerica_St_Thomas /*name*/,
   0xb1b3d778 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33717,7 +16733,7 @@ const AtcZoneInfo kAtcZoneAmerica_St_Vincent  = {
   kAtcZoneNameAmerica_St_Vincent /*name*/,
   0x8460e523 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33732,7 +16748,7 @@ const AtcZoneInfo kAtcZoneAmerica_Thunder_Bay  = {
   kAtcZoneNameAmerica_Thunder_Bay /*name*/,
   0xf962e71b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
   &kAtcZoneAmerica_Toronto /*target_info*/,
 };
@@ -33747,7 +16763,7 @@ const AtcZoneInfo kAtcZoneAmerica_Tortola  = {
   kAtcZoneNameAmerica_Tortola /*name*/,
   0x7931462b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33762,7 +16778,7 @@ const AtcZoneInfo kAtcZoneAmerica_Virgin  = {
   kAtcZoneNameAmerica_Virgin /*name*/,
   0xc2183ab5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
@@ -33777,7 +16793,7 @@ const AtcZoneInfo kAtcZoneAntarctica_DumontDUrville  = {
   kAtcZoneNameAntarctica_DumontDUrville /*name*/,
   0x5a3c656c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Port_Moresby /*eras*/,
   &kAtcZonePacific_Port_Moresby /*target_info*/,
 };
@@ -33792,7 +16808,7 @@ const AtcZoneInfo kAtcZoneAntarctica_McMurdo  = {
   kAtcZoneNameAntarctica_McMurdo /*name*/,
   0x6eeb5585 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Auckland /*eras*/,
   &kAtcZonePacific_Auckland /*target_info*/,
 };
@@ -33807,7 +16823,7 @@ const AtcZoneInfo kAtcZoneAntarctica_South_Pole  = {
   kAtcZoneNameAntarctica_South_Pole /*name*/,
   0xcd96b290 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Auckland /*eras*/,
   &kAtcZonePacific_Auckland /*target_info*/,
 };
@@ -33822,7 +16838,7 @@ const AtcZoneInfo kAtcZoneAntarctica_Syowa  = {
   kAtcZoneNameAntarctica_Syowa /*name*/,
   0xe330c7e1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Riyadh /*eras*/,
   &kAtcZoneAsia_Riyadh /*target_info*/,
 };
@@ -33837,7 +16853,7 @@ const AtcZoneInfo kAtcZoneAntarctica_Vostok  = {
   kAtcZoneNameAntarctica_Vostok /*name*/,
   0x4f966fd4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Urumqi /*eras*/,
   &kAtcZoneAsia_Urumqi /*target_info*/,
 };
@@ -33852,7 +16868,7 @@ const AtcZoneInfo kAtcZoneArctic_Longyearbyen  = {
   kAtcZoneNameArctic_Longyearbyen /*name*/,
   0xd23e7859 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
   &kAtcZoneEurope_Berlin /*target_info*/,
 };
@@ -33867,7 +16883,7 @@ const AtcZoneInfo kAtcZoneAsia_Aden  = {
   kAtcZoneNameAsia_Aden /*name*/,
   0x1fa7084a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Riyadh /*eras*/,
   &kAtcZoneAsia_Riyadh /*target_info*/,
 };
@@ -33882,7 +16898,7 @@ const AtcZoneInfo kAtcZoneAsia_Ashkhabad  = {
   kAtcZoneNameAsia_Ashkhabad /*name*/,
   0x15454f09 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Ashgabat /*eras*/,
   &kAtcZoneAsia_Ashgabat /*target_info*/,
 };
@@ -33897,7 +16913,7 @@ const AtcZoneInfo kAtcZoneAsia_Bahrain  = {
   kAtcZoneNameAsia_Bahrain /*name*/,
   0x9d078487 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Qatar /*eras*/,
   &kAtcZoneAsia_Qatar /*target_info*/,
 };
@@ -33912,7 +16928,7 @@ const AtcZoneInfo kAtcZoneAsia_Brunei  = {
   kAtcZoneNameAsia_Brunei /*name*/,
   0xa8e595f7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Kuching /*eras*/,
   &kAtcZoneAsia_Kuching /*target_info*/,
 };
@@ -33927,7 +16943,7 @@ const AtcZoneInfo kAtcZoneAsia_Calcutta  = {
   kAtcZoneNameAsia_Calcutta /*name*/,
   0x328a44c3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Kolkata /*eras*/,
   &kAtcZoneAsia_Kolkata /*target_info*/,
 };
@@ -33942,7 +16958,7 @@ const AtcZoneInfo kAtcZoneAsia_Chongqing  = {
   kAtcZoneNameAsia_Chongqing /*name*/,
   0xf937fb90 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Shanghai /*eras*/,
   &kAtcZoneAsia_Shanghai /*target_info*/,
 };
@@ -33957,7 +16973,7 @@ const AtcZoneInfo kAtcZoneAsia_Chungking  = {
   kAtcZoneNameAsia_Chungking /*name*/,
   0xc7121dd0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Shanghai /*eras*/,
   &kAtcZoneAsia_Shanghai /*target_info*/,
 };
@@ -33972,7 +16988,7 @@ const AtcZoneInfo kAtcZoneAsia_Dacca  = {
   kAtcZoneNameAsia_Dacca /*name*/,
   0x14bcac5e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Dhaka /*eras*/,
   &kAtcZoneAsia_Dhaka /*target_info*/,
 };
@@ -33987,7 +17003,7 @@ const AtcZoneInfo kAtcZoneAsia_Harbin  = {
   kAtcZoneNameAsia_Harbin /*name*/,
   0xb5af1186 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Shanghai /*eras*/,
   &kAtcZoneAsia_Shanghai /*target_info*/,
 };
@@ -34002,7 +17018,7 @@ const AtcZoneInfo kAtcZoneAsia_Istanbul  = {
   kAtcZoneNameAsia_Istanbul /*name*/,
   0x382e7894 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  13 /*num_eras*/,
+  9 /*num_eras*/,
   kAtcZoneEraEurope_Istanbul /*eras*/,
   &kAtcZoneEurope_Istanbul /*target_info*/,
 };
@@ -34017,7 +17033,7 @@ const AtcZoneInfo kAtcZoneAsia_Kashgar  = {
   kAtcZoneNameAsia_Kashgar /*name*/,
   0x52955193 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Urumqi /*eras*/,
   &kAtcZoneAsia_Urumqi /*target_info*/,
 };
@@ -34032,7 +17048,7 @@ const AtcZoneInfo kAtcZoneAsia_Katmandu  = {
   kAtcZoneNameAsia_Katmandu /*name*/,
   0xa7ec12c7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Kathmandu /*eras*/,
   &kAtcZoneAsia_Kathmandu /*target_info*/,
 };
@@ -34047,7 +17063,7 @@ const AtcZoneInfo kAtcZoneAsia_Kuala_Lumpur  = {
   kAtcZoneNameAsia_Kuala_Lumpur /*name*/,
   0x014763c4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Singapore /*eras*/,
   &kAtcZoneAsia_Singapore /*target_info*/,
 };
@@ -34062,7 +17078,7 @@ const AtcZoneInfo kAtcZoneAsia_Kuwait  = {
   kAtcZoneNameAsia_Kuwait /*name*/,
   0xbe1b2f27 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Riyadh /*eras*/,
   &kAtcZoneAsia_Riyadh /*target_info*/,
 };
@@ -34077,7 +17093,7 @@ const AtcZoneInfo kAtcZoneAsia_Macao  = {
   kAtcZoneNameAsia_Macao /*name*/,
   0x155f88b3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Macau /*eras*/,
   &kAtcZoneAsia_Macau /*target_info*/,
 };
@@ -34092,7 +17108,7 @@ const AtcZoneInfo kAtcZoneAsia_Muscat  = {
   kAtcZoneNameAsia_Muscat /*name*/,
   0xc2c3565f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Dubai /*eras*/,
   &kAtcZoneAsia_Dubai /*target_info*/,
 };
@@ -34107,7 +17123,7 @@ const AtcZoneInfo kAtcZoneAsia_Phnom_Penh  = {
   kAtcZoneNameAsia_Phnom_Penh /*name*/,
   0xc224945e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Bangkok /*eras*/,
   &kAtcZoneAsia_Bangkok /*target_info*/,
 };
@@ -34122,7 +17138,7 @@ const AtcZoneInfo kAtcZoneAsia_Rangoon  = {
   kAtcZoneNameAsia_Rangoon /*name*/,
   0x6d1217c6 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Yangon /*eras*/,
   &kAtcZoneAsia_Yangon /*target_info*/,
 };
@@ -34137,7 +17153,7 @@ const AtcZoneInfo kAtcZoneAsia_Saigon  = {
   kAtcZoneNameAsia_Saigon /*name*/,
   0xcf52f713 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Ho_Chi_Minh /*eras*/,
   &kAtcZoneAsia_Ho_Chi_Minh /*target_info*/,
 };
@@ -34152,7 +17168,7 @@ const AtcZoneInfo kAtcZoneAsia_Tel_Aviv  = {
   kAtcZoneNameAsia_Tel_Aviv /*name*/,
   0x166d7c2c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Jerusalem /*eras*/,
   &kAtcZoneAsia_Jerusalem /*target_info*/,
 };
@@ -34167,7 +17183,7 @@ const AtcZoneInfo kAtcZoneAsia_Thimbu  = {
   kAtcZoneNameAsia_Thimbu /*name*/,
   0xd226e31b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Thimphu /*eras*/,
   &kAtcZoneAsia_Thimphu /*target_info*/,
 };
@@ -34182,7 +17198,7 @@ const AtcZoneInfo kAtcZoneAsia_Ujung_Pandang  = {
   kAtcZoneNameAsia_Ujung_Pandang /*name*/,
   0x5d001eb3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Makassar /*eras*/,
   &kAtcZoneAsia_Makassar /*target_info*/,
 };
@@ -34197,7 +17213,7 @@ const AtcZoneInfo kAtcZoneAsia_Ulan_Bator  = {
   kAtcZoneNameAsia_Ulan_Bator /*name*/,
   0x394db4d9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Ulaanbaatar /*eras*/,
   &kAtcZoneAsia_Ulaanbaatar /*target_info*/,
 };
@@ -34212,7 +17228,7 @@ const AtcZoneInfo kAtcZoneAsia_Vientiane  = {
   kAtcZoneNameAsia_Vientiane /*name*/,
   0x89d68d75 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Bangkok /*eras*/,
   &kAtcZoneAsia_Bangkok /*target_info*/,
 };
@@ -34227,7 +17243,7 @@ const AtcZoneInfo kAtcZoneAtlantic_Faeroe  = {
   kAtcZoneNameAtlantic_Faeroe /*name*/,
   0x031ec516 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAtlantic_Faroe /*eras*/,
   &kAtcZoneAtlantic_Faroe /*target_info*/,
 };
@@ -34242,7 +17258,7 @@ const AtcZoneInfo kAtcZoneAtlantic_Jan_Mayen  = {
   kAtcZoneNameAtlantic_Jan_Mayen /*name*/,
   0x5a7535b6 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
   &kAtcZoneEurope_Berlin /*target_info*/,
 };
@@ -34257,7 +17273,7 @@ const AtcZoneInfo kAtcZoneAtlantic_Reykjavik  = {
   kAtcZoneNameAtlantic_Reykjavik /*name*/,
   0x1c2b4f74 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
   &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
@@ -34272,7 +17288,7 @@ const AtcZoneInfo kAtcZoneAtlantic_St_Helena  = {
   kAtcZoneNameAtlantic_St_Helena /*name*/,
   0x451fc5f7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
   &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
@@ -34287,7 +17303,7 @@ const AtcZoneInfo kAtcZoneAustralia_ACT  = {
   kAtcZoneNameAustralia_ACT /*name*/,
   0x8a970eb2 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Sydney /*eras*/,
   &kAtcZoneAustralia_Sydney /*target_info*/,
 };
@@ -34302,7 +17318,7 @@ const AtcZoneInfo kAtcZoneAustralia_Canberra  = {
   kAtcZoneNameAustralia_Canberra /*name*/,
   0x2a09ae58 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Sydney /*eras*/,
   &kAtcZoneAustralia_Sydney /*target_info*/,
 };
@@ -34317,7 +17333,7 @@ const AtcZoneInfo kAtcZoneAustralia_Currie  = {
   kAtcZoneNameAustralia_Currie /*name*/,
   0x278b6a24 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Hobart /*eras*/,
   &kAtcZoneAustralia_Hobart /*target_info*/,
 };
@@ -34332,7 +17348,7 @@ const AtcZoneInfo kAtcZoneAustralia_LHI  = {
   kAtcZoneNameAustralia_LHI /*name*/,
   0x8a973e17 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Lord_Howe /*eras*/,
   &kAtcZoneAustralia_Lord_Howe /*target_info*/,
 };
@@ -34347,7 +17363,7 @@ const AtcZoneInfo kAtcZoneAustralia_NSW  = {
   kAtcZoneNameAustralia_NSW /*name*/,
   0x8a974812 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Sydney /*eras*/,
   &kAtcZoneAustralia_Sydney /*target_info*/,
 };
@@ -34362,7 +17378,7 @@ const AtcZoneInfo kAtcZoneAustralia_North  = {
   kAtcZoneNameAustralia_North /*name*/,
   0x8d997165 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Darwin /*eras*/,
   &kAtcZoneAustralia_Darwin /*target_info*/,
 };
@@ -34377,7 +17393,7 @@ const AtcZoneInfo kAtcZoneAustralia_Queensland  = {
   kAtcZoneNameAustralia_Queensland /*name*/,
   0xd326ed0a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Brisbane /*eras*/,
   &kAtcZoneAustralia_Brisbane /*target_info*/,
 };
@@ -34392,7 +17408,7 @@ const AtcZoneInfo kAtcZoneAustralia_South  = {
   kAtcZoneNameAustralia_South /*name*/,
   0x8df3f8ad /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Adelaide /*eras*/,
   &kAtcZoneAustralia_Adelaide /*target_info*/,
 };
@@ -34407,7 +17423,7 @@ const AtcZoneInfo kAtcZoneAustralia_Tasmania  = {
   kAtcZoneNameAustralia_Tasmania /*name*/,
   0xe6d76648 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Hobart /*eras*/,
   &kAtcZoneAustralia_Hobart /*target_info*/,
 };
@@ -34422,7 +17438,7 @@ const AtcZoneInfo kAtcZoneAustralia_Victoria  = {
   kAtcZoneNameAustralia_Victoria /*name*/,
   0x0260d5db /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Melbourne /*eras*/,
   &kAtcZoneAustralia_Melbourne /*target_info*/,
 };
@@ -34437,7 +17453,7 @@ const AtcZoneInfo kAtcZoneAustralia_West  = {
   kAtcZoneNameAustralia_West /*name*/,
   0xdd858a5d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Perth /*eras*/,
   &kAtcZoneAustralia_Perth /*target_info*/,
 };
@@ -34452,7 +17468,7 @@ const AtcZoneInfo kAtcZoneAustralia_Yancowinna  = {
   kAtcZoneNameAustralia_Yancowinna /*name*/,
   0x90bac131 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAustralia_Broken_Hill /*eras*/,
   &kAtcZoneAustralia_Broken_Hill /*target_info*/,
 };
@@ -34467,7 +17483,7 @@ const AtcZoneInfo kAtcZoneBrazil_Acre  = {
   kAtcZoneNameBrazil_Acre /*name*/,
   0x66934f93 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Rio_Branco /*eras*/,
   &kAtcZoneAmerica_Rio_Branco /*target_info*/,
 };
@@ -34482,7 +17498,7 @@ const AtcZoneInfo kAtcZoneBrazil_DeNoronha  = {
   kAtcZoneNameBrazil_DeNoronha /*name*/,
   0x9b4cb496 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  5 /*num_eras*/,
   kAtcZoneEraAmerica_Noronha /*eras*/,
   &kAtcZoneAmerica_Noronha /*target_info*/,
 };
@@ -34497,7 +17513,7 @@ const AtcZoneInfo kAtcZoneBrazil_East  = {
   kAtcZoneNameBrazil_East /*name*/,
   0x669578c5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Sao_Paulo /*eras*/,
   &kAtcZoneAmerica_Sao_Paulo /*target_info*/,
 };
@@ -34512,7 +17528,7 @@ const AtcZoneInfo kAtcZoneBrazil_West  = {
   kAtcZoneNameBrazil_West /*name*/,
   0x669f689b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Manaus /*eras*/,
   &kAtcZoneAmerica_Manaus /*target_info*/,
 };
@@ -34527,7 +17543,7 @@ const AtcZoneInfo kAtcZoneCanada_Atlantic  = {
   kAtcZoneNameCanada_Atlantic /*name*/,
   0x536b119c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Halifax /*eras*/,
   &kAtcZoneAmerica_Halifax /*target_info*/,
 };
@@ -34542,7 +17558,7 @@ const AtcZoneInfo kAtcZoneCanada_Central  = {
   kAtcZoneNameCanada_Central /*name*/,
   0x626710f5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Winnipeg /*eras*/,
   &kAtcZoneAmerica_Winnipeg /*target_info*/,
 };
@@ -34557,7 +17573,7 @@ const AtcZoneInfo kAtcZoneCanada_Eastern  = {
   kAtcZoneNameCanada_Eastern /*name*/,
   0xf3612d5e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
   &kAtcZoneAmerica_Toronto /*target_info*/,
 };
@@ -34572,7 +17588,7 @@ const AtcZoneInfo kAtcZoneCanada_Mountain  = {
   kAtcZoneNameCanada_Mountain /*name*/,
   0xfb8a8217 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Edmonton /*eras*/,
   &kAtcZoneAmerica_Edmonton /*target_info*/,
 };
@@ -34587,7 +17603,7 @@ const AtcZoneInfo kAtcZoneCanada_Newfoundland  = {
   kAtcZoneNameCanada_Newfoundland /*name*/,
   0xb396e991 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_St_Johns /*eras*/,
   &kAtcZoneAmerica_St_Johns /*target_info*/,
 };
@@ -34602,7 +17618,7 @@ const AtcZoneInfo kAtcZoneCanada_Pacific  = {
   kAtcZoneNameCanada_Pacific /*name*/,
   0x40fa3c7b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Vancouver /*eras*/,
   &kAtcZoneAmerica_Vancouver /*target_info*/,
 };
@@ -34617,7 +17633,7 @@ const AtcZoneInfo kAtcZoneCanada_Saskatchewan  = {
   kAtcZoneNameCanada_Saskatchewan /*name*/,
   0x77311f49 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Regina /*eras*/,
   &kAtcZoneAmerica_Regina /*target_info*/,
 };
@@ -34632,7 +17648,7 @@ const AtcZoneInfo kAtcZoneCanada_Yukon  = {
   kAtcZoneNameCanada_Yukon /*name*/,
   0x78dd35c2 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Whitehorse /*eras*/,
   &kAtcZoneAmerica_Whitehorse /*target_info*/,
 };
@@ -34647,7 +17663,7 @@ const AtcZoneInfo kAtcZoneChile_Continental  = {
   kAtcZoneNameChile_Continental /*name*/,
   0x7e2bdb18 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  14 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Santiago /*eras*/,
   &kAtcZoneAmerica_Santiago /*target_info*/,
 };
@@ -34662,7 +17678,7 @@ const AtcZoneInfo kAtcZoneChile_EasterIsland  = {
   kAtcZoneNameChile_EasterIsland /*name*/,
   0xb0982af8 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Easter /*eras*/,
   &kAtcZonePacific_Easter /*target_info*/,
 };
@@ -34677,7 +17693,7 @@ const AtcZoneInfo kAtcZoneCuba  = {
   kAtcZoneNameCuba /*name*/,
   0x7c83cba0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Havana /*eras*/,
   &kAtcZoneAmerica_Havana /*target_info*/,
 };
@@ -34692,7 +17708,7 @@ const AtcZoneInfo kAtcZoneEgypt  = {
   kAtcZoneNameEgypt /*name*/,
   0x0d1a278e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Cairo /*eras*/,
   &kAtcZoneAfrica_Cairo /*target_info*/,
 };
@@ -34707,7 +17723,7 @@ const AtcZoneInfo kAtcZoneEire  = {
   kAtcZoneNameEire /*name*/,
   0x7c84b36a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  11 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Dublin /*eras*/,
   &kAtcZoneEurope_Dublin /*target_info*/,
 };
@@ -34827,7 +17843,7 @@ const AtcZoneInfo kAtcZoneEurope_Amsterdam  = {
   kAtcZoneNameEurope_Amsterdam /*name*/,
   0x109395c2 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Brussels /*eras*/,
   &kAtcZoneEurope_Brussels /*target_info*/,
 };
@@ -34842,7 +17858,7 @@ const AtcZoneInfo kAtcZoneEurope_Belfast  = {
   kAtcZoneNameEurope_Belfast /*name*/,
   0xd07dd1e5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
   &kAtcZoneEurope_London /*target_info*/,
 };
@@ -34857,7 +17873,7 @@ const AtcZoneInfo kAtcZoneEurope_Bratislava  = {
   kAtcZoneNameEurope_Bratislava /*name*/,
   0xda493bed /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Prague /*eras*/,
   &kAtcZoneEurope_Prague /*target_info*/,
 };
@@ -34872,7 +17888,7 @@ const AtcZoneInfo kAtcZoneEurope_Busingen  = {
   kAtcZoneNameEurope_Busingen /*name*/,
   0xc06d2cdf /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Zurich /*eras*/,
   &kAtcZoneEurope_Zurich /*target_info*/,
 };
@@ -34887,7 +17903,7 @@ const AtcZoneInfo kAtcZoneEurope_Copenhagen  = {
   kAtcZoneNameEurope_Copenhagen /*name*/,
   0xe0ed30bc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
   &kAtcZoneEurope_Berlin /*target_info*/,
 };
@@ -34902,7 +17918,7 @@ const AtcZoneInfo kAtcZoneEurope_Guernsey  = {
   kAtcZoneNameEurope_Guernsey /*name*/,
   0x3db12c16 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
   &kAtcZoneEurope_London /*target_info*/,
 };
@@ -34917,7 +17933,7 @@ const AtcZoneInfo kAtcZoneEurope_Isle_of_Man  = {
   kAtcZoneNameEurope_Isle_of_Man /*name*/,
   0xeaf84580 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
   &kAtcZoneEurope_London /*target_info*/,
 };
@@ -34932,7 +17948,7 @@ const AtcZoneInfo kAtcZoneEurope_Jersey  = {
   kAtcZoneNameEurope_Jersey /*name*/,
   0x570dae76 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
   &kAtcZoneEurope_London /*target_info*/,
 };
@@ -34947,7 +17963,7 @@ const AtcZoneInfo kAtcZoneEurope_Kiev  = {
   kAtcZoneNameEurope_Kiev /*name*/,
   0xa2c19eb3 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Kyiv /*eras*/,
   &kAtcZoneEurope_Kyiv /*target_info*/,
 };
@@ -34962,7 +17978,7 @@ const AtcZoneInfo kAtcZoneEurope_Ljubljana  = {
   kAtcZoneNameEurope_Ljubljana /*name*/,
   0xbd98cdb7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
   &kAtcZoneEurope_Belgrade /*target_info*/,
 };
@@ -34977,7 +17993,7 @@ const AtcZoneInfo kAtcZoneEurope_Luxembourg  = {
   kAtcZoneNameEurope_Luxembourg /*name*/,
   0x1f8bc6ce /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Brussels /*eras*/,
   &kAtcZoneEurope_Brussels /*target_info*/,
 };
@@ -34992,7 +18008,7 @@ const AtcZoneInfo kAtcZoneEurope_Mariehamn  = {
   kAtcZoneNameEurope_Mariehamn /*name*/,
   0x0caa6496 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Helsinki /*eras*/,
   &kAtcZoneEurope_Helsinki /*target_info*/,
 };
@@ -35007,7 +18023,7 @@ const AtcZoneInfo kAtcZoneEurope_Monaco  = {
   kAtcZoneNameEurope_Monaco /*name*/,
   0x5ebf9f01 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Paris /*eras*/,
   &kAtcZoneEurope_Paris /*target_info*/,
 };
@@ -35022,7 +18038,7 @@ const AtcZoneInfo kAtcZoneEurope_Nicosia  = {
   kAtcZoneNameEurope_Nicosia /*name*/,
   0x74efab8a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Nicosia /*eras*/,
   &kAtcZoneAsia_Nicosia /*target_info*/,
 };
@@ -35037,7 +18053,7 @@ const AtcZoneInfo kAtcZoneEurope_Oslo  = {
   kAtcZoneNameEurope_Oslo /*name*/,
   0xa2c3fba1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
   &kAtcZoneEurope_Berlin /*target_info*/,
 };
@@ -35052,7 +18068,7 @@ const AtcZoneInfo kAtcZoneEurope_Podgorica  = {
   kAtcZoneNameEurope_Podgorica /*name*/,
   0x1c1a499c /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
   &kAtcZoneEurope_Belgrade /*target_info*/,
 };
@@ -35067,7 +18083,7 @@ const AtcZoneInfo kAtcZoneEurope_San_Marino  = {
   kAtcZoneNameEurope_San_Marino /*name*/,
   0xcef7724b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Rome /*eras*/,
   &kAtcZoneEurope_Rome /*target_info*/,
 };
@@ -35082,7 +18098,7 @@ const AtcZoneInfo kAtcZoneEurope_Sarajevo  = {
   kAtcZoneNameEurope_Sarajevo /*name*/,
   0x6a576c3f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
   &kAtcZoneEurope_Belgrade /*target_info*/,
 };
@@ -35097,7 +18113,7 @@ const AtcZoneInfo kAtcZoneEurope_Skopje  = {
   kAtcZoneNameEurope_Skopje /*name*/,
   0x6c76fdd0 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
   &kAtcZoneEurope_Belgrade /*target_info*/,
 };
@@ -35112,7 +18128,7 @@ const AtcZoneInfo kAtcZoneEurope_Stockholm  = {
   kAtcZoneNameEurope_Stockholm /*name*/,
   0x5bf6fbb8 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
   &kAtcZoneEurope_Berlin /*target_info*/,
 };
@@ -35127,7 +18143,7 @@ const AtcZoneInfo kAtcZoneEurope_Tiraspol  = {
   kAtcZoneNameEurope_Tiraspol /*name*/,
   0xbe704472 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Chisinau /*eras*/,
   &kAtcZoneEurope_Chisinau /*target_info*/,
 };
@@ -35142,7 +18158,7 @@ const AtcZoneInfo kAtcZoneEurope_Uzhgorod  = {
   kAtcZoneNameEurope_Uzhgorod /*name*/,
   0xb066f5d6 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Kyiv /*eras*/,
   &kAtcZoneEurope_Kyiv /*target_info*/,
 };
@@ -35157,7 +18173,7 @@ const AtcZoneInfo kAtcZoneEurope_Vaduz  = {
   kAtcZoneNameEurope_Vaduz /*name*/,
   0xfbb81bae /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Zurich /*eras*/,
   &kAtcZoneEurope_Zurich /*target_info*/,
 };
@@ -35172,7 +18188,7 @@ const AtcZoneInfo kAtcZoneEurope_Vatican  = {
   kAtcZoneNameEurope_Vatican /*name*/,
   0xcb485dca /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Rome /*eras*/,
   &kAtcZoneEurope_Rome /*target_info*/,
 };
@@ -35187,7 +18203,7 @@ const AtcZoneInfo kAtcZoneEurope_Zagreb  = {
   kAtcZoneNameEurope_Zagreb /*name*/,
   0x7c11c9ff /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
   &kAtcZoneEurope_Belgrade /*target_info*/,
 };
@@ -35202,7 +18218,7 @@ const AtcZoneInfo kAtcZoneEurope_Zaporozhye  = {
   kAtcZoneNameEurope_Zaporozhye /*name*/,
   0xeab9767f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Kyiv /*eras*/,
   &kAtcZoneEurope_Kyiv /*target_info*/,
 };
@@ -35217,7 +18233,7 @@ const AtcZoneInfo kAtcZoneGB  = {
   kAtcZoneNameGB /*name*/,
   0x005973ae /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
   &kAtcZoneEurope_London /*target_info*/,
 };
@@ -35232,7 +18248,7 @@ const AtcZoneInfo kAtcZoneGB_Eire  = {
   kAtcZoneNameGB_Eire /*name*/,
   0xfa70e300 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
   &kAtcZoneEurope_London /*target_info*/,
 };
@@ -35322,7 +18338,7 @@ const AtcZoneInfo kAtcZoneHongkong  = {
   kAtcZoneNameHongkong /*name*/,
   0x56d36560 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Hong_Kong /*eras*/,
   &kAtcZoneAsia_Hong_Kong /*target_info*/,
 };
@@ -35337,7 +18353,7 @@ const AtcZoneInfo kAtcZoneIceland  = {
   kAtcZoneNameIceland /*name*/,
   0xe56a35b5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
   &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
@@ -35352,7 +18368,7 @@ const AtcZoneInfo kAtcZoneIndian_Antananarivo  = {
   kAtcZoneNameIndian_Antananarivo /*name*/,
   0x9ebf5289 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
   &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
@@ -35367,7 +18383,7 @@ const AtcZoneInfo kAtcZoneIndian_Christmas  = {
   kAtcZoneNameIndian_Christmas /*name*/,
   0x68c207d5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Bangkok /*eras*/,
   &kAtcZoneAsia_Bangkok /*target_info*/,
 };
@@ -35382,7 +18398,7 @@ const AtcZoneInfo kAtcZoneIndian_Cocos  = {
   kAtcZoneNameIndian_Cocos /*name*/,
   0x021e86de /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Yangon /*eras*/,
   &kAtcZoneAsia_Yangon /*target_info*/,
 };
@@ -35397,7 +18413,7 @@ const AtcZoneInfo kAtcZoneIndian_Comoro  = {
   kAtcZoneNameIndian_Comoro /*name*/,
   0x45f4deb6 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
   &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
@@ -35412,7 +18428,7 @@ const AtcZoneInfo kAtcZoneIndian_Kerguelen  = {
   kAtcZoneNameIndian_Kerguelen /*name*/,
   0x4351b389 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraIndian_Maldives /*eras*/,
   &kAtcZoneIndian_Maldives /*target_info*/,
 };
@@ -35427,7 +18443,7 @@ const AtcZoneInfo kAtcZoneIndian_Mahe  = {
   kAtcZoneNameIndian_Mahe /*name*/,
   0x45e725e2 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Dubai /*eras*/,
   &kAtcZoneAsia_Dubai /*target_info*/,
 };
@@ -35442,7 +18458,7 @@ const AtcZoneInfo kAtcZoneIndian_Mayotte  = {
   kAtcZoneNameIndian_Mayotte /*name*/,
   0xe6880bca /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
   &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
@@ -35457,7 +18473,7 @@ const AtcZoneInfo kAtcZoneIndian_Reunion  = {
   kAtcZoneNameIndian_Reunion /*name*/,
   0x7076c047 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Dubai /*eras*/,
   &kAtcZoneAsia_Dubai /*target_info*/,
 };
@@ -35472,7 +18488,7 @@ const AtcZoneInfo kAtcZoneIran  = {
   kAtcZoneNameIran /*name*/,
   0x7c87090f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Tehran /*eras*/,
   &kAtcZoneAsia_Tehran /*target_info*/,
 };
@@ -35487,7 +18503,7 @@ const AtcZoneInfo kAtcZoneIsrael  = {
   kAtcZoneNameIsrael /*name*/,
   0xba88c9e5 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Jerusalem /*eras*/,
   &kAtcZoneAsia_Jerusalem /*target_info*/,
 };
@@ -35502,7 +18518,7 @@ const AtcZoneInfo kAtcZoneJamaica  = {
   kAtcZoneNameJamaica /*name*/,
   0x2e44fdab /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Jamaica /*eras*/,
   &kAtcZoneAmerica_Jamaica /*target_info*/,
 };
@@ -35517,7 +18533,7 @@ const AtcZoneInfo kAtcZoneJapan  = {
   kAtcZoneNameJapan /*name*/,
   0x0d712f8f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Tokyo /*eras*/,
   &kAtcZoneAsia_Tokyo /*target_info*/,
 };
@@ -35532,7 +18548,7 @@ const AtcZoneInfo kAtcZoneKwajalein  = {
   kAtcZoneNameKwajalein /*name*/,
   0x0e57afbb /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Kwajalein /*eras*/,
   &kAtcZonePacific_Kwajalein /*target_info*/,
 };
@@ -35547,7 +18563,7 @@ const AtcZoneInfo kAtcZoneLibya  = {
   kAtcZoneNameLibya /*name*/,
   0x0d998b16 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAfrica_Tripoli /*eras*/,
   &kAtcZoneAfrica_Tripoli /*target_info*/,
 };
@@ -35562,7 +18578,7 @@ const AtcZoneInfo kAtcZoneMexico_BajaNorte  = {
   kAtcZoneNameMexico_BajaNorte /*name*/,
   0xfcf7150f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  19 /*num_eras*/,
+  4 /*num_eras*/,
   kAtcZoneEraAmerica_Tijuana /*eras*/,
   &kAtcZoneAmerica_Tijuana /*target_info*/,
 };
@@ -35577,7 +18593,7 @@ const AtcZoneInfo kAtcZoneMexico_BajaSur  = {
   kAtcZoneNameMexico_BajaSur /*name*/,
   0x08ee3641 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Mazatlan /*eras*/,
   &kAtcZoneAmerica_Mazatlan /*target_info*/,
 };
@@ -35592,7 +18608,7 @@ const AtcZoneInfo kAtcZoneMexico_General  = {
   kAtcZoneNameMexico_General /*name*/,
   0x93711d57 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Mexico_City /*eras*/,
   &kAtcZoneAmerica_Mexico_City /*target_info*/,
 };
@@ -35607,7 +18623,7 @@ const AtcZoneInfo kAtcZoneNZ  = {
   kAtcZoneNameNZ /*name*/,
   0x005974ad /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Auckland /*eras*/,
   &kAtcZonePacific_Auckland /*target_info*/,
 };
@@ -35622,7 +18638,7 @@ const AtcZoneInfo kAtcZoneNZ_CHAT  = {
   kAtcZoneNameNZ_CHAT /*name*/,
   0x4d42afda /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Chatham /*eras*/,
   &kAtcZonePacific_Chatham /*target_info*/,
 };
@@ -35637,7 +18653,7 @@ const AtcZoneInfo kAtcZoneNavajo  = {
   kAtcZoneNameNavajo /*name*/,
   0xc4ef0e24 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Denver /*eras*/,
   &kAtcZoneAmerica_Denver /*target_info*/,
 };
@@ -35652,7 +18668,7 @@ const AtcZoneInfo kAtcZonePRC  = {
   kAtcZoneNamePRC /*name*/,
   0x0b88120a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Shanghai /*eras*/,
   &kAtcZoneAsia_Shanghai /*target_info*/,
 };
@@ -35667,7 +18683,7 @@ const AtcZoneInfo kAtcZonePacific_Chuuk  = {
   kAtcZoneNamePacific_Chuuk /*name*/,
   0x8a090b23 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Port_Moresby /*eras*/,
   &kAtcZonePacific_Port_Moresby /*target_info*/,
 };
@@ -35682,7 +18698,7 @@ const AtcZoneInfo kAtcZonePacific_Enderbury  = {
   kAtcZoneNamePacific_Enderbury /*name*/,
   0x61599a93 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Kanton /*eras*/,
   &kAtcZonePacific_Kanton /*target_info*/,
 };
@@ -35697,7 +18713,7 @@ const AtcZoneInfo kAtcZonePacific_Funafuti  = {
   kAtcZoneNamePacific_Funafuti /*name*/,
   0xdb402d65 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Tarawa /*eras*/,
   &kAtcZonePacific_Tarawa /*target_info*/,
 };
@@ -35712,7 +18728,7 @@ const AtcZoneInfo kAtcZonePacific_Johnston  = {
   kAtcZoneNamePacific_Johnston /*name*/,
   0xb15d7b36 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Honolulu /*eras*/,
   &kAtcZonePacific_Honolulu /*target_info*/,
 };
@@ -35727,7 +18743,7 @@ const AtcZoneInfo kAtcZonePacific_Majuro  = {
   kAtcZoneNamePacific_Majuro /*name*/,
   0xe1f95371 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Tarawa /*eras*/,
   &kAtcZonePacific_Tarawa /*target_info*/,
 };
@@ -35742,7 +18758,7 @@ const AtcZoneInfo kAtcZonePacific_Midway  = {
   kAtcZoneNamePacific_Midway /*name*/,
   0xe286d38e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Pago_Pago /*eras*/,
   &kAtcZonePacific_Pago_Pago /*target_info*/,
 };
@@ -35757,7 +18773,7 @@ const AtcZoneInfo kAtcZonePacific_Pohnpei  = {
   kAtcZoneNamePacific_Pohnpei /*name*/,
   0x28929f96 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Guadalcanal /*eras*/,
   &kAtcZonePacific_Guadalcanal /*target_info*/,
 };
@@ -35772,7 +18788,7 @@ const AtcZoneInfo kAtcZonePacific_Ponape  = {
   kAtcZoneNamePacific_Ponape /*name*/,
   0xe9f80086 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Guadalcanal /*eras*/,
   &kAtcZonePacific_Guadalcanal /*target_info*/,
 };
@@ -35787,7 +18803,7 @@ const AtcZoneInfo kAtcZonePacific_Saipan  = {
   kAtcZoneNamePacific_Saipan /*name*/,
   0xeff7a35f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraPacific_Guam /*eras*/,
   &kAtcZonePacific_Guam /*target_info*/,
 };
@@ -35802,7 +18818,7 @@ const AtcZoneInfo kAtcZonePacific_Samoa  = {
   kAtcZoneNamePacific_Samoa /*name*/,
   0x8b2699b4 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Pago_Pago /*eras*/,
   &kAtcZonePacific_Pago_Pago /*target_info*/,
 };
@@ -35817,7 +18833,7 @@ const AtcZoneInfo kAtcZonePacific_Truk  = {
   kAtcZoneNamePacific_Truk /*name*/,
   0x234010a9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Port_Moresby /*eras*/,
   &kAtcZonePacific_Port_Moresby /*target_info*/,
 };
@@ -35832,7 +18848,7 @@ const AtcZoneInfo kAtcZonePacific_Wake  = {
   kAtcZoneNamePacific_Wake /*name*/,
   0x23416c2b /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Tarawa /*eras*/,
   &kAtcZonePacific_Tarawa /*target_info*/,
 };
@@ -35847,7 +18863,7 @@ const AtcZoneInfo kAtcZonePacific_Wallis  = {
   kAtcZoneNamePacific_Wallis /*name*/,
   0xf94ddb0f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Tarawa /*eras*/,
   &kAtcZonePacific_Tarawa /*target_info*/,
 };
@@ -35862,7 +18878,7 @@ const AtcZoneInfo kAtcZonePacific_Yap  = {
   kAtcZoneNamePacific_Yap /*name*/,
   0xbb40138d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Port_Moresby /*eras*/,
   &kAtcZonePacific_Port_Moresby /*target_info*/,
 };
@@ -35877,7 +18893,7 @@ const AtcZoneInfo kAtcZonePoland  = {
   kAtcZoneNamePoland /*name*/,
   0xca913b23 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Warsaw /*eras*/,
   &kAtcZoneEurope_Warsaw /*target_info*/,
 };
@@ -35892,7 +18908,7 @@ const AtcZoneInfo kAtcZonePortugal  = {
   kAtcZoneNamePortugal /*name*/,
   0xc3274593 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Lisbon /*eras*/,
   &kAtcZoneEurope_Lisbon /*target_info*/,
 };
@@ -35907,7 +18923,7 @@ const AtcZoneInfo kAtcZoneROC  = {
   kAtcZoneNameROC /*name*/,
   0x0b881a29 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Taipei /*eras*/,
   &kAtcZoneAsia_Taipei /*target_info*/,
 };
@@ -35922,7 +18938,7 @@ const AtcZoneInfo kAtcZoneROK  = {
   kAtcZoneNameROK /*name*/,
   0x0b881a31 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Seoul /*eras*/,
   &kAtcZoneAsia_Seoul /*target_info*/,
 };
@@ -35937,7 +18953,7 @@ const AtcZoneInfo kAtcZoneSingapore  = {
   kAtcZoneNameSingapore /*name*/,
   0xa8598c8d /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Singapore /*eras*/,
   &kAtcZoneAsia_Singapore /*target_info*/,
 };
@@ -35952,7 +18968,7 @@ const AtcZoneInfo kAtcZoneTurkey  = {
   kAtcZoneNameTurkey /*name*/,
   0xd455e469 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  13 /*num_eras*/,
+  9 /*num_eras*/,
   kAtcZoneEraEurope_Istanbul /*eras*/,
   &kAtcZoneEurope_Istanbul /*target_info*/,
 };
@@ -35982,7 +18998,7 @@ const AtcZoneInfo kAtcZoneUS_Alaska  = {
   kAtcZoneNameUS_Alaska /*name*/,
   0xfa300bc9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Anchorage /*eras*/,
   &kAtcZoneAmerica_Anchorage /*target_info*/,
 };
@@ -35997,7 +19013,7 @@ const AtcZoneInfo kAtcZoneUS_Aleutian  = {
   kAtcZoneNameUS_Aleutian /*name*/,
   0x4fe013ef /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  9 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Adak /*eras*/,
   &kAtcZoneAmerica_Adak /*target_info*/,
 };
@@ -36012,7 +19028,7 @@ const AtcZoneInfo kAtcZoneUS_Arizona  = {
   kAtcZoneNameUS_Arizona /*name*/,
   0x4ec52670 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Phoenix /*eras*/,
   &kAtcZoneAmerica_Phoenix /*target_info*/,
 };
@@ -36027,7 +19043,7 @@ const AtcZoneInfo kAtcZoneUS_Central  = {
   kAtcZoneNameUS_Central /*name*/,
   0xcabdcb25 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  8 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Chicago /*eras*/,
   &kAtcZoneAmerica_Chicago /*target_info*/,
 };
@@ -36042,7 +19058,7 @@ const AtcZoneInfo kAtcZoneUS_East_Indiana  = {
   kAtcZoneNameUS_East_Indiana /*name*/,
   0x6dcf558a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  11 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Indianapolis /*eras*/,
   &kAtcZoneAmerica_Indiana_Indianapolis /*target_info*/,
 };
@@ -36057,7 +19073,7 @@ const AtcZoneInfo kAtcZoneUS_Eastern  = {
   kAtcZoneNameUS_Eastern /*name*/,
   0x5bb7e78e /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_New_York /*eras*/,
   &kAtcZoneAmerica_New_York /*target_info*/,
 };
@@ -36072,7 +19088,7 @@ const AtcZoneInfo kAtcZoneUS_Hawaii  = {
   kAtcZoneNameUS_Hawaii /*name*/,
   0x09c8de2f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  5 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Honolulu /*eras*/,
   &kAtcZonePacific_Honolulu /*target_info*/,
 };
@@ -36087,7 +19103,7 @@ const AtcZoneInfo kAtcZoneUS_Indiana_Starke  = {
   kAtcZoneNameUS_Indiana_Starke /*name*/,
   0x67977be7 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  7 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Knox /*eras*/,
   &kAtcZoneAmerica_Indiana_Knox /*target_info*/,
 };
@@ -36102,7 +19118,7 @@ const AtcZoneInfo kAtcZoneUS_Michigan  = {
   kAtcZoneNameUS_Michigan /*name*/,
   0x766bb7bc /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  10 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Detroit /*eras*/,
   &kAtcZoneAmerica_Detroit /*target_info*/,
 };
@@ -36117,7 +19133,7 @@ const AtcZoneInfo kAtcZoneUS_Mountain  = {
   kAtcZoneNameUS_Mountain /*name*/,
   0x6eb88247 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  6 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Denver /*eras*/,
   &kAtcZoneAmerica_Denver /*target_info*/,
 };
@@ -36132,7 +19148,7 @@ const AtcZoneInfo kAtcZoneUS_Pacific  = {
   kAtcZoneNameUS_Pacific /*name*/,
   0xa950f6ab /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  4 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Los_Angeles /*eras*/,
   &kAtcZoneAmerica_Los_Angeles /*target_info*/,
 };
@@ -36147,7 +19163,7 @@ const AtcZoneInfo kAtcZoneUS_Samoa  = {
   kAtcZoneNameUS_Samoa /*name*/,
   0x566821cd /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  3 /*num_eras*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Pago_Pago /*eras*/,
   &kAtcZonePacific_Pago_Pago /*target_info*/,
 };
@@ -36192,7 +19208,7 @@ const AtcZoneInfo kAtcZoneW_SU  = {
   kAtcZoneNameW_SU /*name*/,
   0x7c8d8ef1 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  11 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraEurope_Moscow /*eras*/,
   &kAtcZoneEurope_Moscow /*target_info*/,
 };

@@ -13,7 +13,7 @@
 //     --until_at_granularity 1
 //     --generate_int16_years
 //     --generate_hires
-//     --start_year 1800
+//     --start_year 2000
 //     --until_year 10000
 //     --nocompress
 //
@@ -35,41 +35,41 @@
 // Unsupported Zones: 0 (0 zones, 0 links)
 //
 // Original Years:  [1844,2087]
-// Generated Years: [1844,2087]
-// Estimator Years: [1800,2090]
-// Max Buffer Size: 8
+// Generated Years: [1950,2087]
+// Estimator Years: [1950,2090]
+// Max Buffer Size: 7
 //
 // Records:
 //   Infos: 596
-//   Eras: 1952
-//   Policies: 134
-//   Rules: 2158
+//   Eras: 647
+//   Policies: 83
+//   Rules: 655
 //
 // Memory (8-bits):
-//   Rules: 25896
-//   Policies: 402
-//   Eras: 29280
+//   Rules: 7860
+//   Policies: 249
+//   Eras: 9705
 //   Zones: 4563
 //   Links: 3185
 //   Registry: 1192
-//   Formats: 1032
-//   Letters: 160
+//   Formats: 597
+//   Letters: 46
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 74786
+//   TOTAL: 36473
 //
 // Memory (32-bits):
-//   Rules: 25896
-//   Policies: 1072
-//   Eras: 39040
+//   Rules: 7860
+//   Policies: 664
+//   Eras: 12940
 //   Zones: 8424
 //   Links: 5880
 //   Registry: 2384
-//   Formats: 1032
-//   Letters: 216
+//   Formats: 597
+//   Letters: 64
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 93020
+//   TOTAL: 47889
 //
 // DO NOT EDIT
 

@@ -13,7 +13,7 @@
 //     --until_at_granularity 1
 //     --generate_int16_years
 //     --generate_hires
-//     --start_year 1800
+//     --start_year 2000
 //     --until_year 10000
 //     --nocompress
 //
@@ -35,41 +35,41 @@
 // Unsupported Zones: 0 (0 zones, 0 links)
 //
 // Original Years:  [1844,2087]
-// Generated Years: [1844,2087]
-// Estimator Years: [1800,2090]
-// Max Buffer Size: 8
+// Generated Years: [1950,2087]
+// Estimator Years: [1950,2090]
+// Max Buffer Size: 7
 //
 // Records:
 //   Infos: 596
-//   Eras: 1952
-//   Policies: 134
-//   Rules: 2158
+//   Eras: 647
+//   Policies: 83
+//   Rules: 655
 //
 // Memory (8-bits):
-//   Rules: 25896
-//   Policies: 402
-//   Eras: 29280
+//   Rules: 7860
+//   Policies: 249
+//   Eras: 9705
 //   Zones: 4563
 //   Links: 3185
 //   Registry: 1192
-//   Formats: 1032
-//   Letters: 160
+//   Formats: 597
+//   Letters: 46
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 74786
+//   TOTAL: 36473
 //
 // Memory (32-bits):
-//   Rules: 25896
-//   Policies: 1072
-//   Eras: 39040
+//   Rules: 7860
+//   Policies: 664
+//   Eras: 12940
 //   Zones: 8424
 //   Links: 5880
 //   Registry: 2384
-//   Formats: 1032
-//   Letters: 216
+//   Formats: 597
+//   Letters: 64
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 93020
+//   TOTAL: 47889
 //
 // DO NOT EDIT
 
@@ -83,8 +83,8 @@ extern "C" {
 #endif
 
 //---------------------------------------------------------------------------
-// Supported policies: 134
-// Supported rules: 2158
+// Supported policies: 83
+// Supported rules: 655
 //---------------------------------------------------------------------------
 
 extern const AtcZonePolicy kAtcZonePolicyAN;
@@ -93,85 +93,53 @@ extern const AtcZonePolicy kAtcZonePolicyAS;
 extern const AtcZonePolicy kAtcZonePolicyAT;
 extern const AtcZonePolicy kAtcZonePolicyAV;
 extern const AtcZonePolicy kAtcZonePolicyAW;
-extern const AtcZonePolicy kAtcZonePolicyAlbania;
-extern const AtcZonePolicy kAtcZonePolicyAlgeria;
 extern const AtcZonePolicy kAtcZonePolicyArg;
 extern const AtcZonePolicy kAtcZonePolicyArmenia;
 extern const AtcZonePolicy kAtcZonePolicyAus;
-extern const AtcZonePolicy kAtcZonePolicyAustria;
 extern const AtcZonePolicy kAtcZonePolicyAzer;
 extern const AtcZonePolicy kAtcZonePolicyBarb;
-extern const AtcZonePolicy kAtcZonePolicyBelgium;
 extern const AtcZonePolicy kAtcZonePolicyBelize;
-extern const AtcZonePolicy kAtcZonePolicyBermuda;
 extern const AtcZonePolicy kAtcZonePolicyBrazil;
-extern const AtcZonePolicy kAtcZonePolicyBulg;
 extern const AtcZonePolicy kAtcZonePolicyC_Eur;
-extern const AtcZonePolicy kAtcZonePolicyCA;
 extern const AtcZonePolicy kAtcZonePolicyCO;
 extern const AtcZonePolicy kAtcZonePolicyCR;
 extern const AtcZonePolicy kAtcZonePolicyCanada;
 extern const AtcZonePolicy kAtcZonePolicyChatham;
-extern const AtcZonePolicy kAtcZonePolicyChicago;
 extern const AtcZonePolicy kAtcZonePolicyChile;
 extern const AtcZonePolicy kAtcZonePolicyCook;
 extern const AtcZonePolicy kAtcZonePolicyCuba;
-extern const AtcZonePolicy kAtcZonePolicyCyprus;
-extern const AtcZonePolicy kAtcZonePolicyCzech;
-extern const AtcZonePolicy kAtcZonePolicyDR;
-extern const AtcZonePolicy kAtcZonePolicyDenver;
-extern const AtcZonePolicy kAtcZonePolicyDetroit;
 extern const AtcZonePolicy kAtcZonePolicyDhaka;
-extern const AtcZonePolicy kAtcZonePolicyE_Eur;
 extern const AtcZonePolicy kAtcZonePolicyE_EurAsia;
 extern const AtcZonePolicy kAtcZonePolicyEU;
 extern const AtcZonePolicy kAtcZonePolicyEUAsia;
 extern const AtcZonePolicy kAtcZonePolicyEcuador;
-extern const AtcZonePolicy kAtcZonePolicyEdm;
 extern const AtcZonePolicy kAtcZonePolicyEgypt;
-extern const AtcZonePolicy kAtcZonePolicyEgyptAsia;
 extern const AtcZonePolicy kAtcZonePolicyEire;
 extern const AtcZonePolicy kAtcZonePolicyFalk;
 extern const AtcZonePolicy kAtcZonePolicyFiji;
-extern const AtcZonePolicy kAtcZonePolicyFinland;
-extern const AtcZonePolicy kAtcZonePolicyFrance;
-extern const AtcZonePolicy kAtcZonePolicyGB_Eire;
-extern const AtcZonePolicy kAtcZonePolicyGermany;
-extern const AtcZonePolicy kAtcZonePolicyGreece;
 extern const AtcZonePolicy kAtcZonePolicyGuam;
 extern const AtcZonePolicy kAtcZonePolicyGuat;
 extern const AtcZonePolicy kAtcZonePolicyHK;
 extern const AtcZonePolicy kAtcZonePolicyHaiti;
-extern const AtcZonePolicy kAtcZonePolicyHalifax;
 extern const AtcZonePolicy kAtcZonePolicyHoliday;
 extern const AtcZonePolicy kAtcZonePolicyHond;
-extern const AtcZonePolicy kAtcZonePolicyHungary;
-extern const AtcZonePolicy kAtcZonePolicyIndianapolis;
 extern const AtcZonePolicy kAtcZonePolicyIran;
 extern const AtcZonePolicy kAtcZonePolicyIraq;
-extern const AtcZonePolicy kAtcZonePolicyItaly;
 extern const AtcZonePolicy kAtcZonePolicyJapan;
 extern const AtcZonePolicy kAtcZonePolicyJordan;
 extern const AtcZonePolicy kAtcZonePolicyKyrgyz;
 extern const AtcZonePolicy kAtcZonePolicyLH;
-extern const AtcZonePolicy kAtcZonePolicyLatvia;
 extern const AtcZonePolicy kAtcZonePolicyLebanon;
 extern const AtcZonePolicy kAtcZonePolicyLibya;
-extern const AtcZonePolicy kAtcZonePolicyLouisville;
 extern const AtcZonePolicy kAtcZonePolicyMacau;
-extern const AtcZonePolicy kAtcZonePolicyMalta;
-extern const AtcZonePolicy kAtcZonePolicyMarengo;
 extern const AtcZonePolicy kAtcZonePolicyMauritius;
-extern const AtcZonePolicy kAtcZonePolicyMenominee;
 extern const AtcZonePolicy kAtcZonePolicyMexico;
 extern const AtcZonePolicy kAtcZonePolicyMoldova;
 extern const AtcZonePolicy kAtcZonePolicyMoncton;
 extern const AtcZonePolicy kAtcZonePolicyMongol;
 extern const AtcZonePolicy kAtcZonePolicyMorocco;
-extern const AtcZonePolicy kAtcZonePolicyNBorneo;
 extern const AtcZonePolicy kAtcZonePolicyNC;
 extern const AtcZonePolicy kAtcZonePolicyNT_YK;
-extern const AtcZonePolicy kAtcZonePolicyNYC;
 extern const AtcZonePolicy kAtcZonePolicyNZ;
 extern const AtcZonePolicy kAtcZonePolicyNamibia;
 extern const AtcZonePolicy kAtcZonePolicyNic;
@@ -179,114 +147,103 @@ extern const AtcZonePolicy kAtcZonePolicyPRC;
 extern const AtcZonePolicy kAtcZonePolicyPakistan;
 extern const AtcZonePolicy kAtcZonePolicyPalestine;
 extern const AtcZonePolicy kAtcZonePolicyPara;
-extern const AtcZonePolicy kAtcZonePolicyPerry;
 extern const AtcZonePolicy kAtcZonePolicyPeru;
 extern const AtcZonePolicy kAtcZonePolicyPhil;
-extern const AtcZonePolicy kAtcZonePolicyPike;
-extern const AtcZonePolicy kAtcZonePolicyPoland;
-extern const AtcZonePolicy kAtcZonePolicyPort;
-extern const AtcZonePolicy kAtcZonePolicyPulaski;
 extern const AtcZonePolicy kAtcZonePolicyROK;
-extern const AtcZonePolicy kAtcZonePolicyRegina;
-extern const AtcZonePolicy kAtcZonePolicyRomania;
 extern const AtcZonePolicy kAtcZonePolicyRussia;
 extern const AtcZonePolicy kAtcZonePolicyRussiaAsia;
 extern const AtcZonePolicy kAtcZonePolicySA;
 extern const AtcZonePolicy kAtcZonePolicySalv;
 extern const AtcZonePolicy kAtcZonePolicySanLuis;
-extern const AtcZonePolicy kAtcZonePolicyShang;
-extern const AtcZonePolicy kAtcZonePolicySovietZone;
-extern const AtcZonePolicy kAtcZonePolicySpain;
-extern const AtcZonePolicy kAtcZonePolicySpainAfrica;
 extern const AtcZonePolicy kAtcZonePolicyStJohns;
-extern const AtcZonePolicy kAtcZonePolicyStarke;
 extern const AtcZonePolicy kAtcZonePolicySudan;
-extern const AtcZonePolicy kAtcZonePolicySwift;
-extern const AtcZonePolicy kAtcZonePolicySwiss;
 extern const AtcZonePolicy kAtcZonePolicySyria;
 extern const AtcZonePolicy kAtcZonePolicyTaiwan;
 extern const AtcZonePolicy kAtcZonePolicyThule;
 extern const AtcZonePolicy kAtcZonePolicyTonga;
-extern const AtcZonePolicy kAtcZonePolicyToronto;
 extern const AtcZonePolicy kAtcZonePolicyTroll;
 extern const AtcZonePolicy kAtcZonePolicyTunisia;
 extern const AtcZonePolicy kAtcZonePolicyTurkey;
 extern const AtcZonePolicy kAtcZonePolicyUS;
 extern const AtcZonePolicy kAtcZonePolicyUruguay;
-extern const AtcZonePolicy kAtcZonePolicyVanc;
 extern const AtcZonePolicy kAtcZonePolicyVanuatu;
-extern const AtcZonePolicy kAtcZonePolicyVincennes;
-extern const AtcZonePolicy kAtcZonePolicyW_Eur;
 extern const AtcZonePolicy kAtcZonePolicyWS;
 extern const AtcZonePolicy kAtcZonePolicyWinn;
-extern const AtcZonePolicy kAtcZonePolicyYukon;
 extern const AtcZonePolicy kAtcZonePolicyZion;
 
 
 //---------------------------------------------------------------------------
-// Unsupported zone policies: 0
+// Unsupported zone policies: 51
 //---------------------------------------------------------------------------
 
+// Albania {unused}
+// Algeria {unused}
+// Austria {unused}
+// Belgium {unused}
+// Bermuda {unused}
+// Bulg {unused}
+// CA {unused}
+// Chicago {unused}
+// Cyprus {unused}
+// Czech {unused}
+// DR {unused}
+// Denver {unused}
+// Detroit {unused}
+// E-Eur {unused}
+// Edm {unused}
+// EgyptAsia {unused}
+// Finland {unused}
+// France {unused}
+// GB-Eire {unused}
+// Germany {unused}
+// Greece {unused}
+// Halifax {unused}
+// Hungary {unused}
+// Indianapolis {unused}
+// Italy {unused}
+// Latvia {unused}
+// Louisville {unused}
+// Malta {unused}
+// Marengo {unused}
+// Menominee {unused}
+// NBorneo {unused}
+// NYC {unused}
+// Perry {unused}
+// Pike {unused}
+// Poland {unused}
+// Port {unused}
+// Pulaski {unused}
+// Regina {unused}
+// Romania {unused}
+// Shang {unused}
+// SovietZone {unused}
+// Spain {unused}
+// SpainAfrica {unused}
+// Starke {unused}
+// Swift {unused}
+// Swiss {unused}
+// Toronto {unused}
+// Vanc {unused}
+// Vincennes {unused}
+// W-Eur {unused}
+// Yukon {unused}
 
 
 //---------------------------------------------------------------------------
-// Notable zone policies: 27
+// Notable zone policies: 9
 //---------------------------------------------------------------------------
 
-// Barb {SAVE '0:30' different from 1:00}
-// Belize {
-//   LETTER '-0530' not single character,
-//   LETTER 'CDT' not single character,
-//   LETTER 'CPT' not single character,
-//   LETTER 'CST' not single character,
-//   LETTER 'CWT' not single character,
-//   SAVE '0:30' different from 1:00,
-// }
-// CA {AT '2:01' not multiple of :15 min}
-// Cook {SAVE '0:30' different from 1:00}
-// DR {
-//   LETTER '-0430' not single character,
-//   LETTER 'EDT' not single character,
-//   LETTER 'EST' not single character,
-//   SAVE '0:30' different from 1:00,
-// }
+// Belize {LETTER 'CST' not single character}
 // Eire {SAVE '-1:00' is a negative DST}
-// France {SAVE '2:00' different from 1:00}
-// GB-Eire {
-//   LETTER 'BDST' not single character,
-//   LETTER 'BST' not single character,
-//   LETTER 'GMT' not single character,
-//   SAVE '2:00' different from 1:00,
-// }
-// Germany {SAVE '2:00' different from 1:00}
-// Guam {
-//   AT '0:01' not multiple of :15 min,
-//   AT '2:01' not multiple of :15 min,
-// }
 // LH {SAVE '0:30' different from 1:00}
-// Louisville {AT '0:01' not multiple of :15 min}
 // Moncton {AT '0:01' not multiple of :15 min}
 // Morocco {SAVE '-1:00' is a negative DST}
-// NBorneo {SAVE '0:20' different from 1:00}
-// NZ {SAVE '0:30' different from 1:00}
 // Namibia {
 //   LETTER 'CAT' not single character,
 //   LETTER 'WAT' not single character,
 //   SAVE '-1:00' is a negative DST,
 // }
 // Palestine {AT '0:01' not multiple of :15 min}
-// Port {SAVE '2:00' different from 1:00}
-// Russia {
-//   LETTER '+05' not single character,
-//   LETTER 'MDST' not single character,
-//   LETTER 'MMT' not single character,
-//   LETTER 'MSD' not single character,
-//   LETTER 'MSK' not single character,
-//   LETTER 'MST' not single character,
-//   SAVE '2:00' different from 1:00,
-// }
-// SovietZone {SAVE '2:00' different from 1:00}
-// Spain {SAVE '2:00' different from 1:00}
 // StJohns {
 //   AT '0:01' not multiple of :15 min,
 //   LETTER 'DD' not single character,
@@ -295,18 +252,6 @@ extern const AtcZonePolicy kAtcZonePolicyZion;
 // Troll {
 //   LETTER '+00' not single character,
 //   LETTER '+02' not single character,
-//   SAVE '2:00' different from 1:00,
-// }
-// Uruguay {
-//   SAVE '0:30' different from 1:00,
-//   SAVE '1:30' different from 1:00,
-// }
-// Yukon {
-//   LETTER 'DD' not single character,
-//   SAVE '2:00' different from 1:00,
-// }
-// Zion {
-//   LETTER 'DD' not single character,
 //   SAVE '2:00' different from 1:00,
 // }
 

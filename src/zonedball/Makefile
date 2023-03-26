@@ -9,7 +9,7 @@ zone_registry.h
 TOOLS := $(abspath ../../../AceTimeTools)
 TZ_REPO := $(abspath $(TOOLS)/../tz)
 TZ_VERSION := 2022g
-START_YEAR := 2000
+START_YEAR := 1800
 UNTIL_YEAR := 10000
 
 all:
@@ -19,7 +19,7 @@ all:
 		--action zonedb \
 		--language c \
 		--scope extended \
-		--db_namespace Atc \
+		--db_namespace AtcAll \
 		--offset_granularity 1 \
 		--delta_granularity 60 \
 		--until_at_granularity 1 \

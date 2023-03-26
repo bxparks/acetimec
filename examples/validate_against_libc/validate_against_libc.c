@@ -97,9 +97,9 @@ int check_zone_names()
   }
 
   // Check all the zones and links in the AceTimeC zonedb registry.
-  printf("Checking %d Zones and Links\n", kAtcZoneAndLinkRegistrySize);
-  for (int i = 0; i < kAtcZoneAndLinkRegistrySize; i++) {
-    const AtcZoneInfo *info = kAtcZoneAndLinkRegistry[i];
+  printf("Checking %d Zones and Links\n", kAtcAllZoneAndLinkRegistrySize);
+  for (int i = 0; i < kAtcAllZoneAndLinkRegistrySize; i++) {
+    const AtcZoneInfo *info = kAtcAllZoneAndLinkRegistry[i];
     // Check that the zone name is supported by the current libc.
     int local_err = set_time_zone(info->name);
     if (local_err) {
@@ -272,8 +272,8 @@ int check_date_components()
   printf("==== check_date_components()\n");
 
   int err = 0;
-  for (int i = 0; i < kAtcZoneRegistrySize; i++) {
-    const AtcZoneInfo *info = kAtcZoneRegistry[i];
+  for (int i = 0; i < kAtcAllZoneRegistrySize; i++) {
+    const AtcZoneInfo *info = kAtcAllZoneRegistry[i];
     printf("%d: Zone %s: ", i, info->name);
     AtcTimeZone tz = {info, &processor};
 
