@@ -1673,190 +1673,127 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 // Notable zones: 298
 //---------------------------------------------------------------------------
 
-// Africa/Abidjan {
-//   STDOFF '-0:16:08' not at :00 or :30 mark,
-//   STDOFF '-0:16:08' not on 15-minute boundary,
-// }
+// Africa/Abidjan {STDOFF '-0:16:08' not multiple of :15 min}
 // Africa/Algiers {
-//   STDOFF '0:09:21' not on 15-minute boundary,
-//   STDOFF '0:12:12' not at :00 or :30 mark,
-//   STDOFF '0:12:12' not on 15-minute boundary,
+//   STDOFF '0:09:21' not multiple of :15 min,
+//   STDOFF '0:12:12' not multiple of :15 min,
 // }
-// Africa/Bissau {
-//   STDOFF '-1:02:20' not at :00 or :30 mark,
-//   STDOFF '-1:02:20' not on 15-minute boundary,
-// }
-// Africa/Cairo {
-//   STDOFF '2:05:09' not at :00 or :30 mark,
-//   STDOFF '2:05:09' not on 15-minute boundary,
-// }
+// Africa/Bissau {STDOFF '-1:02:20' not multiple of :15 min}
+// Africa/Cairo {STDOFF '2:05:09' not multiple of :15 min}
 // Africa/Casablanca {
-//   STDOFF '-0:30:20' not at :00 or :30 mark,
-//   STDOFF '-0:30:20' not on 15-minute boundary,
-//   Morocco {SAVE '-1:00' different from 1:00}
+//   STDOFF '-0:30:20' not multiple of :15 min,
+//   Morocco {SAVE '-1:00' is a negative DST}
 // }
 // Africa/Ceuta {
-//   STDOFF '-0:21:16' not at :00 or :30 mark,
-//   STDOFF '-0:21:16' not on 15-minute boundary,
+//   STDOFF '-0:21:16' not multiple of :15 min,
 //   Spain {SAVE '2:00' different from 1:00}
 // }
 // Africa/El_Aaiun {
-//   STDOFF '-0:52:48' not at :00 or :30 mark,
-//   STDOFF '-0:52:48' not on 15-minute boundary,
-//   Morocco {SAVE '-1:00' different from 1:00}
+//   STDOFF '-0:52:48' not multiple of :15 min,
+//   Morocco {SAVE '-1:00' is a negative DST}
 // }
 // Africa/Johannesburg {
 //   RULES not fixed but FORMAT is missing '%' or '/',
-//   STDOFF '1:52:00' not at :00 or :30 mark,
-//   STDOFF '1:52:00' not on 15-minute boundary,
+//   STDOFF '1:52:00' not multiple of :15 min,
 // }
-// Africa/Juba {
-//   STDOFF '2:06:28' not at :00 or :30 mark,
-//   STDOFF '2:06:28' not on 15-minute boundary,
-// }
-// Africa/Khartoum {
-//   STDOFF '2:10:08' not at :00 or :30 mark,
-//   STDOFF '2:10:08' not on 15-minute boundary,
-// }
-// Africa/Lagos {
-//   STDOFF '0:13:35' not at :00 or :30 mark,
-//   STDOFF '0:13:35' not on 15-minute boundary,
-// }
-// Africa/Maputo {
-//   STDOFF '2:10:20' not at :00 or :30 mark,
-//   STDOFF '2:10:20' not on 15-minute boundary,
-// }
+// Africa/Juba {STDOFF '2:06:28' not multiple of :15 min}
+// Africa/Khartoum {STDOFF '2:10:08' not multiple of :15 min}
+// Africa/Lagos {STDOFF '0:13:35' not multiple of :15 min}
+// Africa/Maputo {STDOFF '2:10:20' not multiple of :15 min}
 // Africa/Monrovia {
-//   STDOFF '-0:43:08' not at :00 or :30 mark,
-//   STDOFF '-0:43:08' not on 15-minute boundary,
+//   STDOFF '-0:43:08' not multiple of :15 min,
+//   STDOFF '-0:44:30' not multiple of :15 min,
 // }
 // Africa/Nairobi {
-//   STDOFF '2:27:16' not at :00 or :30 mark,
-//   STDOFF '2:27:16' not on 15-minute boundary,
+//   STDOFF '2:27:16' not multiple of :15 min,
+//   STDOFF '2:45' not multiple of :30 min,
 // }
-// Africa/Ndjamena {STDOFF '1:00:12' not at :00 or :30 mark}
+// Africa/Ndjamena {STDOFF '1:00:12' not multiple of :15 min}
 // Africa/Sao_Tome {
-//   STDOFF '-0:36:45' not on 15-minute boundary,
-//   STDOFF '0:26:56' not at :00 or :30 mark,
-//   STDOFF '0:26:56' not on 15-minute boundary,
+//   STDOFF '-0:36:45' not multiple of :15 min,
+//   STDOFF '0:26:56' not multiple of :15 min,
 // }
-// Africa/Tripoli {
-//   STDOFF '0:52:44' not at :00 or :30 mark,
-//   STDOFF '0:52:44' not on 15-minute boundary,
-// }
+// Africa/Tripoli {STDOFF '0:52:44' not multiple of :15 min}
 // Africa/Tunis {
-//   STDOFF '0:09:21' not on 15-minute boundary,
-//   STDOFF '0:40:44' not at :00 or :30 mark,
-//   STDOFF '0:40:44' not on 15-minute boundary,
+//   STDOFF '0:09:21' not multiple of :15 min,
+//   STDOFF '0:40:44' not multiple of :15 min,
 // }
 // Africa/Windhoek {
-//   STDOFF '1:08:24' not at :00 or :30 mark,
-//   STDOFF '1:08:24' not on 15-minute boundary,
+//   STDOFF '1:08:24' not multiple of :15 min,
 //   Namibia {
 //     LETTER 'CAT' not single character,
 //     LETTER 'WAT' not single character,
-//     SAVE '-1:00' different from 1:00,
+//     SAVE '-1:00' is a negative DST,
 //   }
 // }
 // America/Adak {
-//   STDOFF '-11:46:38' not on 15-minute boundary,
-//   STDOFF '12:13:22' not at :00 or :30 mark,
-//   STDOFF '12:13:22' not on 15-minute boundary,
-//   UNTIL '12:44:35' not on 15-minute boundary,
-//   UNTIL time '12:44:35' not multiple of 1-min,
+//   STDOFF '-11:46:38' not multiple of :15 min,
+//   STDOFF '12:13:22' not multiple of :15 min,
+//   UNTIL '12:44:35' not multiple of :01 min,
+//   UNTIL '12:44:35' not multiple of :15 min,
 // }
 // America/Anchorage {
-//   STDOFF '14:00:24' not at :00 or :30 mark,
-//   UNTIL '14:31:37' not on 15-minute boundary,
-//   UNTIL time '14:31:37' not multiple of 1-min,
+//   STDOFF '-9:59:36' not multiple of :15 min,
+//   STDOFF '14:00:24' not multiple of :15 min,
+//   UNTIL '14:31:37' not multiple of :01 min,
+//   UNTIL '14:31:37' not multiple of :15 min,
 // }
-// America/Araguaina {
-//   STDOFF '-3:12:48' not at :00 or :30 mark,
-//   STDOFF '-3:12:48' not on 15-minute boundary,
-// }
+// America/Araguaina {STDOFF '-3:12:48' not multiple of :15 min}
 // America/Argentina/Buenos_Aires {
-//   STDOFF '-3:53:48' not at :00 or :30 mark,
-//   STDOFF '-3:53:48' not on 15-minute boundary,
-//   STDOFF '-4:16:48' not on 15-minute boundary,
+//   STDOFF '-3:53:48' not multiple of :15 min,
+//   STDOFF '-4:16:48' not multiple of :15 min,
 // }
 // America/Argentina/Catamarca {
-//   STDOFF '-4:16:48' not on 15-minute boundary,
-//   STDOFF '-4:23:08' not at :00 or :30 mark,
-//   STDOFF '-4:23:08' not on 15-minute boundary,
+//   STDOFF '-4:16:48' not multiple of :15 min,
+//   STDOFF '-4:23:08' not multiple of :15 min,
 // }
-// America/Argentina/Cordoba {
-//   STDOFF '-4:16:48' not at :00 or :30 mark,
-//   STDOFF '-4:16:48' not on 15-minute boundary,
-// }
+// America/Argentina/Cordoba {STDOFF '-4:16:48' not multiple of :15 min}
 // America/Argentina/Jujuy {
-//   STDOFF '-4:16:48' not on 15-minute boundary,
-//   STDOFF '-4:21:12' not at :00 or :30 mark,
-//   STDOFF '-4:21:12' not on 15-minute boundary,
+//   STDOFF '-4:16:48' not multiple of :15 min,
+//   STDOFF '-4:21:12' not multiple of :15 min,
 // }
 // America/Argentina/La_Rioja {
-//   STDOFF '-4:16:48' not on 15-minute boundary,
-//   STDOFF '-4:27:24' not at :00 or :30 mark,
-//   STDOFF '-4:27:24' not on 15-minute boundary,
+//   STDOFF '-4:16:48' not multiple of :15 min,
+//   STDOFF '-4:27:24' not multiple of :15 min,
 // }
 // America/Argentina/Mendoza {
-//   STDOFF '-4:16:48' not on 15-minute boundary,
-//   STDOFF '-4:35:16' not at :00 or :30 mark,
-//   STDOFF '-4:35:16' not on 15-minute boundary,
+//   STDOFF '-4:16:48' not multiple of :15 min,
+//   STDOFF '-4:35:16' not multiple of :15 min,
 // }
 // America/Argentina/Rio_Gallegos {
-//   STDOFF '-4:16:48' not on 15-minute boundary,
-//   STDOFF '-4:36:52' not at :00 or :30 mark,
-//   STDOFF '-4:36:52' not on 15-minute boundary,
+//   STDOFF '-4:16:48' not multiple of :15 min,
+//   STDOFF '-4:36:52' not multiple of :15 min,
 // }
 // America/Argentina/Salta {
-//   STDOFF '-4:16:48' not on 15-minute boundary,
-//   STDOFF '-4:21:40' not at :00 or :30 mark,
-//   STDOFF '-4:21:40' not on 15-minute boundary,
+//   STDOFF '-4:16:48' not multiple of :15 min,
+//   STDOFF '-4:21:40' not multiple of :15 min,
 // }
 // America/Argentina/San_Juan {
-//   STDOFF '-4:16:48' not on 15-minute boundary,
-//   STDOFF '-4:34:04' not at :00 or :30 mark,
-//   STDOFF '-4:34:04' not on 15-minute boundary,
+//   STDOFF '-4:16:48' not multiple of :15 min,
+//   STDOFF '-4:34:04' not multiple of :15 min,
 // }
 // America/Argentina/San_Luis {
-//   STDOFF '-4:16:48' not on 15-minute boundary,
-//   STDOFF '-4:25:24' not at :00 or :30 mark,
-//   STDOFF '-4:25:24' not on 15-minute boundary,
+//   STDOFF '-4:16:48' not multiple of :15 min,
+//   STDOFF '-4:25:24' not multiple of :15 min,
 // }
 // America/Argentina/Tucuman {
-//   STDOFF '-4:16:48' not on 15-minute boundary,
-//   STDOFF '-4:20:52' not at :00 or :30 mark,
-//   STDOFF '-4:20:52' not on 15-minute boundary,
+//   STDOFF '-4:16:48' not multiple of :15 min,
+//   STDOFF '-4:20:52' not multiple of :15 min,
 // }
 // America/Argentina/Ushuaia {
-//   STDOFF '-4:16:48' not on 15-minute boundary,
-//   STDOFF '-4:33:12' not at :00 or :30 mark,
-//   STDOFF '-4:33:12' not on 15-minute boundary,
+//   STDOFF '-4:16:48' not multiple of :15 min,
+//   STDOFF '-4:33:12' not multiple of :15 min,
 // }
-// America/Asuncion {
-//   STDOFF '-3:50:40' not at :00 or :30 mark,
-//   STDOFF '-3:50:40' not on 15-minute boundary,
-// }
-// America/Bahia {
-//   STDOFF '-2:34:04' not at :00 or :30 mark,
-//   STDOFF '-2:34:04' not on 15-minute boundary,
-// }
-// America/Bahia_Banderas {
-//   STDOFF '-7:01:00' not at :00 or :30 mark,
-//   STDOFF '-7:01:00' not on 15-minute boundary,
-// }
+// America/Asuncion {STDOFF '-3:50:40' not multiple of :15 min}
+// America/Bahia {STDOFF '-2:34:04' not multiple of :15 min}
+// America/Bahia_Banderas {STDOFF '-7:01:00' not multiple of :15 min}
 // America/Barbados {
-//   STDOFF '-3:58:29' not at :00 or :30 mark,
-//   STDOFF '-3:58:29' not on 15-minute boundary,
+//   STDOFF '-3:58:29' not multiple of :15 min,
 //   Barb {SAVE '0:30' different from 1:00}
 // }
-// America/Belem {
-//   STDOFF '-3:13:56' not at :00 or :30 mark,
-//   STDOFF '-3:13:56' not on 15-minute boundary,
-// }
+// America/Belem {STDOFF '-3:13:56' not multiple of :15 min}
 // America/Belize {
-//   STDOFF '-5:52:48' not at :00 or :30 mark,
-//   STDOFF '-5:52:48' not on 15-minute boundary,
+//   STDOFF '-5:52:48' not multiple of :15 min,
 //   Belize {
 //     LETTER '-0530' not single character,
 //     LETTER 'CDT' not single character,
@@ -1866,332 +1803,172 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '0:30' different from 1:00,
 //   }
 // }
-// America/Boa_Vista {
-//   STDOFF '-4:02:40' not at :00 or :30 mark,
-//   STDOFF '-4:02:40' not on 15-minute boundary,
-// }
-// America/Bogota {
-//   STDOFF '-4:56:16' not at :00 or :30 mark,
-//   STDOFF '-4:56:16' not on 15-minute boundary,
-// }
-// America/Boise {STDOFF '-7:44:49' not at :00 or :30 mark}
-// America/Campo_Grande {
-//   STDOFF '-3:38:28' not at :00 or :30 mark,
-//   STDOFF '-3:38:28' not on 15-minute boundary,
-// }
-// America/Cancun {
-//   STDOFF '-5:47:04' not at :00 or :30 mark,
-//   STDOFF '-5:47:04' not on 15-minute boundary,
-// }
+// America/Boa_Vista {STDOFF '-4:02:40' not multiple of :15 min}
+// America/Bogota {STDOFF '-4:56:16' not multiple of :15 min}
+// America/Boise {STDOFF '-7:44:49' not multiple of :15 min}
+// America/Campo_Grande {STDOFF '-3:38:28' not multiple of :15 min}
+// America/Cancun {STDOFF '-5:47:04' not multiple of :15 min}
 // America/Caracas {
-//   STDOFF '-4:27:40' not on 15-minute boundary,
-//   STDOFF '-4:27:44' not at :00 or :30 mark,
-//   STDOFF '-4:27:44' not on 15-minute boundary,
+//   STDOFF '-4:27:40' not multiple of :15 min,
+//   STDOFF '-4:27:44' not multiple of :15 min,
 // }
-// America/Cayenne {STDOFF '-3:29:20' not at :00 or :30 mark}
-// America/Chicago {
-//   STDOFF '-5:50:36' not at :00 or :30 mark,
-//   STDOFF '-5:50:36' not on 15-minute boundary,
-// }
-// America/Chihuahua {
-//   STDOFF '-7:04:20' not at :00 or :30 mark,
-//   STDOFF '-7:04:20' not on 15-minute boundary,
-// }
-// America/Ciudad_Juarez {
-//   STDOFF '-7:05:56' not at :00 or :30 mark,
-//   STDOFF '-7:05:56' not on 15-minute boundary,
-// }
-// America/Costa_Rica {
-//   STDOFF '-5:36:13' not at :00 or :30 mark,
-//   STDOFF '-5:36:13' not on 15-minute boundary,
-// }
-// America/Cuiaba {STDOFF '-3:44:20' not at :00 or :30 mark}
-// America/Danmarkshavn {STDOFF '-1:14:40' not at :00 or :30 mark}
+// America/Cayenne {STDOFF '-3:29:20' not multiple of :15 min}
+// America/Chicago {STDOFF '-5:50:36' not multiple of :15 min}
+// America/Chihuahua {STDOFF '-7:04:20' not multiple of :15 min}
+// America/Ciudad_Juarez {STDOFF '-7:05:56' not multiple of :15 min}
+// America/Costa_Rica {STDOFF '-5:36:13' not multiple of :15 min}
+// America/Cuiaba {STDOFF '-3:44:20' not multiple of :15 min}
+// America/Danmarkshavn {STDOFF '-1:14:40' not multiple of :15 min}
 // America/Dawson {
-//   STDOFF '-9:17:40' not at :00 or :30 mark,
-//   STDOFF '-9:17:40' not on 15-minute boundary,
+//   STDOFF '-9:17:40' not multiple of :15 min,
 //   Yukon {
 //     LETTER 'DD' not single character,
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// America/Dawson_Creek {
-//   STDOFF '-8:00:56' not at :00 or :30 mark,
-//   STDOFF '-8:00:56' not on 15-minute boundary,
-// }
-// America/Denver {STDOFF '-6:59:56' not at :00 or :30 mark}
+// America/Dawson_Creek {STDOFF '-8:00:56' not multiple of :15 min}
+// America/Denver {STDOFF '-6:59:56' not multiple of :15 min}
 // America/Detroit {
-//   STDOFF '-5:32:11' not at :00 or :30 mark,
-//   STDOFF '-5:32:11' not on 15-minute boundary,
-//   UNTIL '0:01' not on 15-minute boundary,
+//   STDOFF '-5:32:11' not multiple of :15 min,
+//   UNTIL '0:01' not multiple of :15 min,
 // }
-// America/Edmonton {
-//   STDOFF '-7:33:52' not at :00 or :30 mark,
-//   STDOFF '-7:33:52' not on 15-minute boundary,
-// }
-// America/Eirunepe {
-//   STDOFF '-4:39:28' not at :00 or :30 mark,
-//   STDOFF '-4:39:28' not on 15-minute boundary,
-// }
-// America/El_Salvador {
-//   STDOFF '-5:56:48' not at :00 or :30 mark,
-//   STDOFF '-5:56:48' not on 15-minute boundary,
-// }
-// America/Fort_Nelson {
-//   STDOFF '-8:10:47' not at :00 or :30 mark,
-//   STDOFF '-8:10:47' not on 15-minute boundary,
-// }
-// America/Fortaleza {
-//   STDOFF '-2:34:00' not at :00 or :30 mark,
-//   STDOFF '-2:34:00' not on 15-minute boundary,
-// }
-// America/Glace_Bay {STDOFF '-3:59:48' not at :00 or :30 mark}
+// America/Edmonton {STDOFF '-7:33:52' not multiple of :15 min}
+// America/Eirunepe {STDOFF '-4:39:28' not multiple of :15 min}
+// America/El_Salvador {STDOFF '-5:56:48' not multiple of :15 min}
+// America/Fort_Nelson {STDOFF '-8:10:47' not multiple of :15 min}
+// America/Fortaleza {STDOFF '-2:34:00' not multiple of :15 min}
+// America/Glace_Bay {STDOFF '-3:59:48' not multiple of :15 min}
 // America/Goose_Bay {
-//   STDOFF '-3:30:52' not on 15-minute boundary,
-//   STDOFF '-4:01:40' not at :00 or :30 mark,
-//   STDOFF '-4:01:40' not on 15-minute boundary,
+//   STDOFF '-3:30:52' not multiple of :15 min,
+//   STDOFF '-4:01:40' not multiple of :15 min,
 //   StJohns {
-//     AT '0:01' not on 15-minute boundary,
+//     AT '0:01' not multiple of :15 min,
 //     LETTER 'DD' not single character,
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
 // America/Grand_Turk {
-//   STDOFF '-4:44:32' not at :00 or :30 mark,
-//   STDOFF '-5:07:10' not on 15-minute boundary,
+//   STDOFF '-4:44:32' not multiple of :15 min,
+//   STDOFF '-5:07:10' not multiple of :15 min,
 // }
-// America/Guatemala {
-//   STDOFF '-6:02:04' not at :00 or :30 mark,
-//   STDOFF '-6:02:04' not on 15-minute boundary,
-// }
+// America/Guatemala {STDOFF '-6:02:04' not multiple of :15 min}
 // America/Guayaquil {
-//   STDOFF '-5:14:00' not on 15-minute boundary,
-//   STDOFF '-5:19:20' not at :00 or :30 mark,
-//   STDOFF '-5:19:20' not on 15-minute boundary,
+//   STDOFF '-5:14:00' not multiple of :15 min,
+//   STDOFF '-5:19:20' not multiple of :15 min,
 // }
 // America/Guyana {
-//   STDOFF '-3:52:39' not at :00 or :30 mark,
-//   STDOFF '-3:52:39' not on 15-minute boundary,
+//   STDOFF '-3:45' not multiple of :30 min,
+//   STDOFF '-3:52:39' not multiple of :15 min,
 // }
-// America/Halifax {STDOFF '-4:14:24' not at :00 or :30 mark}
-// America/Havana {STDOFF '-5:29:28' not at :00 or :30 mark}
-// America/Hermosillo {
-//   STDOFF '-7:23:52' not at :00 or :30 mark,
-//   STDOFF '-7:23:52' not on 15-minute boundary,
+// America/Halifax {STDOFF '-4:14:24' not multiple of :15 min}
+// America/Havana {
+//   STDOFF '-5:29:28' not multiple of :15 min,
+//   STDOFF '-5:29:36' not multiple of :15 min,
 // }
-// America/Indiana/Indianapolis {STDOFF '-5:44:38' not at :00 or :30 mark}
-// America/Indiana/Knox {
-//   STDOFF '-5:46:30' not at :00 or :30 mark,
-//   STDOFF '-5:46:30' not on 15-minute boundary,
-// }
-// America/Indiana/Marengo {
-//   STDOFF '-5:45:23' not at :00 or :30 mark,
-//   STDOFF '-5:45:23' not on 15-minute boundary,
-// }
-// America/Indiana/Petersburg {
-//   STDOFF '-5:49:07' not at :00 or :30 mark,
-//   STDOFF '-5:49:07' not on 15-minute boundary,
-// }
-// America/Indiana/Tell_City {
-//   STDOFF '-5:47:03' not at :00 or :30 mark,
-//   STDOFF '-5:47:03' not on 15-minute boundary,
-// }
-// America/Indiana/Vevay {
-//   STDOFF '-5:40:16' not at :00 or :30 mark,
-//   STDOFF '-5:40:16' not on 15-minute boundary,
-// }
-// America/Indiana/Vincennes {
-//   STDOFF '-5:50:07' not at :00 or :30 mark,
-//   STDOFF '-5:50:07' not on 15-minute boundary,
-// }
-// America/Indiana/Winamac {
-//   STDOFF '-5:46:25' not at :00 or :30 mark,
-//   STDOFF '-5:46:25' not on 15-minute boundary,
-// }
-// America/Jamaica {
-//   STDOFF '-5:07:10' not at :00 or :30 mark,
-//   STDOFF '-5:07:10' not on 15-minute boundary,
-// }
+// America/Hermosillo {STDOFF '-7:23:52' not multiple of :15 min}
+// America/Indiana/Indianapolis {STDOFF '-5:44:38' not multiple of :15 min}
+// America/Indiana/Knox {STDOFF '-5:46:30' not multiple of :15 min}
+// America/Indiana/Marengo {STDOFF '-5:45:23' not multiple of :15 min}
+// America/Indiana/Petersburg {STDOFF '-5:49:07' not multiple of :15 min}
+// America/Indiana/Tell_City {STDOFF '-5:47:03' not multiple of :15 min}
+// America/Indiana/Vevay {STDOFF '-5:40:16' not multiple of :15 min}
+// America/Indiana/Vincennes {STDOFF '-5:50:07' not multiple of :15 min}
+// America/Indiana/Winamac {STDOFF '-5:46:25' not multiple of :15 min}
+// America/Jamaica {STDOFF '-5:07:10' not multiple of :15 min}
 // America/Juneau {
-//   STDOFF '-8:57:41' not on 15-minute boundary,
-//   STDOFF '15:02:19' not at :00 or :30 mark,
-//   STDOFF '15:02:19' not on 15-minute boundary,
-//   UNTIL '15:33:32' not on 15-minute boundary,
-//   UNTIL time '15:33:32' not multiple of 1-min,
+//   STDOFF '-8:57:41' not multiple of :15 min,
+//   STDOFF '15:02:19' not multiple of :15 min,
+//   UNTIL '15:33:32' not multiple of :01 min,
+//   UNTIL '15:33:32' not multiple of :15 min,
 // }
 // America/Kentucky/Louisville {
-//   STDOFF '-5:43:02' not at :00 or :30 mark,
-//   STDOFF '-5:43:02' not on 15-minute boundary,
-//   Louisville {AT '0:01' not on 15-minute boundary}
+//   STDOFF '-5:43:02' not multiple of :15 min,
+//   Louisville {AT '0:01' not multiple of :15 min}
 // }
-// America/Kentucky/Monticello {
-//   STDOFF '-5:39:24' not at :00 or :30 mark,
-//   STDOFF '-5:39:24' not on 15-minute boundary,
-// }
-// America/La_Paz {
-//   STDOFF '-4:32:36' not at :00 or :30 mark,
-//   STDOFF '-4:32:36' not on 15-minute boundary,
-// }
+// America/Kentucky/Monticello {STDOFF '-5:39:24' not multiple of :15 min}
+// America/La_Paz {STDOFF '-4:32:36' not multiple of :15 min}
 // America/Lima {
-//   STDOFF '-5:08:12' not at :00 or :30 mark,
-//   STDOFF '-5:08:12' not on 15-minute boundary,
-//   STDOFF '-5:08:36' not on 15-minute boundary,
+//   STDOFF '-5:08:12' not multiple of :15 min,
+//   STDOFF '-5:08:36' not multiple of :15 min,
 // }
 // America/Los_Angeles {
-//   STDOFF '-7:52:58' not at :00 or :30 mark,
-//   STDOFF '-7:52:58' not on 15-minute boundary,
-//   CA {AT '2:01' not on 15-minute boundary}
+//   STDOFF '-7:52:58' not multiple of :15 min,
+//   CA {AT '2:01' not multiple of :15 min}
 // }
-// America/Maceio {
-//   STDOFF '-2:22:52' not at :00 or :30 mark,
-//   STDOFF '-2:22:52' not on 15-minute boundary,
-// }
+// America/Maceio {STDOFF '-2:22:52' not multiple of :15 min}
 // America/Managua {
-//   STDOFF '-5:45:08' not at :00 or :30 mark,
-//   STDOFF '-5:45:08' not on 15-minute boundary,
-//   STDOFF '-5:45:12' not on 15-minute boundary,
+//   STDOFF '-5:45:08' not multiple of :15 min,
+//   STDOFF '-5:45:12' not multiple of :15 min,
 // }
-// America/Manaus {
-//   STDOFF '-4:00:04' not at :00 or :30 mark,
-//   STDOFF '-4:00:04' not on 15-minute boundary,
-// }
-// America/Martinique {
-//   STDOFF '-4:04:20' not at :00 or :30 mark,
-//   STDOFF '-4:04:20' not on 15-minute boundary,
-// }
-// America/Mazatlan {
-//   STDOFF '-7:05:40' not at :00 or :30 mark,
-//   STDOFF '-7:05:40' not on 15-minute boundary,
-// }
-// America/Menominee {
-//   STDOFF '-5:50:27' not at :00 or :30 mark,
-//   STDOFF '-5:50:27' not on 15-minute boundary,
-// }
-// America/Merida {
-//   STDOFF '-5:58:28' not at :00 or :30 mark,
-//   STDOFF '-5:58:28' not on 15-minute boundary,
-// }
+// America/Manaus {STDOFF '-4:00:04' not multiple of :15 min}
+// America/Martinique {STDOFF '-4:04:20' not multiple of :15 min}
+// America/Mazatlan {STDOFF '-7:05:40' not multiple of :15 min}
+// America/Menominee {STDOFF '-5:50:27' not multiple of :15 min}
+// America/Merida {STDOFF '-5:58:28' not multiple of :15 min}
 // America/Metlakatla {
-//   STDOFF '-8:46:18' not on 15-minute boundary,
-//   STDOFF '15:13:42' not at :00 or :30 mark,
-//   STDOFF '15:13:42' not on 15-minute boundary,
-//   UNTIL '15:44:55' not on 15-minute boundary,
-//   UNTIL time '15:44:55' not multiple of 1-min,
+//   STDOFF '-8:46:18' not multiple of :15 min,
+//   STDOFF '15:13:42' not multiple of :15 min,
+//   UNTIL '15:44:55' not multiple of :01 min,
+//   UNTIL '15:44:55' not multiple of :15 min,
 // }
-// America/Mexico_City {
-//   STDOFF '-6:36:36' not at :00 or :30 mark,
-//   STDOFF '-6:36:36' not on 15-minute boundary,
-// }
-// America/Miquelon {STDOFF '-3:44:40' not at :00 or :30 mark}
+// America/Mexico_City {STDOFF '-6:36:36' not multiple of :15 min}
+// America/Miquelon {STDOFF '-3:44:40' not multiple of :15 min}
 // America/Moncton {
-//   STDOFF '-4:19:08' not at :00 or :30 mark,
-//   STDOFF '-4:19:08' not on 15-minute boundary,
-//   Moncton {AT '0:01' not on 15-minute boundary}
+//   STDOFF '-4:19:08' not multiple of :15 min,
+//   Moncton {AT '0:01' not multiple of :15 min}
 // }
-// America/Monterrey {
-//   STDOFF '-6:41:16' not at :00 or :30 mark,
-//   STDOFF '-6:41:16' not on 15-minute boundary,
-// }
+// America/Monterrey {STDOFF '-6:41:16' not multiple of :15 min}
 // America/Montevideo {
-//   STDOFF '-3:44:51' not at :00 or :30 mark,
+//   STDOFF '-3:44:51' not multiple of :15 min,
 //   Uruguay {
 //     SAVE '0:30' different from 1:00,
 //     SAVE '1:30' different from 1:00,
 //   }
 // }
-// America/New_York {
-//   STDOFF '-4:56:02' not at :00 or :30 mark,
-//   STDOFF '-4:56:02' not on 15-minute boundary,
-// }
+// America/New_York {STDOFF '-4:56:02' not multiple of :15 min}
 // America/Nome {
-//   STDOFF '-11:01:38' not on 15-minute boundary,
-//   STDOFF '12:58:22' not at :00 or :30 mark,
-//   STDOFF '12:58:22' not on 15-minute boundary,
-//   UNTIL '13:29:35' not on 15-minute boundary,
-//   UNTIL time '13:29:35' not multiple of 1-min,
+//   STDOFF '-11:01:38' not multiple of :15 min,
+//   STDOFF '12:58:22' not multiple of :15 min,
+//   UNTIL '13:29:35' not multiple of :01 min,
+//   UNTIL '13:29:35' not multiple of :15 min,
 // }
-// America/Noronha {
-//   STDOFF '-2:09:40' not at :00 or :30 mark,
-//   STDOFF '-2:09:40' not on 15-minute boundary,
-// }
-// America/North_Dakota/Beulah {
-//   STDOFF '-6:47:07' not at :00 or :30 mark,
-//   STDOFF '-6:47:07' not on 15-minute boundary,
-// }
-// America/North_Dakota/Center {
-//   STDOFF '-6:45:12' not at :00 or :30 mark,
-//   STDOFF '-6:45:12' not on 15-minute boundary,
-// }
-// America/North_Dakota/New_Salem {
-//   STDOFF '-6:45:39' not at :00 or :30 mark,
-//   STDOFF '-6:45:39' not on 15-minute boundary,
-// }
-// America/Nuuk {
-//   STDOFF '-3:26:56' not at :00 or :30 mark,
-//   STDOFF '-3:26:56' not on 15-minute boundary,
-// }
-// America/Ojinaga {
-//   STDOFF '-6:57:40' not at :00 or :30 mark,
-//   STDOFF '-6:57:40' not on 15-minute boundary,
-// }
+// America/Noronha {STDOFF '-2:09:40' not multiple of :15 min}
+// America/North_Dakota/Beulah {STDOFF '-6:47:07' not multiple of :15 min}
+// America/North_Dakota/Center {STDOFF '-6:45:12' not multiple of :15 min}
+// America/North_Dakota/New_Salem {STDOFF '-6:45:39' not multiple of :15 min}
+// America/Nuuk {STDOFF '-3:26:56' not multiple of :15 min}
+// America/Ojinaga {STDOFF '-6:57:40' not multiple of :15 min}
 // America/Panama {
-//   STDOFF '-5:18:08' not at :00 or :30 mark,
-//   STDOFF '-5:18:08' not on 15-minute boundary,
-//   STDOFF '-5:19:36' not on 15-minute boundary,
+//   STDOFF '-5:18:08' not multiple of :15 min,
+//   STDOFF '-5:19:36' not multiple of :15 min,
 // }
 // America/Paramaribo {
-//   STDOFF '-3:40:36' not on 15-minute boundary,
-//   STDOFF '-3:40:40' not at :00 or :30 mark,
-//   STDOFF '-3:40:40' not on 15-minute boundary,
-//   STDOFF '-3:40:52' not on 15-minute boundary,
+//   STDOFF '-3:40:36' not multiple of :15 min,
+//   STDOFF '-3:40:40' not multiple of :15 min,
+//   STDOFF '-3:40:52' not multiple of :15 min,
 // }
 // America/Phoenix {
-//   STDOFF '-7:28:18' not at :00 or :30 mark,
-//   STDOFF '-7:28:18' not on 15-minute boundary,
-//   UNTIL '0:01' not on 15-minute boundary,
+//   STDOFF '-7:28:18' not multiple of :15 min,
+//   UNTIL '0:01' not multiple of :15 min,
 // }
 // America/Port-au-Prince {
-//   STDOFF '-4:49' not on 15-minute boundary,
-//   STDOFF '-4:49:20' not at :00 or :30 mark,
-//   STDOFF '-4:49:20' not on 15-minute boundary,
+//   STDOFF '-4:49' not multiple of :15 min,
+//   STDOFF '-4:49:20' not multiple of :15 min,
 // }
-// America/Porto_Velho {
-//   STDOFF '-4:15:36' not at :00 or :30 mark,
-//   STDOFF '-4:15:36' not on 15-minute boundary,
-// }
-// America/Puerto_Rico {
-//   STDOFF '-4:24:25' not at :00 or :30 mark,
-//   STDOFF '-4:24:25' not on 15-minute boundary,
-// }
+// America/Porto_Velho {STDOFF '-4:15:36' not multiple of :15 min}
+// America/Puerto_Rico {STDOFF '-4:24:25' not multiple of :15 min}
 // America/Punta_Arenas {
-//   STDOFF '-4:42:45' not on 15-minute boundary,
-//   STDOFF '-4:43:40' not at :00 or :30 mark,
-//   STDOFF '-4:43:40' not on 15-minute boundary,
+//   STDOFF '-4:42:45' not multiple of :15 min,
+//   STDOFF '-4:43:40' not multiple of :15 min,
 // }
-// America/Recife {
-//   STDOFF '-2:19:36' not at :00 or :30 mark,
-//   STDOFF '-2:19:36' not on 15-minute boundary,
-// }
-// America/Regina {
-//   STDOFF '-6:58:36' not at :00 or :30 mark,
-//   STDOFF '-6:58:36' not on 15-minute boundary,
-// }
-// America/Rio_Branco {
-//   STDOFF '-4:31:12' not at :00 or :30 mark,
-//   STDOFF '-4:31:12' not on 15-minute boundary,
-// }
-// America/Santarem {
-//   STDOFF '-3:38:48' not at :00 or :30 mark,
-//   STDOFF '-3:38:48' not on 15-minute boundary,
-// }
-// America/Santiago {
-//   STDOFF '-4:42:45' not at :00 or :30 mark,
-//   STDOFF '-4:42:45' not on 15-minute boundary,
-// }
+// America/Recife {STDOFF '-2:19:36' not multiple of :15 min}
+// America/Regina {STDOFF '-6:58:36' not multiple of :15 min}
+// America/Rio_Branco {STDOFF '-4:31:12' not multiple of :15 min}
+// America/Santarem {STDOFF '-3:38:48' not multiple of :15 min}
+// America/Santiago {STDOFF '-4:42:45' not multiple of :15 min}
 // America/Santo_Domingo {
-//   STDOFF '-4:39:36' not at :00 or :30 mark,
-//   STDOFF '-4:39:36' not on 15-minute boundary,
-//   STDOFF '-4:40' not on 15-minute boundary,
+//   STDOFF '-4:39:36' not multiple of :15 min,
+//   STDOFF '-4:40' not multiple of :15 min,
 //   DR {
 //     LETTER '-0430' not single character,
 //     LETTER 'EDT' not single character,
@@ -2199,73 +1976,44 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '0:30' different from 1:00,
 //   }
 // }
-// America/Sao_Paulo {
-//   STDOFF '-3:06:28' not at :00 or :30 mark,
-//   STDOFF '-3:06:28' not on 15-minute boundary,
-// }
-// America/Scoresbysund {
-//   STDOFF '-1:27:52' not at :00 or :30 mark,
-//   STDOFF '-1:27:52' not on 15-minute boundary,
-// }
+// America/Sao_Paulo {STDOFF '-3:06:28' not multiple of :15 min}
+// America/Scoresbysund {STDOFF '-1:27:52' not multiple of :15 min}
 // America/Sitka {
-//   STDOFF '-9:01:13' not on 15-minute boundary,
-//   STDOFF '14:58:47' not at :00 or :30 mark,
-//   STDOFF '14:58:47' not on 15-minute boundary,
+//   STDOFF '-9:01:13' not multiple of :15 min,
+//   STDOFF '14:58:47' not multiple of :15 min,
 // }
 // America/St_Johns {
-//   STDOFF '-3:30:52' not at :00 or :30 mark,
-//   STDOFF '-3:30:52' not on 15-minute boundary,
+//   STDOFF '-3:30:52' not multiple of :15 min,
 //   StJohns {
-//     AT '0:01' not on 15-minute boundary,
+//     AT '0:01' not multiple of :15 min,
 //     LETTER 'DD' not single character,
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// America/Swift_Current {
-//   STDOFF '-7:11:20' not at :00 or :30 mark,
-//   STDOFF '-7:11:20' not on 15-minute boundary,
-// }
-// America/Tegucigalpa {
-//   STDOFF '-5:48:52' not at :00 or :30 mark,
-//   STDOFF '-5:48:52' not on 15-minute boundary,
-// }
-// America/Thule {
-//   STDOFF '-4:35:08' not at :00 or :30 mark,
-//   STDOFF '-4:35:08' not on 15-minute boundary,
-// }
+// America/Swift_Current {STDOFF '-7:11:20' not multiple of :15 min}
+// America/Tegucigalpa {STDOFF '-5:48:52' not multiple of :15 min}
+// America/Thule {STDOFF '-4:35:08' not multiple of :15 min}
 // America/Tijuana {
-//   STDOFF '-7:48:04' not at :00 or :30 mark,
-//   STDOFF '-7:48:04' not on 15-minute boundary,
-//   CA {AT '2:01' not on 15-minute boundary}
+//   STDOFF '-7:48:04' not multiple of :15 min,
+//   CA {AT '2:01' not multiple of :15 min}
 // }
-// America/Toronto {
-//   STDOFF '-5:17:32' not at :00 or :30 mark,
-//   STDOFF '-5:17:32' not on 15-minute boundary,
-// }
-// America/Vancouver {
-//   STDOFF '-8:12:28' not at :00 or :30 mark,
-//   STDOFF '-8:12:28' not on 15-minute boundary,
-// }
+// America/Toronto {STDOFF '-5:17:32' not multiple of :15 min}
+// America/Vancouver {STDOFF '-8:12:28' not multiple of :15 min}
 // America/Whitehorse {
-//   STDOFF '-9:00:12' not at :00 or :30 mark,
-//   STDOFF '-9:00:12' not on 15-minute boundary,
+//   STDOFF '-9:00:12' not multiple of :15 min,
 //   Yukon {
 //     LETTER 'DD' not single character,
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// America/Winnipeg {
-//   STDOFF '-6:28:36' not at :00 or :30 mark,
-//   STDOFF '-6:28:36' not on 15-minute boundary,
-// }
+// America/Winnipeg {STDOFF '-6:28:36' not multiple of :15 min}
 // America/Yakutat {
-//   STDOFF '-9:18:55' not on 15-minute boundary,
-//   STDOFF '14:41:05' not at :00 or :30 mark,
-//   STDOFF '14:41:05' not on 15-minute boundary,
-//   UNTIL '15:12:18' not on 15-minute boundary,
-//   UNTIL time '15:12:18' not multiple of 1-min,
+//   STDOFF '-9:18:55' not multiple of :15 min,
+//   STDOFF '14:41:05' not multiple of :15 min,
+//   UNTIL '15:12:18' not multiple of :01 min,
+//   UNTIL '15:12:18' not multiple of :15 min,
 // }
-// Antarctica/Casey {UNTIL '0:01' not on 15-minute boundary}
+// Antarctica/Casey {UNTIL '0:01' not multiple of :15 min}
 // Antarctica/Troll {
 //   Troll {
 //     LETTER '+00' not single character,
@@ -2273,17 +2021,10 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Asia/Almaty {
-//   STDOFF '5:07:48' not at :00 or :30 mark,
-//   STDOFF '5:07:48' not on 15-minute boundary,
-// }
-// Asia/Amman {
-//   STDOFF '2:23:44' not at :00 or :30 mark,
-//   STDOFF '2:23:44' not on 15-minute boundary,
-// }
+// Asia/Almaty {STDOFF '5:07:48' not multiple of :15 min}
+// Asia/Amman {STDOFF '2:23:44' not multiple of :15 min}
 // Asia/Anadyr {
-//   STDOFF '11:49:56' not at :00 or :30 mark,
-//   STDOFF '11:49:56' not on 15-minute boundary,
+//   STDOFF '11:49:56' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2294,38 +2035,18 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Asia/Aqtau {
-//   STDOFF '3:21:04' not at :00 or :30 mark,
-//   STDOFF '3:21:04' not on 15-minute boundary,
-// }
-// Asia/Aqtobe {
-//   STDOFF '3:48:40' not at :00 or :30 mark,
-//   STDOFF '3:48:40' not on 15-minute boundary,
-// }
-// Asia/Ashgabat {
-//   STDOFF '3:53:32' not at :00 or :30 mark,
-//   STDOFF '3:53:32' not on 15-minute boundary,
-// }
-// Asia/Atyrau {
-//   STDOFF '3:27:44' not at :00 or :30 mark,
-//   STDOFF '3:27:44' not on 15-minute boundary,
-// }
+// Asia/Aqtau {STDOFF '3:21:04' not multiple of :15 min}
+// Asia/Aqtobe {STDOFF '3:48:40' not multiple of :15 min}
+// Asia/Ashgabat {STDOFF '3:53:32' not multiple of :15 min}
+// Asia/Atyrau {STDOFF '3:27:44' not multiple of :15 min}
 // Asia/Baghdad {
-//   STDOFF '2:57:36' not on 15-minute boundary,
-//   STDOFF '2:57:40' not at :00 or :30 mark,
-//   STDOFF '2:57:40' not on 15-minute boundary,
+//   STDOFF '2:57:36' not multiple of :15 min,
+//   STDOFF '2:57:40' not multiple of :15 min,
 // }
-// Asia/Baku {
-//   STDOFF '3:19:24' not at :00 or :30 mark,
-//   STDOFF '3:19:24' not on 15-minute boundary,
-// }
-// Asia/Bangkok {
-//   STDOFF '6:42:04' not at :00 or :30 mark,
-//   STDOFF '6:42:04' not on 15-minute boundary,
-// }
+// Asia/Baku {STDOFF '3:19:24' not multiple of :15 min}
+// Asia/Bangkok {STDOFF '6:42:04' not multiple of :15 min}
 // Asia/Barnaul {
-//   STDOFF '5:35:00' not at :00 or :30 mark,
-//   STDOFF '5:35:00' not on 15-minute boundary,
+//   STDOFF '5:35:00' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2336,17 +2057,10 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Asia/Beirut {
-//   STDOFF '2:22:00' not at :00 or :30 mark,
-//   STDOFF '2:22:00' not on 15-minute boundary,
-// }
-// Asia/Bishkek {
-//   STDOFF '4:58:24' not at :00 or :30 mark,
-//   STDOFF '4:58:24' not on 15-minute boundary,
-// }
+// Asia/Beirut {STDOFF '2:22:00' not multiple of :15 min}
+// Asia/Bishkek {STDOFF '4:58:24' not multiple of :15 min}
 // Asia/Chita {
-//   STDOFF '7:33:52' not at :00 or :30 mark,
-//   STDOFF '7:33:52' not on 15-minute boundary,
+//   STDOFF '7:33:52' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2357,73 +2071,46 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Asia/Choibalsan {
-//   STDOFF '7:38:00' not at :00 or :30 mark,
-//   STDOFF '7:38:00' not on 15-minute boundary,
-// }
+// Asia/Choibalsan {STDOFF '7:38:00' not multiple of :15 min}
 // Asia/Colombo {
-//   RULES delta offset '0:30' different from 1:00,
-//   STDOFF '5:19:24' not at :00 or :30 mark,
-//   STDOFF '5:19:24' not on 15-minute boundary,
-//   STDOFF '5:19:32' not on 15-minute boundary,
+//   RULES '0:30' different from 1:00,
+//   STDOFF '5:19:24' not multiple of :15 min,
+//   STDOFF '5:19:32' not multiple of :15 min,
 // }
-// Asia/Damascus {
-//   STDOFF '2:25:12' not at :00 or :30 mark,
-//   STDOFF '2:25:12' not on 15-minute boundary,
-// }
+// Asia/Damascus {STDOFF '2:25:12' not multiple of :15 min}
 // Asia/Dhaka {
-//   STDOFF '5:53:20' not on 15-minute boundary,
-//   STDOFF '6:01:40' not at :00 or :30 mark,
-//   STDOFF '6:01:40' not on 15-minute boundary,
+//   STDOFF '5:53:20' not multiple of :15 min,
+//   STDOFF '6:01:40' not multiple of :15 min,
 // }
-// Asia/Dili {
-//   STDOFF '8:22:20' not at :00 or :30 mark,
-//   STDOFF '8:22:20' not on 15-minute boundary,
-// }
-// Asia/Dubai {
-//   STDOFF '3:41:12' not at :00 or :30 mark,
-//   STDOFF '3:41:12' not on 15-minute boundary,
-// }
-// Asia/Dushanbe {
-//   STDOFF '4:35:12' not at :00 or :30 mark,
-//   STDOFF '4:35:12' not on 15-minute boundary,
-// }
-// Asia/Famagusta {STDOFF '2:15:48' not at :00 or :30 mark}
+// Asia/Dili {STDOFF '8:22:20' not multiple of :15 min}
+// Asia/Dubai {STDOFF '3:41:12' not multiple of :15 min}
+// Asia/Dushanbe {STDOFF '4:35:12' not multiple of :15 min}
+// Asia/Famagusta {STDOFF '2:15:48' not multiple of :15 min}
 // Asia/Gaza {
-//   STDOFF '2:17:52' not at :00 or :30 mark,
-//   STDOFF '2:17:52' not on 15-minute boundary,
-//   UNTIL '0:01' not on 15-minute boundary,
-//   Palestine {AT '0:01' not on 15-minute boundary}
+//   STDOFF '2:17:52' not multiple of :15 min,
+//   UNTIL '0:01' not multiple of :15 min,
+//   Palestine {AT '0:01' not multiple of :15 min}
 //   Zion {
 //     LETTER 'DD' not single character,
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
 // Asia/Hebron {
-//   STDOFF '2:20:23' not at :00 or :30 mark,
-//   STDOFF '2:20:23' not on 15-minute boundary,
-//   Palestine {AT '0:01' not on 15-minute boundary}
+//   STDOFF '2:20:23' not multiple of :15 min,
+//   Palestine {AT '0:01' not multiple of :15 min}
 //   Zion {
 //     LETTER 'DD' not single character,
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Asia/Ho_Chi_Minh {
-//   STDOFF '7:06:30' not at :00 or :30 mark,
-//   STDOFF '7:06:30' not on 15-minute boundary,
-// }
+// Asia/Ho_Chi_Minh {STDOFF '7:06:30' not multiple of :15 min}
 // Asia/Hong_Kong {
-//   RULES delta offset '0:30' different from 1:00,
-//   STDOFF '7:36:42' not at :00 or :30 mark,
-//   STDOFF '7:36:42' not on 15-minute boundary,
+//   RULES '0:30' different from 1:00,
+//   STDOFF '7:36:42' not multiple of :15 min,
 // }
-// Asia/Hovd {
-//   STDOFF '6:06:36' not at :00 or :30 mark,
-//   STDOFF '6:06:36' not on 15-minute boundary,
-// }
+// Asia/Hovd {STDOFF '6:06:36' not multiple of :15 min}
 // Asia/Irkutsk {
-//   STDOFF '6:57:05' not at :00 or :30 mark,
-//   STDOFF '6:57:05' not on 15-minute boundary,
+//   STDOFF '6:57:05' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2435,31 +2122,22 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Asia/Jakarta {
-//   STDOFF '7:07:12' not at :00 or :30 mark,
-//   STDOFF '7:07:12' not on 15-minute boundary,
-//   STDOFF '7:20' not on 15-minute boundary,
-//   UNTIL '16:40' not on 15-minute boundary,
+//   STDOFF '7:07:12' not multiple of :15 min,
+//   STDOFF '7:20' not multiple of :15 min,
+//   UNTIL '16:40' not multiple of :15 min,
 // }
-// Asia/Jayapura {
-//   STDOFF '9:22:48' not at :00 or :30 mark,
-//   STDOFF '9:22:48' not on 15-minute boundary,
-// }
+// Asia/Jayapura {STDOFF '9:22:48' not multiple of :15 min}
 // Asia/Jerusalem {
-//   STDOFF '2:20:40' not on 15-minute boundary,
-//   STDOFF '2:20:54' not at :00 or :30 mark,
-//   STDOFF '2:20:54' not on 15-minute boundary,
+//   STDOFF '2:20:40' not multiple of :15 min,
+//   STDOFF '2:20:54' not multiple of :15 min,
 //   Zion {
 //     LETTER 'DD' not single character,
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Asia/Kabul {
-//   STDOFF '4:36:48' not at :00 or :30 mark,
-//   STDOFF '4:36:48' not on 15-minute boundary,
-// }
+// Asia/Kabul {STDOFF '4:36:48' not multiple of :15 min}
 // Asia/Kamchatka {
-//   STDOFF '10:34:36' not at :00 or :30 mark,
-//   STDOFF '10:34:36' not on 15-minute boundary,
+//   STDOFF '10:34:36' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2470,17 +2148,13 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Asia/Karachi {
-//   STDOFF '4:28:12' not at :00 or :30 mark,
-//   STDOFF '4:28:12' not on 15-minute boundary,
-// }
+// Asia/Karachi {STDOFF '4:28:12' not multiple of :15 min}
 // Asia/Kathmandu {
-//   STDOFF '5:41:16' not at :00 or :30 mark,
-//   STDOFF '5:41:16' not on 15-minute boundary,
+//   STDOFF '5:41:16' not multiple of :15 min,
+//   STDOFF '5:45' not multiple of :30 min,
 // }
 // Asia/Khandyga {
-//   STDOFF '9:02:13' not at :00 or :30 mark,
-//   STDOFF '9:02:13' not on 15-minute boundary,
+//   STDOFF '9:02:13' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2492,14 +2166,12 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Asia/Kolkata {
-//   STDOFF '5:21:10' not on 15-minute boundary,
-//   STDOFF '5:53:20' not on 15-minute boundary,
-//   STDOFF '5:53:28' not at :00 or :30 mark,
-//   STDOFF '5:53:28' not on 15-minute boundary,
+//   STDOFF '5:21:10' not multiple of :15 min,
+//   STDOFF '5:53:20' not multiple of :15 min,
+//   STDOFF '5:53:28' not multiple of :15 min,
 // }
 // Asia/Krasnoyarsk {
-//   STDOFF '6:11:26' not at :00 or :30 mark,
-//   STDOFF '6:11:26' not on 15-minute boundary,
+//   STDOFF '6:11:26' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2511,17 +2183,12 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Asia/Kuching {
-//   STDOFF '7:21:20' not at :00 or :30 mark,
-//   STDOFF '7:21:20' not on 15-minute boundary,
+//   STDOFF '7:21:20' not multiple of :15 min,
 //   NBorneo {SAVE '0:20' different from 1:00}
 // }
-// Asia/Macau {
-//   STDOFF '7:34:10' not at :00 or :30 mark,
-//   STDOFF '7:34:10' not on 15-minute boundary,
-// }
+// Asia/Macau {STDOFF '7:34:10' not multiple of :15 min}
 // Asia/Magadan {
-//   STDOFF '10:03:12' not at :00 or :30 mark,
-//   STDOFF '10:03:12' not on 15-minute boundary,
+//   STDOFF '10:03:12' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2532,22 +2199,14 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Asia/Makassar {
-//   STDOFF '7:57:36' not at :00 or :30 mark,
-//   STDOFF '7:57:36' not on 15-minute boundary,
-// }
+// Asia/Makassar {STDOFF '7:57:36' not multiple of :15 min}
 // Asia/Manila {
-//   STDOFF '-15:56:00' not at :00 or :30 mark,
-//   STDOFF '-15:56:00' not on 15-minute boundary,
-//   STDOFF '8:04:00' not on 15-minute boundary,
+//   STDOFF '-15:56:00' not multiple of :15 min,
+//   STDOFF '8:04:00' not multiple of :15 min,
 // }
-// Asia/Nicosia {
-//   STDOFF '2:13:28' not at :00 or :30 mark,
-//   STDOFF '2:13:28' not on 15-minute boundary,
-// }
+// Asia/Nicosia {STDOFF '2:13:28' not multiple of :15 min}
 // Asia/Novokuznetsk {
-//   STDOFF '5:48:48' not at :00 or :30 mark,
-//   STDOFF '5:48:48' not on 15-minute boundary,
+//   STDOFF '5:48:48' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2559,8 +2218,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Asia/Novosibirsk {
-//   STDOFF '5:31:40' not at :00 or :30 mark,
-//   STDOFF '5:31:40' not on 15-minute boundary,
+//   STDOFF '5:31:40' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2572,8 +2230,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Asia/Omsk {
-//   STDOFF '4:53:30' not at :00 or :30 mark,
-//   STDOFF '4:53:30' not on 15-minute boundary,
+//   STDOFF '4:53:30' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2584,36 +2241,15 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Asia/Oral {
-//   STDOFF '3:25:24' not at :00 or :30 mark,
-//   STDOFF '3:25:24' not on 15-minute boundary,
-// }
-// Asia/Pontianak {
-//   STDOFF '7:17:20' not at :00 or :30 mark,
-//   STDOFF '7:17:20' not on 15-minute boundary,
-// }
-// Asia/Pyongyang {
-//   STDOFF '8:23:00' not at :00 or :30 mark,
-//   STDOFF '8:23:00' not on 15-minute boundary,
-// }
-// Asia/Qatar {
-//   STDOFF '3:26:08' not at :00 or :30 mark,
-//   STDOFF '3:26:08' not on 15-minute boundary,
-// }
-// Asia/Qostanay {
-//   STDOFF '4:14:28' not at :00 or :30 mark,
-//   STDOFF '4:14:28' not on 15-minute boundary,
-// }
-// Asia/Qyzylorda {
-//   STDOFF '4:21:52' not at :00 or :30 mark,
-//   STDOFF '4:21:52' not on 15-minute boundary,
-// }
-// Asia/Riyadh {
-//   STDOFF '3:06:52' not at :00 or :30 mark,
-//   STDOFF '3:06:52' not on 15-minute boundary,
-// }
+// Asia/Oral {STDOFF '3:25:24' not multiple of :15 min}
+// Asia/Pontianak {STDOFF '7:17:20' not multiple of :15 min}
+// Asia/Pyongyang {STDOFF '8:23:00' not multiple of :15 min}
+// Asia/Qatar {STDOFF '3:26:08' not multiple of :15 min}
+// Asia/Qostanay {STDOFF '4:14:28' not multiple of :15 min}
+// Asia/Qyzylorda {STDOFF '4:21:52' not multiple of :15 min}
+// Asia/Riyadh {STDOFF '3:06:52' not multiple of :15 min}
 // Asia/Sakhalin {
-//   STDOFF '9:30:48' not at :00 or :30 mark,
+//   STDOFF '9:30:48' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2624,27 +2260,16 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Asia/Samarkand {
-//   STDOFF '4:27:53' not at :00 or :30 mark,
-//   STDOFF '4:27:53' not on 15-minute boundary,
-// }
-// Asia/Seoul {
-//   STDOFF '8:27:52' not at :00 or :30 mark,
-//   STDOFF '8:27:52' not on 15-minute boundary,
-// }
-// Asia/Shanghai {
-//   STDOFF '8:05:43' not at :00 or :30 mark,
-//   STDOFF '8:05:43' not on 15-minute boundary,
-// }
+// Asia/Samarkand {STDOFF '4:27:53' not multiple of :15 min}
+// Asia/Seoul {STDOFF '8:27:52' not multiple of :15 min}
+// Asia/Shanghai {STDOFF '8:05:43' not multiple of :15 min}
 // Asia/Singapore {
-//   RULES delta offset '0:20' different from 1:00,
-//   STDOFF '6:55:25' not at :00 or :30 mark,
-//   STDOFF '6:55:25' not on 15-minute boundary,
-//   STDOFF '7:20' not on 15-minute boundary,
+//   RULES '0:20' different from 1:00,
+//   STDOFF '6:55:25' not multiple of :15 min,
+//   STDOFF '7:20' not multiple of :15 min,
 // }
 // Asia/Srednekolymsk {
-//   STDOFF '10:14:52' not at :00 or :30 mark,
-//   STDOFF '10:14:52' not on 15-minute boundary,
+//   STDOFF '10:14:52' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2655,33 +2280,14 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Asia/Taipei {
-//   STDOFF '8:06:00' not at :00 or :30 mark,
-//   STDOFF '8:06:00' not on 15-minute boundary,
-// }
-// Asia/Tashkent {
-//   STDOFF '4:37:11' not at :00 or :30 mark,
-//   STDOFF '4:37:11' not on 15-minute boundary,
-// }
-// Asia/Tbilisi {
-//   STDOFF '2:59:11' not at :00 or :30 mark,
-//   STDOFF '2:59:11' not on 15-minute boundary,
-// }
-// Asia/Tehran {
-//   STDOFF '3:25:44' not at :00 or :30 mark,
-//   STDOFF '3:25:44' not on 15-minute boundary,
-// }
-// Asia/Thimphu {
-//   STDOFF '5:58:36' not at :00 or :30 mark,
-//   STDOFF '5:58:36' not on 15-minute boundary,
-// }
-// Asia/Tokyo {
-//   STDOFF '9:18:59' not at :00 or :30 mark,
-//   STDOFF '9:18:59' not on 15-minute boundary,
-// }
+// Asia/Taipei {STDOFF '8:06:00' not multiple of :15 min}
+// Asia/Tashkent {STDOFF '4:37:11' not multiple of :15 min}
+// Asia/Tbilisi {STDOFF '2:59:11' not multiple of :15 min}
+// Asia/Tehran {STDOFF '3:25:44' not multiple of :15 min}
+// Asia/Thimphu {STDOFF '5:58:36' not multiple of :15 min}
+// Asia/Tokyo {STDOFF '9:18:59' not multiple of :15 min}
 // Asia/Tomsk {
-//   STDOFF '5:39:51' not at :00 or :30 mark,
-//   STDOFF '5:39:51' not on 15-minute boundary,
+//   STDOFF '5:39:51' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2692,17 +2298,10 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Asia/Ulaanbaatar {
-//   STDOFF '7:07:32' not at :00 or :30 mark,
-//   STDOFF '7:07:32' not on 15-minute boundary,
-// }
-// Asia/Urumqi {
-//   STDOFF '5:50:20' not at :00 or :30 mark,
-//   STDOFF '5:50:20' not on 15-minute boundary,
-// }
+// Asia/Ulaanbaatar {STDOFF '7:07:32' not multiple of :15 min}
+// Asia/Urumqi {STDOFF '5:50:20' not multiple of :15 min}
 // Asia/Ust-Nera {
-//   STDOFF '9:32:54' not at :00 or :30 mark,
-//   STDOFF '9:32:54' not on 15-minute boundary,
+//   STDOFF '9:32:54' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2714,8 +2313,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Asia/Vladivostok {
-//   STDOFF '8:47:31' not at :00 or :30 mark,
-//   STDOFF '8:47:31' not on 15-minute boundary,
+//   STDOFF '8:47:31' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2727,8 +2325,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Asia/Yakutsk {
-//   STDOFF '8:38:58' not at :00 or :30 mark,
-//   STDOFF '8:38:58' not on 15-minute boundary,
+//   STDOFF '8:38:58' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2739,13 +2336,10 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Asia/Yangon {
-//   STDOFF '6:24:47' not at :00 or :30 mark,
-//   STDOFF '6:24:47' not on 15-minute boundary,
-// }
+// Asia/Yangon {STDOFF '6:24:47' not multiple of :15 min}
 // Asia/Yekaterinburg {
-//   STDOFF '4:02:33' not at :00 or :30 mark,
-//   STDOFF '4:02:33' not on 15-minute boundary,
+//   STDOFF '3:45:05' not multiple of :15 min,
+//   STDOFF '4:02:33' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2756,99 +2350,44 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Asia/Yerevan {
-//   STDOFF '2:58:00' not at :00 or :30 mark,
-//   STDOFF '2:58:00' not on 15-minute boundary,
-// }
+// Asia/Yerevan {STDOFF '2:58:00' not multiple of :15 min}
 // Atlantic/Azores {
 //   RULES not fixed but FORMAT is missing '%' or '/',
-//   STDOFF '-1:42:40' not at :00 or :30 mark,
-//   STDOFF '-1:42:40' not on 15-minute boundary,
-//   STDOFF '-1:54:32' not on 15-minute boundary,
+//   STDOFF '-1:42:40' not multiple of :15 min,
+//   STDOFF '-1:54:32' not multiple of :15 min,
 //   Port {SAVE '2:00' different from 1:00}
 // }
-// Atlantic/Bermuda {
-//   STDOFF '-4:19:18' not at :00 or :30 mark,
-//   STDOFF '-4:19:18' not on 15-minute boundary,
-// }
-// Atlantic/Canary {
-//   STDOFF '-1:01:36' not at :00 or :30 mark,
-//   STDOFF '-1:01:36' not on 15-minute boundary,
-// }
-// Atlantic/Cape_Verde {
-//   STDOFF '-1:34:04' not at :00 or :30 mark,
-//   STDOFF '-1:34:04' not on 15-minute boundary,
-// }
-// Atlantic/Faroe {
-//   STDOFF '-0:27:04' not at :00 or :30 mark,
-//   STDOFF '-0:27:04' not on 15-minute boundary,
-// }
+// Atlantic/Bermuda {STDOFF '-4:19:18' not multiple of :15 min}
+// Atlantic/Canary {STDOFF '-1:01:36' not multiple of :15 min}
+// Atlantic/Cape_Verde {STDOFF '-1:34:04' not multiple of :15 min}
+// Atlantic/Faroe {STDOFF '-0:27:04' not multiple of :15 min}
 // Atlantic/Madeira {
 //   RULES not fixed but FORMAT is missing '%' or '/',
-//   STDOFF '-1:07:36' not at :00 or :30 mark,
-//   STDOFF '-1:07:36' not on 15-minute boundary,
+//   STDOFF '-1:07:36' not multiple of :15 min,
 //   Port {SAVE '2:00' different from 1:00}
 // }
-// Atlantic/South_Georgia {
-//   STDOFF '-2:26:08' not at :00 or :30 mark,
-//   STDOFF '-2:26:08' not on 15-minute boundary,
-// }
-// Atlantic/Stanley {
-//   STDOFF '-3:51:24' not at :00 or :30 mark,
-//   STDOFF '-3:51:24' not on 15-minute boundary,
-// }
-// Australia/Adelaide {
-//   STDOFF '9:14:20' not at :00 or :30 mark,
-//   STDOFF '9:14:20' not on 15-minute boundary,
-// }
-// Australia/Brisbane {
-//   STDOFF '10:12:08' not at :00 or :30 mark,
-//   STDOFF '10:12:08' not on 15-minute boundary,
-// }
-// Australia/Broken_Hill {
-//   STDOFF '9:25:48' not at :00 or :30 mark,
-//   STDOFF '9:25:48' not on 15-minute boundary,
-// }
-// Australia/Darwin {
-//   STDOFF '8:43:20' not at :00 or :30 mark,
-//   STDOFF '8:43:20' not on 15-minute boundary,
-// }
+// Atlantic/South_Georgia {STDOFF '-2:26:08' not multiple of :15 min}
+// Atlantic/Stanley {STDOFF '-3:51:24' not multiple of :15 min}
+// Australia/Adelaide {STDOFF '9:14:20' not multiple of :15 min}
+// Australia/Brisbane {STDOFF '10:12:08' not multiple of :15 min}
+// Australia/Broken_Hill {STDOFF '9:25:48' not multiple of :15 min}
+// Australia/Darwin {STDOFF '8:43:20' not multiple of :15 min}
 // Australia/Eucla {
-//   STDOFF '8:35:28' not at :00 or :30 mark,
-//   STDOFF '8:35:28' not on 15-minute boundary,
+//   STDOFF '8:35:28' not multiple of :15 min,
+//   STDOFF '8:45' not multiple of :30 min,
 // }
-// Australia/Hobart {
-//   STDOFF '9:49:16' not at :00 or :30 mark,
-//   STDOFF '9:49:16' not on 15-minute boundary,
-// }
-// Australia/Lindeman {
-//   STDOFF '9:55:56' not at :00 or :30 mark,
-//   STDOFF '9:55:56' not on 15-minute boundary,
-// }
+// Australia/Hobart {STDOFF '9:49:16' not multiple of :15 min}
+// Australia/Lindeman {STDOFF '9:55:56' not multiple of :15 min}
 // Australia/Lord_Howe {
-//   STDOFF '10:36:20' not at :00 or :30 mark,
-//   STDOFF '10:36:20' not on 15-minute boundary,
+//   STDOFF '10:36:20' not multiple of :15 min,
 //   LH {SAVE '0:30' different from 1:00}
 // }
-// Australia/Melbourne {
-//   STDOFF '9:39:52' not at :00 or :30 mark,
-//   STDOFF '9:39:52' not on 15-minute boundary,
-// }
-// Australia/Perth {
-//   STDOFF '7:43:24' not at :00 or :30 mark,
-//   STDOFF '7:43:24' not on 15-minute boundary,
-// }
-// Australia/Sydney {
-//   STDOFF '10:04:52' not at :00 or :30 mark,
-//   STDOFF '10:04:52' not on 15-minute boundary,
-// }
-// Europe/Andorra {
-//   STDOFF '0:06:04' not at :00 or :30 mark,
-//   STDOFF '0:06:04' not on 15-minute boundary,
-// }
+// Australia/Melbourne {STDOFF '9:39:52' not multiple of :15 min}
+// Australia/Perth {STDOFF '7:43:24' not multiple of :15 min}
+// Australia/Sydney {STDOFF '10:04:52' not multiple of :15 min}
+// Europe/Andorra {STDOFF '0:06:04' not multiple of :15 min}
 // Europe/Astrakhan {
-//   STDOFF '3:12:12' not at :00 or :30 mark,
-//   STDOFF '3:12:12' not on 15-minute boundary,
+//   STDOFF '3:12:12' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2860,39 +2399,26 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Europe/Athens {
-//   STDOFF '1:34:52' not at :00 or :30 mark,
-//   STDOFF '1:34:52' not on 15-minute boundary,
-//   UNTIL '0:01' not on 15-minute boundary,
+//   STDOFF '1:34:52' not multiple of :15 min,
+//   UNTIL '0:01' not multiple of :15 min,
 // }
-// Europe/Belgrade {
-//   STDOFF '1:22:00' not at :00 or :30 mark,
-//   STDOFF '1:22:00' not on 15-minute boundary,
-// }
+// Europe/Belgrade {STDOFF '1:22:00' not multiple of :15 min}
 // Europe/Berlin {
-//   STDOFF '0:53:28' not at :00 or :30 mark,
-//   STDOFF '0:53:28' not on 15-minute boundary,
+//   STDOFF '0:53:28' not multiple of :15 min,
 //   Germany {SAVE '2:00' different from 1:00}
 //   SovietZone {SAVE '2:00' different from 1:00}
 // }
 // Europe/Brussels {
-//   STDOFF '0:17:30' not at :00 or :30 mark,
-//   STDOFF '0:17:30' not on 15-minute boundary,
-//   UNTIL '00:17:30' not on 15-minute boundary,
-//   UNTIL time '00:17:30' not multiple of 1-min,
+//   STDOFF '0:17:30' not multiple of :15 min,
+//   UNTIL '00:17:30' not multiple of :01 min,
+//   UNTIL '00:17:30' not multiple of :15 min,
 // }
-// Europe/Bucharest {
-//   STDOFF '1:44:24' not at :00 or :30 mark,
-//   STDOFF '1:44:24' not on 15-minute boundary,
-// }
-// Europe/Budapest {
-//   STDOFF '1:16:20' not at :00 or :30 mark,
-//   STDOFF '1:16:20' not on 15-minute boundary,
-// }
+// Europe/Bucharest {STDOFF '1:44:24' not multiple of :15 min}
+// Europe/Budapest {STDOFF '1:16:20' not multiple of :15 min}
 // Europe/Chisinau {
-//   STDOFF '1:44:24' not on 15-minute boundary,
-//   STDOFF '1:55' not on 15-minute boundary,
-//   STDOFF '1:55:20' not at :00 or :30 mark,
-//   STDOFF '1:55:20' not on 15-minute boundary,
+//   STDOFF '1:44:24' not multiple of :15 min,
+//   STDOFF '1:55' not multiple of :15 min,
+//   STDOFF '1:55:20' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2904,9 +2430,8 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Europe/Dublin {
-//   STDOFF '-0:25:21' not at :00 or :30 mark,
-//   STDOFF '-0:25:21' not on 15-minute boundary,
-//   Eire {SAVE '-1:00' different from 1:00}
+//   STDOFF '-0:25:21' not multiple of :15 min,
+//   Eire {SAVE '-1:00' is a negative DST}
 //   GB-Eire {
 //     LETTER 'BDST' not single character,
 //     LETTER 'BST' not single character,
@@ -2915,8 +2440,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Europe/Gibraltar {
-//   STDOFF '-0:21:24' not at :00 or :30 mark,
-//   STDOFF '-0:21:24' not on 15-minute boundary,
+//   STDOFF '-0:21:24' not multiple of :15 min,
 //   GB-Eire {
 //     LETTER 'BDST' not single character,
 //     LETTER 'BST' not single character,
@@ -2924,18 +2448,13 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Europe/Helsinki {
-//   STDOFF '1:39:49' not at :00 or :30 mark,
-//   STDOFF '1:39:49' not on 15-minute boundary,
-// }
+// Europe/Helsinki {STDOFF '1:39:49' not multiple of :15 min}
 // Europe/Istanbul {
-//   STDOFF '1:55:52' not at :00 or :30 mark,
-//   STDOFF '1:55:52' not on 15-minute boundary,
-//   STDOFF '1:56:56' not on 15-minute boundary,
+//   STDOFF '1:55:52' not multiple of :15 min,
+//   STDOFF '1:56:56' not multiple of :15 min,
 // }
 // Europe/Kaliningrad {
-//   STDOFF '1:22:00' not at :00 or :30 mark,
-//   STDOFF '1:22:00' not on 15-minute boundary,
+//   STDOFF '1:22:00' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2947,8 +2466,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Europe/Kirov {
-//   STDOFF '3:18:48' not at :00 or :30 mark,
-//   STDOFF '3:18:48' not on 15-minute boundary,
+//   STDOFF '3:18:48' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2960,8 +2478,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Europe/Kyiv {
-//   STDOFF '2:02:04' not at :00 or :30 mark,
-//   STDOFF '2:02:04' not on 15-minute boundary,
+//   STDOFF '2:02:04' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -2973,13 +2490,11 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Europe/Lisbon {
-//   STDOFF '-0:36:45' not at :00 or :30 mark,
-//   STDOFF '-0:36:45' not on 15-minute boundary,
+//   STDOFF '-0:36:45' not multiple of :15 min,
 //   Port {SAVE '2:00' different from 1:00}
 // }
 // Europe/London {
-//   STDOFF '-0:01:15' not at :00 or :30 mark,
-//   STDOFF '-0:01:15' not on 15-minute boundary,
+//   STDOFF '-0:01:15' not multiple of :15 min,
 //   GB-Eire {
 //     LETTER 'BDST' not single character,
 //     LETTER 'BST' not single character,
@@ -2988,17 +2503,13 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Europe/Madrid {
-//   STDOFF '-0:14:44' not at :00 or :30 mark,
+//   STDOFF '-0:14:44' not multiple of :15 min,
 //   Spain {SAVE '2:00' different from 1:00}
 // }
-// Europe/Malta {
-//   STDOFF '0:58:04' not at :00 or :30 mark,
-//   STDOFF '0:58:04' not on 15-minute boundary,
-// }
+// Europe/Malta {STDOFF '0:58:04' not multiple of :15 min}
 // Europe/Minsk {
-//   STDOFF '1:50' not on 15-minute boundary,
-//   STDOFF '1:50:16' not at :00 or :30 mark,
-//   STDOFF '1:50:16' not on 15-minute boundary,
+//   STDOFF '1:50' not multiple of :15 min,
+//   STDOFF '1:50:16' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -3010,8 +2521,8 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Europe/Moscow {
-//   STDOFF '2:30:17' not at :00 or :30 mark,
-//   STDOFF '2:31:19' not on 15-minute boundary,
+//   STDOFF '2:30:17' not multiple of :15 min,
+//   STDOFF '2:31:19' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -3023,18 +2534,15 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Europe/Paris {
-//   STDOFF '0:09:21' not at :00 or :30 mark,
-//   STDOFF '0:09:21' not on 15-minute boundary,
+//   STDOFF '0:09:21' not multiple of :15 min,
 //   France {SAVE '2:00' different from 1:00}
 // }
 // Europe/Prague {
-//   RULES delta offset '-1:00' different from 1:00,
-//   STDOFF '0:57:44' not at :00 or :30 mark,
-//   STDOFF '0:57:44' not on 15-minute boundary,
+//   RULES '-1:00' is a negative DST,
+//   STDOFF '0:57:44' not multiple of :15 min,
 // }
 // Europe/Riga {
-//   STDOFF '1:36:34' not at :00 or :30 mark,
-//   STDOFF '1:36:34' not on 15-minute boundary,
+//   STDOFF '1:36:34' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -3045,13 +2553,9 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Europe/Rome {
-//   STDOFF '0:49:56' not at :00 or :30 mark,
-//   STDOFF '0:49:56' not on 15-minute boundary,
-// }
+// Europe/Rome {STDOFF '0:49:56' not multiple of :15 min}
 // Europe/Samara {
-//   STDOFF '3:20:20' not at :00 or :30 mark,
-//   STDOFF '3:20:20' not on 15-minute boundary,
+//   STDOFF '3:20:20' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -3063,8 +2567,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Europe/Saratov {
-//   STDOFF '3:04:18' not at :00 or :30 mark,
-//   STDOFF '3:04:18' not on 15-minute boundary,
+//   STDOFF '3:04:18' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -3076,9 +2579,8 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Europe/Simferopol {
-//   STDOFF '2:16' not on 15-minute boundary,
-//   STDOFF '2:16:24' not at :00 or :30 mark,
-//   STDOFF '2:16:24' not on 15-minute boundary,
+//   STDOFF '2:16' not multiple of :15 min,
+//   STDOFF '2:16:24' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -3090,13 +2592,11 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Europe/Sofia {
-//   STDOFF '1:33:16' not at :00 or :30 mark,
-//   STDOFF '1:33:16' not on 15-minute boundary,
-//   STDOFF '1:56:56' not on 15-minute boundary,
+//   STDOFF '1:33:16' not multiple of :15 min,
+//   STDOFF '1:56:56' not multiple of :15 min,
 // }
 // Europe/Tallinn {
-//   STDOFF '1:39:00' not at :00 or :30 mark,
-//   STDOFF '1:39:00' not on 15-minute boundary,
+//   STDOFF '1:39:00' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -3107,13 +2607,9 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Europe/Tirane {
-//   STDOFF '1:19:20' not at :00 or :30 mark,
-//   STDOFF '1:19:20' not on 15-minute boundary,
-// }
+// Europe/Tirane {STDOFF '1:19:20' not multiple of :15 min}
 // Europe/Ulyanovsk {
-//   STDOFF '3:13:36' not at :00 or :30 mark,
-//   STDOFF '3:13:36' not on 15-minute boundary,
+//   STDOFF '3:13:36' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -3124,15 +2620,11 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Europe/Vienna {
-//   STDOFF '1:05:21' not at :00 or :30 mark,
-//   STDOFF '1:05:21' not on 15-minute boundary,
-// }
+// Europe/Vienna {STDOFF '1:05:21' not multiple of :15 min}
 // Europe/Vilnius {
-//   STDOFF '1:24:00' not on 15-minute boundary,
-//   STDOFF '1:35:36' not on 15-minute boundary,
-//   STDOFF '1:41:16' not at :00 or :30 mark,
-//   STDOFF '1:41:16' not on 15-minute boundary,
+//   STDOFF '1:24:00' not multiple of :15 min,
+//   STDOFF '1:35:36' not multiple of :15 min,
+//   STDOFF '1:41:16' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -3144,8 +2636,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Europe/Volgograd {
-//   STDOFF '2:57:40' not at :00 or :30 mark,
-//   STDOFF '2:57:40' not on 15-minute boundary,
+//   STDOFF '2:57:40' not multiple of :15 min,
 //   Russia {
 //     LETTER '+05' not single character,
 //     LETTER 'MDST' not single character,
@@ -3156,156 +2647,90 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Europe/Warsaw {
-//   STDOFF '1:24:00' not at :00 or :30 mark,
-//   STDOFF '1:24:00' not on 15-minute boundary,
-// }
+// Europe/Warsaw {STDOFF '1:24:00' not multiple of :15 min}
 // Europe/Zurich {
-//   STDOFF '0:29:46' not on 15-minute boundary,
-//   STDOFF '0:34:08' not at :00 or :30 mark,
-//   STDOFF '0:34:08' not on 15-minute boundary,
+//   STDOFF '0:29:46' not multiple of :15 min,
+//   STDOFF '0:34:08' not multiple of :15 min,
 // }
-// Indian/Chagos {
-//   STDOFF '4:49:40' not at :00 or :30 mark,
-//   STDOFF '4:49:40' not on 15-minute boundary,
-// }
-// Indian/Maldives {
-//   STDOFF '4:54:00' not at :00 or :30 mark,
-//   STDOFF '4:54:00' not on 15-minute boundary,
-// }
-// Indian/Mauritius {
-//   STDOFF '3:50:00' not at :00 or :30 mark,
-//   STDOFF '3:50:00' not on 15-minute boundary,
-// }
+// Indian/Chagos {STDOFF '4:49:40' not multiple of :15 min}
+// Indian/Maldives {STDOFF '4:54:00' not multiple of :15 min}
+// Indian/Mauritius {STDOFF '3:50:00' not multiple of :15 min}
 // Pacific/Apia {
-//   STDOFF '-11:26:56' not on 15-minute boundary,
-//   STDOFF '12:33:04' not at :00 or :30 mark,
-//   STDOFF '12:33:04' not on 15-minute boundary,
+//   STDOFF '-11:26:56' not multiple of :15 min,
+//   STDOFF '12:33:04' not multiple of :15 min,
 // }
 // Pacific/Auckland {
-//   STDOFF '11:39:04' not at :00 or :30 mark,
-//   STDOFF '11:39:04' not on 15-minute boundary,
+//   STDOFF '11:39:04' not multiple of :15 min,
 //   NZ {SAVE '0:30' different from 1:00}
 // }
 // Pacific/Bougainville {
-//   STDOFF '10:22:16' not at :00 or :30 mark,
-//   STDOFF '10:22:16' not on 15-minute boundary,
-//   STDOFF '9:48:32' not on 15-minute boundary,
+//   STDOFF '10:22:16' not multiple of :15 min,
+//   STDOFF '9:48:32' not multiple of :15 min,
 // }
 // Pacific/Chatham {
-//   STDOFF '12:13:48' not at :00 or :30 mark,
-//   STDOFF '12:13:48' not on 15-minute boundary,
+//   STDOFF '12:13:48' not multiple of :15 min,
+//   STDOFF '12:15' not multiple of :30 min,
+//   STDOFF '12:45' not multiple of :30 min,
 // }
-// Pacific/Easter {
-//   STDOFF '-7:17:28' not at :00 or :30 mark,
-//   STDOFF '-7:17:28' not on 15-minute boundary,
-// }
-// Pacific/Efate {
-//   STDOFF '11:13:16' not at :00 or :30 mark,
-//   STDOFF '11:13:16' not on 15-minute boundary,
-// }
-// Pacific/Fakaofo {
-//   STDOFF '-11:24:56' not at :00 or :30 mark,
-//   STDOFF '-11:24:56' not on 15-minute boundary,
-// }
-// Pacific/Fiji {
-//   STDOFF '11:55:44' not at :00 or :30 mark,
-//   STDOFF '11:55:44' not on 15-minute boundary,
-// }
-// Pacific/Galapagos {
-//   STDOFF '-5:58:24' not at :00 or :30 mark,
-//   STDOFF '-5:58:24' not on 15-minute boundary,
-// }
-// Pacific/Gambier {STDOFF '-8:59:48' not at :00 or :30 mark}
-// Pacific/Guadalcanal {
-//   STDOFF '10:39:48' not at :00 or :30 mark,
-//   STDOFF '10:39:48' not on 15-minute boundary,
-// }
+// Pacific/Easter {STDOFF '-7:17:28' not multiple of :15 min}
+// Pacific/Efate {STDOFF '11:13:16' not multiple of :15 min}
+// Pacific/Fakaofo {STDOFF '-11:24:56' not multiple of :15 min}
+// Pacific/Fiji {STDOFF '11:55:44' not multiple of :15 min}
+// Pacific/Galapagos {STDOFF '-5:58:24' not multiple of :15 min}
+// Pacific/Gambier {STDOFF '-8:59:48' not multiple of :15 min}
+// Pacific/Guadalcanal {STDOFF '10:39:48' not multiple of :15 min}
 // Pacific/Guam {
-//   STDOFF '-14:21:00' not at :00 or :30 mark,
-//   STDOFF '-14:21:00' not on 15-minute boundary,
-//   STDOFF '9:39:00' not on 15-minute boundary,
+//   STDOFF '-14:21:00' not multiple of :15 min,
+//   STDOFF '9:39:00' not multiple of :15 min,
 //   Guam {
-//     AT '0:01' not on 15-minute boundary,
-//     AT '2:01' not on 15-minute boundary,
+//     AT '0:01' not multiple of :15 min,
+//     AT '2:01' not multiple of :15 min,
 //   }
 // }
-// Pacific/Honolulu {
-//   STDOFF '-10:31:26' not at :00 or :30 mark,
-//   STDOFF '-10:31:26' not on 15-minute boundary,
-// }
+// Pacific/Honolulu {STDOFF '-10:31:26' not multiple of :15 min}
 // Pacific/Kiritimati {
-//   STDOFF '-10:29:20' not at :00 or :30 mark,
-//   STDOFF '-10:40' not on 15-minute boundary,
+//   STDOFF '-10:29:20' not multiple of :15 min,
+//   STDOFF '-10:40' not multiple of :15 min,
 // }
 // Pacific/Kosrae {
-//   STDOFF '-13:08:04' not at :00 or :30 mark,
-//   STDOFF '-13:08:04' not on 15-minute boundary,
-//   STDOFF '10:51:56' not on 15-minute boundary,
+//   STDOFF '-13:08:04' not multiple of :15 min,
+//   STDOFF '10:51:56' not multiple of :15 min,
 // }
-// Pacific/Kwajalein {
-//   STDOFF '11:09:20' not at :00 or :30 mark,
-//   STDOFF '11:09:20' not on 15-minute boundary,
-// }
-// Pacific/Marquesas {
-//   STDOFF '-9:18:00' not at :00 or :30 mark,
-//   STDOFF '-9:18:00' not on 15-minute boundary,
-// }
-// Pacific/Nauru {
-//   STDOFF '11:07:40' not at :00 or :30 mark,
-//   STDOFF '11:07:40' not on 15-minute boundary,
-// }
+// Pacific/Kwajalein {STDOFF '11:09:20' not multiple of :15 min}
+// Pacific/Marquesas {STDOFF '-9:18:00' not multiple of :15 min}
+// Pacific/Nauru {STDOFF '11:07:40' not multiple of :15 min}
 // Pacific/Niue {
-//   STDOFF '-11:19:40' not at :00 or :30 mark,
-//   STDOFF '-11:19:40' not on 15-minute boundary,
-//   STDOFF '-11:20' not on 15-minute boundary,
+//   STDOFF '-11:19:40' not multiple of :15 min,
+//   STDOFF '-11:20' not multiple of :15 min,
 // }
 // Pacific/Norfolk {
-//   STDOFF '11:11:52' not at :00 or :30 mark,
-//   STDOFF '11:11:52' not on 15-minute boundary,
-//   STDOFF '11:12' not on 15-minute boundary,
+//   STDOFF '11:11:52' not multiple of :15 min,
+//   STDOFF '11:12' not multiple of :15 min,
 // }
-// Pacific/Noumea {
-//   STDOFF '11:05:48' not at :00 or :30 mark,
-//   STDOFF '11:05:48' not on 15-minute boundary,
-// }
+// Pacific/Noumea {STDOFF '11:05:48' not multiple of :15 min}
 // Pacific/Pago_Pago {
-//   STDOFF '-11:22:48' not on 15-minute boundary,
-//   STDOFF '12:37:12' not at :00 or :30 mark,
-//   STDOFF '12:37:12' not on 15-minute boundary,
+//   STDOFF '-11:22:48' not multiple of :15 min,
+//   STDOFF '12:37:12' not multiple of :15 min,
 // }
 // Pacific/Palau {
-//   STDOFF '-15:02:04' not at :00 or :30 mark,
-//   STDOFF '-15:02:04' not on 15-minute boundary,
-//   STDOFF '8:57:56' not on 15-minute boundary,
+//   STDOFF '-15:02:04' not multiple of :15 min,
+//   STDOFF '8:57:56' not multiple of :15 min,
 // }
-// Pacific/Pitcairn {
-//   STDOFF '-8:40:20' not at :00 or :30 mark,
-//   STDOFF '-8:40:20' not on 15-minute boundary,
-// }
+// Pacific/Pitcairn {STDOFF '-8:40:20' not multiple of :15 min}
 // Pacific/Port_Moresby {
-//   STDOFF '9:48:32' not on 15-minute boundary,
-//   STDOFF '9:48:40' not at :00 or :30 mark,
-//   STDOFF '9:48:40' not on 15-minute boundary,
+//   STDOFF '9:48:32' not multiple of :15 min,
+//   STDOFF '9:48:40' not multiple of :15 min,
 // }
 // Pacific/Rarotonga {
-//   STDOFF '-10:39:04' not on 15-minute boundary,
-//   STDOFF '13:20:56' not at :00 or :30 mark,
-//   STDOFF '13:20:56' not on 15-minute boundary,
+//   STDOFF '-10:39:04' not multiple of :15 min,
+//   STDOFF '13:20:56' not multiple of :15 min,
 //   Cook {SAVE '0:30' different from 1:00}
 // }
-// Pacific/Tahiti {
-//   STDOFF '-9:58:16' not at :00 or :30 mark,
-//   STDOFF '-9:58:16' not on 15-minute boundary,
-// }
-// Pacific/Tarawa {
-//   STDOFF '11:32:04' not at :00 or :30 mark,
-//   STDOFF '11:32:04' not on 15-minute boundary,
-// }
+// Pacific/Tahiti {STDOFF '-9:58:16' not multiple of :15 min}
+// Pacific/Tarawa {STDOFF '11:32:04' not multiple of :15 min}
 // Pacific/Tongatapu {
-//   STDOFF '12:19:12' not at :00 or :30 mark,
-//   STDOFF '12:19:12' not on 15-minute boundary,
-//   STDOFF '12:20' not on 15-minute boundary,
+//   STDOFF '12:19:12' not multiple of :15 min,
+//   STDOFF '12:20' not multiple of :15 min,
 // }
 
 

@@ -242,7 +242,7 @@ extern const AtcZonePolicy kAtcZonePolicyZion;
 //   LETTER 'CWT' not single character,
 //   SAVE '0:30' different from 1:00,
 // }
-// CA {AT '2:01' not on 15-minute boundary}
+// CA {AT '2:01' not multiple of :15 min}
 // Cook {SAVE '0:30' different from 1:00}
 // DR {
 //   LETTER '-0430' not single character,
@@ -250,7 +250,7 @@ extern const AtcZonePolicy kAtcZonePolicyZion;
 //   LETTER 'EST' not single character,
 //   SAVE '0:30' different from 1:00,
 // }
-// Eire {SAVE '-1:00' different from 1:00}
+// Eire {SAVE '-1:00' is a negative DST}
 // France {SAVE '2:00' different from 1:00}
 // GB-Eire {
 //   LETTER 'BDST' not single character,
@@ -260,21 +260,21 @@ extern const AtcZonePolicy kAtcZonePolicyZion;
 // }
 // Germany {SAVE '2:00' different from 1:00}
 // Guam {
-//   AT '0:01' not on 15-minute boundary,
-//   AT '2:01' not on 15-minute boundary,
+//   AT '0:01' not multiple of :15 min,
+//   AT '2:01' not multiple of :15 min,
 // }
 // LH {SAVE '0:30' different from 1:00}
-// Louisville {AT '0:01' not on 15-minute boundary}
-// Moncton {AT '0:01' not on 15-minute boundary}
-// Morocco {SAVE '-1:00' different from 1:00}
+// Louisville {AT '0:01' not multiple of :15 min}
+// Moncton {AT '0:01' not multiple of :15 min}
+// Morocco {SAVE '-1:00' is a negative DST}
 // NBorneo {SAVE '0:20' different from 1:00}
 // NZ {SAVE '0:30' different from 1:00}
 // Namibia {
 //   LETTER 'CAT' not single character,
 //   LETTER 'WAT' not single character,
-//   SAVE '-1:00' different from 1:00,
+//   SAVE '-1:00' is a negative DST,
 // }
-// Palestine {AT '0:01' not on 15-minute boundary}
+// Palestine {AT '0:01' not multiple of :15 min}
 // Port {SAVE '2:00' different from 1:00}
 // Russia {
 //   LETTER '+05' not single character,
@@ -288,7 +288,7 @@ extern const AtcZonePolicy kAtcZonePolicyZion;
 // SovietZone {SAVE '2:00' different from 1:00}
 // Spain {SAVE '2:00' different from 1:00}
 // StJohns {
-//   AT '0:01' not on 15-minute boundary,
+//   AT '0:01' not multiple of :15 min,
 //   LETTER 'DD' not single character,
 //   SAVE '2:00' different from 1:00,
 // }
