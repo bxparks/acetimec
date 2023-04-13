@@ -227,7 +227,7 @@ void atc_processor_init_for_zone_info(
  * Return non-zero error code upon failure.
  *
  * @param processor pointer to AtcZoneProcessor, not NULLable
- * @param zone_info NULL is valid and indicates UTC zone
+ * @param year year whose transitions should be precalculated
  */
 int8_t atc_processor_init_for_year(
   AtcZoneProcessor *processor,

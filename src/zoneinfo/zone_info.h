@@ -17,6 +17,7 @@
 #include <stdint.h>
 
 #ifndef ATC_HIRES_ZONEDB
+/** Set to 1 to use high-resolution (i.e. 1-second resolution) data fields. */
 #define ATC_HIRES_ZONEDB 1
 #endif
 
