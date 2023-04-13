@@ -27,7 +27,7 @@ memory and static RAM sizes were recorded. The `FEATURE_BASELINE` selection is
 the baseline, and its memory usage  numbers are subtracted from the subsequent
 `FEATURE_*` memory usage.
 
-**Version**: 0.7.0 (2023-02-12, TZDB version 2022g)
+**Version**: 0.8.0 (2023-04-13, TZDB version 2023c)
 
 **DO NOT EDIT**: This file was auto-generated using `make README.md`.
 
@@ -75,43 +75,40 @@ ASCII table.
     * ZoneAndLinkRegistry is another 10kB.
         * Microprocessors without `PROGMEM` support no longer compiles because
           it tries to instantiate the zonedb into RAM.
-
-### Legend
-
-* [1] Delta flash and ram consumption for `ZoneSorterByName` and
-  `ZoneSorterByOffsetAndName` are calculated by subtracting the
-  `BasicZoneManager (1 zone)` numbers, to isolate the memory consumption
-  of just the sorter classes.
-* [2] Delta flash and ram consumption for `ZoneSorterByName` and
-  `ZoneSorterByOffsetAndName` are calculated by subtracting the
-  `ExtendedZoneManager (1 zone)` numbers, to isolate the memory
-  consumption of just the sorter classes.
+* Upgrade to 2023c
+* Add memory numbers for `zonedball` database.
 
 ### Arduino Nano
 
 * 16MHz ATmega328P
-* Arduino IDE 1.8.19, Arduino CLI 0.27.1
-* Arduino AVR Boards 1.8.5
+* Arduino IDE 1.8.19, Arduino CLI 0.31.0
+* Arduino AVR Boards 1.8.6
 
 ```
 {nano_results}
 ```
 
+`PROGMEM` not used in AceTimeC, which causes the `zonedb` data structures to be
+stored in RAM not in flash.
+
 ### Sparkfun Pro Micro
 
 * 16 MHz ATmega32U4
-* Arduino IDE 1.8.19, Arduino CLI 0.27.1
+* Arduino IDE 1.8.19, Arduino CLI 0.31.0
 * SparkFun AVR Boards 1.1.13
 
 ```
 {micro_results}
 ```
 
+`PROGMEM` not used in AceTimeC, which causes the `zonedb` data structures to be
+stored in RAM not in flash.
+
 ### STM32 Blue Pill
 
 * STM32F103C8, 72 MHz ARM Cortex-M3
-* Arduino IDE 1.8.19, Arduino CLI 0.27.1
-* STM32duino 2.3.0
+* Arduino IDE 1.8.19, Arduino CLI 0.31.0
+* STM32duino 2.4.0
 
 ```
 {stm32_results}
@@ -123,18 +120,21 @@ microcontroller and the compiler did not generate the desired information.
 ### ESP8266
 
 * NodeMCU 1.0, 80MHz ESP8266
-* Arduino IDE 1.8.19, Arduino CLI 0.27.1
+* Arduino IDE 1.8.19, Arduino CLI 0.31.0
 * ESP8266 Boards 3.0.2
 
 ```
 {esp8266_results}
 ```
 
+`PROGMEM` not used in AceTimeC, which causes the `zonedb` data structures to be
+stored in RAM not in flash.
+
 ### ESP32
 
 * ESP32-01 Dev Board, 240 MHz Tensilica LX6
-* Arduino IDE 1.8.19, Arduino CLI 0.27.1
-* ESP32 Boards 2.0.5
+* Arduino IDE 1.8.19, Arduino CLI 0.31.0
+* ESP32 Boards 2.0.7
 
 ```
 {esp32_results}
@@ -147,7 +147,7 @@ usage by objects.
 ### Teensy 3.2
 
 * 96 MHz ARM Cortex-M4
-* Arduino IDE 1.8.19, Arduino CLI 0.27.1
+* Arduino IDE 1.8.19, Arduino CLI 0.31.0
 * Teensyduino 1.57
 
 ```

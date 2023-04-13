@@ -13,6 +13,8 @@
 #define FEATURE_TIME_ZONE2 4
 #define FEATURE_ZONE_REGISTRY 5
 #define FEATURE_ZONE_AND_LINK_REGISTRY 6
+#define FEATURE_ZONE_REGISTRY_ALL 7
+#define FEATURE_ZONE_AND_LINK_REGISTRY_ALL 8
 
 // Select one of the FEATURE_* parameter and compile. Then look at the flash
 // and RAM usage, compared to FEATURE_BASELINE usage to determine how much
@@ -56,12 +58,14 @@ volatile int16_t year = 2019;
   AtcTimeZone tz2 = {&kAtcZoneAmerica_New_York, &processor2};
   AtcZonedDateTime zdt1;
   AtcZonedDateTime zdt2;
-#elif FEATURE == FEATURE_ZONE_REGISTRY
+#elif FEATURE == FEATURE_ZONE_REGISTRY \
+    || FEATURE == FEATURE_ZONE_REGISTRY_ALL
   AtcZoneRegistrar registrar;
   AtcLocalDateTime ldt = {year, 6, 17, 9, 18, 0, 0 /*fold*/};
   AtcZoneProcessor processor;
   AtcZonedDateTime zdt;
-#elif FEATURE == FEATURE_ZONE_AND_LINK_REGISTRY
+#elif FEATURE == FEATURE_ZONE_AND_LINK_REGISTRY \
+    || FEATURE == FEATURE_ZONE_AND_LINK_REGISTRY_ALL
   AtcZoneRegistrar registrar;
   AtcLocalDateTime ldt = {year, 6, 17, 9, 18, 0, 0 /*fold*/};
   AtcZoneProcessor processor;
@@ -121,6 +125,7 @@ void setup() {
   guard ^= epoch_seconds;
   epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdt2);
   guard ^= epoch_seconds;
+
 #elif FEATURE == FEATURE_ZONE_REGISTRY
   atc_processor_init(&processor);
   atc_registrar_init(&registrar, kAtcZoneRegistry, kAtcZoneRegistrySize);
@@ -136,6 +141,29 @@ void setup() {
   atc_processor_init(&processor);
   atc_registrar_init(&registrar,
       kAtcZoneAndLinkRegistry, kAtcZoneAndLinkRegistrySize);
+  const AtcZoneInfo *zone_info = atc_registrar_find_by_name(
+    &registrar, "America/Los_Angeles");
+  AtcTimeZone tz = {zone_info, &processor};
+  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  if (err) return;
+  atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
+  guard ^= epoch_seconds;
+
+#elif FEATURE == FEATURE_ZONE_REGISTRY_ALL
+  atc_processor_init(&processor);
+  atc_registrar_init(&registrar, kAtcAllZoneRegistry, kAtcAllZoneRegistrySize);
+  const AtcZoneInfo *zone_info = atc_registrar_find_by_name(
+    &registrar, "America/Los_Angeles");
+  AtcTimeZone tz = {zone_info, &processor};
+  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  if (err) return;
+  atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
+  guard ^= epoch_seconds;
+
+#elif FEATURE == FEATURE_ZONE_AND_LINK_REGISTRY_ALL
+  atc_processor_init(&processor);
+  atc_registrar_init(&registrar,
+      kAtcAllZoneAndLinkRegistry, kAtcAllZoneAndLinkRegistrySize);
   const AtcZoneInfo *zone_info = atc_registrar_find_by_name(
     &registrar, "America/Los_Angeles");
   AtcTimeZone tz = {zone_info, &processor};

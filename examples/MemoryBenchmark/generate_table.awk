@@ -11,8 +11,10 @@ BEGIN {
   labels[2] = "ZonedDateTime"
   labels[3] = "TimeZone1"
   labels[4] = "TimeZone2"
-  labels[5] = "ZoneRegistry"
-  labels[6] = "ZoneAndLinkRegistry"
+  labels[5] = "ZoneRegistry (zonedb)"
+  labels[6] = "ZoneAndLinkRegistry (zonedb)"
+  labels[7] = "ZoneRegistry (zonedball)"
+  labels[8] = "ZoneAndLinkRegistry (zonedball)"
   record_index = 0
 }
 {
@@ -38,19 +40,20 @@ END {
   printf(\
     "+---------------------------------------------------------------------+\n")
   printf(\
-    "| Functionality                          |  flash/  ram |       delta |\n")
+    "| Functionality                         |  flash/  ram |        delta |\n")
 
   for (i = 0; i < NUM_ENTRIES; i++) {
     if (u[i]["flash"] == "-1") continue
 
     name = labels[i]
-    if (name ~ /^baseline/ \
-        || name ~ /^LocalDateTime/) {
+    if (name ~ /^baseline$/ \
+        || name ~ /^LocalDateTime$/ \
+        || name ~ /^ZoneRegistry/) {
       printf(\
-    "|----------------------------------------+--------------+-------------|\n")
+    "|---------------------------------------+--------------+--------------|\n")
     }
 
-    printf("| %-38s | %6d/%5d | %5d/%5d |\n",
+    printf("| %-37s | %6d/%5d | %6d/%5d |\n",
         name, u[i]["flash"], u[i]["ram"], u[i]["d_flash"], u[i]["d_ram"])
   }
   printf(\

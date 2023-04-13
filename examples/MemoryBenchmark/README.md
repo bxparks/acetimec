@@ -5,7 +5,7 @@ memory and static RAM sizes were recorded. The `FEATURE_BASELINE` selection is
 the baseline, and its memory usage  numbers are subtracted from the subsequent
 `FEATURE_*` memory usage.
 
-**Version**: 0.7.0 (2023-02-12, TZDB version 2022g)
+**Version**: 0.8.0 (2023-04-13, TZDB version 2023c)
 
 **DO NOT EDIT**: This file was auto-generated using `make README.md`.
 
@@ -53,78 +53,83 @@ ASCII table.
     * ZoneAndLinkRegistry is another 10kB.
         * Microprocessors without `PROGMEM` support no longer compiles because
           it tries to instantiate the zonedb into RAM.
-
-### Legend
-
-* [1] Delta flash and ram consumption for `ZoneSorterByName` and
-  `ZoneSorterByOffsetAndName` are calculated by subtracting the
-  `BasicZoneManager (1 zone)` numbers, to isolate the memory consumption
-  of just the sorter classes.
-* [2] Delta flash and ram consumption for `ZoneSorterByName` and
-  `ZoneSorterByOffsetAndName` are calculated by subtracting the
-  `ExtendedZoneManager (1 zone)` numbers, to isolate the memory
-  consumption of just the sorter classes.
+* Upgrade to 2023c
+* Add memory numbers for `zonedball` database.
 
 ### Arduino Nano
 
 * 16MHz ATmega328P
-* Arduino IDE 1.8.19, Arduino CLI 0.27.1
-* Arduino AVR Boards 1.8.5
+* Arduino IDE 1.8.19, Arduino CLI 0.31.0
+* Arduino AVR Boards 1.8.6
 
 ```
 +---------------------------------------------------------------------+
-| Functionality                          |  flash/  ram |       delta |
-|----------------------------------------+--------------+-------------|
-| baseline                               |    474/   11 |     0/    0 |
-|----------------------------------------+--------------+-------------|
-| LocalDateTime                          |   1006/   21 |   532/   10 |
-| ZonedDateTime                          |   3114/   67 |  2640/   56 |
-| TimeZone1                              |   8186/ 1279 |  7712/ 1268 |
-| TimeZone2                              |   9146/ 2047 |  8672/ 2036 |
-| ZoneRegistry                           |  67018/60026 | 66544/60015 |
+| Functionality                         |  flash/  ram |        delta |
+|---------------------------------------+--------------+--------------|
+| baseline                              |    474/   11 |      0/    0 |
+|---------------------------------------+--------------+--------------|
+| LocalDateTime                         |   1006/   21 |    532/   10 |
+| ZonedDateTime                         |   3034/   67 |   2560/   56 |
+| TimeZone1                             |   7540/  829 |   7066/  818 |
+| TimeZone2                             |   8374/ 1471 |   7900/ 1460 |
+|---------------------------------------+--------------+--------------|
+| ZoneRegistry (zonedb)                 |  37498/30696 |  37024/30685 |
+| ZoneAndLinkRegistry (zonedb)          |  44766/37964 |  44292/37953 |
 +---------------------------------------------------------------------+
 
 ```
+
+`PROGMEM` not used in AceTimeC, which causes the `zonedb` data structures to be
+stored in RAM not in flash.
 
 ### Sparkfun Pro Micro
 
 * 16 MHz ATmega32U4
-* Arduino IDE 1.8.19, Arduino CLI 0.27.1
+* Arduino IDE 1.8.19, Arduino CLI 0.31.0
 * SparkFun AVR Boards 1.1.13
 
 ```
 +---------------------------------------------------------------------+
-| Functionality                          |  flash/  ram |       delta |
-|----------------------------------------+--------------+-------------|
-| baseline                               |   3470/  153 |     0/    0 |
-|----------------------------------------+--------------+-------------|
-| LocalDateTime                          |   3962/  161 |   492/    8 |
-| ZonedDateTime                          |   6068/  205 |  2598/   52 |
-| TimeZone1                              |  11142/ 1419 |  7672/ 1266 |
-| TimeZone2                              |  12100/ 2185 |  8630/ 2032 |
-| ZoneRegistry                           |  69988/60164 | 66518/60011 |
+| Functionality                         |  flash/  ram |        delta |
+|---------------------------------------+--------------+--------------|
+| baseline                              |   3470/  153 |      0/    0 |
+|---------------------------------------+--------------+--------------|
+| LocalDateTime                         |   3962/  161 |    492/    8 |
+| ZonedDateTime                         |   5988/  205 |   2518/   52 |
+| TimeZone1                             |  10496/  969 |   7026/  816 |
+| TimeZone2                             |  11328/ 1609 |   7858/ 1456 |
+|---------------------------------------+--------------+--------------|
+| ZoneRegistry (zonedb)                 |  40470/30836 |  37000/30683 |
+| ZoneAndLinkRegistry (zonedb)          |  47736/38102 |  44266/37949 |
 +---------------------------------------------------------------------+
 
 ```
+
+`PROGMEM` not used in AceTimeC, which causes the `zonedb` data structures to be
+stored in RAM not in flash.
 
 ### STM32 Blue Pill
 
 * STM32F103C8, 72 MHz ARM Cortex-M3
-* Arduino IDE 1.8.19, Arduino CLI 0.27.1
-* STM32duino 2.3.0
+* Arduino IDE 1.8.19, Arduino CLI 0.31.0
+* STM32duino 2.4.0
 
 ```
 +---------------------------------------------------------------------+
-| Functionality                          |  flash/  ram |       delta |
-|----------------------------------------+--------------+-------------|
-| baseline                               |  21392/ 3556 |     0/    0 |
-|----------------------------------------+--------------+-------------|
-| LocalDateTime                          |  21664/ 3572 |   272/   16 |
-| ZonedDateTime                          |  26016/ 3592 |  4624/   36 |
-| TimeZone1                              |  27592/ 4384 |  6200/  828 |
-| TimeZone2                              |  28312/ 5196 |  6920/ 1640 |
-| ZoneRegistry                           | 100964/ 4384 | 79572/  828 |
-| ZoneAndLinkRegistry                    | 111380/ 4384 | 89988/  828 |
+| Functionality                         |  flash/  ram |        delta |
+|---------------------------------------+--------------+--------------|
+| baseline                              |  21392/ 3556 |      0/    0 |
+|---------------------------------------+--------------+--------------|
+| LocalDateTime                         |  21664/ 3572 |    272/   16 |
+| ZonedDateTime                         |  25984/ 3592 |   4592/   36 |
+| TimeZone1                             |  26712/ 4384 |   5320/  828 |
+| TimeZone2                             |  27272/ 5196 |   5880/ 1640 |
+|---------------------------------------+--------------+--------------|
+| ZoneRegistry (zonedb)                 |  64544/ 4384 |  43152/  828 |
+| ZoneAndLinkRegistry (zonedb)          |  75008/ 4384 |  53616/  828 |
+|---------------------------------------+--------------+--------------|
+| ZoneRegistry (zonedball)              | 109504/ 4384 |  88112/  828 |
+| ZoneAndLinkRegistry (zonedball)       | 119968/ 4384 |  98576/  828 |
 +---------------------------------------------------------------------+
 
 ```
@@ -135,41 +140,51 @@ microcontroller and the compiler did not generate the desired information.
 ### ESP8266
 
 * NodeMCU 1.0, 80MHz ESP8266
-* Arduino IDE 1.8.19, Arduino CLI 0.27.1
+* Arduino IDE 1.8.19, Arduino CLI 0.31.0
 * ESP8266 Boards 3.0.2
 
 ```
 +---------------------------------------------------------------------+
-| Functionality                          |  flash/  ram |       delta |
-|----------------------------------------+--------------+-------------|
-| baseline                               | 260089/27892 |     0/    0 |
-|----------------------------------------+--------------+-------------|
-| LocalDateTime                          | 260525/27912 |   436/   20 |
-| ZonedDateTime                          | 266525/27968 |  6436/   76 |
-| TimeZone1                              | 268125/30312 |  8036/ 2420 |
-| TimeZone2                              | 269009/31340 |  8920/ 3448 |
+| Functionality                         |  flash/  ram |        delta |
+|---------------------------------------+--------------+--------------|
+| baseline                              | 260089/27892 |      0/    0 |
+|---------------------------------------+--------------+--------------|
+| LocalDateTime                         | 260525/27912 |    436/   20 |
+| ZonedDateTime                         | 266461/27968 |   6372/   76 |
+| TimeZone1                             | 267213/29464 |   7124/ 1572 |
+| TimeZone2                             | 267941/30336 |   7852/ 2444 |
+|---------------------------------------+--------------+--------------|
+| ZoneRegistry (zonedb)                 | 305621/67560 |  45532/39668 |
+| ZoneAndLinkRegistry (zonedb)          | 316437/78376 |  56348/50484 |
 +---------------------------------------------------------------------+
 
 ```
+
+`PROGMEM` not used in AceTimeC, which causes the `zonedb` data structures to be
+stored in RAM not in flash.
 
 ### ESP32
 
 * ESP32-01 Dev Board, 240 MHz Tensilica LX6
-* Arduino IDE 1.8.19, Arduino CLI 0.27.1
-* ESP32 Boards 2.0.5
+* Arduino IDE 1.8.19, Arduino CLI 0.31.0
+* ESP32 Boards 2.0.7
 
 ```
 +---------------------------------------------------------------------+
-| Functionality                          |  flash/  ram |       delta |
-|----------------------------------------+--------------+-------------|
-| baseline                               | 211065/16056 |     0/    0 |
-|----------------------------------------+--------------+-------------|
-| LocalDateTime                          | 211481/16072 |   416/   16 |
-| ZonedDateTime                          | 216325/16088 |  5260/   32 |
-| TimeZone1                              | 217897/16872 |  6832/  816 |
-| TimeZone2                              | 218641/17696 |  7576/ 1640 |
-| ZoneRegistry                           | 291813/16880 | 80748/  824 |
-| ZoneAndLinkRegistry                    | 302581/16880 | 91516/  824 |
+| Functionality                         |  flash/  ram |        delta |
+|---------------------------------------+--------------+--------------|
+| baseline                              | 228345/21976 |      0/    0 |
+|---------------------------------------+--------------+--------------|
+| LocalDateTime                         | 228761/21992 |    416/   16 |
+| ZonedDateTime                         | 233541/22016 |   5196/   40 |
+| TimeZone1                             | 234281/22800 |   5936/  824 |
+| TimeZone2                             | 234865/23616 |   6520/ 1640 |
+|---------------------------------------+--------------+--------------|
+| ZoneRegistry (zonedb)                 | 272661/22808 |  44316/  832 |
+| ZoneAndLinkRegistry (zonedb)          | 283477/22808 |  55132/  832 |
+|---------------------------------------+--------------+--------------|
+| ZoneRegistry (zonedball)              | 317621/22808 |  89276/  832 |
+| ZoneAndLinkRegistry (zonedball)       | 328437/22808 | 100092/  832 |
 +---------------------------------------------------------------------+
 
 ```
@@ -181,21 +196,25 @@ usage by objects.
 ### Teensy 3.2
 
 * 96 MHz ARM Cortex-M4
-* Arduino IDE 1.8.19, Arduino CLI 0.27.1
+* Arduino IDE 1.8.19, Arduino CLI 0.31.0
 * Teensyduino 1.57
 
 ```
 +---------------------------------------------------------------------+
-| Functionality                          |  flash/  ram |       delta |
-|----------------------------------------+--------------+-------------|
-| baseline                               |  10060/ 4152 |     0/    0 |
-|----------------------------------------+--------------+-------------|
-| LocalDateTime                          |  10352/ 4168 |   292/   16 |
-| ZonedDateTime                          |  16316/ 4188 |  6256/   36 |
-| TimeZone1                              |  18152/ 4980 |  8092/  828 |
-| TimeZone2                              |  18956/ 5792 |  8896/ 1640 |
-| ZoneRegistry                           |  92868/ 4980 | 82808/  828 |
-| ZoneAndLinkRegistry                    | 103636/ 4980 | 93576/  828 |
+| Functionality                         |  flash/  ram |        delta |
+|---------------------------------------+--------------+--------------|
+| baseline                              |  10060/ 4152 |      0/    0 |
+|---------------------------------------+--------------+--------------|
+| LocalDateTime                         |  10352/ 4168 |    292/   16 |
+| ZonedDateTime                         |  16252/ 4188 |   6192/   36 |
+| TimeZone1                             |  17124/ 4980 |   7064/  828 |
+| TimeZone2                             |  17708/ 5792 |   7648/ 1640 |
+|---------------------------------------+--------------+--------------|
+| ZoneRegistry (zonedb)                 |  56236/ 4980 |  46176/  828 |
+| ZoneAndLinkRegistry (zonedb)          |  67052/ 4980 |  56992/  828 |
+|---------------------------------------+--------------+--------------|
+| ZoneRegistry (zonedball)              | 101356/ 4980 |  91296/  828 |
+| ZoneAndLinkRegistry (zonedball)       | 112172/ 4980 | 102112/  828 |
 +---------------------------------------------------------------------+
 
 ```
