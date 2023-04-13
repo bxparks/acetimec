@@ -55,7 +55,7 @@ typedef struct AtcZonedExtra {
   int32_t req_dst_offset_seconds;
 
   /** abbreviation (e.g. PST, PDT) */
-  char abbrev[kAtcAbbrevSize];
+  char abbrev[kAtcAbbrevSize]; // TODO: Move this after 'type' to save space
 } AtcZonedExtra;
 
 /**
