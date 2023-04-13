@@ -207,13 +207,23 @@ void atc_processor_init(AtcZoneProcessor *processor);
 /**
  * Initialize AtcZoneProcessor for the given zone_info. This allows an
  * AtcZoneProcessor to be re-used with different zone info.
+ *
+ * Normally, the client code will not need to use this if all interactions with
+ * the AtcZoneProcessor occurs through the public functions attached to the
+ * `AtcTimeZone` object (in other words, the `atc_time_zone_xxx()` functions).
+ * If the `AtcZoneProcessor` object is accessed directly, this function may need
+ * to be called each time the AtcZoneProcessor is used with a new AtcZoneInfo
+ * object.
  */
 void atc_processor_init_for_zone_info(
   AtcZoneProcessor *processor,
   const AtcZoneInfo *zone_info);
 
 /**
- * Initialize AtcZoneProcessor for the given year.
+ * Initialize AtcZoneProcessor for the given year. An internal cache for the
+ * given year prevents unnecessary computation if this function is called
+ * multiple times with the same year.
+ *
  * Return non-zero error code upon failure.
  *
  * @param processor pointer to AtcZoneProcessor, not NULLable
@@ -224,8 +234,14 @@ int8_t atc_processor_init_for_year(
   int16_t year);
 
 /**
- * Initialize AtcZoneProcessor for the given epoch seconds.
+ * Initialize AtcZoneProcessor for the given epoch seconds. This calls
+ * `atc_processor_init_for_year()` using the UTC year corresponding to the given
+ * `epoch_seconds`.
+ *
  * Return non-zero error code upon failure.
+ *
+ * @param processor pointer to AtcZoneProcessor, not NULLable
+ * @param epoch_seconds seconds since the current epoch year
  */
 int8_t atc_processor_init_for_epoch_seconds(
   AtcZoneProcessor *processor,
