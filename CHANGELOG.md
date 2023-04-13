@@ -1,12 +1,26 @@
 # Changelog
 
 * Unreleased
+* 0.8.0 (2023-04-13, TZDB 2023c)
+    * Upgrade TZDB from 2023b to 2023c.
+        * https://mm.icann.org/pipermail/tz-announce/2023-March/000079.html
+            * "This release's code and data are identical to 2023a.  In other
+              words, this release reverts all changes made in 2023b other than
+              commentary, as that appears to be the best of a bad set of
+              short-notice choices for modeling this week's daylight saving
+              chaos in Lebanon."
     * Add support for plain UTC timezone in `AtcTimeZone`.
         * Create pre-defined `atc_time_zone_utc` instance.
     * Move `AtcZonedExtra` factory functions to `AtcTimeZone`.
         * Simplify initialization sequence of `AtcZoneProcessor` by channeling
           all factory operations through `AtcTimeZone`.
-    * Create `zonedbtesting` subset for unit tests.
+    * zonedbs
+        * Create `zonedbtesting` for unit tests, using a limited number of
+          zones, over only a limited [2000,10000] year range.
+        * Create `zonedball` using [1800,10000] which covers the entire range of
+          the TZDB database, for all zones.
+        * Restrict range of `zonedb` to [2000,10000] again, to reduce size of
+          database.
     * High resolution zonedb
         * Support one-second resolution for Zone.UNTIL and Rule.AT fields.
             * Enables support all zones before ~1972.
