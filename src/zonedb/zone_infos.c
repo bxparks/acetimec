@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/AceTimeC/src/zonedb/tzfiles
 //     --output_dir /home/brian/src/AceTimeC/src/zonedb
-//     --tz_version 2022g
+//     --tz_version 2023c
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -29,9 +29,9 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022g
+// from https://github.com/eggert/tz/releases/tag/2023c
 //
-// Supported Zones: 596 (351 zones, 245 links)
+// Supported Zones: 596 (350 zones, 246 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
 //
 // Original Years:  [1844,2087]
@@ -41,35 +41,35 @@
 //
 // Records:
 //   Infos: 596
-//   Eras: 647
+//   Eras: 646
 //   Policies: 83
-//   Rules: 655
+//   Rules: 735
 //
 // Memory (8-bits):
-//   Rules: 7860
+//   Rules: 8820
 //   Policies: 249
-//   Eras: 9705
-//   Zones: 4563
-//   Links: 3185
+//   Eras: 9690
+//   Zones: 4550
+//   Links: 3198
 //   Registry: 1192
 //   Formats: 597
 //   Letters: 46
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 36473
+//   TOTAL: 37418
 //
 // Memory (32-bits):
-//   Rules: 7860
+//   Rules: 8820
 //   Policies: 664
-//   Eras: 12940
-//   Zones: 8424
-//   Links: 5880
+//   Eras: 12920
+//   Zones: 8400
+//   Links: 5904
 //   Registry: 2384
 //   Formats: 597
 //   Letters: 64
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 47889
+//   TOTAL: 48829
 //
 // DO NOT EDIT
 
@@ -80,7 +80,7 @@
 // ZoneContext (should not be in PROGMEM)
 //---------------------------------------------------------------------------
 
-static const char kAtcTzDatabaseVersion[] = "2022g";
+static const char kAtcTzDatabaseVersion[] = "2023c";
 
 static const char * const kAtcFragments[] = {
 /*\x00*/ NULL,
@@ -112,8 +112,8 @@ const AtcZoneContext kAtcZoneContext = {
 };
 
 //---------------------------------------------------------------------------
-// Zones: 351
-// Eras: 647
+// Zones: 350
+// Eras: 646
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
@@ -5344,7 +5344,7 @@ const AtcZoneInfo kAtcZoneAmerica_North_Dakota_New_Salem  = {
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Nuuk[]  = {
-  //             -3:00    EU    -03/-02    2023 Mar 25 22:00
+  //             -3:00    EU    -03/-02    2023 Oct 29  1:00u
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "-03/-02" /*format*/,
@@ -5352,15 +5352,15 @@ static const AtcZoneEra kAtcZoneEraAmerica_Nuuk[]  = {
     0 /*offset_remainder (-10800%15)*/,
     0 /*delta_minutes*/,
     2023 /*until_year*/,
-    3 /*until_month*/,
-    25 /*until_day*/,
-    5280 /*until_time_code (79200/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+    10 /*until_month*/,
+    29 /*until_day*/,
+    240 /*until_time_code (3600/15)*/,
+    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
   },
-  //             -2:00    -    -02
+  //             -2:00    EU    -02/-01
   {
-    NULL /*zone_policy*/,
-    "-02" /*format*/,
+    &kAtcZonePolicyEU /*zone_policy*/,
+    "-02/-01" /*format*/,
     -480 /*offset_code (-7200/15)*/,
     0 /*offset_remainder (-7200%15)*/,
     0 /*delta_minutes*/,
@@ -6663,39 +6663,6 @@ const AtcZoneInfo kAtcZoneAmerica_Yakutat  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Yakutat /*eras*/,
-  NULL /*target_info*/,
-};
-
-//---------------------------------------------------------------------------
-// Zone name: America/Yellowknife
-// Zone Eras: 1
-//---------------------------------------------------------------------------
-
-static const AtcZoneEra kAtcZoneEraAmerica_Yellowknife[]  = {
-  //             -7:00    Canada    M%sT
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "M%T" /*format*/,
-    -1680 /*offset_code (-25200/15)*/,
-    0 /*offset_remainder (-25200%15)*/,
-    0 /*delta_minutes*/,
-    32767 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
-    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameAmerica_Yellowknife[]  = "America/Yellowknife";
-
-const AtcZoneInfo kAtcZoneAmerica_Yellowknife  = {
-  kAtcZoneNameAmerica_Yellowknife /*name*/,
-  0x0f76c76f /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraAmerica_Yellowknife /*eras*/,
   NULL /*target_info*/,
 };
 
@@ -13045,10 +13012,10 @@ const AtcZoneInfo kAtcZoneEurope_Kaliningrad  = {
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Kirov[]  = {
-  //              3:00    Russia    +03/+04    2011 Mar 27  2:00s
+  //              3:00    Russia    MSK/MSD    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
-    "+03/+04" /*format*/,
+    "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
     0 /*delta_minutes*/,
@@ -13058,10 +13025,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Kirov[]  = {
     480 /*until_time_code (7200/15)*/,
     16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
-  //              4:00    -    +04    2014 Oct 26  2:00s
+  //              4:00    -    MSK    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
-    "+04" /*format*/,
+    "MSK" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
     0 /*delta_minutes*/,
@@ -13071,10 +13038,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Kirov[]  = {
     480 /*until_time_code (7200/15)*/,
     16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
-  //              3:00    -    +03
+  //              3:00    -    MSK
   {
     NULL /*zone_policy*/,
-    "+03" /*format*/,
+    "MSK" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
     0 /*delta_minutes*/,
@@ -14011,10 +13978,10 @@ const AtcZoneInfo kAtcZoneEurope_Vilnius  = {
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Volgograd[]  = {
-  //              3:00    Russia    +03/+04    2011 Mar 27  2:00s
+  //              3:00    Russia    MSK/MSD    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
-    "+03/+04" /*format*/,
+    "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
     0 /*delta_minutes*/,
@@ -14024,10 +13991,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Volgograd[]  = {
     480 /*until_time_code (7200/15)*/,
     16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
-  //              4:00    -    +04    2014 Oct 26  2:00s
+  //              4:00    -    MSK    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
-    "+04" /*format*/,
+    "MSK" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
     0 /*delta_minutes*/,
@@ -14037,10 +14004,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Volgograd[]  = {
     480 /*until_time_code (7200/15)*/,
     16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
-  //              3:00    -    +03    2018 Oct 28  2:00s
+  //              3:00    -    MSK    2018 Oct 28  2:00s
   {
     NULL /*zone_policy*/,
-    "+03" /*format*/,
+    "MSK" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
     0 /*delta_minutes*/,
@@ -14063,10 +14030,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Volgograd[]  = {
     480 /*until_time_code (7200/15)*/,
     16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
-  //              3:00    -    +03
+  //              3:00    -    MSK
   {
     NULL /*zone_policy*/,
-    "+03" /*format*/,
+    "MSK" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
     0 /*delta_minutes*/,
@@ -15550,7 +15517,7 @@ const AtcZoneInfo kAtcZoneWET  = {
 
 
 //---------------------------------------------------------------------------
-// Links: 245
+// Links: 246
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
@@ -16781,6 +16748,21 @@ const AtcZoneInfo kAtcZoneAmerica_Virgin  = {
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: America/Yellowknife -> America/Edmonton
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameAmerica_Yellowknife[]  = "America/Yellowknife";
+
+const AtcZoneInfo kAtcZoneAmerica_Yellowknife  = {
+  kAtcZoneNameAmerica_Yellowknife /*name*/,
+  0x0f76c76f /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
+  kAtcZoneEraAmerica_Edmonton /*eras*/,
+  &kAtcZoneAmerica_Edmonton /*target_info*/,
 };
 
 //---------------------------------------------------------------------------

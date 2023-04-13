@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/AceTimeC/src/zonedbtesting/tzfiles
 //     --output_dir /home/brian/src/AceTimeC/src/zonedbtesting
-//     --tz_version 2022g
+//     --tz_version 2023c
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -30,10 +30,10 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022g
+// from https://github.com/eggert/tz/releases/tag/2023c
 //
 // Supported Zones: 17 (16 zones, 1 links)
-// Unsupported Zones: 579 (335 zones, 244 links)
+// Unsupported Zones: 579 (334 zones, 245 links)
 //
 // Original Years:  [1844,2087]
 // Generated Years: [1966,2087]
@@ -172,7 +172,7 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 
 
 //---------------------------------------------------------------------------
-// Unsupported zones: 335
+// Unsupported zones: 334
 //---------------------------------------------------------------------------
 
 // Africa/Abidjan {Zone missing from include list}
@@ -302,7 +302,6 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // America/Thule {Zone missing from include list}
 // America/Tijuana {Zone missing from include list}
 // America/Yakutat {Zone missing from include list}
-// America/Yellowknife {Zone missing from include list}
 // Antarctica/Casey {Zone missing from include list}
 // Antarctica/Davis {Zone missing from include list}
 // Antarctica/Macquarie {Zone missing from include list}
@@ -529,7 +528,7 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 
 
 //---------------------------------------------------------------------------
-// Unsupported links: 244
+// Unsupported links: 245
 //---------------------------------------------------------------------------
 
 // Africa/Accra {Link missing from include list}
@@ -614,6 +613,7 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // America/Thunder_Bay {Link missing from include list}
 // America/Tortola {Link missing from include list}
 // America/Virgin {Link missing from include list}
+// America/Yellowknife {Link missing from include list}
 // Antarctica/DumontDUrville {Link missing from include list}
 // Antarctica/McMurdo {Link missing from include list}
 // Antarctica/South_Pole {Link missing from include list}

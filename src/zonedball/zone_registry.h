@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/AceTimeC/src/zonedball/tzfiles
 //     --output_dir /home/brian/src/AceTimeC/src/zonedball
-//     --tz_version 2022g
+//     --tz_version 2023c
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -29,9 +29,9 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022g
+// from https://github.com/eggert/tz/releases/tag/2023c
 //
-// Supported Zones: 596 (351 zones, 245 links)
+// Supported Zones: 596 (350 zones, 246 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
 //
 // Original Years:  [1844,2087]
@@ -41,35 +41,35 @@
 //
 // Records:
 //   Infos: 596
-//   Eras: 1952
+//   Eras: 1949
 //   Policies: 134
-//   Rules: 2158
+//   Rules: 2238
 //
 // Memory (8-bits):
-//   Rules: 25896
+//   Rules: 26856
 //   Policies: 402
-//   Eras: 29280
-//   Zones: 4563
-//   Links: 3185
+//   Eras: 29235
+//   Zones: 4550
+//   Links: 3198
 //   Registry: 1192
 //   Formats: 1032
 //   Letters: 160
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 74786
+//   TOTAL: 75701
 //
 // Memory (32-bits):
-//   Rules: 25896
+//   Rules: 26856
 //   Policies: 1072
-//   Eras: 39040
-//   Zones: 8424
-//   Links: 5880
+//   Eras: 38980
+//   Zones: 8400
+//   Links: 5904
 //   Registry: 2384
 //   Formats: 1032
 //   Letters: 216
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 93020
+//   TOTAL: 93920
 //
 // DO NOT EDIT
 
@@ -83,8 +83,8 @@ extern "C" {
 #endif
 
 // Zones
-#define kAtcAllZoneRegistrySize 351
-extern const AtcZoneInfo * const kAtcAllZoneRegistry[351];
+#define kAtcAllZoneRegistrySize 350
+extern const AtcZoneInfo * const kAtcAllZoneRegistry[350];
 
 // Zones and Links
 #define kAtcAllZoneAndLinkRegistrySize 596

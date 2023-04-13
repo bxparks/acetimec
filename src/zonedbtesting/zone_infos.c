@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/AceTimeC/src/zonedbtesting/tzfiles
 //     --output_dir /home/brian/src/AceTimeC/src/zonedbtesting
-//     --tz_version 2022g
+//     --tz_version 2023c
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -30,10 +30,10 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022g
+// from https://github.com/eggert/tz/releases/tag/2023c
 //
 // Supported Zones: 17 (16 zones, 1 links)
-// Unsupported Zones: 579 (335 zones, 244 links)
+// Unsupported Zones: 579 (334 zones, 245 links)
 //
 // Original Years:  [1844,2087]
 // Generated Years: [1966,2087]
@@ -81,7 +81,7 @@
 // ZoneContext (should not be in PROGMEM)
 //---------------------------------------------------------------------------
 
-static const char kAtcTzDatabaseVersion[] = "2022g";
+static const char kAtcTzDatabaseVersion[] = "2023c";
 
 static const char * const kAtcFragments[] = {
 /*\x00*/ NULL,
