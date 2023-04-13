@@ -3,11 +3,16 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/AceTimeC/src/zonedb/tzfiles
 //     --output_dir /home/brian/src/AceTimeC/src/zonedb
-//     --tz_version 2022g
+//     --tz_version 2023c
 //     --action zonedb
 //     --language c
 //     --scope extended
+//     --db_namespace Atc
+//     --offset_granularity 1
+//     --delta_granularity 60
+//     --until_at_granularity 1
 //     --generate_int16_years
+//     --generate_hires
 //     --start_year 2000
 //     --until_year 10000
 //     --nocompress
@@ -24,12 +29,47 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022g
+// from https://github.com/eggert/tz/releases/tag/2023c
 //
-// Supported Zones: 596 (351 zones, 245 links)
+// Supported Zones: 596 (350 zones, 246 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
-// Original Years: [1844,2087]
-// Generated Years: [1943,2087]
+//
+// Original Years:  [1844,2087]
+// Generated Years: [1950,2087]
+// Estimator Years: [1950,2090]
+// Max Buffer Size: 7
+//
+// Records:
+//   Infos: 596
+//   Eras: 646
+//   Policies: 83
+//   Rules: 735
+//
+// Memory (8-bits):
+//   Rules: 8820
+//   Policies: 249
+//   Eras: 9690
+//   Zones: 4550
+//   Links: 3198
+//   Registry: 1192
+//   Formats: 597
+//   Letters: 46
+//   Fragments: 0
+//   Names: 9076 (original: 9076)
+//   TOTAL: 37418
+//
+// Memory (32-bits):
+//   Rules: 8820
+//   Policies: 664
+//   Eras: 12920
+//   Zones: 8400
+//   Links: 5904
+//   Registry: 2384
+//   Formats: 597
+//   Letters: 64
+//   Fragments: 0
+//   Names: 9076 (original: 9076)
+//   TOTAL: 48829
 //
 // DO NOT EDIT
 
@@ -39,7 +79,7 @@
 //---------------------------------------------------------------------------
 // Zone Info registry. Sorted by zoneId.
 //---------------------------------------------------------------------------
-const AtcZoneInfo * const kAtcZoneRegistry[351]  = {
+const AtcZoneInfo * const kAtcZoneRegistry[350]  = {
   &kAtcZoneAmerica_St_Johns, // 0x04b14e6e, America/St_Johns
   &kAtcZoneAmerica_North_Dakota_New_Salem, // 0x04f9958e, America/North_Dakota/New_Salem
   &kAtcZoneAsia_Jakarta, // 0x0506ab50, Asia/Jakarta
@@ -60,7 +100,6 @@ const AtcZoneInfo * const kAtcZoneRegistry[351]  = {
   &kAtcZoneAmerica_Guatemala, // 0x0c8259f7, America/Guatemala
   &kAtcZoneAfrica_Monrovia, // 0x0ce90385, Africa/Monrovia
   &kAtcZoneAntarctica_Rothera, // 0x0e86d203, Antarctica/Rothera
-  &kAtcZoneAmerica_Yellowknife, // 0x0f76c76f, America/Yellowknife
   &kAtcZoneAustralia_Melbourne, // 0x0fe559a3, Australia/Melbourne
   &kAtcZoneAmerica_Sao_Paulo, // 0x1063bfc9, America/Sao_Paulo
   &kAtcZoneAmerica_Indiana_Vevay, // 0x10aca054, America/Indiana/Vevay
@@ -446,7 +485,7 @@ const AtcZoneInfo * const kAtcZoneAndLinkRegistry[596]  = {
   &kAtcZoneLibya, // 0x0d998b16, Libya -> Africa/Tripoli
   &kAtcZoneKwajalein, // 0x0e57afbb, Kwajalein -> Pacific/Kwajalein
   &kAtcZoneAntarctica_Rothera, // 0x0e86d203, Antarctica/Rothera
-  &kAtcZoneAmerica_Yellowknife, // 0x0f76c76f, America/Yellowknife
+  &kAtcZoneAmerica_Yellowknife, // 0x0f76c76f, America/Yellowknife -> America/Edmonton
   &kAtcZoneAustralia_Melbourne, // 0x0fe559a3, Australia/Melbourne
   &kAtcZoneAmerica_Sao_Paulo, // 0x1063bfc9, America/Sao_Paulo
   &kAtcZoneEurope_Amsterdam, // 0x109395c2, Europe/Amsterdam -> Europe/Brussels

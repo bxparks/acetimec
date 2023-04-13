@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.7.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -95,15 +95,16 @@ int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <tr class="memitem:af80f85f5f10c01b44db58e657a3583e8"><td class="memItemLeft" align="right" valign="top">int8_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneRule.html#af80f85f5f10c01b44db58e657a3583e8">on_day_of_month</a></td></tr>
 <tr class="memdesc:af80f85f5f10c01b44db58e657a3583e8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determined by the ON column.  <a href="structAtcZoneRule.html#af80f85f5f10c01b44db58e657a3583e8">More...</a><br /></td></tr>
 <tr class="separator:af80f85f5f10c01b44db58e657a3583e8"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a48ee481906333ba876b553a178daff5a"><td class="memItemLeft" align="right" valign="top">uint8_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneRule.html#a48ee481906333ba876b553a178daff5a">at_time_code</a></td></tr>
-<tr class="memdesc:a48ee481906333ba876b553a178daff5a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determined by the AT column in units of 15-minutes from 00:00.  <a href="structAtcZoneRule.html#a48ee481906333ba876b553a178daff5a">More...</a><br /></td></tr>
-<tr class="separator:a48ee481906333ba876b553a178daff5a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a8ce073048a9055242e6afbb8ccb433a5"><td class="memItemLeft" align="right" valign="top">uint8_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneRule.html#a8ce073048a9055242e6afbb8ccb433a5">at_time_modifier</a></td></tr>
 <tr class="memdesc:a8ce073048a9055242e6afbb8ccb433a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">The at_time_modifier is a packed field containing 2 pieces of info:  <a href="structAtcZoneRule.html#a8ce073048a9055242e6afbb8ccb433a5">More...</a><br /></td></tr>
 <tr class="separator:a8ce073048a9055242e6afbb8ccb433a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:af36b55a9690c95ec12bd9e9410dac396"><td class="memItemLeft" align="right" valign="top">int8_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneRule.html#af36b55a9690c95ec12bd9e9410dac396">delta_code</a></td></tr>
-<tr class="memdesc:af36b55a9690c95ec12bd9e9410dac396"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determined by the SAVE column, containing the offset from UTC, in 15-min increments.  <a href="structAtcZoneRule.html#af36b55a9690c95ec12bd9e9410dac396">More...</a><br /></td></tr>
-<tr class="separator:af36b55a9690c95ec12bd9e9410dac396"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac22a86bfe96e7fc48a29e6d9bdd53668"><td class="memItemLeft" align="right" valign="top">uint16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneRule.html#ac22a86bfe96e7fc48a29e6d9bdd53668">at_time_code</a></td></tr>
+<tr class="memdesc:ac22a86bfe96e7fc48a29e6d9bdd53668"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determined by the AT column in units of 15-seconds from 00:00.  <a href="structAtcZoneRule.html#ac22a86bfe96e7fc48a29e6d9bdd53668">More...</a><br /></td></tr>
+<tr class="separator:ac22a86bfe96e7fc48a29e6d9bdd53668"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a091eb4151e11f0009b946842eadf2568"><td class="memItemLeft" align="right" valign="top"><a id="a091eb4151e11f0009b946842eadf2568"></a>
+int8_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneRule.html#a091eb4151e11f0009b946842eadf2568">delta_minutes</a></td></tr>
+<tr class="memdesc:a091eb4151e11f0009b946842eadf2568"><td class="mdescLeft">&#160;</td><td class="mdescRight">Determined by the SAVE column, containing the offset from UTC in minutes, in the range of [-128,+127]. <br /></td></tr>
+<tr class="separator:a091eb4151e11f0009b946842eadf2568"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a942d580e16eeea2abca77b7329e597a6"><td class="memItemLeft" align="right" valign="top">uint8_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneRule.html#a942d580e16eeea2abca77b7329e597a6">letter_index</a></td></tr>
 <tr class="memdesc:a942d580e16eeea2abca77b7329e597a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">An index into an array of strings defined by <a class="el" href="structAtcZoneContext.html#ac01e27c2ba71c3a4a1b8274171ff772e" title="Zone letters list (e.g.">AtcZoneContext.letters</a>.  <a href="structAtcZoneRule.html#a942d580e16eeea2abca77b7329e597a6">More...</a><br /></td></tr>
 <tr class="separator:a942d580e16eeea2abca77b7329e597a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -112,24 +113,24 @@ int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <div class="textblock"><p>A time zone transition rule. </p>
 <p>It is useful to think of this as a transition rule that repeats on the given (month, day, hour) every year during the interval [fromYear, toYear] inclusive. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00056">56</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00061">61</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="a48ee481906333ba876b553a178daff5a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a48ee481906333ba876b553a178daff5a">&#9670;&nbsp;</a></span>at_time_code</h2>
+<a id="ac22a86bfe96e7fc48a29e6d9bdd53668"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac22a86bfe96e7fc48a29e6d9bdd53668">&#9670;&nbsp;</a></span>at_time_code</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t const AtcZoneRule::at_time_code</td>
+          <td class="memname">uint16_t const AtcZoneRule::at_time_code</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Determined by the AT column in units of 15-minutes from 00:00. </p>
-<p>The range is (0 - 100) corresponding to 00:00 to 25:00. </p>
+<p>Determined by the AT column in units of 15-seconds from 00:00. </p>
+<p>The range corresponds to [0h,25h], or [0,6000] in 15-second units. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00089">89</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00108">108</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -148,29 +149,10 @@ int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <p>The at_time_modifier is a packed field containing 2 pieces of info: </p>
 <ul>
 <li>The upper 4 bits represent the AT time suffix: 'w', 's' or 'u', represented by kAtcSuffixW, kAtcSuffixS and kAtcSuffixU.</li>
-<li>The lower 4 bits represent the remaining 0-14 minutes of the AT field after truncation into at_time_code. In other words, the full AT field in one-minute resolution is (15 * at_time_code + (at_time_modifier &amp; 0x0f)). </li>
+<li>The lower 4 bits represent the remaining 0-14 seconds of the AT time field after truncation into at_time_seconds_code. In other words, the full AT field in one-second resolution is (15 * at_time_seconds_code + (at_time_modifier &amp; 0x0f)). </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00101">101</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
-
-</div>
-</div>
-<a id="af36b55a9690c95ec12bd9e9410dac396"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#af36b55a9690c95ec12bd9e9410dac396">&#9670;&nbsp;</a></span>delta_code</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">int8_t const AtcZoneRule::delta_code</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Determined by the SAVE column, containing the offset from UTC, in 15-min increments. </p>
-<p>If the '&ndash;scope extended' flag is given to tzcompiler.py, this field should be interpreted as an uint8_t field, whose lower 4-bits hold a slightly modified value of offset_code equal to (originalDeltaCode + 4). This allows the 4-bits to represent DST offsets from -1:00 to 2:45 in 15-minute increments. This is the same algorithm used by ZoneEra::delta_code field for consistency. The extended::ZonePolicyBroker::deltaMinutes() method knows how to convert this field into minutes. </p>
-
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00116">116</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00102">102</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -189,7 +171,7 @@ int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <p>Determined by the IN column. </p>
 <p>1=Jan, 12=Dec. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00065">65</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00070">70</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -215,7 +197,7 @@ int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <li>Troll ('+00' '+02'; used by Antarctica/Troll) </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00134">134</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00165">165</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -234,7 +216,7 @@ int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 <p>Determined by the ON column. </p>
 <p>Used with on_day_of_week. Possible values are: 0, 1-31, or its corresponding negative values. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00083">83</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00088">88</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -256,7 +238,7 @@ int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" h
 * on_day_of_week=1-7, on_day_of_month=-(1-31): day_of_week&lt;=on_day_of_month
 * on_day_of_week=1-7, on_day_of_month=0: last{day_of_week}
 * </pre> 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00077">77</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00082">82</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>

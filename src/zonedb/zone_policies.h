@@ -3,11 +3,16 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/AceTimeC/src/zonedb/tzfiles
 //     --output_dir /home/brian/src/AceTimeC/src/zonedb
-//     --tz_version 2022g
+//     --tz_version 2023c
 //     --action zonedb
 //     --language c
 //     --scope extended
+//     --db_namespace Atc
+//     --offset_granularity 1
+//     --delta_granularity 60
+//     --until_at_granularity 1
 //     --generate_int16_years
+//     --generate_hires
 //     --start_year 2000
 //     --until_year 10000
 //     --nocompress
@@ -24,17 +29,52 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022g
+// from https://github.com/eggert/tz/releases/tag/2023c
 //
-// Supported Zones: 596 (351 zones, 245 links)
+// Supported Zones: 596 (350 zones, 246 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
-// Original Years: [1844,2087]
-// Generated Years: [1943,2087]
+//
+// Original Years:  [1844,2087]
+// Generated Years: [1950,2087]
+// Estimator Years: [1950,2090]
+// Max Buffer Size: 7
+//
+// Records:
+//   Infos: 596
+//   Eras: 646
+//   Policies: 83
+//   Rules: 735
+//
+// Memory (8-bits):
+//   Rules: 8820
+//   Policies: 249
+//   Eras: 9690
+//   Zones: 4550
+//   Links: 3198
+//   Registry: 1192
+//   Formats: 597
+//   Letters: 46
+//   Fragments: 0
+//   Names: 9076 (original: 9076)
+//   TOTAL: 37418
+//
+// Memory (32-bits):
+//   Rules: 8820
+//   Policies: 664
+//   Eras: 12920
+//   Zones: 8400
+//   Links: 5904
+//   Registry: 2384
+//   Formats: 597
+//   Letters: 64
+//   Fragments: 0
+//   Names: 9076 (original: 9076)
+//   TOTAL: 48829
 //
 // DO NOT EDIT
 
-#ifndef ACE_TIME_C_ZONEDBX_ZONE_POLICIES_H
-#define ACE_TIME_C_ZONEDBX_ZONE_POLICIES_H
+#ifndef ACE_TIME_C_ZONEDB_ATC_ZONE_POLICIES_H
+#define ACE_TIME_C_ZONEDB_ATC_ZONE_POLICIES_H
 
 #include "../zoneinfo/zone_info.h"
 
@@ -43,7 +83,8 @@ extern "C" {
 #endif
 
 //---------------------------------------------------------------------------
-// Supported zone policies: 83
+// Supported policies: 83
+// Supported rules: 735
 //---------------------------------------------------------------------------
 
 extern const AtcZonePolicy kAtcZonePolicyAN;
@@ -189,40 +230,30 @@ extern const AtcZonePolicy kAtcZonePolicyZion;
 
 
 //---------------------------------------------------------------------------
-// Notable zone policies: 15
+// Notable zone policies: 9
 //---------------------------------------------------------------------------
 
-// Armenia {Added anchor rule at year 0}
 // Belize {LETTER 'CST' not single character}
-// Dhaka {Added anchor rule at year 0}
-// Eire {SAVE (delta_offset) '-1:00' different from 1:00}
-// LH {SAVE (delta_offset) '0:30' different from 1:00}
-// Moncton {AT '0:01' not on 15-minute boundary}
-// Morocco {SAVE (delta_offset) '-1:00' different from 1:00}
+// Eire {SAVE '-1:00' is a negative DST}
+// LH {SAVE '0:30' different from 1:00}
+// Moncton {AT '0:01' not multiple of :15 min}
+// Morocco {SAVE '-1:00' is a negative DST}
 // Namibia {
 //   LETTER 'CAT' not single character,
 //   LETTER 'WAT' not single character,
-//   SAVE (delta_offset) '-1:00' different from 1:00,
+//   SAVE '-1:00' is a negative DST,
 // }
-// Pakistan {Added anchor rule at year 0}
-// Palestine {
-//   AT '0:01' not on 15-minute boundary,
-//   Added anchor rule at year 0,
-// }
-// SanLuis {Added anchor rule at year 0}
+// Palestine {AT '0:01' not multiple of :15 min}
 // StJohns {
-//   AT '0:01' not on 15-minute boundary,
+//   AT '0:01' not multiple of :15 min,
 //   LETTER 'DD' not single character,
-//   SAVE (delta_offset) '2:00' different from 1:00,
+//   SAVE '2:00' different from 1:00,
 // }
-// Tonga {Added anchor rule at year 0}
 // Troll {
-//   Added anchor rule at year 0,
 //   LETTER '+00' not single character,
 //   LETTER '+02' not single character,
-//   SAVE (delta_offset) '2:00' different from 1:00,
+//   SAVE '2:00' different from 1:00,
 // }
-// WS {Added anchor rule at year 0}
 
 
 //---------------------------------------------------------------------------

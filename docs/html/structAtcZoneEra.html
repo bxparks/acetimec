@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.7.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -94,12 +94,16 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:a4242f6211236aa265ea77d8a56e96bd6"><td class="memItemLeft" align="right" valign="top">const char *const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneEra.html#a4242f6211236aa265ea77d8a56e96bd6">format</a></td></tr>
 <tr class="memdesc:a4242f6211236aa265ea77d8a56e96bd6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zone abbreviations (e.g.  <a href="structAtcZoneEra.html#a4242f6211236aa265ea77d8a56e96bd6">More...</a><br /></td></tr>
 <tr class="separator:a4242f6211236aa265ea77d8a56e96bd6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a2886ec1bef0d9d6b3c8f90fb881f429c"><td class="memItemLeft" align="right" valign="top">int8_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneEra.html#a2886ec1bef0d9d6b3c8f90fb881f429c">offset_code</a></td></tr>
-<tr class="memdesc:a2886ec1bef0d9d6b3c8f90fb881f429c"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTC offset in 15 min increments.  <a href="structAtcZoneEra.html#a2886ec1bef0d9d6b3c8f90fb881f429c">More...</a><br /></td></tr>
-<tr class="separator:a2886ec1bef0d9d6b3c8f90fb881f429c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afdc57d7832ca6af540d32c5971a39237"><td class="memItemLeft" align="right" valign="top">int8_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneEra.html#afdc57d7832ca6af540d32c5971a39237">delta_code</a></td></tr>
-<tr class="memdesc:afdc57d7832ca6af540d32c5971a39237"><td class="mdescLeft">&#160;</td><td class="mdescRight">If zone_policy is nullptr, then this indicates the DST offset in 15 minute increments as defined by the RULES column in 'hh:mm' format.  <a href="structAtcZoneEra.html#afdc57d7832ca6af540d32c5971a39237">More...</a><br /></td></tr>
-<tr class="separator:afdc57d7832ca6af540d32c5971a39237"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa432fe978286cd61ac63f5cb591a97c7"><td class="memItemLeft" align="right" valign="top">int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneEra.html#aa432fe978286cd61ac63f5cb591a97c7">offset_code</a></td></tr>
+<tr class="memdesc:aa432fe978286cd61ac63f5cb591a97c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTC offset seconds in units of 15-seconds.  <a href="structAtcZoneEra.html#aa432fe978286cd61ac63f5cb591a97c7">More...</a><br /></td></tr>
+<tr class="separator:aa432fe978286cd61ac63f5cb591a97c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad74aca698a99f7367d2533a3e9b1c0fe"><td class="memItemLeft" align="right" valign="top"><a id="ad74aca698a99f7367d2533a3e9b1c0fe"></a>
+uint8_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneEra.html#ad74aca698a99f7367d2533a3e9b1c0fe">offset_remainder</a></td></tr>
+<tr class="memdesc:ad74aca698a99f7367d2533a3e9b1c0fe"><td class="mdescLeft">&#160;</td><td class="mdescRight">UTC offset seconds remainder from the offset_seconds_code. <br /></td></tr>
+<tr class="separator:ad74aca698a99f7367d2533a3e9b1c0fe"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a03df862ac5bcaf9c8b4675f58bdc5b83"><td class="memItemLeft" align="right" valign="top">int8_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneEra.html#a03df862ac5bcaf9c8b4675f58bdc5b83">delta_minutes</a></td></tr>
+<tr class="memdesc:a03df862ac5bcaf9c8b4675f58bdc5b83"><td class="mdescLeft">&#160;</td><td class="mdescRight">If zone_policy is nullptr, then this indicates the DST offset in minutes as defined by the RULES column in 'hh:mm' format.  <a href="structAtcZoneEra.html#a03df862ac5bcaf9c8b4675f58bdc5b83">More...</a><br /></td></tr>
+<tr class="separator:a03df862ac5bcaf9c8b4675f58bdc5b83"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a51b6b74486bb5b45dc1ae8b47711a018"><td class="memItemLeft" align="right" valign="top">int16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneEra.html#a51b6b74486bb5b45dc1ae8b47711a018">until_year</a></td></tr>
 <tr class="memdesc:a51b6b74486bb5b45dc1ae8b47711a018"><td class="mdescLeft">&#160;</td><td class="mdescRight">Era is valid until currentTime &lt; untilYear.  <a href="structAtcZoneEra.html#a51b6b74486bb5b45dc1ae8b47711a018">More...</a><br /></td></tr>
 <tr class="separator:a51b6b74486bb5b45dc1ae8b47711a018"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -109,9 +113,9 @@ Public Attributes</h2></td></tr>
 <tr class="memitem:aac657ca5c7aba7f22d93174254aad9be"><td class="memItemLeft" align="right" valign="top">uint8_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneEra.html#aac657ca5c7aba7f22d93174254aad9be">until_day</a></td></tr>
 <tr class="memdesc:aac657ca5c7aba7f22d93174254aad9be"><td class="mdescLeft">&#160;</td><td class="mdescRight">The day field in UNTIL (1-31).  <a href="structAtcZoneEra.html#aac657ca5c7aba7f22d93174254aad9be">More...</a><br /></td></tr>
 <tr class="separator:aac657ca5c7aba7f22d93174254aad9be"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a4f50a954d8578a8db060f97b074229c2"><td class="memItemLeft" align="right" valign="top">uint8_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneEra.html#a4f50a954d8578a8db060f97b074229c2">until_time_code</a></td></tr>
-<tr class="memdesc:a4f50a954d8578a8db060f97b074229c2"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time field of UNTIL field in 15-minute increments.  <a href="structAtcZoneEra.html#a4f50a954d8578a8db060f97b074229c2">More...</a><br /></td></tr>
-<tr class="separator:a4f50a954d8578a8db060f97b074229c2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e717e1b041bc86181a5fb0cec92c830"><td class="memItemLeft" align="right" valign="top">uint16_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneEra.html#a6e717e1b041bc86181a5fb0cec92c830">until_time_code</a></td></tr>
+<tr class="memdesc:a6e717e1b041bc86181a5fb0cec92c830"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time field of UNTIL field in 15-second increments.  <a href="structAtcZoneEra.html#a6e717e1b041bc86181a5fb0cec92c830">More...</a><br /></td></tr>
+<tr class="separator:a6e717e1b041bc86181a5fb0cec92c830"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae1e60179ee3a0a765a6ac5bfc9a2021a"><td class="memItemLeft" align="right" valign="top">uint8_t const&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneEra.html#ae1e60179ee3a0a765a6ac5bfc9a2021a">until_time_modifier</a></td></tr>
 <tr class="memdesc:ae1e60179ee3a0a765a6ac5bfc9a2021a"><td class="mdescLeft">&#160;</td><td class="mdescRight">The until_time_modifier is a packed field containing 2 pieces of info:  <a href="structAtcZoneEra.html#ae1e60179ee3a0a765a6ac5bfc9a2021a">More...</a><br /></td></tr>
 <tr class="separator:ae1e60179ee3a0a765a6ac5bfc9a2021a"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -121,31 +125,24 @@ Public Attributes</h2></td></tr>
 <p>Corresponds to one line of the ZONE record in the TZ Database file ending with an UNTIL field. The ZonePolicy is determined by the RULES column in the TZ Database file.</p>
 <p>There are 2 types of ZoneEra: 1) zone_policy == nullptr. Then delta_code determines the additional offset from offset_code. A value of '-' in the TZ Database file is stored as 0. 2) zone_policy != nullptr. Then the delta_code offset is given by the ZoneRule.delta_code of the ZoneRule which matches the time instant of interest. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00208">208</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00242">242</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
-<a id="afdc57d7832ca6af540d32c5971a39237"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afdc57d7832ca6af540d32c5971a39237">&#9670;&nbsp;</a></span>delta_code</h2>
+<a id="a03df862ac5bcaf9c8b4675f58bdc5b83"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a03df862ac5bcaf9c8b4675f58bdc5b83">&#9670;&nbsp;</a></span>delta_minutes</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int8_t const AtcZoneEra::delta_code</td>
+          <td class="memname">int8_t const AtcZoneEra::delta_minutes</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>If zone_policy is nullptr, then this indicates the DST offset in 15 minute increments as defined by the RULES column in 'hh:mm' format. </p>
-<p>If the 'RULES' column is '-', then the delta_code is 0.</p>
-<p>If the '&ndash;scope extended' flag is given to tzcompiler.py, the 'delta_code` should be interpreted as a uint8_t field, composed of two 4-bit fields:</p>
-<ul>
-<li>The upper 4-bits is an unsigned integer from 0 to 14 that represents the one-minute remainder from the offset_code. This allows us to capture STDOFF offsets in 1-minute resolution.</li>
-<li>The lower 4-bits is an unsigned integer that holds (originalDeltaCode</li>
-<li>4). This allows us to represent DST offsets from -1:00 to +2:45, in 15-minute increments.</li>
-</ul>
-<p>The extended::ZoneEraBroker::deltaMinutes() and offsetMinutes() know how to convert offset_code and delta_code into the appropriate minutes. </p>
+<p>If zone_policy is nullptr, then this indicates the DST offset in minutes as defined by the RULES column in 'hh:mm' format. </p>
+<p>If the 'RULES' column is '-', then the delta_minutes is 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00263">263</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00292">292</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -168,26 +165,26 @@ Public Attributes</h2></td></tr>
 <p>The TZ DB files use 's' to indicate the substitution, but for simplicity, AceTime replaces the "%s" with just a '' character with no loss of functionality. This also makes the string-replacement code a little simpler. For example, 'EsT' is stored as 'ET', and the LETTER substitution is performed on the '' character.</p>
 <p>This field will never be a 'nullptr' if it was derived from an actual entry from the TZ database. There is an internal object named <code>ExtendedZoneProcessor::kAnchorEra</code> which does set this field to nullptr. Maybe it should be set to ""? </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00240">240</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00274">274</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
-<a id="a2886ec1bef0d9d6b3c8f90fb881f429c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2886ec1bef0d9d6b3c8f90fb881f429c">&#9670;&nbsp;</a></span>offset_code</h2>
+<a id="aa432fe978286cd61ac63f5cb591a97c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa432fe978286cd61ac63f5cb591a97c7">&#9670;&nbsp;</a></span>offset_code</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int8_t const AtcZoneEra::offset_code</td>
+          <td class="memname">int16_t const AtcZoneEra::offset_code</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>UTC offset in 15 min increments. </p>
-<p>Determined by the STDOFF column. </p>
+<p>UTC offset seconds in units of 15-seconds. </p>
+<p>The remainder goes into offset_seconds_remainder. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00243">243</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00282">282</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -206,7 +203,7 @@ Public Attributes</h2></td></tr>
 <p>The day field in UNTIL (1-31). </p>
 <p>Will never be 0. Also, there's no need for untilDayOfWeek, because the database generator will resolve the exact day of month based on the known year and month. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00278">278</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00333">333</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -225,26 +222,26 @@ Public Attributes</h2></td></tr>
 <p>The month field in UNTIL (1-12). </p>
 <p>Will never be 0. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00271">271</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00326">326</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
-<a id="a4f50a954d8578a8db060f97b074229c2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4f50a954d8578a8db060f97b074229c2">&#9670;&nbsp;</a></span>until_time_code</h2>
+<a id="a6e717e1b041bc86181a5fb0cec92c830"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e717e1b041bc86181a5fb0cec92c830">&#9670;&nbsp;</a></span>until_time_code</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t const AtcZoneEra::until_time_code</td>
+          <td class="memname">uint16_t const AtcZoneEra::until_time_code</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The time field of UNTIL field in 15-minute increments. </p>
-<p>A range of 00:00 to 25:00 corresponds to 0-100. </p>
+<p>The time field of UNTIL field in 15-second increments. </p>
+<p>A range is [0h,25h], corresponding to [0,6000] in units of 15-seconds. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00284">284</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00341">341</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -263,10 +260,10 @@ Public Attributes</h2></td></tr>
 <p>The until_time_modifier is a packed field containing 2 pieces of info: </p>
 <ul>
 <li>The upper 4 bits represent the UNTIL time suffix: 'w', 's' or 'u', represented by kAtcSuffixW, kAtcSuffixS and kAtcSuffixU.</li>
-<li>The lower 4 bits represent the remaining 0-14 minutes of the UNTIL field after truncation into untilTimeCode. In other words, the full UNTIL field in one-minute resolution is (15 * untilTimeCode + (until_time_modifier &amp; 0x0f)). </li>
+<li>The lower 4 bits represent the remaining 0-14 seconds of the UNTIL field after truncation into until_time_seconds_code. In other words, the full UNTIL field in one-second resolution is (15 * until_time_seconds_code + (until_time_modifier &amp; 0x0f)). </li>
 </ul>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00296">296</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00353">353</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -285,7 +282,7 @@ Public Attributes</h2></td></tr>
 <p>Era is valid until currentTime &lt; untilYear. </p>
 <p>Comes from the UNTIL column. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00268">268</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00323">323</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -304,7 +301,7 @@ Public Attributes</h2></td></tr>
 <p>Zone policy, determined by the RULES column. </p>
 <p>Set to nullptr if the RULES column is '-' or an explicit DST shift in the form of 'hh:mm'. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00213">213</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00247">247</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>

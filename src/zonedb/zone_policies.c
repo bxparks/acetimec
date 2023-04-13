@@ -3,11 +3,16 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/AceTimeC/src/zonedb/tzfiles
 //     --output_dir /home/brian/src/AceTimeC/src/zonedb
-//     --tz_version 2022g
+//     --tz_version 2023c
 //     --action zonedb
 //     --language c
 //     --scope extended
+//     --db_namespace Atc
+//     --offset_granularity 1
+//     --delta_granularity 60
+//     --until_at_granularity 1
 //     --generate_int16_years
+//     --generate_hires
 //     --start_year 2000
 //     --until_year 10000
 //     --nocompress
@@ -24,12 +29,47 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022g
+// from https://github.com/eggert/tz/releases/tag/2023c
 //
-// Supported Zones: 596 (351 zones, 245 links)
+// Supported Zones: 596 (350 zones, 246 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
-// Original Years: [1844,2087]
-// Generated Years: [1943,2087]
+//
+// Original Years:  [1844,2087]
+// Generated Years: [1950,2087]
+// Estimator Years: [1950,2090]
+// Max Buffer Size: 7
+//
+// Records:
+//   Infos: 596
+//   Eras: 646
+//   Policies: 83
+//   Rules: 735
+//
+// Memory (8-bits):
+//   Rules: 8820
+//   Policies: 249
+//   Eras: 9690
+//   Zones: 4550
+//   Links: 3198
+//   Registry: 1192
+//   Formats: 597
+//   Letters: 46
+//   Fragments: 0
+//   Names: 9076 (original: 9076)
+//   TOTAL: 37418
+//
+// Memory (32-bits):
+//   Rules: 8820
+//   Policies: 664
+//   Eras: 12920
+//   Zones: 8400
+//   Links: 5904
+//   Registry: 2384
+//   Formats: 597
+//   Letters: 64
+//   Fragments: 0
+//   Names: 9076 (original: 9076)
+//   TOTAL: 48829
 //
 // DO NOT EDIT
 
@@ -37,17 +77,27 @@
 
 //---------------------------------------------------------------------------
 // Policies: 83
-// Rules: 603
+// Rules: 735
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
 // Policy name: AN
-// Rules: 9
-// Memory (8-bit): 105
-// Memory (32-bit): 120
+// Rules: 10
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAN[]  = {
+  // Anchor: Rule    AN    1990    1995    -    Mar    Sun>=1    2:00s    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    AN    1987    1999    -    Oct    lastSun    2:00s    1:00    D
   {
     1987 /*from_year*/,
@@ -55,9 +105,9 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    AN    1990    1995    -    Mar    Sun>=1    2:00s    0    S
@@ -67,9 +117,9 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AN    1996    2005    -    Mar    lastSun    2:00s    0    S
@@ -79,9 +129,9 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AN    2000    only    -    Aug    lastSun    2:00s    1:00    D
@@ -91,9 +141,9 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
     8 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    AN    2001    2007    -    Oct    lastSun    2:00s    1:00    D
@@ -103,9 +153,9 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    AN    2006    only    -    Apr    Sun>=1    2:00s    0    S
@@ -115,9 +165,9 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AN    2007    only    -    Mar    lastSun    2:00s    0    S
@@ -127,33 +177,33 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AN    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AN    2008    max    -    Oct    Sun>=1    2:00s    1:00    D
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
 
@@ -161,27 +211,25 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
 
 const AtcZonePolicy kAtcZonePolicyAN  = {
   kAtcZoneRulesAN /*rules*/,
-  9 /*num_rules*/,
+  10 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: AQ
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAQ[]  = {
-  // Rule    AQ    1990    1992    -    Mar    Sun>=1    2:00s    0    S
+  // Anchor: Rule    AQ    1990    1992    -    Mar    Sun>=1    2:00s    0    S
   {
-    1990 /*from_year*/,
-    1992 /*to_year*/,
-    3 /*in_month*/,
-    7 /*on_day_of_week*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -194,12 +242,22 @@ const AtcZonePolicy kAtcZonePolicyAQ  = {
 
 //---------------------------------------------------------------------------
 // Policy name: AS
-// Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
+// Rules: 8
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAS[]  = {
+  // Anchor: Rule    AS    1994    only    -    Mar    20    2:00s    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    AS    1987    2007    -    Oct    lastSun    2:00s    1:00    D
   {
     1987 /*from_year*/,
@@ -207,9 +265,9 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    AS    1994    only    -    Mar    20    2:00s    0    S
@@ -219,9 +277,9 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AS    1995    2005    -    Mar    lastSun    2:00s    0    S
@@ -231,9 +289,9 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AS    2006    only    -    Apr    2    2:00s    0    S
@@ -243,9 +301,9 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AS    2007    only    -    Mar    lastSun    2:00s    0    S
@@ -255,33 +313,33 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AS    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AS    2008    max    -    Oct    Sun>=1    2:00s    1:00    D
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
 
@@ -289,17 +347,27 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
 
 const AtcZonePolicy kAtcZonePolicyAS  = {
   kAtcZoneRulesAS /*rules*/,
-  7 /*num_rules*/,
+  8 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: AT
-// Rules: 8
-// Memory (8-bit): 94
-// Memory (32-bit): 108
+// Rules: 9
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAT[]  = {
+  // Anchor: Rule    AT    1991    2005    -    Mar    lastSun    2:00s    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    AT    1988    1990    -    Oct    lastSun    2:00s    1:00    D
   {
     1988 /*from_year*/,
@@ -307,9 +375,9 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    AT    1991    1999    -    Oct    Sun>=1    2:00s    1:00    D
@@ -319,9 +387,9 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    AT    1991    2005    -    Mar    lastSun    2:00s    0    S
@@ -331,9 +399,9 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AT    2000    only    -    Aug    lastSun    2:00s    1:00    D
@@ -343,21 +411,21 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
     8 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    AT    2001    max    -    Oct    Sun>=1    2:00s    1:00    D
   {
     2001 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    AT    2006    only    -    Apr    Sun>=1    2:00s    0    S
@@ -367,9 +435,9 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AT    2007    only    -    Mar    lastSun    2:00s    0    S
@@ -379,21 +447,21 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AT    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -401,17 +469,27 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
 
 const AtcZonePolicy kAtcZonePolicyAT  = {
   kAtcZoneRulesAT /*rules*/,
-  8 /*num_rules*/,
+  9 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: AV
-// Rules: 9
-// Memory (8-bit): 105
-// Memory (32-bit): 120
+// Rules: 10
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAV[]  = {
+  // Anchor: Rule    AV    1991    1994    -    Mar    Sun>=1    2:00s    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    AV    1988    1999    -    Oct    lastSun    2:00s    1:00    D
   {
     1988 /*from_year*/,
@@ -419,9 +497,9 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    AV    1991    1994    -    Mar    Sun>=1    2:00s    0    S
@@ -431,9 +509,9 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AV    1995    2005    -    Mar    lastSun    2:00s    0    S
@@ -443,9 +521,9 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AV    2000    only    -    Aug    lastSun    2:00s    1:00    D
@@ -455,9 +533,9 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
     8 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    AV    2001    2007    -    Oct    lastSun    2:00s    1:00    D
@@ -467,9 +545,9 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    AV    2006    only    -    Apr    Sun>=1    2:00s    0    S
@@ -479,9 +557,9 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AV    2007    only    -    Mar    lastSun    2:00s    0    S
@@ -491,33 +569,33 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AV    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AV    2008    max    -    Oct    Sun>=1    2:00s    1:00    D
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
 
@@ -525,17 +603,27 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
 
 const AtcZonePolicy kAtcZonePolicyAV  = {
   kAtcZoneRulesAV /*rules*/,
-  9 /*num_rules*/,
+  10 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: AW
-// Rules: 4
-// Memory (8-bit): 50
-// Memory (32-bit): 60
+// Rules: 5
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAW[]  = {
+  // Anchor: Rule    AW    1992    only    -    Mar    Sun>=1    2:00s    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    AW    1992    only    -    Mar    Sun>=1    2:00s    0    S
   {
     1992 /*from_year*/,
@@ -543,9 +631,9 @@ static const AtcZoneRule kAtcZoneRulesAW[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AW    2006    only    -    Dec     3    2:00s    1:00    D
@@ -555,9 +643,9 @@ static const AtcZoneRule kAtcZoneRulesAW[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     3 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    AW    2007    2009    -    Mar    lastSun    2:00s    0    S
@@ -567,9 +655,9 @@ static const AtcZoneRule kAtcZoneRulesAW[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    AW    2007    2008    -    Oct    lastSun    2:00s    1:00    D
@@ -579,9 +667,9 @@ static const AtcZoneRule kAtcZoneRulesAW[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
 
@@ -589,17 +677,27 @@ static const AtcZoneRule kAtcZoneRulesAW[]  = {
 
 const AtcZonePolicy kAtcZonePolicyAW  = {
   kAtcZoneRulesAW /*rules*/,
-  4 /*num_rules*/,
+  5 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Arg
-// Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
+// Rules: 7
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesArg[]  = {
+  // Anchor: Rule    Arg    1989    1993    -    Mar    Sun>=1    0:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Arg    1989    1993    -    Mar    Sun>=1    0:00    0    -
   {
     1989 /*from_year*/,
@@ -607,9 +705,9 @@ static const AtcZoneRule kAtcZoneRulesArg[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Arg    1999    only    -    Oct    Sun>=1    0:00    1:00    -
@@ -619,9 +717,9 @@ static const AtcZoneRule kAtcZoneRulesArg[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Arg    2000    only    -    Mar    3    0:00    0    -
@@ -631,9 +729,9 @@ static const AtcZoneRule kAtcZoneRulesArg[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     3 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Arg    2007    only    -    Dec    30    0:00    1:00    -
@@ -643,9 +741,9 @@ static const AtcZoneRule kAtcZoneRulesArg[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Arg    2008    2009    -    Mar    Sun>=15    0:00    0    -
@@ -655,9 +753,9 @@ static const AtcZoneRule kAtcZoneRulesArg[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Arg    2008    only    -    Oct    Sun>=15    0:00    1:00    -
@@ -667,9 +765,9 @@ static const AtcZoneRule kAtcZoneRulesArg[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -677,27 +775,25 @@ static const AtcZoneRule kAtcZoneRulesArg[]  = {
 
 const AtcZonePolicy kAtcZonePolicyArg  = {
   kAtcZoneRulesArg /*rules*/,
-  6 /*num_rules*/,
+  7 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Armenia
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesArmenia[]  = {
   // Anchor: Rule Armenia    2011    only    -    Oct    lastSun     2:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Armenia    2011    only    -    Mar    lastSun     2:00s    1:00    -
@@ -707,9 +803,9 @@ static const AtcZoneRule kAtcZoneRulesArmenia[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Armenia    2011    only    -    Oct    lastSun     2:00s    0    -
@@ -719,9 +815,9 @@ static const AtcZoneRule kAtcZoneRulesArmenia[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -735,21 +831,19 @@ const AtcZonePolicy kAtcZonePolicyArmenia  = {
 //---------------------------------------------------------------------------
 // Policy name: Aus
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAus[]  = {
-  // Rule    Aus    1943    1944    -    Mar    lastSun    2:00s    0    S
+  // Anchor: Rule    Aus    1943    1944    -    Mar    lastSun    2:00s    0    S
   {
-    1943 /*from_year*/,
-    1944 /*to_year*/,
-    3 /*in_month*/,
-    7 /*on_day_of_week*/,
-    0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -762,12 +856,22 @@ const AtcZonePolicy kAtcZonePolicyAus  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Azer
-// Rules: 2
-// Memory (8-bit): 28
-// Memory (32-bit): 36
+// Rules: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesAzer[]  = {
+  // Anchor: Rule    Azer    1997    2015    -    Oct    lastSun     5:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Azer    1997    2015    -    Mar    lastSun     4:00    1:00    -
   {
     1997 /*from_year*/,
@@ -775,9 +879,9 @@ static const AtcZoneRule kAtcZoneRulesAzer[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    16 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Azer    1997    2015    -    Oct    lastSun     5:00    0    -
@@ -787,9 +891,9 @@ static const AtcZoneRule kAtcZoneRulesAzer[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    20 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    1200 /*at_time_code (18000/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -797,27 +901,25 @@ static const AtcZoneRule kAtcZoneRulesAzer[]  = {
 
 const AtcZonePolicy kAtcZonePolicyAzer  = {
   kAtcZoneRulesAzer /*rules*/,
-  2 /*num_rules*/,
+  3 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Barb
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesBarb[]  = {
-  // Rule    Barb    1980    only    -    Sep    25    2:00    0    S
+  // Anchor: Rule    Barb    1980    only    -    Sep    25    2:00    0    S
   {
-    1980 /*from_year*/,
-    1980 /*to_year*/,
-    9 /*in_month*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
     0 /*on_day_of_week*/,
-    25 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -831,21 +933,19 @@ const AtcZonePolicy kAtcZonePolicyBarb  = {
 //---------------------------------------------------------------------------
 // Policy name: Belize
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesBelize[]  = {
-  // Rule    Belize    1983    only    -    Feb    12    0:00    0    CST
+  // Anchor: Rule    Belize    1983    only    -    Feb    12    0:00    0    CST
   {
-    1983 /*from_year*/,
-    1983 /*to_year*/,
-    2 /*in_month*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
     0 /*on_day_of_week*/,
-    12 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     4 /*letterIndex ("CST")*/,
   },
 
@@ -858,12 +958,22 @@ const AtcZonePolicy kAtcZonePolicyBelize  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Brazil
-// Rules: 20
-// Memory (8-bit): 226
-// Memory (32-bit): 252
+// Rules: 21
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
+  // Anchor: Rule    Brazil    1999    only    -    Feb    21     0:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Brazil    1998    only    -    Oct    11     0:00    1:00    -
   {
     1998 /*from_year*/,
@@ -871,9 +981,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     11 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    1999    only    -    Feb    21     0:00    0    -
@@ -883,9 +993,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    1999    only    -    Oct     3     0:00    1:00    -
@@ -895,9 +1005,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     3 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2000    only    -    Feb    27     0:00    0    -
@@ -907,9 +1017,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     27 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2000    2001    -    Oct    Sun>=8     0:00    1:00    -
@@ -919,9 +1029,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2001    2006    -    Feb    Sun>=15     0:00    0    -
@@ -931,9 +1041,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     2 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2002    only    -    Nov     3     0:00    1:00    -
@@ -943,9 +1053,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     3 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2003    only    -    Oct    19     0:00    1:00    -
@@ -955,9 +1065,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2004    only    -    Nov     2     0:00    1:00    -
@@ -967,9 +1077,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2005    only    -    Oct    16     0:00    1:00    -
@@ -979,9 +1089,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     16 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2006    only    -    Nov     5     0:00    1:00    -
@@ -991,9 +1101,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     5 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2007    only    -    Feb    25     0:00    0    -
@@ -1003,9 +1113,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     25 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2007    only    -    Oct    Sun>=8     0:00    1:00    -
@@ -1015,9 +1125,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2008    2017    -    Oct    Sun>=15    0:00    1:00    -
@@ -1027,9 +1137,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2008    2011    -    Feb    Sun>=15    0:00    0    -
@@ -1039,9 +1149,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     2 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2012    only    -    Feb    Sun>=22    0:00    0    -
@@ -1051,9 +1161,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     2 /*in_month*/,
     7 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2013    2014    -    Feb    Sun>=15    0:00    0    -
@@ -1063,9 +1173,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     2 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2015    only    -    Feb    Sun>=22    0:00    0    -
@@ -1075,9 +1185,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     2 /*in_month*/,
     7 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2016    2019    -    Feb    Sun>=15    0:00    0    -
@@ -1087,9 +1197,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     2 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Brazil    2018    only    -    Nov    Sun>=1    0:00    1:00    -
@@ -1099,9 +1209,9 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -1109,17 +1219,27 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
 
 const AtcZonePolicy kAtcZonePolicyBrazil  = {
   kAtcZoneRulesBrazil /*rules*/,
-  20 /*num_rules*/,
+  21 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: C-Eur
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesC_Eur[]  = {
+  // Anchor: Rule    C-Eur    1979    1995    -    Sep    lastSun     2:00s    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    C-Eur    1979    1995    -    Sep    lastSun     2:00s    0    -
   {
     1979 /*from_year*/,
@@ -1127,33 +1247,33 @@ static const AtcZoneRule kAtcZoneRulesC_Eur[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    C-Eur    1981    max    -    Mar    lastSun     2:00s    1:00    S
   {
     1981 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    C-Eur    1996    max    -    Oct    lastSun     2:00s    0    -
   {
     1996 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -1161,27 +1281,25 @@ static const AtcZoneRule kAtcZoneRulesC_Eur[]  = {
 
 const AtcZonePolicy kAtcZonePolicyC_Eur  = {
   kAtcZoneRulesC_Eur /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: CO
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCO[]  = {
-  // Rule    CO    1993    only    -    Feb     6    24:00    0    -
+  // Anchor: Rule    CO    1993    only    -    Feb     6    24:00    0    -
   {
-    1993 /*from_year*/,
-    1993 /*to_year*/,
-    2 /*in_month*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
     0 /*on_day_of_week*/,
-    6 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -1195,21 +1313,19 @@ const AtcZonePolicy kAtcZonePolicyCO  = {
 //---------------------------------------------------------------------------
 // Policy name: CR
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCR[]  = {
-  // Rule    CR    1992    only    -    Mar    15    0:00    0    S
+  // Anchor: Rule    CR    1992    only    -    Mar    15    0:00    0    S
   {
-    1992 /*from_year*/,
-    1992 /*to_year*/,
-    3 /*in_month*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
     0 /*on_day_of_week*/,
-    15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -1222,12 +1338,22 @@ const AtcZonePolicy kAtcZonePolicyCR  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Canada
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 6
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCanada[]  = {
+  // Anchor: Rule    Canada    1974    2006    -    Oct    lastSun    2:00    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    Canada    1974    1986    -    Apr    lastSun    2:00    1:00    D
   {
     1974 /*from_year*/,
@@ -1235,9 +1361,9 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Canada    1974    2006    -    Oct    lastSun    2:00    0    S
@@ -1247,9 +1373,9 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Canada    1987    2006    -    Apr    Sun>=1    2:00    1:00    D
@@ -1259,33 +1385,33 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Canada    2007    max    -    Mar    Sun>=8    2:00    1:00    D
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Canada    2007    max    -    Nov    Sun>=1    2:00    0    S
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -1293,17 +1419,27 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
 
 const AtcZonePolicy kAtcZonePolicyCanada  = {
   kAtcZoneRulesCanada /*rules*/,
-  5 /*num_rules*/,
+  6 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Chatham
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 6
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesChatham[]  = {
+  // Anchor: Rule    Chatham    1990    2007    -    Mar    Sun>=15    2:45s    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Chatham    1989    only    -    Oct    Sun>=8    2:45s    1:00    -
   {
     1989 /*from_year*/,
@@ -1311,9 +1447,9 @@ static const AtcZoneRule kAtcZoneRulesChatham[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    11 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    660 /*at_time_code (9900/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chatham    1990    2006    -    Oct    Sun>=1    2:45s    1:00    -
@@ -1323,9 +1459,9 @@ static const AtcZoneRule kAtcZoneRulesChatham[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    11 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    660 /*at_time_code (9900/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chatham    1990    2007    -    Mar    Sun>=15    2:45s    0    -
@@ -1335,33 +1471,33 @@ static const AtcZoneRule kAtcZoneRulesChatham[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    11 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    660 /*at_time_code (9900/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chatham    2007    max    -    Sep    lastSun    2:45s    1:00    -
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    11 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    660 /*at_time_code (9900/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chatham    2008    max    -    Apr    Sun>=1    2:45s    0    -
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    11 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    660 /*at_time_code (9900/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -1369,17 +1505,27 @@ static const AtcZoneRule kAtcZoneRulesChatham[]  = {
 
 const AtcZonePolicy kAtcZonePolicyChatham  = {
   kAtcZoneRulesChatham /*rules*/,
-  5 /*num_rules*/,
+  6 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Chile
-// Rules: 17
-// Memory (8-bit): 193
-// Memory (32-bit): 216
+// Rules: 18
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesChile[]  = {
+  // Anchor: Rule    Chile    1999    only    -    Apr     4    3:00u    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Chile    1998    only    -    Sep    27    4:00u    1:00    -
   {
     1998 /*from_year*/,
@@ -1387,9 +1533,9 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     27 /*on_day_of_month*/,
-    16 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chile    1999    only    -    Apr     4    3:00u    0    -
@@ -1399,9 +1545,9 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chile    1999    2010    -    Oct    Sun>=9    4:00u    1:00    -
@@ -1411,9 +1557,9 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    16 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chile    2000    2007    -    Mar    Sun>=9    3:00u    0    -
@@ -1423,9 +1569,9 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chile    2008    only    -    Mar    30    3:00u    0    -
@@ -1435,9 +1581,9 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chile    2009    only    -    Mar    Sun>=9    3:00u    0    -
@@ -1447,9 +1593,9 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chile    2010    only    -    Apr    Sun>=1    3:00u    0    -
@@ -1459,9 +1605,9 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chile    2011    only    -    May    Sun>=2    3:00u    0    -
@@ -1471,9 +1617,9 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
     5 /*in_month*/,
     7 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chile    2011    only    -    Aug    Sun>=16    4:00u    1:00    -
@@ -1483,9 +1629,9 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
     8 /*in_month*/,
     7 /*on_day_of_week*/,
     16 /*on_day_of_month*/,
-    16 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chile    2012    2014    -    Apr    Sun>=23    3:00u    0    -
@@ -1495,9 +1641,9 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chile    2012    2014    -    Sep    Sun>=2    4:00u    1:00    -
@@ -1507,9 +1653,9 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    16 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chile    2016    2018    -    May    Sun>=9    3:00u    0    -
@@ -1519,9 +1665,9 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
     5 /*in_month*/,
     7 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chile    2016    2018    -    Aug    Sun>=9    4:00u    1:00    -
@@ -1531,21 +1677,21 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
     8 /*in_month*/,
     7 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    16 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chile    2019    max    -    Apr    Sun>=2    3:00u    0    -
   {
     2019 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chile    2019    2021    -    Sep    Sun>=2    4:00u    1:00    -
@@ -1555,9 +1701,9 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    16 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chile    2022    only    -    Sep    Sun>=9    4:00u    1:00    -
@@ -1567,21 +1713,21 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    16 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Chile    2023    max    -    Sep    Sun>=2    4:00u    1:00    -
   {
     2023 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    16 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -1589,27 +1735,25 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
 
 const AtcZonePolicy kAtcZonePolicyChile  = {
   kAtcZoneRulesChile /*rules*/,
-  17 /*num_rules*/,
+  18 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Cook
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCook[]  = {
-  // Rule    Cook    1979    1991    -    Mar    Sun>=1    0:00    0    -
+  // Anchor: Rule    Cook    1979    1991    -    Mar    Sun>=1    0:00    0    -
   {
-    1979 /*from_year*/,
-    1991 /*to_year*/,
-    3 /*in_month*/,
-    7 /*on_day_of_week*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -1622,12 +1766,22 @@ const AtcZonePolicy kAtcZonePolicyCook  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Cuba
-// Rules: 14
-// Memory (8-bit): 160
-// Memory (32-bit): 180
+// Rules: 15
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesCuba[]  = {
+  // Anchor: Rule    Cuba    1997    only    -    Oct    12    0:00s    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    Cuba    1997    only    -    Oct    12    0:00s    0    S
   {
     1997 /*from_year*/,
@@ -1635,9 +1789,9 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     12 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Cuba    1998    1999    -    Mar    lastSun    0:00s    1:00    D
@@ -1647,9 +1801,9 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Cuba    1998    2003    -    Oct    lastSun    0:00s    0    S
@@ -1659,9 +1813,9 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Cuba    2000    2003    -    Apr    Sun>=1    0:00s    1:00    D
@@ -1671,9 +1825,9 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Cuba    2004    only    -    Mar    lastSun    0:00s    1:00    D
@@ -1683,9 +1837,9 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Cuba    2006    2010    -    Oct    lastSun    0:00s    0    S
@@ -1695,9 +1849,9 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Cuba    2007    only    -    Mar    Sun>=8    0:00s    1:00    D
@@ -1707,9 +1861,9 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Cuba    2008    only    -    Mar    Sun>=15    0:00s    1:00    D
@@ -1719,9 +1873,9 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Cuba    2009    2010    -    Mar    Sun>=8    0:00s    1:00    D
@@ -1731,9 +1885,9 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Cuba    2011    only    -    Mar    Sun>=15    0:00s    1:00    D
@@ -1743,9 +1897,9 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Cuba    2011    only    -    Nov    13    0:00s    0    S
@@ -1755,9 +1909,9 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     13 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Cuba    2012    only    -    Apr    1    0:00s    1:00    D
@@ -1767,33 +1921,33 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Cuba    2012    max    -    Nov    Sun>=1    0:00s    0    S
   {
     2012 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Cuba    2013    max    -    Mar    Sun>=8    0:00s    1:00    D
   {
     2013 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
 
@@ -1801,27 +1955,25 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
 
 const AtcZonePolicy kAtcZonePolicyCuba  = {
   kAtcZoneRulesCuba /*rules*/,
-  14 /*num_rules*/,
+  15 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Dhaka
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesDhaka[]  = {
   // Anchor: Rule    Dhaka    2009    only    -    Dec    31    24:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Dhaka    2009    only    -    Jun    19    23:00    1:00    -
@@ -1831,9 +1983,9 @@ static const AtcZoneRule kAtcZoneRulesDhaka[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
-    92 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Dhaka    2009    only    -    Dec    31    24:00    0    -
@@ -1843,9 +1995,9 @@ static const AtcZoneRule kAtcZoneRulesDhaka[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     31 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -1858,22 +2010,32 @@ const AtcZonePolicy kAtcZonePolicyDhaka  = {
 
 //---------------------------------------------------------------------------
 // Policy name: E-EurAsia
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesE_EurAsia[]  = {
+  // Anchor: Rule E-EurAsia    1979    1995    -    Sep    lastSun     0:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule E-EurAsia    1981    max    -    Mar    lastSun     0:00    1:00    -
   {
     1981 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule E-EurAsia    1979    1995    -    Sep    lastSun     0:00    0    -
@@ -1883,21 +2045,21 @@ static const AtcZoneRule kAtcZoneRulesE_EurAsia[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule E-EurAsia    1996    max    -    Oct    lastSun     0:00    0    -
   {
     1996 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -1905,17 +2067,27 @@ static const AtcZoneRule kAtcZoneRulesE_EurAsia[]  = {
 
 const AtcZonePolicy kAtcZonePolicyE_EurAsia  = {
   kAtcZoneRulesE_EurAsia /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: EU
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEU[]  = {
+  // Anchor: Rule    EU    1979    1995    -    Sep    lastSun     1:00u    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    EU    1979    1995    -    Sep    lastSun     1:00u    0    -
   {
     1979 /*from_year*/,
@@ -1923,33 +2095,33 @@ static const AtcZoneRule kAtcZoneRulesEU[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    EU    1981    max    -    Mar    lastSun     1:00u    1:00    S
   {
     1981 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    EU    1996    max    -    Oct    lastSun     1:00u    0    -
   {
     1996 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -1957,27 +2129,37 @@ static const AtcZoneRule kAtcZoneRulesEU[]  = {
 
 const AtcZonePolicy kAtcZonePolicyEU  = {
   kAtcZoneRulesEU /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: EUAsia
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEUAsia[]  = {
+  // Anchor: Rule    EUAsia    1979    1995    -    Sep    lastSun     1:00u    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    EUAsia    1981    max    -    Mar    lastSun     1:00u    1:00    S
   {
     1981 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    EUAsia    1979    1995    -    Sep    lastSun     1:00u    0    -
@@ -1987,21 +2169,21 @@ static const AtcZoneRule kAtcZoneRulesEUAsia[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    EUAsia    1996    max    -    Oct    lastSun     1:00u    0    -
   {
     1996 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -2009,27 +2191,25 @@ static const AtcZoneRule kAtcZoneRulesEUAsia[]  = {
 
 const AtcZonePolicy kAtcZonePolicyEUAsia  = {
   kAtcZoneRulesEUAsia /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Ecuador
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEcuador[]  = {
-  // Rule    Ecuador    1993    only    -    Feb     5    0:00    0    -
+  // Anchor: Rule    Ecuador    1993    only    -    Feb     5    0:00    0    -
   {
-    1993 /*from_year*/,
-    1993 /*to_year*/,
-    2 /*in_month*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
     0 /*on_day_of_week*/,
-    5 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -2042,12 +2222,22 @@ const AtcZonePolicy kAtcZonePolicyEcuador  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Egypt
-// Rules: 14
-// Memory (8-bit): 160
-// Memory (32-bit): 180
+// Rules: 17
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
+  // Anchor: Rule    Egypt    1966    1994    -    Oct     1    3:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Egypt    1966    1994    -    Oct     1    3:00    0    -
   {
     1966 /*from_year*/,
@@ -2055,9 +2245,9 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Egypt    1995    2010    -    Apr    lastFri     0:00s    1:00    S
@@ -2067,9 +2257,9 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     4 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Egypt    1995    2005    -    Sep    lastThu    24:00    0    -
@@ -2079,9 +2269,9 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     9 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Egypt    2006    only    -    Sep    21    24:00    0    -
@@ -2091,9 +2281,9 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Egypt    2007    only    -    Sep    Thu>=1    24:00    0    -
@@ -2103,9 +2293,9 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     9 /*in_month*/,
     4 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Egypt    2008    only    -    Aug    lastThu    24:00    0    -
@@ -2115,9 +2305,9 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     8 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Egypt    2009    only    -    Aug    20    24:00    0    -
@@ -2127,9 +2317,9 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Egypt    2010    only    -    Aug    10    24:00    0    -
@@ -2139,9 +2329,9 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     10 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Egypt    2010    only    -    Sep     9    24:00    1:00    S
@@ -2151,9 +2341,9 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Egypt    2010    only    -    Sep    lastThu    24:00    0    -
@@ -2163,9 +2353,9 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     9 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Egypt    2014    only    -    May    15    24:00    1:00    S
@@ -2175,9 +2365,9 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Egypt    2014    only    -    Jun    26    24:00    0    -
@@ -2187,9 +2377,9 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     26 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Egypt    2014    only    -    Jul    31    24:00    1:00    S
@@ -2199,9 +2389,9 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     31 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Egypt    2014    only    -    Sep    lastThu    24:00    0    -
@@ -2211,9 +2401,33 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
     9 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Egypt    2023    max    -    Apr    lastFri     0:00    1:00    S
+  {
+    2023 /*from_year*/,
+    32766 /*to_year*/,
+    4 /*in_month*/,
+    5 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule    Egypt    2023    max    -    Oct    lastThu    24:00    0    -
+  {
+    2023 /*from_year*/,
+    32766 /*to_year*/,
+    10 /*in_month*/,
+    4 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -2221,27 +2435,37 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
 
 const AtcZonePolicy kAtcZonePolicyEgypt  = {
   kAtcZoneRulesEgypt /*rules*/,
-  14 /*num_rules*/,
+  17 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Eire
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesEire[]  = {
+  // Anchor: Rule    Eire    1981    max    -    Mar    lastSun     1:00u    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Eire    1981    max    -    Mar    lastSun     1:00u    0    -
   {
     1981 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Eire    1990    1995    -    Oct    Sun>=22     1:00u    -1:00    -
@@ -2251,21 +2475,21 @@ static const AtcZoneRule kAtcZoneRulesEire[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Eire    1996    max    -    Oct    lastSun     1:00u    -1:00    -
   {
     1996 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -2273,17 +2497,27 @@ static const AtcZoneRule kAtcZoneRulesEire[]  = {
 
 const AtcZonePolicy kAtcZonePolicyEire  = {
   kAtcZoneRulesEire /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Falk
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 6
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesFalk[]  = {
+  // Anchor: Rule    Falk    1984    1985    -    Apr    lastSun    0:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Falk    1984    1985    -    Apr    lastSun    0:00    0    -
   {
     1984 /*from_year*/,
@@ -2291,9 +2525,9 @@ static const AtcZoneRule kAtcZoneRulesFalk[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Falk    1985    2000    -    Sep    Sun>=9    0:00    1:00    -
@@ -2303,9 +2537,9 @@ static const AtcZoneRule kAtcZoneRulesFalk[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Falk    1986    2000    -    Apr    Sun>=16    0:00    0    -
@@ -2315,9 +2549,9 @@ static const AtcZoneRule kAtcZoneRulesFalk[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     16 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Falk    2001    2010    -    Apr    Sun>=15    2:00    0    -
@@ -2327,9 +2561,9 @@ static const AtcZoneRule kAtcZoneRulesFalk[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Falk    2001    2010    -    Sep    Sun>=1    2:00    1:00    -
@@ -2339,9 +2573,9 @@ static const AtcZoneRule kAtcZoneRulesFalk[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -2349,17 +2583,27 @@ static const AtcZoneRule kAtcZoneRulesFalk[]  = {
 
 const AtcZonePolicy kAtcZonePolicyFalk  = {
   kAtcZoneRulesFalk /*rules*/,
-  5 /*num_rules*/,
+  6 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Fiji
-// Rules: 12
-// Memory (8-bit): 138
-// Memory (32-bit): 156
+// Rules: 13
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesFiji[]  = {
+  // Anchor: Rule    Fiji    1999    2000    -    Feb    lastSun    3:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Fiji    1998    1999    -    Nov    Sun>=1    2:00    1:00    -
   {
     1998 /*from_year*/,
@@ -2367,9 +2611,9 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Fiji    1999    2000    -    Feb    lastSun    3:00    0    -
@@ -2379,9 +2623,9 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
     2 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Fiji    2009    only    -    Nov    29    2:00    1:00    -
@@ -2391,9 +2635,9 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     29 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Fiji    2010    only    -    Mar    lastSun    3:00    0    -
@@ -2403,9 +2647,9 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Fiji    2010    2013    -    Oct    Sun>=21    2:00    1:00    -
@@ -2415,9 +2659,9 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Fiji    2011    only    -    Mar    Sun>=1    3:00    0    -
@@ -2427,9 +2671,9 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Fiji    2012    2013    -    Jan    Sun>=18    3:00    0    -
@@ -2439,9 +2683,9 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
     1 /*in_month*/,
     7 /*on_day_of_week*/,
     18 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Fiji    2014    only    -    Jan    Sun>=18    2:00    0    -
@@ -2451,9 +2695,9 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
     1 /*in_month*/,
     7 /*on_day_of_week*/,
     18 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Fiji    2014    2018    -    Nov    Sun>=1    2:00    1:00    -
@@ -2463,9 +2707,9 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Fiji    2015    2021    -    Jan    Sun>=12    3:00    0    -
@@ -2475,9 +2719,9 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
     1 /*in_month*/,
     7 /*on_day_of_week*/,
     12 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Fiji    2019    only    -    Nov    Sun>=8    2:00    1:00    -
@@ -2487,9 +2731,9 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Fiji    2020    only    -    Dec    20    2:00    1:00    -
@@ -2499,9 +2743,9 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -2509,27 +2753,25 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
 
 const AtcZonePolicy kAtcZonePolicyFiji  = {
   kAtcZoneRulesFiji /*rules*/,
-  12 /*num_rules*/,
+  13 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Guam
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesGuam[]  = {
-  // Rule    Guam    1977    only    -    Aug    28    2:00    0    S
+  // Anchor: Rule    Guam    1977    only    -    Aug    28    2:00    0    S
   {
-    1977 /*from_year*/,
-    1977 /*to_year*/,
-    8 /*in_month*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
     0 /*on_day_of_week*/,
-    28 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -2542,12 +2784,22 @@ const AtcZonePolicy kAtcZonePolicyGuam  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Guat
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesGuat[]  = {
+  // Anchor: Rule    Guat    1991    only    -    Sep     7    0:00    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    Guat    1991    only    -    Sep     7    0:00    0    S
   {
     1991 /*from_year*/,
@@ -2555,9 +2807,9 @@ static const AtcZoneRule kAtcZoneRulesGuat[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Guat    2006    only    -    Apr    30    0:00    1:00    D
@@ -2567,9 +2819,9 @@ static const AtcZoneRule kAtcZoneRulesGuat[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Guat    2006    only    -    Oct     1    0:00    0    S
@@ -2579,9 +2831,9 @@ static const AtcZoneRule kAtcZoneRulesGuat[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -2589,27 +2841,25 @@ static const AtcZoneRule kAtcZoneRulesGuat[]  = {
 
 const AtcZonePolicy kAtcZonePolicyGuat  = {
   kAtcZoneRulesGuat /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: HK
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesHK[]  = {
-  // Rule    HK    1979    only    -    Oct    21    3:30    0    -
+  // Anchor: Rule    HK    1979    only    -    Oct    21    3:30    0    -
   {
-    1979 /*from_year*/,
-    1979 /*to_year*/,
-    10 /*in_month*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
     0 /*on_day_of_week*/,
-    21 /*on_day_of_month*/,
-    14 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -2622,12 +2872,22 @@ const AtcZonePolicy kAtcZonePolicyHK  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Haiti
-// Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
+// Rules: 8
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
+  // Anchor: Rule    Haiti    1988    1997    -    Oct    lastSun    1:00s    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    Haiti    1988    1997    -    Oct    lastSun    1:00s    0    S
   {
     1988 /*from_year*/,
@@ -2635,9 +2895,9 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Haiti    2005    2006    -    Apr    Sun>=1    0:00    1:00    D
@@ -2647,9 +2907,9 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Haiti    2005    2006    -    Oct    lastSun    0:00    0    S
@@ -2659,9 +2919,9 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Haiti    2012    2015    -    Mar    Sun>=8    2:00    1:00    D
@@ -2671,9 +2931,9 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Haiti    2012    2015    -    Nov    Sun>=1    2:00    0    S
@@ -2683,33 +2943,33 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Haiti    2017    max    -    Mar    Sun>=8    2:00    1:00    D
   {
     2017 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Haiti    2017    max    -    Nov    Sun>=1    2:00    0    S
   {
     2017 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -2717,27 +2977,25 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
 
 const AtcZonePolicy kAtcZonePolicyHaiti  = {
   kAtcZoneRulesHaiti /*rules*/,
-  7 /*num_rules*/,
+  8 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Holiday
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesHoliday[]  = {
-  // Rule    Holiday    1993    1994    -    Mar    Sun>=1    2:00s    0    S
+  // Anchor: Rule    Holiday    1993    1994    -    Mar    Sun>=1    2:00s    0    S
   {
-    1993 /*from_year*/,
-    1994 /*to_year*/,
-    3 /*in_month*/,
-    7 /*on_day_of_week*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -2750,12 +3008,22 @@ const AtcZonePolicy kAtcZonePolicyHoliday  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Hond
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesHond[]  = {
+  // Anchor: Rule    Hond    1987    1988    -    Sep    lastSun    0:00    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    Hond    1987    1988    -    Sep    lastSun    0:00    0    S
   {
     1987 /*from_year*/,
@@ -2763,9 +3031,9 @@ static const AtcZoneRule kAtcZoneRulesHond[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Hond    2006    only    -    May    Sun>=1    0:00    1:00    D
@@ -2775,9 +3043,9 @@ static const AtcZoneRule kAtcZoneRulesHond[]  = {
     5 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Hond    2006    only    -    Aug    Mon>=1    0:00    0    S
@@ -2787,9 +3055,9 @@ static const AtcZoneRule kAtcZoneRulesHond[]  = {
     8 /*in_month*/,
     1 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -2797,17 +3065,27 @@ static const AtcZoneRule kAtcZoneRulesHond[]  = {
 
 const AtcZonePolicy kAtcZonePolicyHond  = {
   kAtcZoneRulesHond /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Iran
-// Rules: 27
-// Memory (8-bit): 303
-// Memory (32-bit): 336
+// Rules: 28
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesIran[]  = {
+  // Anchor: Rule    Iran    1996    only    -    Sep    20    24:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Iran    1996    only    -    Sep    20    24:00    0    -
   {
     1996 /*from_year*/,
@@ -2815,9 +3093,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    1997    1999    -    Mar    21    24:00    1:00    -
@@ -2827,9 +3105,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    1997    1999    -    Sep    21    24:00    0    -
@@ -2839,9 +3117,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2000    only    -    Mar    20    24:00    1:00    -
@@ -2851,9 +3129,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2000    only    -    Sep    20    24:00    0    -
@@ -2863,9 +3141,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2001    2003    -    Mar    21    24:00    1:00    -
@@ -2875,9 +3153,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2001    2003    -    Sep    21    24:00    0    -
@@ -2887,9 +3165,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2004    only    -    Mar    20    24:00    1:00    -
@@ -2899,9 +3177,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2004    only    -    Sep    20    24:00    0    -
@@ -2911,9 +3189,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2005    only    -    Mar    21    24:00    1:00    -
@@ -2923,9 +3201,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2005    only    -    Sep    21    24:00    0    -
@@ -2935,9 +3213,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2008    only    -    Mar    20    24:00    1:00    -
@@ -2947,9 +3225,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2008    only    -    Sep    20    24:00    0    -
@@ -2959,9 +3237,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2009    2011    -    Mar    21    24:00    1:00    -
@@ -2971,9 +3249,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2009    2011    -    Sep    21    24:00    0    -
@@ -2983,9 +3261,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2012    only    -    Mar    20    24:00    1:00    -
@@ -2995,9 +3273,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2012    only    -    Sep    20    24:00    0    -
@@ -3007,9 +3285,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2013    2015    -    Mar    21    24:00    1:00    -
@@ -3019,9 +3297,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2013    2015    -    Sep    21    24:00    0    -
@@ -3031,9 +3309,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2016    only    -    Mar    20    24:00    1:00    -
@@ -3043,9 +3321,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2016    only    -    Sep    20    24:00    0    -
@@ -3055,9 +3333,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2017    2019    -    Mar    21    24:00    1:00    -
@@ -3067,9 +3345,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2017    2019    -    Sep    21    24:00    0    -
@@ -3079,9 +3357,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2020    only    -    Mar    20    24:00    1:00    -
@@ -3091,9 +3369,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2020    only    -    Sep    20    24:00    0    -
@@ -3103,9 +3381,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2021    2022    -    Mar    21    24:00    1:00    -
@@ -3115,9 +3393,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iran    2021    2022    -    Sep    21    24:00    0    -
@@ -3127,9 +3405,9 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -3137,17 +3415,27 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
 
 const AtcZonePolicy kAtcZonePolicyIran  = {
   kAtcZoneRulesIran /*rules*/,
-  27 /*num_rules*/,
+  28 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Iraq
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesIraq[]  = {
+  // Anchor: Rule    Iraq    1985    1990    -    Sep    lastSun    1:00s    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Iraq    1985    1990    -    Sep    lastSun    1:00s    0    -
   {
     1985 /*from_year*/,
@@ -3155,9 +3443,9 @@ static const AtcZoneRule kAtcZoneRulesIraq[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iraq    1991    2007    -    Apr     1    3:00s    1:00    -
@@ -3167,9 +3455,9 @@ static const AtcZoneRule kAtcZoneRulesIraq[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Iraq    1991    2007    -    Oct     1    3:00s    0    -
@@ -3179,9 +3467,9 @@ static const AtcZoneRule kAtcZoneRulesIraq[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -3189,27 +3477,25 @@ static const AtcZoneRule kAtcZoneRulesIraq[]  = {
 
 const AtcZonePolicy kAtcZonePolicyIraq  = {
   kAtcZoneRulesIraq /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Japan
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesJapan[]  = {
-  // Rule    Japan    1948    1951    -    Sep    Sat>=8    25:00    0    S
+  // Anchor: Rule    Japan    1948    1951    -    Sep    Sat>=8    25:00    0    S
   {
-    1948 /*from_year*/,
-    1951 /*to_year*/,
-    9 /*in_month*/,
-    6 /*on_day_of_week*/,
-    8 /*on_day_of_month*/,
-    100 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -3222,12 +3508,22 @@ const AtcZonePolicy kAtcZonePolicyJapan  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Jordan
-// Rules: 13
-// Memory (8-bit): 149
-// Memory (32-bit): 168
+// Rules: 14
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesJordan[]  = {
+  // Anchor: Rule    Jordan    1995    1998    -    Sep    Fri>=15    0:00s    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Jordan    1995    1998    -    Sep    Fri>=15    0:00s    0    -
   {
     1995 /*from_year*/,
@@ -3235,9 +3531,9 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     9 /*in_month*/,
     5 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Jordan    1999    only    -    Jul     1    0:00s    1:00    S
@@ -3247,9 +3543,9 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Jordan    1999    2002    -    Sep    lastFri    0:00s    0    -
@@ -3259,9 +3555,9 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     9 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Jordan    2000    2001    -    Mar    lastThu    0:00s    1:00    S
@@ -3271,9 +3567,9 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     3 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Jordan    2002    2012    -    Mar    lastThu    24:00    1:00    S
@@ -3283,9 +3579,9 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     3 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Jordan    2003    only    -    Oct    24    0:00s    0    -
@@ -3295,9 +3591,9 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     24 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Jordan    2004    only    -    Oct    15    0:00s    0    -
@@ -3307,9 +3603,9 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Jordan    2005    only    -    Sep    lastFri    0:00s    0    -
@@ -3319,9 +3615,9 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     9 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Jordan    2006    2011    -    Oct    lastFri    0:00s    0    -
@@ -3331,9 +3627,9 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     10 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Jordan    2013    only    -    Dec    20    0:00    0    -
@@ -3343,9 +3639,9 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Jordan    2014    2021    -    Mar    lastThu    24:00    1:00    S
@@ -3355,9 +3651,9 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     3 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Jordan    2014    2022    -    Oct    lastFri    0:00s    0    -
@@ -3367,9 +3663,9 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     10 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Jordan    2022    only    -    Feb    lastThu    24:00    1:00    S
@@ -3379,9 +3675,9 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
     2 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -3389,17 +3685,27 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
 
 const AtcZonePolicy kAtcZonePolicyJordan  = {
   kAtcZoneRulesJordan /*rules*/,
-  13 /*num_rules*/,
+  14 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Kyrgyz
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesKyrgyz[]  = {
+  // Anchor: Rule    Kyrgyz    1992    1996    -    Sep    lastSun    0:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Kyrgyz    1992    1996    -    Sep    lastSun    0:00    0    -
   {
     1992 /*from_year*/,
@@ -3407,9 +3713,9 @@ static const AtcZoneRule kAtcZoneRulesKyrgyz[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Kyrgyz    1997    2005    -    Mar    lastSun    2:30    1:00    -
@@ -3419,9 +3725,9 @@ static const AtcZoneRule kAtcZoneRulesKyrgyz[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    10 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    600 /*at_time_code (9000/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Kyrgyz    1997    2004    -    Oct    lastSun    2:30    0    -
@@ -3431,9 +3737,9 @@ static const AtcZoneRule kAtcZoneRulesKyrgyz[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    10 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    600 /*at_time_code (9000/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -3441,17 +3747,27 @@ static const AtcZoneRule kAtcZoneRulesKyrgyz[]  = {
 
 const AtcZonePolicy kAtcZonePolicyKyrgyz  = {
   kAtcZoneRulesKyrgyz /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: LH
-// Rules: 9
-// Memory (8-bit): 105
-// Memory (32-bit): 120
+// Rules: 10
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesLH[]  = {
+  // Anchor: Rule    LH    1990    1995    -    Mar    Sun>=1    2:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    LH    1987    1999    -    Oct    lastSun    2:00    0:30    -
   {
     1987 /*from_year*/,
@@ -3459,9 +3775,9 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    6 /*delta_code ((delta_minutes=30)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    30 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    LH    1990    1995    -    Mar    Sun>=1    2:00    0    -
@@ -3471,9 +3787,9 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    LH    1996    2005    -    Mar    lastSun    2:00    0    -
@@ -3483,9 +3799,9 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    LH    2000    only    -    Aug    lastSun    2:00    0:30    -
@@ -3495,9 +3811,9 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
     8 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    6 /*delta_code ((delta_minutes=30)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    30 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    LH    2001    2007    -    Oct    lastSun    2:00    0:30    -
@@ -3507,9 +3823,9 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    6 /*delta_code ((delta_minutes=30)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    30 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    LH    2006    only    -    Apr    Sun>=1    2:00    0    -
@@ -3519,9 +3835,9 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    LH    2007    only    -    Mar    lastSun    2:00    0    -
@@ -3531,33 +3847,33 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    LH    2008    max    -    Apr    Sun>=1    2:00    0    -
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    LH    2008    max    -    Oct    Sun>=1    2:00    0:30    -
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    6 /*delta_code ((delta_minutes=30)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    30 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -3565,27 +3881,37 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
 
 const AtcZonePolicy kAtcZonePolicyLH  = {
   kAtcZoneRulesLH /*rules*/,
-  9 /*num_rules*/,
+  10 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Lebanon
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesLebanon[]  = {
+  // Anchor: Rule    Lebanon    1993    1998    -    Sep    lastSun    0:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Lebanon    1993    max    -    Mar    lastSun    0:00    1:00    S
   {
     1993 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Lebanon    1993    1998    -    Sep    lastSun    0:00    0    -
@@ -3595,21 +3921,21 @@ static const AtcZoneRule kAtcZoneRulesLebanon[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Lebanon    1999    max    -    Oct    lastSun    0:00    0    -
   {
     1999 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -3617,17 +3943,27 @@ static const AtcZoneRule kAtcZoneRulesLebanon[]  = {
 
 const AtcZonePolicy kAtcZonePolicyLebanon  = {
   kAtcZoneRulesLebanon /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Libya
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesLibya[]  = {
+  // Anchor: Rule    Libya    1997    only    -    Oct     4    0:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Libya    1997    only    -    Oct     4    0:00    0    -
   {
     1997 /*from_year*/,
@@ -3635,9 +3971,9 @@ static const AtcZoneRule kAtcZoneRulesLibya[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Libya    2013    only    -    Mar    lastFri    1:00    1:00    S
@@ -3647,9 +3983,9 @@ static const AtcZoneRule kAtcZoneRulesLibya[]  = {
     3 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Libya    2013    only    -    Oct    lastFri    2:00    0    -
@@ -3659,9 +3995,9 @@ static const AtcZoneRule kAtcZoneRulesLibya[]  = {
     10 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -3669,27 +4005,25 @@ static const AtcZoneRule kAtcZoneRulesLibya[]  = {
 
 const AtcZonePolicy kAtcZonePolicyLibya  = {
   kAtcZoneRulesLibya /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Macau
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMacau[]  = {
-  // Rule    Macau    1979    only    -    Oct    Sun>=16    03:30    0    S
+  // Anchor: Rule    Macau    1979    only    -    Oct    Sun>=16    03:30    0    S
   {
-    1979 /*from_year*/,
-    1979 /*to_year*/,
-    10 /*in_month*/,
-    7 /*on_day_of_week*/,
-    16 /*on_day_of_month*/,
-    14 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -3702,12 +4036,22 @@ const AtcZonePolicy kAtcZonePolicyMacau  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Mauritius
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMauritius[]  = {
+  // Anchor: Rule Mauritius    1983    only    -    Mar    21    0:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule Mauritius    1983    only    -    Mar    21    0:00    0    -
   {
     1983 /*from_year*/,
@@ -3715,9 +4059,9 @@ static const AtcZoneRule kAtcZoneRulesMauritius[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Mauritius    2008    only    -    Oct    lastSun    2:00    1:00    -
@@ -3727,9 +4071,9 @@ static const AtcZoneRule kAtcZoneRulesMauritius[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Mauritius    2009    only    -    Mar    lastSun    2:00    0    -
@@ -3739,9 +4083,9 @@ static const AtcZoneRule kAtcZoneRulesMauritius[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -3749,17 +4093,27 @@ static const AtcZoneRule kAtcZoneRulesMauritius[]  = {
 
 const AtcZonePolicy kAtcZonePolicyMauritius  = {
   kAtcZoneRulesMauritius /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Mexico
-// Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
+// Rules: 8
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMexico[]  = {
+  // Anchor: Rule    Mexico    1950    only    -    Jul    30    0:00    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    Mexico    1950    only    -    Jul    30    0:00    0    S
   {
     1950 /*from_year*/,
@@ -3767,9 +4121,9 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Mexico    1996    2000    -    Apr    Sun>=1    2:00    1:00    D
@@ -3779,9 +4133,9 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Mexico    1996    2000    -    Oct    lastSun    2:00    0    S
@@ -3791,9 +4145,9 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Mexico    2001    only    -    May    Sun>=1    2:00    1:00    D
@@ -3803,9 +4157,9 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     5 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Mexico    2001    only    -    Sep    lastSun    2:00    0    S
@@ -3815,9 +4169,9 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Mexico    2002    2022    -    Apr    Sun>=1    2:00    1:00    D
@@ -3827,9 +4181,9 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Mexico    2002    2022    -    Oct    lastSun    2:00    0    S
@@ -3839,9 +4193,9 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -3849,39 +4203,49 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
 
 const AtcZonePolicy kAtcZonePolicyMexico  = {
   kAtcZoneRulesMexico /*rules*/,
-  7 /*num_rules*/,
+  8 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Moldova
-// Rules: 2
-// Memory (8-bit): 28
-// Memory (32-bit): 36
+// Rules: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMoldova[]  = {
+  // Anchor: Rule    Moldova    1997    max    -    Oct    lastSun     3:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Moldova    1997    max    -    Mar    lastSun     2:00    1:00    S
   {
     1997 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Moldova    1997    max    -    Oct    lastSun     3:00    0    -
   {
     1997 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -3889,17 +4253,27 @@ static const AtcZoneRule kAtcZoneRulesMoldova[]  = {
 
 const AtcZonePolicy kAtcZonePolicyMoldova  = {
   kAtcZoneRulesMoldova /*rules*/,
-  2 /*num_rules*/,
+  3 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Moncton
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMoncton[]  = {
+  // Anchor: Rule    Moncton    1957    1972    -    Oct    lastSun    2:00    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    Moncton    1957    1972    -    Oct    lastSun    2:00    0    S
   {
     1957 /*from_year*/,
@@ -3907,9 +4281,9 @@ static const AtcZoneRule kAtcZoneRulesMoncton[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Moncton    1993    2006    -    Apr    Sun>=1    0:01    1:00    D
@@ -3919,9 +4293,9 @@ static const AtcZoneRule kAtcZoneRulesMoncton[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    1 /*at_time_modifier (kAtcSuffixW + minute=1)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    4 /*at_time_code (60/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Moncton    1993    2006    -    Oct    lastSun    0:01    0    S
@@ -3931,9 +4305,9 @@ static const AtcZoneRule kAtcZoneRulesMoncton[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    1 /*at_time_modifier (kAtcSuffixW + minute=1)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    4 /*at_time_code (60/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -3941,17 +4315,27 @@ static const AtcZoneRule kAtcZoneRulesMoncton[]  = {
 
 const AtcZonePolicy kAtcZonePolicyMoncton  = {
   kAtcZoneRulesMoncton /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Mongol
-// Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
+// Rules: 7
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMongol[]  = {
+  // Anchor: Rule    Mongol    1984    1998    -    Sep    lastSun    0:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Mongol    1984    1998    -    Sep    lastSun    0:00    0    -
   {
     1984 /*from_year*/,
@@ -3959,9 +4343,9 @@ static const AtcZoneRule kAtcZoneRulesMongol[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Mongol    2001    only    -    Apr    lastSat    2:00    1:00    -
@@ -3971,9 +4355,9 @@ static const AtcZoneRule kAtcZoneRulesMongol[]  = {
     4 /*in_month*/,
     6 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Mongol    2001    2006    -    Sep    lastSat    2:00    0    -
@@ -3983,9 +4367,9 @@ static const AtcZoneRule kAtcZoneRulesMongol[]  = {
     9 /*in_month*/,
     6 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Mongol    2002    2006    -    Mar    lastSat    2:00    1:00    -
@@ -3995,9 +4379,9 @@ static const AtcZoneRule kAtcZoneRulesMongol[]  = {
     3 /*in_month*/,
     6 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Mongol    2015    2016    -    Mar    lastSat    2:00    1:00    -
@@ -4007,9 +4391,9 @@ static const AtcZoneRule kAtcZoneRulesMongol[]  = {
     3 /*in_month*/,
     6 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Mongol    2015    2016    -    Sep    lastSat    0:00    0    -
@@ -4019,9 +4403,9 @@ static const AtcZoneRule kAtcZoneRulesMongol[]  = {
     9 /*in_month*/,
     6 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -4029,17 +4413,27 @@ static const AtcZoneRule kAtcZoneRulesMongol[]  = {
 
 const AtcZonePolicy kAtcZonePolicyMongol  = {
   kAtcZoneRulesMongol /*rules*/,
-  6 /*num_rules*/,
+  7 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Morocco
-// Rules: 169
-// Memory (8-bit): 1865
-// Memory (32-bit): 2040
+// Rules: 170
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
+  // Anchor: Rule    Morocco    1978    only    -    Aug     4     0:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Morocco    1978    only    -    Aug     4     0:00    0    -
   {
     1978 /*from_year*/,
@@ -4047,9 +4441,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2008    only    -    Jun     1     0:00    1:00    -
@@ -4059,9 +4453,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2008    only    -    Sep     1     0:00    0    -
@@ -4071,9 +4465,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2009    only    -    Jun     1     0:00    1:00    -
@@ -4083,9 +4477,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2009    only    -    Aug    21     0:00    0    -
@@ -4095,9 +4489,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2010    only    -    May     2     0:00    1:00    -
@@ -4107,9 +4501,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2010    only    -    Aug     8     0:00    0    -
@@ -4119,9 +4513,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2011    only    -    Apr     3     0:00    1:00    -
@@ -4131,9 +4525,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     3 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2011    only    -    Jul    31     0:00    0    -
@@ -4143,9 +4537,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     31 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2012    2013    -    Apr    lastSun     2:00    1:00    -
@@ -4155,9 +4549,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2012    only    -    Jul    20     3:00    0    -
@@ -4167,9 +4561,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2012    only    -    Aug    20     2:00    1:00    -
@@ -4179,9 +4573,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2012    only    -    Sep    30     3:00    0    -
@@ -4191,9 +4585,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2013    only    -    Jul     7     3:00    0    -
@@ -4203,9 +4597,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2013    only    -    Aug    10     2:00    1:00    -
@@ -4215,9 +4609,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     10 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2013    2018    -    Oct    lastSun     3:00    0    -
@@ -4227,9 +4621,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2014    2018    -    Mar    lastSun     2:00    1:00    -
@@ -4239,9 +4633,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2014    only    -    Jun    28     3:00    0    -
@@ -4251,9 +4645,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2014    only    -    Aug     2     2:00    1:00    -
@@ -4263,9 +4657,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2015    only    -    Jun    14     3:00    0    -
@@ -4275,9 +4669,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2015    only    -    Jul    19     2:00    1:00    -
@@ -4287,9 +4681,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2016    only    -    Jun     5     3:00    0    -
@@ -4299,9 +4693,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     5 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2016    only    -    Jul    10     2:00    1:00    -
@@ -4311,9 +4705,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     10 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2017    only    -    May    21     3:00    0    -
@@ -4323,9 +4717,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2017    only    -    Jul     2     2:00    1:00    -
@@ -4335,9 +4729,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2018    only    -    May    13     3:00    0    -
@@ -4347,9 +4741,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     13 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2018    only    -    Jun    17     2:00    1:00    -
@@ -4359,9 +4753,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     17 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2019    only    -    May     5     3:00    -1:00    -
@@ -4371,9 +4765,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     5 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2019    only    -    Jun     9     2:00    0    -
@@ -4383,9 +4777,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2020    only    -    Apr    19     3:00    -1:00    -
@@ -4395,9 +4789,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2020    only    -    May    31     2:00    0    -
@@ -4407,9 +4801,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     31 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2021    only    -    Apr    11     3:00    -1:00    -
@@ -4419,9 +4813,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     11 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2021    only    -    May    16     2:00    0    -
@@ -4431,9 +4825,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     16 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2022    only    -    Mar    27     3:00    -1:00    -
@@ -4443,9 +4837,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     27 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2022    only    -    May     8     2:00    0    -
@@ -4455,9 +4849,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2023    only    -    Mar    19     3:00    -1:00    -
@@ -4467,21 +4861,21 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2023    only    -    Apr    30     2:00    0    -
+  // Rule    Morocco    2023    only    -    Apr    23     2:00    0    -
   {
     2023 /*from_year*/,
     2023 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
-    30 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    23 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2024    only    -    Mar    10     3:00    -1:00    -
@@ -4491,9 +4885,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     10 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2024    only    -    Apr    14     2:00    0    -
@@ -4503,9 +4897,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2025    only    -    Feb    23     3:00    -1:00    -
@@ -4515,9 +4909,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2025    only    -    Apr     6     2:00    0    -
@@ -4527,9 +4921,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     6 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2026    only    -    Feb    15     3:00    -1:00    -
@@ -4539,9 +4933,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2026    only    -    Mar    22     2:00    0    -
@@ -4551,9 +4945,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2027    only    -    Feb     7     3:00    -1:00    -
@@ -4563,9 +4957,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2027    only    -    Mar    14     2:00    0    -
@@ -4575,9 +4969,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2028    only    -    Jan    23     3:00    -1:00    -
@@ -4587,9 +4981,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2028    only    -    Mar     5     2:00    0    -
@@ -4599,9 +4993,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     5 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2029    only    -    Jan    14     3:00    -1:00    -
@@ -4611,9 +5005,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2029    only    -    Feb    18     2:00    0    -
@@ -4623,9 +5017,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     18 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2029    only    -    Dec    30     3:00    -1:00    -
@@ -4635,9 +5029,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2030    only    -    Feb    10     2:00    0    -
@@ -4647,9 +5041,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     10 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2030    only    -    Dec    22     3:00    -1:00    -
@@ -4659,21 +5053,21 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2031    only    -    Feb     2     2:00    0    -
+  // Rule    Morocco    2031    only    -    Jan    26     2:00    0    -
   {
     2031 /*from_year*/,
     2031 /*to_year*/,
-    2 /*in_month*/,
+    1 /*in_month*/,
     0 /*on_day_of_week*/,
-    2 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    26 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2031    only    -    Dec    14     3:00    -1:00    -
@@ -4683,9 +5077,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2032    only    -    Jan    18     2:00    0    -
@@ -4695,9 +5089,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     18 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2032    only    -    Nov    28     3:00    -1:00    -
@@ -4707,9 +5101,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2033    only    -    Jan     9     2:00    0    -
@@ -4719,9 +5113,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2033    only    -    Nov    20     3:00    -1:00    -
@@ -4731,9 +5125,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2033    only    -    Dec    25     2:00    0    -
@@ -4743,9 +5137,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     25 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2034    only    -    Nov     5     3:00    -1:00    -
@@ -4755,9 +5149,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     5 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2034    only    -    Dec    17     2:00    0    -
@@ -4767,9 +5161,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     17 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2035    only    -    Oct    28     3:00    -1:00    -
@@ -4779,9 +5173,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2035    only    -    Dec     9     2:00    0    -
@@ -4791,9 +5185,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2036    only    -    Oct    19     3:00    -1:00    -
@@ -4803,9 +5197,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2036    only    -    Nov    23     2:00    0    -
@@ -4815,9 +5209,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2037    only    -    Oct     4     3:00    -1:00    -
@@ -4827,9 +5221,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2037    only    -    Nov    15     2:00    0    -
@@ -4839,9 +5233,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2038    only    -    Sep    26     3:00    -1:00    -
@@ -4851,21 +5245,21 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     26 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2038    only    -    Nov     7     2:00    0    -
+  // Rule    Morocco    2038    only    -    Oct    31     2:00    0    -
   {
     2038 /*from_year*/,
     2038 /*to_year*/,
-    11 /*in_month*/,
+    10 /*in_month*/,
     0 /*on_day_of_week*/,
-    7 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    31 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2039    only    -    Sep    18     3:00    -1:00    -
@@ -4875,9 +5269,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     18 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2039    only    -    Oct    23     2:00    0    -
@@ -4887,9 +5281,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2040    only    -    Sep     2     3:00    -1:00    -
@@ -4899,9 +5293,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2040    only    -    Oct    14     2:00    0    -
@@ -4911,9 +5305,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2041    only    -    Aug    25     3:00    -1:00    -
@@ -4923,9 +5317,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     25 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2041    only    -    Sep    29     2:00    0    -
@@ -4935,9 +5329,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     29 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2042    only    -    Aug    10     3:00    -1:00    -
@@ -4947,9 +5341,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     10 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2042    only    -    Sep    21     2:00    0    -
@@ -4959,9 +5353,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2043    only    -    Aug     2     3:00    -1:00    -
@@ -4971,9 +5365,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2043    only    -    Sep    13     2:00    0    -
@@ -4983,9 +5377,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     13 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2044    only    -    Jul    24     3:00    -1:00    -
@@ -4995,9 +5389,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     24 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2044    only    -    Aug    28     2:00    0    -
@@ -5007,9 +5401,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2045    only    -    Jul     9     3:00    -1:00    -
@@ -5019,9 +5413,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2045    only    -    Aug    20     2:00    0    -
@@ -5031,9 +5425,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2046    only    -    Jul     1     3:00    -1:00    -
@@ -5043,21 +5437,21 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2046    only    -    Aug    12     2:00    0    -
+  // Rule    Morocco    2046    only    -    Aug     5     2:00    0    -
   {
     2046 /*from_year*/,
     2046 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
-    12 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2047    only    -    Jun    23     3:00    -1:00    -
@@ -5067,9 +5461,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2047    only    -    Jul    28     2:00    0    -
@@ -5079,9 +5473,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2048    only    -    Jun     7     3:00    -1:00    -
@@ -5091,9 +5485,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2048    only    -    Jul    19     2:00    0    -
@@ -5103,9 +5497,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2049    only    -    May    30     3:00    -1:00    -
@@ -5115,9 +5509,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2049    only    -    Jul     4     2:00    0    -
@@ -5127,9 +5521,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2050    only    -    May    15     3:00    -1:00    -
@@ -5139,9 +5533,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2050    only    -    Jun    26     2:00    0    -
@@ -5151,9 +5545,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     26 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2051    only    -    May     7     3:00    -1:00    -
@@ -5163,9 +5557,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2051    only    -    Jun    18     2:00    0    -
@@ -5175,9 +5569,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     18 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2052    only    -    Apr    28     3:00    -1:00    -
@@ -5187,9 +5581,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2052    only    -    Jun     2     2:00    0    -
@@ -5199,9 +5593,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2053    only    -    Apr    13     3:00    -1:00    -
@@ -5211,9 +5605,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     13 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2053    only    -    May    25     2:00    0    -
@@ -5223,9 +5617,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     25 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2054    only    -    Apr     5     3:00    -1:00    -
@@ -5235,21 +5629,21 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     5 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2054    only    -    May    17     2:00    0    -
+  // Rule    Morocco    2054    only    -    May    10     2:00    0    -
   {
     2054 /*from_year*/,
     2054 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
-    17 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    10 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2055    only    -    Mar    28     3:00    -1:00    -
@@ -5259,9 +5653,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2055    only    -    May     2     2:00    0    -
@@ -5271,9 +5665,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2056    only    -    Mar    12     3:00    -1:00    -
@@ -5283,9 +5677,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     12 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2056    only    -    Apr    23     2:00    0    -
@@ -5295,9 +5689,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2057    only    -    Mar     4     3:00    -1:00    -
@@ -5307,9 +5701,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2057    only    -    Apr     8     2:00    0    -
@@ -5319,9 +5713,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2058    only    -    Feb    17     3:00    -1:00    -
@@ -5331,9 +5725,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     17 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2058    only    -    Mar    31     2:00    0    -
@@ -5343,9 +5737,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     31 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2059    only    -    Feb     9     3:00    -1:00    -
@@ -5355,9 +5749,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2059    only    -    Mar    23     2:00    0    -
@@ -5367,9 +5761,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2060    only    -    Feb     1     3:00    -1:00    -
@@ -5379,9 +5773,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2060    only    -    Mar     7     2:00    0    -
@@ -5391,9 +5785,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2061    only    -    Jan    16     3:00    -1:00    -
@@ -5403,9 +5797,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     16 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2061    only    -    Feb    27     2:00    0    -
@@ -5415,9 +5809,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     27 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2062    only    -    Jan     8     3:00    -1:00    -
@@ -5427,21 +5821,21 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2062    only    -    Feb    19     2:00    0    -
+  // Rule    Morocco    2062    only    -    Feb    12     2:00    0    -
   {
     2062 /*from_year*/,
     2062 /*to_year*/,
     2 /*in_month*/,
     0 /*on_day_of_week*/,
-    19 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2062    only    -    Dec    31     3:00    -1:00    -
@@ -5451,9 +5845,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     31 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2063    only    -    Feb     4     2:00    0    -
@@ -5463,9 +5857,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2063    only    -    Dec    16     3:00    -1:00    -
@@ -5475,9 +5869,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     16 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2064    only    -    Jan    27     2:00    0    -
@@ -5487,9 +5881,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     27 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2064    only    -    Dec     7     3:00    -1:00    -
@@ -5499,9 +5893,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2065    only    -    Jan    11     2:00    0    -
@@ -5511,9 +5905,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     11 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2065    only    -    Nov    22     3:00    -1:00    -
@@ -5523,9 +5917,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2066    only    -    Jan     3     2:00    0    -
@@ -5535,9 +5929,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     3 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2066    only    -    Nov    14     3:00    -1:00    -
@@ -5547,9 +5941,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2066    only    -    Dec    26     2:00    0    -
@@ -5559,9 +5953,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     26 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2067    only    -    Nov     6     3:00    -1:00    -
@@ -5571,9 +5965,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     6 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2067    only    -    Dec    11     2:00    0    -
@@ -5583,9 +5977,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     11 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2068    only    -    Oct    21     3:00    -1:00    -
@@ -5595,9 +5989,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2068    only    -    Dec     2     2:00    0    -
@@ -5607,9 +6001,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     12 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2069    only    -    Oct    13     3:00    -1:00    -
@@ -5619,21 +6013,21 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     13 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2069    only    -    Nov    24     2:00    0    -
+  // Rule    Morocco    2069    only    -    Nov    17     2:00    0    -
   {
     2069 /*from_year*/,
     2069 /*to_year*/,
     11 /*in_month*/,
     0 /*on_day_of_week*/,
-    24 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    17 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2070    only    -    Oct     5     3:00    -1:00    -
@@ -5643,9 +6037,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     5 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2070    only    -    Nov     9     2:00    0    -
@@ -5655,9 +6049,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2071    only    -    Sep    20     3:00    -1:00    -
@@ -5667,9 +6061,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2071    only    -    Nov     1     2:00    0    -
@@ -5679,9 +6073,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2072    only    -    Sep    11     3:00    -1:00    -
@@ -5691,9 +6085,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     11 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2072    only    -    Oct    16     2:00    0    -
@@ -5703,9 +6097,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     16 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2073    only    -    Aug    27     3:00    -1:00    -
@@ -5715,9 +6109,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     27 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2073    only    -    Oct     8     2:00    0    -
@@ -5727,9 +6121,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2074    only    -    Aug    19     3:00    -1:00    -
@@ -5739,9 +6133,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2074    only    -    Sep    30     2:00    0    -
@@ -5751,9 +6145,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2075    only    -    Aug    11     3:00    -1:00    -
@@ -5763,9 +6157,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     11 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2075    only    -    Sep    15     2:00    0    -
@@ -5775,9 +6169,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2076    only    -    Jul    26     3:00    -1:00    -
@@ -5787,9 +6181,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     26 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2076    only    -    Sep     6     2:00    0    -
@@ -5799,9 +6193,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     6 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2077    only    -    Jul    18     3:00    -1:00    -
@@ -5811,21 +6205,21 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     18 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2077    only    -    Aug    29     2:00    0    -
+  // Rule    Morocco    2077    only    -    Aug    22     2:00    0    -
   {
     2077 /*from_year*/,
     2077 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
-    29 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2078    only    -    Jul    10     3:00    -1:00    -
@@ -5835,9 +6229,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     10 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2078    only    -    Aug    14     2:00    0    -
@@ -5847,9 +6241,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2079    only    -    Jun    25     3:00    -1:00    -
@@ -5859,9 +6253,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     25 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2079    only    -    Aug     6     2:00    0    -
@@ -5871,9 +6265,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     6 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2080    only    -    Jun    16     3:00    -1:00    -
@@ -5883,9 +6277,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     16 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2080    only    -    Jul    21     2:00    0    -
@@ -5895,9 +6289,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2081    only    -    Jun     1     3:00    -1:00    -
@@ -5907,9 +6301,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2081    only    -    Jul    13     2:00    0    -
@@ -5919,9 +6313,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     7 /*in_month*/,
     0 /*on_day_of_week*/,
     13 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2082    only    -    May    24     3:00    -1:00    -
@@ -5931,21 +6325,21 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     24 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2082    only    -    Jul     5     2:00    0    -
+  // Rule    Morocco    2082    only    -    Jun    28     2:00    0    -
   {
     2082 /*from_year*/,
     2082 /*to_year*/,
-    7 /*in_month*/,
+    6 /*in_month*/,
     0 /*on_day_of_week*/,
-    5 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2083    only    -    May    16     3:00    -1:00    -
@@ -5955,9 +6349,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     16 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2083    only    -    Jun    20     2:00    0    -
@@ -5967,9 +6361,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     20 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2084    only    -    Apr    30     3:00    -1:00    -
@@ -5979,9 +6373,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2084    only    -    Jun    11     2:00    0    -
@@ -5991,9 +6385,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     11 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2085    only    -    Apr    22     3:00    -1:00    -
@@ -6003,21 +6397,21 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2085    only    -    Jun     3     2:00    0    -
+  // Rule    Morocco    2085    only    -    May    27     2:00    0    -
   {
     2085 /*from_year*/,
     2085 /*to_year*/,
-    6 /*in_month*/,
+    5 /*in_month*/,
     0 /*on_day_of_week*/,
-    3 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2086    only    -    Apr    14     3:00    -1:00    -
@@ -6027,9 +6421,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2086    only    -    May    19     2:00    0    -
@@ -6039,9 +6433,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2087    only    -    Mar    30     3:00    -1:00    -
@@ -6051,9 +6445,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Morocco    2087    only    -    May    11     2:00    0    -
@@ -6063,9 +6457,9 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     11 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -6073,27 +6467,25 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
 
 const AtcZonePolicy kAtcZonePolicyMorocco  = {
   kAtcZoneRulesMorocco /*rules*/,
-  169 /*num_rules*/,
+  170 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: NC
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNC[]  = {
-  // Rule    NC    1997    only    -    Mar     2    2:00s    0    -
+  // Anchor: Rule    NC    1997    only    -    Mar     2    2:00s    0    -
   {
-    1997 /*from_year*/,
-    1997 /*to_year*/,
-    3 /*in_month*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
     0 /*on_day_of_week*/,
-    2 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -6106,12 +6498,22 @@ const AtcZonePolicy kAtcZonePolicyNC  = {
 
 //---------------------------------------------------------------------------
 // Policy name: NT_YK
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
+  // Anchor: Rule    NT_YK    1972    2006    -    Oct    lastSun    2:00    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    NT_YK    1972    1986    -    Apr    lastSun    2:00    1:00    D
   {
     1972 /*from_year*/,
@@ -6119,9 +6521,9 @@ static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    NT_YK    1972    2006    -    Oct    lastSun    2:00    0    S
@@ -6131,9 +6533,9 @@ static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    NT_YK    1987    2006    -    Apr    Sun>=1    2:00    1:00    D
@@ -6143,9 +6545,9 @@ static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
 
@@ -6153,17 +6555,27 @@ static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
 
 const AtcZonePolicy kAtcZonePolicyNT_YK  = {
   kAtcZoneRulesNT_YK /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: NZ
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 6
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNZ[]  = {
+  // Anchor: Rule    NZ    1990    2007    -    Mar    Sun>=15    2:00s    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    NZ    1989    only    -    Oct    Sun>=8    2:00s    1:00    D
   {
     1989 /*from_year*/,
@@ -6171,9 +6583,9 @@ static const AtcZoneRule kAtcZoneRulesNZ[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    NZ    1990    2006    -    Oct    Sun>=1    2:00s    1:00    D
@@ -6183,9 +6595,9 @@ static const AtcZoneRule kAtcZoneRulesNZ[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    NZ    1990    2007    -    Mar    Sun>=15    2:00s    0    S
@@ -6195,33 +6607,33 @@ static const AtcZoneRule kAtcZoneRulesNZ[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    NZ    2007    max    -    Sep    lastSun    2:00s    1:00    D
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    NZ    2008    max    -    Apr    Sun>=1    2:00s    0    S
   {
     2008 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -6229,17 +6641,27 @@ static const AtcZoneRule kAtcZoneRulesNZ[]  = {
 
 const AtcZonePolicy kAtcZonePolicyNZ  = {
   kAtcZoneRulesNZ /*rules*/,
-  5 /*num_rules*/,
+  6 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Namibia
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
+  // Anchor: Rule    Namibia    1994    2017    -    Sep    Sun>=1    2:00    0    CAT
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    3 /*letterIndex ("CAT")*/,
+  },
   // Rule    Namibia    1994    only    -    Mar    21    0:00    -1:00    WAT
   {
     1994 /*from_year*/,
@@ -6247,9 +6669,9 @@ static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    -60 /*delta_minutes*/,
     8 /*letterIndex ("WAT")*/,
   },
   // Rule    Namibia    1994    2017    -    Sep    Sun>=1    2:00    0    CAT
@@ -6259,9 +6681,9 @@ static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     3 /*letterIndex ("CAT")*/,
   },
   // Rule    Namibia    1995    2017    -    Apr    Sun>=1    2:00    -1:00    WAT
@@ -6271,9 +6693,9 @@ static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    0 /*delta_code ((delta_minutes=-60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    -60 /*delta_minutes*/,
     8 /*letterIndex ("WAT")*/,
   },
 
@@ -6281,17 +6703,27 @@ static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
 
 const AtcZonePolicy kAtcZonePolicyNamibia  = {
   kAtcZoneRulesNamibia /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Nic
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 6
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesNic[]  = {
+  // Anchor: Rule    Nic    1979    1980    -    Jun    Mon>=23    0:00    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    Nic    1979    1980    -    Jun    Mon>=23    0:00    0    S
   {
     1979 /*from_year*/,
@@ -6299,9 +6731,9 @@ static const AtcZoneRule kAtcZoneRulesNic[]  = {
     6 /*in_month*/,
     1 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Nic    2005    only    -    Apr    10    0:00    1:00    D
@@ -6311,9 +6743,9 @@ static const AtcZoneRule kAtcZoneRulesNic[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     10 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Nic    2005    only    -    Oct    Sun>=1    0:00    0    S
@@ -6323,9 +6755,9 @@ static const AtcZoneRule kAtcZoneRulesNic[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Nic    2006    only    -    Apr    30    2:00    1:00    D
@@ -6335,9 +6767,9 @@ static const AtcZoneRule kAtcZoneRulesNic[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Nic    2006    only    -    Oct    Sun>=1    1:00    0    S
@@ -6347,9 +6779,9 @@ static const AtcZoneRule kAtcZoneRulesNic[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -6357,27 +6789,25 @@ static const AtcZoneRule kAtcZoneRulesNic[]  = {
 
 const AtcZonePolicy kAtcZonePolicyNic  = {
   kAtcZoneRulesNic /*rules*/,
-  5 /*num_rules*/,
+  6 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: PRC
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPRC[]  = {
-  // Rule    PRC    1986    1991    -    Sep    Sun>=11     2:00    0    S
+  // Anchor: Rule    PRC    1986    1991    -    Sep    Sun>=11     2:00    0    S
   {
-    1986 /*from_year*/,
-    1991 /*to_year*/,
-    9 /*in_month*/,
-    7 /*on_day_of_week*/,
-    11 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -6391,21 +6821,19 @@ const AtcZonePolicy kAtcZonePolicyPRC  = {
 //---------------------------------------------------------------------------
 // Policy name: Pakistan
 // Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
   // Anchor: Rule Pakistan    2002    only    -    Oct    Sun>=2    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Pakistan    2002    only    -    Apr    Sun>=2    0:00    1:00    S
@@ -6415,9 +6843,9 @@ static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule Pakistan    2002    only    -    Oct    Sun>=2    0:00    0    -
@@ -6427,9 +6855,9 @@ static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Pakistan    2008    only    -    Jun    1    0:00    1:00    S
@@ -6439,9 +6867,9 @@ static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
     6 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule Pakistan    2008    2009    -    Nov    1    0:00    0    -
@@ -6451,9 +6879,9 @@ static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Pakistan    2009    only    -    Apr    15    0:00    1:00    S
@@ -6463,9 +6891,9 @@ static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -6478,22 +6906,20 @@ const AtcZonePolicy kAtcZonePolicyPakistan  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Palestine
-// Rules: 33
-// Memory (8-bit): 369
-// Memory (32-bit): 408
+// Rules: 111
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
   // Anchor: Rule Palestine    1999    2003    -    Oct    Fri>=15    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    1999    2005    -    Apr    Fri>=15    0:00    1:00    S
@@ -6503,9 +6929,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     4 /*in_month*/,
     5 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule Palestine    1999    2003    -    Oct    Fri>=15    0:00    0    -
@@ -6515,9 +6941,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     10 /*in_month*/,
     5 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2004    only    -    Oct     1    1:00    0    -
@@ -6527,9 +6953,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2005    only    -    Oct     4    2:00    0    -
@@ -6539,9 +6965,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2006    2007    -    Apr     1    0:00    1:00    S
@@ -6551,9 +6977,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2006    only    -    Sep    22    0:00    0    -
@@ -6563,9 +6989,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2007    only    -    Sep    13    2:00    0    -
@@ -6575,9 +7001,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     13 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2008    2009    -    Mar    lastFri    0:00    1:00    S
@@ -6587,9 +7013,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     3 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2008    only    -    Sep     1    0:00    0    -
@@ -6599,9 +7025,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2009    only    -    Sep     4    1:00    0    -
@@ -6611,9 +7037,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     4 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2010    only    -    Mar    26    0:00    1:00    S
@@ -6623,9 +7049,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     26 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2010    only    -    Aug    11    0:00    0    -
@@ -6635,9 +7061,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     11 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2011    only    -    Apr     1    0:01    1:00    S
@@ -6647,9 +7073,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    1 /*at_time_modifier (kAtcSuffixW + minute=1)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    4 /*at_time_code (60/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2011    only    -    Aug     1    0:00    0    -
@@ -6659,9 +7085,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2011    only    -    Aug    30    0:00    1:00    S
@@ -6671,9 +7097,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     8 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2011    only    -    Sep    30    0:00    0    -
@@ -6683,9 +7109,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2012    2014    -    Mar    lastThu    24:00    1:00    S
@@ -6695,9 +7121,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     3 /*in_month*/,
     4 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2012    only    -    Sep    21    1:00    0    -
@@ -6707,9 +7133,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     21 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2013    only    -    Sep    27    0:00    0    -
@@ -6719,9 +7145,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     27 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2014    only    -    Oct    24    0:00    0    -
@@ -6731,9 +7157,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     24 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2015    only    -    Mar    28    0:00    1:00    S
@@ -6743,9 +7169,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2015    only    -    Oct    23    1:00    0    -
@@ -6755,9 +7181,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2016    2018    -    Mar    Sat<=30    1:00    1:00    S
@@ -6767,9 +7193,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     3 /*in_month*/,
     6 /*on_day_of_week*/,
     -30 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2016    2018    -    Oct    Sat<=30    1:00    0    -
@@ -6779,9 +7205,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     10 /*in_month*/,
     6 /*on_day_of_week*/,
     -30 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2019    only    -    Mar    29    0:00    1:00    S
@@ -6791,9 +7217,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     29 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2019    only    -    Oct    Sat<=30    0:00    0    -
@@ -6803,9 +7229,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     10 /*in_month*/,
     6 /*on_day_of_week*/,
     -30 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2020    2021    -    Mar    Sat<=30    0:00    1:00    S
@@ -6815,9 +7241,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     3 /*in_month*/,
     6 /*on_day_of_week*/,
     -30 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule Palestine    2020    only    -    Oct    24    1:00    0    -
@@ -6827,9 +7253,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     24 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2021    only    -    Oct    29    1:00    0    -
@@ -6839,9 +7265,9 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     29 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2022    only    -    Mar    27    0:00    1:00    S
@@ -6851,33 +7277,969 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     27 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
-  // Rule Palestine    2022    max    -    Oct    Sat<=30    2:00    0    -
+  // Rule Palestine    2022    2035    -    Oct    Sat<=30    2:00    0    -
   {
     2022 /*from_year*/,
-    9999 /*to_year*/,
+    2035 /*to_year*/,
     10 /*in_month*/,
     6 /*on_day_of_week*/,
     -30 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2023    max    -    Mar    Sat<=30    2:00    1:00    S
+  // Rule Palestine    2023    only    -    Apr    29    2:00    1:00    S
   {
     2023 /*from_year*/,
-    9999 /*to_year*/,
+    2023 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2024    only    -    Apr    13    2:00    1:00    S
+  {
+    2024 /*from_year*/,
+    2024 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2025    only    -    Apr     5    2:00    1:00    S
+  {
+    2025 /*from_year*/,
+    2025 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2026    2054    -    Mar    Sat<=30    2:00    1:00    S
+  {
+    2026 /*from_year*/,
+    2054 /*to_year*/,
     3 /*in_month*/,
     6 /*on_day_of_week*/,
     -30 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2036    only    -    Oct    18    2:00    0    -
+  {
+    2036 /*from_year*/,
+    2036 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2037    only    -    Oct    10    2:00    0    -
+  {
+    2037 /*from_year*/,
+    2037 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2038    only    -    Sep    25    2:00    0    -
+  {
+    2038 /*from_year*/,
+    2038 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2039    only    -    Sep    17    2:00    0    -
+  {
+    2039 /*from_year*/,
+    2039 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2039    only    -    Oct    22    2:00    1:00    S
+  {
+    2039 /*from_year*/,
+    2039 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2039    2067    -    Oct    Sat<=30    2:00    0    -
+  {
+    2039 /*from_year*/,
+    2067 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    -30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2040    only    -    Sep     1    2:00    0    -
+  {
+    2040 /*from_year*/,
+    2040 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2040    only    -    Oct    13    2:00    1:00    S
+  {
+    2040 /*from_year*/,
+    2040 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2041    only    -    Aug    24    2:00    0    -
+  {
+    2041 /*from_year*/,
+    2041 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2041    only    -    Sep    28    2:00    1:00    S
+  {
+    2041 /*from_year*/,
+    2041 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2042    only    -    Aug    16    2:00    0    -
+  {
+    2042 /*from_year*/,
+    2042 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2042    only    -    Sep    20    2:00    1:00    S
+  {
+    2042 /*from_year*/,
+    2042 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2043    only    -    Aug     1    2:00    0    -
+  {
+    2043 /*from_year*/,
+    2043 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2043    only    -    Sep    12    2:00    1:00    S
+  {
+    2043 /*from_year*/,
+    2043 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2044    only    -    Jul    23    2:00    0    -
+  {
+    2044 /*from_year*/,
+    2044 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2044    only    -    Aug    27    2:00    1:00    S
+  {
+    2044 /*from_year*/,
+    2044 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2045    only    -    Jul    15    2:00    0    -
+  {
+    2045 /*from_year*/,
+    2045 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2045    only    -    Aug    19    2:00    1:00    S
+  {
+    2045 /*from_year*/,
+    2045 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2046    only    -    Jun    30    2:00    0    -
+  {
+    2046 /*from_year*/,
+    2046 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2046    only    -    Aug    11    2:00    1:00    S
+  {
+    2046 /*from_year*/,
+    2046 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    11 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2047    only    -    Jun    22    2:00    0    -
+  {
+    2047 /*from_year*/,
+    2047 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2047    only    -    Jul    27    2:00    1:00    S
+  {
+    2047 /*from_year*/,
+    2047 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2048    only    -    Jun     6    2:00    0    -
+  {
+    2048 /*from_year*/,
+    2048 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2048    only    -    Jul    18    2:00    1:00    S
+  {
+    2048 /*from_year*/,
+    2048 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2049    only    -    May    29    2:00    0    -
+  {
+    2049 /*from_year*/,
+    2049 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2049    only    -    Jul     3    2:00    1:00    S
+  {
+    2049 /*from_year*/,
+    2049 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    3 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2050    only    -    May    21    2:00    0    -
+  {
+    2050 /*from_year*/,
+    2050 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2050    only    -    Jun    25    2:00    1:00    S
+  {
+    2050 /*from_year*/,
+    2050 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2051    only    -    May     6    2:00    0    -
+  {
+    2051 /*from_year*/,
+    2051 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2051    only    -    Jun    17    2:00    1:00    S
+  {
+    2051 /*from_year*/,
+    2051 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2052    only    -    Apr    27    2:00    0    -
+  {
+    2052 /*from_year*/,
+    2052 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    27 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2052    only    -    Jun     1    2:00    1:00    S
+  {
+    2052 /*from_year*/,
+    2052 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2053    only    -    Apr    12    2:00    0    -
+  {
+    2053 /*from_year*/,
+    2053 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2053    only    -    May    24    2:00    1:00    S
+  {
+    2053 /*from_year*/,
+    2053 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2054    only    -    Apr     4    2:00    0    -
+  {
+    2054 /*from_year*/,
+    2054 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2054    only    -    May    16    2:00    1:00    S
+  {
+    2054 /*from_year*/,
+    2054 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    16 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2055    only    -    May     1    2:00    1:00    S
+  {
+    2055 /*from_year*/,
+    2055 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2056    only    -    Apr    22    2:00    1:00    S
+  {
+    2056 /*from_year*/,
+    2056 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    22 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2057    only    -    Apr     7    2:00    1:00    S
+  {
+    2057 /*from_year*/,
+    2057 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2058    max    -    Mar    Sat<=30    2:00    1:00    S
+  {
+    2058 /*from_year*/,
+    32766 /*to_year*/,
+    3 /*in_month*/,
+    6 /*on_day_of_week*/,
+    -30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2068    only    -    Oct    20    2:00    0    -
+  {
+    2068 /*from_year*/,
+    2068 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2069    only    -    Oct    12    2:00    0    -
+  {
+    2069 /*from_year*/,
+    2069 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2070    only    -    Oct     4    2:00    0    -
+  {
+    2070 /*from_year*/,
+    2070 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2071    only    -    Sep    19    2:00    0    -
+  {
+    2071 /*from_year*/,
+    2071 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2072    only    -    Sep    10    2:00    0    -
+  {
+    2072 /*from_year*/,
+    2072 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2072    only    -    Oct    15    2:00    1:00    S
+  {
+    2072 /*from_year*/,
+    2072 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2073    only    -    Sep     2    2:00    0    -
+  {
+    2073 /*from_year*/,
+    2073 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2073    only    -    Oct     7    2:00    1:00    S
+  {
+    2073 /*from_year*/,
+    2073 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2074    only    -    Aug    18    2:00    0    -
+  {
+    2074 /*from_year*/,
+    2074 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2074    only    -    Sep    29    2:00    1:00    S
+  {
+    2074 /*from_year*/,
+    2074 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2075    only    -    Aug    10    2:00    0    -
+  {
+    2075 /*from_year*/,
+    2075 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2075    only    -    Sep    14    2:00    1:00    S
+  {
+    2075 /*from_year*/,
+    2075 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    14 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2075    max    -    Oct    Sat<=30    2:00    0    -
+  {
+    2075 /*from_year*/,
+    32766 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    -30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2076    only    -    Jul    25    2:00    0    -
+  {
+    2076 /*from_year*/,
+    2076 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    25 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2076    only    -    Sep     5    2:00    1:00    S
+  {
+    2076 /*from_year*/,
+    2076 /*to_year*/,
+    9 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2077    only    -    Jul    17    2:00    0    -
+  {
+    2077 /*from_year*/,
+    2077 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    17 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2077    only    -    Aug    28    2:00    1:00    S
+  {
+    2077 /*from_year*/,
+    2077 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    28 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2078    only    -    Jul     9    2:00    0    -
+  {
+    2078 /*from_year*/,
+    2078 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    9 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2078    only    -    Aug    13    2:00    1:00    S
+  {
+    2078 /*from_year*/,
+    2078 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2079    only    -    Jun    24    2:00    0    -
+  {
+    2079 /*from_year*/,
+    2079 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    24 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2079    only    -    Aug     5    2:00    1:00    S
+  {
+    2079 /*from_year*/,
+    2079 /*to_year*/,
+    8 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2080    only    -    Jun    15    2:00    0    -
+  {
+    2080 /*from_year*/,
+    2080 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2080    only    -    Jul    20    2:00    1:00    S
+  {
+    2080 /*from_year*/,
+    2080 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    20 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2081    only    -    Jun     7    2:00    0    -
+  {
+    2081 /*from_year*/,
+    2081 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    7 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2081    only    -    Jul    12    2:00    1:00    S
+  {
+    2081 /*from_year*/,
+    2081 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    12 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2082    only    -    May    23    2:00    0    -
+  {
+    2082 /*from_year*/,
+    2082 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    23 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2082    only    -    Jul     4    2:00    1:00    S
+  {
+    2082 /*from_year*/,
+    2082 /*to_year*/,
+    7 /*in_month*/,
+    0 /*on_day_of_week*/,
+    4 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2083    only    -    May    15    2:00    0    -
+  {
+    2083 /*from_year*/,
+    2083 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    15 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2083    only    -    Jun    19    2:00    1:00    S
+  {
+    2083 /*from_year*/,
+    2083 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    19 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2084    only    -    Apr    29    2:00    0    -
+  {
+    2084 /*from_year*/,
+    2084 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    29 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2084    only    -    Jun    10    2:00    1:00    S
+  {
+    2084 /*from_year*/,
+    2084 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    10 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2085    only    -    Apr    21    2:00    0    -
+  {
+    2085 /*from_year*/,
+    2085 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    21 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2085    only    -    Jun     2    2:00    1:00    S
+  {
+    2085 /*from_year*/,
+    2085 /*to_year*/,
+    6 /*in_month*/,
+    0 /*on_day_of_week*/,
+    2 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2086    only    -    Apr    13    2:00    0    -
+  {
+    2086 /*from_year*/,
+    2086 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    13 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule Palestine    2086    only    -    May    18    2:00    1:00    S
+  {
+    2086 /*from_year*/,
+    2086 /*to_year*/,
+    5 /*in_month*/,
+    0 /*on_day_of_week*/,
+    18 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -6885,17 +8247,27 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
 
 const AtcZonePolicy kAtcZonePolicyPalestine  = {
   kAtcZoneRulesPalestine /*rules*/,
-  33 /*num_rules*/,
+  111 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Para
-// Rules: 10
-// Memory (8-bit): 116
-// Memory (32-bit): 132
+// Rules: 11
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPara[]  = {
+  // Anchor: Rule    Para    1997    only    -    Feb    lastSun    0:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Para    1996    2001    -    Oct    Sun>=1    0:00    1:00    -
   {
     1996 /*from_year*/,
@@ -6903,9 +8275,9 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Para    1997    only    -    Feb    lastSun    0:00    0    -
@@ -6915,9 +8287,9 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
     2 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Para    1998    2001    -    Mar    Sun>=1    0:00    0    -
@@ -6927,9 +8299,9 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Para    2002    2004    -    Apr    Sun>=1    0:00    0    -
@@ -6939,9 +8311,9 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Para    2002    2003    -    Sep    Sun>=1    0:00    1:00    -
@@ -6951,9 +8323,9 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Para    2004    2009    -    Oct    Sun>=15    0:00    1:00    -
@@ -6963,9 +8335,9 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Para    2005    2009    -    Mar    Sun>=8    0:00    0    -
@@ -6975,21 +8347,21 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Para    2010    max    -    Oct    Sun>=1    0:00    1:00    -
   {
     2010 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Para    2010    2012    -    Apr    Sun>=8    0:00    0    -
@@ -6999,21 +8371,21 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Para    2013    max    -    Mar    Sun>=22    0:00    0    -
   {
     2013 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -7021,27 +8393,25 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
 
 const AtcZonePolicy kAtcZonePolicyPara  = {
   kAtcZoneRulesPara /*rules*/,
-  10 /*num_rules*/,
+  11 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Peru
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPeru[]  = {
-  // Rule    Peru    1994    only    -    Apr     1    0:00    0    -
+  // Anchor: Rule    Peru    1994    only    -    Apr     1    0:00    0    -
   {
-    1994 /*from_year*/,
-    1994 /*to_year*/,
-    4 /*in_month*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -7055,21 +8425,19 @@ const AtcZonePolicy kAtcZonePolicyPeru  = {
 //---------------------------------------------------------------------------
 // Policy name: Phil
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPhil[]  = {
-  // Rule    Phil    1978    only    -    Sep    21    0:00    0    S
+  // Anchor: Rule    Phil    1978    only    -    Sep    21    0:00    0    S
   {
-    1978 /*from_year*/,
-    1978 /*to_year*/,
-    9 /*in_month*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
     0 /*on_day_of_week*/,
-    21 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -7083,21 +8451,19 @@ const AtcZonePolicy kAtcZonePolicyPhil  = {
 //---------------------------------------------------------------------------
 // Policy name: ROK
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesROK[]  = {
-  // Rule    ROK    1987    1988    -    Oct    Sun>=8     3:00    0    S
+  // Anchor: Rule    ROK    1987    1988    -    Oct    Sun>=8     3:00    0    S
   {
-    1987 /*from_year*/,
-    1988 /*to_year*/,
-    10 /*in_month*/,
-    7 /*on_day_of_week*/,
-    8 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -7110,12 +8476,22 @@ const AtcZonePolicy kAtcZonePolicyROK  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Russia
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesRussia[]  = {
+  // Anchor: Rule    Russia    1984    1995    -    Sep    lastSun     2:00s    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Russia    1984    1995    -    Sep    lastSun     2:00s    0    -
   {
     1984 /*from_year*/,
@@ -7123,9 +8499,9 @@ static const AtcZoneRule kAtcZoneRulesRussia[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Russia    1985    2010    -    Mar    lastSun     2:00s    1:00    S
@@ -7135,9 +8511,9 @@ static const AtcZoneRule kAtcZoneRulesRussia[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Russia    1996    2010    -    Oct    lastSun     2:00s    0    -
@@ -7147,9 +8523,9 @@ static const AtcZoneRule kAtcZoneRulesRussia[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -7157,17 +8533,27 @@ static const AtcZoneRule kAtcZoneRulesRussia[]  = {
 
 const AtcZonePolicy kAtcZonePolicyRussia  = {
   kAtcZoneRulesRussia /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: RussiaAsia
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesRussiaAsia[]  = {
+  // Anchor: Rule RussiaAsia    1984    1995    -    Sep    lastSun     2:00s    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule RussiaAsia    1984    1995    -    Sep    lastSun     2:00s    0    -
   {
     1984 /*from_year*/,
@@ -7175,9 +8561,9 @@ static const AtcZoneRule kAtcZoneRulesRussiaAsia[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule RussiaAsia    1985    2010    -    Mar    lastSun     2:00s    1:00    -
@@ -7187,9 +8573,9 @@ static const AtcZoneRule kAtcZoneRulesRussiaAsia[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule RussiaAsia    1996    2010    -    Oct    lastSun     2:00s    0    -
@@ -7199,9 +8585,9 @@ static const AtcZoneRule kAtcZoneRulesRussiaAsia[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -7209,27 +8595,25 @@ static const AtcZoneRule kAtcZoneRulesRussiaAsia[]  = {
 
 const AtcZonePolicy kAtcZonePolicyRussiaAsia  = {
   kAtcZoneRulesRussiaAsia /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: SA
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSA[]  = {
-  // Rule    SA    1943    1944    -    Mar    Sun>=15    2:00    0    -
+  // Anchor: Rule    SA    1943    1944    -    Mar    Sun>=15    2:00    0    -
   {
-    1943 /*from_year*/,
-    1944 /*to_year*/,
-    3 /*in_month*/,
-    7 /*on_day_of_week*/,
-    15 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -7243,21 +8627,19 @@ const AtcZonePolicy kAtcZonePolicySA  = {
 //---------------------------------------------------------------------------
 // Policy name: Salv
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSalv[]  = {
-  // Rule    Salv    1987    1988    -    Sep    lastSun    0:00    0    S
+  // Anchor: Rule    Salv    1987    1988    -    Sep    lastSun    0:00    0    S
   {
-    1987 /*from_year*/,
-    1988 /*to_year*/,
-    9 /*in_month*/,
-    7 /*on_day_of_week*/,
-    0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -7271,21 +8653,19 @@ const AtcZonePolicy kAtcZonePolicySalv  = {
 //---------------------------------------------------------------------------
 // Policy name: SanLuis
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSanLuis[]  = {
   // Anchor: Rule    SanLuis    2008    2009    -    Mar    Sun>=8    0:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    SanLuis    2008    2009    -    Mar    Sun>=8    0:00    0    -
@@ -7295,9 +8675,9 @@ static const AtcZoneRule kAtcZoneRulesSanLuis[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    SanLuis    2007    2008    -    Oct    Sun>=8    0:00    1:00    -
@@ -7307,9 +8687,9 @@ static const AtcZoneRule kAtcZoneRulesSanLuis[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -7322,12 +8702,22 @@ const AtcZonePolicy kAtcZonePolicySanLuis  = {
 
 //---------------------------------------------------------------------------
 // Policy name: StJohns
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 6
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
+  // Anchor: Rule    StJohns    1987    2006    -    Oct    lastSun    0:01    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    StJohns    1987    2006    -    Oct    lastSun    0:01    0    S
   {
     1987 /*from_year*/,
@@ -7335,9 +8725,9 @@ static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    1 /*at_time_modifier (kAtcSuffixW + minute=1)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    4 /*at_time_code (60/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    StJohns    1988    only    -    Apr    Sun>=1    0:01    2:00    DD
@@ -7347,9 +8737,9 @@ static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    1 /*at_time_modifier (kAtcSuffixW + minute=1)*/,
-    12 /*delta_code ((delta_minutes=120)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    4 /*at_time_code (60/15)*/,
+    120 /*delta_minutes*/,
     6 /*letterIndex ("DD")*/,
   },
   // Rule    StJohns    1989    2006    -    Apr    Sun>=1    0:01    1:00    D
@@ -7359,9 +8749,9 @@ static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    1 /*at_time_modifier (kAtcSuffixW + minute=1)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    4 /*at_time_code (60/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    StJohns    2007    2011    -    Mar    Sun>=8    0:01    1:00    D
@@ -7371,9 +8761,9 @@ static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    1 /*at_time_modifier (kAtcSuffixW + minute=1)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    4 /*at_time_code (60/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    StJohns    2007    2010    -    Nov    Sun>=1    0:01    0    S
@@ -7383,9 +8773,9 @@ static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    1 /*at_time_modifier (kAtcSuffixW + minute=1)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    4 /*at_time_code (60/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -7393,27 +8783,25 @@ static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
 
 const AtcZonePolicy kAtcZonePolicyStJohns  = {
   kAtcZoneRulesStJohns /*rules*/,
-  5 /*num_rules*/,
+  6 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Sudan
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSudan[]  = {
-  // Rule    Sudan    1970    1985    -    Oct    15    0:00    0    -
+  // Anchor: Rule    Sudan    1970    1985    -    Oct    15    0:00    0    -
   {
-    1970 /*from_year*/,
-    1985 /*to_year*/,
-    10 /*in_month*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
     0 /*on_day_of_week*/,
-    15 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -7426,12 +8814,22 @@ const AtcZonePolicy kAtcZonePolicySudan  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Syria
-// Rules: 12
-// Memory (8-bit): 138
-// Memory (32-bit): 156
+// Rules: 13
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesSyria[]  = {
+  // Anchor: Rule    Syria    1994    2005    -    Oct     1    0:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Syria    1994    2005    -    Oct     1    0:00    0    -
   {
     1994 /*from_year*/,
@@ -7439,9 +8837,9 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Syria    1997    1998    -    Mar    lastMon    0:00    1:00    S
@@ -7451,9 +8849,9 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     3 /*in_month*/,
     1 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Syria    1999    2006    -    Apr     1    0:00    1:00    S
@@ -7463,9 +8861,9 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Syria    2006    only    -    Sep    22    0:00    0    -
@@ -7475,9 +8873,9 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Syria    2007    only    -    Mar    lastFri    0:00    1:00    S
@@ -7487,9 +8885,9 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     3 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Syria    2007    only    -    Nov     Fri>=1    0:00    0    -
@@ -7499,9 +8897,9 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     11 /*in_month*/,
     5 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Syria    2008    only    -    Apr    Fri>=1    0:00    1:00    S
@@ -7511,9 +8909,9 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     4 /*in_month*/,
     5 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Syria    2008    only    -    Nov    1    0:00    0    -
@@ -7523,9 +8921,9 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     11 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Syria    2009    only    -    Mar    lastFri    0:00    1:00    S
@@ -7535,9 +8933,9 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     3 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Syria    2010    2011    -    Apr    Fri>=1    0:00    1:00    S
@@ -7547,9 +8945,9 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     4 /*in_month*/,
     5 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Syria    2012    2022    -    Mar    lastFri    0:00    1:00    S
@@ -7559,9 +8957,9 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     3 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Syria    2009    2022    -    Oct    lastFri    0:00    0    -
@@ -7571,9 +8969,9 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
     10 /*in_month*/,
     5 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -7581,27 +8979,25 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
 
 const AtcZonePolicy kAtcZonePolicySyria  = {
   kAtcZoneRulesSyria /*rules*/,
-  12 /*num_rules*/,
+  13 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Taiwan
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesTaiwan[]  = {
-  // Rule    Taiwan    1979    only    -    Oct    1    0:00    0    S
+  // Anchor: Rule    Taiwan    1979    only    -    Oct    1    0:00    0    S
   {
-    1979 /*from_year*/,
-    1979 /*to_year*/,
-    10 /*in_month*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -7614,12 +9010,22 @@ const AtcZonePolicy kAtcZonePolicyTaiwan  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Thule
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 6
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesThule[]  = {
+  // Anchor: Rule    Thule    1991    1992    -    Sep    lastSun    2:00    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    Thule    1991    1992    -    Sep    lastSun    2:00    0    S
   {
     1991 /*from_year*/,
@@ -7627,9 +9033,9 @@ static const AtcZoneRule kAtcZoneRulesThule[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Thule    1993    2006    -    Apr    Sun>=1    2:00    1:00    D
@@ -7639,9 +9045,9 @@ static const AtcZoneRule kAtcZoneRulesThule[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Thule    1993    2006    -    Oct    lastSun    2:00    0    S
@@ -7651,33 +9057,33 @@ static const AtcZoneRule kAtcZoneRulesThule[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Thule    2007    max    -    Mar    Sun>=8    2:00    1:00    D
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Thule    2007    max    -    Nov    Sun>=1    2:00    0    S
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -7685,27 +9091,25 @@ static const AtcZoneRule kAtcZoneRulesThule[]  = {
 
 const AtcZonePolicy kAtcZonePolicyThule  = {
   kAtcZoneRulesThule /*rules*/,
-  5 /*num_rules*/,
+  6 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Tonga
 // Rules: 7
-// Memory (8-bit): 83
-// Memory (32-bit): 96
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesTonga[]  = {
   // Anchor: Rule    Tonga    2000    only    -    Mar    19    2:00s    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Tonga    1999    only    -    Oct     7    2:00s    1:00    -
@@ -7715,9 +9119,9 @@ static const AtcZoneRule kAtcZoneRulesTonga[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Tonga    2000    only    -    Mar    19    2:00s    0    -
@@ -7727,9 +9131,9 @@ static const AtcZoneRule kAtcZoneRulesTonga[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Tonga    2000    2001    -    Nov    Sun>=1    2:00    1:00    -
@@ -7739,9 +9143,9 @@ static const AtcZoneRule kAtcZoneRulesTonga[]  = {
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Tonga    2001    2002    -    Jan    lastSun    2:00    0    -
@@ -7751,9 +9155,9 @@ static const AtcZoneRule kAtcZoneRulesTonga[]  = {
     1 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Tonga    2016    only    -    Nov    Sun>=1    2:00    1:00    -
@@ -7763,9 +9167,9 @@ static const AtcZoneRule kAtcZoneRulesTonga[]  = {
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Tonga    2017    only    -    Jan    Sun>=15    3:00    0    -
@@ -7775,9 +9179,9 @@ static const AtcZoneRule kAtcZoneRulesTonga[]  = {
     1 /*in_month*/,
     7 /*on_day_of_week*/,
     15 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -7791,45 +9195,43 @@ const AtcZonePolicy kAtcZonePolicyTonga  = {
 //---------------------------------------------------------------------------
 // Policy name: Troll
 // Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesTroll[]  = {
   // Anchor: Rule    Troll    2004    max    -    Oct    lastSun    1:00u    0:00    +00
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     1 /*letterIndex ("+00")*/,
   },
   // Rule    Troll    2005    max    -    Mar    lastSun    1:00u    2:00    +02
   {
     2005 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    12 /*delta_code ((delta_minutes=120)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    120 /*delta_minutes*/,
     2 /*letterIndex ("+02")*/,
   },
   // Rule    Troll    2004    max    -    Oct    lastSun    1:00u    0:00    +00
   {
     2004 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    32 /*at_time_modifier (kAtcSuffixU + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    32 /*at_time_modifier (kAtcSuffixU + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     1 /*letterIndex ("+00")*/,
   },
 
@@ -7842,12 +9244,22 @@ const AtcZonePolicy kAtcZonePolicyTroll  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Tunisia
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 6
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
+  // Anchor: Rule    Tunisia    1988    1990    -    Sep    lastSun     0:00s    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Tunisia    1988    1990    -    Sep    lastSun     0:00s    0    -
   {
     1988 /*from_year*/,
@@ -7855,9 +9267,9 @@ static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Tunisia    2005    only    -    May     1     0:00s    1:00    S
@@ -7867,9 +9279,9 @@ static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
     5 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Tunisia    2005    only    -    Sep    30     1:00s    0    -
@@ -7879,9 +9291,9 @@ static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     30 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Tunisia    2006    2008    -    Mar    lastSun     2:00s    1:00    S
@@ -7891,9 +9303,9 @@ static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Tunisia    2006    2008    -    Oct    lastSun     2:00s    0    -
@@ -7903,9 +9315,9 @@ static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -7913,17 +9325,27 @@ static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
 
 const AtcZonePolicy kAtcZonePolicyTunisia  = {
   kAtcZoneRulesTunisia /*rules*/,
-  5 /*num_rules*/,
+  6 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Turkey
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesTurkey[]  = {
+  // Anchor: Rule    Turkey    1986    1995    -    Sep    lastSun    1:00s    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Turkey    1986    1995    -    Sep    lastSun    1:00s    0    -
   {
     1986 /*from_year*/,
@@ -7931,9 +9353,9 @@ static const AtcZoneRule kAtcZoneRulesTurkey[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Turkey    1995    2006    -    Mar    lastSun    1:00s    1:00    S
@@ -7943,9 +9365,9 @@ static const AtcZoneRule kAtcZoneRulesTurkey[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Turkey    1996    2006    -    Oct    lastSun    1:00s    0    -
@@ -7955,9 +9377,9 @@ static const AtcZoneRule kAtcZoneRulesTurkey[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -7965,17 +9387,27 @@ static const AtcZoneRule kAtcZoneRulesTurkey[]  = {
 
 const AtcZonePolicy kAtcZonePolicyTurkey  = {
   kAtcZoneRulesTurkey /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: US
-// Rules: 5
-// Memory (8-bit): 61
-// Memory (32-bit): 72
+// Rules: 6
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesUS[]  = {
+  // Anchor: Rule    US    1967    2006    -    Oct    lastSun    2:00    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    US    1967    2006    -    Oct    lastSun    2:00    0    S
   {
     1967 /*from_year*/,
@@ -7983,9 +9415,9 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    US    1976    1986    -    Apr    lastSun    2:00    1:00    D
@@ -7995,9 +9427,9 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    US    1987    2006    -    Apr    Sun>=1    2:00    1:00    D
@@ -8007,33 +9439,33 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    US    2007    max    -    Mar    Sun>=8    2:00    1:00    D
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    US    2007    max    -    Nov    Sun>=1    2:00    0    S
   {
     2007 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     11 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -8041,17 +9473,27 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
 
 const AtcZonePolicy kAtcZonePolicyUS  = {
   kAtcZoneRulesUS /*rules*/,
-  5 /*num_rules*/,
+  6 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Uruguay
-// Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
+// Rules: 7
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
+  // Anchor: Rule    Uruguay    1993    only    -    Feb    28     0:00    0    -
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
   // Rule    Uruguay    1993    only    -    Feb    28     0:00    0    -
   {
     1993 /*from_year*/,
@@ -8059,9 +9501,9 @@ static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
     2 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Uruguay    2004    only    -    Sep    19     0:00    1:00    -
@@ -8071,9 +9513,9 @@ static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     19 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Uruguay    2005    only    -    Mar    27     2:00    0    -
@@ -8083,9 +9525,9 @@ static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     27 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Uruguay    2005    only    -    Oct     9     2:00    1:00    -
@@ -8095,9 +9537,9 @@ static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Uruguay    2006    2015    -    Mar    Sun>=8     2:00    0    -
@@ -8107,9 +9549,9 @@ static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     8 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    Uruguay    2006    2014    -    Oct    Sun>=1     2:00    1:00    -
@@ -8119,9 +9561,9 @@ static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -8129,27 +9571,25 @@ static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
 
 const AtcZonePolicy kAtcZonePolicyUruguay  = {
   kAtcZoneRulesUruguay /*rules*/,
-  6 /*num_rules*/,
+  7 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Vanuatu
 // Rules: 1
-// Memory (8-bit): 17
-// Memory (32-bit): 24
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesVanuatu[]  = {
-  // Rule    Vanuatu    1992    1993    -    Jan    Sat>=22    24:00    0    -
+  // Anchor: Rule    Vanuatu    1992    1993    -    Jan    Sat>=22    24:00    0    -
   {
-    1992 /*from_year*/,
-    1993 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
-    6 /*on_day_of_week*/,
-    22 /*on_day_of_month*/,
-    96 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -8163,21 +9603,19 @@ const AtcZonePolicy kAtcZonePolicyVanuatu  = {
 //---------------------------------------------------------------------------
 // Policy name: WS
 // Rules: 6
-// Memory (8-bit): 72
-// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesWS[]  = {
   // Anchor: Rule    WS    2011    only    -    Apr    Sat>=1    4:00    0    -
   {
-    0 /*from_year*/,
-    0 /*to_year*/,
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
     1 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    WS    2010    only    -    Sep    lastSun    0:00    1    -
@@ -8187,9 +9625,9 @@ static const AtcZoneRule kAtcZoneRulesWS[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    WS    2011    only    -    Apr    Sat>=1    4:00    0    -
@@ -8199,9 +9637,9 @@ static const AtcZoneRule kAtcZoneRulesWS[]  = {
     4 /*in_month*/,
     6 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    16 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    WS    2011    only    -    Sep    lastSat    3:00    1    -
@@ -8211,9 +9649,9 @@ static const AtcZoneRule kAtcZoneRulesWS[]  = {
     9 /*in_month*/,
     6 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    WS    2012    2021    -    Apr    Sun>=1    4:00    0    -
@@ -8223,9 +9661,9 @@ static const AtcZoneRule kAtcZoneRulesWS[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    16 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    960 /*at_time_code (14400/15)*/,
+    0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
   // Rule    WS    2012    2020    -    Sep    lastSun    3:00    1    -
@@ -8235,9 +9673,9 @@ static const AtcZoneRule kAtcZoneRulesWS[]  = {
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    12 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    720 /*at_time_code (10800/15)*/,
+    60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
 
@@ -8250,12 +9688,22 @@ const AtcZonePolicy kAtcZonePolicyWS  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Winn
-// Rules: 3
-// Memory (8-bit): 39
-// Memory (32-bit): 48
+// Rules: 4
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesWinn[]  = {
+  // Anchor: Rule    Winn    1966    2005    -    Oct    lastSun    2:00s    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    Winn    1966    1986    -    Apr    lastSun    2:00s    1:00    D
   {
     1966 /*from_year*/,
@@ -8263,9 +9711,9 @@ static const AtcZoneRule kAtcZoneRulesWinn[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Winn    1966    2005    -    Oct    lastSun    2:00s    0    S
@@ -8275,9 +9723,9 @@ static const AtcZoneRule kAtcZoneRulesWinn[]  = {
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Winn    1987    2005    -    Apr    Sun>=1    2:00s    1:00    D
@@ -8287,9 +9735,9 @@ static const AtcZoneRule kAtcZoneRulesWinn[]  = {
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    16 /*at_time_modifier (kAtcSuffixS + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
 
@@ -8297,17 +9745,27 @@ static const AtcZoneRule kAtcZoneRulesWinn[]  = {
 
 const AtcZonePolicy kAtcZonePolicyWinn  = {
   kAtcZoneRulesWinn /*rules*/,
-  3 /*num_rules*/,
+  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
 // Policy name: Zion
-// Rules: 24
-// Memory (8-bit): 270
-// Memory (32-bit): 300
+// Rules: 25
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesZion[]  = {
+  // Anchor: Rule    Zion    1998    only    -    Sep     6    0:00    0    S
+  {
+    -32767 /*from_year*/,
+    -32767 /*to_year*/,
+    1 /*in_month*/,
+    0 /*on_day_of_week*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
   // Rule    Zion    1998    only    -    Sep     6    0:00    0    S
   {
     1998 /*from_year*/,
@@ -8315,9 +9773,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     6 /*on_day_of_month*/,
-    0 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Zion    1999    only    -    Apr     2    2:00    1:00    D
@@ -8327,9 +9785,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Zion    1999    only    -    Sep     3    2:00    0    S
@@ -8339,9 +9797,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     3 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2000    only    -    Apr    14    2:00    1:00    D
@@ -8351,9 +9809,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Zion    2000    only    -    Oct     6    1:00    0    S
@@ -8363,9 +9821,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     6 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2001    only    -    Apr     9    1:00    1:00    D
@@ -8375,9 +9833,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Zion    2001    only    -    Sep    24    1:00    0    S
@@ -8387,9 +9845,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     24 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2002    only    -    Mar    29    1:00    1:00    D
@@ -8399,9 +9857,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     29 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Zion    2002    only    -    Oct     7    1:00    0    S
@@ -8411,9 +9869,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2003    only    -    Mar    28    1:00    1:00    D
@@ -8423,9 +9881,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     3 /*in_month*/,
     0 /*on_day_of_week*/,
     28 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Zion    2003    only    -    Oct     3    1:00    0    S
@@ -8435,9 +9893,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     3 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2004    only    -    Apr     7    1:00    1:00    D
@@ -8447,9 +9905,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     4 /*in_month*/,
     0 /*on_day_of_week*/,
     7 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Zion    2004    only    -    Sep    22    1:00    0    S
@@ -8459,9 +9917,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     22 /*on_day_of_month*/,
-    4 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2005    2012    -    Apr    Fri<=1    2:00    1:00    D
@@ -8471,9 +9929,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     4 /*in_month*/,
     5 /*on_day_of_week*/,
     -1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Zion    2005    only    -    Oct     9    2:00    0    S
@@ -8483,9 +9941,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     9 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2006    only    -    Oct     1    2:00    0    S
@@ -8495,9 +9953,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2007    only    -    Sep    16    2:00    0    S
@@ -8507,9 +9965,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     16 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2008    only    -    Oct     5    2:00    0    S
@@ -8519,9 +9977,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     5 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2009    only    -    Sep    27    2:00    0    S
@@ -8531,9 +9989,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     27 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2010    only    -    Sep    12    2:00    0    S
@@ -8543,9 +10001,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     12 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2011    only    -    Oct     2    2:00    0    S
@@ -8555,9 +10013,9 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     2 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2012    only    -    Sep    23    2:00    0    S
@@ -8567,33 +10025,33 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
     9 /*in_month*/,
     0 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
   // Rule    Zion    2013    max    -    Mar    Fri>=23    2:00    1:00    D
   {
     2013 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     3 /*in_month*/,
     5 /*on_day_of_week*/,
     23 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    8 /*delta_code ((delta_minutes=60)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
     5 /*letterIndex ("D")*/,
   },
   // Rule    Zion    2013    max    -    Oct    lastSun    2:00    0    S
   {
     2013 /*from_year*/,
-    9999 /*to_year*/,
+    32766 /*to_year*/,
     10 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
-    8 /*at_time_code*/,
-    0 /*at_time_modifier (kAtcSuffixW + minute=0)*/,
-    4 /*delta_code ((delta_minutes=0)/15 + 4)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
 
@@ -8601,7 +10059,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
 
 const AtcZonePolicy kAtcZonePolicyZion  = {
   kAtcZoneRulesZion /*rules*/,
-  24 /*num_rules*/,
+  25 /*num_rules*/,
 };
 
 

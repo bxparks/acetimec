@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.7.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -96,12 +96,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="zone__info__utils_8h__dep__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2zoneinfo_2zone__info__utils_8hdep" alt=""/></div>
 <map name="a_2home_2brian_2src_2AceTimeC_2src_2zoneinfo_2zone__info__utils_8hdep" id="a_2home_2brian_2src_2AceTimeC_2src_2zoneinfo_2zone__info__utils_8hdep">
-<area shape="rect" title="Most fields in the zonedb database (defined by the data types in zone_info.h) are meant to be accesse..." alt="" coords="492,5,685,61"/>
-<area shape="rect" href="transition_8c_source.html" title=" " alt="" coords="5,117,199,158"/>
-<area shape="rect" href="zone__processor_8c_source.html" title=" " alt="" coords="223,117,447,158"/>
-<area shape="rect" href="zoned__date__time_8c_source.html" title=" " alt="" coords="471,117,707,158"/>
-<area shape="rect" href="acetimec_8h_source.html" title=" " alt="" coords="731,117,924,158"/>
-<area shape="rect" href="zone__info__utils_8c_source.html" title=" " alt="" coords="948,109,1141,165"/>
+<area shape="rect" title="Most fields in the zonedb database (defined by the data types in zone_info.h) are meant to be accesse..." alt="" coords="673,5,867,61"/>
+<area shape="rect" href="date__tuple_8c_source.html" title=" " alt="" coords="5,117,199,158"/>
+<area shape="rect" href="time__zone_8c_source.html" title=" " alt="" coords="223,117,416,158"/>
+<area shape="rect" href="transition_8c_source.html" title=" " alt="" coords="440,117,633,158"/>
+<area shape="rect" href="zone__processor_8c_source.html" title=" " alt="" coords="658,117,882,158"/>
+<area shape="rect" href="zoned__date__time_8c_source.html" title=" " alt="" coords="905,117,1141,158"/>
+<area shape="rect" href="acetimec_8h_source.html" title=" " alt="" coords="1165,117,1359,158"/>
+<area shape="rect" href="zone__info__utils_8c_source.html" title=" " alt="" coords="1383,109,1576,165"/>
 </map>
 </div>
 </div>
@@ -123,34 +125,34 @@ const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" hr
 <tr class="memitem:abf64e12823c3b3c046f03dc57876e4c7"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#abf64e12823c3b3c046f03dc57876e4c7">atc_zone_info_short_name</a> (const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *info)</td></tr>
 <tr class="memdesc:abf64e12823c3b3c046f03dc57876e4c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the short zone name of the given zone info.  <a href="zone__info__utils_8h.html#abf64e12823c3b3c046f03dc57876e4c7">More...</a><br /></td></tr>
 <tr class="separator:abf64e12823c3b3c046f03dc57876e4c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0cb82946d317c329fad82e06564b2da1"><td class="memItemLeft" align="right" valign="top"><a id="a0cb82946d317c329fad82e06564b2da1"></a>
-int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#a0cb82946d317c329fad82e06564b2da1">atc_zone_era_std_offset_minutes</a> (const <a class="el" href="structAtcZoneEra.html">AtcZoneEra</a> *era)</td></tr>
-<tr class="memdesc:a0cb82946d317c329fad82e06564b2da1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the standard offset of the given era in minutes. <br /></td></tr>
-<tr class="separator:a0cb82946d317c329fad82e06564b2da1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a22d67b540eea39dcfa5842b75ed451ae"><td class="memItemLeft" align="right" valign="top"><a id="a22d67b540eea39dcfa5842b75ed451ae"></a>
-int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#a22d67b540eea39dcfa5842b75ed451ae">atc_zone_era_dst_offset_minutes</a> (const <a class="el" href="structAtcZoneEra.html">AtcZoneEra</a> *era)</td></tr>
-<tr class="memdesc:a22d67b540eea39dcfa5842b75ed451ae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the DST offset of the given era in minutes. <br /></td></tr>
-<tr class="separator:a22d67b540eea39dcfa5842b75ed451ae"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a1104ac9b51081cbce3bff4dc099f9966"><td class="memItemLeft" align="right" valign="top"><a id="a1104ac9b51081cbce3bff4dc099f9966"></a>
-int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#a1104ac9b51081cbce3bff4dc099f9966">atc_zone_era_until_minutes</a> (const <a class="el" href="structAtcZoneEra.html">AtcZoneEra</a> *era)</td></tr>
-<tr class="memdesc:a1104ac9b51081cbce3bff4dc099f9966"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the UNTIL time in minutes. <br /></td></tr>
-<tr class="separator:a1104ac9b51081cbce3bff4dc099f9966"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a01003bc372c59031d00f162bc65ef541"><td class="memItemLeft" align="right" valign="top"><a id="a01003bc372c59031d00f162bc65ef541"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#a01003bc372c59031d00f162bc65ef541">atc_zone_era_std_offset_seconds</a> (const <a class="el" href="structAtcZoneEra.html">AtcZoneEra</a> *era)</td></tr>
+<tr class="memdesc:a01003bc372c59031d00f162bc65ef541"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the standard offset of the given era in seconds. <br /></td></tr>
+<tr class="separator:a01003bc372c59031d00f162bc65ef541"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a940476595709b0a5d41db5e3f16b6d27"><td class="memItemLeft" align="right" valign="top"><a id="a940476595709b0a5d41db5e3f16b6d27"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#a940476595709b0a5d41db5e3f16b6d27">atc_zone_era_dst_offset_seconds</a> (const <a class="el" href="structAtcZoneEra.html">AtcZoneEra</a> *era)</td></tr>
+<tr class="memdesc:a940476595709b0a5d41db5e3f16b6d27"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the DST offset of the given era in seconds. <br /></td></tr>
+<tr class="separator:a940476595709b0a5d41db5e3f16b6d27"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a272fd97a00a2e9b95f2c630a33478d98"><td class="memItemLeft" align="right" valign="top"><a id="a272fd97a00a2e9b95f2c630a33478d98"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#a272fd97a00a2e9b95f2c630a33478d98">atc_zone_era_until_seconds</a> (const <a class="el" href="structAtcZoneEra.html">AtcZoneEra</a> *era)</td></tr>
+<tr class="memdesc:a272fd97a00a2e9b95f2c630a33478d98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the UNTIL time in seconds. <br /></td></tr>
+<tr class="separator:a272fd97a00a2e9b95f2c630a33478d98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a315cc42c907ad4df2f2794d731792476"><td class="memItemLeft" align="right" valign="top"><a id="a315cc42c907ad4df2f2794d731792476"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#a315cc42c907ad4df2f2794d731792476">atc_zone_era_until_suffix</a> (const <a class="el" href="structAtcZoneEra.html">AtcZoneEra</a> *era)</td></tr>
 <tr class="memdesc:a315cc42c907ad4df2f2794d731792476"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the UNTIL time suffix ('w', 's', 'u') <br /></td></tr>
 <tr class="separator:a315cc42c907ad4df2f2794d731792476"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa289d3221b7a2452095a601ab9a0254"><td class="memItemLeft" align="right" valign="top"><a id="afa289d3221b7a2452095a601ab9a0254"></a>
-int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#afa289d3221b7a2452095a601ab9a0254">atc_zone_rule_at_minutes</a> (const <a class="el" href="structAtcZoneRule.html">AtcZoneRule</a> *rule)</td></tr>
-<tr class="memdesc:afa289d3221b7a2452095a601ab9a0254"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the AT time in minutes. <br /></td></tr>
-<tr class="separator:afa289d3221b7a2452095a601ab9a0254"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a408003c446a23a57b2581fec714c25fa"><td class="memItemLeft" align="right" valign="top"><a id="a408003c446a23a57b2581fec714c25fa"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#a408003c446a23a57b2581fec714c25fa">atc_zone_rule_at_seconds</a> (const <a class="el" href="structAtcZoneRule.html">AtcZoneRule</a> *rule)</td></tr>
+<tr class="memdesc:a408003c446a23a57b2581fec714c25fa"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the AT time in seconds. <br /></td></tr>
+<tr class="separator:a408003c446a23a57b2581fec714c25fa"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a2a02ed1d0d3fa2df1ba4a68a48eab02a"><td class="memItemLeft" align="right" valign="top"><a id="a2a02ed1d0d3fa2df1ba4a68a48eab02a"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#a2a02ed1d0d3fa2df1ba4a68a48eab02a">atc_zone_rule_at_suffix</a> (const <a class="el" href="structAtcZoneRule.html">AtcZoneRule</a> *rule)</td></tr>
 <tr class="memdesc:a2a02ed1d0d3fa2df1ba4a68a48eab02a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the AT time suffix ('w', 's', 'u') <br /></td></tr>
 <tr class="separator:a2a02ed1d0d3fa2df1ba4a68a48eab02a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac6ece4caa9002a39cc4c5695377f7d50"><td class="memItemLeft" align="right" valign="top"><a id="ac6ece4caa9002a39cc4c5695377f7d50"></a>
-int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#ac6ece4caa9002a39cc4c5695377f7d50">atc_zone_rule_dst_offset_minutes</a> (const <a class="el" href="structAtcZoneRule.html">AtcZoneRule</a> *rule)</td></tr>
-<tr class="memdesc:ac6ece4caa9002a39cc4c5695377f7d50"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the DST offset in minutes. <br /></td></tr>
-<tr class="separator:ac6ece4caa9002a39cc4c5695377f7d50"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a15d70d2ff640d4a2854211971ea56543"><td class="memItemLeft" align="right" valign="top"><a id="a15d70d2ff640d4a2854211971ea56543"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__info__utils_8h.html#a15d70d2ff640d4a2854211971ea56543">atc_zone_rule_dst_offset_seconds</a> (const <a class="el" href="structAtcZoneRule.html">AtcZoneRule</a> *rule)</td></tr>
+<tr class="memdesc:a15d70d2ff640d4a2854211971ea56543"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the DST offset in seconds. <br /></td></tr>
+<tr class="separator:a15d70d2ff640d4a2854211971ea56543"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Most fields in the zonedb database (defined by the data types in <a class="el" href="zone__info_8h.html" title="The data structures in the zone database, with the AtcZoneInfo representing a specific time zone.">zone_info.h</a>) are meant to be accessed directly through a raw pointer. </p>
@@ -177,7 +179,7 @@ int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="z
 <p>A Zone entry and a Link entry are encoded by the same AceZoneInfo data type. </p>
 <p>A Link entry is represented by the same header, but the <code>eras</code> pointer points to the target Zone entry of the Link. This function returns true if the info is actually a Link instead of a Zone. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info__utils_8c_source.html#l00012">12</a> of file <a class="el" href="zone__info__utils_8c_source.html">zone_info_utils.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info__utils_8c_source.html#l00014">14</a> of file <a class="el" href="zone__info__utils_8c_source.html">zone_info_utils.c</a>.</p>
 
 </div>
 </div>
@@ -200,7 +202,7 @@ int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="z
 <p>Return the short zone name of the given zone info. </p>
 <p>The short name is the final component of the full zone name after the last '/'. For example, the short name of "America/Los_Angeles" is "Los_Angeles". </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info__utils_8c_source.html#l00022">22</a> of file <a class="el" href="zone__info__utils_8c_source.html">zone_info_utils.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info__utils_8c_source.html#l00024">24</a> of file <a class="el" href="zone__info__utils_8c_source.html">zone_info_utils.c</a>.</p>
 
 </div>
 </div>

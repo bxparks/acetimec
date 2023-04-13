@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.7.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -109,9 +109,9 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:adf764cbdea00d65edcd07bb9953ad2b7"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="epoch_8h.html#adf764cbdea00d65edcd07bb9953ad2b7aec79c9fcf07937557893397d049eb850">kAtcConverterEpochYear</a> = 2000
+<tr class="memitem:a99fb83031ce9923c84392b4e92f956b5"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="epoch_8h.html#a99fb83031ce9923c84392b4e92f956b5aec79c9fcf07937557893397d049eb850">kAtcConverterEpochYear</a> = 2000
  }</td></tr>
-<tr class="separator:adf764cbdea00d65edcd07bb9953ad2b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:a99fb83031ce9923c84392b4e92f956b5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -163,8 +163,8 @@ int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="e
 
 <p class="definition">Definition in file <a class="el" href="epoch_8h_source.html">epoch.h</a>.</p>
 </div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="adf764cbdea00d65edcd07bb9953ad2b7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf764cbdea00d65edcd07bb9953ad2b7">&#9670;&nbsp;</a></span>anonymous enum</h2>
+<a id="a99fb83031ce9923c84392b4e92f956b5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a99fb83031ce9923c84392b4e92f956b5">&#9670;&nbsp;</a></span>anonymous enum</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -175,7 +175,7 @@ int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="e
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adf764cbdea00d65edcd07bb9953ad2b7aec79c9fcf07937557893397d049eb850"></a>kAtcConverterEpochYear&#160;</td><td class="fielddoc"><p>Epoch year used by the epoch days converter functions <code><a class="el" href="epoch_8h.html#afd8062e8c861203196883a0640e42d11" title="Convert (year, month, day) triple to the number of days since the converter epoch (2000-01-01).">atc_convert_to_days()</a></code> and <code><a class="el" href="epoch_8h.html#a45128050cfbce1409a563aca1db24238" title="Convert the days from converter epoch (2000-01-01) into (year, month, day) fields.">atc_convert_from_days()</a></code> so that the "converter epoch" is {year}-01-01T00:00:00. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a99fb83031ce9923c84392b4e92f956b5aec79c9fcf07937557893397d049eb850"></a>kAtcConverterEpochYear&#160;</td><td class="fielddoc"><p>Epoch year used by the epoch days converter functions <code><a class="el" href="epoch_8h.html#afd8062e8c861203196883a0640e42d11" title="Convert (year, month, day) triple to the number of days since the converter epoch (2000-01-01).">atc_convert_to_days()</a></code> and <code><a class="el" href="epoch_8h.html#a45128050cfbce1409a563aca1db24238" title="Convert the days from converter epoch (2000-01-01) into (year, month, day) fields.">atc_convert_from_days()</a></code> so that the "converter epoch" is {year}-01-01T00:00:00. </p>
 <p>This must be a multiple of 400.</p>
 <p>This is an internal implementation detail and should not normally be needed by client applications. They should instead use <a class="el" href="epoch_8h.html#a4e1dda5b76ff50e2afdc336e83b0cd6a" title="Get the current epoch year.">atc_get_current_epoch_year()</a> and <a class="el" href="epoch_8h.html#a4263750f0b027e0a96d6baefd7f1ada1" title="Set the current epoch year.">atc_set_current_epoch_year()</a>. </p>
 </td></tr>
@@ -354,7 +354,7 @@ int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="e
 </div><div class="memdoc">
 
 <p>Set the current epoch year. </p>
-<p>Any cached values (e.g. any internal or external evaluations of <code>ace_time_t</code>) that used a previous epoch year must be invalidated. In particular, the <code><a class="el" href="zone__processor_8h.html#a3c432909cd21efbd035810fec546b06a" title="Initialize AtcZoneProcessor data structure.">atc_processor_init()</a></code> must be called on each instance of <code><a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a></code> that was used with a different epoch year. </p>
+<p>Any cached values (e.g. any internal or external evaluations of <code>atc_time_t</code>) that used a previous epoch year must be invalidated. In particular, the <code><a class="el" href="zone__processor_8h.html#a3c432909cd21efbd035810fec546b06a" title="Initialize AtcZoneProcessor data structure.">atc_processor_init()</a></code> or <code><a class="el" href="zone__processor_8h.html#abb9a3e33a7edb675942b099556d714ef" title="Initialize AtcZoneProcessor for the given zone_info.">atc_processor_init_for_zone_info()</a></code> must be called on each instance of <code><a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a></code> that was used with a different epoch year. </p>
 
 <p class="definition">Definition at line <a class="el" href="epoch_8c_source.html#l00027">27</a> of file <a class="el" href="epoch_8c_source.html">epoch.c</a>.</p>
 

@@ -21,8 +21,9 @@
 extern "C" {
 #endif
 
-/** Forward declaration of AtcOffsetDateTime. */
+// forward declarations
 typedef struct AtcOffsetDateTime AtcOffsetDateTime;
+typedef struct AtcZonedExtra AtcZonedExtra;
 
 /** A data structure that represents a specific Time Zone. */
 typedef struct AtcTimeZone {
@@ -36,8 +37,14 @@ typedef struct AtcTimeZone {
   AtcZoneProcessor *zone_processor;
 } AtcTimeZone;
 
+/** A default time zone instance representing UTC. */
+extern const AtcTimeZone atc_time_zone_utc;
+
 /**
- * Convert epoch_seconds to an AtcOffsetDateTime using the given zone_info.
+ * Convert epoch_seconds to an AtcOffsetDateTime using the given time zone.
+ * The `zone_procssor` is rebound to the `zone_info` in case it was previously
+ * bound to a different `zone_info`.
+ *
  * Return non-zero error code upon failure.
  */
 int8_t atc_time_zone_offset_date_time_from_epoch_seconds(
@@ -46,13 +53,43 @@ int8_t atc_time_zone_offset_date_time_from_epoch_seconds(
   AtcOffsetDateTime *odt);
 
 /**
- * Convert the LocalDateTime to AtcOffsetDateTime using the given zone_info.
+ * Convert the LocalDateTime to AtcOffsetDateTime using the given time zone.
+ * The `zone_procssor` is rebound to the `zone_info` in case it was previously
+ * bound to a different `zone_info`.
+ *
  * Return non-zero error code upon failure.
  */
 int8_t atc_time_zone_offset_date_time_from_local_date_time(
   const AtcTimeZone *tz,
   const AtcLocalDateTime *ldt,
   AtcOffsetDateTime *odt);
+
+/**
+ * Populate the ZonedExtra using the given epoch seconds for the time zone.
+ * The `zone_procssor` is rebound to the `zone_info` in case it was previously
+ * bound to a different `zone_info`.
+ *
+ * Return non-zero error code upon failure.
+ */
+int8_t atc_time_zone_zoned_extra_from_epoch_seconds(
+  const AtcTimeZone *tz,
+  atc_time_t epoch_seconds,
+  AtcZonedExtra *extra);
+
+/**
+ * Populate the ZonedExtra using the given local date time for the time zone.
+ * The `zone_procssor` is rebound to the `zone_info` in case it was previously
+ * bound to a different `zone_info`.
+ *
+ * Return non-zero error code upon failure.
+ */
+int8_t atc_time_zone_zoned_extra_from_local_date_time(
+  const AtcTimeZone *tz,
+  const AtcLocalDateTime *ldt,
+  AtcZonedExtra *extra);
+
+/** Print the name of the current time zone. */
+void atc_time_zone_print(const AtcTimeZone *tz, AtcStringBuffer *sb);
 
 #ifdef __cplusplus
 }

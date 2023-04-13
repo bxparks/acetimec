@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.7.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -76,7 +76,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Functions that relate to the local date time along with a UTC offset measured in minutes.  
+<p>Functions that relate to the local date time along with a UTC offset measured in seconds.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br />
@@ -86,7 +86,7 @@ Include dependency graph for offset_date_time.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="offset__date__time_8h__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2offset__date__time_8h" alt=""/></div>
 <map name="a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2offset__date__time_8h" id="a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2offset__date__time_8h">
-<area shape="rect" title="Functions that relate to the local date time along with a UTC offset measured in minutes." alt="" coords="5,5,240,47"/>
+<area shape="rect" title="Functions that relate to the local date time along with a UTC offset measured in seconds." alt="" coords="5,5,240,47"/>
 <area shape="rect" title=" " alt="" coords="87,169,158,196"/>
 <area shape="rect" href="common_8h.html" title="Some common shared typedefs, constants, and functions." alt="" coords="204,95,295,121"/>
 <area shape="rect" href="string__buffer_8h.html" title="A simple set of integer to string conversion functions." alt="" coords="65,95,180,121"/>
@@ -98,7 +98,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="offset__date__time_8h__dep__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2offset__date__time_8hdep" alt=""/></div>
 <map name="a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2offset__date__time_8hdep" id="a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2offset__date__time_8hdep">
-<area shape="rect" title="Functions that relate to the local date time along with a UTC offset measured in minutes." alt="" coords="363,5,597,47"/>
+<area shape="rect" title="Functions that relate to the local date time along with a UTC offset measured in seconds." alt="" coords="363,5,597,47"/>
 <area shape="rect" href="offset__date__time_8c_source.html" title=" " alt="" coords="5,95,240,136"/>
 <area shape="rect" href="time__zone_8c_source.html" title=" " alt="" coords="265,95,458,136"/>
 <area shape="rect" href="zoned__date__time_8c_source.html" title=" " alt="" coords="482,95,718,136"/>
@@ -111,31 +111,31 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcOffsetDateTime.html">AtcOffsetDateTime</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Date and time fields with a UTC offset in minutes.  <a href="structAtcOffsetDateTime.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Date and time fields with a UTC offset in seconds.  <a href="structAtcOffsetDateTime.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="typedef-members"></a>
 Typedefs</h2></td></tr>
 <tr class="memitem:a2e3af32a3ad2977303fcf71d05b8c95b"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structAtcOffsetDateTime.html">AtcOffsetDateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="offset__date__time_8h.html#a2e3af32a3ad2977303fcf71d05b8c95b">AtcOffsetDateTime</a></td></tr>
-<tr class="memdesc:a2e3af32a3ad2977303fcf71d05b8c95b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Date and time fields with a UTC offset in minutes.  <a href="offset__date__time_8h.html#a2e3af32a3ad2977303fcf71d05b8c95b">More...</a><br /></td></tr>
+<tr class="memdesc:a2e3af32a3ad2977303fcf71d05b8c95b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Date and time fields with a UTC offset in seconds.  <a href="offset__date__time_8h.html#a2e3af32a3ad2977303fcf71d05b8c95b">More...</a><br /></td></tr>
 <tr class="separator:a2e3af32a3ad2977303fcf71d05b8c95b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa3e28840fa903ac35b59cf7a1b4510b3"><td class="memItemLeft" align="right" valign="top"><a id="aa3e28840fa903ac35b59cf7a1b4510b3"></a>
 <a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">atc_time_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="offset__date__time_8h.html#aa3e28840fa903ac35b59cf7a1b4510b3">atc_offset_date_time_to_epoch_seconds</a> (const <a class="el" href="structAtcOffsetDateTime.html">AtcOffsetDateTime</a> *odt)</td></tr>
-<tr class="memdesc:aa3e28840fa903ac35b59cf7a1b4510b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the epoch seconds for the given <a class="el" href="structAtcOffsetDateTime.html" title="Date and time fields with a UTC offset in minutes.">AtcOffsetDateTime</a>. <br /></td></tr>
+<tr class="memdesc:aa3e28840fa903ac35b59cf7a1b4510b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the epoch seconds for the given <a class="el" href="structAtcOffsetDateTime.html" title="Date and time fields with a UTC offset in seconds.">AtcOffsetDateTime</a>. <br /></td></tr>
 <tr class="separator:aa3e28840fa903ac35b59cf7a1b4510b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a25dc3cf843a2201f070df4f5479984db"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="offset__date__time_8h.html#a25dc3cf843a2201f070df4f5479984db">atc_offset_date_time_from_epoch_seconds</a> (<a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">atc_time_t</a> epoch_seconds, int16_t offset_minutes, <a class="el" href="structAtcOffsetDateTime.html">AtcOffsetDateTime</a> *odt)</td></tr>
-<tr class="memdesc:a25dc3cf843a2201f070df4f5479984db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the <a class="el" href="structAtcOffsetDateTime.html" title="Date and time fields with a UTC offset in minutes.">AtcOffsetDateTime</a> from the epoch_seconds and total offset minutes.  <a href="offset__date__time_8h.html#a25dc3cf843a2201f070df4f5479984db">More...</a><br /></td></tr>
-<tr class="separator:a25dc3cf843a2201f070df4f5479984db"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a43baf9d1921ab9e431a17efa29b16e97"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="offset__date__time_8h.html#a43baf9d1921ab9e431a17efa29b16e97">atc_offset_date_time_from_epoch_seconds</a> (<a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">atc_time_t</a> epoch_seconds, int32_t offset_seconds, <a class="el" href="structAtcOffsetDateTime.html">AtcOffsetDateTime</a> *odt)</td></tr>
+<tr class="memdesc:a43baf9d1921ab9e431a17efa29b16e97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create the <a class="el" href="structAtcOffsetDateTime.html" title="Date and time fields with a UTC offset in seconds.">AtcOffsetDateTime</a> from the epoch_seconds and total offset seconds.  <a href="offset__date__time_8h.html#a43baf9d1921ab9e431a17efa29b16e97">More...</a><br /></td></tr>
+<tr class="separator:a43baf9d1921ab9e431a17efa29b16e97"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a69f709711df2fcdd1e43fdfff0d18b8a"><td class="memItemLeft" align="right" valign="top"><a id="a69f709711df2fcdd1e43fdfff0d18b8a"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="offset__date__time_8h.html#a69f709711df2fcdd1e43fdfff0d18b8a">atc_offset_date_time_print</a> (const <a class="el" href="structAtcOffsetDateTime.html">AtcOffsetDateTime</a> *odt, <a class="el" href="structAtcStringBuffer.html">AtcStringBuffer</a> *sb)</td></tr>
 <tr class="memdesc:a69f709711df2fcdd1e43fdfff0d18b8a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the offset date time in ISO 8601 format. <br /></td></tr>
 <tr class="separator:a69f709711df2fcdd1e43fdfff0d18b8a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Functions that relate to the local date time along with a UTC offset measured in minutes. </p>
+<div class="textblock"><p>Functions that relate to the local date time along with a UTC offset measured in seconds. </p>
 <p>For example, this can be used to represent a fixed offset from UTC, such as "2022-08-30 14:45:00-08:00". </p>
 
 <p class="definition">Definition in file <a class="el" href="offset__date__time_8h_source.html">offset_date_time.h</a>.</p>
@@ -152,15 +152,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="offs
       </table>
 </div><div class="memdoc">
 
-<p>Date and time fields with a UTC offset in minutes. </p>
+<p>Date and time fields with a UTC offset in seconds. </p>
 <p>In the AceTime library, the 'fold' parameter was included in the low-level LocalTime class, which then got absorbed into the LocalDatetime class. This extra parameter is mostly transparent to the user because C++ supports default parameters in the constructor and functions.</p>
 <p>Unfortunately C does not have default parameters, so adding a 'fold' in LocalDateTime causes unnecessary friction. Therefore, I am adding this parameter to the OffsetDateTime instead, which is higher level so hopefully the parameter is exposed to the user only when the user needs. </p>
 
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="a25dc3cf843a2201f070df4f5479984db"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a25dc3cf843a2201f070df4f5479984db">&#9670;&nbsp;</a></span>atc_offset_date_time_from_epoch_seconds()</h2>
+<a id="a43baf9d1921ab9e431a17efa29b16e97"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a43baf9d1921ab9e431a17efa29b16e97">&#9670;&nbsp;</a></span>atc_offset_date_time_from_epoch_seconds()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -174,8 +174,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="offs
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">int16_t&#160;</td>
-          <td class="paramname"><em>offset_minutes</em>, </td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>offset_seconds</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -191,7 +191,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="offs
       </table>
 </div><div class="memdoc">
 
-<p>Create the <a class="el" href="structAtcOffsetDateTime.html" title="Date and time fields with a UTC offset in minutes.">AtcOffsetDateTime</a> from the epoch_seconds and total offset minutes. </p>
+<p>Create the <a class="el" href="structAtcOffsetDateTime.html" title="Date and time fields with a UTC offset in seconds.">AtcOffsetDateTime</a> from the epoch_seconds and total offset seconds. </p>
 <p>The 'fold' parameter is explicitly set to 0. Returns non-zero error code upon failure. </p>
 
 <p class="definition">Definition at line <a class="el" href="offset__date__time_8c_source.html#l00019">19</a> of file <a class="el" href="offset__date__time_8c_source.html">offset_date_time.c</a>.</p>

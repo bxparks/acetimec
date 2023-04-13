@@ -42,8 +42,11 @@ static void validate_zone(
   int16_t start_year,
   int16_t until_year)
 {
+  atc_processor_init_for_zone_info(processor, info);
   for (int16_t year = start_year; year < until_year; year++) {
-    atc_processor_init_for_year(processor, info, year);
+    int8_t err = atc_processor_init_for_year(processor, year);
+    ACU_ASSERT(err == kAtcErrOk);
+
     AtcTransitionStorage *storage = &processor->transition_storage;
     AtcTransition **begin =
         atc_transition_storage_get_active_pool_begin(storage);
@@ -60,7 +63,37 @@ static void validate_zone(
   }
 }
 
-ACU_TEST(test_transitions_for_all_zones_all_years) {
+ACU_TEST(test_transitions_for_zonedball) {
+  int16_t saved_epoch_year = atc_get_current_epoch_year();
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+
+  for (uint16_t i = 0; i < kAtcAllZoneRegistrySize; i++) {
+    const AtcZoneInfo *info = kAtcAllZoneRegistry[i];
+
+    // Loop from [start_year, 3000), in chunks of 100 years, shifting
+    // the current_epoch_year by 100 years.
+    for (
+        int16_t start_year = kAtcAllZoneContext.start_year;
+        start_year < 3000;
+        start_year += 100) {
+
+      atc_set_current_epoch_year(start_year + 50);
+      int16_t until_year = start_year + 100;
+      if (until_year > kAtcAllZoneContext.until_year) {
+        until_year = kAtcAllZoneContext.until_year;
+      }
+
+      ACU_ASSERT_NO_FATAL_FAILURE(
+          validate_zone(
+              acu_context, &processor, info, start_year, until_year));
+    }
+  }
+
+  atc_set_current_epoch_year(saved_epoch_year);
+}
+
+ACU_TEST(test_transitions_for_zonedb) {
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
@@ -68,11 +101,11 @@ ACU_TEST(test_transitions_for_all_zones_all_years) {
   for (uint16_t i = 0; i < kAtcZoneRegistrySize; i++) {
     const AtcZoneInfo *info = kAtcZoneRegistry[i];
 
-    // Loop from start_year to until_year, in chunks of 100 years, shifting
+    // Loop from [start_year, 3000), in chunks of 100 years, shifting
     // the current_epoch_year by 100 years.
     for (
         int16_t start_year = kAtcZoneContext.start_year;
-        start_year < kAtcZoneContext.until_year;
+        start_year < 3000;
         start_year += 100) {
 
       atc_set_current_epoch_year(start_year + 50);
@@ -96,6 +129,7 @@ ACU_CONTEXT();
 
 int main()
 {
-  ACU_RUN_TEST(test_transitions_for_all_zones_all_years);
+  ACU_RUN_TEST(test_transitions_for_zonedb);
+  ACU_RUN_TEST(test_transitions_for_zonedball);
   ACU_SUMMARY();
 }

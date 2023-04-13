@@ -3,11 +3,16 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/AceTimeC/src/zonedb/tzfiles
 //     --output_dir /home/brian/src/AceTimeC/src/zonedb
-//     --tz_version 2022g
+//     --tz_version 2023c
 //     --action zonedb
 //     --language c
 //     --scope extended
+//     --db_namespace Atc
+//     --offset_granularity 1
+//     --delta_granularity 60
+//     --until_at_granularity 1
 //     --generate_int16_years
+//     --generate_hires
 //     --start_year 2000
 //     --until_year 10000
 //     --nocompress
@@ -24,12 +29,47 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022g
+// from https://github.com/eggert/tz/releases/tag/2023c
 //
-// Supported Zones: 596 (351 zones, 245 links)
+// Supported Zones: 596 (350 zones, 246 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
-// Original Years: [1844,2087]
-// Generated Years: [1943,2087]
+//
+// Original Years:  [1844,2087]
+// Generated Years: [1950,2087]
+// Estimator Years: [1950,2090]
+// Max Buffer Size: 7
+//
+// Records:
+//   Infos: 596
+//   Eras: 646
+//   Policies: 83
+//   Rules: 735
+//
+// Memory (8-bits):
+//   Rules: 8820
+//   Policies: 249
+//   Eras: 9690
+//   Zones: 4550
+//   Links: 3198
+//   Registry: 1192
+//   Formats: 597
+//   Letters: 46
+//   Fragments: 0
+//   Names: 9076 (original: 9076)
+//   TOTAL: 37418
+//
+// Memory (32-bits):
+//   Rules: 8820
+//   Policies: 664
+//   Eras: 12920
+//   Zones: 8400
+//   Links: 5904
+//   Registry: 2384
+//   Formats: 597
+//   Letters: 64
+//   Fragments: 0
+//   Names: 9076 (original: 9076)
+//   TOTAL: 48829
 //
 // DO NOT EDIT
 
@@ -40,28 +80,14 @@
 // ZoneContext (should not be in PROGMEM)
 //---------------------------------------------------------------------------
 
-const char kAtcTzDatabaseVersion[] = "2022g";
+static const char kAtcTzDatabaseVersion[] = "2023c";
 
-const char * const kAtcFragments[] = {
+static const char * const kAtcFragments[] = {
 /*\x00*/ NULL,
-/*\x01*/ "Africa/",
-/*\x02*/ "America/",
-/*\x03*/ "Antarctica/",
-/*\x04*/ "Argentina/",
-/*\x05*/ "Asia/",
-/*\x06*/ "Atlantic/",
-/*\x07*/ "Australia/",
-/*\x08*/ "Brazil/",
-/*\x09*/ "Canada/",
-/*\x0a*/ "Etc/",
-/*\x0b*/ "Europe/",
-/*\x0c*/ "Indian/",
-/*\x0d*/ "Indiana/",
-/*\x0e*/ "Pacific/",
 
 };
 
-const char* const kAtcLetters[] = {
+static const char* const kAtcLetters[] = {
 /*0*/ "",
 /*1*/ "+00",
 /*2*/ "+02",
@@ -75,25 +101,24 @@ const char* const kAtcLetters[] = {
 };
 
 const AtcZoneContext kAtcZoneContext = {
-  2000 /*startYear*/,
-  10000 /*untilYear*/,
-  kAtcTzDatabaseVersion /*tzVersion*/,
-  15 /*numFragments*/,
-  9 /*numLetters*/,
+  2000 /*start_year*/,
+  10000 /*until_year*/,
+  7 /*max_transitions*/,
+  kAtcTzDatabaseVersion /*tz_version*/,
+  1 /*num_fragments*/,
+  9 /*num_letters*/,
   kAtcFragments /*fragments*/,
   kAtcLetters /*letters*/,
 };
 
 //---------------------------------------------------------------------------
-// Zones: 351
+// Zones: 350
+// Eras: 646
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Abidjan
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Abidjan[]  = {
@@ -101,13 +126,14 @@ static const AtcZoneEra kAtcZoneEraAfrica_Abidjan[]  = {
   {
     NULL /*zone_policy*/,
     "GMT" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -120,15 +146,12 @@ const AtcZoneInfo kAtcZoneAfrica_Abidjan  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Algiers
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Algiers[]  = {
@@ -136,13 +159,14 @@ static const AtcZoneEra kAtcZoneEraAfrica_Algiers[]  = {
   {
     NULL /*zone_policy*/,
     "CET" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -155,15 +179,12 @@ const AtcZoneInfo kAtcZoneAfrica_Algiers  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Algiers /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Bissau
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Bissau[]  = {
@@ -171,13 +192,14 @@ static const AtcZoneEra kAtcZoneEraAfrica_Bissau[]  = {
   {
     NULL /*zone_policy*/,
     "GMT" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -190,15 +212,12 @@ const AtcZoneInfo kAtcZoneAfrica_Bissau  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Bissau /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Cairo
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Cairo[]  = {
@@ -206,13 +225,14 @@ static const AtcZoneEra kAtcZoneEraAfrica_Cairo[]  = {
   {
     &kAtcZonePolicyEgypt /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -225,15 +245,12 @@ const AtcZoneInfo kAtcZoneAfrica_Cairo  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Cairo /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Casablanca
 // Zone Eras: 2
-// Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 71
-// Memory (32-bit): 90
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Casablanca[]  = {
@@ -241,25 +258,27 @@ static const AtcZoneEra kAtcZoneEraAfrica_Casablanca[]  = {
   {
     &kAtcZonePolicyMorocco /*zone_policy*/,
     "+00/+01" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
     2018 /*until_year*/,
     10 /*until_month*/,
     28 /*until_day*/,
-    12 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    720 /*until_time_code (10800/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //              1:00    Morocco    +01/+00
   {
     &kAtcZonePolicyMorocco /*zone_policy*/,
     "+01/+00" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -272,15 +291,12 @@ const AtcZoneInfo kAtcZoneAfrica_Casablanca  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Casablanca /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Ceuta
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Ceuta[]  = {
@@ -288,13 +304,14 @@ static const AtcZoneEra kAtcZoneEraAfrica_Ceuta[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -307,15 +324,12 @@ const AtcZoneInfo kAtcZoneAfrica_Ceuta  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Ceuta /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/El_Aaiun
 // Zone Eras: 2
-// Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 69
-// Memory (32-bit): 88
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_El_Aaiun[]  = {
@@ -323,25 +337,27 @@ static const AtcZoneEra kAtcZoneEraAfrica_El_Aaiun[]  = {
   {
     &kAtcZonePolicyMorocco /*zone_policy*/,
     "+00/+01" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
     2018 /*until_year*/,
     10 /*until_month*/,
     28 /*until_day*/,
-    12 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    720 /*until_time_code (10800/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //              1:00    Morocco    +01/+00
   {
     &kAtcZonePolicyMorocco /*zone_policy*/,
     "+01/+00" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -354,15 +370,12 @@ const AtcZoneInfo kAtcZoneAfrica_El_Aaiun  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_El_Aaiun /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Johannesburg
 // Zone Eras: 1
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 50
-// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Johannesburg[]  = {
@@ -370,13 +383,14 @@ static const AtcZoneEra kAtcZoneEraAfrica_Johannesburg[]  = {
   {
     &kAtcZonePolicySA /*zone_policy*/,
     "SAST" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -389,15 +403,12 @@ const AtcZoneInfo kAtcZoneAfrica_Johannesburg  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Johannesburg /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Juba
 // Zone Eras: 3
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 74
-// Memory (32-bit): 97
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Juba[]  = {
@@ -405,37 +416,40 @@ static const AtcZoneEra kAtcZoneEraAfrica_Juba[]  = {
   {
     &kAtcZonePolicySudan /*zone_policy*/,
     "CA%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     1 /*until_month*/,
     15 /*until_day*/,
-    48 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    2880 /*until_time_code (43200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             3:00    -    EAT    2021 Feb  1 00:00
   {
     NULL /*zone_policy*/,
     "EAT" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
     2021 /*until_year*/,
     2 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00    -    CAT
   {
     NULL /*zone_policy*/,
     "CAT" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -448,15 +462,12 @@ const AtcZoneInfo kAtcZoneAfrica_Juba  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAfrica_Juba /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Khartoum
 // Zone Eras: 3
-// Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 78
-// Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Khartoum[]  = {
@@ -464,37 +475,40 @@ static const AtcZoneEra kAtcZoneEraAfrica_Khartoum[]  = {
   {
     &kAtcZonePolicySudan /*zone_policy*/,
     "CA%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     1 /*until_month*/,
     15 /*until_day*/,
-    48 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    2880 /*until_time_code (43200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             3:00    -    EAT    2017 Nov  1
   {
     NULL /*zone_policy*/,
     "EAT" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
     2017 /*until_year*/,
     11 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00    -    CAT
   {
     NULL /*zone_policy*/,
     "CAT" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -507,15 +521,12 @@ const AtcZoneInfo kAtcZoneAfrica_Khartoum  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAfrica_Khartoum /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Lagos
 // Zone Eras: 1
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 42
-// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Lagos[]  = {
@@ -523,13 +534,14 @@ static const AtcZoneEra kAtcZoneEraAfrica_Lagos[]  = {
   {
     NULL /*zone_policy*/,
     "WAT" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -542,15 +554,12 @@ const AtcZoneInfo kAtcZoneAfrica_Lagos  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Maputo
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Maputo[]  = {
@@ -558,13 +567,14 @@ static const AtcZoneEra kAtcZoneEraAfrica_Maputo[]  = {
   {
     NULL /*zone_policy*/,
     "CAT" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -577,15 +587,12 @@ const AtcZoneInfo kAtcZoneAfrica_Maputo  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Monrovia
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Monrovia[]  = {
@@ -593,13 +600,14 @@ static const AtcZoneEra kAtcZoneEraAfrica_Monrovia[]  = {
   {
     NULL /*zone_policy*/,
     "GMT" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -612,15 +620,12 @@ const AtcZoneInfo kAtcZoneAfrica_Monrovia  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Monrovia /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Nairobi
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Nairobi[]  = {
@@ -628,13 +633,14 @@ static const AtcZoneEra kAtcZoneEraAfrica_Nairobi[]  = {
   {
     NULL /*zone_policy*/,
     "EAT" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -647,15 +653,12 @@ const AtcZoneInfo kAtcZoneAfrica_Nairobi  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Ndjamena
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Ndjamena[]  = {
@@ -663,13 +666,14 @@ static const AtcZoneEra kAtcZoneEraAfrica_Ndjamena[]  = {
   {
     NULL /*zone_policy*/,
     "WAT" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -682,15 +686,12 @@ const AtcZoneInfo kAtcZoneAfrica_Ndjamena  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Ndjamena /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Sao_Tome
 // Zone Eras: 3
-// Strings (bytes): 28 (originally 28)
-// Memory (8-bit): 77
-// Memory (32-bit): 100
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Sao_Tome[]  = {
@@ -698,37 +699,40 @@ static const AtcZoneEra kAtcZoneEraAfrica_Sao_Tome[]  = {
   {
     NULL /*zone_policy*/,
     "GMT" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
     2018 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    4 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    240 /*until_time_code (3600/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //              1:00    -    WAT    2019 Jan  1 02:00
   {
     NULL /*zone_policy*/,
     "WAT" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
     2019 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //              0:00    -    GMT
   {
     NULL /*zone_policy*/,
     "GMT" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -741,15 +745,12 @@ const AtcZoneInfo kAtcZoneAfrica_Sao_Tome  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAfrica_Sao_Tome /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Tripoli
 // Zone Eras: 3
-// Strings (bytes): 28 (originally 28)
-// Memory (8-bit): 77
-// Memory (32-bit): 100
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Tripoli[]  = {
@@ -757,37 +758,40 @@ static const AtcZoneEra kAtcZoneEraAfrica_Tripoli[]  = {
   {
     NULL /*zone_policy*/,
     "EET" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2012 /*until_year*/,
     11 /*until_month*/,
     10 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             1:00    Libya    CE%sT    2013 Oct 25  2:00
   {
     &kAtcZonePolicyLibya /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
     2013 /*until_year*/,
     10 /*until_month*/,
     25 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00    -    EET
   {
     NULL /*zone_policy*/,
     "EET" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -800,15 +804,12 @@ const AtcZoneInfo kAtcZoneAfrica_Tripoli  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAfrica_Tripoli /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Tunis
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Tunis[]  = {
@@ -816,13 +817,14 @@ static const AtcZoneEra kAtcZoneEraAfrica_Tunis[]  = {
   {
     &kAtcZonePolicyTunisia /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -835,15 +837,12 @@ const AtcZoneInfo kAtcZoneAfrica_Tunis  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Tunis /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Africa/Windhoek
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Windhoek[]  = {
@@ -851,13 +850,14 @@ static const AtcZoneEra kAtcZoneEraAfrica_Windhoek[]  = {
   {
     &kAtcZonePolicyNamibia /*zone_policy*/,
     "%" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -870,15 +870,12 @@ const AtcZoneInfo kAtcZoneAfrica_Windhoek  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAfrica_Windhoek /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Adak
 // Zone Eras: 1
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 42
-// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Adak[]  = {
@@ -886,13 +883,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Adak[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "H%T" /*format*/,
-    -40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2400 /*offset_code (-36000/15)*/,
+    0 /*offset_remainder (-36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -905,15 +903,12 @@ const AtcZoneInfo kAtcZoneAmerica_Adak  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Adak /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Anchorage
 // Zone Eras: 1
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 48
-// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Anchorage[]  = {
@@ -921,13 +916,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Anchorage[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "AK%T" /*format*/,
-    -36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2160 /*offset_code (-32400/15)*/,
+    0 /*offset_remainder (-32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -940,15 +936,12 @@ const AtcZoneInfo kAtcZoneAmerica_Anchorage  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Anchorage /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Araguaina
 // Zone Eras: 4
-// Strings (bytes): 42 (originally 42)
-// Memory (8-bit): 103
-// Memory (32-bit): 130
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Araguaina[]  = {
@@ -956,49 +949,53 @@ static const AtcZoneEra kAtcZoneEraAmerica_Araguaina[]  = {
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2003 /*until_year*/,
     9 /*until_month*/,
     24 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03    2012 Oct 21
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2012 /*until_year*/,
     10 /*until_month*/,
     21 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Brazil    -03/-02    2013 Sep
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2013 /*until_year*/,
     9 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -1011,15 +1008,12 @@ const AtcZoneInfo kAtcZoneAmerica_Araguaina  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Araguaina /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Buenos_Aires
 // Zone Eras: 3
-// Strings (bytes): 55 (originally 55)
-// Memory (8-bit): 104
-// Memory (32-bit): 127
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Buenos_Aires[]  = {
@@ -1027,37 +1021,40 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Buenos_Aires[]  = {
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     10 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    Arg    -04/-03    2000 Mar  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     3 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Arg    -03/-02
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -1070,15 +1067,12 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Buenos_Aires  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Buenos_Aires /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Catamarca
 // Zone Eras: 6
-// Strings (bytes): 64 (originally 64)
-// Memory (8-bit): 149
-// Memory (32-bit): 184
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Catamarca[]  = {
@@ -1086,73 +1080,79 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Catamarca[]  = {
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     10 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    Arg    -04/-03    2000 Mar  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     3 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03    2004 Jun  1
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     6 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    -    -04    2004 Jun 20
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     6 /*until_month*/,
     20 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Arg    -03/-02    2008 Oct 18
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2008 /*until_year*/,
     10 /*until_month*/,
     18 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -1165,15 +1165,12 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Catamarca  = {
   &kAtcZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Catamarca /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Cordoba
 // Zone Eras: 3
-// Strings (bytes): 50 (originally 50)
-// Memory (8-bit): 99
-// Memory (32-bit): 122
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Cordoba[]  = {
@@ -1181,37 +1178,40 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Cordoba[]  = {
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     10 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    Arg    -04/-03    2000 Mar  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     3 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Arg    -03/-02
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -1224,15 +1224,12 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Cordoba  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Cordoba /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Jujuy
 // Zone Eras: 4
-// Strings (bytes): 52 (originally 52)
-// Memory (8-bit): 113
-// Memory (32-bit): 140
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Jujuy[]  = {
@@ -1240,49 +1237,53 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Jujuy[]  = {
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     10 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    Arg    -04/-03    2000 Mar  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     3 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Arg    -03/-02    2008 Oct 18
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2008 /*until_year*/,
     10 /*until_month*/,
     18 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -1295,15 +1296,12 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Jujuy  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Jujuy /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/La_Rioja
 // Zone Eras: 6
-// Strings (bytes): 63 (originally 63)
-// Memory (8-bit): 148
-// Memory (32-bit): 183
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_La_Rioja[]  = {
@@ -1311,73 +1309,79 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_La_Rioja[]  = {
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     10 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    Arg    -04/-03    2000 Mar  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     3 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03    2004 Jun  1
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     6 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    -    -04    2004 Jun 20
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     6 /*until_month*/,
     20 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Arg    -03/-02    2008 Oct 18
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2008 /*until_year*/,
     10 /*until_month*/,
     18 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -1390,15 +1394,12 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_La_Rioja  = {
   &kAtcZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_La_Rioja /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Mendoza
 // Zone Eras: 6
-// Strings (bytes): 62 (originally 62)
-// Memory (8-bit): 147
-// Memory (32-bit): 182
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Mendoza[]  = {
@@ -1406,73 +1407,79 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Mendoza[]  = {
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     10 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    Arg    -04/-03    2000 Mar  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     3 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03    2004 May 23
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     5 /*until_month*/,
     23 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    -    -04    2004 Sep 26
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     9 /*until_month*/,
     26 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Arg    -03/-02    2008 Oct 18
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2008 /*until_year*/,
     10 /*until_month*/,
     18 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -1485,15 +1492,12 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Mendoza  = {
   &kAtcZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Mendoza /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Rio_Gallegos
 // Zone Eras: 6
-// Strings (bytes): 67 (originally 67)
-// Memory (8-bit): 152
-// Memory (32-bit): 187
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Rio_Gallegos[]  = {
@@ -1501,73 +1505,79 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Rio_Gallegos[]  = {
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     10 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    Arg    -04/-03    2000 Mar  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     3 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03    2004 Jun  1
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     6 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    -    -04    2004 Jun 20
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     6 /*until_month*/,
     20 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Arg    -03/-02    2008 Oct 18
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2008 /*until_year*/,
     10 /*until_month*/,
     18 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -1580,15 +1590,12 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Rio_Gallegos  = {
   &kAtcZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Rio_Gallegos /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Salta
 // Zone Eras: 4
-// Strings (bytes): 52 (originally 52)
-// Memory (8-bit): 113
-// Memory (32-bit): 140
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Salta[]  = {
@@ -1596,49 +1603,53 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Salta[]  = {
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     10 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    Arg    -04/-03    2000 Mar  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     3 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Arg    -03/-02    2008 Oct 18
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2008 /*until_year*/,
     10 /*until_month*/,
     18 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -1651,15 +1662,12 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Salta  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Salta /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/San_Juan
 // Zone Eras: 6
-// Strings (bytes): 63 (originally 63)
-// Memory (8-bit): 148
-// Memory (32-bit): 183
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Juan[]  = {
@@ -1667,73 +1675,79 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Juan[]  = {
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     10 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    Arg    -04/-03    2000 Mar  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     3 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03    2004 May 31
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     5 /*until_month*/,
     31 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    -    -04    2004 Jul 25
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     7 /*until_month*/,
     25 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Arg    -03/-02    2008 Oct 18
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2008 /*until_year*/,
     10 /*until_month*/,
     18 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -1746,15 +1760,12 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_San_Juan  = {
   &kAtcZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_San_Juan /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/San_Luis
 // Zone Eras: 7
-// Strings (bytes): 63 (originally 63)
-// Memory (8-bit): 160
-// Memory (32-bit): 199
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Luis[]  = {
@@ -1762,85 +1773,92 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Luis[]  = {
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     10 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    1:00    -03    2000 Mar  3
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -16 /*offset_code*/,
-    8 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=60)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    60 /*delta_minutes*/,
     2000 /*until_year*/,
     3 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03    2004 May 31
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     5 /*until_month*/,
     31 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    -    -04    2004 Jul 25
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     7 /*until_month*/,
     25 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Arg    -03/-02    2008 Jan 21
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2008 /*until_year*/,
     1 /*until_month*/,
     21 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    SanLuis    -04/-03    2009 Oct 11
   {
     &kAtcZonePolicySanLuis /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2009 /*until_year*/,
     10 /*until_month*/,
     11 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -1853,15 +1871,12 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_San_Luis  = {
   &kAtcZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_San_Luis /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Tucuman
 // Zone Eras: 5
-// Strings (bytes): 58 (originally 58)
-// Memory (8-bit): 131
-// Memory (32-bit): 162
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Tucuman[]  = {
@@ -1869,61 +1884,66 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Tucuman[]  = {
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     10 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    Arg    -04/-03    2000 Mar  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     3 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03    2004 Jun  1
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     6 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    -    -04    2004 Jun 13
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     6 /*until_month*/,
     13 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Arg    -03/-02
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -1936,15 +1956,12 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Tucuman  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Tucuman /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Argentina/Ushuaia
 // Zone Eras: 6
-// Strings (bytes): 62 (originally 62)
-// Memory (8-bit): 147
-// Memory (32-bit): 182
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Ushuaia[]  = {
@@ -1952,73 +1969,79 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Ushuaia[]  = {
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     10 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    Arg    -04/-03    2000 Mar  3
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     3 /*until_month*/,
     3 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03    2004 May 30
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     5 /*until_month*/,
     30 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    -    -04    2004 Jun 20
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     6 /*until_month*/,
     20 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Arg    -03/-02    2008 Oct 18
   {
     &kAtcZonePolicyArg /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2008 /*until_year*/,
     10 /*until_month*/,
     18 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2031,15 +2054,12 @@ const AtcZoneInfo kAtcZoneAmerica_Argentina_Ushuaia  = {
   &kAtcZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Ushuaia /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Asuncion
 // Zone Eras: 1
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 50
-// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Asuncion[]  = {
@@ -2047,13 +2067,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Asuncion[]  = {
   {
     &kAtcZonePolicyPara /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2066,15 +2087,12 @@ const AtcZoneInfo kAtcZoneAmerica_Asuncion  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Asuncion /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Bahia
 // Zone Eras: 4
-// Strings (bytes): 38 (originally 38)
-// Memory (8-bit): 99
-// Memory (32-bit): 126
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Bahia[]  = {
@@ -2082,49 +2100,53 @@ static const AtcZoneEra kAtcZoneEraAmerica_Bahia[]  = {
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2003 /*until_year*/,
     9 /*until_month*/,
     24 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03    2011 Oct 16
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     10 /*until_month*/,
     16 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Brazil    -03/-02    2012 Oct 21
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2012 /*until_year*/,
     10 /*until_month*/,
     21 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2137,15 +2159,12 @@ const AtcZoneInfo kAtcZoneAmerica_Bahia  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Bahia /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Bahia_Banderas
 // Zone Eras: 2
-// Strings (bytes): 31 (originally 31)
-// Memory (8-bit): 68
-// Memory (32-bit): 87
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Bahia_Banderas[]  = {
@@ -2153,25 +2172,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Bahia_Banderas[]  = {
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
     2010 /*until_year*/,
     4 /*until_month*/,
     4 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    Mexico    C%sT
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2184,15 +2205,12 @@ const AtcZoneInfo kAtcZoneAmerica_Bahia_Banderas  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Bahia_Banderas /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Barbados
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Barbados[]  = {
@@ -2200,13 +2218,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Barbados[]  = {
   {
     &kAtcZonePolicyBarb /*zone_policy*/,
     "A%T" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2219,15 +2238,12 @@ const AtcZoneInfo kAtcZoneAmerica_Barbados  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Barbados /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Belem
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Belem[]  = {
@@ -2235,13 +2251,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Belem[]  = {
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2254,15 +2271,12 @@ const AtcZoneInfo kAtcZoneAmerica_Belem  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Belem /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Belize
 // Zone Eras: 1
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 42
-// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Belize[]  = {
@@ -2270,13 +2284,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Belize[]  = {
   {
     &kAtcZonePolicyBelize /*zone_policy*/,
     "%" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2289,15 +2304,12 @@ const AtcZoneInfo kAtcZoneAmerica_Belize  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Belize /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Boa_Vista
 // Zone Eras: 3
-// Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 83
-// Memory (32-bit): 106
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Boa_Vista[]  = {
@@ -2305,37 +2317,40 @@ static const AtcZoneEra kAtcZoneEraAmerica_Boa_Vista[]  = {
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     9 /*until_month*/,
     30 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    Brazil    -04/-03    2000 Oct 15
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     10 /*until_month*/,
     15 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    -    -04
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2348,15 +2363,12 @@ const AtcZoneInfo kAtcZoneAmerica_Boa_Vista  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Boa_Vista /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Bogota
 // Zone Eras: 1
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 48
-// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Bogota[]  = {
@@ -2364,13 +2376,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Bogota[]  = {
   {
     &kAtcZonePolicyCO /*zone_policy*/,
     "-05/-04" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2383,15 +2396,12 @@ const AtcZoneInfo kAtcZoneAmerica_Bogota  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Bogota /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Boise
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Boise[]  = {
@@ -2399,13 +2409,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Boise[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2418,15 +2429,12 @@ const AtcZoneInfo kAtcZoneAmerica_Boise  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Boise /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Cambridge_Bay
 // Zone Eras: 5
-// Strings (bytes): 42 (originally 42)
-// Memory (8-bit): 115
-// Memory (32-bit): 146
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Cambridge_Bay[]  = {
@@ -2434,61 +2442,66 @@ static const AtcZoneEra kAtcZoneEraAmerica_Cambridge_Bay[]  = {
   {
     &kAtcZonePolicyNT_YK /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     10 /*until_month*/,
     31 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    Canada    C%sT    2000 Oct 29  2:00
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     10 /*until_month*/,
     29 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    -    EST    2000 Nov  5  0:00
   {
     NULL /*zone_policy*/,
     "EST" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     11 /*until_month*/,
     5 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    -    CST    2001 Apr  1  3:00
   {
     NULL /*zone_policy*/,
     "CST" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2001 /*until_year*/,
     4 /*until_month*/,
     1 /*until_day*/,
-    12 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    720 /*until_time_code (10800/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -7:00    Canada    M%sT
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2501,15 +2514,12 @@ const AtcZoneInfo kAtcZoneAmerica_Cambridge_Bay  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Cambridge_Bay /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Campo_Grande
 // Zone Eras: 1
-// Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 54
-// Memory (32-bit): 69
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Campo_Grande[]  = {
@@ -2517,13 +2527,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Campo_Grande[]  = {
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2536,15 +2547,12 @@ const AtcZoneInfo kAtcZoneAmerica_Campo_Grande  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Campo_Grande /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Cancun
 // Zone Eras: 2
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 60
-// Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Cancun[]  = {
@@ -2552,25 +2560,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Cancun[]  = {
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2015 /*until_year*/,
     2 /*until_month*/,
     1 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    -    EST
   {
     NULL /*zone_policy*/,
     "EST" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2583,15 +2593,12 @@ const AtcZoneInfo kAtcZoneAmerica_Cancun  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Cancun /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Caracas
 // Zone Eras: 3
-// Strings (bytes): 30 (originally 30)
-// Memory (8-bit): 79
-// Memory (32-bit): 102
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Caracas[]  = {
@@ -2599,37 +2606,40 @@ static const AtcZoneEra kAtcZoneEraAmerica_Caracas[]  = {
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2007 /*until_year*/,
     12 /*until_month*/,
     9 /*until_day*/,
-    12 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    720 /*until_time_code (10800/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:30    -    -0430    2016 May  1  2:30
   {
     NULL /*zone_policy*/,
     "-0430" /*format*/,
-    -18 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1080 /*offset_code (-16200/15)*/,
+    0 /*offset_remainder (-16200%15)*/,
+    0 /*delta_minutes*/,
     2016 /*until_year*/,
     5 /*until_month*/,
     1 /*until_day*/,
-    10 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    600 /*until_time_code (9000/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    -    -04
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2642,15 +2652,12 @@ const AtcZoneInfo kAtcZoneAmerica_Caracas  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Caracas /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Cayenne
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Cayenne[]  = {
@@ -2658,13 +2665,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Cayenne[]  = {
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2677,15 +2685,12 @@ const AtcZoneInfo kAtcZoneAmerica_Cayenne  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Cayenne /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Chicago
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Chicago[]  = {
@@ -2693,13 +2698,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Chicago[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2712,15 +2718,12 @@ const AtcZoneInfo kAtcZoneAmerica_Chicago  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Chicago /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Chihuahua
 // Zone Eras: 2
-// Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 63
-// Memory (32-bit): 82
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Chihuahua[]  = {
@@ -2728,25 +2731,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Chihuahua[]  = {
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
     2022 /*until_year*/,
     10 /*until_month*/,
     30 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    -    CST
   {
     NULL /*zone_policy*/,
     "CST" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2759,15 +2764,12 @@ const AtcZoneInfo kAtcZoneAmerica_Chihuahua  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Chihuahua /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Ciudad_Juarez
 // Zone Eras: 4
-// Strings (bytes): 38 (originally 38)
-// Memory (8-bit): 99
-// Memory (32-bit): 126
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Ciudad_Juarez[]  = {
@@ -2775,49 +2777,53 @@ static const AtcZoneEra kAtcZoneEraAmerica_Ciudad_Juarez[]  = {
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
     2010 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -7:00    US    M%sT    2022 Oct 30  2:00
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
     2022 /*until_year*/,
     10 /*until_month*/,
     30 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    -    CST    2022 Nov 30  0:00
   {
     NULL /*zone_policy*/,
     "CST" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2022 /*until_year*/,
     11 /*until_month*/,
     30 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -7:00    US    M%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2830,15 +2836,12 @@ const AtcZoneInfo kAtcZoneAmerica_Ciudad_Juarez  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Ciudad_Juarez /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Costa_Rica
 // Zone Eras: 1
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 48
-// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Costa_Rica[]  = {
@@ -2846,13 +2849,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Costa_Rica[]  = {
   {
     &kAtcZonePolicyCR /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2865,15 +2869,12 @@ const AtcZoneInfo kAtcZoneAmerica_Costa_Rica  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Costa_Rica /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Cuiaba
 // Zone Eras: 3
-// Strings (bytes): 35 (originally 35)
-// Memory (8-bit): 84
-// Memory (32-bit): 107
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Cuiaba[]  = {
@@ -2881,37 +2882,40 @@ static const AtcZoneEra kAtcZoneEraAmerica_Cuiaba[]  = {
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2003 /*until_year*/,
     9 /*until_month*/,
     24 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    -    -04    2004 Oct  1
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     10 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    Brazil    -04/-03
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2924,15 +2928,12 @@ const AtcZoneInfo kAtcZoneAmerica_Cuiaba  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Cuiaba /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Danmarkshavn
 // Zone Eras: 1
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 50
-// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Danmarkshavn[]  = {
@@ -2940,13 +2941,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Danmarkshavn[]  = {
   {
     NULL /*zone_policy*/,
     "GMT" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -2959,15 +2961,12 @@ const AtcZoneInfo kAtcZoneAmerica_Danmarkshavn  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Danmarkshavn /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Dawson
 // Zone Eras: 2
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 60
-// Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Dawson[]  = {
@@ -2975,25 +2974,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Dawson[]  = {
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "P%T" /*format*/,
-    -32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1920 /*offset_code (-28800/15)*/,
+    0 /*offset_remainder (-28800%15)*/,
+    0 /*delta_minutes*/,
     2020 /*until_year*/,
     11 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -7:00    -    MST
   {
     NULL /*zone_policy*/,
     "MST" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3006,15 +3007,12 @@ const AtcZoneInfo kAtcZoneAmerica_Dawson  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Dawson /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Dawson_Creek
 // Zone Eras: 1
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 50
-// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Dawson_Creek[]  = {
@@ -3022,13 +3020,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Dawson_Creek[]  = {
   {
     NULL /*zone_policy*/,
     "MST" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3041,15 +3040,12 @@ const AtcZoneInfo kAtcZoneAmerica_Dawson_Creek  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Dawson_Creek /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Denver
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Denver[]  = {
@@ -3057,13 +3053,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Denver[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3076,15 +3073,12 @@ const AtcZoneInfo kAtcZoneAmerica_Denver  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Denver /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Detroit
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Detroit[]  = {
@@ -3092,13 +3086,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Detroit[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3111,15 +3106,12 @@ const AtcZoneInfo kAtcZoneAmerica_Detroit  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Detroit /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Edmonton
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Edmonton[]  = {
@@ -3127,13 +3119,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Edmonton[]  = {
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3146,15 +3139,12 @@ const AtcZoneInfo kAtcZoneAmerica_Edmonton  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Edmonton /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Eirunepe
 // Zone Eras: 3
-// Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 78
-// Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Eirunepe[]  = {
@@ -3162,37 +3152,40 @@ static const AtcZoneEra kAtcZoneEraAmerica_Eirunepe[]  = {
   {
     NULL /*zone_policy*/,
     "-05" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     2008 /*until_year*/,
     6 /*until_month*/,
     24 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    -    -04    2013 Nov 10
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2013 /*until_year*/,
     11 /*until_month*/,
     10 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    -    -05
   {
     NULL /*zone_policy*/,
     "-05" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3205,15 +3198,12 @@ const AtcZoneInfo kAtcZoneAmerica_Eirunepe  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Eirunepe /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/El_Salvador
 // Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 49
-// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_El_Salvador[]  = {
@@ -3221,13 +3211,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_El_Salvador[]  = {
   {
     &kAtcZonePolicySalv /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3240,15 +3231,12 @@ const AtcZoneInfo kAtcZoneAmerica_El_Salvador  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_El_Salvador /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Fort_Nelson
 // Zone Eras: 2
-// Strings (bytes): 28 (originally 28)
-// Memory (8-bit): 65
-// Memory (32-bit): 84
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Fort_Nelson[]  = {
@@ -3256,25 +3244,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Fort_Nelson[]  = {
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "P%T" /*format*/,
-    -32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1920 /*offset_code (-28800/15)*/,
+    0 /*offset_remainder (-28800%15)*/,
+    0 /*delta_minutes*/,
     2015 /*until_year*/,
     3 /*until_month*/,
     8 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -7:00    -    MST
   {
     NULL /*zone_policy*/,
     "MST" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3287,15 +3277,12 @@ const AtcZoneInfo kAtcZoneAmerica_Fort_Nelson  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Fort_Nelson /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Fortaleza
 // Zone Eras: 5
-// Strings (bytes): 46 (originally 46)
-// Memory (8-bit): 119
-// Memory (32-bit): 150
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Fortaleza[]  = {
@@ -3303,61 +3290,66 @@ static const AtcZoneEra kAtcZoneEraAmerica_Fortaleza[]  = {
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     9 /*until_month*/,
     30 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Brazil    -03/-02    2000 Oct 22
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     10 /*until_month*/,
     22 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03    2001 Sep 13
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2001 /*until_year*/,
     9 /*until_month*/,
     13 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Brazil    -03/-02    2002 Oct  1
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2002 /*until_year*/,
     10 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3370,15 +3362,12 @@ const AtcZoneInfo kAtcZoneAmerica_Fortaleza  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Fortaleza /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Glace_Bay
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Glace_Bay[]  = {
@@ -3386,13 +3375,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Glace_Bay[]  = {
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "A%T" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3405,15 +3395,12 @@ const AtcZoneInfo kAtcZoneAmerica_Glace_Bay  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Glace_Bay /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Goose_Bay
 // Zone Eras: 2
-// Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 63
-// Memory (32-bit): 82
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Goose_Bay[]  = {
@@ -3421,25 +3408,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Goose_Bay[]  = {
   {
     &kAtcZonePolicyStJohns /*zone_policy*/,
     "A%T" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     11 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    Canada    A%sT
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "A%T" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3452,15 +3441,12 @@ const AtcZoneInfo kAtcZoneAmerica_Goose_Bay  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Goose_Bay /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Grand_Turk
 // Zone Eras: 3
-// Strings (bytes): 31 (originally 31)
-// Memory (8-bit): 80
-// Memory (32-bit): 103
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Grand_Turk[]  = {
@@ -3468,37 +3454,40 @@ static const AtcZoneEra kAtcZoneEraAmerica_Grand_Turk[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     2015 /*until_year*/,
     3 /*until_month*/,
     8 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    -    AST    2018 Mar 11  3:00
   {
     NULL /*zone_policy*/,
     "AST" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2018 /*until_year*/,
     3 /*until_month*/,
     11 /*until_day*/,
-    12 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    720 /*until_time_code (10800/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    US    E%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3511,15 +3500,12 @@ const AtcZoneInfo kAtcZoneAmerica_Grand_Turk  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Grand_Turk /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Guatemala
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Guatemala[]  = {
@@ -3527,13 +3513,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Guatemala[]  = {
   {
     &kAtcZonePolicyGuat /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3546,15 +3533,12 @@ const AtcZoneInfo kAtcZoneAmerica_Guatemala  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Guatemala /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Guayaquil
 // Zone Eras: 1
-// Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 51
-// Memory (32-bit): 66
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Guayaquil[]  = {
@@ -3562,13 +3546,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Guayaquil[]  = {
   {
     &kAtcZonePolicyEcuador /*zone_policy*/,
     "-05/-04" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3581,15 +3566,12 @@ const AtcZoneInfo kAtcZoneAmerica_Guayaquil  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Guayaquil /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Guyana
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Guyana[]  = {
@@ -3597,13 +3579,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Guyana[]  = {
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3616,15 +3599,12 @@ const AtcZoneInfo kAtcZoneAmerica_Guyana  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Guyana /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Halifax
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Halifax[]  = {
@@ -3632,13 +3612,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Halifax[]  = {
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "A%T" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3651,15 +3632,12 @@ const AtcZoneInfo kAtcZoneAmerica_Halifax  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Halifax /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Havana
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Havana[]  = {
@@ -3667,13 +3645,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Havana[]  = {
   {
     &kAtcZonePolicyCuba /*zone_policy*/,
     "C%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3686,15 +3665,12 @@ const AtcZoneInfo kAtcZoneAmerica_Havana  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Havana /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Hermosillo
 // Zone Eras: 2
-// Strings (bytes): 27 (originally 27)
-// Memory (8-bit): 64
-// Memory (32-bit): 83
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Hermosillo[]  = {
@@ -3702,25 +3678,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Hermosillo[]  = {
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -7:00    -    MST
   {
     NULL /*zone_policy*/,
     "MST" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3733,15 +3711,12 @@ const AtcZoneInfo kAtcZoneAmerica_Hermosillo  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Hermosillo /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Indiana/Indianapolis
 // Zone Eras: 2
-// Strings (bytes): 37 (originally 37)
-// Memory (8-bit): 74
-// Memory (32-bit): 93
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Indianapolis[]  = {
@@ -3749,25 +3724,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Indianapolis[]  = {
   {
     NULL /*zone_policy*/,
     "EST" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     2006 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    US    E%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3780,15 +3757,12 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Indianapolis  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Indianapolis /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Indiana/Knox
 // Zone Eras: 2
-// Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 66
-// Memory (32-bit): 85
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Knox[]  = {
@@ -3796,25 +3770,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Knox[]  = {
   {
     NULL /*zone_policy*/,
     "EST" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     2006 /*until_year*/,
     4 /*until_month*/,
     2 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    US    C%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3827,15 +3803,12 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Knox  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Knox /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Indiana/Marengo
 // Zone Eras: 2
-// Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 69
-// Memory (32-bit): 88
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Marengo[]  = {
@@ -3843,25 +3816,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Marengo[]  = {
   {
     NULL /*zone_policy*/,
     "EST" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     2006 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    US    E%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3874,15 +3849,12 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Marengo  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Marengo /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Indiana/Petersburg
 // Zone Eras: 3
-// Strings (bytes): 39 (originally 39)
-// Memory (8-bit): 88
-// Memory (32-bit): 111
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Petersburg[]  = {
@@ -3890,37 +3862,40 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Petersburg[]  = {
   {
     NULL /*zone_policy*/,
     "EST" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     2006 /*until_year*/,
     4 /*until_month*/,
     2 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    US    C%sT    2007 Nov  4  2:00
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2007 /*until_year*/,
     11 /*until_month*/,
     4 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    US    E%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3933,15 +3908,12 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Petersburg  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Petersburg /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Indiana/Tell_City
 // Zone Eras: 2
-// Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 71
-// Memory (32-bit): 90
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Tell_City[]  = {
@@ -3949,25 +3921,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Tell_City[]  = {
   {
     NULL /*zone_policy*/,
     "EST" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     2006 /*until_year*/,
     4 /*until_month*/,
     2 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    US    C%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -3980,15 +3954,12 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Tell_City  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Tell_City /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Indiana/Vevay
 // Zone Eras: 2
-// Strings (bytes): 30 (originally 30)
-// Memory (8-bit): 67
-// Memory (32-bit): 86
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vevay[]  = {
@@ -3996,25 +3967,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vevay[]  = {
   {
     NULL /*zone_policy*/,
     "EST" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     2006 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    US    E%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4027,15 +4000,12 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Vevay  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Vevay /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Indiana/Vincennes
 // Zone Eras: 3
-// Strings (bytes): 38 (originally 38)
-// Memory (8-bit): 87
-// Memory (32-bit): 110
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vincennes[]  = {
@@ -4043,37 +4013,40 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vincennes[]  = {
   {
     NULL /*zone_policy*/,
     "EST" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     2006 /*until_year*/,
     4 /*until_month*/,
     2 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    US    C%sT    2007 Nov  4  2:00
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2007 /*until_year*/,
     11 /*until_month*/,
     4 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    US    E%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4086,15 +4059,12 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Vincennes  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Vincennes /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Indiana/Winamac
 // Zone Eras: 3
-// Strings (bytes): 36 (originally 36)
-// Memory (8-bit): 85
-// Memory (32-bit): 108
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Winamac[]  = {
@@ -4102,37 +4072,40 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Winamac[]  = {
   {
     NULL /*zone_policy*/,
     "EST" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     2006 /*until_year*/,
     4 /*until_month*/,
     2 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    US    C%sT    2007 Mar 11  2:00
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2007 /*until_year*/,
     3 /*until_month*/,
     11 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    US    E%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4145,15 +4118,12 @@ const AtcZoneInfo kAtcZoneAmerica_Indiana_Winamac  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Winamac /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Inuvik
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Inuvik[]  = {
@@ -4161,13 +4131,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Inuvik[]  = {
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4180,15 +4151,12 @@ const AtcZoneInfo kAtcZoneAmerica_Inuvik  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Inuvik /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Iqaluit
 // Zone Eras: 3
-// Strings (bytes): 28 (originally 28)
-// Memory (8-bit): 77
-// Memory (32-bit): 100
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Iqaluit[]  = {
@@ -4196,37 +4164,40 @@ static const AtcZoneEra kAtcZoneEraAmerica_Iqaluit[]  = {
   {
     &kAtcZonePolicyNT_YK /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     10 /*until_month*/,
     31 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    Canada    C%sT    2000 Oct 29  2:00
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     10 /*until_month*/,
     29 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    Canada    E%sT
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4239,15 +4210,12 @@ const AtcZoneInfo kAtcZoneAmerica_Iqaluit  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Iqaluit /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Jamaica
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Jamaica[]  = {
@@ -4255,13 +4223,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Jamaica[]  = {
   {
     NULL /*zone_policy*/,
     "EST" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4274,15 +4243,12 @@ const AtcZoneInfo kAtcZoneAmerica_Jamaica  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Jamaica /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Juneau
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Juneau[]  = {
@@ -4290,13 +4256,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Juneau[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "AK%T" /*format*/,
-    -36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2160 /*offset_code (-32400/15)*/,
+    0 /*offset_remainder (-32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4309,15 +4276,12 @@ const AtcZoneInfo kAtcZoneAmerica_Juneau  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Juneau /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Kentucky/Louisville
 // Zone Eras: 1
-// Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 57
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Louisville[]  = {
@@ -4325,13 +4289,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Louisville[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4344,15 +4309,12 @@ const AtcZoneInfo kAtcZoneAmerica_Kentucky_Louisville  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Kentucky_Louisville /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Kentucky/Monticello
 // Zone Eras: 2
-// Strings (bytes): 36 (originally 36)
-// Memory (8-bit): 73
-// Memory (32-bit): 92
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Monticello[]  = {
@@ -4360,25 +4322,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Monticello[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     10 /*until_month*/,
     29 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    US    E%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4391,15 +4355,12 @@ const AtcZoneInfo kAtcZoneAmerica_Kentucky_Monticello  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Kentucky_Monticello /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/La_Paz
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_La_Paz[]  = {
@@ -4407,13 +4368,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_La_Paz[]  = {
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4426,15 +4388,12 @@ const AtcZoneInfo kAtcZoneAmerica_La_Paz  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_La_Paz /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Lima
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Lima[]  = {
@@ -4442,13 +4401,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Lima[]  = {
   {
     &kAtcZonePolicyPeru /*zone_policy*/,
     "-05/-04" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4461,15 +4421,12 @@ const AtcZoneInfo kAtcZoneAmerica_Lima  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Lima /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Los_Angeles
 // Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 49
-// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Los_Angeles[]  = {
@@ -4477,13 +4434,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Los_Angeles[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
-    -32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1920 /*offset_code (-28800/15)*/,
+    0 /*offset_remainder (-28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4496,15 +4454,12 @@ const AtcZoneInfo kAtcZoneAmerica_Los_Angeles  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Los_Angeles /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Maceio
 // Zone Eras: 5
-// Strings (bytes): 43 (originally 43)
-// Memory (8-bit): 116
-// Memory (32-bit): 147
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Maceio[]  = {
@@ -4512,61 +4467,66 @@ static const AtcZoneEra kAtcZoneEraAmerica_Maceio[]  = {
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     9 /*until_month*/,
     30 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Brazil    -03/-02    2000 Oct 22
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     10 /*until_month*/,
     22 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03    2001 Sep 13
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2001 /*until_year*/,
     9 /*until_month*/,
     13 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Brazil    -03/-02    2002 Oct  1
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2002 /*until_year*/,
     10 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4579,15 +4539,12 @@ const AtcZoneInfo kAtcZoneAmerica_Maceio  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Maceio /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Managua
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Managua[]  = {
@@ -4595,13 +4552,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Managua[]  = {
   {
     &kAtcZonePolicyNic /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4614,15 +4572,12 @@ const AtcZoneInfo kAtcZoneAmerica_Managua  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Managua /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Manaus
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Manaus[]  = {
@@ -4630,13 +4585,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Manaus[]  = {
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4649,15 +4605,12 @@ const AtcZoneInfo kAtcZoneAmerica_Manaus  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Manaus /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Martinique
 // Zone Eras: 1
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 48
-// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Martinique[]  = {
@@ -4665,13 +4618,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Martinique[]  = {
   {
     NULL /*zone_policy*/,
     "AST" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4684,15 +4638,12 @@ const AtcZoneInfo kAtcZoneAmerica_Martinique  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Martinique /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Matamoros
 // Zone Eras: 2
-// Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 63
-// Memory (32-bit): 82
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Matamoros[]  = {
@@ -4700,25 +4651,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Matamoros[]  = {
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2010 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    US    C%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4731,15 +4684,12 @@ const AtcZoneInfo kAtcZoneAmerica_Matamoros  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Matamoros /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Mazatlan
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Mazatlan[]  = {
@@ -4747,13 +4697,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Mazatlan[]  = {
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4766,15 +4717,12 @@ const AtcZoneInfo kAtcZoneAmerica_Mazatlan  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Mazatlan /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Menominee
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Menominee[]  = {
@@ -4782,13 +4730,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Menominee[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4801,15 +4750,12 @@ const AtcZoneInfo kAtcZoneAmerica_Menominee  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Menominee /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Merida
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Merida[]  = {
@@ -4817,13 +4763,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Merida[]  = {
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4836,15 +4783,12 @@ const AtcZoneInfo kAtcZoneAmerica_Merida  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Merida /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Metlakatla
 // Zone Eras: 4
-// Strings (bytes): 37 (originally 37)
-// Memory (8-bit): 98
-// Memory (32-bit): 125
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Metlakatla[]  = {
@@ -4852,49 +4796,53 @@ static const AtcZoneEra kAtcZoneEraAmerica_Metlakatla[]  = {
   {
     NULL /*zone_policy*/,
     "PST" /*format*/,
-    -32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1920 /*offset_code (-28800/15)*/,
+    0 /*offset_remainder (-28800%15)*/,
+    0 /*delta_minutes*/,
     2015 /*until_year*/,
     11 /*until_month*/,
     1 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //              -9:00    US    AK%sT    2018 Nov  4  2:00
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "AK%T" /*format*/,
-    -36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -2160 /*offset_code (-32400/15)*/,
+    0 /*offset_remainder (-32400%15)*/,
+    0 /*delta_minutes*/,
     2018 /*until_year*/,
     11 /*until_month*/,
     4 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //              -8:00    -    PST    2019 Jan 20  2:00
   {
     NULL /*zone_policy*/,
     "PST" /*format*/,
-    -32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1920 /*offset_code (-28800/15)*/,
+    0 /*offset_remainder (-28800%15)*/,
+    0 /*delta_minutes*/,
     2019 /*until_year*/,
     1 /*until_month*/,
     20 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //              -9:00    US    AK%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "AK%T" /*format*/,
-    -36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2160 /*offset_code (-32400/15)*/,
+    0 /*offset_remainder (-32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4907,15 +4855,12 @@ const AtcZoneInfo kAtcZoneAmerica_Metlakatla  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Metlakatla /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Mexico_City
 // Zone Eras: 3
-// Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 81
-// Memory (32-bit): 104
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Mexico_City[]  = {
@@ -4923,37 +4868,40 @@ static const AtcZoneEra kAtcZoneEraAmerica_Mexico_City[]  = {
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2001 /*until_year*/,
     9 /*until_month*/,
     30 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    -    CST    2002 Feb 20
   {
     NULL /*zone_policy*/,
     "CST" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2002 /*until_year*/,
     2 /*until_month*/,
     20 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    Mexico    C%sT
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -4966,15 +4914,12 @@ const AtcZoneInfo kAtcZoneAmerica_Mexico_City  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Mexico_City /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Miquelon
 // Zone Eras: 1
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 50
-// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Miquelon[]  = {
@@ -4982,13 +4927,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Miquelon[]  = {
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5001,15 +4947,12 @@ const AtcZoneInfo kAtcZoneAmerica_Miquelon  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Miquelon /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Moncton
 // Zone Eras: 2
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 61
-// Memory (32-bit): 80
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Moncton[]  = {
@@ -5017,25 +4960,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Moncton[]  = {
   {
     &kAtcZonePolicyMoncton /*zone_policy*/,
     "A%T" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2007 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    Canada    A%sT
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "A%T" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5048,15 +4993,12 @@ const AtcZoneInfo kAtcZoneAmerica_Moncton  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Moncton /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Monterrey
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Monterrey[]  = {
@@ -5064,13 +5006,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Monterrey[]  = {
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5083,15 +5026,12 @@ const AtcZoneInfo kAtcZoneAmerica_Monterrey  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Monterrey /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Montevideo
 // Zone Eras: 1
-// Strings (bytes): 27 (originally 27)
-// Memory (8-bit): 52
-// Memory (32-bit): 67
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Montevideo[]  = {
@@ -5099,13 +5039,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Montevideo[]  = {
   {
     &kAtcZonePolicyUruguay /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5118,15 +5059,12 @@ const AtcZoneInfo kAtcZoneAmerica_Montevideo  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Montevideo /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/New_York
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_New_York[]  = {
@@ -5134,13 +5072,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_New_York[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5153,15 +5092,12 @@ const AtcZoneInfo kAtcZoneAmerica_New_York  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_New_York /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Nome
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Nome[]  = {
@@ -5169,13 +5105,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Nome[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "AK%T" /*format*/,
-    -36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2160 /*offset_code (-32400/15)*/,
+    0 /*offset_remainder (-32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5188,15 +5125,12 @@ const AtcZoneInfo kAtcZoneAmerica_Nome  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Nome /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Noronha
 // Zone Eras: 5
-// Strings (bytes): 44 (originally 44)
-// Memory (8-bit): 117
-// Memory (32-bit): 148
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Noronha[]  = {
@@ -5204,61 +5138,66 @@ static const AtcZoneEra kAtcZoneEraAmerica_Noronha[]  = {
   {
     NULL /*zone_policy*/,
     "-02" /*format*/,
-    -8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -480 /*offset_code (-7200/15)*/,
+    0 /*offset_remainder (-7200%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     9 /*until_month*/,
     30 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -2:00    Brazil    -02/-01    2000 Oct 15
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-02/-01" /*format*/,
-    -8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -480 /*offset_code (-7200/15)*/,
+    0 /*offset_remainder (-7200%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     10 /*until_month*/,
     15 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -2:00    -    -02    2001 Sep 13
   {
     NULL /*zone_policy*/,
     "-02" /*format*/,
-    -8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -480 /*offset_code (-7200/15)*/,
+    0 /*offset_remainder (-7200%15)*/,
+    0 /*delta_minutes*/,
     2001 /*until_year*/,
     9 /*until_month*/,
     13 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -2:00    Brazil    -02/-01    2002 Oct  1
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-02/-01" /*format*/,
-    -8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -480 /*offset_code (-7200/15)*/,
+    0 /*offset_remainder (-7200%15)*/,
+    0 /*delta_minutes*/,
     2002 /*until_year*/,
     10 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -2:00    -    -02
   {
     NULL /*zone_policy*/,
     "-02" /*format*/,
-    -8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -480 /*offset_code (-7200/15)*/,
+    0 /*offset_remainder (-7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5271,15 +5210,12 @@ const AtcZoneInfo kAtcZoneAmerica_Noronha  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Noronha /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/North_Dakota/Beulah
 // Zone Eras: 2
-// Strings (bytes): 36 (originally 36)
-// Memory (8-bit): 73
-// Memory (32-bit): 92
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Beulah[]  = {
@@ -5287,25 +5223,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Beulah[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
     2010 /*until_year*/,
     11 /*until_month*/,
     7 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    US    C%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5318,15 +5256,12 @@ const AtcZoneInfo kAtcZoneAmerica_North_Dakota_Beulah  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_North_Dakota_Beulah /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/North_Dakota/Center
 // Zone Eras: 1
-// Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 57
-// Memory (32-bit): 72
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Center[]  = {
@@ -5334,13 +5269,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Center[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5353,15 +5289,12 @@ const AtcZoneInfo kAtcZoneAmerica_North_Dakota_Center  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_North_Dakota_Center /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/North_Dakota/New_Salem
 // Zone Eras: 2
-// Strings (bytes): 39 (originally 39)
-// Memory (8-bit): 76
-// Memory (32-bit): 95
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_New_Salem[]  = {
@@ -5369,25 +5302,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_New_Salem[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
     2003 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    US    C%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5400,41 +5335,40 @@ const AtcZoneInfo kAtcZoneAmerica_North_Dakota_New_Salem  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_North_Dakota_New_Salem /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Nuuk
 // Zone Eras: 2
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 62
-// Memory (32-bit): 81
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Nuuk[]  = {
-  //             -3:00    EU    -03/-02    2023 Mar 25 22:00
+  //             -3:00    EU    -03/-02    2023 Oct 29  1:00u
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2023 /*until_year*/,
-    3 /*until_month*/,
-    25 /*until_day*/,
-    88 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    10 /*until_month*/,
+    29 /*until_day*/,
+    240 /*until_time_code (3600/15)*/,
+    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
   },
-  //             -2:00    -    -02
+  //             -2:00    EU    -02/-01
   {
-    NULL /*zone_policy*/,
-    "-02" /*format*/,
-    -8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    &kAtcZonePolicyEU /*zone_policy*/,
+    "-02/-01" /*format*/,
+    -480 /*offset_code (-7200/15)*/,
+    0 /*offset_remainder (-7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5447,15 +5381,12 @@ const AtcZoneInfo kAtcZoneAmerica_Nuuk  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Nuuk /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Ojinaga
 // Zone Eras: 4
-// Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 93
-// Memory (32-bit): 120
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Ojinaga[]  = {
@@ -5463,49 +5394,53 @@ static const AtcZoneEra kAtcZoneEraAmerica_Ojinaga[]  = {
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
     2010 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -7:00    US    M%sT    2022 Oct 30  2:00
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
     2022 /*until_year*/,
     10 /*until_month*/,
     30 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    -    CST    2022 Nov 30  0:00
   {
     NULL /*zone_policy*/,
     "CST" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2022 /*until_year*/,
     11 /*until_month*/,
     30 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    US    C%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5518,15 +5453,12 @@ const AtcZoneInfo kAtcZoneAmerica_Ojinaga  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Ojinaga /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Panama
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Panama[]  = {
@@ -5534,13 +5466,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Panama[]  = {
   {
     NULL /*zone_policy*/,
     "EST" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5553,15 +5486,12 @@ const AtcZoneInfo kAtcZoneAmerica_Panama  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Panama /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Paramaribo
 // Zone Eras: 1
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 48
-// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Paramaribo[]  = {
@@ -5569,13 +5499,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Paramaribo[]  = {
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5588,15 +5519,12 @@ const AtcZoneInfo kAtcZoneAmerica_Paramaribo  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Paramaribo /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Phoenix
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Phoenix[]  = {
@@ -5604,13 +5532,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Phoenix[]  = {
   {
     NULL /*zone_policy*/,
     "MST" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5623,15 +5552,12 @@ const AtcZoneInfo kAtcZoneAmerica_Phoenix  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Phoenix /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Port-au-Prince
 // Zone Eras: 1
-// Strings (bytes): 27 (originally 27)
-// Memory (8-bit): 52
-// Memory (32-bit): 67
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Port_au_Prince[]  = {
@@ -5639,13 +5565,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Port_au_Prince[]  = {
   {
     &kAtcZonePolicyHaiti /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5658,15 +5585,12 @@ const AtcZoneInfo kAtcZoneAmerica_Port_au_Prince  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Port_au_Prince /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Porto_Velho
 // Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 49
-// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Porto_Velho[]  = {
@@ -5674,13 +5598,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Porto_Velho[]  = {
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5693,15 +5618,12 @@ const AtcZoneInfo kAtcZoneAmerica_Porto_Velho  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Porto_Velho /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Puerto_Rico
 // Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 49
-// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Puerto_Rico[]  = {
@@ -5709,13 +5631,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Puerto_Rico[]  = {
   {
     NULL /*zone_policy*/,
     "AST" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5728,15 +5651,12 @@ const AtcZoneInfo kAtcZoneAmerica_Puerto_Rico  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Punta_Arenas
 // Zone Eras: 2
-// Strings (bytes): 33 (originally 33)
-// Memory (8-bit): 70
-// Memory (32-bit): 89
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Punta_Arenas[]  = {
@@ -5744,25 +5664,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Punta_Arenas[]  = {
   {
     &kAtcZonePolicyChile /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2016 /*until_year*/,
     12 /*until_month*/,
     4 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5775,15 +5697,12 @@ const AtcZoneInfo kAtcZoneAmerica_Punta_Arenas  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Punta_Arenas /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Rankin_Inlet
 // Zone Eras: 3
-// Strings (bytes): 33 (originally 33)
-// Memory (8-bit): 82
-// Memory (32-bit): 105
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Rankin_Inlet[]  = {
@@ -5791,37 +5710,40 @@ static const AtcZoneEra kAtcZoneEraAmerica_Rankin_Inlet[]  = {
   {
     &kAtcZonePolicyNT_YK /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     10 /*until_month*/,
     29 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    -    EST    2001 Apr  1  3:00
   {
     NULL /*zone_policy*/,
     "EST" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     2001 /*until_year*/,
     4 /*until_month*/,
     1 /*until_day*/,
-    12 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    720 /*until_time_code (10800/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    Canada    C%sT
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5834,15 +5756,12 @@ const AtcZoneInfo kAtcZoneAmerica_Rankin_Inlet  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Rankin_Inlet /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Recife
 // Zone Eras: 5
-// Strings (bytes): 43 (originally 43)
-// Memory (8-bit): 116
-// Memory (32-bit): 147
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Recife[]  = {
@@ -5850,61 +5769,66 @@ static const AtcZoneEra kAtcZoneEraAmerica_Recife[]  = {
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     9 /*until_month*/,
     30 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Brazil    -03/-02    2000 Oct 15
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     10 /*until_month*/,
     15 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03    2001 Sep 13
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2001 /*until_year*/,
     9 /*until_month*/,
     13 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    Brazil    -03/-02    2002 Oct  1
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
     2002 /*until_year*/,
     10 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5917,15 +5841,12 @@ const AtcZoneInfo kAtcZoneAmerica_Recife  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Recife /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Regina
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Regina[]  = {
@@ -5933,13 +5854,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Regina[]  = {
   {
     NULL /*zone_policy*/,
     "CST" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -5952,15 +5874,12 @@ const AtcZoneInfo kAtcZoneAmerica_Regina  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Regina /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Resolute
 // Zone Eras: 5
-// Strings (bytes): 37 (originally 37)
-// Memory (8-bit): 110
-// Memory (32-bit): 141
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Resolute[]  = {
@@ -5968,61 +5887,66 @@ static const AtcZoneEra kAtcZoneEraAmerica_Resolute[]  = {
   {
     &kAtcZonePolicyNT_YK /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     10 /*until_month*/,
     29 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    -    EST    2001 Apr  1  3:00
   {
     NULL /*zone_policy*/,
     "EST" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     2001 /*until_year*/,
     4 /*until_month*/,
     1 /*until_day*/,
-    12 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    720 /*until_time_code (10800/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    Canada    C%sT    2006 Oct 29  2:00
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2006 /*until_year*/,
     10 /*until_month*/,
     29 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    -    EST    2007 Mar 11  3:00
   {
     NULL /*zone_policy*/,
     "EST" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     2007 /*until_year*/,
     3 /*until_month*/,
     11 /*until_day*/,
-    12 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    720 /*until_time_code (10800/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    Canada    C%sT
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6035,15 +5959,12 @@ const AtcZoneInfo kAtcZoneAmerica_Resolute  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Resolute /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Rio_Branco
 // Zone Eras: 3
-// Strings (bytes): 31 (originally 31)
-// Memory (8-bit): 80
-// Memory (32-bit): 103
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Rio_Branco[]  = {
@@ -6051,37 +5972,40 @@ static const AtcZoneEra kAtcZoneEraAmerica_Rio_Branco[]  = {
   {
     NULL /*zone_policy*/,
     "-05" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     2008 /*until_year*/,
     6 /*until_month*/,
     24 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    -    -04    2013 Nov 10
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2013 /*until_year*/,
     11 /*until_month*/,
     10 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    -    -05
   {
     NULL /*zone_policy*/,
     "-05" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6094,15 +6018,12 @@ const AtcZoneInfo kAtcZoneAmerica_Rio_Branco  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Rio_Branco /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Santarem
 // Zone Eras: 2
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 62
-// Memory (32-bit): 81
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Santarem[]  = {
@@ -6110,25 +6031,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Santarem[]  = {
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2008 /*until_year*/,
     6 /*until_month*/,
     24 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6141,15 +6064,12 @@ const AtcZoneInfo kAtcZoneAmerica_Santarem  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Santarem /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Santiago
 // Zone Eras: 1
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 50
-// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Santiago[]  = {
@@ -6157,13 +6077,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Santiago[]  = {
   {
     &kAtcZonePolicyChile /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6176,15 +6097,12 @@ const AtcZoneInfo kAtcZoneAmerica_Santiago  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Santiago /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Santo_Domingo
 // Zone Eras: 3
-// Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 83
-// Memory (32-bit): 106
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Santo_Domingo[]  = {
@@ -6192,37 +6110,40 @@ static const AtcZoneEra kAtcZoneEraAmerica_Santo_Domingo[]  = {
   {
     NULL /*zone_policy*/,
     "AST" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     10 /*until_month*/,
     29 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -5:00    US    E%sT    2000 Dec  3  1:00
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     12 /*until_month*/,
     3 /*until_day*/,
-    4 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    240 /*until_time_code (3600/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -4:00    -    AST
   {
     NULL /*zone_policy*/,
     "AST" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6235,15 +6156,12 @@ const AtcZoneInfo kAtcZoneAmerica_Santo_Domingo  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Santo_Domingo /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Sao_Paulo
 // Zone Eras: 1
-// Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 51
-// Memory (32-bit): 66
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Sao_Paulo[]  = {
@@ -6251,13 +6169,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Sao_Paulo[]  = {
   {
     &kAtcZonePolicyBrazil /*zone_policy*/,
     "-03/-02" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6270,15 +6189,12 @@ const AtcZoneInfo kAtcZoneAmerica_Sao_Paulo  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Sao_Paulo /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Scoresbysund
 // Zone Eras: 1
-// Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 54
-// Memory (32-bit): 69
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Scoresbysund[]  = {
@@ -6286,13 +6202,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Scoresbysund[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "-01/+00" /*format*/,
-    -4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -240 /*offset_code (-3600/15)*/,
+    0 /*offset_remainder (-3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6305,15 +6222,12 @@ const AtcZoneInfo kAtcZoneAmerica_Scoresbysund  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Scoresbysund /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Sitka
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Sitka[]  = {
@@ -6321,13 +6235,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Sitka[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "AK%T" /*format*/,
-    -36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2160 /*offset_code (-32400/15)*/,
+    0 /*offset_remainder (-32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6340,15 +6255,12 @@ const AtcZoneInfo kAtcZoneAmerica_Sitka  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Sitka /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/St_Johns
 // Zone Eras: 2
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 62
-// Memory (32-bit): 81
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_St_Johns[]  = {
@@ -6356,25 +6268,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_St_Johns[]  = {
   {
     &kAtcZonePolicyStJohns /*zone_policy*/,
     "N%T" /*format*/,
-    -14 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -840 /*offset_code (-12600/15)*/,
+    0 /*offset_remainder (-12600%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     11 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:30    Canada    N%sT
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "N%T" /*format*/,
-    -14 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -840 /*offset_code (-12600/15)*/,
+    0 /*offset_remainder (-12600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6387,15 +6301,12 @@ const AtcZoneInfo kAtcZoneAmerica_St_Johns  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_St_Johns /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Swift_Current
 // Zone Eras: 1
-// Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 51
-// Memory (32-bit): 66
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Swift_Current[]  = {
@@ -6403,13 +6314,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Swift_Current[]  = {
   {
     NULL /*zone_policy*/,
     "CST" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6422,15 +6334,12 @@ const AtcZoneInfo kAtcZoneAmerica_Swift_Current  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Swift_Current /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Tegucigalpa
 // Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 49
-// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Tegucigalpa[]  = {
@@ -6438,13 +6347,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Tegucigalpa[]  = {
   {
     &kAtcZonePolicyHond /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6457,15 +6367,12 @@ const AtcZoneInfo kAtcZoneAmerica_Tegucigalpa  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Tegucigalpa /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Thule
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Thule[]  = {
@@ -6473,13 +6380,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Thule[]  = {
   {
     &kAtcZonePolicyThule /*zone_policy*/,
     "A%T" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6492,15 +6400,12 @@ const AtcZoneInfo kAtcZoneAmerica_Thule  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Thule /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Tijuana
 // Zone Eras: 4
-// Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 93
-// Memory (32-bit): 120
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Tijuana[]  = {
@@ -6508,49 +6413,53 @@ static const AtcZoneEra kAtcZoneEraAmerica_Tijuana[]  = {
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
     "P%T" /*format*/,
-    -32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1920 /*offset_code (-28800/15)*/,
+    0 /*offset_remainder (-28800%15)*/,
+    0 /*delta_minutes*/,
     2001 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -8:00    US    P%sT    2002 Feb 20
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
-    -32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1920 /*offset_code (-28800/15)*/,
+    0 /*offset_remainder (-28800%15)*/,
+    0 /*delta_minutes*/,
     2002 /*until_year*/,
     2 /*until_month*/,
     20 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -8:00    Mexico    P%sT    2010
   {
     &kAtcZonePolicyMexico /*zone_policy*/,
     "P%T" /*format*/,
-    -32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1920 /*offset_code (-28800/15)*/,
+    0 /*offset_remainder (-28800%15)*/,
+    0 /*delta_minutes*/,
     2010 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -8:00    US    P%sT
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
-    -32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1920 /*offset_code (-28800/15)*/,
+    0 /*offset_remainder (-28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6563,15 +6472,12 @@ const AtcZoneInfo kAtcZoneAmerica_Tijuana  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Tijuana /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Toronto
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Toronto[]  = {
@@ -6579,13 +6485,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Toronto[]  = {
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6598,15 +6505,12 @@ const AtcZoneInfo kAtcZoneAmerica_Toronto  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Vancouver
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Vancouver[]  = {
@@ -6614,13 +6518,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Vancouver[]  = {
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "P%T" /*format*/,
-    -32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1920 /*offset_code (-28800/15)*/,
+    0 /*offset_remainder (-28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6633,15 +6538,12 @@ const AtcZoneInfo kAtcZoneAmerica_Vancouver  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Vancouver /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Whitehorse
 // Zone Eras: 2
-// Strings (bytes): 27 (originally 27)
-// Memory (8-bit): 64
-// Memory (32-bit): 83
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Whitehorse[]  = {
@@ -6649,25 +6551,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Whitehorse[]  = {
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "P%T" /*format*/,
-    -32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1920 /*offset_code (-28800/15)*/,
+    0 /*offset_remainder (-28800%15)*/,
+    0 /*delta_minutes*/,
     2020 /*until_year*/,
     11 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -7:00    -    MST
   {
     NULL /*zone_policy*/,
     "MST" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6680,15 +6584,12 @@ const AtcZoneInfo kAtcZoneAmerica_Whitehorse  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Whitehorse /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Winnipeg
 // Zone Eras: 2
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 62
-// Memory (32-bit): 81
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Winnipeg[]  = {
@@ -6696,25 +6597,27 @@ static const AtcZoneEra kAtcZoneEraAmerica_Winnipeg[]  = {
   {
     &kAtcZonePolicyWinn /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
     2006 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -6:00    Canada    C%sT
   {
     &kAtcZonePolicyCanada /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6727,15 +6630,12 @@ const AtcZoneInfo kAtcZoneAmerica_Winnipeg  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Winnipeg /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: America/Yakutat
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Yakutat[]  = {
@@ -6743,13 +6643,14 @@ static const AtcZoneEra kAtcZoneEraAmerica_Yakutat[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "AK%T" /*format*/,
-    -36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2160 /*offset_code (-32400/15)*/,
+    0 /*offset_remainder (-32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6762,50 +6663,12 @@ const AtcZoneInfo kAtcZoneAmerica_Yakutat  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAmerica_Yakutat /*eras*/,
-  NULL /*targetInfo*/,
-};
-
-//---------------------------------------------------------------------------
-// Zone name: America/Yellowknife
-// Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 49
-// Memory (32-bit): 64
-//---------------------------------------------------------------------------
-
-static const AtcZoneEra kAtcZoneEraAmerica_Yellowknife[]  = {
-  //             -7:00    Canada    M%sT
-  {
-    &kAtcZonePolicyCanada /*zone_policy*/,
-    "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
-  },
-
-};
-
-static const char kAtcZoneNameAmerica_Yellowknife[]  = "America/Yellowknife";
-
-const AtcZoneInfo kAtcZoneAmerica_Yellowknife  = {
-  kAtcZoneNameAmerica_Yellowknife /*name*/,
-  0x0f76c76f /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraAmerica_Yellowknife /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Antarctica/Casey
 // Zone Eras: 12
-// Strings (bytes): 65 (originally 65)
-// Memory (8-bit): 222
-// Memory (32-bit): 281
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Casey[]  = {
@@ -6813,145 +6676,157 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Casey[]  = {
   {
     NULL /*zone_policy*/,
     "+08" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
     2009 /*until_year*/,
     10 /*until_month*/,
     18 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             11:00    -    +11    2010 Mar  5  2:00
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
     2010 /*until_year*/,
     3 /*until_month*/,
     5 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //              8:00    -    +08    2011 Oct 28  2:00
   {
     NULL /*zone_policy*/,
     "+08" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     10 /*until_month*/,
     28 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             11:00    -    +11    2012 Feb 21 17:00u
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
     2012 /*until_year*/,
     2 /*until_month*/,
     21 /*until_day*/,
-    68 /*until_time_code*/,
-    32 /*until_time_modifier (kAtcSuffixU + minute=0)*/,
+    4080 /*until_time_code (61200/15)*/,
+    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
   },
   //              8:00    -    +08    2016 Oct 22
   {
     NULL /*zone_policy*/,
     "+08" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
     2016 /*until_year*/,
     10 /*until_month*/,
     22 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             11:00    -    +11    2018 Mar 11  4:00
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
     2018 /*until_year*/,
     3 /*until_month*/,
     11 /*until_day*/,
-    16 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    960 /*until_time_code (14400/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //              8:00    -    +08    2018 Oct  7  4:00
   {
     NULL /*zone_policy*/,
     "+08" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
     2018 /*until_year*/,
     10 /*until_month*/,
     7 /*until_day*/,
-    16 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    960 /*until_time_code (14400/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             11:00    -    +11    2019 Mar 17  3:00
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
     2019 /*until_year*/,
     3 /*until_month*/,
     17 /*until_day*/,
-    12 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    720 /*until_time_code (10800/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //              8:00    -    +08    2019 Oct  4  3:00
   {
     NULL /*zone_policy*/,
     "+08" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
     2019 /*until_year*/,
     10 /*until_month*/,
     4 /*until_day*/,
-    12 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    720 /*until_time_code (10800/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             11:00    -    +11    2020 Mar  8  3:00
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
     2020 /*until_year*/,
     3 /*until_month*/,
     8 /*until_day*/,
-    12 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    720 /*until_time_code (10800/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //              8:00    -    +08    2020 Oct  4  0:01
   {
     NULL /*zone_policy*/,
     "+08" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
     2020 /*until_year*/,
     10 /*until_month*/,
     4 /*until_day*/,
-    0 /*until_time_code*/,
-    1 /*until_time_modifier (kAtcSuffixW + minute=1)*/,
+    4 /*until_time_code (60/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             11:00    -    +11
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -6964,15 +6839,12 @@ const AtcZoneInfo kAtcZoneAntarctica_Casey  = {
   &kAtcZoneContext /*zone_context*/,
   12 /*num_eras*/,
   kAtcZoneEraAntarctica_Casey /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Antarctica/Davis
 // Zone Eras: 5
-// Strings (bytes): 37 (originally 37)
-// Memory (8-bit): 110
-// Memory (32-bit): 141
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Davis[]  = {
@@ -6980,61 +6852,66 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Davis[]  = {
   {
     NULL /*zone_policy*/,
     "+07" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
     2009 /*until_year*/,
     10 /*until_month*/,
     18 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             5:00    -    +05    2010 Mar 10 20:00u
   {
     NULL /*zone_policy*/,
     "+05" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
     2010 /*until_year*/,
     3 /*until_month*/,
     10 /*until_day*/,
-    80 /*until_time_code*/,
-    32 /*until_time_modifier (kAtcSuffixU + minute=0)*/,
+    4800 /*until_time_code (72000/15)*/,
+    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
   },
   //             7:00    -    +07    2011 Oct 28  2:00
   {
     NULL /*zone_policy*/,
     "+07" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     10 /*until_month*/,
     28 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             5:00    -    +05    2012 Feb 21 20:00u
   {
     NULL /*zone_policy*/,
     "+05" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
     2012 /*until_year*/,
     2 /*until_month*/,
     21 /*until_day*/,
-    80 /*until_time_code*/,
-    32 /*until_time_modifier (kAtcSuffixU + minute=0)*/,
+    4800 /*until_time_code (72000/15)*/,
+    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
   },
   //             7:00    -    +07
   {
     NULL /*zone_policy*/,
     "+07" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7047,15 +6924,12 @@ const AtcZoneInfo kAtcZoneAntarctica_Davis  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAntarctica_Davis /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Antarctica/Macquarie
 // Zone Eras: 3
-// Strings (bytes): 36 (originally 36)
-// Memory (8-bit): 85
-// Memory (32-bit): 108
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Macquarie[]  = {
@@ -7063,37 +6937,40 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Macquarie[]  = {
   {
     &kAtcZonePolicyAT /*zone_policy*/,
     "AE%T" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
     2010 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             10:00    1:00    AEDT    2011
   {
     NULL /*zone_policy*/,
     "AEDT" /*format*/,
-    40 /*offset_code*/,
-    8 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=60)/15 + 4))*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    60 /*delta_minutes*/,
     2011 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             10:00    AT    AE%sT
   {
     &kAtcZonePolicyAT /*zone_policy*/,
     "AE%T" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7106,15 +6983,12 @@ const AtcZoneInfo kAtcZoneAntarctica_Macquarie  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAntarctica_Macquarie /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Antarctica/Mawson
 // Zone Eras: 2
-// Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 63
-// Memory (32-bit): 82
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Mawson[]  = {
@@ -7122,25 +6996,27 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Mawson[]  = {
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
     2009 /*until_year*/,
     10 /*until_month*/,
     18 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             5:00    -    +05
   {
     NULL /*zone_policy*/,
     "+05" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7153,15 +7029,12 @@ const AtcZoneInfo kAtcZoneAntarctica_Mawson  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAntarctica_Mawson /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Antarctica/Palmer
 // Zone Eras: 2
-// Strings (bytes): 30 (originally 30)
-// Memory (8-bit): 67
-// Memory (32-bit): 86
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Palmer[]  = {
@@ -7169,25 +7042,27 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Palmer[]  = {
   {
     &kAtcZonePolicyChile /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2016 /*until_year*/,
     12 /*until_month*/,
     4 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7200,15 +7075,12 @@ const AtcZoneInfo kAtcZoneAntarctica_Palmer  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAntarctica_Palmer /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Antarctica/Rothera
 // Zone Eras: 1
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 48
-// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Rothera[]  = {
@@ -7216,13 +7088,14 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Rothera[]  = {
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7235,15 +7108,12 @@ const AtcZoneInfo kAtcZoneAntarctica_Rothera  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAntarctica_Rothera /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Antarctica/Troll
 // Zone Eras: 2
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 60
-// Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Troll[]  = {
@@ -7251,25 +7121,27 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Troll[]  = {
   {
     NULL /*zone_policy*/,
     "-00" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
     2005 /*until_year*/,
     2 /*until_month*/,
     12 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             0:00    Troll    %s
   {
     &kAtcZonePolicyTroll /*zone_policy*/,
     "%" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7282,15 +7154,12 @@ const AtcZoneInfo kAtcZoneAntarctica_Troll  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAntarctica_Troll /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Almaty
 // Zone Eras: 2
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 61
-// Memory (32-bit): 80
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Almaty[]  = {
@@ -7298,25 +7167,27 @@ static const AtcZoneEra kAtcZoneEraAsia_Almaty[]  = {
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
     "+06/+07" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     10 /*until_month*/,
     31 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             6:00    -    +06
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7329,15 +7200,12 @@ const AtcZoneInfo kAtcZoneAsia_Almaty  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Almaty /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Amman
 // Zone Eras: 2
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 57
-// Memory (32-bit): 76
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Amman[]  = {
@@ -7345,25 +7213,27 @@ static const AtcZoneEra kAtcZoneEraAsia_Amman[]  = {
   {
     &kAtcZonePolicyJordan /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2022 /*until_year*/,
     10 /*until_month*/,
     28 /*until_day*/,
-    0 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             3:00    -    +03
   {
     NULL /*zone_policy*/,
     "+03" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7376,15 +7246,12 @@ const AtcZoneInfo kAtcZoneAsia_Amman  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Amman /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Anadyr
 // Zone Eras: 3
-// Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 81
-// Memory (32-bit): 104
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Anadyr[]  = {
@@ -7392,37 +7259,40 @@ static const AtcZoneEra kAtcZoneEraAsia_Anadyr[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+12/+13" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2880 /*offset_code (43200/15)*/,
+    0 /*offset_remainder (43200%15)*/,
+    0 /*delta_minutes*/,
     2010 /*until_year*/,
     3 /*until_month*/,
     28 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             11:00    Russia    +11/+12    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+11/+12" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             12:00    -    +12
   {
     NULL /*zone_policy*/,
     "+12" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2880 /*offset_code (43200/15)*/,
+    0 /*offset_remainder (43200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7435,15 +7305,12 @@ const AtcZoneInfo kAtcZoneAsia_Anadyr  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Anadyr /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Aqtau
 // Zone Eras: 2
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 60
-// Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Aqtau[]  = {
@@ -7451,25 +7318,27 @@ static const AtcZoneEra kAtcZoneEraAsia_Aqtau[]  = {
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
     "+04/+05" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     10 /*until_month*/,
     31 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             5:00    -    +05
   {
     NULL /*zone_policy*/,
     "+05" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7482,15 +7351,12 @@ const AtcZoneInfo kAtcZoneAsia_Aqtau  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Aqtau /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Aqtobe
 // Zone Eras: 2
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 61
-// Memory (32-bit): 80
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Aqtobe[]  = {
@@ -7498,25 +7364,27 @@ static const AtcZoneEra kAtcZoneEraAsia_Aqtobe[]  = {
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
     "+05/+06" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     10 /*until_month*/,
     31 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             5:00    -    +05
   {
     NULL /*zone_policy*/,
     "+05" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7529,15 +7397,12 @@ const AtcZoneInfo kAtcZoneAsia_Aqtobe  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Aqtobe /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Ashgabat
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Ashgabat[]  = {
@@ -7545,13 +7410,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Ashgabat[]  = {
   {
     NULL /*zone_policy*/,
     "+05" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7564,15 +7430,12 @@ const AtcZoneInfo kAtcZoneAsia_Ashgabat  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Ashgabat /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Atyrau
 // Zone Eras: 3
-// Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 81
-// Memory (32-bit): 104
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Atyrau[]  = {
@@ -7580,37 +7443,40 @@ static const AtcZoneEra kAtcZoneEraAsia_Atyrau[]  = {
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
     "+05/+06" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     3 /*until_month*/,
     28 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             4:00 RussiaAsia    +04/+05    2004 Oct 31  2:00s
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
     "+04/+05" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     10 /*until_month*/,
     31 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             5:00    -    +05
   {
     NULL /*zone_policy*/,
     "+05" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7623,15 +7489,12 @@ const AtcZoneInfo kAtcZoneAsia_Atyrau  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Atyrau /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Baghdad
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Baghdad[]  = {
@@ -7639,13 +7502,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Baghdad[]  = {
   {
     &kAtcZonePolicyIraq /*zone_policy*/,
     "+03/+04" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7658,15 +7522,12 @@ const AtcZoneInfo kAtcZoneAsia_Baghdad  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Baghdad /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Baku
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Baku[]  = {
@@ -7674,13 +7535,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Baku[]  = {
   {
     &kAtcZonePolicyAzer /*zone_policy*/,
     "+04/+05" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7693,15 +7555,12 @@ const AtcZoneInfo kAtcZoneAsia_Baku  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Baku /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Bangkok
 // Zone Eras: 1
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 42
-// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Bangkok[]  = {
@@ -7709,13 +7568,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Bangkok[]  = {
   {
     NULL /*zone_policy*/,
     "+07" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7728,15 +7588,12 @@ const AtcZoneInfo kAtcZoneAsia_Bangkok  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Bangkok /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Barnaul
 // Zone Eras: 4
-// Strings (bytes): 33 (originally 33)
-// Memory (8-bit): 94
-// Memory (32-bit): 121
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Barnaul[]  = {
@@ -7744,49 +7601,53 @@ static const AtcZoneEra kAtcZoneEraAsia_Barnaul[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+06/+07" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              7:00    -    +07    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+07" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              6:00    -    +06    2016 Mar 27  2:00s
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
     2016 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              7:00    -    +07
   {
     NULL /*zone_policy*/,
     "+07" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7799,15 +7660,12 @@ const AtcZoneInfo kAtcZoneAsia_Barnaul  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Barnaul /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Beirut
 // Zone Eras: 1
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 42
-// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Beirut[]  = {
@@ -7815,13 +7673,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Beirut[]  = {
   {
     &kAtcZonePolicyLebanon /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7834,15 +7693,12 @@ const AtcZoneInfo kAtcZoneAsia_Beirut  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Beirut /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Bishkek
 // Zone Eras: 2
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 62
-// Memory (32-bit): 81
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Bishkek[]  = {
@@ -7850,25 +7706,27 @@ static const AtcZoneEra kAtcZoneEraAsia_Bishkek[]  = {
   {
     &kAtcZonePolicyKyrgyz /*zone_policy*/,
     "+05/+06" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
     2005 /*until_year*/,
     8 /*until_month*/,
     12 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             6:00    -    +06
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7881,15 +7739,12 @@ const AtcZoneInfo kAtcZoneAsia_Bishkek  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Bishkek /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Chita
 // Zone Eras: 4
-// Strings (bytes): 31 (originally 31)
-// Memory (8-bit): 92
-// Memory (32-bit): 119
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Chita[]  = {
@@ -7897,49 +7752,53 @@ static const AtcZoneEra kAtcZoneEraAsia_Chita[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+09/+10" /*format*/,
-    36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2160 /*offset_code (32400/15)*/,
+    0 /*offset_remainder (32400%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             10:00    -    +10    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+10" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              8:00    -    +08    2016 Mar 27  2:00
   {
     NULL /*zone_policy*/,
     "+08" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
     2016 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //              9:00    -    +09
   {
     NULL /*zone_policy*/,
     "+09" /*format*/,
-    36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2160 /*offset_code (32400/15)*/,
+    0 /*offset_remainder (32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7952,15 +7811,12 @@ const AtcZoneInfo kAtcZoneAsia_Chita  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Chita /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Choibalsan
 // Zone Eras: 2
-// Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 69
-// Memory (32-bit): 88
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Choibalsan[]  = {
@@ -7968,25 +7824,27 @@ static const AtcZoneEra kAtcZoneEraAsia_Choibalsan[]  = {
   {
     &kAtcZonePolicyMongol /*zone_policy*/,
     "+09/+10" /*format*/,
-    36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2160 /*offset_code (32400/15)*/,
+    0 /*offset_remainder (32400%15)*/,
+    0 /*delta_minutes*/,
     2008 /*until_year*/,
     3 /*until_month*/,
     31 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             8:00    Mongol    +08/+09
   {
     &kAtcZonePolicyMongol /*zone_policy*/,
     "+08/+09" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -7999,15 +7857,12 @@ const AtcZoneInfo kAtcZoneAsia_Choibalsan  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Choibalsan /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Colombo
 // Zone Eras: 2
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 60
-// Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Colombo[]  = {
@@ -8015,25 +7870,27 @@ static const AtcZoneEra kAtcZoneEraAsia_Colombo[]  = {
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
     2006 /*until_year*/,
     4 /*until_month*/,
     15 /*until_day*/,
-    2 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    120 /*until_time_code (1800/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             5:30    -    +0530
   {
     NULL /*zone_policy*/,
     "+0530" /*format*/,
-    22 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1320 /*offset_code (19800/15)*/,
+    0 /*offset_remainder (19800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8046,15 +7903,12 @@ const AtcZoneInfo kAtcZoneAsia_Colombo  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Colombo /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Damascus
 // Zone Eras: 2
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 60
-// Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Damascus[]  = {
@@ -8062,25 +7916,27 @@ static const AtcZoneEra kAtcZoneEraAsia_Damascus[]  = {
   {
     &kAtcZonePolicySyria /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2022 /*until_year*/,
     10 /*until_month*/,
     28 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             3:00    -    +03
   {
     NULL /*zone_policy*/,
     "+03" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8093,15 +7949,12 @@ const AtcZoneInfo kAtcZoneAsia_Damascus  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Damascus /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Dhaka
 // Zone Eras: 2
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 60
-// Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Dhaka[]  = {
@@ -8109,25 +7962,27 @@ static const AtcZoneEra kAtcZoneEraAsia_Dhaka[]  = {
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
     2009 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             6:00    Dhaka    +06/+07
   {
     &kAtcZonePolicyDhaka /*zone_policy*/,
     "+06/+07" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8140,15 +7995,12 @@ const AtcZoneInfo kAtcZoneAsia_Dhaka  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Dhaka /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Dili
 // Zone Eras: 2
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 55
-// Memory (32-bit): 74
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Dili[]  = {
@@ -8156,25 +8008,27 @@ static const AtcZoneEra kAtcZoneEraAsia_Dili[]  = {
   {
     NULL /*zone_policy*/,
     "+08" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     9 /*until_month*/,
     17 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             9:00    -    +09
   {
     NULL /*zone_policy*/,
     "+09" /*format*/,
-    36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2160 /*offset_code (32400/15)*/,
+    0 /*offset_remainder (32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8187,15 +8041,12 @@ const AtcZoneInfo kAtcZoneAsia_Dili  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Dili /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Dubai
 // Zone Eras: 1
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 40
-// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Dubai[]  = {
@@ -8203,13 +8054,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Dubai[]  = {
   {
     NULL /*zone_policy*/,
     "+04" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8222,15 +8074,12 @@ const AtcZoneInfo kAtcZoneAsia_Dubai  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Dubai /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Dushanbe
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Dushanbe[]  = {
@@ -8238,13 +8087,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Dushanbe[]  = {
   {
     NULL /*zone_policy*/,
     "+05" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8257,15 +8107,12 @@ const AtcZoneInfo kAtcZoneAsia_Dushanbe  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Dushanbe /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Famagusta
 // Zone Eras: 3
-// Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 78
-// Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Famagusta[]  = {
@@ -8273,37 +8120,40 @@ static const AtcZoneEra kAtcZoneEraAsia_Famagusta[]  = {
   {
     &kAtcZonePolicyEUAsia /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2016 /*until_year*/,
     9 /*until_month*/,
     8 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             3:00    -    +03    2017 Oct 29 1:00u
   {
     NULL /*zone_policy*/,
     "+03" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
     2017 /*until_year*/,
     10 /*until_month*/,
     29 /*until_day*/,
-    4 /*until_time_code*/,
-    32 /*until_time_modifier (kAtcSuffixU + minute=0)*/,
+    240 /*until_time_code (3600/15)*/,
+    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
   },
   //             2:00    EUAsia    EE%sT
   {
     &kAtcZonePolicyEUAsia /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8316,15 +8166,12 @@ const AtcZoneInfo kAtcZoneAsia_Famagusta  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Famagusta /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Gaza
 // Zone Eras: 8
-// Strings (bytes): 47 (originally 47)
-// Memory (8-bit): 156
-// Memory (32-bit): 199
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Gaza[]  = {
@@ -8332,97 +8179,105 @@ static const AtcZoneEra kAtcZoneEraAsia_Gaza[]  = {
   {
     &kAtcZonePolicyJordan /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00 Palestine    EE%sT    2008 Aug 29  0:00
   {
     &kAtcZonePolicyPalestine /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2008 /*until_year*/,
     8 /*until_month*/,
     29 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00    -    EET    2008 Sep
   {
     NULL /*zone_policy*/,
     "EET" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2008 /*until_year*/,
     9 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00 Palestine    EE%sT    2010
   {
     &kAtcZonePolicyPalestine /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2010 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00    -    EET    2010 Mar 27  0:01
   {
     NULL /*zone_policy*/,
     "EET" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2010 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    0 /*until_time_code*/,
-    1 /*until_time_modifier (kAtcSuffixW + minute=1)*/,
+    4 /*until_time_code (60/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00 Palestine    EE%sT    2011 Aug  1
   {
     &kAtcZonePolicyPalestine /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     8 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00    -    EET    2012
   {
     NULL /*zone_policy*/,
     "EET" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2012 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00 Palestine    EE%sT
   {
     &kAtcZonePolicyPalestine /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8435,15 +8290,12 @@ const AtcZoneInfo kAtcZoneAsia_Gaza  = {
   &kAtcZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAsia_Gaza /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Hebron
 // Zone Eras: 2
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 59
-// Memory (32-bit): 78
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Hebron[]  = {
@@ -8451,25 +8303,27 @@ static const AtcZoneEra kAtcZoneEraAsia_Hebron[]  = {
   {
     &kAtcZonePolicyJordan /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00 Palestine    EE%sT
   {
     &kAtcZonePolicyPalestine /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8482,15 +8336,12 @@ const AtcZoneInfo kAtcZoneAsia_Hebron  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Hebron /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Ho_Chi_Minh
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Ho_Chi_Minh[]  = {
@@ -8498,13 +8349,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Ho_Chi_Minh[]  = {
   {
     NULL /*zone_policy*/,
     "+07" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8517,15 +8369,12 @@ const AtcZoneInfo kAtcZoneAsia_Ho_Chi_Minh  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Ho_Chi_Minh /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Hong_Kong
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Hong_Kong[]  = {
@@ -8533,13 +8382,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Hong_Kong[]  = {
   {
     &kAtcZonePolicyHK /*zone_policy*/,
     "HK%T" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8552,15 +8402,12 @@ const AtcZoneInfo kAtcZoneAsia_Hong_Kong  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Hong_Kong /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Hovd
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Hovd[]  = {
@@ -8568,13 +8415,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Hovd[]  = {
   {
     &kAtcZonePolicyMongol /*zone_policy*/,
     "+07/+08" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8587,15 +8435,12 @@ const AtcZoneInfo kAtcZoneAsia_Hovd  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Hovd /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Irkutsk
 // Zone Eras: 3
-// Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 78
-// Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Irkutsk[]  = {
@@ -8603,37 +8448,40 @@ static const AtcZoneEra kAtcZoneEraAsia_Irkutsk[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+08/+09" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              9:00    -    +09    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+09" /*format*/,
-    36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2160 /*offset_code (32400/15)*/,
+    0 /*offset_remainder (32400%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              8:00    -    +08
   {
     NULL /*zone_policy*/,
     "+08" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8646,15 +8494,12 @@ const AtcZoneInfo kAtcZoneAsia_Irkutsk  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Irkutsk /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Jakarta
 // Zone Eras: 1
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 42
-// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Jakarta[]  = {
@@ -8662,13 +8507,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Jakarta[]  = {
   {
     NULL /*zone_policy*/,
     "WIB" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8681,15 +8527,12 @@ const AtcZoneInfo kAtcZoneAsia_Jakarta  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Jakarta /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Jayapura
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Jayapura[]  = {
@@ -8697,13 +8540,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Jayapura[]  = {
   {
     NULL /*zone_policy*/,
     "WIT" /*format*/,
-    36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2160 /*offset_code (32400/15)*/,
+    0 /*offset_remainder (32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8716,15 +8560,12 @@ const AtcZoneInfo kAtcZoneAsia_Jayapura  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Jayapura /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Jerusalem
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Jerusalem[]  = {
@@ -8732,13 +8573,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Jerusalem[]  = {
   {
     &kAtcZonePolicyZion /*zone_policy*/,
     "I%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8751,15 +8593,12 @@ const AtcZoneInfo kAtcZoneAsia_Jerusalem  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Jerusalem /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Kabul
 // Zone Eras: 1
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 42
-// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Kabul[]  = {
@@ -8767,13 +8606,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Kabul[]  = {
   {
     NULL /*zone_policy*/,
     "+0430" /*format*/,
-    18 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1080 /*offset_code (16200/15)*/,
+    0 /*offset_remainder (16200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8786,15 +8626,12 @@ const AtcZoneInfo kAtcZoneAsia_Kabul  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Kabul /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Kamchatka
 // Zone Eras: 3
-// Strings (bytes): 35 (originally 35)
-// Memory (8-bit): 84
-// Memory (32-bit): 107
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Kamchatka[]  = {
@@ -8802,37 +8639,40 @@ static const AtcZoneEra kAtcZoneEraAsia_Kamchatka[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+12/+13" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2880 /*offset_code (43200/15)*/,
+    0 /*offset_remainder (43200%15)*/,
+    0 /*delta_minutes*/,
     2010 /*until_year*/,
     3 /*until_month*/,
     28 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             11:00    Russia    +11/+12    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+11/+12" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             12:00    -    +12
   {
     NULL /*zone_policy*/,
     "+12" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2880 /*offset_code (43200/15)*/,
+    0 /*offset_remainder (43200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8845,15 +8685,12 @@ const AtcZoneInfo kAtcZoneAsia_Kamchatka  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Kamchatka /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Karachi
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Karachi[]  = {
@@ -8861,13 +8698,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Karachi[]  = {
   {
     &kAtcZonePolicyPakistan /*zone_policy*/,
     "PK%T" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8880,15 +8718,12 @@ const AtcZoneInfo kAtcZoneAsia_Karachi  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Karachi /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Kathmandu
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Kathmandu[]  = {
@@ -8896,13 +8731,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Kathmandu[]  = {
   {
     NULL /*zone_policy*/,
     "+0545" /*format*/,
-    23 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1380 /*offset_code (20700/15)*/,
+    0 /*offset_remainder (20700%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8915,15 +8751,12 @@ const AtcZoneInfo kAtcZoneAsia_Kathmandu  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Kathmandu /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Khandyga
 // Zone Eras: 5
-// Strings (bytes): 42 (originally 42)
-// Memory (8-bit): 115
-// Memory (32-bit): 146
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Khandyga[]  = {
@@ -8931,61 +8764,66 @@ static const AtcZoneEra kAtcZoneEraAsia_Khandyga[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+09/+10" /*format*/,
-    36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2160 /*offset_code (32400/15)*/,
+    0 /*offset_remainder (32400%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             10:00    Russia    +10/+11    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+10/+11" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             11:00    -    +11    2011 Sep 13  0:00s
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     9 /*until_month*/,
     13 /*until_day*/,
-    0 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             10:00    -    +10    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+10" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              9:00    -    +09
   {
     NULL /*zone_policy*/,
     "+09" /*format*/,
-    36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2160 /*offset_code (32400/15)*/,
+    0 /*offset_remainder (32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -8998,15 +8836,12 @@ const AtcZoneInfo kAtcZoneAsia_Khandyga  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Khandyga /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Kolkata
 // Zone Eras: 1
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 42
-// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Kolkata[]  = {
@@ -9014,13 +8849,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Kolkata[]  = {
   {
     NULL /*zone_policy*/,
     "IST" /*format*/,
-    22 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1320 /*offset_code (19800/15)*/,
+    0 /*offset_remainder (19800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9033,15 +8869,12 @@ const AtcZoneInfo kAtcZoneAsia_Kolkata  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Kolkata /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Krasnoyarsk
 // Zone Eras: 3
-// Strings (bytes): 33 (originally 33)
-// Memory (8-bit): 82
-// Memory (32-bit): 105
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Krasnoyarsk[]  = {
@@ -9049,37 +8882,40 @@ static const AtcZoneEra kAtcZoneEraAsia_Krasnoyarsk[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+07/+08" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              8:00    -    +08    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+08" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              7:00    -    +07
   {
     NULL /*zone_policy*/,
     "+07" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9092,15 +8928,12 @@ const AtcZoneInfo kAtcZoneAsia_Krasnoyarsk  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Krasnoyarsk /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Kuching
 // Zone Eras: 1
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 42
-// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Kuching[]  = {
@@ -9108,13 +8941,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Kuching[]  = {
   {
     NULL /*zone_policy*/,
     "+08" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9127,15 +8961,12 @@ const AtcZoneInfo kAtcZoneAsia_Kuching  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Kuching /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Macau
 // Zone Eras: 1
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 40
-// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Macau[]  = {
@@ -9143,13 +8974,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Macau[]  = {
   {
     &kAtcZonePolicyMacau /*zone_policy*/,
     "C%T" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9162,15 +8994,12 @@ const AtcZoneInfo kAtcZoneAsia_Macau  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Macau /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Magadan
 // Zone Eras: 4
-// Strings (bytes): 33 (originally 33)
-// Memory (8-bit): 94
-// Memory (32-bit): 121
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Magadan[]  = {
@@ -9178,49 +9007,53 @@ static const AtcZoneEra kAtcZoneEraAsia_Magadan[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+11/+12" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             12:00    -    +12    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+12" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2880 /*offset_code (43200/15)*/,
+    0 /*offset_remainder (43200%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             10:00    -    +10    2016 Apr 24  2:00s
   {
     NULL /*zone_policy*/,
     "+10" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
     2016 /*until_year*/,
     4 /*until_month*/,
     24 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             11:00    -    +11
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9233,15 +9066,12 @@ const AtcZoneInfo kAtcZoneAsia_Magadan  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Magadan /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Makassar
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Makassar[]  = {
@@ -9249,13 +9079,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Makassar[]  = {
   {
     NULL /*zone_policy*/,
     "WITA" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9268,15 +9099,12 @@ const AtcZoneInfo kAtcZoneAsia_Makassar  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Makassar /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Manila
 // Zone Eras: 1
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 41
-// Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Manila[]  = {
@@ -9284,13 +9112,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Manila[]  = {
   {
     &kAtcZonePolicyPhil /*zone_policy*/,
     "P%T" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9303,15 +9132,12 @@ const AtcZoneInfo kAtcZoneAsia_Manila  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Manila /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Nicosia
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Nicosia[]  = {
@@ -9319,13 +9145,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Nicosia[]  = {
   {
     &kAtcZonePolicyEUAsia /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9338,15 +9165,12 @@ const AtcZoneInfo kAtcZoneAsia_Nicosia  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Nicosia /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Novokuznetsk
 // Zone Eras: 3
-// Strings (bytes): 38 (originally 38)
-// Memory (8-bit): 87
-// Memory (32-bit): 110
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Novokuznetsk[]  = {
@@ -9354,37 +9178,40 @@ static const AtcZoneEra kAtcZoneEraAsia_Novokuznetsk[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+07/+08" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
     2010 /*until_year*/,
     3 /*until_month*/,
     28 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              6:00    Russia    +06/+07    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+06/+07" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              7:00    -    +07
   {
     NULL /*zone_policy*/,
     "+07" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9397,15 +9224,12 @@ const AtcZoneInfo kAtcZoneAsia_Novokuznetsk  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Novokuznetsk /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Novosibirsk
 // Zone Eras: 4
-// Strings (bytes): 37 (originally 37)
-// Memory (8-bit): 98
-// Memory (32-bit): 125
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Novosibirsk[]  = {
@@ -9413,49 +9237,53 @@ static const AtcZoneEra kAtcZoneEraAsia_Novosibirsk[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+06/+07" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              7:00    -    +07    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+07" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              6:00    -    +06    2016 Jul 24  2:00s
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
     2016 /*until_year*/,
     7 /*until_month*/,
     24 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              7:00    -    +07
   {
     NULL /*zone_policy*/,
     "+07" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9468,15 +9296,12 @@ const AtcZoneInfo kAtcZoneAsia_Novosibirsk  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Novosibirsk /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Omsk
 // Zone Eras: 3
-// Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 75
-// Memory (32-bit): 98
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Omsk[]  = {
@@ -9484,37 +9309,40 @@ static const AtcZoneEra kAtcZoneEraAsia_Omsk[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+06/+07" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              7:00    -    +07    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+07" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              6:00    -    +06
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9527,15 +9355,12 @@ const AtcZoneInfo kAtcZoneAsia_Omsk  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Omsk /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Oral
 // Zone Eras: 2
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 59
-// Memory (32-bit): 78
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Oral[]  = {
@@ -9543,25 +9368,27 @@ static const AtcZoneEra kAtcZoneEraAsia_Oral[]  = {
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
     "+04/+05" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     10 /*until_month*/,
     31 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             5:00    -    +05
   {
     NULL /*zone_policy*/,
     "+05" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9574,15 +9401,12 @@ const AtcZoneInfo kAtcZoneAsia_Oral  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Oral /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Pontianak
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Pontianak[]  = {
@@ -9590,13 +9414,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Pontianak[]  = {
   {
     NULL /*zone_policy*/,
     "WIB" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9609,15 +9434,12 @@ const AtcZoneInfo kAtcZoneAsia_Pontianak  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Pontianak /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Pyongyang
 // Zone Eras: 3
-// Strings (bytes): 27 (originally 27)
-// Memory (8-bit): 76
-// Memory (32-bit): 99
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Pyongyang[]  = {
@@ -9625,37 +9447,40 @@ static const AtcZoneEra kAtcZoneEraAsia_Pyongyang[]  = {
   {
     NULL /*zone_policy*/,
     "KST" /*format*/,
-    36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2160 /*offset_code (32400/15)*/,
+    0 /*offset_remainder (32400%15)*/,
+    0 /*delta_minutes*/,
     2015 /*until_year*/,
     8 /*until_month*/,
     15 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             8:30    -    KST    2018 May  4 23:30
   {
     NULL /*zone_policy*/,
     "KST" /*format*/,
-    34 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2040 /*offset_code (30600/15)*/,
+    0 /*offset_remainder (30600%15)*/,
+    0 /*delta_minutes*/,
     2018 /*until_year*/,
     5 /*until_month*/,
     4 /*until_day*/,
-    94 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    5640 /*until_time_code (84600/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             9:00    -    KST
   {
     NULL /*zone_policy*/,
     "KST" /*format*/,
-    36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2160 /*offset_code (32400/15)*/,
+    0 /*offset_remainder (32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9668,15 +9493,12 @@ const AtcZoneInfo kAtcZoneAsia_Pyongyang  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Pyongyang /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Qatar
 // Zone Eras: 1
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 40
-// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Qatar[]  = {
@@ -9684,13 +9506,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Qatar[]  = {
   {
     NULL /*zone_policy*/,
     "+03" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9703,15 +9526,12 @@ const AtcZoneInfo kAtcZoneAsia_Qatar  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Qatar /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Qostanay
 // Zone Eras: 2
-// Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 63
-// Memory (32-bit): 82
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Qostanay[]  = {
@@ -9719,25 +9539,27 @@ static const AtcZoneEra kAtcZoneEraAsia_Qostanay[]  = {
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
     "+05/+06" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     10 /*until_month*/,
     31 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             6:00    -    +06
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9750,15 +9572,12 @@ const AtcZoneInfo kAtcZoneAsia_Qostanay  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Qostanay /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Qyzylorda
 // Zone Eras: 3
-// Strings (bytes): 31 (originally 31)
-// Memory (8-bit): 80
-// Memory (32-bit): 103
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Qyzylorda[]  = {
@@ -9766,37 +9585,40 @@ static const AtcZoneEra kAtcZoneEraAsia_Qyzylorda[]  = {
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
     "+05/+06" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     10 /*until_month*/,
     31 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             6:00    -    +06    2018 Dec 21  0:00
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
     2018 /*until_year*/,
     12 /*until_month*/,
     21 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             5:00    -    +05
   {
     NULL /*zone_policy*/,
     "+05" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9809,15 +9631,12 @@ const AtcZoneInfo kAtcZoneAsia_Qyzylorda  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Qyzylorda /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Riyadh
 // Zone Eras: 1
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 41
-// Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Riyadh[]  = {
@@ -9825,13 +9644,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Riyadh[]  = {
   {
     NULL /*zone_policy*/,
     "+03" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9844,15 +9664,12 @@ const AtcZoneInfo kAtcZoneAsia_Riyadh  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Riyadh /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Sakhalin
 // Zone Eras: 4
-// Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 95
-// Memory (32-bit): 122
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Sakhalin[]  = {
@@ -9860,49 +9677,53 @@ static const AtcZoneEra kAtcZoneEraAsia_Sakhalin[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+10/+11" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             11:00    -    +11    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             10:00    -    +10    2016 Mar 27  2:00s
   {
     NULL /*zone_policy*/,
     "+10" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
     2016 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             11:00    -    +11
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9915,15 +9736,12 @@ const AtcZoneInfo kAtcZoneAsia_Sakhalin  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Sakhalin /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Samarkand
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Samarkand[]  = {
@@ -9931,13 +9749,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Samarkand[]  = {
   {
     NULL /*zone_policy*/,
     "+05" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9950,15 +9769,12 @@ const AtcZoneInfo kAtcZoneAsia_Samarkand  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Samarkand /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Seoul
 // Zone Eras: 1
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 40
-// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Seoul[]  = {
@@ -9966,13 +9782,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Seoul[]  = {
   {
     &kAtcZonePolicyROK /*zone_policy*/,
     "K%T" /*format*/,
-    36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2160 /*offset_code (32400/15)*/,
+    0 /*offset_remainder (32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -9985,15 +9802,12 @@ const AtcZoneInfo kAtcZoneAsia_Seoul  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Seoul /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Shanghai
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Shanghai[]  = {
@@ -10001,13 +9815,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Shanghai[]  = {
   {
     &kAtcZonePolicyPRC /*zone_policy*/,
     "C%T" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10020,15 +9835,12 @@ const AtcZoneInfo kAtcZoneAsia_Shanghai  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Shanghai /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Singapore
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Singapore[]  = {
@@ -10036,13 +9848,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Singapore[]  = {
   {
     NULL /*zone_policy*/,
     "+08" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10055,15 +9868,12 @@ const AtcZoneInfo kAtcZoneAsia_Singapore  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Singapore /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Srednekolymsk
 // Zone Eras: 3
-// Strings (bytes): 35 (originally 35)
-// Memory (8-bit): 84
-// Memory (32-bit): 107
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Srednekolymsk[]  = {
@@ -10071,37 +9881,40 @@ static const AtcZoneEra kAtcZoneEraAsia_Srednekolymsk[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+11/+12" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             12:00    -    +12    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+12" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2880 /*offset_code (43200/15)*/,
+    0 /*offset_remainder (43200%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             11:00    -    +11
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10114,15 +9927,12 @@ const AtcZoneInfo kAtcZoneAsia_Srednekolymsk  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Srednekolymsk /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Taipei
 // Zone Eras: 1
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 41
-// Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Taipei[]  = {
@@ -10130,13 +9940,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Taipei[]  = {
   {
     &kAtcZonePolicyTaiwan /*zone_policy*/,
     "C%T" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10149,15 +9960,12 @@ const AtcZoneInfo kAtcZoneAsia_Taipei  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Taipei /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Tashkent
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Tashkent[]  = {
@@ -10165,13 +9973,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Tashkent[]  = {
   {
     NULL /*zone_policy*/,
     "+05" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10184,15 +9993,12 @@ const AtcZoneInfo kAtcZoneAsia_Tashkent  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Tashkent /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Tbilisi
 // Zone Eras: 3
-// Strings (bytes): 33 (originally 33)
-// Memory (8-bit): 82
-// Memory (32-bit): 105
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Tbilisi[]  = {
@@ -10200,37 +10006,40 @@ static const AtcZoneEra kAtcZoneEraAsia_Tbilisi[]  = {
   {
     &kAtcZonePolicyE_EurAsia /*zone_policy*/,
     "+04/+05" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
     2004 /*until_year*/,
     6 /*until_month*/,
     27 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             3:00 RussiaAsia    +03/+04    2005 Mar lastSun  2:00
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
     "+03/+04" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
     2005 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             4:00    -    +04
   {
     NULL /*zone_policy*/,
     "+04" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10243,15 +10052,12 @@ const AtcZoneInfo kAtcZoneAsia_Tbilisi  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Tbilisi /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Tehran
 // Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 49
-// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Tehran[]  = {
@@ -10259,13 +10065,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Tehran[]  = {
   {
     &kAtcZonePolicyIran /*zone_policy*/,
     "+0330/+0430" /*format*/,
-    14 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    840 /*offset_code (12600/15)*/,
+    0 /*offset_remainder (12600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10278,15 +10085,12 @@ const AtcZoneInfo kAtcZoneAsia_Tehran  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Tehran /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Thimphu
 // Zone Eras: 1
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 42
-// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Thimphu[]  = {
@@ -10294,13 +10098,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Thimphu[]  = {
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10313,15 +10118,12 @@ const AtcZoneInfo kAtcZoneAsia_Thimphu  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Thimphu /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Tokyo
 // Zone Eras: 1
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 40
-// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Tokyo[]  = {
@@ -10329,13 +10131,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Tokyo[]  = {
   {
     &kAtcZonePolicyJapan /*zone_policy*/,
     "J%T" /*format*/,
-    36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2160 /*offset_code (32400/15)*/,
+    0 /*offset_remainder (32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10348,15 +10151,12 @@ const AtcZoneInfo kAtcZoneAsia_Tokyo  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Tokyo /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Tomsk
 // Zone Eras: 5
-// Strings (bytes): 39 (originally 39)
-// Memory (8-bit): 112
-// Memory (32-bit): 143
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Tomsk[]  = {
@@ -10364,61 +10164,66 @@ static const AtcZoneEra kAtcZoneEraAsia_Tomsk[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+07/+08" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
     2002 /*until_year*/,
     5 /*until_month*/,
     1 /*until_day*/,
-    12 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    720 /*until_time_code (10800/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //              6:00    Russia    +06/+07    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+06/+07" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              7:00    -    +07    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+07" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              6:00    -    +06    2016 May 29  2:00s
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
     2016 /*until_year*/,
     5 /*until_month*/,
     29 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              7:00    -    +07
   {
     NULL /*zone_policy*/,
     "+07" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10431,15 +10236,12 @@ const AtcZoneInfo kAtcZoneAsia_Tomsk  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Tomsk /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Ulaanbaatar
 // Zone Eras: 1
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 50
-// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Ulaanbaatar[]  = {
@@ -10447,13 +10249,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Ulaanbaatar[]  = {
   {
     &kAtcZonePolicyMongol /*zone_policy*/,
     "+08/+09" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10466,15 +10269,12 @@ const AtcZoneInfo kAtcZoneAsia_Ulaanbaatar  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Ulaanbaatar /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Urumqi
 // Zone Eras: 1
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 41
-// Memory (32-bit): 56
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Urumqi[]  = {
@@ -10482,13 +10282,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Urumqi[]  = {
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10501,15 +10302,12 @@ const AtcZoneInfo kAtcZoneAsia_Urumqi  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Urumqi /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Ust-Nera
 // Zone Eras: 4
-// Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 95
-// Memory (32-bit): 122
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Ust_Nera[]  = {
@@ -10517,49 +10315,53 @@ static const AtcZoneEra kAtcZoneEraAsia_Ust_Nera[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+11/+12" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             12:00    -    +12    2011 Sep 13  0:00s
   {
     NULL /*zone_policy*/,
     "+12" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2880 /*offset_code (43200/15)*/,
+    0 /*offset_remainder (43200%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     9 /*until_month*/,
     13 /*until_day*/,
-    0 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             11:00    -    +11    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             10:00    -    +10
   {
     NULL /*zone_policy*/,
     "+10" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10572,15 +10374,12 @@ const AtcZoneInfo kAtcZoneAsia_Ust_Nera  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Ust_Nera /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Vladivostok
 // Zone Eras: 3
-// Strings (bytes): 33 (originally 33)
-// Memory (8-bit): 82
-// Memory (32-bit): 105
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Vladivostok[]  = {
@@ -10588,37 +10387,40 @@ static const AtcZoneEra kAtcZoneEraAsia_Vladivostok[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+10/+11" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             11:00    -    +11    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             10:00    -    +10
   {
     NULL /*zone_policy*/,
     "+10" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10631,15 +10433,12 @@ const AtcZoneInfo kAtcZoneAsia_Vladivostok  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Vladivostok /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Yakutsk
 // Zone Eras: 3
-// Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 78
-// Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Yakutsk[]  = {
@@ -10647,37 +10446,40 @@ static const AtcZoneEra kAtcZoneEraAsia_Yakutsk[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+09/+10" /*format*/,
-    36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2160 /*offset_code (32400/15)*/,
+    0 /*offset_remainder (32400%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             10:00    -    +10    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+10" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              9:00    -    +09
   {
     NULL /*zone_policy*/,
     "+09" /*format*/,
-    36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2160 /*offset_code (32400/15)*/,
+    0 /*offset_remainder (32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10690,15 +10492,12 @@ const AtcZoneInfo kAtcZoneAsia_Yakutsk  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Yakutsk /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Yangon
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Yangon[]  = {
@@ -10706,13 +10505,14 @@ static const AtcZoneEra kAtcZoneEraAsia_Yangon[]  = {
   {
     NULL /*zone_policy*/,
     "+0630" /*format*/,
-    26 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1560 /*offset_code (23400/15)*/,
+    0 /*offset_remainder (23400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10725,15 +10525,12 @@ const AtcZoneInfo kAtcZoneAsia_Yangon  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAsia_Yangon /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Yekaterinburg
 // Zone Eras: 3
-// Strings (bytes): 35 (originally 35)
-// Memory (8-bit): 84
-// Memory (32-bit): 107
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Yekaterinburg[]  = {
@@ -10741,37 +10538,40 @@ static const AtcZoneEra kAtcZoneEraAsia_Yekaterinburg[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+05/+06" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              6:00    -    +06    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              5:00    -    +05
   {
     NULL /*zone_policy*/,
     "+05" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10784,15 +10584,12 @@ const AtcZoneInfo kAtcZoneAsia_Yekaterinburg  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Yekaterinburg /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Yerevan
 // Zone Eras: 2
-// Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 66
-// Memory (32-bit): 85
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Yerevan[]  = {
@@ -10800,25 +10597,27 @@ static const AtcZoneEra kAtcZoneEraAsia_Yerevan[]  = {
   {
     &kAtcZonePolicyRussiaAsia /*zone_policy*/,
     "+04/+05" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             4:00    Armenia    +04/+05
   {
     &kAtcZonePolicyArmenia /*zone_policy*/,
     "+04/+05" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10831,15 +10630,12 @@ const AtcZoneInfo kAtcZoneAsia_Yerevan  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Yerevan /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Atlantic/Azores
 // Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 49
-// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Azores[]  = {
@@ -10847,13 +10643,14 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Azores[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "-01/+00" /*format*/,
-    -4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -240 /*offset_code (-3600/15)*/,
+    0 /*offset_remainder (-3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10866,15 +10663,12 @@ const AtcZoneInfo kAtcZoneAtlantic_Azores  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAtlantic_Azores /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Atlantic/Bermuda
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Bermuda[]  = {
@@ -10882,13 +10676,14 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Bermuda[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "A%T" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10901,15 +10696,12 @@ const AtcZoneInfo kAtcZoneAtlantic_Bermuda  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAtlantic_Bermuda /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Atlantic/Canary
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Canary[]  = {
@@ -10917,13 +10709,14 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Canary[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "WE%T" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10936,15 +10729,12 @@ const AtcZoneInfo kAtcZoneAtlantic_Canary  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAtlantic_Canary /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Atlantic/Cape_Verde
 // Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 49
-// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Cape_Verde[]  = {
@@ -10952,13 +10742,14 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Cape_Verde[]  = {
   {
     NULL /*zone_policy*/,
     "-01" /*format*/,
-    -4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -240 /*offset_code (-3600/15)*/,
+    0 /*offset_remainder (-3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -10971,15 +10762,12 @@ const AtcZoneInfo kAtcZoneAtlantic_Cape_Verde  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAtlantic_Cape_Verde /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Atlantic/Faroe
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Faroe[]  = {
@@ -10987,13 +10775,14 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Faroe[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "WE%T" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11006,15 +10795,12 @@ const AtcZoneInfo kAtcZoneAtlantic_Faroe  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAtlantic_Faroe /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Atlantic/Madeira
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Madeira[]  = {
@@ -11022,13 +10808,14 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Madeira[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "WE%T" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11041,15 +10828,12 @@ const AtcZoneInfo kAtcZoneAtlantic_Madeira  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAtlantic_Madeira /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Atlantic/South_Georgia
 // Zone Eras: 1
-// Strings (bytes): 27 (originally 27)
-// Memory (8-bit): 52
-// Memory (32-bit): 67
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_South_Georgia[]  = {
@@ -11057,13 +10841,14 @@ static const AtcZoneEra kAtcZoneEraAtlantic_South_Georgia[]  = {
   {
     NULL /*zone_policy*/,
     "-02" /*format*/,
-    -8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -480 /*offset_code (-7200/15)*/,
+    0 /*offset_remainder (-7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11076,15 +10861,12 @@ const AtcZoneInfo kAtcZoneAtlantic_South_Georgia  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAtlantic_South_Georgia /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Atlantic/Stanley
 // Zone Eras: 2
-// Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 66
-// Memory (32-bit): 85
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAtlantic_Stanley[]  = {
@@ -11092,25 +10874,27 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Stanley[]  = {
   {
     &kAtcZonePolicyFalk /*zone_policy*/,
     "-04/-03" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
     2010 /*until_year*/,
     9 /*until_month*/,
     5 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             -3:00    -    -03
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11123,15 +10907,12 @@ const AtcZoneInfo kAtcZoneAtlantic_Stanley  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAtlantic_Stanley /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Adelaide
 // Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 49
-// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Adelaide[]  = {
@@ -11139,13 +10920,14 @@ static const AtcZoneEra kAtcZoneEraAustralia_Adelaide[]  = {
   {
     &kAtcZonePolicyAS /*zone_policy*/,
     "AC%T" /*format*/,
-    38 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2280 /*offset_code (34200/15)*/,
+    0 /*offset_remainder (34200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11158,15 +10940,12 @@ const AtcZoneInfo kAtcZoneAustralia_Adelaide  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Adelaide /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Brisbane
 // Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 49
-// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Brisbane[]  = {
@@ -11174,13 +10953,14 @@ static const AtcZoneEra kAtcZoneEraAustralia_Brisbane[]  = {
   {
     &kAtcZonePolicyAQ /*zone_policy*/,
     "AE%T" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11193,15 +10973,12 @@ const AtcZoneInfo kAtcZoneAustralia_Brisbane  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Brisbane /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Broken_Hill
 // Zone Eras: 2
-// Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 69
-// Memory (32-bit): 88
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Broken_Hill[]  = {
@@ -11209,25 +10986,27 @@ static const AtcZoneEra kAtcZoneEraAustralia_Broken_Hill[]  = {
   {
     &kAtcZonePolicyAN /*zone_policy*/,
     "AC%T" /*format*/,
-    38 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2280 /*offset_code (34200/15)*/,
+    0 /*offset_remainder (34200%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             9:30    AS    AC%sT
   {
     &kAtcZonePolicyAS /*zone_policy*/,
     "AC%T" /*format*/,
-    38 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2280 /*offset_code (34200/15)*/,
+    0 /*offset_remainder (34200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11240,15 +11019,12 @@ const AtcZoneInfo kAtcZoneAustralia_Broken_Hill  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAustralia_Broken_Hill /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Darwin
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Darwin[]  = {
@@ -11256,13 +11032,14 @@ static const AtcZoneEra kAtcZoneEraAustralia_Darwin[]  = {
   {
     &kAtcZonePolicyAus /*zone_policy*/,
     "AC%T" /*format*/,
-    38 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2280 /*offset_code (34200/15)*/,
+    0 /*offset_remainder (34200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11275,15 +11052,12 @@ const AtcZoneInfo kAtcZoneAustralia_Darwin  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Darwin /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Eucla
 // Zone Eras: 1
-// Strings (bytes): 28 (originally 28)
-// Memory (8-bit): 53
-// Memory (32-bit): 68
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Eucla[]  = {
@@ -11291,13 +11065,14 @@ static const AtcZoneEra kAtcZoneEraAustralia_Eucla[]  = {
   {
     &kAtcZonePolicyAW /*zone_policy*/,
     "+0845/+0945" /*format*/,
-    35 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2100 /*offset_code (31500/15)*/,
+    0 /*offset_remainder (31500%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11310,15 +11085,12 @@ const AtcZoneInfo kAtcZoneAustralia_Eucla  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Eucla /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Hobart
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Hobart[]  = {
@@ -11326,13 +11098,14 @@ static const AtcZoneEra kAtcZoneEraAustralia_Hobart[]  = {
   {
     &kAtcZonePolicyAT /*zone_policy*/,
     "AE%T" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11345,15 +11118,12 @@ const AtcZoneInfo kAtcZoneAustralia_Hobart  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Hobart /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Lindeman
 // Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 49
-// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Lindeman[]  = {
@@ -11361,13 +11131,14 @@ static const AtcZoneEra kAtcZoneEraAustralia_Lindeman[]  = {
   {
     &kAtcZonePolicyHoliday /*zone_policy*/,
     "AE%T" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11380,15 +11151,12 @@ const AtcZoneInfo kAtcZoneAustralia_Lindeman  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Lindeman /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Lord_Howe
 // Zone Eras: 1
-// Strings (bytes): 30 (originally 30)
-// Memory (8-bit): 55
-// Memory (32-bit): 70
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Lord_Howe[]  = {
@@ -11396,13 +11164,14 @@ static const AtcZoneEra kAtcZoneEraAustralia_Lord_Howe[]  = {
   {
     &kAtcZonePolicyLH /*zone_policy*/,
     "+1030/+11" /*format*/,
-    42 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2520 /*offset_code (37800/15)*/,
+    0 /*offset_remainder (37800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11415,15 +11184,12 @@ const AtcZoneInfo kAtcZoneAustralia_Lord_Howe  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Lord_Howe /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Melbourne
 // Zone Eras: 1
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 50
-// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Melbourne[]  = {
@@ -11431,13 +11197,14 @@ static const AtcZoneEra kAtcZoneEraAustralia_Melbourne[]  = {
   {
     &kAtcZonePolicyAV /*zone_policy*/,
     "AE%T" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11450,15 +11217,12 @@ const AtcZoneInfo kAtcZoneAustralia_Melbourne  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Melbourne /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Perth
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Perth[]  = {
@@ -11466,13 +11230,14 @@ static const AtcZoneEra kAtcZoneEraAustralia_Perth[]  = {
   {
     &kAtcZonePolicyAW /*zone_policy*/,
     "AW%T" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11485,15 +11250,12 @@ const AtcZoneInfo kAtcZoneAustralia_Perth  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Perth /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Australia/Sydney
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAustralia_Sydney[]  = {
@@ -11501,13 +11263,14 @@ static const AtcZoneEra kAtcZoneEraAustralia_Sydney[]  = {
   {
     &kAtcZonePolicyAN /*zone_policy*/,
     "AE%T" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11520,15 +11283,12 @@ const AtcZoneInfo kAtcZoneAustralia_Sydney  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraAustralia_Sydney /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: CET
 // Zone Eras: 1
-// Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 34
-// Memory (32-bit): 49
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraCET[]  = {
@@ -11536,13 +11296,14 @@ static const AtcZoneEra kAtcZoneEraCET[]  = {
   {
     &kAtcZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11555,15 +11316,12 @@ const AtcZoneInfo kAtcZoneCET  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraCET /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: CST6CDT
 // Zone Eras: 1
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 37
-// Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraCST6CDT[]  = {
@@ -11571,13 +11329,14 @@ static const AtcZoneEra kAtcZoneEraCST6CDT[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11590,15 +11349,12 @@ const AtcZoneInfo kAtcZoneCST6CDT  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraCST6CDT /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: EET
 // Zone Eras: 1
-// Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 34
-// Memory (32-bit): 49
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEET[]  = {
@@ -11606,13 +11362,14 @@ static const AtcZoneEra kAtcZoneEraEET[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11625,15 +11382,12 @@ const AtcZoneInfo kAtcZoneEET  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEET /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: EST
 // Zone Eras: 1
-// Strings (bytes): 8 (originally 8)
-// Memory (8-bit): 33
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEST[]  = {
@@ -11641,13 +11395,14 @@ static const AtcZoneEra kAtcZoneEraEST[]  = {
   {
     NULL /*zone_policy*/,
     "EST" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11660,15 +11415,12 @@ const AtcZoneInfo kAtcZoneEST  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEST /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: EST5EDT
 // Zone Eras: 1
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 37
-// Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEST5EDT[]  = {
@@ -11676,13 +11428,14 @@ static const AtcZoneEra kAtcZoneEraEST5EDT[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11695,15 +11448,12 @@ const AtcZoneInfo kAtcZoneEST5EDT  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEST5EDT /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT
 // Zone Eras: 1
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 37
-// Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT[]  = {
@@ -11711,13 +11461,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT[]  = {
   {
     NULL /*zone_policy*/,
     "GMT" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11730,15 +11481,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT+1
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_1[]  = {
@@ -11746,13 +11494,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_1[]  = {
   {
     NULL /*zone_policy*/,
     "-01" /*format*/,
-    -4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -240 /*offset_code (-3600/15)*/,
+    0 /*offset_remainder (-3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11765,15 +11514,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_1  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_1 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT+10
 // Zone Eras: 1
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 40
-// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_10[]  = {
@@ -11781,13 +11527,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_10[]  = {
   {
     NULL /*zone_policy*/,
     "-10" /*format*/,
-    -40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2400 /*offset_code (-36000/15)*/,
+    0 /*offset_remainder (-36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11800,15 +11547,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_10  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_10 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT+11
 // Zone Eras: 1
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 40
-// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_11[]  = {
@@ -11816,13 +11560,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_11[]  = {
   {
     NULL /*zone_policy*/,
     "-11" /*format*/,
-    -44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2640 /*offset_code (-39600/15)*/,
+    0 /*offset_remainder (-39600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11835,15 +11580,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_11  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_11 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT+12
 // Zone Eras: 1
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 40
-// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_12[]  = {
@@ -11851,13 +11593,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_12[]  = {
   {
     NULL /*zone_policy*/,
     "-12" /*format*/,
-    -48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2880 /*offset_code (-43200/15)*/,
+    0 /*offset_remainder (-43200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11870,15 +11613,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_12  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_12 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT+2
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_2[]  = {
@@ -11886,13 +11626,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_2[]  = {
   {
     NULL /*zone_policy*/,
     "-02" /*format*/,
-    -8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -480 /*offset_code (-7200/15)*/,
+    0 /*offset_remainder (-7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11905,15 +11646,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_2  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_2 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT+3
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_3[]  = {
@@ -11921,13 +11659,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_3[]  = {
   {
     NULL /*zone_policy*/,
     "-03" /*format*/,
-    -12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11940,15 +11679,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_3  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_3 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT+4
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_4[]  = {
@@ -11956,13 +11692,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_4[]  = {
   {
     NULL /*zone_policy*/,
     "-04" /*format*/,
-    -16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -11975,15 +11712,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_4  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_4 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT+5
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_5[]  = {
@@ -11991,13 +11725,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_5[]  = {
   {
     NULL /*zone_policy*/,
     "-05" /*format*/,
-    -20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12010,15 +11745,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_5  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_5 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT+6
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_6[]  = {
@@ -12026,13 +11758,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_6[]  = {
   {
     NULL /*zone_policy*/,
     "-06" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12045,15 +11778,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_6  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_6 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT+7
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_7[]  = {
@@ -12061,13 +11791,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_7[]  = {
   {
     NULL /*zone_policy*/,
     "-07" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12080,15 +11811,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_7  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_7 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT+8
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_8[]  = {
@@ -12096,13 +11824,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_8[]  = {
   {
     NULL /*zone_policy*/,
     "-08" /*format*/,
-    -32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1920 /*offset_code (-28800/15)*/,
+    0 /*offset_remainder (-28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12115,15 +11844,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_8  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_8 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT+9
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_9[]  = {
@@ -12131,13 +11857,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_9[]  = {
   {
     NULL /*zone_policy*/,
     "-09" /*format*/,
-    -36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2160 /*offset_code (-32400/15)*/,
+    0 /*offset_remainder (-32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12150,15 +11877,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_9  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_9 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT-1
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_1[]  = {
@@ -12166,13 +11890,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_1[]  = {
   {
     NULL /*zone_policy*/,
     "+01" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12185,15 +11910,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_1  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_1 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT-10
 // Zone Eras: 1
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 40
-// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_10[]  = {
@@ -12201,13 +11923,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_10[]  = {
   {
     NULL /*zone_policy*/,
     "+10" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12220,15 +11943,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_10  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_10 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT-11
 // Zone Eras: 1
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 40
-// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_11[]  = {
@@ -12236,13 +11956,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_11[]  = {
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12255,15 +11976,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_11  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_11 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT-12
 // Zone Eras: 1
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 40
-// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_12[]  = {
@@ -12271,13 +11989,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_12[]  = {
   {
     NULL /*zone_policy*/,
     "+12" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2880 /*offset_code (43200/15)*/,
+    0 /*offset_remainder (43200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12290,15 +12009,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_12  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_12 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT-13
 // Zone Eras: 1
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 40
-// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_13[]  = {
@@ -12306,13 +12022,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_13[]  = {
   {
     NULL /*zone_policy*/,
     "+13" /*format*/,
-    52 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    3120 /*offset_code (46800/15)*/,
+    0 /*offset_remainder (46800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12325,15 +12042,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_13  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_13 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT-14
 // Zone Eras: 1
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 40
-// Memory (32-bit): 55
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_14[]  = {
@@ -12341,13 +12055,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_14[]  = {
   {
     NULL /*zone_policy*/,
     "+14" /*format*/,
-    56 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    3360 /*offset_code (50400/15)*/,
+    0 /*offset_remainder (50400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12360,15 +12075,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_14  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_14 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT-2
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_2[]  = {
@@ -12376,13 +12088,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_2[]  = {
   {
     NULL /*zone_policy*/,
     "+02" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12395,15 +12108,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_2  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_2 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT-3
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_3[]  = {
@@ -12411,13 +12121,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_3[]  = {
   {
     NULL /*zone_policy*/,
     "+03" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12430,15 +12141,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_3  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_3 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT-4
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_4[]  = {
@@ -12446,13 +12154,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_4[]  = {
   {
     NULL /*zone_policy*/,
     "+04" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12465,15 +12174,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_4  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_4 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT-5
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_5[]  = {
@@ -12481,13 +12187,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_5[]  = {
   {
     NULL /*zone_policy*/,
     "+05" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12500,15 +12207,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_5  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_5 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT-6
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_6[]  = {
@@ -12516,13 +12220,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_6[]  = {
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12535,15 +12240,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_6  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_6 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT-7
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_7[]  = {
@@ -12551,13 +12253,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_7[]  = {
   {
     NULL /*zone_policy*/,
     "+07" /*format*/,
-    28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12570,15 +12273,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_7  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_7 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT-8
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_8[]  = {
@@ -12586,13 +12286,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_8[]  = {
   {
     NULL /*zone_policy*/,
     "+08" /*format*/,
-    32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12605,15 +12306,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_8  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_8 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/GMT-9
 // Zone Eras: 1
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 39
-// Memory (32-bit): 54
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_GMT_9[]  = {
@@ -12621,13 +12319,14 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_9[]  = {
   {
     NULL /*zone_policy*/,
     "+09" /*format*/,
-    36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2160 /*offset_code (32400/15)*/,
+    0 /*offset_remainder (32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12640,15 +12339,12 @@ const AtcZoneInfo kAtcZoneEtc_GMT_9  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_9 /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Etc/UTC
 // Zone Eras: 1
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 37
-// Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEtc_UTC[]  = {
@@ -12656,13 +12352,14 @@ static const AtcZoneEra kAtcZoneEraEtc_UTC[]  = {
   {
     NULL /*zone_policy*/,
     "UTC" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12675,15 +12372,12 @@ const AtcZoneInfo kAtcZoneEtc_UTC  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Andorra
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Andorra[]  = {
@@ -12691,13 +12385,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Andorra[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12710,15 +12405,12 @@ const AtcZoneInfo kAtcZoneEurope_Andorra  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Andorra /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Astrakhan
 // Zone Eras: 4
-// Strings (bytes): 37 (originally 37)
-// Memory (8-bit): 98
-// Memory (32-bit): 125
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Astrakhan[]  = {
@@ -12726,49 +12418,53 @@ static const AtcZoneEra kAtcZoneEraEurope_Astrakhan[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+03/+04" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              4:00    -    +04    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+04" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              3:00    -    +03    2016 Mar 27  2:00s
   {
     NULL /*zone_policy*/,
     "+03" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
     2016 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              4:00    -    +04
   {
     NULL /*zone_policy*/,
     "+04" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12781,15 +12477,12 @@ const AtcZoneInfo kAtcZoneEurope_Astrakhan  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraEurope_Astrakhan /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Athens
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Athens[]  = {
@@ -12797,13 +12490,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Athens[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12816,15 +12510,12 @@ const AtcZoneInfo kAtcZoneEurope_Athens  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Athens /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Belgrade
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Belgrade[]  = {
@@ -12832,13 +12523,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Belgrade[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12851,15 +12543,12 @@ const AtcZoneInfo kAtcZoneEurope_Belgrade  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Berlin
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Berlin[]  = {
@@ -12867,13 +12556,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Berlin[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12886,15 +12576,12 @@ const AtcZoneInfo kAtcZoneEurope_Berlin  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Brussels
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Brussels[]  = {
@@ -12902,13 +12589,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Brussels[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12921,15 +12609,12 @@ const AtcZoneInfo kAtcZoneEurope_Brussels  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Brussels /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Bucharest
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Bucharest[]  = {
@@ -12937,13 +12622,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Bucharest[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12956,15 +12642,12 @@ const AtcZoneInfo kAtcZoneEurope_Bucharest  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Bucharest /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Budapest
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Budapest[]  = {
@@ -12972,13 +12655,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Budapest[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -12991,15 +12675,12 @@ const AtcZoneInfo kAtcZoneEurope_Budapest  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Budapest /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Chisinau
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Chisinau[]  = {
@@ -13007,13 +12688,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Chisinau[]  = {
   {
     &kAtcZonePolicyMoldova /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13026,15 +12708,12 @@ const AtcZoneInfo kAtcZoneEurope_Chisinau  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Chisinau /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Dublin
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Dublin[]  = {
@@ -13042,13 +12721,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Dublin[]  = {
   {
     &kAtcZonePolicyEire /*zone_policy*/,
     "IST/GMT" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13061,15 +12741,12 @@ const AtcZoneInfo kAtcZoneEurope_Dublin  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Dublin /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Gibraltar
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Gibraltar[]  = {
@@ -13077,13 +12754,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Gibraltar[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13096,15 +12774,12 @@ const AtcZoneInfo kAtcZoneEurope_Gibraltar  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Gibraltar /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Helsinki
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Helsinki[]  = {
@@ -13112,13 +12787,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Helsinki[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13131,15 +12807,12 @@ const AtcZoneInfo kAtcZoneEurope_Helsinki  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Helsinki /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Istanbul
 // Zone Eras: 9
-// Strings (bytes): 58 (originally 58)
-// Memory (8-bit): 179
-// Memory (32-bit): 226
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Istanbul[]  = {
@@ -13147,109 +12820,118 @@ static const AtcZoneEra kAtcZoneEraEurope_Istanbul[]  = {
   {
     &kAtcZonePolicyTurkey /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2007 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00    EU    EE%sT    2011 Mar 27  1:00u
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    4 /*until_time_code*/,
-    32 /*until_time_modifier (kAtcSuffixU + minute=0)*/,
+    240 /*until_time_code (3600/15)*/,
+    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
   },
   //             2:00    -    EET    2011 Mar 28  1:00u
   {
     NULL /*zone_policy*/,
     "EET" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     28 /*until_day*/,
-    4 /*until_time_code*/,
-    32 /*until_time_modifier (kAtcSuffixU + minute=0)*/,
+    240 /*until_time_code (3600/15)*/,
+    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
   },
   //             2:00    EU    EE%sT    2014 Mar 30  1:00u
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     3 /*until_month*/,
     30 /*until_day*/,
-    4 /*until_time_code*/,
-    32 /*until_time_modifier (kAtcSuffixU + minute=0)*/,
+    240 /*until_time_code (3600/15)*/,
+    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
   },
   //             2:00    -    EET    2014 Mar 31  1:00u
   {
     NULL /*zone_policy*/,
     "EET" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     3 /*until_month*/,
     31 /*until_day*/,
-    4 /*until_time_code*/,
-    32 /*until_time_modifier (kAtcSuffixU + minute=0)*/,
+    240 /*until_time_code (3600/15)*/,
+    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
   },
   //             2:00    EU    EE%sT    2015 Oct 25  1:00u
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2015 /*until_year*/,
     10 /*until_month*/,
     25 /*until_day*/,
-    4 /*until_time_code*/,
-    32 /*until_time_modifier (kAtcSuffixU + minute=0)*/,
+    240 /*until_time_code (3600/15)*/,
+    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
   },
   //             2:00    1:00    EEST    2015 Nov  8  1:00u
   {
     NULL /*zone_policy*/,
     "EEST" /*format*/,
-    8 /*offset_code*/,
-    8 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=60)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    60 /*delta_minutes*/,
     2015 /*until_year*/,
     11 /*until_month*/,
     8 /*until_day*/,
-    4 /*until_time_code*/,
-    32 /*until_time_modifier (kAtcSuffixU + minute=0)*/,
+    240 /*until_time_code (3600/15)*/,
+    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
   },
   //             2:00    EU    EE%sT    2016 Sep  7
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2016 /*until_year*/,
     9 /*until_month*/,
     7 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             3:00    -    +03
   {
     NULL /*zone_policy*/,
     "+03" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13262,15 +12944,12 @@ const AtcZoneInfo kAtcZoneEurope_Istanbul  = {
   &kAtcZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Istanbul /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Kaliningrad
 // Zone Eras: 3
-// Strings (bytes): 32 (originally 32)
-// Memory (8-bit): 81
-// Memory (32-bit): 104
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Kaliningrad[]  = {
@@ -13278,37 +12957,40 @@ static const AtcZoneEra kAtcZoneEraEurope_Kaliningrad[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              3:00    -    +03    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+03" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              2:00    -    EET
   {
     NULL /*zone_policy*/,
     "EET" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13321,53 +13003,53 @@ const AtcZoneInfo kAtcZoneEurope_Kaliningrad  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Kaliningrad /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Kirov
 // Zone Eras: 3
-// Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 78
-// Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Kirov[]  = {
-  //              3:00    Russia    +03/+04    2011 Mar 27  2:00s
+  //              3:00    Russia    MSK/MSD    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
-    "+03/+04" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    "MSK/MSD" /*format*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
-  //              4:00    -    +04    2014 Oct 26  2:00s
+  //              4:00    -    MSK    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
-    "+04" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    "MSK" /*format*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
-  //              3:00    -    +03
+  //              3:00    -    MSK
   {
     NULL /*zone_policy*/,
-    "+03" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    "MSK" /*format*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13380,15 +13062,12 @@ const AtcZoneInfo kAtcZoneEurope_Kirov  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Kirov /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Kyiv
 // Zone Eras: 1
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 42
-// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Kyiv[]  = {
@@ -13396,13 +13075,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Kyiv[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13415,15 +13095,12 @@ const AtcZoneInfo kAtcZoneEurope_Kyiv  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Kyiv /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Lisbon
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Lisbon[]  = {
@@ -13431,13 +13108,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Lisbon[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "WE%T" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13450,15 +13128,12 @@ const AtcZoneInfo kAtcZoneEurope_Lisbon  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Lisbon /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/London
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_London[]  = {
@@ -13466,13 +13141,14 @@ static const AtcZoneEra kAtcZoneEraEurope_London[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "GMT/BST" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13485,15 +13161,12 @@ const AtcZoneInfo kAtcZoneEurope_London  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Madrid
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Madrid[]  = {
@@ -13501,13 +13174,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Madrid[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13520,15 +13194,12 @@ const AtcZoneInfo kAtcZoneEurope_Madrid  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Madrid /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Malta
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Malta[]  = {
@@ -13536,13 +13207,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Malta[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13555,15 +13227,12 @@ const AtcZoneInfo kAtcZoneEurope_Malta  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Malta /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Minsk
 // Zone Eras: 2
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 59
-// Memory (32-bit): 78
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Minsk[]  = {
@@ -13571,25 +13240,27 @@ static const AtcZoneEra kAtcZoneEraEurope_Minsk[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             3:00    -    +03
   {
     NULL /*zone_policy*/,
     "+03" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13602,15 +13273,12 @@ const AtcZoneInfo kAtcZoneEurope_Minsk  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraEurope_Minsk /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Moscow
 // Zone Eras: 3
-// Strings (bytes): 30 (originally 30)
-// Memory (8-bit): 79
-// Memory (32-bit): 102
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Moscow[]  = {
@@ -13618,37 +13286,40 @@ static const AtcZoneEra kAtcZoneEraEurope_Moscow[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "MSK/MSD" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              4:00    -    MSK    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "MSK" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              3:00    -    MSK
   {
     NULL /*zone_policy*/,
     "MSK" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13661,15 +13332,12 @@ const AtcZoneInfo kAtcZoneEurope_Moscow  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Moscow /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Paris
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Paris[]  = {
@@ -13677,13 +13345,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Paris[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13696,15 +13365,12 @@ const AtcZoneInfo kAtcZoneEurope_Paris  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Paris /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Prague
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Prague[]  = {
@@ -13712,13 +13378,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Prague[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13731,15 +13398,12 @@ const AtcZoneInfo kAtcZoneEurope_Prague  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Prague /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Riga
 // Zone Eras: 3
-// Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 75
-// Memory (32-bit): 98
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Riga[]  = {
@@ -13747,37 +13411,40 @@ static const AtcZoneEra kAtcZoneEraEurope_Riga[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     2 /*until_month*/,
     29 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00    -    EET    2001 Jan  2
   {
     NULL /*zone_policy*/,
     "EET" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2001 /*until_year*/,
     1 /*until_month*/,
     2 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00    EU    EE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13790,15 +13457,12 @@ const AtcZoneInfo kAtcZoneEurope_Riga  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Riga /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Rome
 // Zone Eras: 1
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 42
-// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Rome[]  = {
@@ -13806,13 +13470,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Rome[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13825,15 +13490,12 @@ const AtcZoneInfo kAtcZoneEurope_Rome  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Rome /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Samara
 // Zone Eras: 3
-// Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 83
-// Memory (32-bit): 106
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Samara[]  = {
@@ -13841,37 +13503,40 @@ static const AtcZoneEra kAtcZoneEraEurope_Samara[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+04/+05" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
     2010 /*until_year*/,
     3 /*until_month*/,
     28 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              3:00    Russia    +03/+04    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+03/+04" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              4:00    -    +04
   {
     NULL /*zone_policy*/,
     "+04" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13884,15 +13549,12 @@ const AtcZoneInfo kAtcZoneEurope_Samara  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Samara /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Saratov
 // Zone Eras: 4
-// Strings (bytes): 35 (originally 35)
-// Memory (8-bit): 96
-// Memory (32-bit): 123
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Saratov[]  = {
@@ -13900,49 +13562,53 @@ static const AtcZoneEra kAtcZoneEraEurope_Saratov[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+03/+04" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              4:00    -    +04    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+04" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              3:00    -    +03    2016 Dec  4  2:00s
   {
     NULL /*zone_policy*/,
     "+03" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
     2016 /*until_year*/,
     12 /*until_month*/,
     4 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              4:00    -    +04
   {
     NULL /*zone_policy*/,
     "+04" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -13955,15 +13621,12 @@ const AtcZoneInfo kAtcZoneEurope_Saratov  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraEurope_Saratov /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Simferopol
 // Zone Eras: 3
-// Strings (bytes): 31 (originally 31)
-// Memory (8-bit): 80
-// Memory (32-bit): 103
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Simferopol[]  = {
@@ -13971,37 +13634,40 @@ static const AtcZoneEra kAtcZoneEraEurope_Simferopol[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     3 /*until_month*/,
     30 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //              4:00    -    MSK    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "MSK" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              3:00    -    MSK
   {
     NULL /*zone_policy*/,
     "MSK" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14014,15 +13680,12 @@ const AtcZoneInfo kAtcZoneEurope_Simferopol  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Simferopol /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Sofia
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Sofia[]  = {
@@ -14030,13 +13693,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Sofia[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14049,15 +13713,12 @@ const AtcZoneInfo kAtcZoneEurope_Sofia  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Sofia /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Tallinn
 // Zone Eras: 3
-// Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 78
-// Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Tallinn[]  = {
@@ -14065,37 +13726,40 @@ static const AtcZoneEra kAtcZoneEraEurope_Tallinn[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     10 /*until_month*/,
     31 /*until_day*/,
-    16 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    960 /*until_time_code (14400/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00    -    EET    2002 Feb 21
   {
     NULL /*zone_policy*/,
     "EET" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2002 /*until_year*/,
     2 /*until_month*/,
     21 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00    EU    EE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14108,15 +13772,12 @@ const AtcZoneInfo kAtcZoneEurope_Tallinn  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Tallinn /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Tirane
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Tirane[]  = {
@@ -14124,13 +13785,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Tirane[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14143,15 +13805,12 @@ const AtcZoneInfo kAtcZoneEurope_Tirane  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Tirane /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Ulyanovsk
 // Zone Eras: 4
-// Strings (bytes): 37 (originally 37)
-// Memory (8-bit): 98
-// Memory (32-bit): 125
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Ulyanovsk[]  = {
@@ -14159,49 +13818,53 @@ static const AtcZoneEra kAtcZoneEraEurope_Ulyanovsk[]  = {
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
     "+03/+04" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              4:00    -    +04    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
     "+04" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              3:00    -    +03    2016 Mar 27  2:00s
   {
     NULL /*zone_policy*/,
     "+03" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
     2016 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              4:00    -    +04
   {
     NULL /*zone_policy*/,
     "+04" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14214,15 +13877,12 @@ const AtcZoneInfo kAtcZoneEurope_Ulyanovsk  = {
   &kAtcZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraEurope_Ulyanovsk /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Vienna
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Vienna[]  = {
@@ -14230,13 +13890,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Vienna[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14249,15 +13910,12 @@ const AtcZoneInfo kAtcZoneEurope_Vienna  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Vienna /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Vilnius
 // Zone Eras: 3
-// Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 78
-// Memory (32-bit): 101
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Vilnius[]  = {
@@ -14265,37 +13923,40 @@ static const AtcZoneEra kAtcZoneEraEurope_Vilnius[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     10 /*until_month*/,
     31 /*until_day*/,
-    4 /*until_time_code*/,
-    32 /*until_time_modifier (kAtcSuffixU + minute=0)*/,
+    240 /*until_time_code (3600/15)*/,
+    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
   },
   //             2:00    -    EET    2003 Jan  1
   {
     NULL /*zone_policy*/,
     "EET" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
     2003 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             2:00    EU    EE%sT
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
-    8 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    480 /*offset_code (7200/15)*/,
+    0 /*offset_remainder (7200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14308,77 +13969,79 @@ const AtcZoneInfo kAtcZoneEurope_Vilnius  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraEurope_Vilnius /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Volgograd
 // Zone Eras: 5
-// Strings (bytes): 41 (originally 41)
-// Memory (8-bit): 114
-// Memory (32-bit): 145
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Volgograd[]  = {
-  //              3:00    Russia    +03/+04    2011 Mar 27  2:00s
+  //              3:00    Russia    MSK/MSD    2011 Mar 27  2:00s
   {
     &kAtcZonePolicyRussia /*zone_policy*/,
-    "+03/+04" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    "MSK/MSD" /*format*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     3 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
-  //              4:00    -    +04    2014 Oct 26  2:00s
+  //              4:00    -    MSK    2014 Oct 26  2:00s
   {
     NULL /*zone_policy*/,
-    "+04" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    "MSK" /*format*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     10 /*until_month*/,
     26 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
-  //              3:00    -    +03    2018 Oct 28  2:00s
+  //              3:00    -    MSK    2018 Oct 28  2:00s
   {
     NULL /*zone_policy*/,
-    "+03" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    "MSK" /*format*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
     2018 /*until_year*/,
     10 /*until_month*/,
     28 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //              4:00    -    +04    2020 Dec 27  2:00s
   {
     NULL /*zone_policy*/,
     "+04" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
     2020 /*until_year*/,
     12 /*until_month*/,
     27 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
-  //              3:00    -    +03
+  //              3:00    -    MSK
   {
     NULL /*zone_policy*/,
-    "+03" /*format*/,
-    12 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    "MSK" /*format*/,
+    720 /*offset_code (10800/15)*/,
+    0 /*offset_remainder (10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14391,15 +14054,12 @@ const AtcZoneInfo kAtcZoneEurope_Volgograd  = {
   &kAtcZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraEurope_Volgograd /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Warsaw
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Warsaw[]  = {
@@ -14407,13 +14067,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Warsaw[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14426,15 +14087,12 @@ const AtcZoneInfo kAtcZoneEurope_Warsaw  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Warsaw /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Europe/Zurich
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraEurope_Zurich[]  = {
@@ -14442,13 +14100,14 @@ static const AtcZoneEra kAtcZoneEraEurope_Zurich[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14461,15 +14120,12 @@ const AtcZoneInfo kAtcZoneEurope_Zurich  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEurope_Zurich /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: HST
 // Zone Eras: 1
-// Strings (bytes): 8 (originally 8)
-// Memory (8-bit): 33
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraHST[]  = {
@@ -14477,13 +14133,14 @@ static const AtcZoneEra kAtcZoneEraHST[]  = {
   {
     NULL /*zone_policy*/,
     "HST" /*format*/,
-    -40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2400 /*offset_code (-36000/15)*/,
+    0 /*offset_remainder (-36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14496,15 +14153,12 @@ const AtcZoneInfo kAtcZoneHST  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraHST /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Indian/Chagos
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraIndian_Chagos[]  = {
@@ -14512,13 +14166,14 @@ static const AtcZoneEra kAtcZoneEraIndian_Chagos[]  = {
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
-    24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1440 /*offset_code (21600/15)*/,
+    0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14531,15 +14186,12 @@ const AtcZoneInfo kAtcZoneIndian_Chagos  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraIndian_Chagos /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Indian/Maldives
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraIndian_Maldives[]  = {
@@ -14547,13 +14199,14 @@ static const AtcZoneEra kAtcZoneEraIndian_Maldives[]  = {
   {
     NULL /*zone_policy*/,
     "+05" /*format*/,
-    20 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14566,15 +14219,12 @@ const AtcZoneInfo kAtcZoneIndian_Maldives  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraIndian_Maldives /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Indian/Mauritius
 // Zone Eras: 1
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 50
-// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraIndian_Mauritius[]  = {
@@ -14582,13 +14232,14 @@ static const AtcZoneEra kAtcZoneEraIndian_Mauritius[]  = {
   {
     &kAtcZonePolicyMauritius /*zone_policy*/,
     "+04/+05" /*format*/,
-    16 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    960 /*offset_code (14400/15)*/,
+    0 /*offset_remainder (14400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14601,15 +14252,12 @@ const AtcZoneInfo kAtcZoneIndian_Mauritius  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraIndian_Mauritius /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: MET
 // Zone Eras: 1
-// Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 34
-// Memory (32-bit): 49
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraMET[]  = {
@@ -14617,13 +14265,14 @@ static const AtcZoneEra kAtcZoneEraMET[]  = {
   {
     &kAtcZonePolicyC_Eur /*zone_policy*/,
     "ME%T" /*format*/,
-    4 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    240 /*offset_code (3600/15)*/,
+    0 /*offset_remainder (3600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14636,15 +14285,12 @@ const AtcZoneInfo kAtcZoneMET  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraMET /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: MST
 // Zone Eras: 1
-// Strings (bytes): 8 (originally 8)
-// Memory (8-bit): 33
-// Memory (32-bit): 48
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraMST[]  = {
@@ -14652,13 +14298,14 @@ static const AtcZoneEra kAtcZoneEraMST[]  = {
   {
     NULL /*zone_policy*/,
     "MST" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14671,15 +14318,12 @@ const AtcZoneInfo kAtcZoneMST  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraMST /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: MST7MDT
 // Zone Eras: 1
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 37
-// Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraMST7MDT[]  = {
@@ -14687,13 +14331,14 @@ static const AtcZoneEra kAtcZoneEraMST7MDT[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
-    -28 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1680 /*offset_code (-25200/15)*/,
+    0 /*offset_remainder (-25200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14706,15 +14351,12 @@ const AtcZoneInfo kAtcZoneMST7MDT  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraMST7MDT /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: PST8PDT
 // Zone Eras: 1
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 37
-// Memory (32-bit): 52
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPST8PDT[]  = {
@@ -14722,13 +14364,14 @@ static const AtcZoneEra kAtcZoneEraPST8PDT[]  = {
   {
     &kAtcZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
-    -32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1920 /*offset_code (-28800/15)*/,
+    0 /*offset_remainder (-28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14741,15 +14384,12 @@ const AtcZoneInfo kAtcZonePST8PDT  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPST8PDT /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Apia
 // Zone Eras: 2
-// Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 66
-// Memory (32-bit): 85
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Apia[]  = {
@@ -14757,25 +14397,27 @@ static const AtcZoneEra kAtcZoneEraPacific_Apia[]  = {
   {
     &kAtcZonePolicyWS /*zone_policy*/,
     "-11/-10" /*format*/,
-    -44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -2640 /*offset_code (-39600/15)*/,
+    0 /*offset_remainder (-39600%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     12 /*until_month*/,
     29 /*until_day*/,
-    96 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    5760 /*until_time_code (86400/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //              13:00    WS    +13/+14
   {
     &kAtcZonePolicyWS /*zone_policy*/,
     "+13/+14" /*format*/,
-    52 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    3120 /*offset_code (46800/15)*/,
+    0 /*offset_remainder (46800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14788,15 +14430,12 @@ const AtcZoneInfo kAtcZonePacific_Apia  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Apia /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Auckland
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Auckland[]  = {
@@ -14804,13 +14443,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Auckland[]  = {
   {
     &kAtcZonePolicyNZ /*zone_policy*/,
     "NZ%T" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2880 /*offset_code (43200/15)*/,
+    0 /*offset_remainder (43200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14823,15 +14463,12 @@ const AtcZoneInfo kAtcZonePacific_Auckland  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Auckland /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Bougainville
 // Zone Eras: 2
-// Strings (bytes): 29 (originally 29)
-// Memory (8-bit): 66
-// Memory (32-bit): 85
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Bougainville[]  = {
@@ -14839,25 +14476,27 @@ static const AtcZoneEra kAtcZoneEraPacific_Bougainville[]  = {
   {
     NULL /*zone_policy*/,
     "+10" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
     2014 /*until_year*/,
     12 /*until_month*/,
     28 /*until_day*/,
-    8 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             11:00    -    +11
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14870,15 +14509,12 @@ const AtcZoneInfo kAtcZonePacific_Bougainville  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Bougainville /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Chatham
 // Zone Eras: 1
-// Strings (bytes): 28 (originally 28)
-// Memory (8-bit): 53
-// Memory (32-bit): 68
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Chatham[]  = {
@@ -14886,13 +14522,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Chatham[]  = {
   {
     &kAtcZonePolicyChatham /*zone_policy*/,
     "+1245/+1345" /*format*/,
-    51 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    3060 /*offset_code (45900/15)*/,
+    0 /*offset_remainder (45900%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14905,15 +14542,12 @@ const AtcZoneInfo kAtcZonePacific_Chatham  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Chatham /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Easter
 // Zone Eras: 1
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 48
-// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Easter[]  = {
@@ -14921,13 +14555,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Easter[]  = {
   {
     &kAtcZonePolicyChile /*zone_policy*/,
     "-06/-05" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14940,15 +14575,12 @@ const AtcZoneInfo kAtcZonePacific_Easter  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Easter /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Efate
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Efate[]  = {
@@ -14956,13 +14588,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Efate[]  = {
   {
     &kAtcZonePolicyVanuatu /*zone_policy*/,
     "+11/+12" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -14975,15 +14608,12 @@ const AtcZoneInfo kAtcZonePacific_Efate  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Efate /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Fakaofo
 // Zone Eras: 2
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 61
-// Memory (32-bit): 80
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Fakaofo[]  = {
@@ -14991,25 +14621,27 @@ static const AtcZoneEra kAtcZoneEraPacific_Fakaofo[]  = {
   {
     NULL /*zone_policy*/,
     "-11" /*format*/,
-    -44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    -2640 /*offset_code (-39600/15)*/,
+    0 /*offset_remainder (-39600%15)*/,
+    0 /*delta_minutes*/,
     2011 /*until_year*/,
     12 /*until_month*/,
     30 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             13:00    -    +13
   {
     NULL /*zone_policy*/,
     "+13" /*format*/,
-    52 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    3120 /*offset_code (46800/15)*/,
+    0 /*offset_remainder (46800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15022,15 +14654,12 @@ const AtcZoneInfo kAtcZonePacific_Fakaofo  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Fakaofo /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Fiji
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Fiji[]  = {
@@ -15038,13 +14667,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Fiji[]  = {
   {
     &kAtcZonePolicyFiji /*zone_policy*/,
     "+12/+13" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2880 /*offset_code (43200/15)*/,
+    0 /*offset_remainder (43200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15057,15 +14687,12 @@ const AtcZoneInfo kAtcZonePacific_Fiji  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Fiji /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Galapagos
 // Zone Eras: 1
-// Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 51
-// Memory (32-bit): 66
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Galapagos[]  = {
@@ -15073,13 +14700,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Galapagos[]  = {
   {
     &kAtcZonePolicyEcuador /*zone_policy*/,
     "-06/-05" /*format*/,
-    -24 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1440 /*offset_code (-21600/15)*/,
+    0 /*offset_remainder (-21600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15092,15 +14720,12 @@ const AtcZoneInfo kAtcZonePacific_Galapagos  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Galapagos /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Gambier
 // Zone Eras: 1
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 45
-// Memory (32-bit): 60
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Gambier[]  = {
@@ -15108,13 +14733,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Gambier[]  = {
   {
     NULL /*zone_policy*/,
     "-09" /*format*/,
-    -36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2160 /*offset_code (-32400/15)*/,
+    0 /*offset_remainder (-32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15127,15 +14753,12 @@ const AtcZoneInfo kAtcZonePacific_Gambier  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Gambier /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Guadalcanal
 // Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 49
-// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Guadalcanal[]  = {
@@ -15143,13 +14766,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Guadalcanal[]  = {
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15162,15 +14786,12 @@ const AtcZoneInfo kAtcZonePacific_Guadalcanal  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Guadalcanal /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Guam
 // Zone Eras: 2
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 59
-// Memory (32-bit): 78
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Guam[]  = {
@@ -15178,25 +14799,27 @@ static const AtcZoneEra kAtcZoneEraPacific_Guam[]  = {
   {
     &kAtcZonePolicyGuam /*zone_policy*/,
     "G%T" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
     2000 /*until_year*/,
     12 /*until_month*/,
     23 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             10:00    -    ChST
   {
     NULL /*zone_policy*/,
     "ChST" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15209,15 +14832,12 @@ const AtcZoneInfo kAtcZonePacific_Guam  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Guam /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Honolulu
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Honolulu[]  = {
@@ -15225,13 +14845,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Honolulu[]  = {
   {
     NULL /*zone_policy*/,
     "HST" /*format*/,
-    -40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2400 /*offset_code (-36000/15)*/,
+    0 /*offset_remainder (-36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15244,15 +14865,12 @@ const AtcZoneInfo kAtcZonePacific_Honolulu  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Honolulu /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Kanton
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Kanton[]  = {
@@ -15260,13 +14878,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Kanton[]  = {
   {
     NULL /*zone_policy*/,
     "+13" /*format*/,
-    52 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    3120 /*offset_code (46800/15)*/,
+    0 /*offset_remainder (46800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15279,15 +14898,12 @@ const AtcZoneInfo kAtcZonePacific_Kanton  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Kanton /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Kiritimati
 // Zone Eras: 1
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 48
-// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Kiritimati[]  = {
@@ -15295,13 +14911,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Kiritimati[]  = {
   {
     NULL /*zone_policy*/,
     "+14" /*format*/,
-    56 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    3360 /*offset_code (50400/15)*/,
+    0 /*offset_remainder (50400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15314,15 +14931,12 @@ const AtcZoneInfo kAtcZonePacific_Kiritimati  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Kiritimati /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Kosrae
 // Zone Eras: 2
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 60
-// Memory (32-bit): 79
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Kosrae[]  = {
@@ -15330,25 +14944,27 @@ static const AtcZoneEra kAtcZoneEraPacific_Kosrae[]  = {
   {
     NULL /*zone_policy*/,
     "+12" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2880 /*offset_code (43200/15)*/,
+    0 /*offset_remainder (43200%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //              11:00    -    +11
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15361,15 +14977,12 @@ const AtcZoneInfo kAtcZonePacific_Kosrae  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Kosrae /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Kwajalein
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Kwajalein[]  = {
@@ -15377,13 +14990,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Kwajalein[]  = {
   {
     NULL /*zone_policy*/,
     "+12" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2880 /*offset_code (43200/15)*/,
+    0 /*offset_remainder (43200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15396,15 +15010,12 @@ const AtcZoneInfo kAtcZonePacific_Kwajalein  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Kwajalein /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Marquesas
 // Zone Eras: 1
-// Strings (bytes): 24 (originally 24)
-// Memory (8-bit): 49
-// Memory (32-bit): 64
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Marquesas[]  = {
@@ -15412,13 +15023,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Marquesas[]  = {
   {
     NULL /*zone_policy*/,
     "-0930" /*format*/,
-    -38 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2280 /*offset_code (-34200/15)*/,
+    0 /*offset_remainder (-34200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15431,15 +15043,12 @@ const AtcZoneInfo kAtcZonePacific_Marquesas  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Marquesas /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Nauru
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Nauru[]  = {
@@ -15447,13 +15056,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Nauru[]  = {
   {
     NULL /*zone_policy*/,
     "+12" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2880 /*offset_code (43200/15)*/,
+    0 /*offset_remainder (43200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15466,15 +15076,12 @@ const AtcZoneInfo kAtcZonePacific_Nauru  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Nauru /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Niue
 // Zone Eras: 1
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 42
-// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Niue[]  = {
@@ -15482,13 +15089,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Niue[]  = {
   {
     NULL /*zone_policy*/,
     "-11" /*format*/,
-    -44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2640 /*offset_code (-39600/15)*/,
+    0 /*offset_remainder (-39600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15501,15 +15109,12 @@ const AtcZoneInfo kAtcZonePacific_Niue  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Niue /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Norfolk
 // Zone Eras: 3
-// Strings (bytes): 34 (originally 34)
-// Memory (8-bit): 83
-// Memory (32-bit): 106
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Norfolk[]  = {
@@ -15517,37 +15122,40 @@ static const AtcZoneEra kAtcZoneEraPacific_Norfolk[]  = {
   {
     NULL /*zone_policy*/,
     "+1130" /*format*/,
-    46 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2760 /*offset_code (41400/15)*/,
+    0 /*offset_remainder (41400%15)*/,
+    0 /*delta_minutes*/,
     2015 /*until_year*/,
     10 /*until_month*/,
     4 /*until_day*/,
-    8 /*until_time_code*/,
-    16 /*until_time_modifier (kAtcSuffixS + minute=0)*/,
+    480 /*until_time_code (7200/15)*/,
+    16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
   //             11:00    -    +11    2019 Jul
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
     2019 /*until_year*/,
     7 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             11:00    AN    +11/+12
   {
     &kAtcZonePolicyAN /*zone_policy*/,
     "+11/+12" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15560,15 +15168,12 @@ const AtcZoneInfo kAtcZonePacific_Norfolk  = {
   &kAtcZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Norfolk /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Noumea
 // Zone Eras: 1
-// Strings (bytes): 23 (originally 23)
-// Memory (8-bit): 48
-// Memory (32-bit): 63
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Noumea[]  = {
@@ -15576,13 +15181,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Noumea[]  = {
   {
     &kAtcZonePolicyNC /*zone_policy*/,
     "+11/+12" /*format*/,
-    44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15595,15 +15201,12 @@ const AtcZoneInfo kAtcZonePacific_Noumea  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Noumea /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Pago_Pago
 // Zone Eras: 1
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 47
-// Memory (32-bit): 62
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Pago_Pago[]  = {
@@ -15611,13 +15214,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Pago_Pago[]  = {
   {
     NULL /*zone_policy*/,
     "SST" /*format*/,
-    -44 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2640 /*offset_code (-39600/15)*/,
+    0 /*offset_remainder (-39600%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15630,15 +15234,12 @@ const AtcZoneInfo kAtcZonePacific_Pago_Pago  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Pago_Pago /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Palau
 // Zone Eras: 1
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 43
-// Memory (32-bit): 58
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Palau[]  = {
@@ -15646,13 +15247,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Palau[]  = {
   {
     NULL /*zone_policy*/,
     "+09" /*format*/,
-    36 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2160 /*offset_code (32400/15)*/,
+    0 /*offset_remainder (32400%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15665,15 +15267,12 @@ const AtcZoneInfo kAtcZonePacific_Palau  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Palau /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Pitcairn
 // Zone Eras: 1
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 46
-// Memory (32-bit): 61
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Pitcairn[]  = {
@@ -15681,13 +15280,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Pitcairn[]  = {
   {
     NULL /*zone_policy*/,
     "-08" /*format*/,
-    -32 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -1920 /*offset_code (-28800/15)*/,
+    0 /*offset_remainder (-28800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15700,15 +15300,12 @@ const AtcZoneInfo kAtcZonePacific_Pitcairn  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Pitcairn /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Port_Moresby
 // Zone Eras: 1
-// Strings (bytes): 25 (originally 25)
-// Memory (8-bit): 50
-// Memory (32-bit): 65
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Port_Moresby[]  = {
@@ -15716,13 +15313,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Port_Moresby[]  = {
   {
     NULL /*zone_policy*/,
     "+10" /*format*/,
-    40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2400 /*offset_code (36000/15)*/,
+    0 /*offset_remainder (36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15735,15 +15333,12 @@ const AtcZoneInfo kAtcZonePacific_Port_Moresby  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Port_Moresby /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Rarotonga
 // Zone Eras: 1
-// Strings (bytes): 28 (originally 28)
-// Memory (8-bit): 53
-// Memory (32-bit): 68
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Rarotonga[]  = {
@@ -15751,13 +15346,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Rarotonga[]  = {
   {
     &kAtcZonePolicyCook /*zone_policy*/,
     "-10/-0930" /*format*/,
-    -40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2400 /*offset_code (-36000/15)*/,
+    0 /*offset_remainder (-36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15770,15 +15366,12 @@ const AtcZoneInfo kAtcZonePacific_Rarotonga  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Rarotonga /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Tahiti
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Tahiti[]  = {
@@ -15786,13 +15379,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Tahiti[]  = {
   {
     NULL /*zone_policy*/,
     "-10" /*format*/,
-    -40 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    -2400 /*offset_code (-36000/15)*/,
+    0 /*offset_remainder (-36000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15805,15 +15399,12 @@ const AtcZoneInfo kAtcZonePacific_Tahiti  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Tahiti /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Tarawa
 // Zone Eras: 1
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 44
-// Memory (32-bit): 59
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Tarawa[]  = {
@@ -15821,13 +15412,14 @@ static const AtcZoneEra kAtcZoneEraPacific_Tarawa[]  = {
   {
     NULL /*zone_policy*/,
     "+12" /*format*/,
-    48 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    2880 /*offset_code (43200/15)*/,
+    0 /*offset_remainder (43200%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15840,15 +15432,12 @@ const AtcZoneInfo kAtcZonePacific_Tarawa  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraPacific_Tarawa /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: Pacific/Tongatapu
 // Zone Eras: 2
-// Strings (bytes): 30 (originally 30)
-// Memory (8-bit): 67
-// Memory (32-bit): 86
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Tongatapu[]  = {
@@ -15856,25 +15445,27 @@ static const AtcZoneEra kAtcZoneEraPacific_Tongatapu[]  = {
   {
     NULL /*zone_policy*/,
     "+13" /*format*/,
-    52 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
+    3120 /*offset_code (46800/15)*/,
+    0 /*offset_remainder (46800%15)*/,
+    0 /*delta_minutes*/,
     1999 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             13:00    Tonga    +13/+14
   {
     &kAtcZonePolicyTonga /*zone_policy*/,
     "+13/+14" /*format*/,
-    52 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    3120 /*offset_code (46800/15)*/,
+    0 /*offset_remainder (46800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15887,15 +15478,12 @@ const AtcZoneInfo kAtcZonePacific_Tongatapu  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Tongatapu /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Zone name: WET
 // Zone Eras: 1
-// Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 34
-// Memory (32-bit): 49
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraWET[]  = {
@@ -15903,13 +15491,14 @@ static const AtcZoneEra kAtcZoneEraWET[]  = {
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "WE%T" /*format*/,
-    0 /*offset_code*/,
-    4 /*delta_code (((offset_minute=0) << 4) + ((delta_minutes=0)/15 + 4))*/,
-    10000 /*until_year*/,
+    0 /*offset_code (0/15)*/,
+    0 /*offset_remainder (0%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
     1 /*until_month*/,
     1 /*until_day*/,
-    0 /*until_time_code*/,
-    0 /*until_time_modifier (kAtcSuffixW + minute=0)*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
 
 };
@@ -15922,4423 +15511,3703 @@ const AtcZoneInfo kAtcZoneWET  = {
   &kAtcZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraWET /*eras*/,
-  NULL /*targetInfo*/,
+  NULL /*target_info*/,
 };
 
 
 
 //---------------------------------------------------------------------------
-// Links: 245
+// Links: 246
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Accra -> Africa/Abidjan
-// Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 26
-// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Accra[]  = "Africa/Accra";
 
 const AtcZoneInfo kAtcZoneAfrica_Accra  = {
   kAtcZoneNameAfrica_Accra /*name*/,
-  0x77d5b054 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x77d5b054 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
+  &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Addis_Ababa -> Africa/Nairobi
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Addis_Ababa[]  = "Africa/Addis_Ababa";
 
 const AtcZoneInfo kAtcZoneAfrica_Addis_Ababa  = {
   kAtcZoneNameAfrica_Addis_Ababa /*name*/,
-  0x05ae1e65 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x05ae1e65 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
+  &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Asmara -> Africa/Nairobi
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Asmara[]  = "Africa/Asmara";
 
 const AtcZoneInfo kAtcZoneAfrica_Asmara  = {
   kAtcZoneNameAfrica_Asmara /*name*/,
-  0x73b278ef /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x73b278ef /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
+  &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Asmera -> Africa/Nairobi
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Asmera[]  = "Africa/Asmera";
 
 const AtcZoneInfo kAtcZoneAfrica_Asmera  = {
   kAtcZoneNameAfrica_Asmera /*name*/,
-  0x73b289f3 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x73b289f3 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
+  &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Bamako -> Africa/Abidjan
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Bamako[]  = "Africa/Bamako";
 
 const AtcZoneInfo kAtcZoneAfrica_Bamako  = {
   kAtcZoneNameAfrica_Bamako /*name*/,
-  0x74c1e7a5 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x74c1e7a5 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
+  &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Bangui -> Africa/Lagos
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Bangui[]  = "Africa/Bangui";
 
 const AtcZoneInfo kAtcZoneAfrica_Bangui  = {
   kAtcZoneNameAfrica_Bangui /*name*/,
-  0x74c28ed0 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x74c28ed0 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcZoneAfrica_Lagos /*targetInfo*/,
+  &kAtcZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Banjul -> Africa/Abidjan
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Banjul[]  = "Africa/Banjul";
 
 const AtcZoneInfo kAtcZoneAfrica_Banjul  = {
   kAtcZoneNameAfrica_Banjul /*name*/,
-  0x74c29b96 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x74c29b96 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
+  &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Blantyre -> Africa/Maputo
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Blantyre[]  = "Africa/Blantyre";
 
 const AtcZoneInfo kAtcZoneAfrica_Blantyre  = {
   kAtcZoneNameAfrica_Blantyre /*name*/,
-  0xe08d813b /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xe08d813b /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
-  &kAtcZoneAfrica_Maputo /*targetInfo*/,
+  &kAtcZoneAfrica_Maputo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Brazzaville -> Africa/Lagos
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Brazzaville[]  = "Africa/Brazzaville";
 
 const AtcZoneInfo kAtcZoneAfrica_Brazzaville  = {
   kAtcZoneNameAfrica_Brazzaville /*name*/,
-  0x39cda760 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x39cda760 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcZoneAfrica_Lagos /*targetInfo*/,
+  &kAtcZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Bujumbura -> Africa/Maputo
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Bujumbura[]  = "Africa/Bujumbura";
 
 const AtcZoneInfo kAtcZoneAfrica_Bujumbura  = {
   kAtcZoneNameAfrica_Bujumbura /*name*/,
-  0x05232a47 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x05232a47 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
-  &kAtcZoneAfrica_Maputo /*targetInfo*/,
+  &kAtcZoneAfrica_Maputo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Conakry -> Africa/Abidjan
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Conakry[]  = "Africa/Conakry";
 
 const AtcZoneInfo kAtcZoneAfrica_Conakry  = {
   kAtcZoneNameAfrica_Conakry /*name*/,
-  0x7ab36b31 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x7ab36b31 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
+  &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Dakar -> Africa/Abidjan
-// Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 26
-// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Dakar[]  = "Africa/Dakar";
 
 const AtcZoneInfo kAtcZoneAfrica_Dakar  = {
   kAtcZoneNameAfrica_Dakar /*name*/,
-  0x780b00fd /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x780b00fd /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
+  &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Dar_es_Salaam -> Africa/Nairobi
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 34
-// Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Dar_es_Salaam[]  = "Africa/Dar_es_Salaam";
 
 const AtcZoneInfo kAtcZoneAfrica_Dar_es_Salaam  = {
   kAtcZoneNameAfrica_Dar_es_Salaam /*name*/,
-  0xa04c47b6 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xa04c47b6 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
+  &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Djibouti -> Africa/Nairobi
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Djibouti[]  = "Africa/Djibouti";
 
 const AtcZoneInfo kAtcZoneAfrica_Djibouti  = {
   kAtcZoneNameAfrica_Djibouti /*name*/,
-  0x30ea01d4 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x30ea01d4 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
+  &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Douala -> Africa/Lagos
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Douala[]  = "Africa/Douala";
 
 const AtcZoneInfo kAtcZoneAfrica_Douala  = {
   kAtcZoneNameAfrica_Douala /*name*/,
-  0x7a6df310 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x7a6df310 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcZoneAfrica_Lagos /*targetInfo*/,
+  &kAtcZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Freetown -> Africa/Abidjan
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Freetown[]  = "Africa/Freetown";
 
 const AtcZoneInfo kAtcZoneAfrica_Freetown  = {
   kAtcZoneNameAfrica_Freetown /*name*/,
-  0x6823dd64 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x6823dd64 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
+  &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Gaborone -> Africa/Maputo
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Gaborone[]  = "Africa/Gaborone";
 
 const AtcZoneInfo kAtcZoneAfrica_Gaborone  = {
   kAtcZoneNameAfrica_Gaborone /*name*/,
-  0x317c0aa7 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x317c0aa7 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
-  &kAtcZoneAfrica_Maputo /*targetInfo*/,
+  &kAtcZoneAfrica_Maputo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Harare -> Africa/Maputo
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Harare[]  = "Africa/Harare";
 
 const AtcZoneInfo kAtcZoneAfrica_Harare  = {
   kAtcZoneNameAfrica_Harare /*name*/,
-  0x82c39a2d /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x82c39a2d /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
-  &kAtcZoneAfrica_Maputo /*targetInfo*/,
+  &kAtcZoneAfrica_Maputo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Kampala -> Africa/Nairobi
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Kampala[]  = "Africa/Kampala";
 
 const AtcZoneInfo kAtcZoneAfrica_Kampala  = {
   kAtcZoneNameAfrica_Kampala /*name*/,
-  0xc1d30e31 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xc1d30e31 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
+  &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Kigali -> Africa/Maputo
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Kigali[]  = "Africa/Kigali";
 
 const AtcZoneInfo kAtcZoneAfrica_Kigali  = {
   kAtcZoneNameAfrica_Kigali /*name*/,
-  0x8a4dcf2b /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x8a4dcf2b /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
-  &kAtcZoneAfrica_Maputo /*targetInfo*/,
+  &kAtcZoneAfrica_Maputo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Kinshasa -> Africa/Lagos
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Kinshasa[]  = "Africa/Kinshasa";
 
 const AtcZoneInfo kAtcZoneAfrica_Kinshasa  = {
   kAtcZoneNameAfrica_Kinshasa /*name*/,
-  0x6695d70c /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x6695d70c /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcZoneAfrica_Lagos /*targetInfo*/,
+  &kAtcZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Libreville -> Africa/Lagos
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 31
-// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Libreville[]  = "Africa/Libreville";
 
 const AtcZoneInfo kAtcZoneAfrica_Libreville  = {
   kAtcZoneNameAfrica_Libreville /*name*/,
-  0x01d96de4 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x01d96de4 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcZoneAfrica_Lagos /*targetInfo*/,
+  &kAtcZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Lome -> Africa/Abidjan
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Lome[]  = "Africa/Lome";
 
 const AtcZoneInfo kAtcZoneAfrica_Lome  = {
   kAtcZoneNameAfrica_Lome /*name*/,
-  0xd51c3a07 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xd51c3a07 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
+  &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Luanda -> Africa/Lagos
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Luanda[]  = "Africa/Luanda";
 
 const AtcZoneInfo kAtcZoneAfrica_Luanda  = {
   kAtcZoneNameAfrica_Luanda /*name*/,
-  0x8d7909cf /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x8d7909cf /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcZoneAfrica_Lagos /*targetInfo*/,
+  &kAtcZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Lubumbashi -> Africa/Maputo
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 31
-// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Lubumbashi[]  = "Africa/Lubumbashi";
 
 const AtcZoneInfo kAtcZoneAfrica_Lubumbashi  = {
   kAtcZoneNameAfrica_Lubumbashi /*name*/,
-  0x6fd88566 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x6fd88566 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
-  &kAtcZoneAfrica_Maputo /*targetInfo*/,
+  &kAtcZoneAfrica_Maputo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Lusaka -> Africa/Maputo
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Lusaka[]  = "Africa/Lusaka";
 
 const AtcZoneInfo kAtcZoneAfrica_Lusaka  = {
   kAtcZoneNameAfrica_Lusaka /*name*/,
-  0x8d82b23b /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x8d82b23b /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
-  &kAtcZoneAfrica_Maputo /*targetInfo*/,
+  &kAtcZoneAfrica_Maputo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Malabo -> Africa/Lagos
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Malabo[]  = "Africa/Malabo";
 
 const AtcZoneInfo kAtcZoneAfrica_Malabo  = {
   kAtcZoneNameAfrica_Malabo /*name*/,
-  0x8e6a1906 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x8e6a1906 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcZoneAfrica_Lagos /*targetInfo*/,
+  &kAtcZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Maseru -> Africa/Johannesburg
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Maseru[]  = "Africa/Maseru";
 
 const AtcZoneInfo kAtcZoneAfrica_Maseru  = {
   kAtcZoneNameAfrica_Maseru /*name*/,
-  0x8e6e02c7 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x8e6e02c7 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Johannesburg /*eras*/,
-  &kAtcZoneAfrica_Johannesburg /*targetInfo*/,
+  &kAtcZoneAfrica_Johannesburg /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Mbabane -> Africa/Johannesburg
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Mbabane[]  = "Africa/Mbabane";
 
 const AtcZoneInfo kAtcZoneAfrica_Mbabane  = {
   kAtcZoneNameAfrica_Mbabane /*name*/,
-  0x5d3bdd40 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x5d3bdd40 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Johannesburg /*eras*/,
-  &kAtcZoneAfrica_Johannesburg /*targetInfo*/,
+  &kAtcZoneAfrica_Johannesburg /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Mogadishu -> Africa/Nairobi
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Mogadishu[]  = "Africa/Mogadishu";
 
 const AtcZoneInfo kAtcZoneAfrica_Mogadishu  = {
   kAtcZoneNameAfrica_Mogadishu /*name*/,
-  0x66bc159b /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x66bc159b /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
+  &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Niamey -> Africa/Lagos
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Niamey[]  = "Africa/Niamey";
 
 const AtcZoneInfo kAtcZoneAfrica_Niamey  = {
   kAtcZoneNameAfrica_Niamey /*name*/,
-  0x914a30fd /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x914a30fd /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcZoneAfrica_Lagos /*targetInfo*/,
+  &kAtcZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Nouakchott -> Africa/Abidjan
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 31
-// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Nouakchott[]  = "Africa/Nouakchott";
 
 const AtcZoneInfo kAtcZoneAfrica_Nouakchott  = {
   kAtcZoneNameAfrica_Nouakchott /*name*/,
-  0x3dc49dba /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x3dc49dba /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
+  &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Ouagadougou -> Africa/Abidjan
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Ouagadougou[]  = "Africa/Ouagadougou";
 
 const AtcZoneInfo kAtcZoneAfrica_Ouagadougou  = {
   kAtcZoneNameAfrica_Ouagadougou /*name*/,
-  0x04d7219a /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x04d7219a /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
+  &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Porto-Novo -> Africa/Lagos
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 31
-// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Porto_Novo[]  = "Africa/Porto-Novo";
 
 const AtcZoneInfo kAtcZoneAfrica_Porto_Novo  = {
   kAtcZoneNameAfrica_Porto_Novo /*name*/,
-  0x3d1bf95d /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x3d1bf95d /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcZoneAfrica_Lagos /*targetInfo*/,
+  &kAtcZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Africa/Timbuktu -> Africa/Abidjan
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAfrica_Timbuktu[]  = "Africa/Timbuktu";
 
 const AtcZoneInfo kAtcZoneAfrica_Timbuktu  = {
   kAtcZoneNameAfrica_Timbuktu /*name*/,
-  0xb164d56f /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xb164d56f /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
+  &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Anguilla -> America/Puerto_Rico
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Anguilla[]  = "America/Anguilla";
 
 const AtcZoneInfo kAtcZoneAmerica_Anguilla  = {
   kAtcZoneNameAmerica_Anguilla /*name*/,
-  0xafe31333 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xafe31333 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Antigua -> America/Puerto_Rico
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Antigua[]  = "America/Antigua";
 
 const AtcZoneInfo kAtcZoneAmerica_Antigua  = {
   kAtcZoneNameAmerica_Antigua /*name*/,
-  0xc067a32f /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xc067a32f /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Argentina/ComodRivadavia -> America/Argentina/Catamarca
-// Strings (bytes): 33 (originally 33)
-// Memory (8-bit): 46
-// Memory (32-bit): 57
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Argentina_ComodRivadavia[]  = "America/Argentina/ComodRivadavia";
 
 const AtcZoneInfo kAtcZoneAmerica_Argentina_ComodRivadavia  = {
   kAtcZoneNameAmerica_Argentina_ComodRivadavia /*name*/,
-  0x22758877 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  6 /*numEras*/,
+  0x22758877 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Catamarca /*eras*/,
-  &kAtcZoneAmerica_Argentina_Catamarca /*targetInfo*/,
+  &kAtcZoneAmerica_Argentina_Catamarca /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Aruba -> America/Puerto_Rico
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Aruba[]  = "America/Aruba";
 
 const AtcZoneInfo kAtcZoneAmerica_Aruba  = {
   kAtcZoneNameAmerica_Aruba /*name*/,
-  0x97cf8651 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x97cf8651 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Atikokan -> America/Panama
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Atikokan[]  = "America/Atikokan";
 
 const AtcZoneInfo kAtcZoneAmerica_Atikokan  = {
   kAtcZoneNameAmerica_Atikokan /*name*/,
-  0x81b92098 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x81b92098 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Panama /*eras*/,
-  &kAtcZoneAmerica_Panama /*targetInfo*/,
+  &kAtcZoneAmerica_Panama /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Atka -> America/Adak
-// Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 26
-// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Atka[]  = "America/Atka";
 
 const AtcZoneInfo kAtcZoneAmerica_Atka  = {
   kAtcZoneNameAmerica_Atka /*name*/,
-  0x97fe8f27 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x97fe8f27 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Adak /*eras*/,
-  &kAtcZoneAmerica_Adak /*targetInfo*/,
+  &kAtcZoneAmerica_Adak /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Blanc-Sablon -> America/Puerto_Rico
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 34
-// Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Blanc_Sablon[]  = "America/Blanc-Sablon";
 
 const AtcZoneInfo kAtcZoneAmerica_Blanc_Sablon  = {
   kAtcZoneNameAmerica_Blanc_Sablon /*name*/,
-  0x6e299892 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x6e299892 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Buenos_Aires -> America/Argentina/Buenos_Aires
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 34
-// Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Buenos_Aires[]  = "America/Buenos_Aires";
 
 const AtcZoneInfo kAtcZoneAmerica_Buenos_Aires  = {
   kAtcZoneNameAmerica_Buenos_Aires /*name*/,
-  0x67d79a05 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  3 /*numEras*/,
+  0x67d79a05 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Buenos_Aires /*eras*/,
-  &kAtcZoneAmerica_Argentina_Buenos_Aires /*targetInfo*/,
+  &kAtcZoneAmerica_Argentina_Buenos_Aires /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Catamarca -> America/Argentina/Catamarca
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 31
-// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Catamarca[]  = "America/Catamarca";
 
 const AtcZoneInfo kAtcZoneAmerica_Catamarca  = {
   kAtcZoneNameAmerica_Catamarca /*name*/,
-  0x5036e963 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  6 /*numEras*/,
+  0x5036e963 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Catamarca /*eras*/,
-  &kAtcZoneAmerica_Argentina_Catamarca /*targetInfo*/,
+  &kAtcZoneAmerica_Argentina_Catamarca /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Cayman -> America/Panama
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Cayman[]  = "America/Cayman";
 
 const AtcZoneInfo kAtcZoneAmerica_Cayman  = {
   kAtcZoneNameAmerica_Cayman /*name*/,
-  0x953961df /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x953961df /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Panama /*eras*/,
-  &kAtcZoneAmerica_Panama /*targetInfo*/,
+  &kAtcZoneAmerica_Panama /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Coral_Harbour -> America/Panama
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 35
-// Memory (32-bit): 46
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Coral_Harbour[]  = "America/Coral_Harbour";
 
 const AtcZoneInfo kAtcZoneAmerica_Coral_Harbour  = {
   kAtcZoneNameAmerica_Coral_Harbour /*name*/,
-  0xabcb7569 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xabcb7569 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Panama /*eras*/,
-  &kAtcZoneAmerica_Panama /*targetInfo*/,
+  &kAtcZoneAmerica_Panama /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Cordoba -> America/Argentina/Cordoba
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Cordoba[]  = "America/Cordoba";
 
 const AtcZoneInfo kAtcZoneAmerica_Cordoba  = {
   kAtcZoneNameAmerica_Cordoba /*name*/,
-  0x5c8a7600 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  3 /*numEras*/,
+  0x5c8a7600 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Cordoba /*eras*/,
-  &kAtcZoneAmerica_Argentina_Cordoba /*targetInfo*/,
+  &kAtcZoneAmerica_Argentina_Cordoba /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Creston -> America/Phoenix
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Creston[]  = "America/Creston";
 
 const AtcZoneInfo kAtcZoneAmerica_Creston  = {
   kAtcZoneNameAmerica_Creston /*name*/,
-  0x62a70204 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x62a70204 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Phoenix /*eras*/,
-  &kAtcZoneAmerica_Phoenix /*targetInfo*/,
+  &kAtcZoneAmerica_Phoenix /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Curacao -> America/Puerto_Rico
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Curacao[]  = "America/Curacao";
 
 const AtcZoneInfo kAtcZoneAmerica_Curacao  = {
   kAtcZoneNameAmerica_Curacao /*name*/,
-  0x6a879184 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x6a879184 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Dominica -> America/Puerto_Rico
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Dominica[]  = "America/Dominica";
 
 const AtcZoneInfo kAtcZoneAmerica_Dominica  = {
   kAtcZoneNameAmerica_Dominica /*name*/,
-  0xcecb4c4a /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xcecb4c4a /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Ensenada -> America/Tijuana
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Ensenada[]  = "America/Ensenada";
 
 const AtcZoneInfo kAtcZoneAmerica_Ensenada  = {
   kAtcZoneNameAmerica_Ensenada /*name*/,
-  0x7bc95445 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  4 /*numEras*/,
+  0x7bc95445 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  4 /*num_eras*/,
   kAtcZoneEraAmerica_Tijuana /*eras*/,
-  &kAtcZoneAmerica_Tijuana /*targetInfo*/,
+  &kAtcZoneAmerica_Tijuana /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Fort_Wayne -> America/Indiana/Indianapolis
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Fort_Wayne[]  = "America/Fort_Wayne";
 
 const AtcZoneInfo kAtcZoneAmerica_Fort_Wayne  = {
   kAtcZoneNameAmerica_Fort_Wayne /*name*/,
-  0x7eaaaf24 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  2 /*numEras*/,
+  0x7eaaaf24 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Indianapolis /*eras*/,
-  &kAtcZoneAmerica_Indiana_Indianapolis /*targetInfo*/,
+  &kAtcZoneAmerica_Indiana_Indianapolis /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Godthab -> America/Nuuk
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Godthab[]  = "America/Godthab";
 
 const AtcZoneInfo kAtcZoneAmerica_Godthab  = {
   kAtcZoneNameAmerica_Godthab /*name*/,
-  0x8f7eba1f /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  2 /*numEras*/,
+  0x8f7eba1f /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Nuuk /*eras*/,
-  &kAtcZoneAmerica_Nuuk /*targetInfo*/,
+  &kAtcZoneAmerica_Nuuk /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Grenada -> America/Puerto_Rico
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Grenada[]  = "America/Grenada";
 
 const AtcZoneInfo kAtcZoneAmerica_Grenada  = {
   kAtcZoneNameAmerica_Grenada /*name*/,
-  0x968ce4d8 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x968ce4d8 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Guadeloupe -> America/Puerto_Rico
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Guadeloupe[]  = "America/Guadeloupe";
 
 const AtcZoneInfo kAtcZoneAmerica_Guadeloupe  = {
   kAtcZoneNameAmerica_Guadeloupe /*name*/,
-  0xcd1f8a31 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xcd1f8a31 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Indianapolis -> America/Indiana/Indianapolis
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 34
-// Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Indianapolis[]  = "America/Indianapolis";
 
 const AtcZoneInfo kAtcZoneAmerica_Indianapolis  = {
   kAtcZoneNameAmerica_Indianapolis /*name*/,
-  0x6a009ae1 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  2 /*numEras*/,
+  0x6a009ae1 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Indianapolis /*eras*/,
-  &kAtcZoneAmerica_Indiana_Indianapolis /*targetInfo*/,
+  &kAtcZoneAmerica_Indiana_Indianapolis /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Jujuy -> America/Argentina/Jujuy
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Jujuy[]  = "America/Jujuy";
 
 const AtcZoneInfo kAtcZoneAmerica_Jujuy  = {
   kAtcZoneNameAmerica_Jujuy /*name*/,
-  0x9873dbbd /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  4 /*numEras*/,
+  0x9873dbbd /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  4 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Jujuy /*eras*/,
-  &kAtcZoneAmerica_Argentina_Jujuy /*targetInfo*/,
+  &kAtcZoneAmerica_Argentina_Jujuy /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Knox_IN -> America/Indiana/Knox
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Knox_IN[]  = "America/Knox_IN";
 
 const AtcZoneInfo kAtcZoneAmerica_Knox_IN  = {
   kAtcZoneNameAmerica_Knox_IN /*name*/,
-  0xc1db9a1c /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  2 /*numEras*/,
+  0xc1db9a1c /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Knox /*eras*/,
-  &kAtcZoneAmerica_Indiana_Knox /*targetInfo*/,
+  &kAtcZoneAmerica_Indiana_Knox /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Kralendijk -> America/Puerto_Rico
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Kralendijk[]  = "America/Kralendijk";
 
 const AtcZoneInfo kAtcZoneAmerica_Kralendijk  = {
   kAtcZoneNameAmerica_Kralendijk /*name*/,
-  0xe7c456c5 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xe7c456c5 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Louisville -> America/Kentucky/Louisville
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Louisville[]  = "America/Louisville";
 
 const AtcZoneInfo kAtcZoneAmerica_Louisville  = {
   kAtcZoneNameAmerica_Louisville /*name*/,
-  0x3dcb47ee /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x3dcb47ee /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Kentucky_Louisville /*eras*/,
-  &kAtcZoneAmerica_Kentucky_Louisville /*targetInfo*/,
+  &kAtcZoneAmerica_Kentucky_Louisville /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Lower_Princes -> America/Puerto_Rico
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 35
-// Memory (32-bit): 46
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Lower_Princes[]  = "America/Lower_Princes";
 
 const AtcZoneInfo kAtcZoneAmerica_Lower_Princes  = {
   kAtcZoneNameAmerica_Lower_Princes /*name*/,
-  0x6ae45b62 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x6ae45b62 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Marigot -> America/Puerto_Rico
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Marigot[]  = "America/Marigot";
 
 const AtcZoneInfo kAtcZoneAmerica_Marigot  = {
   kAtcZoneNameAmerica_Marigot /*name*/,
-  0x3dab3a59 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x3dab3a59 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Mendoza -> America/Argentina/Mendoza
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Mendoza[]  = "America/Mendoza";
 
 const AtcZoneInfo kAtcZoneAmerica_Mendoza  = {
   kAtcZoneNameAmerica_Mendoza /*name*/,
-  0x46b4e054 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  6 /*numEras*/,
+  0x46b4e054 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  6 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Mendoza /*eras*/,
-  &kAtcZoneAmerica_Argentina_Mendoza /*targetInfo*/,
+  &kAtcZoneAmerica_Argentina_Mendoza /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Montreal -> America/Toronto
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Montreal[]  = "America/Montreal";
 
 const AtcZoneInfo kAtcZoneAmerica_Montreal  = {
   kAtcZoneNameAmerica_Montreal /*name*/,
-  0x203a1ea8 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x203a1ea8 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
-  &kAtcZoneAmerica_Toronto /*targetInfo*/,
+  &kAtcZoneAmerica_Toronto /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Montserrat -> America/Puerto_Rico
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Montserrat[]  = "America/Montserrat";
 
 const AtcZoneInfo kAtcZoneAmerica_Montserrat  = {
   kAtcZoneNameAmerica_Montserrat /*name*/,
-  0x199b0a35 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x199b0a35 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Nassau -> America/Toronto
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Nassau[]  = "America/Nassau";
 
 const AtcZoneInfo kAtcZoneAmerica_Nassau  = {
   kAtcZoneNameAmerica_Nassau /*name*/,
-  0xaedef011 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xaedef011 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
-  &kAtcZoneAmerica_Toronto /*targetInfo*/,
+  &kAtcZoneAmerica_Toronto /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Nipigon -> America/Toronto
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Nipigon[]  = "America/Nipigon";
 
 const AtcZoneInfo kAtcZoneAmerica_Nipigon  = {
   kAtcZoneNameAmerica_Nipigon /*name*/,
-  0x9d2a8b1a /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x9d2a8b1a /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
-  &kAtcZoneAmerica_Toronto /*targetInfo*/,
+  &kAtcZoneAmerica_Toronto /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Pangnirtung -> America/Iqaluit
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 33
-// Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Pangnirtung[]  = "America/Pangnirtung";
 
 const AtcZoneInfo kAtcZoneAmerica_Pangnirtung  = {
   kAtcZoneNameAmerica_Pangnirtung /*name*/,
-  0x2d999193 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  3 /*numEras*/,
+  0x2d999193 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Iqaluit /*eras*/,
-  &kAtcZoneAmerica_Iqaluit /*targetInfo*/,
+  &kAtcZoneAmerica_Iqaluit /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Port_of_Spain -> America/Puerto_Rico
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 35
-// Memory (32-bit): 46
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Port_of_Spain[]  = "America/Port_of_Spain";
 
 const AtcZoneInfo kAtcZoneAmerica_Port_of_Spain  = {
   kAtcZoneNameAmerica_Port_of_Spain /*name*/,
-  0xd8b28d59 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xd8b28d59 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Porto_Acre -> America/Rio_Branco
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Porto_Acre[]  = "America/Porto_Acre";
 
 const AtcZoneInfo kAtcZoneAmerica_Porto_Acre  = {
   kAtcZoneNameAmerica_Porto_Acre /*name*/,
-  0xcce5bf54 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  3 /*numEras*/,
+  0xcce5bf54 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Rio_Branco /*eras*/,
-  &kAtcZoneAmerica_Rio_Branco /*targetInfo*/,
+  &kAtcZoneAmerica_Rio_Branco /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Rainy_River -> America/Winnipeg
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 33
-// Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Rainy_River[]  = "America/Rainy_River";
 
 const AtcZoneInfo kAtcZoneAmerica_Rainy_River  = {
   kAtcZoneNameAmerica_Rainy_River /*name*/,
-  0x9cd58a10 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  2 /*numEras*/,
+  0x9cd58a10 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Winnipeg /*eras*/,
-  &kAtcZoneAmerica_Winnipeg /*targetInfo*/,
+  &kAtcZoneAmerica_Winnipeg /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Rosario -> America/Argentina/Cordoba
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Rosario[]  = "America/Rosario";
 
 const AtcZoneInfo kAtcZoneAmerica_Rosario  = {
   kAtcZoneNameAmerica_Rosario /*name*/,
-  0xdf448665 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  3 /*numEras*/,
+  0xdf448665 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Cordoba /*eras*/,
-  &kAtcZoneAmerica_Argentina_Cordoba /*targetInfo*/,
+  &kAtcZoneAmerica_Argentina_Cordoba /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Santa_Isabel -> America/Tijuana
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 34
-// Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Santa_Isabel[]  = "America/Santa_Isabel";
 
 const AtcZoneInfo kAtcZoneAmerica_Santa_Isabel  = {
   kAtcZoneNameAmerica_Santa_Isabel /*name*/,
-  0xfd18a56c /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  4 /*numEras*/,
+  0xfd18a56c /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  4 /*num_eras*/,
   kAtcZoneEraAmerica_Tijuana /*eras*/,
-  &kAtcZoneAmerica_Tijuana /*targetInfo*/,
+  &kAtcZoneAmerica_Tijuana /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Shiprock -> America/Denver
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Shiprock[]  = "America/Shiprock";
 
 const AtcZoneInfo kAtcZoneAmerica_Shiprock  = {
   kAtcZoneNameAmerica_Shiprock /*name*/,
-  0x82fb7049 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x82fb7049 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Denver /*eras*/,
-  &kAtcZoneAmerica_Denver /*targetInfo*/,
+  &kAtcZoneAmerica_Denver /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/St_Barthelemy -> America/Puerto_Rico
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 35
-// Memory (32-bit): 46
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_St_Barthelemy[]  = "America/St_Barthelemy";
 
 const AtcZoneInfo kAtcZoneAmerica_St_Barthelemy  = {
   kAtcZoneNameAmerica_St_Barthelemy /*name*/,
-  0x054e6a79 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x054e6a79 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/St_Kitts -> America/Puerto_Rico
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_St_Kitts[]  = "America/St_Kitts";
 
 const AtcZoneInfo kAtcZoneAmerica_St_Kitts  = {
   kAtcZoneNameAmerica_St_Kitts /*name*/,
-  0x04c0507b /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x04c0507b /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/St_Lucia -> America/Puerto_Rico
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_St_Lucia[]  = "America/St_Lucia";
 
 const AtcZoneInfo kAtcZoneAmerica_St_Lucia  = {
   kAtcZoneNameAmerica_St_Lucia /*name*/,
-  0x04d8b3ba /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x04d8b3ba /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/St_Thomas -> America/Puerto_Rico
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 31
-// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_St_Thomas[]  = "America/St_Thomas";
 
 const AtcZoneInfo kAtcZoneAmerica_St_Thomas  = {
   kAtcZoneNameAmerica_St_Thomas /*name*/,
-  0xb1b3d778 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xb1b3d778 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/St_Vincent -> America/Puerto_Rico
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_St_Vincent[]  = "America/St_Vincent";
 
 const AtcZoneInfo kAtcZoneAmerica_St_Vincent  = {
   kAtcZoneNameAmerica_St_Vincent /*name*/,
-  0x8460e523 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x8460e523 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Thunder_Bay -> America/Toronto
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 33
-// Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Thunder_Bay[]  = "America/Thunder_Bay";
 
 const AtcZoneInfo kAtcZoneAmerica_Thunder_Bay  = {
   kAtcZoneNameAmerica_Thunder_Bay /*name*/,
-  0xf962e71b /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xf962e71b /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
-  &kAtcZoneAmerica_Toronto /*targetInfo*/,
+  &kAtcZoneAmerica_Toronto /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Tortola -> America/Puerto_Rico
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Tortola[]  = "America/Tortola";
 
 const AtcZoneInfo kAtcZoneAmerica_Tortola  = {
   kAtcZoneNameAmerica_Tortola /*name*/,
-  0x7931462b /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x7931462b /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: America/Virgin -> America/Puerto_Rico
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAmerica_Virgin[]  = "America/Virgin";
 
 const AtcZoneInfo kAtcZoneAmerica_Virgin  = {
   kAtcZoneNameAmerica_Virgin /*name*/,
-  0xc2183ab5 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xc2183ab5 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcZoneAmerica_Puerto_Rico /*targetInfo*/,
+  &kAtcZoneAmerica_Puerto_Rico /*target_info*/,
+};
+
+//---------------------------------------------------------------------------
+// Link name: America/Yellowknife -> America/Edmonton
+//---------------------------------------------------------------------------
+
+static const char kAtcZoneNameAmerica_Yellowknife[]  = "America/Yellowknife";
+
+const AtcZoneInfo kAtcZoneAmerica_Yellowknife  = {
+  kAtcZoneNameAmerica_Yellowknife /*name*/,
+  0x0f76c76f /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
+  kAtcZoneEraAmerica_Edmonton /*eras*/,
+  &kAtcZoneAmerica_Edmonton /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Antarctica/DumontDUrville -> Pacific/Port_Moresby
-// Strings (bytes): 26 (originally 26)
-// Memory (8-bit): 39
-// Memory (32-bit): 50
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAntarctica_DumontDUrville[]  = "Antarctica/DumontDUrville";
 
 const AtcZoneInfo kAtcZoneAntarctica_DumontDUrville  = {
   kAtcZoneNameAntarctica_DumontDUrville /*name*/,
-  0x5a3c656c /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x5a3c656c /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Port_Moresby /*eras*/,
-  &kAtcZonePacific_Port_Moresby /*targetInfo*/,
+  &kAtcZonePacific_Port_Moresby /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Antarctica/McMurdo -> Pacific/Auckland
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAntarctica_McMurdo[]  = "Antarctica/McMurdo";
 
 const AtcZoneInfo kAtcZoneAntarctica_McMurdo  = {
   kAtcZoneNameAntarctica_McMurdo /*name*/,
-  0x6eeb5585 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x6eeb5585 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Auckland /*eras*/,
-  &kAtcZonePacific_Auckland /*targetInfo*/,
+  &kAtcZonePacific_Auckland /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Antarctica/South_Pole -> Pacific/Auckland
-// Strings (bytes): 22 (originally 22)
-// Memory (8-bit): 35
-// Memory (32-bit): 46
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAntarctica_South_Pole[]  = "Antarctica/South_Pole";
 
 const AtcZoneInfo kAtcZoneAntarctica_South_Pole  = {
   kAtcZoneNameAntarctica_South_Pole /*name*/,
-  0xcd96b290 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xcd96b290 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Auckland /*eras*/,
-  &kAtcZonePacific_Auckland /*targetInfo*/,
+  &kAtcZonePacific_Auckland /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Antarctica/Syowa -> Asia/Riyadh
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAntarctica_Syowa[]  = "Antarctica/Syowa";
 
 const AtcZoneInfo kAtcZoneAntarctica_Syowa  = {
   kAtcZoneNameAntarctica_Syowa /*name*/,
-  0xe330c7e1 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xe330c7e1 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Riyadh /*eras*/,
-  &kAtcZoneAsia_Riyadh /*targetInfo*/,
+  &kAtcZoneAsia_Riyadh /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Antarctica/Vostok -> Asia/Urumqi
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 31
-// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAntarctica_Vostok[]  = "Antarctica/Vostok";
 
 const AtcZoneInfo kAtcZoneAntarctica_Vostok  = {
   kAtcZoneNameAntarctica_Vostok /*name*/,
-  0x4f966fd4 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x4f966fd4 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Urumqi /*eras*/,
-  &kAtcZoneAsia_Urumqi /*targetInfo*/,
+  &kAtcZoneAsia_Urumqi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Arctic/Longyearbyen -> Europe/Berlin
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 33
-// Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameArctic_Longyearbyen[]  = "Arctic/Longyearbyen";
 
 const AtcZoneInfo kAtcZoneArctic_Longyearbyen  = {
   kAtcZoneNameArctic_Longyearbyen /*name*/,
-  0xd23e7859 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xd23e7859 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
-  &kAtcZoneEurope_Berlin /*targetInfo*/,
+  &kAtcZoneEurope_Berlin /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Aden -> Asia/Riyadh
-// Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 23
-// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Aden[]  = "Asia/Aden";
 
 const AtcZoneInfo kAtcZoneAsia_Aden  = {
   kAtcZoneNameAsia_Aden /*name*/,
-  0x1fa7084a /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x1fa7084a /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Riyadh /*eras*/,
-  &kAtcZoneAsia_Riyadh /*targetInfo*/,
+  &kAtcZoneAsia_Riyadh /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Ashkhabad -> Asia/Ashgabat
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Ashkhabad[]  = "Asia/Ashkhabad";
 
 const AtcZoneInfo kAtcZoneAsia_Ashkhabad  = {
   kAtcZoneNameAsia_Ashkhabad /*name*/,
-  0x15454f09 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x15454f09 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Ashgabat /*eras*/,
-  &kAtcZoneAsia_Ashgabat /*targetInfo*/,
+  &kAtcZoneAsia_Ashgabat /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Bahrain -> Asia/Qatar
-// Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 26
-// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Bahrain[]  = "Asia/Bahrain";
 
 const AtcZoneInfo kAtcZoneAsia_Bahrain  = {
   kAtcZoneNameAsia_Bahrain /*name*/,
-  0x9d078487 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x9d078487 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Qatar /*eras*/,
-  &kAtcZoneAsia_Qatar /*targetInfo*/,
+  &kAtcZoneAsia_Qatar /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Brunei -> Asia/Kuching
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Brunei[]  = "Asia/Brunei";
 
 const AtcZoneInfo kAtcZoneAsia_Brunei  = {
   kAtcZoneNameAsia_Brunei /*name*/,
-  0xa8e595f7 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xa8e595f7 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Kuching /*eras*/,
-  &kAtcZoneAsia_Kuching /*targetInfo*/,
+  &kAtcZoneAsia_Kuching /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Calcutta -> Asia/Kolkata
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Calcutta[]  = "Asia/Calcutta";
 
 const AtcZoneInfo kAtcZoneAsia_Calcutta  = {
   kAtcZoneNameAsia_Calcutta /*name*/,
-  0x328a44c3 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x328a44c3 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Kolkata /*eras*/,
-  &kAtcZoneAsia_Kolkata /*targetInfo*/,
+  &kAtcZoneAsia_Kolkata /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Chongqing -> Asia/Shanghai
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Chongqing[]  = "Asia/Chongqing";
 
 const AtcZoneInfo kAtcZoneAsia_Chongqing  = {
   kAtcZoneNameAsia_Chongqing /*name*/,
-  0xf937fb90 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xf937fb90 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Shanghai /*eras*/,
-  &kAtcZoneAsia_Shanghai /*targetInfo*/,
+  &kAtcZoneAsia_Shanghai /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Chungking -> Asia/Shanghai
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Chungking[]  = "Asia/Chungking";
 
 const AtcZoneInfo kAtcZoneAsia_Chungking  = {
   kAtcZoneNameAsia_Chungking /*name*/,
-  0xc7121dd0 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xc7121dd0 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Shanghai /*eras*/,
-  &kAtcZoneAsia_Shanghai /*targetInfo*/,
+  &kAtcZoneAsia_Shanghai /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Dacca -> Asia/Dhaka
-// Strings (bytes): 11 (originally 11)
-// Memory (8-bit): 24
-// Memory (32-bit): 35
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Dacca[]  = "Asia/Dacca";
 
 const AtcZoneInfo kAtcZoneAsia_Dacca  = {
   kAtcZoneNameAsia_Dacca /*name*/,
-  0x14bcac5e /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  2 /*numEras*/,
+  0x14bcac5e /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  2 /*num_eras*/,
   kAtcZoneEraAsia_Dhaka /*eras*/,
-  &kAtcZoneAsia_Dhaka /*targetInfo*/,
+  &kAtcZoneAsia_Dhaka /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Harbin -> Asia/Shanghai
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Harbin[]  = "Asia/Harbin";
 
 const AtcZoneInfo kAtcZoneAsia_Harbin  = {
   kAtcZoneNameAsia_Harbin /*name*/,
-  0xb5af1186 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xb5af1186 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Shanghai /*eras*/,
-  &kAtcZoneAsia_Shanghai /*targetInfo*/,
+  &kAtcZoneAsia_Shanghai /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Istanbul -> Europe/Istanbul
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Istanbul[]  = "Asia/Istanbul";
 
 const AtcZoneInfo kAtcZoneAsia_Istanbul  = {
   kAtcZoneNameAsia_Istanbul /*name*/,
-  0x382e7894 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  9 /*numEras*/,
+  0x382e7894 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  9 /*num_eras*/,
   kAtcZoneEraEurope_Istanbul /*eras*/,
-  &kAtcZoneEurope_Istanbul /*targetInfo*/,
+  &kAtcZoneEurope_Istanbul /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Kashgar -> Asia/Urumqi
-// Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 26
-// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Kashgar[]  = "Asia/Kashgar";
 
 const AtcZoneInfo kAtcZoneAsia_Kashgar  = {
   kAtcZoneNameAsia_Kashgar /*name*/,
-  0x52955193 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x52955193 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Urumqi /*eras*/,
-  &kAtcZoneAsia_Urumqi /*targetInfo*/,
+  &kAtcZoneAsia_Urumqi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Katmandu -> Asia/Kathmandu
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Katmandu[]  = "Asia/Katmandu";
 
 const AtcZoneInfo kAtcZoneAsia_Katmandu  = {
   kAtcZoneNameAsia_Katmandu /*name*/,
-  0xa7ec12c7 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xa7ec12c7 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Kathmandu /*eras*/,
-  &kAtcZoneAsia_Kathmandu /*targetInfo*/,
+  &kAtcZoneAsia_Kathmandu /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Kuala_Lumpur -> Asia/Singapore
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 31
-// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Kuala_Lumpur[]  = "Asia/Kuala_Lumpur";
 
 const AtcZoneInfo kAtcZoneAsia_Kuala_Lumpur  = {
   kAtcZoneNameAsia_Kuala_Lumpur /*name*/,
-  0x014763c4 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x014763c4 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Singapore /*eras*/,
-  &kAtcZoneAsia_Singapore /*targetInfo*/,
+  &kAtcZoneAsia_Singapore /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Kuwait -> Asia/Riyadh
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Kuwait[]  = "Asia/Kuwait";
 
 const AtcZoneInfo kAtcZoneAsia_Kuwait  = {
   kAtcZoneNameAsia_Kuwait /*name*/,
-  0xbe1b2f27 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xbe1b2f27 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Riyadh /*eras*/,
-  &kAtcZoneAsia_Riyadh /*targetInfo*/,
+  &kAtcZoneAsia_Riyadh /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Macao -> Asia/Macau
-// Strings (bytes): 11 (originally 11)
-// Memory (8-bit): 24
-// Memory (32-bit): 35
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Macao[]  = "Asia/Macao";
 
 const AtcZoneInfo kAtcZoneAsia_Macao  = {
   kAtcZoneNameAsia_Macao /*name*/,
-  0x155f88b3 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x155f88b3 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Macau /*eras*/,
-  &kAtcZoneAsia_Macau /*targetInfo*/,
+  &kAtcZoneAsia_Macau /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Muscat -> Asia/Dubai
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Muscat[]  = "Asia/Muscat";
 
 const AtcZoneInfo kAtcZoneAsia_Muscat  = {
   kAtcZoneNameAsia_Muscat /*name*/,
-  0xc2c3565f /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xc2c3565f /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Dubai /*eras*/,
-  &kAtcZoneAsia_Dubai /*targetInfo*/,
+  &kAtcZoneAsia_Dubai /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Phnom_Penh -> Asia/Bangkok
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Phnom_Penh[]  = "Asia/Phnom_Penh";
 
 const AtcZoneInfo kAtcZoneAsia_Phnom_Penh  = {
   kAtcZoneNameAsia_Phnom_Penh /*name*/,
-  0xc224945e /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xc224945e /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Bangkok /*eras*/,
-  &kAtcZoneAsia_Bangkok /*targetInfo*/,
+  &kAtcZoneAsia_Bangkok /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Rangoon -> Asia/Yangon
-// Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 26
-// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Rangoon[]  = "Asia/Rangoon";
 
 const AtcZoneInfo kAtcZoneAsia_Rangoon  = {
   kAtcZoneNameAsia_Rangoon /*name*/,
-  0x6d1217c6 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x6d1217c6 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Yangon /*eras*/,
-  &kAtcZoneAsia_Yangon /*targetInfo*/,
+  &kAtcZoneAsia_Yangon /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Saigon -> Asia/Ho_Chi_Minh
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Saigon[]  = "Asia/Saigon";
 
 const AtcZoneInfo kAtcZoneAsia_Saigon  = {
   kAtcZoneNameAsia_Saigon /*name*/,
-  0xcf52f713 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xcf52f713 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Ho_Chi_Minh /*eras*/,
-  &kAtcZoneAsia_Ho_Chi_Minh /*targetInfo*/,
+  &kAtcZoneAsia_Ho_Chi_Minh /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Tel_Aviv -> Asia/Jerusalem
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Tel_Aviv[]  = "Asia/Tel_Aviv";
 
 const AtcZoneInfo kAtcZoneAsia_Tel_Aviv  = {
   kAtcZoneNameAsia_Tel_Aviv /*name*/,
-  0x166d7c2c /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x166d7c2c /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Jerusalem /*eras*/,
-  &kAtcZoneAsia_Jerusalem /*targetInfo*/,
+  &kAtcZoneAsia_Jerusalem /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Thimbu -> Asia/Thimphu
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Thimbu[]  = "Asia/Thimbu";
 
 const AtcZoneInfo kAtcZoneAsia_Thimbu  = {
   kAtcZoneNameAsia_Thimbu /*name*/,
-  0xd226e31b /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xd226e31b /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Thimphu /*eras*/,
-  &kAtcZoneAsia_Thimphu /*targetInfo*/,
+  &kAtcZoneAsia_Thimphu /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Ujung_Pandang -> Asia/Makassar
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Ujung_Pandang[]  = "Asia/Ujung_Pandang";
 
 const AtcZoneInfo kAtcZoneAsia_Ujung_Pandang  = {
   kAtcZoneNameAsia_Ujung_Pandang /*name*/,
-  0x5d001eb3 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x5d001eb3 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Makassar /*eras*/,
-  &kAtcZoneAsia_Makassar /*targetInfo*/,
+  &kAtcZoneAsia_Makassar /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Ulan_Bator -> Asia/Ulaanbaatar
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Ulan_Bator[]  = "Asia/Ulan_Bator";
 
 const AtcZoneInfo kAtcZoneAsia_Ulan_Bator  = {
   kAtcZoneNameAsia_Ulan_Bator /*name*/,
-  0x394db4d9 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x394db4d9 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Ulaanbaatar /*eras*/,
-  &kAtcZoneAsia_Ulaanbaatar /*targetInfo*/,
+  &kAtcZoneAsia_Ulaanbaatar /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Asia/Vientiane -> Asia/Bangkok
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAsia_Vientiane[]  = "Asia/Vientiane";
 
 const AtcZoneInfo kAtcZoneAsia_Vientiane  = {
   kAtcZoneNameAsia_Vientiane /*name*/,
-  0x89d68d75 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x89d68d75 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Bangkok /*eras*/,
-  &kAtcZoneAsia_Bangkok /*targetInfo*/,
+  &kAtcZoneAsia_Bangkok /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Atlantic/Faeroe -> Atlantic/Faroe
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAtlantic_Faeroe[]  = "Atlantic/Faeroe";
 
 const AtcZoneInfo kAtcZoneAtlantic_Faeroe  = {
   kAtcZoneNameAtlantic_Faeroe /*name*/,
-  0x031ec516 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x031ec516 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAtlantic_Faroe /*eras*/,
-  &kAtcZoneAtlantic_Faroe /*targetInfo*/,
+  &kAtcZoneAtlantic_Faroe /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Atlantic/Jan_Mayen -> Europe/Berlin
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAtlantic_Jan_Mayen[]  = "Atlantic/Jan_Mayen";
 
 const AtcZoneInfo kAtcZoneAtlantic_Jan_Mayen  = {
   kAtcZoneNameAtlantic_Jan_Mayen /*name*/,
-  0x5a7535b6 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x5a7535b6 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
-  &kAtcZoneEurope_Berlin /*targetInfo*/,
+  &kAtcZoneEurope_Berlin /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Atlantic/Reykjavik -> Africa/Abidjan
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAtlantic_Reykjavik[]  = "Atlantic/Reykjavik";
 
 const AtcZoneInfo kAtcZoneAtlantic_Reykjavik  = {
   kAtcZoneNameAtlantic_Reykjavik /*name*/,
-  0x1c2b4f74 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x1c2b4f74 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
+  &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Atlantic/St_Helena -> Africa/Abidjan
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAtlantic_St_Helena[]  = "Atlantic/St_Helena";
 
 const AtcZoneInfo kAtcZoneAtlantic_St_Helena  = {
   kAtcZoneNameAtlantic_St_Helena /*name*/,
-  0x451fc5f7 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x451fc5f7 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
+  &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Australia/ACT -> Australia/Sydney
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_ACT[]  = "Australia/ACT";
 
 const AtcZoneInfo kAtcZoneAustralia_ACT  = {
   kAtcZoneNameAustralia_ACT /*name*/,
-  0x8a970eb2 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x8a970eb2 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Sydney /*eras*/,
-  &kAtcZoneAustralia_Sydney /*targetInfo*/,
+  &kAtcZoneAustralia_Sydney /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Australia/Canberra -> Australia/Sydney
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_Canberra[]  = "Australia/Canberra";
 
 const AtcZoneInfo kAtcZoneAustralia_Canberra  = {
   kAtcZoneNameAustralia_Canberra /*name*/,
-  0x2a09ae58 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x2a09ae58 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Sydney /*eras*/,
-  &kAtcZoneAustralia_Sydney /*targetInfo*/,
+  &kAtcZoneAustralia_Sydney /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Australia/Currie -> Australia/Hobart
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_Currie[]  = "Australia/Currie";
 
 const AtcZoneInfo kAtcZoneAustralia_Currie  = {
   kAtcZoneNameAustralia_Currie /*name*/,
-  0x278b6a24 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x278b6a24 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Hobart /*eras*/,
-  &kAtcZoneAustralia_Hobart /*targetInfo*/,
+  &kAtcZoneAustralia_Hobart /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Australia/LHI -> Australia/Lord_Howe
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_LHI[]  = "Australia/LHI";
 
 const AtcZoneInfo kAtcZoneAustralia_LHI  = {
   kAtcZoneNameAustralia_LHI /*name*/,
-  0x8a973e17 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x8a973e17 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Lord_Howe /*eras*/,
-  &kAtcZoneAustralia_Lord_Howe /*targetInfo*/,
+  &kAtcZoneAustralia_Lord_Howe /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Australia/NSW -> Australia/Sydney
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_NSW[]  = "Australia/NSW";
 
 const AtcZoneInfo kAtcZoneAustralia_NSW  = {
   kAtcZoneNameAustralia_NSW /*name*/,
-  0x8a974812 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x8a974812 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Sydney /*eras*/,
-  &kAtcZoneAustralia_Sydney /*targetInfo*/,
+  &kAtcZoneAustralia_Sydney /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Australia/North -> Australia/Darwin
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_North[]  = "Australia/North";
 
 const AtcZoneInfo kAtcZoneAustralia_North  = {
   kAtcZoneNameAustralia_North /*name*/,
-  0x8d997165 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x8d997165 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Darwin /*eras*/,
-  &kAtcZoneAustralia_Darwin /*targetInfo*/,
+  &kAtcZoneAustralia_Darwin /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Australia/Queensland -> Australia/Brisbane
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 34
-// Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_Queensland[]  = "Australia/Queensland";
 
 const AtcZoneInfo kAtcZoneAustralia_Queensland  = {
   kAtcZoneNameAustralia_Queensland /*name*/,
-  0xd326ed0a /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xd326ed0a /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Brisbane /*eras*/,
-  &kAtcZoneAustralia_Brisbane /*targetInfo*/,
+  &kAtcZoneAustralia_Brisbane /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Australia/South -> Australia/Adelaide
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_South[]  = "Australia/South";
 
 const AtcZoneInfo kAtcZoneAustralia_South  = {
   kAtcZoneNameAustralia_South /*name*/,
-  0x8df3f8ad /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x8df3f8ad /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Adelaide /*eras*/,
-  &kAtcZoneAustralia_Adelaide /*targetInfo*/,
+  &kAtcZoneAustralia_Adelaide /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Australia/Tasmania -> Australia/Hobart
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_Tasmania[]  = "Australia/Tasmania";
 
 const AtcZoneInfo kAtcZoneAustralia_Tasmania  = {
   kAtcZoneNameAustralia_Tasmania /*name*/,
-  0xe6d76648 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xe6d76648 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Hobart /*eras*/,
-  &kAtcZoneAustralia_Hobart /*targetInfo*/,
+  &kAtcZoneAustralia_Hobart /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Australia/Victoria -> Australia/Melbourne
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_Victoria[]  = "Australia/Victoria";
 
 const AtcZoneInfo kAtcZoneAustralia_Victoria  = {
   kAtcZoneNameAustralia_Victoria /*name*/,
-  0x0260d5db /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x0260d5db /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Melbourne /*eras*/,
-  &kAtcZoneAustralia_Melbourne /*targetInfo*/,
+  &kAtcZoneAustralia_Melbourne /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Australia/West -> Australia/Perth
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_West[]  = "Australia/West";
 
 const AtcZoneInfo kAtcZoneAustralia_West  = {
   kAtcZoneNameAustralia_West /*name*/,
-  0xdd858a5d /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xdd858a5d /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAustralia_Perth /*eras*/,
-  &kAtcZoneAustralia_Perth /*targetInfo*/,
+  &kAtcZoneAustralia_Perth /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Australia/Yancowinna -> Australia/Broken_Hill
-// Strings (bytes): 21 (originally 21)
-// Memory (8-bit): 34
-// Memory (32-bit): 45
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameAustralia_Yancowinna[]  = "Australia/Yancowinna";
 
 const AtcZoneInfo kAtcZoneAustralia_Yancowinna  = {
   kAtcZoneNameAustralia_Yancowinna /*name*/,
-  0x90bac131 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  2 /*numEras*/,
+  0x90bac131 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  2 /*num_eras*/,
   kAtcZoneEraAustralia_Broken_Hill /*eras*/,
-  &kAtcZoneAustralia_Broken_Hill /*targetInfo*/,
+  &kAtcZoneAustralia_Broken_Hill /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Brazil/Acre -> America/Rio_Branco
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameBrazil_Acre[]  = "Brazil/Acre";
 
 const AtcZoneInfo kAtcZoneBrazil_Acre  = {
   kAtcZoneNameBrazil_Acre /*name*/,
-  0x66934f93 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  3 /*numEras*/,
+  0x66934f93 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Rio_Branco /*eras*/,
-  &kAtcZoneAmerica_Rio_Branco /*targetInfo*/,
+  &kAtcZoneAmerica_Rio_Branco /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Brazil/DeNoronha -> America/Noronha
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameBrazil_DeNoronha[]  = "Brazil/DeNoronha";
 
 const AtcZoneInfo kAtcZoneBrazil_DeNoronha  = {
   kAtcZoneNameBrazil_DeNoronha /*name*/,
-  0x9b4cb496 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  5 /*numEras*/,
+  0x9b4cb496 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  5 /*num_eras*/,
   kAtcZoneEraAmerica_Noronha /*eras*/,
-  &kAtcZoneAmerica_Noronha /*targetInfo*/,
+  &kAtcZoneAmerica_Noronha /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Brazil/East -> America/Sao_Paulo
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameBrazil_East[]  = "Brazil/East";
 
 const AtcZoneInfo kAtcZoneBrazil_East  = {
   kAtcZoneNameBrazil_East /*name*/,
-  0x669578c5 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x669578c5 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Sao_Paulo /*eras*/,
-  &kAtcZoneAmerica_Sao_Paulo /*targetInfo*/,
+  &kAtcZoneAmerica_Sao_Paulo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Brazil/West -> America/Manaus
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameBrazil_West[]  = "Brazil/West";
 
 const AtcZoneInfo kAtcZoneBrazil_West  = {
   kAtcZoneNameBrazil_West /*name*/,
-  0x669f689b /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x669f689b /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Manaus /*eras*/,
-  &kAtcZoneAmerica_Manaus /*targetInfo*/,
+  &kAtcZoneAmerica_Manaus /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Canada/Atlantic -> America/Halifax
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCanada_Atlantic[]  = "Canada/Atlantic";
 
 const AtcZoneInfo kAtcZoneCanada_Atlantic  = {
   kAtcZoneNameCanada_Atlantic /*name*/,
-  0x536b119c /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x536b119c /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Halifax /*eras*/,
-  &kAtcZoneAmerica_Halifax /*targetInfo*/,
+  &kAtcZoneAmerica_Halifax /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Canada/Central -> America/Winnipeg
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCanada_Central[]  = "Canada/Central";
 
 const AtcZoneInfo kAtcZoneCanada_Central  = {
   kAtcZoneNameCanada_Central /*name*/,
-  0x626710f5 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  2 /*numEras*/,
+  0x626710f5 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Winnipeg /*eras*/,
-  &kAtcZoneAmerica_Winnipeg /*targetInfo*/,
+  &kAtcZoneAmerica_Winnipeg /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Canada/Eastern -> America/Toronto
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCanada_Eastern[]  = "Canada/Eastern";
 
 const AtcZoneInfo kAtcZoneCanada_Eastern  = {
   kAtcZoneNameCanada_Eastern /*name*/,
-  0xf3612d5e /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xf3612d5e /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
-  &kAtcZoneAmerica_Toronto /*targetInfo*/,
+  &kAtcZoneAmerica_Toronto /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Canada/Mountain -> America/Edmonton
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCanada_Mountain[]  = "Canada/Mountain";
 
 const AtcZoneInfo kAtcZoneCanada_Mountain  = {
   kAtcZoneNameCanada_Mountain /*name*/,
-  0xfb8a8217 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xfb8a8217 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Edmonton /*eras*/,
-  &kAtcZoneAmerica_Edmonton /*targetInfo*/,
+  &kAtcZoneAmerica_Edmonton /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Canada/Newfoundland -> America/St_Johns
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 33
-// Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCanada_Newfoundland[]  = "Canada/Newfoundland";
 
 const AtcZoneInfo kAtcZoneCanada_Newfoundland  = {
   kAtcZoneNameCanada_Newfoundland /*name*/,
-  0xb396e991 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  2 /*numEras*/,
+  0xb396e991 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_St_Johns /*eras*/,
-  &kAtcZoneAmerica_St_Johns /*targetInfo*/,
+  &kAtcZoneAmerica_St_Johns /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Canada/Pacific -> America/Vancouver
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCanada_Pacific[]  = "Canada/Pacific";
 
 const AtcZoneInfo kAtcZoneCanada_Pacific  = {
   kAtcZoneNameCanada_Pacific /*name*/,
-  0x40fa3c7b /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x40fa3c7b /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Vancouver /*eras*/,
-  &kAtcZoneAmerica_Vancouver /*targetInfo*/,
+  &kAtcZoneAmerica_Vancouver /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Canada/Saskatchewan -> America/Regina
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 33
-// Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCanada_Saskatchewan[]  = "Canada/Saskatchewan";
 
 const AtcZoneInfo kAtcZoneCanada_Saskatchewan  = {
   kAtcZoneNameCanada_Saskatchewan /*name*/,
-  0x77311f49 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x77311f49 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Regina /*eras*/,
-  &kAtcZoneAmerica_Regina /*targetInfo*/,
+  &kAtcZoneAmerica_Regina /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Canada/Yukon -> America/Whitehorse
-// Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 26
-// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCanada_Yukon[]  = "Canada/Yukon";
 
 const AtcZoneInfo kAtcZoneCanada_Yukon  = {
   kAtcZoneNameCanada_Yukon /*name*/,
-  0x78dd35c2 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  2 /*numEras*/,
+  0x78dd35c2 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Whitehorse /*eras*/,
-  &kAtcZoneAmerica_Whitehorse /*targetInfo*/,
+  &kAtcZoneAmerica_Whitehorse /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Chile/Continental -> America/Santiago
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 31
-// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameChile_Continental[]  = "Chile/Continental";
 
 const AtcZoneInfo kAtcZoneChile_Continental  = {
   kAtcZoneNameChile_Continental /*name*/,
-  0x7e2bdb18 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x7e2bdb18 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Santiago /*eras*/,
-  &kAtcZoneAmerica_Santiago /*targetInfo*/,
+  &kAtcZoneAmerica_Santiago /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Chile/EasterIsland -> Pacific/Easter
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameChile_EasterIsland[]  = "Chile/EasterIsland";
 
 const AtcZoneInfo kAtcZoneChile_EasterIsland  = {
   kAtcZoneNameChile_EasterIsland /*name*/,
-  0xb0982af8 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xb0982af8 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Easter /*eras*/,
-  &kAtcZonePacific_Easter /*targetInfo*/,
+  &kAtcZonePacific_Easter /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Cuba -> America/Havana
-// Strings (bytes): 5 (originally 5)
-// Memory (8-bit): 18
-// Memory (32-bit): 29
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameCuba[]  = "Cuba";
 
 const AtcZoneInfo kAtcZoneCuba  = {
   kAtcZoneNameCuba /*name*/,
-  0x7c83cba0 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x7c83cba0 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Havana /*eras*/,
-  &kAtcZoneAmerica_Havana /*targetInfo*/,
+  &kAtcZoneAmerica_Havana /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Egypt -> Africa/Cairo
-// Strings (bytes): 6 (originally 6)
-// Memory (8-bit): 19
-// Memory (32-bit): 30
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEgypt[]  = "Egypt";
 
 const AtcZoneInfo kAtcZoneEgypt  = {
   kAtcZoneNameEgypt /*name*/,
-  0x0d1a278e /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x0d1a278e /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Cairo /*eras*/,
-  &kAtcZoneAfrica_Cairo /*targetInfo*/,
+  &kAtcZoneAfrica_Cairo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Eire -> Europe/Dublin
-// Strings (bytes): 5 (originally 5)
-// Memory (8-bit): 18
-// Memory (32-bit): 29
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEire[]  = "Eire";
 
 const AtcZoneInfo kAtcZoneEire  = {
   kAtcZoneNameEire /*name*/,
-  0x7c84b36a /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x7c84b36a /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Dublin /*eras*/,
-  &kAtcZoneEurope_Dublin /*targetInfo*/,
+  &kAtcZoneEurope_Dublin /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Etc/GMT+0 -> Etc/GMT
-// Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 23
-// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEtc_GMT_PLUS_0[]  = "Etc/GMT+0";
 
 const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_0  = {
   kAtcZoneNameEtc_GMT_PLUS_0 /*name*/,
-  0x9d13da13 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x9d13da13 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcZoneEtc_GMT /*targetInfo*/,
+  &kAtcZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Etc/GMT-0 -> Etc/GMT
-// Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 23
-// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEtc_GMT_0[]  = "Etc/GMT-0";
 
 const AtcZoneInfo kAtcZoneEtc_GMT_0  = {
   kAtcZoneNameEtc_GMT_0 /*name*/,
-  0x9d13da55 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x9d13da55 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcZoneEtc_GMT /*targetInfo*/,
+  &kAtcZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Etc/GMT0 -> Etc/GMT
-// Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 22
-// Memory (32-bit): 33
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEtc_GMT0[]  = "Etc/GMT0";
 
 const AtcZoneInfo kAtcZoneEtc_GMT0  = {
   kAtcZoneNameEtc_GMT0 /*name*/,
-  0xf53ea988 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xf53ea988 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcZoneEtc_GMT /*targetInfo*/,
+  &kAtcZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Etc/Greenwich -> Etc/GMT
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEtc_Greenwich[]  = "Etc/Greenwich";
 
 const AtcZoneInfo kAtcZoneEtc_Greenwich  = {
   kAtcZoneNameEtc_Greenwich /*name*/,
-  0x26daa98c /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x26daa98c /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcZoneEtc_GMT /*targetInfo*/,
+  &kAtcZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Etc/UCT -> Etc/UTC
-// Strings (bytes): 8 (originally 8)
-// Memory (8-bit): 21
-// Memory (32-bit): 32
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEtc_UCT[]  = "Etc/UCT";
 
 const AtcZoneInfo kAtcZoneEtc_UCT  = {
   kAtcZoneNameEtc_UCT /*name*/,
-  0xd8e3189c /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xd8e3189c /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
-  &kAtcZoneEtc_UTC /*targetInfo*/,
+  &kAtcZoneEtc_UTC /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Etc/Universal -> Etc/UTC
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEtc_Universal[]  = "Etc/Universal";
 
 const AtcZoneInfo kAtcZoneEtc_Universal  = {
   kAtcZoneNameEtc_Universal /*name*/,
-  0x2f8cb9a9 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x2f8cb9a9 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
-  &kAtcZoneEtc_UTC /*targetInfo*/,
+  &kAtcZoneEtc_UTC /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Etc/Zulu -> Etc/UTC
-// Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 22
-// Memory (32-bit): 33
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEtc_Zulu[]  = "Etc/Zulu";
 
 const AtcZoneInfo kAtcZoneEtc_Zulu  = {
   kAtcZoneNameEtc_Zulu /*name*/,
-  0xf549c240 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xf549c240 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
-  &kAtcZoneEtc_UTC /*targetInfo*/,
+  &kAtcZoneEtc_UTC /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Amsterdam -> Europe/Brussels
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Amsterdam[]  = "Europe/Amsterdam";
 
 const AtcZoneInfo kAtcZoneEurope_Amsterdam  = {
   kAtcZoneNameEurope_Amsterdam /*name*/,
-  0x109395c2 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x109395c2 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Brussels /*eras*/,
-  &kAtcZoneEurope_Brussels /*targetInfo*/,
+  &kAtcZoneEurope_Brussels /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Belfast -> Europe/London
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Belfast[]  = "Europe/Belfast";
 
 const AtcZoneInfo kAtcZoneEurope_Belfast  = {
   kAtcZoneNameEurope_Belfast /*name*/,
-  0xd07dd1e5 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xd07dd1e5 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
-  &kAtcZoneEurope_London /*targetInfo*/,
+  &kAtcZoneEurope_London /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Bratislava -> Europe/Prague
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 31
-// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Bratislava[]  = "Europe/Bratislava";
 
 const AtcZoneInfo kAtcZoneEurope_Bratislava  = {
   kAtcZoneNameEurope_Bratislava /*name*/,
-  0xda493bed /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xda493bed /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Prague /*eras*/,
-  &kAtcZoneEurope_Prague /*targetInfo*/,
+  &kAtcZoneEurope_Prague /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Busingen -> Europe/Zurich
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Busingen[]  = "Europe/Busingen";
 
 const AtcZoneInfo kAtcZoneEurope_Busingen  = {
   kAtcZoneNameEurope_Busingen /*name*/,
-  0xc06d2cdf /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xc06d2cdf /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Zurich /*eras*/,
-  &kAtcZoneEurope_Zurich /*targetInfo*/,
+  &kAtcZoneEurope_Zurich /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Copenhagen -> Europe/Berlin
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 31
-// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Copenhagen[]  = "Europe/Copenhagen";
 
 const AtcZoneInfo kAtcZoneEurope_Copenhagen  = {
   kAtcZoneNameEurope_Copenhagen /*name*/,
-  0xe0ed30bc /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xe0ed30bc /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
-  &kAtcZoneEurope_Berlin /*targetInfo*/,
+  &kAtcZoneEurope_Berlin /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Guernsey -> Europe/London
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Guernsey[]  = "Europe/Guernsey";
 
 const AtcZoneInfo kAtcZoneEurope_Guernsey  = {
   kAtcZoneNameEurope_Guernsey /*name*/,
-  0x3db12c16 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x3db12c16 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
-  &kAtcZoneEurope_London /*targetInfo*/,
+  &kAtcZoneEurope_London /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Isle_of_Man -> Europe/London
-// Strings (bytes): 19 (originally 19)
-// Memory (8-bit): 32
-// Memory (32-bit): 43
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Isle_of_Man[]  = "Europe/Isle_of_Man";
 
 const AtcZoneInfo kAtcZoneEurope_Isle_of_Man  = {
   kAtcZoneNameEurope_Isle_of_Man /*name*/,
-  0xeaf84580 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xeaf84580 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
-  &kAtcZoneEurope_London /*targetInfo*/,
+  &kAtcZoneEurope_London /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Jersey -> Europe/London
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Jersey[]  = "Europe/Jersey";
 
 const AtcZoneInfo kAtcZoneEurope_Jersey  = {
   kAtcZoneNameEurope_Jersey /*name*/,
-  0x570dae76 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x570dae76 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
-  &kAtcZoneEurope_London /*targetInfo*/,
+  &kAtcZoneEurope_London /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Kiev -> Europe/Kyiv
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Kiev[]  = "Europe/Kiev";
 
 const AtcZoneInfo kAtcZoneEurope_Kiev  = {
   kAtcZoneNameEurope_Kiev /*name*/,
-  0xa2c19eb3 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xa2c19eb3 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Kyiv /*eras*/,
-  &kAtcZoneEurope_Kyiv /*targetInfo*/,
+  &kAtcZoneEurope_Kyiv /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Ljubljana -> Europe/Belgrade
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Ljubljana[]  = "Europe/Ljubljana";
 
 const AtcZoneInfo kAtcZoneEurope_Ljubljana  = {
   kAtcZoneNameEurope_Ljubljana /*name*/,
-  0xbd98cdb7 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xbd98cdb7 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
-  &kAtcZoneEurope_Belgrade /*targetInfo*/,
+  &kAtcZoneEurope_Belgrade /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Luxembourg -> Europe/Brussels
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 31
-// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Luxembourg[]  = "Europe/Luxembourg";
 
 const AtcZoneInfo kAtcZoneEurope_Luxembourg  = {
   kAtcZoneNameEurope_Luxembourg /*name*/,
-  0x1f8bc6ce /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x1f8bc6ce /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Brussels /*eras*/,
-  &kAtcZoneEurope_Brussels /*targetInfo*/,
+  &kAtcZoneEurope_Brussels /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Mariehamn -> Europe/Helsinki
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Mariehamn[]  = "Europe/Mariehamn";
 
 const AtcZoneInfo kAtcZoneEurope_Mariehamn  = {
   kAtcZoneNameEurope_Mariehamn /*name*/,
-  0x0caa6496 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x0caa6496 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Helsinki /*eras*/,
-  &kAtcZoneEurope_Helsinki /*targetInfo*/,
+  &kAtcZoneEurope_Helsinki /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Monaco -> Europe/Paris
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Monaco[]  = "Europe/Monaco";
 
 const AtcZoneInfo kAtcZoneEurope_Monaco  = {
   kAtcZoneNameEurope_Monaco /*name*/,
-  0x5ebf9f01 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x5ebf9f01 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Paris /*eras*/,
-  &kAtcZoneEurope_Paris /*targetInfo*/,
+  &kAtcZoneEurope_Paris /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Nicosia -> Asia/Nicosia
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Nicosia[]  = "Europe/Nicosia";
 
 const AtcZoneInfo kAtcZoneEurope_Nicosia  = {
   kAtcZoneNameEurope_Nicosia /*name*/,
-  0x74efab8a /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x74efab8a /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Nicosia /*eras*/,
-  &kAtcZoneAsia_Nicosia /*targetInfo*/,
+  &kAtcZoneAsia_Nicosia /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Oslo -> Europe/Berlin
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Oslo[]  = "Europe/Oslo";
 
 const AtcZoneInfo kAtcZoneEurope_Oslo  = {
   kAtcZoneNameEurope_Oslo /*name*/,
-  0xa2c3fba1 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xa2c3fba1 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
-  &kAtcZoneEurope_Berlin /*targetInfo*/,
+  &kAtcZoneEurope_Berlin /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Podgorica -> Europe/Belgrade
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Podgorica[]  = "Europe/Podgorica";
 
 const AtcZoneInfo kAtcZoneEurope_Podgorica  = {
   kAtcZoneNameEurope_Podgorica /*name*/,
-  0x1c1a499c /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x1c1a499c /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
-  &kAtcZoneEurope_Belgrade /*targetInfo*/,
+  &kAtcZoneEurope_Belgrade /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/San_Marino -> Europe/Rome
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 31
-// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_San_Marino[]  = "Europe/San_Marino";
 
 const AtcZoneInfo kAtcZoneEurope_San_Marino  = {
   kAtcZoneNameEurope_San_Marino /*name*/,
-  0xcef7724b /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xcef7724b /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Rome /*eras*/,
-  &kAtcZoneEurope_Rome /*targetInfo*/,
+  &kAtcZoneEurope_Rome /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Sarajevo -> Europe/Belgrade
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Sarajevo[]  = "Europe/Sarajevo";
 
 const AtcZoneInfo kAtcZoneEurope_Sarajevo  = {
   kAtcZoneNameEurope_Sarajevo /*name*/,
-  0x6a576c3f /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x6a576c3f /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
-  &kAtcZoneEurope_Belgrade /*targetInfo*/,
+  &kAtcZoneEurope_Belgrade /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Skopje -> Europe/Belgrade
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Skopje[]  = "Europe/Skopje";
 
 const AtcZoneInfo kAtcZoneEurope_Skopje  = {
   kAtcZoneNameEurope_Skopje /*name*/,
-  0x6c76fdd0 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x6c76fdd0 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
-  &kAtcZoneEurope_Belgrade /*targetInfo*/,
+  &kAtcZoneEurope_Belgrade /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Stockholm -> Europe/Berlin
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Stockholm[]  = "Europe/Stockholm";
 
 const AtcZoneInfo kAtcZoneEurope_Stockholm  = {
   kAtcZoneNameEurope_Stockholm /*name*/,
-  0x5bf6fbb8 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x5bf6fbb8 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
-  &kAtcZoneEurope_Berlin /*targetInfo*/,
+  &kAtcZoneEurope_Berlin /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Tiraspol -> Europe/Chisinau
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Tiraspol[]  = "Europe/Tiraspol";
 
 const AtcZoneInfo kAtcZoneEurope_Tiraspol  = {
   kAtcZoneNameEurope_Tiraspol /*name*/,
-  0xbe704472 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xbe704472 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Chisinau /*eras*/,
-  &kAtcZoneEurope_Chisinau /*targetInfo*/,
+  &kAtcZoneEurope_Chisinau /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Uzhgorod -> Europe/Kyiv
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Uzhgorod[]  = "Europe/Uzhgorod";
 
 const AtcZoneInfo kAtcZoneEurope_Uzhgorod  = {
   kAtcZoneNameEurope_Uzhgorod /*name*/,
-  0xb066f5d6 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xb066f5d6 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Kyiv /*eras*/,
-  &kAtcZoneEurope_Kyiv /*targetInfo*/,
+  &kAtcZoneEurope_Kyiv /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Vaduz -> Europe/Zurich
-// Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 26
-// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Vaduz[]  = "Europe/Vaduz";
 
 const AtcZoneInfo kAtcZoneEurope_Vaduz  = {
   kAtcZoneNameEurope_Vaduz /*name*/,
-  0xfbb81bae /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xfbb81bae /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Zurich /*eras*/,
-  &kAtcZoneEurope_Zurich /*targetInfo*/,
+  &kAtcZoneEurope_Zurich /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Vatican -> Europe/Rome
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Vatican[]  = "Europe/Vatican";
 
 const AtcZoneInfo kAtcZoneEurope_Vatican  = {
   kAtcZoneNameEurope_Vatican /*name*/,
-  0xcb485dca /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xcb485dca /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Rome /*eras*/,
-  &kAtcZoneEurope_Rome /*targetInfo*/,
+  &kAtcZoneEurope_Rome /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Zagreb -> Europe/Belgrade
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Zagreb[]  = "Europe/Zagreb";
 
 const AtcZoneInfo kAtcZoneEurope_Zagreb  = {
   kAtcZoneNameEurope_Zagreb /*name*/,
-  0x7c11c9ff /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x7c11c9ff /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
-  &kAtcZoneEurope_Belgrade /*targetInfo*/,
+  &kAtcZoneEurope_Belgrade /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Europe/Zaporozhye -> Europe/Kyiv
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 31
-// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameEurope_Zaporozhye[]  = "Europe/Zaporozhye";
 
 const AtcZoneInfo kAtcZoneEurope_Zaporozhye  = {
   kAtcZoneNameEurope_Zaporozhye /*name*/,
-  0xeab9767f /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xeab9767f /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Kyiv /*eras*/,
-  &kAtcZoneEurope_Kyiv /*targetInfo*/,
+  &kAtcZoneEurope_Kyiv /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: GB -> Europe/London
-// Strings (bytes): 3 (originally 3)
-// Memory (8-bit): 16
-// Memory (32-bit): 27
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameGB[]  = "GB";
 
 const AtcZoneInfo kAtcZoneGB  = {
   kAtcZoneNameGB /*name*/,
-  0x005973ae /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x005973ae /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
-  &kAtcZoneEurope_London /*targetInfo*/,
+  &kAtcZoneEurope_London /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: GB-Eire -> Europe/London
-// Strings (bytes): 8 (originally 8)
-// Memory (8-bit): 21
-// Memory (32-bit): 32
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameGB_Eire[]  = "GB-Eire";
 
 const AtcZoneInfo kAtcZoneGB_Eire  = {
   kAtcZoneNameGB_Eire /*name*/,
-  0xfa70e300 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xfa70e300 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
-  &kAtcZoneEurope_London /*targetInfo*/,
+  &kAtcZoneEurope_London /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: GMT -> Etc/GMT
-// Strings (bytes): 4 (originally 4)
-// Memory (8-bit): 17
-// Memory (32-bit): 28
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameGMT[]  = "GMT";
 
 const AtcZoneInfo kAtcZoneGMT  = {
   kAtcZoneNameGMT /*name*/,
-  0x0b87eb2d /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x0b87eb2d /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcZoneEtc_GMT /*targetInfo*/,
+  &kAtcZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: GMT+0 -> Etc/GMT
-// Strings (bytes): 6 (originally 6)
-// Memory (8-bit): 19
-// Memory (32-bit): 30
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameGMT_PLUS_0[]  = "GMT+0";
 
 const AtcZoneInfo kAtcZoneGMT_PLUS_0  = {
   kAtcZoneNameGMT_PLUS_0 /*name*/,
-  0x0d2f7028 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x0d2f7028 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcZoneEtc_GMT /*targetInfo*/,
+  &kAtcZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: GMT-0 -> Etc/GMT
-// Strings (bytes): 6 (originally 6)
-// Memory (8-bit): 19
-// Memory (32-bit): 30
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameGMT_0[]  = "GMT-0";
 
 const AtcZoneInfo kAtcZoneGMT_0  = {
   kAtcZoneNameGMT_0 /*name*/,
-  0x0d2f706a /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x0d2f706a /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcZoneEtc_GMT /*targetInfo*/,
+  &kAtcZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: GMT0 -> Etc/GMT
-// Strings (bytes): 5 (originally 5)
-// Memory (8-bit): 18
-// Memory (32-bit): 29
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameGMT0[]  = "GMT0";
 
 const AtcZoneInfo kAtcZoneGMT0  = {
   kAtcZoneNameGMT0 /*name*/,
-  0x7c8550fd /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x7c8550fd /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcZoneEtc_GMT /*targetInfo*/,
+  &kAtcZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Greenwich -> Etc/GMT
-// Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 23
-// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameGreenwich[]  = "Greenwich";
 
 const AtcZoneInfo kAtcZoneGreenwich  = {
   kAtcZoneNameGreenwich /*name*/,
-  0xc84d4221 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xc84d4221 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcZoneEtc_GMT /*targetInfo*/,
+  &kAtcZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Hongkong -> Asia/Hong_Kong
-// Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 22
-// Memory (32-bit): 33
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameHongkong[]  = "Hongkong";
 
 const AtcZoneInfo kAtcZoneHongkong  = {
   kAtcZoneNameHongkong /*name*/,
-  0x56d36560 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x56d36560 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Hong_Kong /*eras*/,
-  &kAtcZoneAsia_Hong_Kong /*targetInfo*/,
+  &kAtcZoneAsia_Hong_Kong /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Iceland -> Africa/Abidjan
-// Strings (bytes): 8 (originally 8)
-// Memory (8-bit): 21
-// Memory (32-bit): 32
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIceland[]  = "Iceland";
 
 const AtcZoneInfo kAtcZoneIceland  = {
   kAtcZoneNameIceland /*name*/,
-  0xe56a35b5 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xe56a35b5 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcZoneAfrica_Abidjan /*targetInfo*/,
+  &kAtcZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Indian/Antananarivo -> Africa/Nairobi
-// Strings (bytes): 20 (originally 20)
-// Memory (8-bit): 33
-// Memory (32-bit): 44
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIndian_Antananarivo[]  = "Indian/Antananarivo";
 
 const AtcZoneInfo kAtcZoneIndian_Antananarivo  = {
   kAtcZoneNameIndian_Antananarivo /*name*/,
-  0x9ebf5289 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x9ebf5289 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
+  &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Indian/Christmas -> Asia/Bangkok
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIndian_Christmas[]  = "Indian/Christmas";
 
 const AtcZoneInfo kAtcZoneIndian_Christmas  = {
   kAtcZoneNameIndian_Christmas /*name*/,
-  0x68c207d5 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x68c207d5 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Bangkok /*eras*/,
-  &kAtcZoneAsia_Bangkok /*targetInfo*/,
+  &kAtcZoneAsia_Bangkok /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Indian/Cocos -> Asia/Yangon
-// Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 26
-// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIndian_Cocos[]  = "Indian/Cocos";
 
 const AtcZoneInfo kAtcZoneIndian_Cocos  = {
   kAtcZoneNameIndian_Cocos /*name*/,
-  0x021e86de /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x021e86de /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Yangon /*eras*/,
-  &kAtcZoneAsia_Yangon /*targetInfo*/,
+  &kAtcZoneAsia_Yangon /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Indian/Comoro -> Africa/Nairobi
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIndian_Comoro[]  = "Indian/Comoro";
 
 const AtcZoneInfo kAtcZoneIndian_Comoro  = {
   kAtcZoneNameIndian_Comoro /*name*/,
-  0x45f4deb6 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x45f4deb6 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
+  &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Indian/Kerguelen -> Indian/Maldives
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIndian_Kerguelen[]  = "Indian/Kerguelen";
 
 const AtcZoneInfo kAtcZoneIndian_Kerguelen  = {
   kAtcZoneNameIndian_Kerguelen /*name*/,
-  0x4351b389 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x4351b389 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraIndian_Maldives /*eras*/,
-  &kAtcZoneIndian_Maldives /*targetInfo*/,
+  &kAtcZoneIndian_Maldives /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Indian/Mahe -> Asia/Dubai
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIndian_Mahe[]  = "Indian/Mahe";
 
 const AtcZoneInfo kAtcZoneIndian_Mahe  = {
   kAtcZoneNameIndian_Mahe /*name*/,
-  0x45e725e2 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x45e725e2 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Dubai /*eras*/,
-  &kAtcZoneAsia_Dubai /*targetInfo*/,
+  &kAtcZoneAsia_Dubai /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Indian/Mayotte -> Africa/Nairobi
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIndian_Mayotte[]  = "Indian/Mayotte";
 
 const AtcZoneInfo kAtcZoneIndian_Mayotte  = {
   kAtcZoneNameIndian_Mayotte /*name*/,
-  0xe6880bca /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xe6880bca /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcZoneAfrica_Nairobi /*targetInfo*/,
+  &kAtcZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Indian/Reunion -> Asia/Dubai
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIndian_Reunion[]  = "Indian/Reunion";
 
 const AtcZoneInfo kAtcZoneIndian_Reunion  = {
   kAtcZoneNameIndian_Reunion /*name*/,
-  0x7076c047 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x7076c047 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Dubai /*eras*/,
-  &kAtcZoneAsia_Dubai /*targetInfo*/,
+  &kAtcZoneAsia_Dubai /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Iran -> Asia/Tehran
-// Strings (bytes): 5 (originally 5)
-// Memory (8-bit): 18
-// Memory (32-bit): 29
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIran[]  = "Iran";
 
 const AtcZoneInfo kAtcZoneIran  = {
   kAtcZoneNameIran /*name*/,
-  0x7c87090f /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x7c87090f /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Tehran /*eras*/,
-  &kAtcZoneAsia_Tehran /*targetInfo*/,
+  &kAtcZoneAsia_Tehran /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Israel -> Asia/Jerusalem
-// Strings (bytes): 7 (originally 7)
-// Memory (8-bit): 20
-// Memory (32-bit): 31
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameIsrael[]  = "Israel";
 
 const AtcZoneInfo kAtcZoneIsrael  = {
   kAtcZoneNameIsrael /*name*/,
-  0xba88c9e5 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xba88c9e5 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Jerusalem /*eras*/,
-  &kAtcZoneAsia_Jerusalem /*targetInfo*/,
+  &kAtcZoneAsia_Jerusalem /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Jamaica -> America/Jamaica
-// Strings (bytes): 8 (originally 8)
-// Memory (8-bit): 21
-// Memory (32-bit): 32
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameJamaica[]  = "Jamaica";
 
 const AtcZoneInfo kAtcZoneJamaica  = {
   kAtcZoneNameJamaica /*name*/,
-  0x2e44fdab /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x2e44fdab /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Jamaica /*eras*/,
-  &kAtcZoneAmerica_Jamaica /*targetInfo*/,
+  &kAtcZoneAmerica_Jamaica /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Japan -> Asia/Tokyo
-// Strings (bytes): 6 (originally 6)
-// Memory (8-bit): 19
-// Memory (32-bit): 30
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameJapan[]  = "Japan";
 
 const AtcZoneInfo kAtcZoneJapan  = {
   kAtcZoneNameJapan /*name*/,
-  0x0d712f8f /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x0d712f8f /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Tokyo /*eras*/,
-  &kAtcZoneAsia_Tokyo /*targetInfo*/,
+  &kAtcZoneAsia_Tokyo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Kwajalein -> Pacific/Kwajalein
-// Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 23
-// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameKwajalein[]  = "Kwajalein";
 
 const AtcZoneInfo kAtcZoneKwajalein  = {
   kAtcZoneNameKwajalein /*name*/,
-  0x0e57afbb /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x0e57afbb /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Kwajalein /*eras*/,
-  &kAtcZonePacific_Kwajalein /*targetInfo*/,
+  &kAtcZonePacific_Kwajalein /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Libya -> Africa/Tripoli
-// Strings (bytes): 6 (originally 6)
-// Memory (8-bit): 19
-// Memory (32-bit): 30
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameLibya[]  = "Libya";
 
 const AtcZoneInfo kAtcZoneLibya  = {
   kAtcZoneNameLibya /*name*/,
-  0x0d998b16 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  3 /*numEras*/,
+  0x0d998b16 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  3 /*num_eras*/,
   kAtcZoneEraAfrica_Tripoli /*eras*/,
-  &kAtcZoneAfrica_Tripoli /*targetInfo*/,
+  &kAtcZoneAfrica_Tripoli /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Mexico/BajaNorte -> America/Tijuana
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameMexico_BajaNorte[]  = "Mexico/BajaNorte";
 
 const AtcZoneInfo kAtcZoneMexico_BajaNorte  = {
   kAtcZoneNameMexico_BajaNorte /*name*/,
-  0xfcf7150f /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  4 /*numEras*/,
+  0xfcf7150f /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  4 /*num_eras*/,
   kAtcZoneEraAmerica_Tijuana /*eras*/,
-  &kAtcZoneAmerica_Tijuana /*targetInfo*/,
+  &kAtcZoneAmerica_Tijuana /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Mexico/BajaSur -> America/Mazatlan
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameMexico_BajaSur[]  = "Mexico/BajaSur";
 
 const AtcZoneInfo kAtcZoneMexico_BajaSur  = {
   kAtcZoneNameMexico_BajaSur /*name*/,
-  0x08ee3641 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x08ee3641 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Mazatlan /*eras*/,
-  &kAtcZoneAmerica_Mazatlan /*targetInfo*/,
+  &kAtcZoneAmerica_Mazatlan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Mexico/General -> America/Mexico_City
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameMexico_General[]  = "Mexico/General";
 
 const AtcZoneInfo kAtcZoneMexico_General  = {
   kAtcZoneNameMexico_General /*name*/,
-  0x93711d57 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  3 /*numEras*/,
+  0x93711d57 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Mexico_City /*eras*/,
-  &kAtcZoneAmerica_Mexico_City /*targetInfo*/,
+  &kAtcZoneAmerica_Mexico_City /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: NZ -> Pacific/Auckland
-// Strings (bytes): 3 (originally 3)
-// Memory (8-bit): 16
-// Memory (32-bit): 27
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameNZ[]  = "NZ";
 
 const AtcZoneInfo kAtcZoneNZ  = {
   kAtcZoneNameNZ /*name*/,
-  0x005974ad /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x005974ad /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Auckland /*eras*/,
-  &kAtcZonePacific_Auckland /*targetInfo*/,
+  &kAtcZonePacific_Auckland /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: NZ-CHAT -> Pacific/Chatham
-// Strings (bytes): 8 (originally 8)
-// Memory (8-bit): 21
-// Memory (32-bit): 32
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameNZ_CHAT[]  = "NZ-CHAT";
 
 const AtcZoneInfo kAtcZoneNZ_CHAT  = {
   kAtcZoneNameNZ_CHAT /*name*/,
-  0x4d42afda /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x4d42afda /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Chatham /*eras*/,
-  &kAtcZonePacific_Chatham /*targetInfo*/,
+  &kAtcZonePacific_Chatham /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Navajo -> America/Denver
-// Strings (bytes): 7 (originally 7)
-// Memory (8-bit): 20
-// Memory (32-bit): 31
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameNavajo[]  = "Navajo";
 
 const AtcZoneInfo kAtcZoneNavajo  = {
   kAtcZoneNameNavajo /*name*/,
-  0xc4ef0e24 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xc4ef0e24 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Denver /*eras*/,
-  &kAtcZoneAmerica_Denver /*targetInfo*/,
+  &kAtcZoneAmerica_Denver /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: PRC -> Asia/Shanghai
-// Strings (bytes): 4 (originally 4)
-// Memory (8-bit): 17
-// Memory (32-bit): 28
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePRC[]  = "PRC";
 
 const AtcZoneInfo kAtcZonePRC  = {
   kAtcZoneNamePRC /*name*/,
-  0x0b88120a /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x0b88120a /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Shanghai /*eras*/,
-  &kAtcZoneAsia_Shanghai /*targetInfo*/,
+  &kAtcZoneAsia_Shanghai /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Pacific/Chuuk -> Pacific/Port_Moresby
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Chuuk[]  = "Pacific/Chuuk";
 
 const AtcZoneInfo kAtcZonePacific_Chuuk  = {
   kAtcZoneNamePacific_Chuuk /*name*/,
-  0x8a090b23 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x8a090b23 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Port_Moresby /*eras*/,
-  &kAtcZonePacific_Port_Moresby /*targetInfo*/,
+  &kAtcZonePacific_Port_Moresby /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Pacific/Enderbury -> Pacific/Kanton
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 31
-// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Enderbury[]  = "Pacific/Enderbury";
 
 const AtcZoneInfo kAtcZonePacific_Enderbury  = {
   kAtcZoneNamePacific_Enderbury /*name*/,
-  0x61599a93 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x61599a93 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Kanton /*eras*/,
-  &kAtcZonePacific_Kanton /*targetInfo*/,
+  &kAtcZonePacific_Kanton /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Pacific/Funafuti -> Pacific/Tarawa
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Funafuti[]  = "Pacific/Funafuti";
 
 const AtcZoneInfo kAtcZonePacific_Funafuti  = {
   kAtcZoneNamePacific_Funafuti /*name*/,
-  0xdb402d65 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xdb402d65 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Tarawa /*eras*/,
-  &kAtcZonePacific_Tarawa /*targetInfo*/,
+  &kAtcZonePacific_Tarawa /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Pacific/Johnston -> Pacific/Honolulu
-// Strings (bytes): 17 (originally 17)
-// Memory (8-bit): 30
-// Memory (32-bit): 41
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Johnston[]  = "Pacific/Johnston";
 
 const AtcZoneInfo kAtcZonePacific_Johnston  = {
   kAtcZoneNamePacific_Johnston /*name*/,
-  0xb15d7b36 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xb15d7b36 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Honolulu /*eras*/,
-  &kAtcZonePacific_Honolulu /*targetInfo*/,
+  &kAtcZonePacific_Honolulu /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Pacific/Majuro -> Pacific/Tarawa
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Majuro[]  = "Pacific/Majuro";
 
 const AtcZoneInfo kAtcZonePacific_Majuro  = {
   kAtcZoneNamePacific_Majuro /*name*/,
-  0xe1f95371 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xe1f95371 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Tarawa /*eras*/,
-  &kAtcZonePacific_Tarawa /*targetInfo*/,
+  &kAtcZonePacific_Tarawa /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Pacific/Midway -> Pacific/Pago_Pago
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Midway[]  = "Pacific/Midway";
 
 const AtcZoneInfo kAtcZonePacific_Midway  = {
   kAtcZoneNamePacific_Midway /*name*/,
-  0xe286d38e /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xe286d38e /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Pago_Pago /*eras*/,
-  &kAtcZonePacific_Pago_Pago /*targetInfo*/,
+  &kAtcZonePacific_Pago_Pago /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Pacific/Pohnpei -> Pacific/Guadalcanal
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Pohnpei[]  = "Pacific/Pohnpei";
 
 const AtcZoneInfo kAtcZonePacific_Pohnpei  = {
   kAtcZoneNamePacific_Pohnpei /*name*/,
-  0x28929f96 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x28929f96 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Guadalcanal /*eras*/,
-  &kAtcZonePacific_Guadalcanal /*targetInfo*/,
+  &kAtcZonePacific_Guadalcanal /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Pacific/Ponape -> Pacific/Guadalcanal
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Ponape[]  = "Pacific/Ponape";
 
 const AtcZoneInfo kAtcZonePacific_Ponape  = {
   kAtcZoneNamePacific_Ponape /*name*/,
-  0xe9f80086 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xe9f80086 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Guadalcanal /*eras*/,
-  &kAtcZonePacific_Guadalcanal /*targetInfo*/,
+  &kAtcZonePacific_Guadalcanal /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Pacific/Saipan -> Pacific/Guam
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Saipan[]  = "Pacific/Saipan";
 
 const AtcZoneInfo kAtcZonePacific_Saipan  = {
   kAtcZoneNamePacific_Saipan /*name*/,
-  0xeff7a35f /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  2 /*numEras*/,
+  0xeff7a35f /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  2 /*num_eras*/,
   kAtcZoneEraPacific_Guam /*eras*/,
-  &kAtcZonePacific_Guam /*targetInfo*/,
+  &kAtcZonePacific_Guam /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Pacific/Samoa -> Pacific/Pago_Pago
-// Strings (bytes): 14 (originally 14)
-// Memory (8-bit): 27
-// Memory (32-bit): 38
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Samoa[]  = "Pacific/Samoa";
 
 const AtcZoneInfo kAtcZonePacific_Samoa  = {
   kAtcZoneNamePacific_Samoa /*name*/,
-  0x8b2699b4 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x8b2699b4 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Pago_Pago /*eras*/,
-  &kAtcZonePacific_Pago_Pago /*targetInfo*/,
+  &kAtcZonePacific_Pago_Pago /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Pacific/Truk -> Pacific/Port_Moresby
-// Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 26
-// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Truk[]  = "Pacific/Truk";
 
 const AtcZoneInfo kAtcZonePacific_Truk  = {
   kAtcZoneNamePacific_Truk /*name*/,
-  0x234010a9 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x234010a9 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Port_Moresby /*eras*/,
-  &kAtcZonePacific_Port_Moresby /*targetInfo*/,
+  &kAtcZonePacific_Port_Moresby /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Pacific/Wake -> Pacific/Tarawa
-// Strings (bytes): 13 (originally 13)
-// Memory (8-bit): 26
-// Memory (32-bit): 37
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Wake[]  = "Pacific/Wake";
 
 const AtcZoneInfo kAtcZonePacific_Wake  = {
   kAtcZoneNamePacific_Wake /*name*/,
-  0x23416c2b /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x23416c2b /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Tarawa /*eras*/,
-  &kAtcZonePacific_Tarawa /*targetInfo*/,
+  &kAtcZonePacific_Tarawa /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Pacific/Wallis -> Pacific/Tarawa
-// Strings (bytes): 15 (originally 15)
-// Memory (8-bit): 28
-// Memory (32-bit): 39
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Wallis[]  = "Pacific/Wallis";
 
 const AtcZoneInfo kAtcZonePacific_Wallis  = {
   kAtcZoneNamePacific_Wallis /*name*/,
-  0xf94ddb0f /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xf94ddb0f /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Tarawa /*eras*/,
-  &kAtcZonePacific_Tarawa /*targetInfo*/,
+  &kAtcZonePacific_Tarawa /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Pacific/Yap -> Pacific/Port_Moresby
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePacific_Yap[]  = "Pacific/Yap";
 
 const AtcZoneInfo kAtcZonePacific_Yap  = {
   kAtcZoneNamePacific_Yap /*name*/,
-  0xbb40138d /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xbb40138d /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Port_Moresby /*eras*/,
-  &kAtcZonePacific_Port_Moresby /*targetInfo*/,
+  &kAtcZonePacific_Port_Moresby /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Poland -> Europe/Warsaw
-// Strings (bytes): 7 (originally 7)
-// Memory (8-bit): 20
-// Memory (32-bit): 31
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePoland[]  = "Poland";
 
 const AtcZoneInfo kAtcZonePoland  = {
   kAtcZoneNamePoland /*name*/,
-  0xca913b23 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xca913b23 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Warsaw /*eras*/,
-  &kAtcZoneEurope_Warsaw /*targetInfo*/,
+  &kAtcZoneEurope_Warsaw /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Portugal -> Europe/Lisbon
-// Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 22
-// Memory (32-bit): 33
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNamePortugal[]  = "Portugal";
 
 const AtcZoneInfo kAtcZonePortugal  = {
   kAtcZoneNamePortugal /*name*/,
-  0xc3274593 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xc3274593 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEurope_Lisbon /*eras*/,
-  &kAtcZoneEurope_Lisbon /*targetInfo*/,
+  &kAtcZoneEurope_Lisbon /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: ROC -> Asia/Taipei
-// Strings (bytes): 4 (originally 4)
-// Memory (8-bit): 17
-// Memory (32-bit): 28
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameROC[]  = "ROC";
 
 const AtcZoneInfo kAtcZoneROC  = {
   kAtcZoneNameROC /*name*/,
-  0x0b881a29 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x0b881a29 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Taipei /*eras*/,
-  &kAtcZoneAsia_Taipei /*targetInfo*/,
+  &kAtcZoneAsia_Taipei /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: ROK -> Asia/Seoul
-// Strings (bytes): 4 (originally 4)
-// Memory (8-bit): 17
-// Memory (32-bit): 28
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameROK[]  = "ROK";
 
 const AtcZoneInfo kAtcZoneROK  = {
   kAtcZoneNameROK /*name*/,
-  0x0b881a31 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x0b881a31 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Seoul /*eras*/,
-  &kAtcZoneAsia_Seoul /*targetInfo*/,
+  &kAtcZoneAsia_Seoul /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Singapore -> Asia/Singapore
-// Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 23
-// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameSingapore[]  = "Singapore";
 
 const AtcZoneInfo kAtcZoneSingapore  = {
   kAtcZoneNameSingapore /*name*/,
-  0xa8598c8d /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xa8598c8d /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAsia_Singapore /*eras*/,
-  &kAtcZoneAsia_Singapore /*targetInfo*/,
+  &kAtcZoneAsia_Singapore /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Turkey -> Europe/Istanbul
-// Strings (bytes): 7 (originally 7)
-// Memory (8-bit): 20
-// Memory (32-bit): 31
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameTurkey[]  = "Turkey";
 
 const AtcZoneInfo kAtcZoneTurkey  = {
   kAtcZoneNameTurkey /*name*/,
-  0xd455e469 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  9 /*numEras*/,
+  0xd455e469 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  9 /*num_eras*/,
   kAtcZoneEraEurope_Istanbul /*eras*/,
-  &kAtcZoneEurope_Istanbul /*targetInfo*/,
+  &kAtcZoneEurope_Istanbul /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: UCT -> Etc/UTC
-// Strings (bytes): 4 (originally 4)
-// Memory (8-bit): 17
-// Memory (32-bit): 28
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUCT[]  = "UCT";
 
 const AtcZoneInfo kAtcZoneUCT  = {
   kAtcZoneNameUCT /*name*/,
-  0x0b882571 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x0b882571 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
-  &kAtcZoneEtc_UTC /*targetInfo*/,
+  &kAtcZoneEtc_UTC /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: US/Alaska -> America/Anchorage
-// Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 23
-// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Alaska[]  = "US/Alaska";
 
 const AtcZoneInfo kAtcZoneUS_Alaska  = {
   kAtcZoneNameUS_Alaska /*name*/,
-  0xfa300bc9 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xfa300bc9 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Anchorage /*eras*/,
-  &kAtcZoneAmerica_Anchorage /*targetInfo*/,
+  &kAtcZoneAmerica_Anchorage /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: US/Aleutian -> America/Adak
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Aleutian[]  = "US/Aleutian";
 
 const AtcZoneInfo kAtcZoneUS_Aleutian  = {
   kAtcZoneNameUS_Aleutian /*name*/,
-  0x4fe013ef /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x4fe013ef /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Adak /*eras*/,
-  &kAtcZoneAmerica_Adak /*targetInfo*/,
+  &kAtcZoneAmerica_Adak /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: US/Arizona -> America/Phoenix
-// Strings (bytes): 11 (originally 11)
-// Memory (8-bit): 24
-// Memory (32-bit): 35
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Arizona[]  = "US/Arizona";
 
 const AtcZoneInfo kAtcZoneUS_Arizona  = {
   kAtcZoneNameUS_Arizona /*name*/,
-  0x4ec52670 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x4ec52670 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Phoenix /*eras*/,
-  &kAtcZoneAmerica_Phoenix /*targetInfo*/,
+  &kAtcZoneAmerica_Phoenix /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: US/Central -> America/Chicago
-// Strings (bytes): 11 (originally 11)
-// Memory (8-bit): 24
-// Memory (32-bit): 35
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Central[]  = "US/Central";
 
 const AtcZoneInfo kAtcZoneUS_Central  = {
   kAtcZoneNameUS_Central /*name*/,
-  0xcabdcb25 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xcabdcb25 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Chicago /*eras*/,
-  &kAtcZoneAmerica_Chicago /*targetInfo*/,
+  &kAtcZoneAmerica_Chicago /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: US/East-Indiana -> America/Indiana/Indianapolis
-// Strings (bytes): 16 (originally 16)
-// Memory (8-bit): 29
-// Memory (32-bit): 40
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_East_Indiana[]  = "US/East-Indiana";
 
 const AtcZoneInfo kAtcZoneUS_East_Indiana  = {
   kAtcZoneNameUS_East_Indiana /*name*/,
-  0x6dcf558a /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  2 /*numEras*/,
+  0x6dcf558a /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Indianapolis /*eras*/,
-  &kAtcZoneAmerica_Indiana_Indianapolis /*targetInfo*/,
+  &kAtcZoneAmerica_Indiana_Indianapolis /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: US/Eastern -> America/New_York
-// Strings (bytes): 11 (originally 11)
-// Memory (8-bit): 24
-// Memory (32-bit): 35
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Eastern[]  = "US/Eastern";
 
 const AtcZoneInfo kAtcZoneUS_Eastern  = {
   kAtcZoneNameUS_Eastern /*name*/,
-  0x5bb7e78e /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x5bb7e78e /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_New_York /*eras*/,
-  &kAtcZoneAmerica_New_York /*targetInfo*/,
+  &kAtcZoneAmerica_New_York /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: US/Hawaii -> Pacific/Honolulu
-// Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 23
-// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Hawaii[]  = "US/Hawaii";
 
 const AtcZoneInfo kAtcZoneUS_Hawaii  = {
   kAtcZoneNameUS_Hawaii /*name*/,
-  0x09c8de2f /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x09c8de2f /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Honolulu /*eras*/,
-  &kAtcZonePacific_Honolulu /*targetInfo*/,
+  &kAtcZonePacific_Honolulu /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: US/Indiana-Starke -> America/Indiana/Knox
-// Strings (bytes): 18 (originally 18)
-// Memory (8-bit): 31
-// Memory (32-bit): 42
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Indiana_Starke[]  = "US/Indiana-Starke";
 
 const AtcZoneInfo kAtcZoneUS_Indiana_Starke  = {
   kAtcZoneNameUS_Indiana_Starke /*name*/,
-  0x67977be7 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  2 /*numEras*/,
+  0x67977be7 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Knox /*eras*/,
-  &kAtcZoneAmerica_Indiana_Knox /*targetInfo*/,
+  &kAtcZoneAmerica_Indiana_Knox /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: US/Michigan -> America/Detroit
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Michigan[]  = "US/Michigan";
 
 const AtcZoneInfo kAtcZoneUS_Michigan  = {
   kAtcZoneNameUS_Michigan /*name*/,
-  0x766bb7bc /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x766bb7bc /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Detroit /*eras*/,
-  &kAtcZoneAmerica_Detroit /*targetInfo*/,
+  &kAtcZoneAmerica_Detroit /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: US/Mountain -> America/Denver
-// Strings (bytes): 12 (originally 12)
-// Memory (8-bit): 25
-// Memory (32-bit): 36
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Mountain[]  = "US/Mountain";
 
 const AtcZoneInfo kAtcZoneUS_Mountain  = {
   kAtcZoneNameUS_Mountain /*name*/,
-  0x6eb88247 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x6eb88247 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Denver /*eras*/,
-  &kAtcZoneAmerica_Denver /*targetInfo*/,
+  &kAtcZoneAmerica_Denver /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: US/Pacific -> America/Los_Angeles
-// Strings (bytes): 11 (originally 11)
-// Memory (8-bit): 24
-// Memory (32-bit): 35
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Pacific[]  = "US/Pacific";
 
 const AtcZoneInfo kAtcZoneUS_Pacific  = {
   kAtcZoneNameUS_Pacific /*name*/,
-  0xa950f6ab /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xa950f6ab /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraAmerica_Los_Angeles /*eras*/,
-  &kAtcZoneAmerica_Los_Angeles /*targetInfo*/,
+  &kAtcZoneAmerica_Los_Angeles /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: US/Samoa -> Pacific/Pago_Pago
-// Strings (bytes): 9 (originally 9)
-// Memory (8-bit): 22
-// Memory (32-bit): 33
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUS_Samoa[]  = "US/Samoa";
 
 const AtcZoneInfo kAtcZoneUS_Samoa  = {
   kAtcZoneNameUS_Samoa /*name*/,
-  0x566821cd /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x566821cd /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraPacific_Pago_Pago /*eras*/,
-  &kAtcZonePacific_Pago_Pago /*targetInfo*/,
+  &kAtcZonePacific_Pago_Pago /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: UTC -> Etc/UTC
-// Strings (bytes): 4 (originally 4)
-// Memory (8-bit): 17
-// Memory (32-bit): 28
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUTC[]  = "UTC";
 
 const AtcZoneInfo kAtcZoneUTC  = {
   kAtcZoneNameUTC /*name*/,
-  0x0b882791 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x0b882791 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
-  &kAtcZoneEtc_UTC /*targetInfo*/,
+  &kAtcZoneEtc_UTC /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Universal -> Etc/UTC
-// Strings (bytes): 10 (originally 10)
-// Memory (8-bit): 23
-// Memory (32-bit): 34
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameUniversal[]  = "Universal";
 
 const AtcZoneInfo kAtcZoneUniversal  = {
   kAtcZoneNameUniversal /*name*/,
-  0xd0ff523e /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0xd0ff523e /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
-  &kAtcZoneEtc_UTC /*targetInfo*/,
+  &kAtcZoneEtc_UTC /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: W-SU -> Europe/Moscow
-// Strings (bytes): 5 (originally 5)
-// Memory (8-bit): 18
-// Memory (32-bit): 29
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameW_SU[]  = "W-SU";
 
 const AtcZoneInfo kAtcZoneW_SU  = {
   kAtcZoneNameW_SU /*name*/,
-  0x7c8d8ef1 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  3 /*numEras*/,
+  0x7c8d8ef1 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  3 /*num_eras*/,
   kAtcZoneEraEurope_Moscow /*eras*/,
-  &kAtcZoneEurope_Moscow /*targetInfo*/,
+  &kAtcZoneEurope_Moscow /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
 // Link name: Zulu -> Etc/UTC
-// Strings (bytes): 5 (originally 5)
-// Memory (8-bit): 18
-// Memory (32-bit): 29
 //---------------------------------------------------------------------------
 
 static const char kAtcZoneNameZulu[]  = "Zulu";
 
 const AtcZoneInfo kAtcZoneZulu  = {
   kAtcZoneNameZulu /*name*/,
-  0x7c9069b5 /*zoneId*/,
-  &kAtcZoneContext /*zoneContext*/,
-  1 /*numEras*/,
+  0x7c9069b5 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
-  &kAtcZoneEtc_UTC /*targetInfo*/,
+  &kAtcZoneEtc_UTC /*target_info*/,
 };
 
 

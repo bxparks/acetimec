@@ -1,6 +1,57 @@
 # Changelog
 
 * Unreleased
+* 0.8.0 (2023-04-13, TZDB 2023c)
+    * Upgrade TZDB from 2023b to 2023c.
+        * https://mm.icann.org/pipermail/tz-announce/2023-March/000079.html
+            * "This release's code and data are identical to 2023a.  In other
+              words, this release reverts all changes made in 2023b other than
+              commentary, as that appears to be the best of a bad set of
+              short-notice choices for modeling this week's daylight saving
+              chaos in Lebanon."
+    * Add support for plain UTC timezone in `AtcTimeZone`.
+        * Create pre-defined `atc_time_zone_utc` instance.
+    * Move `AtcZonedExtra` factory functions to `AtcTimeZone`.
+        * Simplify initialization sequence of `AtcZoneProcessor` by channeling
+          all factory operations through `AtcTimeZone`.
+    * zonedbs
+        * Create `zonedbtesting` for unit tests, using a limited number of
+          zones, over only a limited [2000,10000] year range.
+        * Create `zonedball` using [1800,10000] which covers the entire range of
+          the TZDB database, for all zones.
+        * Restrict range of `zonedb` to [2000,10000] again, to reduce size of
+          database.
+    * High resolution zonedb
+        * Support one-second resolution for Zone.UNTIL and Rule.AT fields.
+            * Enables support all zones before ~1972.
+        * Support one-minute resolution for Zone.DSTOFF (i.e. Zone.RULES) and
+          Rule.SAVE fields.
+            * Handles a few zones around ~1930 whose DSTOFF is a 00:20 minutes,
+            instead of a multiple of 00:15 minutes.
+        * Extend year interval of `zonedb/` to `[1800,10000)`, which is
+          slightly larger than the raw TZDB year range of `[1844,2087]` (as of
+          TZDB 2022g).
+        * Increases flash consumption by roughly 100%, 40kB to 80kB on 32-bit
+          processors.
+        * The old format still available through `-D ATC_HIRES_ZONEDB=0`.
+        * Validation program `validate_against_libc/` shows that transitions
+          are identical to the C libc library for all zones, for all years
+          `[1800,2100)`.
+    * MemoryBenchmark
+        * Use my Arduino MemoryBenchmark infrastructure to extract flash and
+          static memory consumption of the AceTimeC library across various
+          microcontrollers.
+        * The library does not support `PROGMEM` so AVR and ESP8266 processors
+          consume excessive RAM.
+    * Always generate anchor rules in zonedb.
+        * Allows `zone_processor.c` to work over all years `[0,10000)`
+          even with truncated zonedb (e.g. `[2000,2100)`).
+        * Accuracy is guaranteed only for the requested interval (e.g.
+          `[2000,2100)`.
+        * But the code won't crash outside of that interval.
+        * Extend range of `from_year`, `to_year`, `until_year` to +/-32767.
+    * Zonedb Rule filtering
+        * Use simplified ZoneRule filtering from AceTimeTools.
 * 0.7.0 (2023-02-12, TZDB 2022g)
     * Links
         * Remove `kAtcLinkRegistry` and support for thin links.

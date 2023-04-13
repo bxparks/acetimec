@@ -18,11 +18,11 @@ extern "C" {
 #endif
 
 #include <stdint.h>
-#include "../zoneinfo/zone_info.h"
-#include "common.h"
 #include "transition.h" // kAtcAbbrevSize
-#include "time_zone.h"
-#include "local_date_time.h"
+
+// forward declarations
+typedef struct AtcTimeZone AtcTimeZone;
+typedef struct AtcLocalDateTime AtcLocalDateTime;
 
 /**
  * Values of the the AtcZonedExtra.type field. Should be identical to
@@ -43,19 +43,19 @@ typedef struct AtcZonedExtra {
   int8_t type;
 
   /** STD offset */
-  int16_t std_offset_minutes;
+  int32_t std_offset_seconds;
 
   /** DST offset */
-  int16_t dst_offset_minutes;
+  int32_t dst_offset_seconds;
 
   /** STD offset of the requested LocalDateTime or epoch_seconds */
-  int16_t req_std_offset_minutes;
+  int32_t req_std_offset_seconds;
 
   /** DST offset of the requested LocalDateTime or epoch_seconds */
-  int16_t req_dst_offset_minutes;
+  int32_t req_dst_offset_seconds;
 
   /** abbreviation (e.g. PST, PDT) */
-  char abbrev[kAtcAbbrevSize];
+  char abbrev[kAtcAbbrevSize]; // TODO: Move this after 'type' to save space
 } AtcZonedExtra;
 
 /**

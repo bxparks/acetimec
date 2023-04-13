@@ -45,8 +45,8 @@ typedef struct AtcZonedDateTime {
   /** fold [0,1] */
   uint8_t fold;
 
-  /** offset_minutes [-840, 960] */
-  int16_t offset_minutes;
+  /** offset_seconds [-10h,+14h] roughly */
+  int32_t offset_seconds;
 
   /** time zone. */
   AtcTimeZone tz;

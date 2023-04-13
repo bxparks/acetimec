@@ -18,6 +18,7 @@
 #include "common.h" // atc_time_t
 #include "../zoneinfo/zone_info.h"
 #include "local_date_time.h" // AtcLocalDateTime
+#include "date_tuple.h" // AtcDateTuple
 #include "transition.h" // AtcTransition, AtcTransitionStorage
 
 #ifdef __cplusplus
@@ -152,24 +153,24 @@ typedef struct AtcFindResult {
   uint8_t fold;
 
   /** The STD offset of the target OffsetDateTime. */
-  int16_t std_offset_minutes;
+  int32_t std_offset_seconds;
 
   /** The DST offset of the target OffsetDateTime. */
-  int16_t dst_offset_minutes;
+  int32_t dst_offset_seconds;
 
   /**
    * The STD offset of the requested LocalDateTime when
    * atc_processor_find_by_local_date_time() finds a gap. Otherwise, this will
-   * be identical to std_offset_minutes.
+   * be identical to std_offset_seconds.
    */
-  int16_t req_std_offset_minutes;
+  int32_t req_std_offset_seconds;
 
   /**
    * The DST offset of the requested LocalDateTime when
    * atc_processor_find_by_local_date_time() finds a gap. Otherwise, this will
-   * be identical to dst_offset_minutes.
+   * be identical to dst_offset_seconds.
    */
-  int16_t req_dst_offset_minutes;
+  int32_t req_dst_offset_seconds;
 
   /**
    * Contains a pointer to a transition string buffer. The string should be
@@ -179,8 +180,22 @@ typedef struct AtcFindResult {
 } AtcFindResult;
 
 //---------------------------------------------------------------------------
-// Externally exported API for converting between epoch seconds and
-// LocalDateTime and OffsetDateTime.
+// Externally exported API. The workflow is roughly:
+//
+// 1) Initialize the AtcZoneProcessor upon memory allocation. This needs to be
+// done only once. This is essentially the "constructor" of this object.
+// 2) Initialize the AtcZoneProcessor with the AtcZoneInfo. This will usually be
+// done once for the duration of the client application. However, it can be
+// called more than once if the AtcZoneProcessor is reused (to save memory) for
+// multiple zone infos. The transition cache (see below) will be invalidated.
+// 3) Initialze the AtcZoneProcessor with the epoch seconds or LocalDateTime
+// to populate the transition cache for that year.
+// 4) Find the AtcFindResult for the epoch seconds or AtcLocalDateTime of
+// interest using the cache of transitions.
+//
+// The AtcTimeZone object and its associated `atc_time_zone_xxx()` functions
+// know how to follow the above workflow, and client applications will normally
+// use the functions attached to the AtcTimeZone object.
 //---------------------------------------------------------------------------
 
 /**
@@ -190,27 +205,51 @@ typedef struct AtcFindResult {
 void atc_processor_init(AtcZoneProcessor *processor);
 
 /**
- * Initialize AtcZoneProcessor for the given zone_info and year.
+ * Initialize AtcZoneProcessor for the given zone_info. This allows an
+ * AtcZoneProcessor to be re-used with different zone info.
+ *
+ * Normally, the client code will not need to use this if all interactions with
+ * the AtcZoneProcessor occurs through the public functions attached to the
+ * `AtcTimeZone` object (in other words, the `atc_time_zone_xxx()` functions).
+ * If the `AtcZoneProcessor` object is accessed directly, this function may need
+ * to be called each time the AtcZoneProcessor is used with a new AtcZoneInfo
+ * object.
+ */
+void atc_processor_init_for_zone_info(
+  AtcZoneProcessor *processor,
+  const AtcZoneInfo *zone_info);
+
+/**
+ * Initialize AtcZoneProcessor for the given year. An internal cache for the
+ * given year prevents unnecessary computation if this function is called
+ * multiple times with the same year.
+ *
  * Return non-zero error code upon failure.
+ *
+ * @param processor pointer to AtcZoneProcessor, not NULLable
+ * @param year year whose transitions should be precalculated
  */
 int8_t atc_processor_init_for_year(
   AtcZoneProcessor *processor,
-  const AtcZoneInfo *zone_info,
   int16_t year);
 
 /**
- * Initialize AtcZoneProcessor for the given zone_info and epoch seconds.
+ * Initialize AtcZoneProcessor for the given epoch seconds. This calls
+ * `atc_processor_init_for_year()` using the UTC year corresponding to the given
+ * `epoch_seconds`.
+ *
  * Return non-zero error code upon failure.
+ *
+ * @param processor pointer to AtcZoneProcessor, not NULLable
+ * @param epoch_seconds seconds since the current epoch year
  */
 int8_t atc_processor_init_for_epoch_seconds(
   AtcZoneProcessor *processor,
-  const AtcZoneInfo *zone_info,
   atc_time_t epoch_seconds);
 
 /** Find the AtcFindResult at the given epoch_seconds. */
 int8_t atc_processor_find_by_epoch_seconds(
     AtcZoneProcessor *processor,
-    const AtcZoneInfo *zone_info,
     atc_time_t epoch_seconds,
     AtcFindResult *result);
 
@@ -221,7 +260,6 @@ int8_t atc_processor_find_by_epoch_seconds(
  */
 int8_t atc_processor_find_by_local_date_time(
     AtcZoneProcessor *processor,
-    const AtcZoneInfo *zone_info,
     const AtcLocalDateTime *ldt,
     AtcFindResult *result);
 
@@ -327,7 +365,7 @@ void atc_processor_create_abbreviation(
     char *dest,
     uint8_t dest_size,
     const char *format,
-    int16_t delta_minutes,
+    int32_t delta_seconds,
     const char *letter_string);
 
 //---------------------------------------------------------------------------

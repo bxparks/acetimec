@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.7.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -71,10 +71,10 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>An internal simplified version of the AtcDateTime class that uses the (year, month, day, minutes, suffix) fields.  
+<p>An internal simplified version of the AtcDateTime class that uses the (year, month, day, seconds, suffix) fields.  
  <a href="structAtcDateTuple.html#details">More...</a></p>
 
-<p><code>#include &lt;<a class="el" href="transition_8h_source.html">transition.h</a>&gt;</code></p>
+<p><code>#include &lt;<a class="el" href="date__tuple_8h_source.html">date_tuple.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -90,23 +90,22 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcDateTuple.html#afbce1d24336cc034b2aa251a14949264">day</a></td></tr>
 <tr class="memdesc:afbce1d24336cc034b2aa251a14949264"><td class="mdescLeft">&#160;</td><td class="mdescRight">[1-31] <br /></td></tr>
 <tr class="separator:afbce1d24336cc034b2aa251a14949264"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a7d2e575b077a324d6fa8716ffde4a073"><td class="memItemLeft" align="right" valign="top"><a id="a7d2e575b077a324d6fa8716ffde4a073"></a>
-int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcDateTuple.html#a7d2e575b077a324d6fa8716ffde4a073">minutes</a></td></tr>
-<tr class="memdesc:a7d2e575b077a324d6fa8716ffde4a073"><td class="mdescLeft">&#160;</td><td class="mdescRight">negative values allowed <br /></td></tr>
-<tr class="separator:a7d2e575b077a324d6fa8716ffde4a073"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a19e8917e923f4086f9a77c1d38903089"><td class="memItemLeft" align="right" valign="top"><a id="a19e8917e923f4086f9a77c1d38903089"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcDateTuple.html#a19e8917e923f4086f9a77c1d38903089">seconds</a></td></tr>
+<tr class="memdesc:a19e8917e923f4086f9a77c1d38903089"><td class="mdescLeft">&#160;</td><td class="mdescRight">negative values allowed <br /></td></tr>
+<tr class="separator:a19e8917e923f4086f9a77c1d38903089"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5e4ad96fc2ee1d21bf77ea665bfec4f5"><td class="memItemLeft" align="right" valign="top"><a id="a5e4ad96fc2ee1d21bf77ea665bfec4f5"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcDateTuple.html#a5e4ad96fc2ee1d21bf77ea665bfec4f5">suffix</a></td></tr>
 <tr class="memdesc:a5e4ad96fc2ee1d21bf77ea665bfec4f5"><td class="mdescLeft">&#160;</td><td class="mdescRight">kAtcSuffixS, kAtcSuffixW, kAtcSuffixU <br /></td></tr>
 <tr class="separator:a5e4ad96fc2ee1d21bf77ea665bfec4f5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>An internal simplified version of the AtcDateTime class that uses the (year, month, day, minutes, suffix) fields. </p>
-<p>The order of 'minutes' and 'suffix' are reversed from the DateTuple class in the AceTime library because C does not support constructors, so the initializer list must be in the same order as the field order. But I have a bunch of code ported from the C++ code in AceTime which assumes that 'minutes' comes before 'suffix'. So it is easier to fix the ordering here.</p>
-<p>This causes the field alignment to be slightly less than ideal, but the class already consumes 2 x 4-byte slots on 32-bit processors, so the new ordering does not change the overall sizeof(AtcDateTuple). </p>
+<div class="textblock"><p>An internal simplified version of the AtcDateTime class that uses the (year, month, day, seconds, suffix) fields. </p>
+<p>TODO: We only need about 24-bits (3-bytes) the seconds field. It should be possible to reduce this struct by 1-byte so that the object fits entirely within 8-bytes, a multiple of 4 or 8 bytes which reduces memory consumption on 32-bit and 64-bit processors. </p>
 
-<p class="definition">Definition at line <a class="el" href="transition_8h_source.html#l00040">40</a> of file <a class="el" href="transition_8h_source.html">transition.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="date__tuple_8h_source.html#l00025">25</a> of file <a class="el" href="date__tuple_8h_source.html">date_tuple.h</a>.</p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/brian/src/AceTimeC/src/acetimec/<a class="el" href="transition_8h_source.html">transition.h</a></li>
+<li>/home/brian/src/AceTimeC/src/acetimec/<a class="el" href="date__tuple_8h_source.html">date_tuple.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

@@ -55,10 +55,10 @@ int16_t atc_get_current_epoch_year(void);
 
 /**
  * Set the current epoch year. Any cached values (e.g. any internal or external
- * evaluations of `ace_time_t`) that used a previous epoch year must be
- * invalidated. In particular, the `atc_processor_init()` must be called on
- * each instance of `AtcZoneProcessor` that was used with a different epoch
- * year.
+ * evaluations of `atc_time_t`) that used a previous epoch year must be
+ * invalidated. In particular, the `atc_processor_init()` or
+ * `atc_processor_init_for_zone_info()` must be called on each instance of
+ * `AtcZoneProcessor` that was used with a different epoch year.
  */
 void atc_set_current_epoch_year(int16_t year);
 

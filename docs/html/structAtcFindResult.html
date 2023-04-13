@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.7.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -71,7 +71,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Data structure that converts the <a class="el" href="structAtcTransitionForSeconds.html" title="The result returned by atc_transition_storage_find_for_seconds() when searching for Transition by epo...">AtcTransitionForSeconds</a> and AtcTransitionForDatetime into time offsets and other extra information which can be used to construct an <a class="el" href="structAtcOffsetDateTime.html" title="Date and time fields with a UTC offset in minutes.">AtcOffsetDateTime</a> or an <a class="el" href="structAtcZonedExtra.html" title="Extra information about a given time zone at a specified epoch seconds.">AtcZonedExtra</a>.  
+<p>Data structure that converts the <a class="el" href="structAtcTransitionForSeconds.html" title="The result returned by atc_transition_storage_find_for_seconds() when searching for Transition by epo...">AtcTransitionForSeconds</a> and AtcTransitionForDatetime into time offsets and other extra information which can be used to construct an <a class="el" href="structAtcOffsetDateTime.html" title="Date and time fields with a UTC offset in seconds.">AtcOffsetDateTime</a> or an <a class="el" href="structAtcZonedExtra.html" title="Extra information about a given time zone at a specified epoch seconds.">AtcZonedExtra</a>.  
  <a href="structAtcFindResult.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>&gt;</code></p>
@@ -86,29 +86,29 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcFindResult.html#ac2e538e6cc5c37537082931893d5f797">fold</a></td></tr>
 <tr class="memdesc:ac2e538e6cc5c37537082931893d5f797"><td class="mdescLeft">&#160;</td><td class="mdescRight">The fold of the resulting OffsetDateTime. <br /></td></tr>
 <tr class="separator:ac2e538e6cc5c37537082931893d5f797"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4174388be7b0ca6a04addc72cb69c0e"><td class="memItemLeft" align="right" valign="top"><a id="ac4174388be7b0ca6a04addc72cb69c0e"></a>
-int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcFindResult.html#ac4174388be7b0ca6a04addc72cb69c0e">std_offset_minutes</a></td></tr>
-<tr class="memdesc:ac4174388be7b0ca6a04addc72cb69c0e"><td class="mdescLeft">&#160;</td><td class="mdescRight">The STD offset of the target OffsetDateTime. <br /></td></tr>
-<tr class="separator:ac4174388be7b0ca6a04addc72cb69c0e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a26761ce724eba6d38dffb106fbe1a698"><td class="memItemLeft" align="right" valign="top"><a id="a26761ce724eba6d38dffb106fbe1a698"></a>
-int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcFindResult.html#a26761ce724eba6d38dffb106fbe1a698">dst_offset_minutes</a></td></tr>
-<tr class="memdesc:a26761ce724eba6d38dffb106fbe1a698"><td class="mdescLeft">&#160;</td><td class="mdescRight">The DST offset of the target OffsetDateTime. <br /></td></tr>
-<tr class="separator:a26761ce724eba6d38dffb106fbe1a698"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aad7b0b6c3fb8809cbc75461ed9592329"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcFindResult.html#aad7b0b6c3fb8809cbc75461ed9592329">req_std_offset_minutes</a></td></tr>
-<tr class="memdesc:aad7b0b6c3fb8809cbc75461ed9592329"><td class="mdescLeft">&#160;</td><td class="mdescRight">The STD offset of the requested LocalDateTime when <a class="el" href="zone__processor_8h.html#a9332b65f1e6688bceb63d84b6cb0d53f" title="Find the AtcFindResult at the given LocalDateTime and fold.">atc_processor_find_by_local_date_time()</a> finds a gap.  <a href="structAtcFindResult.html#aad7b0b6c3fb8809cbc75461ed9592329">More...</a><br /></td></tr>
-<tr class="separator:aad7b0b6c3fb8809cbc75461ed9592329"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac4f0ab03827faed68346a599ee0f8a91"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcFindResult.html#ac4f0ab03827faed68346a599ee0f8a91">req_dst_offset_minutes</a></td></tr>
-<tr class="memdesc:ac4f0ab03827faed68346a599ee0f8a91"><td class="mdescLeft">&#160;</td><td class="mdescRight">The DST offset of the requested LocalDateTime when <a class="el" href="zone__processor_8h.html#a9332b65f1e6688bceb63d84b6cb0d53f" title="Find the AtcFindResult at the given LocalDateTime and fold.">atc_processor_find_by_local_date_time()</a> finds a gap.  <a href="structAtcFindResult.html#ac4f0ab03827faed68346a599ee0f8a91">More...</a><br /></td></tr>
-<tr class="separator:ac4f0ab03827faed68346a599ee0f8a91"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a57f21dc3192f2a4bc018c69567df864b"><td class="memItemLeft" align="right" valign="top"><a id="a57f21dc3192f2a4bc018c69567df864b"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcFindResult.html#a57f21dc3192f2a4bc018c69567df864b">std_offset_seconds</a></td></tr>
+<tr class="memdesc:a57f21dc3192f2a4bc018c69567df864b"><td class="mdescLeft">&#160;</td><td class="mdescRight">The STD offset of the target OffsetDateTime. <br /></td></tr>
+<tr class="separator:a57f21dc3192f2a4bc018c69567df864b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acda14737bb9416951b2c0ed602275ea8"><td class="memItemLeft" align="right" valign="top"><a id="acda14737bb9416951b2c0ed602275ea8"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcFindResult.html#acda14737bb9416951b2c0ed602275ea8">dst_offset_seconds</a></td></tr>
+<tr class="memdesc:acda14737bb9416951b2c0ed602275ea8"><td class="mdescLeft">&#160;</td><td class="mdescRight">The DST offset of the target OffsetDateTime. <br /></td></tr>
+<tr class="separator:acda14737bb9416951b2c0ed602275ea8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a32b8701aa057a2e390159f71fe598287"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcFindResult.html#a32b8701aa057a2e390159f71fe598287">req_std_offset_seconds</a></td></tr>
+<tr class="memdesc:a32b8701aa057a2e390159f71fe598287"><td class="mdescLeft">&#160;</td><td class="mdescRight">The STD offset of the requested LocalDateTime when <a class="el" href="zone__processor_8h.html#a9489ea56c86be7f71f2292631c4a7b86" title="Find the AtcFindResult at the given LocalDateTime and fold.">atc_processor_find_by_local_date_time()</a> finds a gap.  <a href="structAtcFindResult.html#a32b8701aa057a2e390159f71fe598287">More...</a><br /></td></tr>
+<tr class="separator:a32b8701aa057a2e390159f71fe598287"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3a45af8f72a8405b3b252f34e43b9eb9"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcFindResult.html#a3a45af8f72a8405b3b252f34e43b9eb9">req_dst_offset_seconds</a></td></tr>
+<tr class="memdesc:a3a45af8f72a8405b3b252f34e43b9eb9"><td class="mdescLeft">&#160;</td><td class="mdescRight">The DST offset of the requested LocalDateTime when <a class="el" href="zone__processor_8h.html#a9489ea56c86be7f71f2292631c4a7b86" title="Find the AtcFindResult at the given LocalDateTime and fold.">atc_processor_find_by_local_date_time()</a> finds a gap.  <a href="structAtcFindResult.html#a3a45af8f72a8405b3b252f34e43b9eb9">More...</a><br /></td></tr>
+<tr class="separator:a3a45af8f72a8405b3b252f34e43b9eb9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0aa2eebc3e171b2edcdd53789330f6e5"><td class="memItemLeft" align="right" valign="top">const char *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcFindResult.html#a0aa2eebc3e171b2edcdd53789330f6e5">abbrev</a></td></tr>
 <tr class="memdesc:a0aa2eebc3e171b2edcdd53789330f6e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Contains a pointer to a transition string buffer.  <a href="structAtcFindResult.html#a0aa2eebc3e171b2edcdd53789330f6e5">More...</a><br /></td></tr>
 <tr class="separator:a0aa2eebc3e171b2edcdd53789330f6e5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Data structure that converts the <a class="el" href="structAtcTransitionForSeconds.html" title="The result returned by atc_transition_storage_find_for_seconds() when searching for Transition by epo...">AtcTransitionForSeconds</a> and AtcTransitionForDatetime into time offsets and other extra information which can be used to construct an <a class="el" href="structAtcOffsetDateTime.html" title="Date and time fields with a UTC offset in minutes.">AtcOffsetDateTime</a> or an <a class="el" href="structAtcZonedExtra.html" title="Extra information about a given time zone at a specified epoch seconds.">AtcZonedExtra</a>. </p>
+<div class="textblock"><p>Data structure that converts the <a class="el" href="structAtcTransitionForSeconds.html" title="The result returned by atc_transition_storage_find_for_seconds() when searching for Transition by epo...">AtcTransitionForSeconds</a> and AtcTransitionForDatetime into time offsets and other extra information which can be used to construct an <a class="el" href="structAtcOffsetDateTime.html" title="Date and time fields with a UTC offset in seconds.">AtcOffsetDateTime</a> or an <a class="el" href="structAtcZonedExtra.html" title="Extra information about a given time zone at a specified epoch seconds.">AtcZonedExtra</a>. </p>
 <p>Adapted from FindResult in ZoneProcessor.h of the AceTime library. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8h_source.html#l00144">144</a> of file <a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8h_source.html#l00145">145</a> of file <a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a0aa2eebc3e171b2edcdd53789330f6e5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a0aa2eebc3e171b2edcdd53789330f6e5">&#9670;&nbsp;</a></span>abbrev</h2>
@@ -125,45 +125,45 @@ int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <p>Contains a pointer to a transition string buffer. </p>
 <p>The string should be copied by the calling code as soon as possible. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8h_source.html#l00178">178</a> of file <a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8h_source.html#l00179">179</a> of file <a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>.</p>
 
 </div>
 </div>
-<a id="ac4f0ab03827faed68346a599ee0f8a91"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac4f0ab03827faed68346a599ee0f8a91">&#9670;&nbsp;</a></span>req_dst_offset_minutes</h2>
+<a id="a3a45af8f72a8405b3b252f34e43b9eb9"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3a45af8f72a8405b3b252f34e43b9eb9">&#9670;&nbsp;</a></span>req_dst_offset_seconds</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int16_t AtcFindResult::req_dst_offset_minutes</td>
+          <td class="memname">int32_t AtcFindResult::req_dst_offset_seconds</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The DST offset of the requested LocalDateTime when <a class="el" href="zone__processor_8h.html#a9332b65f1e6688bceb63d84b6cb0d53f" title="Find the AtcFindResult at the given LocalDateTime and fold.">atc_processor_find_by_local_date_time()</a> finds a gap. </p>
-<p>Otherwise, this will be identical to dst_offset_minutes. </p>
+<p>The DST offset of the requested LocalDateTime when <a class="el" href="zone__processor_8h.html#a9489ea56c86be7f71f2292631c4a7b86" title="Find the AtcFindResult at the given LocalDateTime and fold.">atc_processor_find_by_local_date_time()</a> finds a gap. </p>
+<p>Otherwise, this will be identical to dst_offset_seconds. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8h_source.html#l00172">172</a> of file <a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8h_source.html#l00173">173</a> of file <a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>.</p>
 
 </div>
 </div>
-<a id="aad7b0b6c3fb8809cbc75461ed9592329"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aad7b0b6c3fb8809cbc75461ed9592329">&#9670;&nbsp;</a></span>req_std_offset_minutes</h2>
+<a id="a32b8701aa057a2e390159f71fe598287"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a32b8701aa057a2e390159f71fe598287">&#9670;&nbsp;</a></span>req_std_offset_seconds</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int16_t AtcFindResult::req_std_offset_minutes</td>
+          <td class="memname">int32_t AtcFindResult::req_std_offset_seconds</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>The STD offset of the requested LocalDateTime when <a class="el" href="zone__processor_8h.html#a9332b65f1e6688bceb63d84b6cb0d53f" title="Find the AtcFindResult at the given LocalDateTime and fold.">atc_processor_find_by_local_date_time()</a> finds a gap. </p>
-<p>Otherwise, this will be identical to std_offset_minutes. </p>
+<p>The STD offset of the requested LocalDateTime when <a class="el" href="zone__processor_8h.html#a9489ea56c86be7f71f2292631c4a7b86" title="Find the AtcFindResult at the given LocalDateTime and fold.">atc_processor_find_by_local_date_time()</a> finds a gap. </p>
+<p>Otherwise, this will be identical to std_offset_seconds. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8h_source.html#l00165">165</a> of file <a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8h_source.html#l00166">166</a> of file <a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>.</p>
 
 </div>
 </div>

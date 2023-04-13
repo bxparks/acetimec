@@ -3,11 +3,16 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/AceTimeC/src/zonedb/tzfiles
 //     --output_dir /home/brian/src/AceTimeC/src/zonedb
-//     --tz_version 2022g
+//     --tz_version 2023c
 //     --action zonedb
 //     --language c
 //     --scope extended
+//     --db_namespace Atc
+//     --offset_granularity 1
+//     --delta_granularity 60
+//     --until_at_granularity 1
 //     --generate_int16_years
+//     --generate_hires
 //     --start_year 2000
 //     --until_year 10000
 //     --nocompress
@@ -24,17 +29,52 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022g
+// from https://github.com/eggert/tz/releases/tag/2023c
 //
-// Supported Zones: 596 (351 zones, 245 links)
+// Supported Zones: 596 (350 zones, 246 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
-// Original Years: [1844,2087]
-// Generated Years: [1943,2087]
+//
+// Original Years:  [1844,2087]
+// Generated Years: [1950,2087]
+// Estimator Years: [1950,2090]
+// Max Buffer Size: 7
+//
+// Records:
+//   Infos: 596
+//   Eras: 646
+//   Policies: 83
+//   Rules: 735
+//
+// Memory (8-bits):
+//   Rules: 8820
+//   Policies: 249
+//   Eras: 9690
+//   Zones: 4550
+//   Links: 3198
+//   Registry: 1192
+//   Formats: 597
+//   Letters: 46
+//   Fragments: 0
+//   Names: 9076 (original: 9076)
+//   TOTAL: 37418
+//
+// Memory (32-bits):
+//   Rules: 8820
+//   Policies: 664
+//   Eras: 12920
+//   Zones: 8400
+//   Links: 5904
+//   Registry: 2384
+//   Formats: 597
+//   Letters: 64
+//   Fragments: 0
+//   Names: 9076 (original: 9076)
+//   TOTAL: 48829
 //
 // DO NOT EDIT
 
-#ifndef ACE_TIME_C_ZONEDBX_ZONE_INFOS_H
-#define ACE_TIME_C_ZONEDBX_ZONE_INFOS_H
+#ifndef ACE_TIME_C_ZONEDB_ATC_ZONE_INFOS_H
+#define ACE_TIME_C_ZONEDB_ATC_ZONE_INFOS_H
 
 #include "../zoneinfo/zone_info.h"
 
@@ -46,14 +86,12 @@ extern "C" {
 // ZoneContext (should not be in PROGMEM)
 //---------------------------------------------------------------------------
 
-// Version of the TZ Database which generated these files.
-extern const char kAtcTzDatabaseVersion[];
-
 // Metadata about the zonedb files.
 extern const AtcZoneContext kAtcZoneContext;
 
 //---------------------------------------------------------------------------
-// Supported zones: 351
+// Supported zones: 350
+// Supported eras: 646
 //---------------------------------------------------------------------------
 
 extern const AtcZoneInfo kAtcZoneAfrica_Abidjan; // Africa/Abidjan
@@ -195,7 +233,6 @@ extern const AtcZoneInfo kAtcZoneAmerica_Vancouver; // America/Vancouver
 extern const AtcZoneInfo kAtcZoneAmerica_Whitehorse; // America/Whitehorse
 extern const AtcZoneInfo kAtcZoneAmerica_Winnipeg; // America/Winnipeg
 extern const AtcZoneInfo kAtcZoneAmerica_Yakutat; // America/Yakutat
-extern const AtcZoneInfo kAtcZoneAmerica_Yellowknife; // America/Yellowknife
 extern const AtcZoneInfo kAtcZoneAntarctica_Casey; // Antarctica/Casey
 extern const AtcZoneInfo kAtcZoneAntarctica_Davis; // Antarctica/Davis
 extern const AtcZoneInfo kAtcZoneAntarctica_Macquarie; // Antarctica/Macquarie
@@ -550,7 +587,6 @@ extern const AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdAmerica_Whitehorse 0x54e0e3e8 /* America/Whitehorse */
 #define kAtcZoneIdAmerica_Winnipeg 0x8c7dafc7 /* America/Winnipeg */
 #define kAtcZoneIdAmerica_Yakutat 0xd8ee31e9 /* America/Yakutat */
-#define kAtcZoneIdAmerica_Yellowknife 0x0f76c76f /* America/Yellowknife */
 #define kAtcZoneIdAntarctica_Casey 0xe2022583 /* Antarctica/Casey */
 #define kAtcZoneIdAntarctica_Davis 0xe2144b45 /* Antarctica/Davis */
 #define kAtcZoneIdAntarctica_Macquarie 0x92f47626 /* Antarctica/Macquarie */
@@ -765,7 +801,7 @@ extern const AtcZoneInfo kAtcZoneWET; // WET
 
 
 //---------------------------------------------------------------------------
-// Supported links: 245
+// Supported links: 246
 //---------------------------------------------------------------------------
 
 extern const AtcZoneInfo kAtcZoneAfrica_Accra; // Africa/Accra -> Africa/Abidjan
@@ -850,6 +886,7 @@ extern const AtcZoneInfo kAtcZoneAmerica_St_Vincent; // America/St_Vincent -> Am
 extern const AtcZoneInfo kAtcZoneAmerica_Thunder_Bay; // America/Thunder_Bay -> America/Toronto
 extern const AtcZoneInfo kAtcZoneAmerica_Tortola; // America/Tortola -> America/Puerto_Rico
 extern const AtcZoneInfo kAtcZoneAmerica_Virgin; // America/Virgin -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcZoneAmerica_Yellowknife; // America/Yellowknife -> America/Edmonton
 extern const AtcZoneInfo kAtcZoneAntarctica_DumontDUrville; // Antarctica/DumontDUrville -> Pacific/Port_Moresby
 extern const AtcZoneInfo kAtcZoneAntarctica_McMurdo; // Antarctica/McMurdo -> Pacific/Auckland
 extern const AtcZoneInfo kAtcZoneAntarctica_South_Pole; // Antarctica/South_Pole -> Pacific/Auckland
@@ -1099,6 +1136,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdAmerica_Thunder_Bay 0xf962e71b /* America/Thunder_Bay */
 #define kAtcZoneIdAmerica_Tortola 0x7931462b /* America/Tortola */
 #define kAtcZoneIdAmerica_Virgin 0xc2183ab5 /* America/Virgin */
+#define kAtcZoneIdAmerica_Yellowknife 0x0f76c76f /* America/Yellowknife */
 #define kAtcZoneIdAntarctica_DumontDUrville 0x5a3c656c /* Antarctica/DumontDUrville */
 #define kAtcZoneIdAntarctica_McMurdo 0x6eeb5585 /* Antarctica/McMurdo */
 #define kAtcZoneIdAntarctica_South_Pole 0xcd96b290 /* Antarctica/South_Pole */
@@ -1272,78 +1310,78 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 // MaxBufSize: 7
 //---------------------------------------------------------------------------
 
-#define kAtcZoneBufSizeAfrica_Abidjan 1  /* Africa/Abidjan in 1999 */
-#define kAtcZoneBufSizeAfrica_Algiers 1  /* Africa/Algiers in 1999 */
-#define kAtcZoneBufSizeAfrica_Bissau 1  /* Africa/Bissau in 1999 */
+#define kAtcZoneBufSizeAfrica_Abidjan 1  /* Africa/Abidjan in 1949 */
+#define kAtcZoneBufSizeAfrica_Algiers 1  /* Africa/Algiers in 1949 */
+#define kAtcZoneBufSizeAfrica_Bissau 1  /* Africa/Bissau in 1949 */
 #define kAtcZoneBufSizeAfrica_Cairo 5  /* Africa/Cairo in 2010 */
 #define kAtcZoneBufSizeAfrica_Casablanca 7  /* Africa/Casablanca in 2013 */
-#define kAtcZoneBufSizeAfrica_Ceuta 5  /* Africa/Ceuta in 1999 */
+#define kAtcZoneBufSizeAfrica_Ceuta 5  /* Africa/Ceuta in 1983 */
 #define kAtcZoneBufSizeAfrica_El_Aaiun 7  /* Africa/El_Aaiun in 2013 */
-#define kAtcZoneBufSizeAfrica_Johannesburg 2  /* Africa/Johannesburg in 1999 */
-#define kAtcZoneBufSizeAfrica_Juba 2  /* Africa/Juba in 1999 */
-#define kAtcZoneBufSizeAfrica_Khartoum 2  /* Africa/Khartoum in 1999 */
-#define kAtcZoneBufSizeAfrica_Lagos 1  /* Africa/Lagos in 1999 */
-#define kAtcZoneBufSizeAfrica_Maputo 1  /* Africa/Maputo in 1999 */
-#define kAtcZoneBufSizeAfrica_Monrovia 1  /* Africa/Monrovia in 1999 */
-#define kAtcZoneBufSizeAfrica_Nairobi 1  /* Africa/Nairobi in 1999 */
-#define kAtcZoneBufSizeAfrica_Ndjamena 1  /* Africa/Ndjamena in 1999 */
+#define kAtcZoneBufSizeAfrica_Johannesburg 2  /* Africa/Johannesburg in 1949 */
+#define kAtcZoneBufSizeAfrica_Juba 2  /* Africa/Juba in 1949 */
+#define kAtcZoneBufSizeAfrica_Khartoum 2  /* Africa/Khartoum in 1949 */
+#define kAtcZoneBufSizeAfrica_Lagos 1  /* Africa/Lagos in 1949 */
+#define kAtcZoneBufSizeAfrica_Maputo 1  /* Africa/Maputo in 1949 */
+#define kAtcZoneBufSizeAfrica_Monrovia 1  /* Africa/Monrovia in 1949 */
+#define kAtcZoneBufSizeAfrica_Nairobi 1  /* Africa/Nairobi in 1949 */
+#define kAtcZoneBufSizeAfrica_Ndjamena 1  /* Africa/Ndjamena in 1949 */
 #define kAtcZoneBufSizeAfrica_Sao_Tome 3  /* Africa/Sao_Tome in 2018 */
 #define kAtcZoneBufSizeAfrica_Tripoli 4  /* Africa/Tripoli in 2012 */
 #define kAtcZoneBufSizeAfrica_Tunis 5  /* Africa/Tunis in 2005 */
-#define kAtcZoneBufSizeAfrica_Windhoek 4  /* Africa/Windhoek in 1999 */
+#define kAtcZoneBufSizeAfrica_Windhoek 4  /* Africa/Windhoek in 1994 */
 #define kAtcZoneBufSizeAmerica_Adak 6  /* America/Adak in 2008 */
 #define kAtcZoneBufSizeAmerica_Anchorage 6  /* America/Anchorage in 2008 */
 #define kAtcZoneBufSizeAmerica_Araguaina 5  /* America/Araguaina in 1999 */
 #define kAtcZoneBufSizeAmerica_Argentina_Buenos_Aires 5  /* America/Argentina/Buenos_Aires in 2008 */
-#define kAtcZoneBufSizeAmerica_Argentina_Catamarca 4  /* America/Argentina/Catamarca in 1999 */
+#define kAtcZoneBufSizeAmerica_Argentina_Catamarca 4  /* America/Argentina/Catamarca in 1991 */
 #define kAtcZoneBufSizeAmerica_Argentina_Cordoba 5  /* America/Argentina/Cordoba in 2008 */
-#define kAtcZoneBufSizeAmerica_Argentina_Jujuy 4  /* America/Argentina/Jujuy in 1999 */
-#define kAtcZoneBufSizeAmerica_Argentina_La_Rioja 4  /* America/Argentina/La_Rioja in 1999 */
-#define kAtcZoneBufSizeAmerica_Argentina_Mendoza 4  /* America/Argentina/Mendoza in 1999 */
-#define kAtcZoneBufSizeAmerica_Argentina_Rio_Gallegos 4  /* America/Argentina/Rio_Gallegos in 1999 */
-#define kAtcZoneBufSizeAmerica_Argentina_Salta 4  /* America/Argentina/Salta in 1999 */
-#define kAtcZoneBufSizeAmerica_Argentina_San_Juan 4  /* America/Argentina/San_Juan in 1999 */
+#define kAtcZoneBufSizeAmerica_Argentina_Jujuy 4  /* America/Argentina/Jujuy in 1991 */
+#define kAtcZoneBufSizeAmerica_Argentina_La_Rioja 4  /* America/Argentina/La_Rioja in 1991 */
+#define kAtcZoneBufSizeAmerica_Argentina_Mendoza 4  /* America/Argentina/Mendoza in 1991 */
+#define kAtcZoneBufSizeAmerica_Argentina_Rio_Gallegos 4  /* America/Argentina/Rio_Gallegos in 1991 */
+#define kAtcZoneBufSizeAmerica_Argentina_Salta 4  /* America/Argentina/Salta in 1991 */
+#define kAtcZoneBufSizeAmerica_Argentina_San_Juan 4  /* America/Argentina/San_Juan in 1991 */
 #define kAtcZoneBufSizeAmerica_Argentina_San_Luis 7  /* America/Argentina/San_Luis in 2008 */
 #define kAtcZoneBufSizeAmerica_Argentina_Tucuman 5  /* America/Argentina/Tucuman in 2008 */
-#define kAtcZoneBufSizeAmerica_Argentina_Ushuaia 4  /* America/Argentina/Ushuaia in 1999 */
+#define kAtcZoneBufSizeAmerica_Argentina_Ushuaia 4  /* America/Argentina/Ushuaia in 1991 */
 #define kAtcZoneBufSizeAmerica_Asuncion 5  /* America/Asuncion in 2000 */
 #define kAtcZoneBufSizeAmerica_Bahia 5  /* America/Bahia in 1999 */
 #define kAtcZoneBufSizeAmerica_Bahia_Banderas 5  /* America/Bahia_Banderas in 2010 */
-#define kAtcZoneBufSizeAmerica_Barbados 2  /* America/Barbados in 1999 */
-#define kAtcZoneBufSizeAmerica_Belem 1  /* America/Belem in 1999 */
-#define kAtcZoneBufSizeAmerica_Belize 2  /* America/Belize in 1999 */
+#define kAtcZoneBufSizeAmerica_Barbados 2  /* America/Barbados in 1949 */
+#define kAtcZoneBufSizeAmerica_Belem 1  /* America/Belem in 1949 */
+#define kAtcZoneBufSizeAmerica_Belize 2  /* America/Belize in 1949 */
 #define kAtcZoneBufSizeAmerica_Boa_Vista 5  /* America/Boa_Vista in 1999 */
-#define kAtcZoneBufSizeAmerica_Bogota 2  /* America/Bogota in 1999 */
+#define kAtcZoneBufSizeAmerica_Bogota 2  /* America/Bogota in 1949 */
 #define kAtcZoneBufSizeAmerica_Boise 6  /* America/Boise in 2008 */
 #define kAtcZoneBufSizeAmerica_Cambridge_Bay 6  /* America/Cambridge_Bay in 2008 */
 #define kAtcZoneBufSizeAmerica_Campo_Grande 6  /* America/Campo_Grande in 2003 */
-#define kAtcZoneBufSizeAmerica_Cancun 4  /* America/Cancun in 1999 */
+#define kAtcZoneBufSizeAmerica_Cancun 4  /* America/Cancun in 1996 */
 #define kAtcZoneBufSizeAmerica_Caracas 2  /* America/Caracas in 2007 */
-#define kAtcZoneBufSizeAmerica_Cayenne 1  /* America/Cayenne in 1999 */
+#define kAtcZoneBufSizeAmerica_Cayenne 1  /* America/Cayenne in 1949 */
 #define kAtcZoneBufSizeAmerica_Chicago 6  /* America/Chicago in 2008 */
-#define kAtcZoneBufSizeAmerica_Chihuahua 4  /* America/Chihuahua in 1999 */
+#define kAtcZoneBufSizeAmerica_Chihuahua 4  /* America/Chihuahua in 1996 */
 #define kAtcZoneBufSizeAmerica_Ciudad_Juarez 7  /* America/Ciudad_Juarez in 2022 */
-#define kAtcZoneBufSizeAmerica_Costa_Rica 2  /* America/Costa_Rica in 1999 */
+#define kAtcZoneBufSizeAmerica_Costa_Rica 2  /* America/Costa_Rica in 1949 */
 #define kAtcZoneBufSizeAmerica_Cuiaba 6  /* America/Cuiaba in 2005 */
-#define kAtcZoneBufSizeAmerica_Danmarkshavn 1  /* America/Danmarkshavn in 1999 */
+#define kAtcZoneBufSizeAmerica_Danmarkshavn 1  /* America/Danmarkshavn in 1949 */
 #define kAtcZoneBufSizeAmerica_Dawson 6  /* America/Dawson in 2008 */
-#define kAtcZoneBufSizeAmerica_Dawson_Creek 1  /* America/Dawson_Creek in 1999 */
+#define kAtcZoneBufSizeAmerica_Dawson_Creek 1  /* America/Dawson_Creek in 1949 */
 #define kAtcZoneBufSizeAmerica_Denver 6  /* America/Denver in 2008 */
 #define kAtcZoneBufSizeAmerica_Detroit 6  /* America/Detroit in 2008 */
 #define kAtcZoneBufSizeAmerica_Edmonton 6  /* America/Edmonton in 2008 */
 #define kAtcZoneBufSizeAmerica_Eirunepe 2  /* America/Eirunepe in 2008 */
-#define kAtcZoneBufSizeAmerica_El_Salvador 2  /* America/El_Salvador in 1999 */
+#define kAtcZoneBufSizeAmerica_El_Salvador 2  /* America/El_Salvador in 1949 */
 #define kAtcZoneBufSizeAmerica_Fort_Nelson 6  /* America/Fort_Nelson in 2008 */
 #define kAtcZoneBufSizeAmerica_Fortaleza 5  /* America/Fortaleza in 1999 */
 #define kAtcZoneBufSizeAmerica_Glace_Bay 6  /* America/Glace_Bay in 2008 */
 #define kAtcZoneBufSizeAmerica_Goose_Bay 6  /* America/Goose_Bay in 2008 */
 #define kAtcZoneBufSizeAmerica_Grand_Turk 6  /* America/Grand_Turk in 2008 */
 #define kAtcZoneBufSizeAmerica_Guatemala 3  /* America/Guatemala in 2006 */
-#define kAtcZoneBufSizeAmerica_Guayaquil 2  /* America/Guayaquil in 1999 */
-#define kAtcZoneBufSizeAmerica_Guyana 1  /* America/Guyana in 1999 */
+#define kAtcZoneBufSizeAmerica_Guayaquil 2  /* America/Guayaquil in 1949 */
+#define kAtcZoneBufSizeAmerica_Guyana 1  /* America/Guyana in 1949 */
 #define kAtcZoneBufSizeAmerica_Halifax 6  /* America/Halifax in 2008 */
 #define kAtcZoneBufSizeAmerica_Havana 6  /* America/Havana in 2015 */
-#define kAtcZoneBufSizeAmerica_Hermosillo 2  /* America/Hermosillo in 1999 */
+#define kAtcZoneBufSizeAmerica_Hermosillo 4  /* America/Hermosillo in 1996 */
 #define kAtcZoneBufSizeAmerica_Indiana_Indianapolis 6  /* America/Indiana/Indianapolis in 2006 */
 #define kAtcZoneBufSizeAmerica_Indiana_Knox 6  /* America/Indiana/Knox in 2006 */
 #define kAtcZoneBufSizeAmerica_Indiana_Marengo 6  /* America/Indiana/Marengo in 2006 */
@@ -1354,26 +1392,26 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeAmerica_Indiana_Winamac 6  /* America/Indiana/Winamac in 2006 */
 #define kAtcZoneBufSizeAmerica_Inuvik 6  /* America/Inuvik in 2008 */
 #define kAtcZoneBufSizeAmerica_Iqaluit 6  /* America/Iqaluit in 2008 */
-#define kAtcZoneBufSizeAmerica_Jamaica 1  /* America/Jamaica in 1999 */
+#define kAtcZoneBufSizeAmerica_Jamaica 1  /* America/Jamaica in 1949 */
 #define kAtcZoneBufSizeAmerica_Juneau 6  /* America/Juneau in 2008 */
 #define kAtcZoneBufSizeAmerica_Kentucky_Louisville 6  /* America/Kentucky/Louisville in 2008 */
 #define kAtcZoneBufSizeAmerica_Kentucky_Monticello 6  /* America/Kentucky/Monticello in 2008 */
-#define kAtcZoneBufSizeAmerica_La_Paz 1  /* America/La_Paz in 1999 */
-#define kAtcZoneBufSizeAmerica_Lima 2  /* America/Lima in 1999 */
+#define kAtcZoneBufSizeAmerica_La_Paz 1  /* America/La_Paz in 1949 */
+#define kAtcZoneBufSizeAmerica_Lima 2  /* America/Lima in 1949 */
 #define kAtcZoneBufSizeAmerica_Los_Angeles 6  /* America/Los_Angeles in 2008 */
 #define kAtcZoneBufSizeAmerica_Maceio 5  /* America/Maceio in 1999 */
 #define kAtcZoneBufSizeAmerica_Managua 4  /* America/Managua in 2005 */
-#define kAtcZoneBufSizeAmerica_Manaus 1  /* America/Manaus in 1999 */
-#define kAtcZoneBufSizeAmerica_Martinique 1  /* America/Martinique in 1999 */
+#define kAtcZoneBufSizeAmerica_Manaus 1  /* America/Manaus in 1949 */
+#define kAtcZoneBufSizeAmerica_Martinique 1  /* America/Martinique in 1949 */
 #define kAtcZoneBufSizeAmerica_Matamoros 6  /* America/Matamoros in 2009 */
-#define kAtcZoneBufSizeAmerica_Mazatlan 4  /* America/Mazatlan in 1999 */
+#define kAtcZoneBufSizeAmerica_Mazatlan 4  /* America/Mazatlan in 1996 */
 #define kAtcZoneBufSizeAmerica_Menominee 6  /* America/Menominee in 2008 */
-#define kAtcZoneBufSizeAmerica_Merida 4  /* America/Merida in 1999 */
+#define kAtcZoneBufSizeAmerica_Merida 4  /* America/Merida in 1996 */
 #define kAtcZoneBufSizeAmerica_Metlakatla 6  /* America/Metlakatla in 2016 */
 #define kAtcZoneBufSizeAmerica_Mexico_City 5  /* America/Mexico_City in 2002 */
 #define kAtcZoneBufSizeAmerica_Miquelon 6  /* America/Miquelon in 2008 */
 #define kAtcZoneBufSizeAmerica_Moncton 6  /* America/Moncton in 2006 */
-#define kAtcZoneBufSizeAmerica_Monterrey 4  /* America/Monterrey in 1999 */
+#define kAtcZoneBufSizeAmerica_Monterrey 4  /* America/Monterrey in 1996 */
 #define kAtcZoneBufSizeAmerica_Montevideo 5  /* America/Montevideo in 2005 */
 #define kAtcZoneBufSizeAmerica_New_York 6  /* America/New_York in 2008 */
 #define kAtcZoneBufSizeAmerica_Nome 6  /* America/Nome in 2008 */
@@ -1381,29 +1419,29 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeAmerica_North_Dakota_Beulah 6  /* America/North_Dakota/Beulah in 2008 */
 #define kAtcZoneBufSizeAmerica_North_Dakota_Center 6  /* America/North_Dakota/Center in 2008 */
 #define kAtcZoneBufSizeAmerica_North_Dakota_New_Salem 6  /* America/North_Dakota/New_Salem in 2008 */
-#define kAtcZoneBufSizeAmerica_Nuuk 5  /* America/Nuuk in 1999 */
+#define kAtcZoneBufSizeAmerica_Nuuk 6  /* America/Nuuk in 2023 */
 #define kAtcZoneBufSizeAmerica_Ojinaga 7  /* America/Ojinaga in 2022 */
-#define kAtcZoneBufSizeAmerica_Panama 1  /* America/Panama in 1999 */
-#define kAtcZoneBufSizeAmerica_Paramaribo 1  /* America/Paramaribo in 1999 */
-#define kAtcZoneBufSizeAmerica_Phoenix 1  /* America/Phoenix in 1999 */
+#define kAtcZoneBufSizeAmerica_Panama 1  /* America/Panama in 1949 */
+#define kAtcZoneBufSizeAmerica_Paramaribo 1  /* America/Paramaribo in 1949 */
+#define kAtcZoneBufSizeAmerica_Phoenix 1  /* America/Phoenix in 1949 */
 #define kAtcZoneBufSizeAmerica_Port_au_Prince 6  /* America/Port-au-Prince in 2013 */
-#define kAtcZoneBufSizeAmerica_Porto_Velho 1  /* America/Porto_Velho in 1999 */
-#define kAtcZoneBufSizeAmerica_Puerto_Rico 1  /* America/Puerto_Rico in 1999 */
+#define kAtcZoneBufSizeAmerica_Porto_Velho 1  /* America/Porto_Velho in 1949 */
+#define kAtcZoneBufSizeAmerica_Puerto_Rico 1  /* America/Puerto_Rico in 1949 */
 #define kAtcZoneBufSizeAmerica_Punta_Arenas 5  /* America/Punta_Arenas in 2002 */
 #define kAtcZoneBufSizeAmerica_Rankin_Inlet 6  /* America/Rankin_Inlet in 2008 */
 #define kAtcZoneBufSizeAmerica_Recife 5  /* America/Recife in 1999 */
-#define kAtcZoneBufSizeAmerica_Regina 1  /* America/Regina in 1999 */
+#define kAtcZoneBufSizeAmerica_Regina 1  /* America/Regina in 1949 */
 #define kAtcZoneBufSizeAmerica_Resolute 6  /* America/Resolute in 2007 */
 #define kAtcZoneBufSizeAmerica_Rio_Branco 2  /* America/Rio_Branco in 2008 */
 #define kAtcZoneBufSizeAmerica_Santarem 2  /* America/Santarem in 2008 */
 #define kAtcZoneBufSizeAmerica_Santiago 5  /* America/Santiago in 2002 */
 #define kAtcZoneBufSizeAmerica_Santo_Domingo 4  /* America/Santo_Domingo in 2000 */
 #define kAtcZoneBufSizeAmerica_Sao_Paulo 6  /* America/Sao_Paulo in 2003 */
-#define kAtcZoneBufSizeAmerica_Scoresbysund 5  /* America/Scoresbysund in 1999 */
+#define kAtcZoneBufSizeAmerica_Scoresbysund 5  /* America/Scoresbysund in 1983 */
 #define kAtcZoneBufSizeAmerica_Sitka 6  /* America/Sitka in 2008 */
 #define kAtcZoneBufSizeAmerica_St_Johns 6  /* America/St_Johns in 2008 */
-#define kAtcZoneBufSizeAmerica_Swift_Current 1  /* America/Swift_Current in 1999 */
-#define kAtcZoneBufSizeAmerica_Tegucigalpa 3  /* America/Tegucigalpa in 2006 */
+#define kAtcZoneBufSizeAmerica_Swift_Current 1  /* America/Swift_Current in 1949 */
+#define kAtcZoneBufSizeAmerica_Tegucigalpa 3  /* America/Tegucigalpa in 1987 */
 #define kAtcZoneBufSizeAmerica_Thule 6  /* America/Thule in 2008 */
 #define kAtcZoneBufSizeAmerica_Tijuana 6  /* America/Tijuana in 2009 */
 #define kAtcZoneBufSizeAmerica_Toronto 6  /* America/Toronto in 2008 */
@@ -1411,218 +1449,217 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeAmerica_Whitehorse 6  /* America/Whitehorse in 2008 */
 #define kAtcZoneBufSizeAmerica_Winnipeg 6  /* America/Winnipeg in 2006 */
 #define kAtcZoneBufSizeAmerica_Yakutat 6  /* America/Yakutat in 2008 */
-#define kAtcZoneBufSizeAmerica_Yellowknife 6  /* America/Yellowknife in 2008 */
 #define kAtcZoneBufSizeAntarctica_Casey 3  /* Antarctica/Casey in 2018 */
 #define kAtcZoneBufSizeAntarctica_Davis 2  /* Antarctica/Davis in 2009 */
-#define kAtcZoneBufSizeAntarctica_Macquarie 5  /* Antarctica/Macquarie in 1999 */
+#define kAtcZoneBufSizeAntarctica_Macquarie 5  /* Antarctica/Macquarie in 1993 */
 #define kAtcZoneBufSizeAntarctica_Mawson 2  /* Antarctica/Mawson in 2009 */
 #define kAtcZoneBufSizeAntarctica_Palmer 5  /* Antarctica/Palmer in 2002 */
-#define kAtcZoneBufSizeAntarctica_Rothera 1  /* Antarctica/Rothera in 1999 */
+#define kAtcZoneBufSizeAntarctica_Rothera 1  /* Antarctica/Rothera in 1949 */
 #define kAtcZoneBufSizeAntarctica_Troll 6  /* Antarctica/Troll in 2005 */
-#define kAtcZoneBufSizeAsia_Almaty 5  /* Asia/Almaty in 1999 */
+#define kAtcZoneBufSizeAsia_Almaty 5  /* Asia/Almaty in 1987 */
 #define kAtcZoneBufSizeAsia_Amman 6  /* Asia/Amman in 2014 */
-#define kAtcZoneBufSizeAsia_Anadyr 5  /* Asia/Anadyr in 1999 */
-#define kAtcZoneBufSizeAsia_Aqtau 5  /* Asia/Aqtau in 1999 */
-#define kAtcZoneBufSizeAsia_Aqtobe 5  /* Asia/Aqtobe in 1999 */
-#define kAtcZoneBufSizeAsia_Ashgabat 1  /* Asia/Ashgabat in 1999 */
+#define kAtcZoneBufSizeAsia_Anadyr 5  /* Asia/Anadyr in 1987 */
+#define kAtcZoneBufSizeAsia_Aqtau 5  /* Asia/Aqtau in 1987 */
+#define kAtcZoneBufSizeAsia_Aqtobe 5  /* Asia/Aqtobe in 1987 */
+#define kAtcZoneBufSizeAsia_Ashgabat 1  /* Asia/Ashgabat in 1949 */
 #define kAtcZoneBufSizeAsia_Atyrau 6  /* Asia/Atyrau in 1999 */
-#define kAtcZoneBufSizeAsia_Baghdad 4  /* Asia/Baghdad in 1999 */
-#define kAtcZoneBufSizeAsia_Baku 5  /* Asia/Baku in 1999 */
-#define kAtcZoneBufSizeAsia_Bangkok 1  /* Asia/Bangkok in 1999 */
-#define kAtcZoneBufSizeAsia_Barnaul 5  /* Asia/Barnaul in 1999 */
-#define kAtcZoneBufSizeAsia_Beirut 5  /* Asia/Beirut in 1999 */
-#define kAtcZoneBufSizeAsia_Bishkek 5  /* Asia/Bishkek in 1999 */
-#define kAtcZoneBufSizeAsia_Chita 5  /* Asia/Chita in 1999 */
+#define kAtcZoneBufSizeAsia_Baghdad 4  /* Asia/Baghdad in 1991 */
+#define kAtcZoneBufSizeAsia_Baku 5  /* Asia/Baku in 1997 */
+#define kAtcZoneBufSizeAsia_Bangkok 1  /* Asia/Bangkok in 1949 */
+#define kAtcZoneBufSizeAsia_Barnaul 5  /* Asia/Barnaul in 1987 */
+#define kAtcZoneBufSizeAsia_Beirut 5  /* Asia/Beirut in 1993 */
+#define kAtcZoneBufSizeAsia_Bishkek 5  /* Asia/Bishkek in 1997 */
+#define kAtcZoneBufSizeAsia_Chita 5  /* Asia/Chita in 1987 */
 #define kAtcZoneBufSizeAsia_Choibalsan 5  /* Asia/Choibalsan in 2004 */
 #define kAtcZoneBufSizeAsia_Colombo 2  /* Asia/Colombo in 2006 */
 #define kAtcZoneBufSizeAsia_Damascus 6  /* Asia/Damascus in 2008 */
 #define kAtcZoneBufSizeAsia_Dhaka 4  /* Asia/Dhaka in 2009 */
 #define kAtcZoneBufSizeAsia_Dili 2  /* Asia/Dili in 2000 */
-#define kAtcZoneBufSizeAsia_Dubai 1  /* Asia/Dubai in 1999 */
-#define kAtcZoneBufSizeAsia_Dushanbe 1  /* Asia/Dushanbe in 1999 */
-#define kAtcZoneBufSizeAsia_Famagusta 5  /* Asia/Famagusta in 1999 */
+#define kAtcZoneBufSizeAsia_Dubai 1  /* Asia/Dubai in 1949 */
+#define kAtcZoneBufSizeAsia_Dushanbe 1  /* Asia/Dushanbe in 1949 */
+#define kAtcZoneBufSizeAsia_Famagusta 5  /* Asia/Famagusta in 1981 */
 #define kAtcZoneBufSizeAsia_Gaza 7  /* Asia/Gaza in 2008 */
 #define kAtcZoneBufSizeAsia_Hebron 7  /* Asia/Hebron in 2011 */
-#define kAtcZoneBufSizeAsia_Ho_Chi_Minh 1  /* Asia/Ho_Chi_Minh in 1999 */
-#define kAtcZoneBufSizeAsia_Hong_Kong 2  /* Asia/Hong_Kong in 1999 */
+#define kAtcZoneBufSizeAsia_Ho_Chi_Minh 1  /* Asia/Ho_Chi_Minh in 1949 */
+#define kAtcZoneBufSizeAsia_Hong_Kong 2  /* Asia/Hong_Kong in 1949 */
 #define kAtcZoneBufSizeAsia_Hovd 5  /* Asia/Hovd in 2004 */
-#define kAtcZoneBufSizeAsia_Irkutsk 5  /* Asia/Irkutsk in 1999 */
-#define kAtcZoneBufSizeAsia_Jakarta 1  /* Asia/Jakarta in 1999 */
-#define kAtcZoneBufSizeAsia_Jayapura 1  /* Asia/Jayapura in 1999 */
+#define kAtcZoneBufSizeAsia_Irkutsk 5  /* Asia/Irkutsk in 1987 */
+#define kAtcZoneBufSizeAsia_Jakarta 1  /* Asia/Jakarta in 1949 */
+#define kAtcZoneBufSizeAsia_Jayapura 1  /* Asia/Jayapura in 1949 */
 #define kAtcZoneBufSizeAsia_Jerusalem 5  /* Asia/Jerusalem in 2001 */
-#define kAtcZoneBufSizeAsia_Kabul 1  /* Asia/Kabul in 1999 */
-#define kAtcZoneBufSizeAsia_Kamchatka 5  /* Asia/Kamchatka in 1999 */
+#define kAtcZoneBufSizeAsia_Kabul 1  /* Asia/Kabul in 1949 */
+#define kAtcZoneBufSizeAsia_Kamchatka 5  /* Asia/Kamchatka in 1987 */
 #define kAtcZoneBufSizeAsia_Karachi 4  /* Asia/Karachi in 2008 */
-#define kAtcZoneBufSizeAsia_Kathmandu 1  /* Asia/Kathmandu in 1999 */
+#define kAtcZoneBufSizeAsia_Kathmandu 1  /* Asia/Kathmandu in 1949 */
 #define kAtcZoneBufSizeAsia_Khandyga 6  /* Asia/Khandyga in 2003 */
-#define kAtcZoneBufSizeAsia_Kolkata 1  /* Asia/Kolkata in 1999 */
-#define kAtcZoneBufSizeAsia_Krasnoyarsk 5  /* Asia/Krasnoyarsk in 1999 */
-#define kAtcZoneBufSizeAsia_Kuching 1  /* Asia/Kuching in 1999 */
-#define kAtcZoneBufSizeAsia_Macau 2  /* Asia/Macau in 1999 */
-#define kAtcZoneBufSizeAsia_Magadan 5  /* Asia/Magadan in 1999 */
-#define kAtcZoneBufSizeAsia_Makassar 1  /* Asia/Makassar in 1999 */
-#define kAtcZoneBufSizeAsia_Manila 2  /* Asia/Manila in 1999 */
-#define kAtcZoneBufSizeAsia_Nicosia 5  /* Asia/Nicosia in 1999 */
-#define kAtcZoneBufSizeAsia_Novokuznetsk 5  /* Asia/Novokuznetsk in 1999 */
-#define kAtcZoneBufSizeAsia_Novosibirsk 5  /* Asia/Novosibirsk in 1999 */
-#define kAtcZoneBufSizeAsia_Omsk 5  /* Asia/Omsk in 1999 */
-#define kAtcZoneBufSizeAsia_Oral 5  /* Asia/Oral in 1999 */
-#define kAtcZoneBufSizeAsia_Pontianak 1  /* Asia/Pontianak in 1999 */
+#define kAtcZoneBufSizeAsia_Kolkata 1  /* Asia/Kolkata in 1949 */
+#define kAtcZoneBufSizeAsia_Krasnoyarsk 5  /* Asia/Krasnoyarsk in 1987 */
+#define kAtcZoneBufSizeAsia_Kuching 1  /* Asia/Kuching in 1949 */
+#define kAtcZoneBufSizeAsia_Macau 2  /* Asia/Macau in 1949 */
+#define kAtcZoneBufSizeAsia_Magadan 5  /* Asia/Magadan in 1987 */
+#define kAtcZoneBufSizeAsia_Makassar 1  /* Asia/Makassar in 1949 */
+#define kAtcZoneBufSizeAsia_Manila 2  /* Asia/Manila in 1949 */
+#define kAtcZoneBufSizeAsia_Nicosia 5  /* Asia/Nicosia in 1981 */
+#define kAtcZoneBufSizeAsia_Novokuznetsk 5  /* Asia/Novokuznetsk in 1987 */
+#define kAtcZoneBufSizeAsia_Novosibirsk 5  /* Asia/Novosibirsk in 1987 */
+#define kAtcZoneBufSizeAsia_Omsk 5  /* Asia/Omsk in 1987 */
+#define kAtcZoneBufSizeAsia_Oral 5  /* Asia/Oral in 1987 */
+#define kAtcZoneBufSizeAsia_Pontianak 1  /* Asia/Pontianak in 1949 */
 #define kAtcZoneBufSizeAsia_Pyongyang 2  /* Asia/Pyongyang in 2015 */
-#define kAtcZoneBufSizeAsia_Qatar 1  /* Asia/Qatar in 1999 */
-#define kAtcZoneBufSizeAsia_Qostanay 5  /* Asia/Qostanay in 1999 */
-#define kAtcZoneBufSizeAsia_Qyzylorda 5  /* Asia/Qyzylorda in 1999 */
-#define kAtcZoneBufSizeAsia_Riyadh 1  /* Asia/Riyadh in 1999 */
-#define kAtcZoneBufSizeAsia_Sakhalin 5  /* Asia/Sakhalin in 1999 */
-#define kAtcZoneBufSizeAsia_Samarkand 1  /* Asia/Samarkand in 1999 */
-#define kAtcZoneBufSizeAsia_Seoul 2  /* Asia/Seoul in 1999 */
-#define kAtcZoneBufSizeAsia_Shanghai 2  /* Asia/Shanghai in 1999 */
-#define kAtcZoneBufSizeAsia_Singapore 1  /* Asia/Singapore in 1999 */
-#define kAtcZoneBufSizeAsia_Srednekolymsk 5  /* Asia/Srednekolymsk in 1999 */
-#define kAtcZoneBufSizeAsia_Taipei 2  /* Asia/Taipei in 1999 */
-#define kAtcZoneBufSizeAsia_Tashkent 1  /* Asia/Tashkent in 1999 */
+#define kAtcZoneBufSizeAsia_Qatar 1  /* Asia/Qatar in 1949 */
+#define kAtcZoneBufSizeAsia_Qostanay 5  /* Asia/Qostanay in 1987 */
+#define kAtcZoneBufSizeAsia_Qyzylorda 5  /* Asia/Qyzylorda in 1987 */
+#define kAtcZoneBufSizeAsia_Riyadh 1  /* Asia/Riyadh in 1949 */
+#define kAtcZoneBufSizeAsia_Sakhalin 5  /* Asia/Sakhalin in 1987 */
+#define kAtcZoneBufSizeAsia_Samarkand 1  /* Asia/Samarkand in 1949 */
+#define kAtcZoneBufSizeAsia_Seoul 2  /* Asia/Seoul in 1949 */
+#define kAtcZoneBufSizeAsia_Shanghai 2  /* Asia/Shanghai in 1949 */
+#define kAtcZoneBufSizeAsia_Singapore 1  /* Asia/Singapore in 1949 */
+#define kAtcZoneBufSizeAsia_Srednekolymsk 5  /* Asia/Srednekolymsk in 1987 */
+#define kAtcZoneBufSizeAsia_Taipei 2  /* Asia/Taipei in 1949 */
+#define kAtcZoneBufSizeAsia_Tashkent 1  /* Asia/Tashkent in 1949 */
 #define kAtcZoneBufSizeAsia_Tbilisi 6  /* Asia/Tbilisi in 2004 */
-#define kAtcZoneBufSizeAsia_Tehran 5  /* Asia/Tehran in 1999 */
-#define kAtcZoneBufSizeAsia_Thimphu 1  /* Asia/Thimphu in 1999 */
-#define kAtcZoneBufSizeAsia_Tokyo 2  /* Asia/Tokyo in 1999 */
+#define kAtcZoneBufSizeAsia_Tehran 5  /* Asia/Tehran in 1997 */
+#define kAtcZoneBufSizeAsia_Thimphu 1  /* Asia/Thimphu in 1949 */
+#define kAtcZoneBufSizeAsia_Tokyo 2  /* Asia/Tokyo in 1949 */
 #define kAtcZoneBufSizeAsia_Tomsk 6  /* Asia/Tomsk in 2002 */
 #define kAtcZoneBufSizeAsia_Ulaanbaatar 5  /* Asia/Ulaanbaatar in 2004 */
-#define kAtcZoneBufSizeAsia_Urumqi 1  /* Asia/Urumqi in 1999 */
-#define kAtcZoneBufSizeAsia_Ust_Nera 5  /* Asia/Ust-Nera in 1999 */
-#define kAtcZoneBufSizeAsia_Vladivostok 5  /* Asia/Vladivostok in 1999 */
-#define kAtcZoneBufSizeAsia_Yakutsk 5  /* Asia/Yakutsk in 1999 */
-#define kAtcZoneBufSizeAsia_Yangon 1  /* Asia/Yangon in 1999 */
-#define kAtcZoneBufSizeAsia_Yekaterinburg 5  /* Asia/Yekaterinburg in 1999 */
+#define kAtcZoneBufSizeAsia_Urumqi 1  /* Asia/Urumqi in 1949 */
+#define kAtcZoneBufSizeAsia_Ust_Nera 5  /* Asia/Ust-Nera in 1987 */
+#define kAtcZoneBufSizeAsia_Vladivostok 5  /* Asia/Vladivostok in 1987 */
+#define kAtcZoneBufSizeAsia_Yakutsk 5  /* Asia/Yakutsk in 1987 */
+#define kAtcZoneBufSizeAsia_Yangon 1  /* Asia/Yangon in 1949 */
+#define kAtcZoneBufSizeAsia_Yekaterinburg 5  /* Asia/Yekaterinburg in 1987 */
 #define kAtcZoneBufSizeAsia_Yerevan 6  /* Asia/Yerevan in 2010 */
-#define kAtcZoneBufSizeAtlantic_Azores 5  /* Atlantic/Azores in 1999 */
+#define kAtcZoneBufSizeAtlantic_Azores 5  /* Atlantic/Azores in 1983 */
 #define kAtcZoneBufSizeAtlantic_Bermuda 6  /* Atlantic/Bermuda in 2008 */
-#define kAtcZoneBufSizeAtlantic_Canary 5  /* Atlantic/Canary in 1999 */
-#define kAtcZoneBufSizeAtlantic_Cape_Verde 1  /* Atlantic/Cape_Verde in 1999 */
-#define kAtcZoneBufSizeAtlantic_Faroe 5  /* Atlantic/Faroe in 1999 */
-#define kAtcZoneBufSizeAtlantic_Madeira 5  /* Atlantic/Madeira in 1999 */
-#define kAtcZoneBufSizeAtlantic_South_Georgia 1  /* Atlantic/South_Georgia in 1999 */
-#define kAtcZoneBufSizeAtlantic_Stanley 4  /* Atlantic/Stanley in 1999 */
-#define kAtcZoneBufSizeAustralia_Adelaide 5  /* Australia/Adelaide in 1999 */
-#define kAtcZoneBufSizeAustralia_Brisbane 2  /* Australia/Brisbane in 1999 */
+#define kAtcZoneBufSizeAtlantic_Canary 5  /* Atlantic/Canary in 1983 */
+#define kAtcZoneBufSizeAtlantic_Cape_Verde 1  /* Atlantic/Cape_Verde in 1949 */
+#define kAtcZoneBufSizeAtlantic_Faroe 5  /* Atlantic/Faroe in 1983 */
+#define kAtcZoneBufSizeAtlantic_Madeira 5  /* Atlantic/Madeira in 1983 */
+#define kAtcZoneBufSizeAtlantic_South_Georgia 1  /* Atlantic/South_Georgia in 1949 */
+#define kAtcZoneBufSizeAtlantic_Stanley 4  /* Atlantic/Stanley in 1985 */
+#define kAtcZoneBufSizeAustralia_Adelaide 5  /* Australia/Adelaide in 1997 */
+#define kAtcZoneBufSizeAustralia_Brisbane 2  /* Australia/Brisbane in 1949 */
 #define kAtcZoneBufSizeAustralia_Broken_Hill 6  /* Australia/Broken_Hill in 1999 */
-#define kAtcZoneBufSizeAustralia_Darwin 2  /* Australia/Darwin in 1999 */
+#define kAtcZoneBufSizeAustralia_Darwin 2  /* Australia/Darwin in 1949 */
 #define kAtcZoneBufSizeAustralia_Eucla 6  /* Australia/Eucla in 2007 */
-#define kAtcZoneBufSizeAustralia_Hobart 5  /* Australia/Hobart in 1999 */
-#define kAtcZoneBufSizeAustralia_Lindeman 2  /* Australia/Lindeman in 1999 */
-#define kAtcZoneBufSizeAustralia_Lord_Howe 5  /* Australia/Lord_Howe in 1999 */
-#define kAtcZoneBufSizeAustralia_Melbourne 5  /* Australia/Melbourne in 1999 */
+#define kAtcZoneBufSizeAustralia_Hobart 5  /* Australia/Hobart in 1993 */
+#define kAtcZoneBufSizeAustralia_Lindeman 2  /* Australia/Lindeman in 1949 */
+#define kAtcZoneBufSizeAustralia_Lord_Howe 5  /* Australia/Lord_Howe in 1992 */
+#define kAtcZoneBufSizeAustralia_Melbourne 5  /* Australia/Melbourne in 1993 */
 #define kAtcZoneBufSizeAustralia_Perth 6  /* Australia/Perth in 2007 */
-#define kAtcZoneBufSizeAustralia_Sydney 5  /* Australia/Sydney in 1999 */
-#define kAtcZoneBufSizeCET 5  /* CET in 1999 */
+#define kAtcZoneBufSizeAustralia_Sydney 5  /* Australia/Sydney in 1992 */
+#define kAtcZoneBufSizeCET 5  /* CET in 1983 */
 #define kAtcZoneBufSizeCST6CDT 6  /* CST6CDT in 2008 */
-#define kAtcZoneBufSizeEET 5  /* EET in 1999 */
-#define kAtcZoneBufSizeEST 1  /* EST in 1999 */
+#define kAtcZoneBufSizeEET 5  /* EET in 1983 */
+#define kAtcZoneBufSizeEST 1  /* EST in 1949 */
 #define kAtcZoneBufSizeEST5EDT 6  /* EST5EDT in 2008 */
-#define kAtcZoneBufSizeEtc_GMT 1  /* Etc/GMT in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_1 1  /* Etc/GMT+1 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_10 1  /* Etc/GMT+10 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_11 1  /* Etc/GMT+11 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_12 1  /* Etc/GMT+12 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_2 1  /* Etc/GMT+2 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_3 1  /* Etc/GMT+3 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_4 1  /* Etc/GMT+4 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_5 1  /* Etc/GMT+5 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_6 1  /* Etc/GMT+6 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_7 1  /* Etc/GMT+7 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_8 1  /* Etc/GMT+8 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_PLUS_9 1  /* Etc/GMT+9 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_1 1  /* Etc/GMT-1 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_10 1  /* Etc/GMT-10 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_11 1  /* Etc/GMT-11 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_12 1  /* Etc/GMT-12 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_13 1  /* Etc/GMT-13 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_14 1  /* Etc/GMT-14 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_2 1  /* Etc/GMT-2 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_3 1  /* Etc/GMT-3 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_4 1  /* Etc/GMT-4 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_5 1  /* Etc/GMT-5 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_6 1  /* Etc/GMT-6 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_7 1  /* Etc/GMT-7 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_8 1  /* Etc/GMT-8 in 1999 */
-#define kAtcZoneBufSizeEtc_GMT_9 1  /* Etc/GMT-9 in 1999 */
-#define kAtcZoneBufSizeEtc_UTC 1  /* Etc/UTC in 1999 */
-#define kAtcZoneBufSizeEurope_Andorra 5  /* Europe/Andorra in 1999 */
-#define kAtcZoneBufSizeEurope_Astrakhan 5  /* Europe/Astrakhan in 1999 */
-#define kAtcZoneBufSizeEurope_Athens 5  /* Europe/Athens in 1999 */
-#define kAtcZoneBufSizeEurope_Belgrade 5  /* Europe/Belgrade in 1999 */
-#define kAtcZoneBufSizeEurope_Berlin 5  /* Europe/Berlin in 1999 */
-#define kAtcZoneBufSizeEurope_Brussels 5  /* Europe/Brussels in 1999 */
-#define kAtcZoneBufSizeEurope_Bucharest 5  /* Europe/Bucharest in 1999 */
-#define kAtcZoneBufSizeEurope_Budapest 5  /* Europe/Budapest in 1999 */
-#define kAtcZoneBufSizeEurope_Chisinau 5  /* Europe/Chisinau in 1999 */
-#define kAtcZoneBufSizeEurope_Dublin 5  /* Europe/Dublin in 1999 */
-#define kAtcZoneBufSizeEurope_Gibraltar 5  /* Europe/Gibraltar in 1999 */
-#define kAtcZoneBufSizeEurope_Helsinki 5  /* Europe/Helsinki in 1999 */
+#define kAtcZoneBufSizeEtc_GMT 1  /* Etc/GMT in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_1 1  /* Etc/GMT+1 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_10 1  /* Etc/GMT+10 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_11 1  /* Etc/GMT+11 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_12 1  /* Etc/GMT+12 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_2 1  /* Etc/GMT+2 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_3 1  /* Etc/GMT+3 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_4 1  /* Etc/GMT+4 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_5 1  /* Etc/GMT+5 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_6 1  /* Etc/GMT+6 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_7 1  /* Etc/GMT+7 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_8 1  /* Etc/GMT+8 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_PLUS_9 1  /* Etc/GMT+9 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_1 1  /* Etc/GMT-1 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_10 1  /* Etc/GMT-10 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_11 1  /* Etc/GMT-11 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_12 1  /* Etc/GMT-12 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_13 1  /* Etc/GMT-13 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_14 1  /* Etc/GMT-14 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_2 1  /* Etc/GMT-2 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_3 1  /* Etc/GMT-3 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_4 1  /* Etc/GMT-4 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_5 1  /* Etc/GMT-5 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_6 1  /* Etc/GMT-6 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_7 1  /* Etc/GMT-7 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_8 1  /* Etc/GMT-8 in 1949 */
+#define kAtcZoneBufSizeEtc_GMT_9 1  /* Etc/GMT-9 in 1949 */
+#define kAtcZoneBufSizeEtc_UTC 1  /* Etc/UTC in 1949 */
+#define kAtcZoneBufSizeEurope_Andorra 5  /* Europe/Andorra in 1983 */
+#define kAtcZoneBufSizeEurope_Astrakhan 5  /* Europe/Astrakhan in 1987 */
+#define kAtcZoneBufSizeEurope_Athens 5  /* Europe/Athens in 1983 */
+#define kAtcZoneBufSizeEurope_Belgrade 5  /* Europe/Belgrade in 1983 */
+#define kAtcZoneBufSizeEurope_Berlin 5  /* Europe/Berlin in 1983 */
+#define kAtcZoneBufSizeEurope_Brussels 5  /* Europe/Brussels in 1983 */
+#define kAtcZoneBufSizeEurope_Bucharest 5  /* Europe/Bucharest in 1983 */
+#define kAtcZoneBufSizeEurope_Budapest 5  /* Europe/Budapest in 1983 */
+#define kAtcZoneBufSizeEurope_Chisinau 5  /* Europe/Chisinau in 1997 */
+#define kAtcZoneBufSizeEurope_Dublin 5  /* Europe/Dublin in 1990 */
+#define kAtcZoneBufSizeEurope_Gibraltar 5  /* Europe/Gibraltar in 1983 */
+#define kAtcZoneBufSizeEurope_Helsinki 5  /* Europe/Helsinki in 1983 */
 #define kAtcZoneBufSizeEurope_Istanbul 7  /* Europe/Istanbul in 2011 */
-#define kAtcZoneBufSizeEurope_Kaliningrad 5  /* Europe/Kaliningrad in 1999 */
-#define kAtcZoneBufSizeEurope_Kirov 5  /* Europe/Kirov in 1999 */
-#define kAtcZoneBufSizeEurope_Kyiv 5  /* Europe/Kyiv in 1999 */
-#define kAtcZoneBufSizeEurope_Lisbon 5  /* Europe/Lisbon in 1999 */
-#define kAtcZoneBufSizeEurope_London 5  /* Europe/London in 1999 */
-#define kAtcZoneBufSizeEurope_Madrid 5  /* Europe/Madrid in 1999 */
-#define kAtcZoneBufSizeEurope_Malta 5  /* Europe/Malta in 1999 */
-#define kAtcZoneBufSizeEurope_Minsk 5  /* Europe/Minsk in 1999 */
-#define kAtcZoneBufSizeEurope_Moscow 5  /* Europe/Moscow in 1999 */
-#define kAtcZoneBufSizeEurope_Paris 5  /* Europe/Paris in 1999 */
-#define kAtcZoneBufSizeEurope_Prague 5  /* Europe/Prague in 1999 */
+#define kAtcZoneBufSizeEurope_Kaliningrad 5  /* Europe/Kaliningrad in 1987 */
+#define kAtcZoneBufSizeEurope_Kirov 5  /* Europe/Kirov in 1987 */
+#define kAtcZoneBufSizeEurope_Kyiv 5  /* Europe/Kyiv in 1983 */
+#define kAtcZoneBufSizeEurope_Lisbon 5  /* Europe/Lisbon in 1983 */
+#define kAtcZoneBufSizeEurope_London 5  /* Europe/London in 1983 */
+#define kAtcZoneBufSizeEurope_Madrid 5  /* Europe/Madrid in 1983 */
+#define kAtcZoneBufSizeEurope_Malta 5  /* Europe/Malta in 1983 */
+#define kAtcZoneBufSizeEurope_Minsk 5  /* Europe/Minsk in 1987 */
+#define kAtcZoneBufSizeEurope_Moscow 5  /* Europe/Moscow in 1987 */
+#define kAtcZoneBufSizeEurope_Paris 5  /* Europe/Paris in 1983 */
+#define kAtcZoneBufSizeEurope_Prague 5  /* Europe/Prague in 1983 */
 #define kAtcZoneBufSizeEurope_Riga 6  /* Europe/Riga in 2001 */
-#define kAtcZoneBufSizeEurope_Rome 5  /* Europe/Rome in 1999 */
-#define kAtcZoneBufSizeEurope_Samara 5  /* Europe/Samara in 1999 */
-#define kAtcZoneBufSizeEurope_Saratov 5  /* Europe/Saratov in 1999 */
-#define kAtcZoneBufSizeEurope_Simferopol 5  /* Europe/Simferopol in 1999 */
-#define kAtcZoneBufSizeEurope_Sofia 5  /* Europe/Sofia in 1999 */
+#define kAtcZoneBufSizeEurope_Rome 5  /* Europe/Rome in 1983 */
+#define kAtcZoneBufSizeEurope_Samara 5  /* Europe/Samara in 1987 */
+#define kAtcZoneBufSizeEurope_Saratov 5  /* Europe/Saratov in 1987 */
+#define kAtcZoneBufSizeEurope_Simferopol 5  /* Europe/Simferopol in 1983 */
+#define kAtcZoneBufSizeEurope_Sofia 5  /* Europe/Sofia in 1983 */
 #define kAtcZoneBufSizeEurope_Tallinn 6  /* Europe/Tallinn in 2002 */
-#define kAtcZoneBufSizeEurope_Tirane 5  /* Europe/Tirane in 1999 */
-#define kAtcZoneBufSizeEurope_Ulyanovsk 5  /* Europe/Ulyanovsk in 1999 */
-#define kAtcZoneBufSizeEurope_Vienna 5  /* Europe/Vienna in 1999 */
+#define kAtcZoneBufSizeEurope_Tirane 5  /* Europe/Tirane in 1983 */
+#define kAtcZoneBufSizeEurope_Ulyanovsk 5  /* Europe/Ulyanovsk in 1987 */
+#define kAtcZoneBufSizeEurope_Vienna 5  /* Europe/Vienna in 1983 */
 #define kAtcZoneBufSizeEurope_Vilnius 6  /* Europe/Vilnius in 2003 */
-#define kAtcZoneBufSizeEurope_Volgograd 5  /* Europe/Volgograd in 1999 */
-#define kAtcZoneBufSizeEurope_Warsaw 5  /* Europe/Warsaw in 1999 */
-#define kAtcZoneBufSizeEurope_Zurich 5  /* Europe/Zurich in 1999 */
-#define kAtcZoneBufSizeHST 1  /* HST in 1999 */
-#define kAtcZoneBufSizeIndian_Chagos 1  /* Indian/Chagos in 1999 */
-#define kAtcZoneBufSizeIndian_Maldives 1  /* Indian/Maldives in 1999 */
+#define kAtcZoneBufSizeEurope_Volgograd 5  /* Europe/Volgograd in 1987 */
+#define kAtcZoneBufSizeEurope_Warsaw 5  /* Europe/Warsaw in 1983 */
+#define kAtcZoneBufSizeEurope_Zurich 5  /* Europe/Zurich in 1983 */
+#define kAtcZoneBufSizeHST 1  /* HST in 1949 */
+#define kAtcZoneBufSizeIndian_Chagos 1  /* Indian/Chagos in 1949 */
+#define kAtcZoneBufSizeIndian_Maldives 1  /* Indian/Maldives in 1949 */
 #define kAtcZoneBufSizeIndian_Mauritius 3  /* Indian/Mauritius in 2008 */
-#define kAtcZoneBufSizeMET 5  /* MET in 1999 */
-#define kAtcZoneBufSizeMST 1  /* MST in 1999 */
+#define kAtcZoneBufSizeMET 5  /* MET in 1983 */
+#define kAtcZoneBufSizeMST 1  /* MST in 1949 */
 #define kAtcZoneBufSizeMST7MDT 6  /* MST7MDT in 2008 */
 #define kAtcZoneBufSizePST8PDT 6  /* PST8PDT in 2008 */
 #define kAtcZoneBufSizePacific_Apia 5  /* Pacific/Apia in 2011 */
-#define kAtcZoneBufSizePacific_Auckland 5  /* Pacific/Auckland in 1999 */
+#define kAtcZoneBufSizePacific_Auckland 5  /* Pacific/Auckland in 1992 */
 #define kAtcZoneBufSizePacific_Bougainville 2  /* Pacific/Bougainville in 2014 */
-#define kAtcZoneBufSizePacific_Chatham 5  /* Pacific/Chatham in 1999 */
+#define kAtcZoneBufSizePacific_Chatham 5  /* Pacific/Chatham in 1992 */
 #define kAtcZoneBufSizePacific_Easter 5  /* Pacific/Easter in 2002 */
-#define kAtcZoneBufSizePacific_Efate 2  /* Pacific/Efate in 1999 */
+#define kAtcZoneBufSizePacific_Efate 2  /* Pacific/Efate in 1949 */
 #define kAtcZoneBufSizePacific_Fakaofo 2  /* Pacific/Fakaofo in 2011 */
 #define kAtcZoneBufSizePacific_Fiji 6  /* Pacific/Fiji in 2017 */
-#define kAtcZoneBufSizePacific_Galapagos 2  /* Pacific/Galapagos in 1999 */
-#define kAtcZoneBufSizePacific_Gambier 1  /* Pacific/Gambier in 1999 */
-#define kAtcZoneBufSizePacific_Guadalcanal 1  /* Pacific/Guadalcanal in 1999 */
-#define kAtcZoneBufSizePacific_Guam 2  /* Pacific/Guam in 1999 */
-#define kAtcZoneBufSizePacific_Honolulu 1  /* Pacific/Honolulu in 1999 */
-#define kAtcZoneBufSizePacific_Kanton 1  /* Pacific/Kanton in 1999 */
-#define kAtcZoneBufSizePacific_Kiritimati 1  /* Pacific/Kiritimati in 1999 */
-#define kAtcZoneBufSizePacific_Kosrae 2  /* Pacific/Kosrae in 1999 */
-#define kAtcZoneBufSizePacific_Kwajalein 1  /* Pacific/Kwajalein in 1999 */
-#define kAtcZoneBufSizePacific_Marquesas 1  /* Pacific/Marquesas in 1999 */
-#define kAtcZoneBufSizePacific_Nauru 1  /* Pacific/Nauru in 1999 */
-#define kAtcZoneBufSizePacific_Niue 1  /* Pacific/Niue in 1999 */
+#define kAtcZoneBufSizePacific_Galapagos 2  /* Pacific/Galapagos in 1949 */
+#define kAtcZoneBufSizePacific_Gambier 1  /* Pacific/Gambier in 1949 */
+#define kAtcZoneBufSizePacific_Guadalcanal 1  /* Pacific/Guadalcanal in 1949 */
+#define kAtcZoneBufSizePacific_Guam 2  /* Pacific/Guam in 1949 */
+#define kAtcZoneBufSizePacific_Honolulu 1  /* Pacific/Honolulu in 1949 */
+#define kAtcZoneBufSizePacific_Kanton 1  /* Pacific/Kanton in 1949 */
+#define kAtcZoneBufSizePacific_Kiritimati 1  /* Pacific/Kiritimati in 1949 */
+#define kAtcZoneBufSizePacific_Kosrae 2  /* Pacific/Kosrae in 1998 */
+#define kAtcZoneBufSizePacific_Kwajalein 1  /* Pacific/Kwajalein in 1949 */
+#define kAtcZoneBufSizePacific_Marquesas 1  /* Pacific/Marquesas in 1949 */
+#define kAtcZoneBufSizePacific_Nauru 1  /* Pacific/Nauru in 1949 */
+#define kAtcZoneBufSizePacific_Niue 1  /* Pacific/Niue in 1949 */
 #define kAtcZoneBufSizePacific_Norfolk 4  /* Pacific/Norfolk in 2019 */
-#define kAtcZoneBufSizePacific_Noumea 2  /* Pacific/Noumea in 1999 */
-#define kAtcZoneBufSizePacific_Pago_Pago 1  /* Pacific/Pago_Pago in 1999 */
-#define kAtcZoneBufSizePacific_Palau 1  /* Pacific/Palau in 1999 */
-#define kAtcZoneBufSizePacific_Pitcairn 1  /* Pacific/Pitcairn in 1999 */
-#define kAtcZoneBufSizePacific_Port_Moresby 1  /* Pacific/Port_Moresby in 1999 */
-#define kAtcZoneBufSizePacific_Rarotonga 2  /* Pacific/Rarotonga in 1999 */
-#define kAtcZoneBufSizePacific_Tahiti 1  /* Pacific/Tahiti in 1999 */
-#define kAtcZoneBufSizePacific_Tarawa 1  /* Pacific/Tarawa in 1999 */
+#define kAtcZoneBufSizePacific_Noumea 2  /* Pacific/Noumea in 1949 */
+#define kAtcZoneBufSizePacific_Pago_Pago 1  /* Pacific/Pago_Pago in 1949 */
+#define kAtcZoneBufSizePacific_Palau 1  /* Pacific/Palau in 1949 */
+#define kAtcZoneBufSizePacific_Pitcairn 1  /* Pacific/Pitcairn in 1949 */
+#define kAtcZoneBufSizePacific_Port_Moresby 1  /* Pacific/Port_Moresby in 1949 */
+#define kAtcZoneBufSizePacific_Rarotonga 2  /* Pacific/Rarotonga in 1949 */
+#define kAtcZoneBufSizePacific_Tahiti 1  /* Pacific/Tahiti in 1949 */
+#define kAtcZoneBufSizePacific_Tarawa 1  /* Pacific/Tarawa in 1949 */
 #define kAtcZoneBufSizePacific_Tongatapu 5  /* Pacific/Tongatapu in 1999 */
-#define kAtcZoneBufSizeWET 5  /* WET in 1999 */
+#define kAtcZoneBufSizeWET 5  /* WET in 1983 */
 
 
 //---------------------------------------------------------------------------
@@ -1636,88 +1673,63 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //---------------------------------------------------------------------------
 
 // Africa/Casablanca {
-//   Morocco {SAVE (delta_offset) '-1:00' different from 1:00}
+//   Morocco {SAVE '-1:00' is a negative DST}
 // }
 // Africa/El_Aaiun {
-//   Morocco {SAVE (delta_offset) '-1:00' different from 1:00}
+//   Morocco {SAVE '-1:00' is a negative DST}
 // }
 // Africa/Johannesburg {RULES not fixed but FORMAT is missing '%' or '/'}
 // Africa/Windhoek {
 //   Namibia {
 //     LETTER 'CAT' not single character,
 //     LETTER 'WAT' not single character,
-//     SAVE (delta_offset) '-1:00' different from 1:00,
+//     SAVE '-1:00' is a negative DST,
 //   }
-// }
-// America/Argentina/San_Luis {
-//   SanLuis {Added anchor rule at year 0}
 // }
 // America/Belize {
 //   Belize {LETTER 'CST' not single character}
 // }
 // America/Goose_Bay {
 //   StJohns {
-//     AT '0:01' not on 15-minute boundary,
+//     AT '0:01' not multiple of :15 min,
 //     LETTER 'DD' not single character,
-//     SAVE (delta_offset) '2:00' different from 1:00,
+//     SAVE '2:00' different from 1:00,
 //   }
 // }
 // America/Moncton {
-//   Moncton {AT '0:01' not on 15-minute boundary}
+//   Moncton {AT '0:01' not multiple of :15 min}
 // }
 // America/St_Johns {
 //   StJohns {
-//     AT '0:01' not on 15-minute boundary,
+//     AT '0:01' not multiple of :15 min,
 //     LETTER 'DD' not single character,
-//     SAVE (delta_offset) '2:00' different from 1:00,
+//     SAVE '2:00' different from 1:00,
 //   }
 // }
-// Antarctica/Casey {UNTIL '0:01' not on 15-minute boundary}
+// Antarctica/Casey {UNTIL '0:01' not multiple of :15 min}
 // Antarctica/Troll {
 //   Troll {
-//     Added anchor rule at year 0,
 //     LETTER '+00' not single character,
 //     LETTER '+02' not single character,
-//     SAVE (delta_offset) '2:00' different from 1:00,
+//     SAVE '2:00' different from 1:00,
 //   }
-// }
-// Asia/Dhaka {
-//   Dhaka {Added anchor rule at year 0}
 // }
 // Asia/Gaza {
-//   UNTIL '0:01' not on 15-minute boundary,
-//   Palestine {
-//     AT '0:01' not on 15-minute boundary,
-//     Added anchor rule at year 0,
-//   }
+//   UNTIL '0:01' not multiple of :15 min,
+//   Palestine {AT '0:01' not multiple of :15 min}
 // }
 // Asia/Hebron {
-//   Palestine {
-//     AT '0:01' not on 15-minute boundary,
-//     Added anchor rule at year 0,
-//   }
+//   Palestine {AT '0:01' not multiple of :15 min}
 // }
-// Asia/Karachi {
-//   Pakistan {Added anchor rule at year 0}
-// }
-// Asia/Kathmandu {STDOFF (5:45) not at :00 or :30 mark}
-// Asia/Yerevan {
-//   Armenia {Added anchor rule at year 0}
-// }
-// Australia/Eucla {STDOFF (8:45) not at :00 or :30 mark}
+// Asia/Kathmandu {STDOFF '5:45' not multiple of :30 min}
+// Australia/Eucla {STDOFF '8:45' not multiple of :30 min}
 // Australia/Lord_Howe {
-//   LH {SAVE (delta_offset) '0:30' different from 1:00}
+//   LH {SAVE '0:30' different from 1:00}
 // }
 // Europe/Dublin {
-//   Eire {SAVE (delta_offset) '-1:00' different from 1:00}
+//   Eire {SAVE '-1:00' is a negative DST}
 // }
-// Pacific/Apia {
-//   WS {Added anchor rule at year 0}
-// }
-// Pacific/Chatham {STDOFF (12:45) not at :00 or :30 mark}
-// Pacific/Tongatapu {
-//   Tonga {Added anchor rule at year 0}
-// }
+// Pacific/Chatham {STDOFF '12:45' not multiple of :30 min}
 
 
 //---------------------------------------------------------------------------

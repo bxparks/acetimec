@@ -1,15 +1,18 @@
 CFLAGS := -std=c11 -Wall -Wextra -Werror -pedantic \
+	-D ATC_HIRES_ZONEDB=1 \
 	-I../../ACUnit/src \
 	-I../src
 
 TARGETS := \
 	common_test.out \
+	date_tuple_test.out \
 	epoch_test.out \
 	local_date_test.out \
 	local_date_time_test.out \
 	local_time_test.out \
 	offset_date_time_test.out \
 	string_buffer_test.out \
+	time_zone_test.out \
 	transition_test.out \
 	zone_info_utils_test.out \
 	zone_processor_test.out \
@@ -38,6 +41,9 @@ acetimec.a: ../src/acetimec.a
 common_test.out: common_test.o acetimec.a
 	$(CC) -o $@ $^
 
+date_tuple_test.out: date_tuple_test.o acetimec.a
+	$(CC) -o $@ $^
+
 epoch_test.out: epoch_test.o acetimec.a
 	$(CC) -o $@ $^
 
@@ -54,6 +60,9 @@ offset_date_time_test.out: offset_date_time_test.o acetimec.a
 	$(CC) -o $@ $^
 
 string_buffer_test.out: string_buffer_test.o acetimec.a
+	$(CC) -o $@ $^
+
+time_zone_test.out: time_zone_test.o acetimec.a
 	$(CC) -o $@ $^
 
 transition_test.out: transition_test.o acetimec.a
@@ -84,6 +93,8 @@ zonedb_test.out: zonedb_test.o acetimec.a
 
 common_test.o: common_test.c acetimec.a
 
+date_tuple_test.o: date_tuple_test.c acetimec.a
+
 epoch_test.o: epoch_test.c acetimec.a
 
 local_date_test.o: local_date_test.c acetimec.a
@@ -93,6 +104,8 @@ local_date_time_test.o: local_date_time_test.c acetimec.a
 offset_date_time_test.o: offset_date_time_test.c acetimec.a
 
 string_buffer.o: string_buffer.c acetimec.a
+
+time_zone_test.o: time_zone_test.c acetimec.a
 
 transition_test.o: transition_test.c acetimec.a
 
@@ -120,4 +133,4 @@ runtests:
 	done
 
 clean:
-	rm -f *.o $(TARGETS)
+	rm -f *.o $(TARGETS) acetimec.a

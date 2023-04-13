@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.7.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -80,8 +80,8 @@ $(function() {
 <div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#define ACE_TIME_C_H</span></div>
 <div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160; </div>
 <div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="comment">/* Version format: xxyyzz == &quot;xx.yy.zz&quot; */</span></div>
-<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define ACE_TIME_C_VERSION 700</span></div>
-<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define ACE_TIME_C_VERSION_STRING &quot;0.7.0&quot;</span></div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;<span class="preprocessor">#define ACE_TIME_C_VERSION 800</span></div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="preprocessor">#define ACE_TIME_C_VERSION_STRING &quot;0.8.0&quot;</span></div>
 <div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160; </div>
 <div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zone__info_8h.html">zoneinfo/zone_info.h</a>&quot;</span></div>
 <div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="zone__info__utils_8h.html">zoneinfo/zone_info_utils.h</a>&quot;</span></div>
@@ -100,13 +100,19 @@ $(function() {
 <div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;<span class="preprocessor">#include &quot;zonedb/zone_infos.h&quot;</span></div>
 <div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;<span class="preprocessor">#include &quot;zonedb/zone_policies.h&quot;</span></div>
 <div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="preprocessor">#include &quot;zonedb/zone_registry.h&quot;</span></div>
-<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160; </div>
-<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00030"></a><span class="lineno">   30</span>&#160;<span class="preprocessor">#include &quot;zonedball/zone_infos.h&quot;</span></div>
+<div class="line"><a name="l00031"></a><span class="lineno">   31</span>&#160;<span class="preprocessor">#include &quot;zonedball/zone_policies.h&quot;</span></div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;<span class="preprocessor">#include &quot;zonedball/zone_registry.h&quot;</span></div>
+<div class="line"><a name="l00033"></a><span class="lineno">   33</span>&#160;<span class="preprocessor">#include &quot;zonedbtesting/zone_infos.h&quot;</span></div>
+<div class="line"><a name="l00034"></a><span class="lineno">   34</span>&#160;<span class="preprocessor">#include &quot;zonedbtesting/zone_policies.h&quot;</span></div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;<span class="preprocessor">#include &quot;zonedbtesting/zone_registry.h&quot;</span></div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160; </div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="aepoch_8h_html"><div class="ttname"><a href="epoch_8h.html">epoch.h</a></div><div class="ttdoc">Function related to configuring the &quot;current epoch&quot; of the library.</div></div>
 <div class="ttc" id="alocal__date_8h_html"><div class="ttname"><a href="local__date_8h.html">local_date.h</a></div><div class="ttdoc">Low-level date functions, for example, for calculating leap years, day of week, number of days in a s...</div></div>
 <div class="ttc" id="alocal__date__time_8h_html"><div class="ttname"><a href="local__date__time_8h.html">local_date_time.h</a></div><div class="ttdoc">Functions that relate to the local date time, without any reference to the time zone.</div></div>
 <div class="ttc" id="alocal__time_8h_html"><div class="ttname"><a href="local__time_8h.html">local_time.h</a></div><div class="ttdoc">Low-level time functions.</div></div>
-<div class="ttc" id="aoffset__date__time_8h_html"><div class="ttname"><a href="offset__date__time_8h.html">offset_date_time.h</a></div><div class="ttdoc">Functions that relate to the local date time along with a UTC offset measured in minutes.</div></div>
+<div class="ttc" id="aoffset__date__time_8h_html"><div class="ttname"><a href="offset__date__time_8h.html">offset_date_time.h</a></div><div class="ttdoc">Functions that relate to the local date time along with a UTC offset measured in seconds.</div></div>
 <div class="ttc" id="astring__buffer_8h_html"><div class="ttname"><a href="string__buffer_8h.html">string_buffer.h</a></div><div class="ttdoc">A simple set of integer to string conversion functions.</div></div>
 <div class="ttc" id="atime__zone_8h_html"><div class="ttname"><a href="time__zone_8h.html">time_zone.h</a></div><div class="ttdoc">A class representing a specific IANA time zone, containing a pointer to a ZoneInfo data containing th...</div></div>
 <div class="ttc" id="atransition_8h_html"><div class="ttname"><a href="transition_8h.html">transition.h</a></div><div class="ttdoc">Data structures and functions related to calculating DST transitions.</div></div>

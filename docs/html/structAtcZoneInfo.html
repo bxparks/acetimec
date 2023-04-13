@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.7.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -113,7 +113,7 @@ const <a class="el" href="structAtcZoneContext.html">AtcZoneContext</a> *const&#
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Representation of a given time zone, implemented as an array of ZoneEra records. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00303">303</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00381">381</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a67dcb5bbfa03058eed4ec17d171d260c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a67dcb5bbfa03058eed4ec17d171d260c">&#9670;&nbsp;</a></span>eras</h2>
@@ -130,7 +130,7 @@ const <a class="el" href="structAtcZoneContext.html">AtcZoneContext</a> *const&#
 <p>A <code>const ZoneEras*</code> pointer or a <code>const ZoneInfo*</code> pointer. </p>
 <p>For a normal Zone, numEras is greater than 0, and this field is a pointer to the ZoneEra entries in increasing order of UNTIL time. For a Link entry, numEras == 0, and this field provides a level of indirection to a (const ZoneInfo*) pointer to the target Zone. We have to follow the indirect pointer, and resolve the target numEras and eras to obtain the actual ZoneEra entries. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00329">329</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00407">407</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -149,7 +149,7 @@ const <a class="el" href="structAtcZoneContext.html">AtcZoneContext</a> *const&#
 <p>Full name of zone (e.g. </p>
 <p>"America/Los_Angeles"). </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00305">305</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00383">383</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -168,7 +168,7 @@ const <a class="el" href="structAtcZoneContext.html">AtcZoneContext</a> *const&#
 <p>Number of ZoneEra entries. </p>
 <p>Set to 0 if this Zone is a actually a Link. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00318">318</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00396">396</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -187,7 +187,7 @@ const <a class="el" href="structAtcZoneContext.html">AtcZoneContext</a> *const&#
 <p>A pointer to an <a class="el" href="structAtcZoneInfo.html" title="Representation of a given time zone, implemented as an array of ZoneEra records.">AtcZoneInfo</a> for a Link. </p>
 <p>NULL otherwise. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00332">332</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00410">410</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>
@@ -206,7 +206,7 @@ const <a class="el" href="structAtcZoneContext.html">AtcZoneContext</a> *const&#
 <p>Unique, stable ID of the zone name, created from a hash of the name. </p>
 <p>This ID will never change once assigned. This can be used for presistence and serialization. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00312">312</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__info_8h_source.html#l00390">390</a> of file <a class="el" href="zone__info_8h_source.html">zone_info.h</a>.</p>
 
 </div>
 </div>

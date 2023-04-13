@@ -7,8 +7,8 @@
 #define ACE_TIME_C_H
 
 /* Version format: xxyyzz == "xx.yy.zz" */
-#define ACE_TIME_C_VERSION 700
-#define ACE_TIME_C_VERSION_STRING "0.7.0"
+#define ACE_TIME_C_VERSION 800
+#define ACE_TIME_C_VERSION_STRING "0.8.0"
 
 #include "zoneinfo/zone_info.h"
 #include "zoneinfo/zone_info_utils.h"
@@ -27,5 +27,11 @@
 #include "zonedb/zone_infos.h"
 #include "zonedb/zone_policies.h"
 #include "zonedb/zone_registry.h"
+#include "zonedball/zone_infos.h"
+#include "zonedball/zone_policies.h"
+#include "zonedball/zone_registry.h"
+#include "zonedbtesting/zone_infos.h"
+#include "zonedbtesting/zone_policies.h"
+#include "zonedbtesting/zone_registry.h"
 
 #endif

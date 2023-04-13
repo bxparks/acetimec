@@ -62,10 +62,11 @@ void print_time(time_t epoch_seconds) {
 
 //-----------------------------------------------------------------------------
 
-//AtcZoneRegistrar registrar;
-AtcZoneProcessor processor;
-const int16_t start_year = 2000;
+// The TZDB spans a maximum of [1844,2087] as of 2022g. Validate over a slightly
+// larger interval.
+const int16_t start_year = 1800;
 const int16_t until_year = 2100;
+AtcZoneProcessor processor;
 
 void setup()
 {
@@ -73,7 +74,6 @@ void setup()
   printf("start_year: %d\n", start_year);
   printf("until_year: %d\n", until_year);
 
-  //atc_registrar_init(&registrar, kAtcZoneRegistry, kAtcZoneRegistrySize);
   atc_processor_init(&processor);
   atc_set_current_epoch_year(2050); // 2050 is the default
 }
@@ -89,17 +89,17 @@ int check_zone_names()
   const char doesnotexist[] = "Random/String";
   {
     int local_err = set_time_zone(doesnotexist);
-    if (! local_err) {
+    if (! local_err) { // error expected!
       printf("ERROR: libc time should have returned error for %s\n",
             doesnotexist);
+      err |= 1;
     }
-    err |= local_err;
   }
 
   // Check all the zones and links in the AceTimeC zonedb registry.
-  printf("Checking %d Zones and Links\n", kAtcZoneAndLinkRegistrySize);
-  for (int i = 0; i < kAtcZoneAndLinkRegistrySize; i++) {
-    const AtcZoneInfo *info = kAtcZoneAndLinkRegistry[i];
+  printf("Checking %d Zones and Links\n", kAtcAllZoneAndLinkRegistrySize);
+  for (int i = 0; i < kAtcAllZoneAndLinkRegistrySize; i++) {
+    const AtcZoneInfo *info = kAtcAllZoneAndLinkRegistry[i];
     // Check that the zone name is supported by the current libc.
     int local_err = set_time_zone(info->name);
     if (local_err) {
@@ -168,11 +168,13 @@ int check_epoch_seconds(const AtcTimeZone *tz, atc_time_t epoch_seconds)
         tz->zone_info->name, epoch_seconds, second, zdt.second);
     return kAtcErrGeneric;
   }
-  if (offset != (long) zdt.offset_minutes * 60) {
+  if (offset != (long) zdt.offset_seconds) {
     printf("ERROR: Zone %s: epoch_seconds=%d; "
         "mismatched UTC offset (%ld != %ld)\n",
-        tz->zone_info->name, epoch_seconds,
-        offset, (long) zdt.offset_minutes * 60);
+        tz->zone_info->name,
+        epoch_seconds,
+        offset,
+        (long) zdt.offset_seconds);
     return kAtcErrGeneric;
   }
   return kAtcErrOk;
@@ -184,36 +186,42 @@ int check_transitions(const AtcTimeZone *tz)
 
   int err = 0;
   int num_transitions = 0;
-  for (int16_t year = start_year; year < until_year; ++year) {
-    atc_processor_init_for_year(tz->zone_processor, tz->zone_info, year);
+  for (int16_t base = start_year; base < until_year; base += 100) {
+    int16_t epoch = base + 50;
+    atc_set_current_epoch_year(epoch);
+    atc_processor_init_for_zone_info(tz->zone_processor, tz->zone_info);
 
-    struct AtcTransitionStorage *ts = &tz->zone_processor->transition_storage;
-    struct AtcTransition **begin =
-        atc_transition_storage_get_active_pool_begin(ts);
-    struct AtcTransition **end =
-        atc_transition_storage_get_active_pool_end(ts);
-    for (struct AtcTransition **t = begin; t != end; ++t) {
-      // Skip if start year of transition does not match the current. This can
-      // happen because we generate transitions over a 14-month interval
-      // spanning the current year.
-      struct AtcDateTuple *start = &((*t)->start_dt);
-      if (start->year != year) continue;
+    for (int16_t year = base; year < base + 100 && year < until_year; ++year) {
+      atc_processor_init_for_year(tz->zone_processor, year);
 
-      // Skip if the UTC year bleeds under or over the boundaries.
-      if ((*t)->transition_time_u.year < start_year) continue;
-      if ((*t)->transition_time_u.year >= until_year) continue;
+      struct AtcTransitionStorage *ts = &tz->zone_processor->transition_storage;
+      struct AtcTransition **begin =
+          atc_transition_storage_get_active_pool_begin(ts);
+      struct AtcTransition **end =
+          atc_transition_storage_get_active_pool_end(ts);
+      for (struct AtcTransition **t = begin; t != end; ++t) {
+        // Skip if start year of transition does not match the current. This can
+        // happen because we generate transitions over a 14-month interval
+        // spanning the current year.
+        struct AtcDateTuple *start = &((*t)->start_dt);
+        if (start->year != year) continue;
 
-      num_transitions++;
-      atc_time_t epoch_seconds = (*t)->start_epoch_seconds;
+        // Skip if the UTC year bleeds under or over the boundaries.
+        if ((*t)->transition_time_u.year < start_year) continue;
+        if ((*t)->transition_time_u.year >= until_year) continue;
 
-      // Add a test data just before the transition
-      err |= check_epoch_seconds(tz, epoch_seconds - 1);
-      if (err) continue;
+        num_transitions++;
+        atc_time_t epoch_seconds = (*t)->start_epoch_seconds;
 
-      // Add a test data at the transition itself (which will
-      // normally be shifted forward or backwards).
-      err |= check_epoch_seconds(tz, epoch_seconds);
-      if (err) continue;
+        // Add a test data just before the transition
+        err |= check_epoch_seconds(tz, epoch_seconds - 1);
+        if (err) continue;
+
+        // Add a test data at the transition itself (which will
+        // normally be shifted forward or backwards).
+        err |= check_epoch_seconds(tz, epoch_seconds);
+        if (err) continue;
+      }
     }
   }
   printf("Transitions: %d; ", num_transitions);
@@ -225,27 +233,32 @@ int check_transitions(const AtcTimeZone *tz)
 int check_samples(const AtcTimeZone *tz)
 {
   int num_samples = 0;
-  for (int16_t year = start_year; year < until_year; year++) {
-    for (uint8_t month = 1; month <=12; month++) {
-      for (uint8_t day = 1; day <=28; day++) {
-        AtcZonedDateTime zdt;
-        AtcLocalDateTime ldt = {year, month, day, 2, 0, 0, 0 /*fold*/};
+  for (int16_t base = start_year; base < until_year; base += 100) {
+    int16_t epoch = base + 50;
+    atc_set_current_epoch_year(epoch);
+    atc_processor_init_for_zone_info(tz->zone_processor, tz->zone_info);
+    for (int16_t year = base; year < base + 100 && year < until_year; year++) {
+      for (uint8_t month = 1; month <= 12; month++) {
+        for (uint8_t day = 1; day <= 28; day += 3) { // every 3rd, for speed
+          AtcZonedDateTime zdt;
+          AtcLocalDateTime ldt = {year, month, day, 2, 0, 0, 0 /*fold*/};
 
-        int err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, tz);
-        if (err) {
-          char s[64];
-          AtcStringBuffer buf;
-          atc_buf_init(&buf, s, sizeof(s));
-          atc_local_date_time_print(&ldt, &buf);
-          atc_buf_close(&buf);
-          printf("ERROR: Zone %s: unable to create AtcZoneDateTime for %s\n",
-              tz->zone_info->name, buf.p);
-          return err;
+          int err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, tz);
+          if (err) {
+            char s[64];
+            AtcStringBuffer buf;
+            atc_buf_init(&buf, s, sizeof(s));
+            atc_local_date_time_print(&ldt, &buf);
+            atc_buf_close(&buf);
+            printf("ERROR: Zone %s: unable to create AtcZoneDateTime for %s\n",
+                tz->zone_info->name, buf.p);
+            return err;
+          }
+
+          num_samples++;
+          atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
+          check_epoch_seconds(tz, epoch_seconds);
         }
-
-        num_samples++;
-        atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
-        check_epoch_seconds(tz, epoch_seconds);
       }
     }
   }
@@ -259,8 +272,8 @@ int check_date_components()
   printf("==== check_date_components()\n");
 
   int err = 0;
-  for (int i = 0; i < kAtcZoneAndLinkRegistrySize; i++) {
-    const AtcZoneInfo *info = kAtcZoneAndLinkRegistry[i];
+  for (int i = 0; i < kAtcAllZoneRegistrySize; i++) {
+    const AtcZoneInfo *info = kAtcAllZoneRegistry[i];
     printf("%d: Zone %s: ", i, info->name);
     AtcTimeZone tz = {info, &processor};
 
@@ -275,5 +288,10 @@ int main()
   setup();
   int err = check_zone_names();
   err |= check_date_components();
+  if (err) {
+    printf("ERROR found\n");
+  } else {
+    printf("OK\n");
+  }
   return err;
 }
