@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.7.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -71,7 +71,7 @@ $(function() {
 </div><!--header-->
 <div class="contents">
 
-<p>Date and time fields with a UTC offset in minutes.  
+<p>Date and time fields with a UTC offset in seconds.  
  <a href="structAtcOffsetDateTime.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="offset__date__time_8h_source.html">offset_date_time.h</a>&gt;</code></p>
@@ -106,13 +106,13 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcOffsetDateTime.html#a6ede44821779979e479a7d19718dab81">fold</a></td></tr>
 <tr class="memdesc:a6ede44821779979e479a7d19718dab81"><td class="mdescLeft">&#160;</td><td class="mdescRight">fold [0,1] <br /></td></tr>
 <tr class="separator:a6ede44821779979e479a7d19718dab81"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a116dc8fc3224ac59674f1f24b169ac6f"><td class="memItemLeft" align="right" valign="top"><a id="a116dc8fc3224ac59674f1f24b169ac6f"></a>
-int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcOffsetDateTime.html#a116dc8fc3224ac59674f1f24b169ac6f">offset_minutes</a></td></tr>
-<tr class="memdesc:a116dc8fc3224ac59674f1f24b169ac6f"><td class="mdescLeft">&#160;</td><td class="mdescRight">offset_minutes [-840, 960] <br /></td></tr>
-<tr class="separator:a116dc8fc3224ac59674f1f24b169ac6f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a296148a65467d01f4a323891456e043c"><td class="memItemLeft" align="right" valign="top"><a id="a296148a65467d01f4a323891456e043c"></a>
+int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcOffsetDateTime.html#a296148a65467d01f4a323891456e043c">offset_seconds</a></td></tr>
+<tr class="memdesc:a296148a65467d01f4a323891456e043c"><td class="mdescLeft">&#160;</td><td class="mdescRight">offset_seconds [-10h,+14h] roughly <br /></td></tr>
+<tr class="separator:a296148a65467d01f4a323891456e043c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Date and time fields with a UTC offset in minutes. </p>
+<div class="textblock"><p>Date and time fields with a UTC offset in seconds. </p>
 <p>In the AceTime library, the 'fold' parameter was included in the low-level LocalTime class, which then got absorbed into the LocalDatetime class. This extra parameter is mostly transparent to the user because C++ supports default parameters in the constructor and functions.</p>
 <p>Unfortunately C does not have default parameters, so adding a 'fold' in LocalDateTime causes unnecessary friction. Therefore, I am adding this parameter to the OffsetDateTime instead, which is higher level so hopefully the parameter is exposed to the user only when the user needs. </p>
 

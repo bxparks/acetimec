@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.7.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -83,20 +83,22 @@ $(function() {
 <code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="zone__info_8h_source.html">../zoneinfo/zone_info.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="local__date__time_8h_source.html">local_date_time.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="date__tuple_8h_source.html">date_tuple.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="transition_8h_source.html">transition.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for zone_processor.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="zone__processor_8h__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2zone__processor_8h" alt=""/></div>
 <map name="a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2zone__processor_8h" id="a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2zone__processor_8h">
-<area shape="rect" title="Data structures and functions related to determining the UTC and DST offsets using the list of DST tr..." alt="" coords="66,5,291,47"/>
-<area shape="rect" title=" " alt="" coords="55,319,126,345"/>
-<area shape="rect" href="common_8h.html" title="Some common shared typedefs, constants, and functions." alt="" coords="218,244,309,271"/>
-<area shape="rect" href="zone__info_8h.html" title="The data structures in the zone database, with the AtcZoneInfo representing a specific time zone." alt="" coords="302,169,471,196"/>
-<area shape="rect" href="local__date__time_8h.html" title="Functions that relate to the local date time, without any reference to the time zone." alt="" coords="37,169,176,196"/>
-<area shape="rect" href="transition_8h.html" title="Data structures and functions related to calculating DST transitions." alt="" coords="130,95,226,121"/>
-<area shape="rect" title=" " alt="" coords="226,319,301,345"/>
-<area shape="rect" href="string__buffer_8h.html" title="A simple set of integer to string conversion functions." alt="" coords="80,244,194,271"/>
+<area shape="rect" title="Data structures and functions related to determining the UTC and DST offsets using the list of DST tr..." alt="" coords="184,5,410,47"/>
+<area shape="rect" title=" " alt="" coords="64,319,135,345"/>
+<area shape="rect" href="common_8h.html" title="Some common shared typedefs, constants, and functions." alt="" coords="228,244,318,271"/>
+<area shape="rect" href="zone__info_8h.html" title="The data structures in the zone database, with the AtcZoneInfo representing a specific time zone." alt="" coords="343,244,512,271"/>
+<area shape="rect" href="local__date__time_8h.html" title="Functions that relate to the local date time, without any reference to the time zone." alt="" coords="38,169,177,196"/>
+<area shape="rect" href="date__tuple_8h.html" title="An internal version of LocalDateTime that keeps track of the &#39;w&#39;, &#39;s&#39;, or &#39;u&#39; suffixes from the TZDB ..." alt="" coords="303,169,406,196"/>
+<area shape="rect" href="transition_8h.html" title="Data structures and functions related to calculating DST transitions." alt="" coords="180,95,276,121"/>
+<area shape="rect" title=" " alt="" coords="236,319,310,345"/>
+<area shape="rect" href="string__buffer_8h.html" title="A simple set of integer to string conversion functions." alt="" coords="89,244,204,271"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -104,15 +106,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="zone__processor_8h__dep__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2zone__processor_8hdep" alt=""/></div>
 <map name="a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2zone__processor_8hdep" id="a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2zone__processor_8hdep">
-<area shape="rect" title="Data structures and functions related to determining the UTC and DST offsets using the list of DST tr..." alt="" coords="401,5,626,47"/>
+<area shape="rect" title="Data structures and functions related to determining the UTC and DST offsets using the list of DST tr..." alt="" coords="316,5,542,47"/>
 <area shape="rect" href="time__zone_8c_source.html" title=" " alt="" coords="26,184,219,225"/>
-<area shape="rect" href="time__zone_8h.html" title="A class representing a specific IANA time zone, containing a pointer to a ZoneInfo data containing th..." alt="" coords="417,95,610,136"/>
+<area shape="rect" href="time__zone_8h.html" title="A class representing a specific IANA time zone, containing a pointer to a ZoneInfo data containing th..." alt="" coords="400,95,594,136"/>
 <area shape="rect" href="zoned__date__time_8h.html" title="Functions that relate to the date time with a reference to a specific time zone." alt="" coords="244,184,481,225"/>
-<area shape="rect" href="zoned__date__time_8c_source.html" title=" " alt="" coords="43,273,279,315"/>
-<area shape="rect" href="acetimec_8h_source.html" title=" " alt="" coords="449,273,642,315"/>
-<area shape="rect" href="zoned__extra_8c_source.html" title=" " alt="" coords="719,273,923,315"/>
-<area shape="rect" href="zone__processor_8c_source.html" title=" " alt="" coords="887,95,1111,136"/>
-<area shape="rect" href="zoned__extra_8h.html" title="Additional information about a time zone such as the STD offset, the DST offset, and the abbreviation..." alt="" coords="556,184,761,225"/>
+<area shape="rect" href="zoned__date__time_8c_source.html" title=" " alt="" coords="16,273,252,315"/>
+<area shape="rect" href="acetimec_8h_source.html" title=" " alt="" coords="422,273,615,315"/>
+<area shape="rect" href="zone__processor_8c_source.html" title=" " alt="" coords="836,95,1060,136"/>
+<area shape="rect" href="zoned__extra_8c_source.html" title=" " alt="" coords="556,184,760,225"/>
 </map>
 </div>
 </div>
@@ -127,7 +128,7 @@ Classes</h2></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zone processor work space.  <a href="structAtcZoneProcessor.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcFindResult.html">AtcFindResult</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure that converts the <a class="el" href="structAtcTransitionForSeconds.html" title="The result returned by atc_transition_storage_find_for_seconds() when searching for Transition by epo...">AtcTransitionForSeconds</a> and AtcTransitionForDatetime into time offsets and other extra information which can be used to construct an <a class="el" href="structAtcOffsetDateTime.html" title="Date and time fields with a UTC offset in minutes.">AtcOffsetDateTime</a> or an <a class="el" href="structAtcZonedExtra.html" title="Extra information about a given time zone at a specified epoch seconds.">AtcZonedExtra</a>.  <a href="structAtcFindResult.html#details">More...</a><br /></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure that converts the <a class="el" href="structAtcTransitionForSeconds.html" title="The result returned by atc_transition_storage_find_for_seconds() when searching for Transition by epo...">AtcTransitionForSeconds</a> and AtcTransitionForDatetime into time offsets and other extra information which can be used to construct an <a class="el" href="structAtcOffsetDateTime.html" title="Date and time fields with a UTC offset in seconds.">AtcOffsetDateTime</a> or an <a class="el" href="structAtcZonedExtra.html" title="Extra information about a given time zone at a specified epoch seconds.">AtcZonedExtra</a>.  <a href="structAtcFindResult.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcYearMonth.html">AtcYearMonth</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A tuple of (year, month).  <a href="structAtcYearMonth.html#details">More...</a><br /></td></tr>
@@ -143,7 +144,7 @@ typedef struct <a class="el" href="structAtcMonthDay.html">AtcMonthDay</a>&#160;
 <tr class="memdesc:a5ac87192eb435b787d93ae7cf1da3201"><td class="mdescLeft">&#160;</td><td class="mdescRight">Zone processor work space.  <a href="zone__processor_8h.html#a5ac87192eb435b787d93ae7cf1da3201">More...</a><br /></td></tr>
 <tr class="separator:a5ac87192eb435b787d93ae7cf1da3201"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0399a43149a4708715b64e66376619a9"><td class="memItemLeft" align="right" valign="top">typedef struct <a class="el" href="structAtcFindResult.html">AtcFindResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processor_8h.html#a0399a43149a4708715b64e66376619a9">AtcFindResult</a></td></tr>
-<tr class="memdesc:a0399a43149a4708715b64e66376619a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure that converts the <a class="el" href="structAtcTransitionForSeconds.html" title="The result returned by atc_transition_storage_find_for_seconds() when searching for Transition by epo...">AtcTransitionForSeconds</a> and AtcTransitionForDatetime into time offsets and other extra information which can be used to construct an <a class="el" href="structAtcOffsetDateTime.html" title="Date and time fields with a UTC offset in minutes.">AtcOffsetDateTime</a> or an <a class="el" href="structAtcZonedExtra.html" title="Extra information about a given time zone at a specified epoch seconds.">AtcZonedExtra</a>.  <a href="zone__processor_8h.html#a0399a43149a4708715b64e66376619a9">More...</a><br /></td></tr>
+<tr class="memdesc:a0399a43149a4708715b64e66376619a9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Data structure that converts the <a class="el" href="structAtcTransitionForSeconds.html" title="The result returned by atc_transition_storage_find_for_seconds() when searching for Transition by epo...">AtcTransitionForSeconds</a> and AtcTransitionForDatetime into time offsets and other extra information which can be used to construct an <a class="el" href="structAtcOffsetDateTime.html" title="Date and time fields with a UTC offset in seconds.">AtcOffsetDateTime</a> or an <a class="el" href="structAtcZonedExtra.html" title="Extra information about a given time zone at a specified epoch seconds.">AtcZonedExtra</a>.  <a href="zone__processor_8h.html#a0399a43149a4708715b64e66376619a9">More...</a><br /></td></tr>
 <tr class="separator:a0399a43149a4708715b64e66376619a9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a05c2e8d32bf1b6fb01ee92d00d2dd9fc"><td class="memItemLeft" align="right" valign="top"><a id="a05c2e8d32bf1b6fb01ee92d00d2dd9fc"></a>
 typedef struct <a class="el" href="structAtcYearMonth.html">AtcYearMonth</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processor_8h.html#a05c2e8d32bf1b6fb01ee92d00d2dd9fc">AtcYearMonth</a></td></tr>
@@ -174,19 +175,22 @@ Functions</h2></td></tr>
 <tr class="memitem:a3c432909cd21efbd035810fec546b06a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processor_8h.html#a3c432909cd21efbd035810fec546b06a">atc_processor_init</a> (<a class="el" href="structAtcZoneProcessor.html">AtcZoneProcessor</a> *processor)</td></tr>
 <tr class="memdesc:a3c432909cd21efbd035810fec546b06a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> data structure.  <a href="zone__processor_8h.html#a3c432909cd21efbd035810fec546b06a">More...</a><br /></td></tr>
 <tr class="separator:a3c432909cd21efbd035810fec546b06a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afba97848714dc3a2784dc58234e6aa11"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processor_8h.html#afba97848714dc3a2784dc58234e6aa11">atc_processor_init_for_year</a> (<a class="el" href="structAtcZoneProcessor.html">AtcZoneProcessor</a> *processor, const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *zone_info, int16_t year)</td></tr>
-<tr class="memdesc:afba97848714dc3a2784dc58234e6aa11"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> for the given zone_info and year.  <a href="zone__processor_8h.html#afba97848714dc3a2784dc58234e6aa11">More...</a><br /></td></tr>
-<tr class="separator:afba97848714dc3a2784dc58234e6aa11"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9f186a48821cb7ea3f7fc462cb974c49"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processor_8h.html#a9f186a48821cb7ea3f7fc462cb974c49">atc_processor_init_for_epoch_seconds</a> (<a class="el" href="structAtcZoneProcessor.html">AtcZoneProcessor</a> *processor, const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *zone_info, <a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">atc_time_t</a> epoch_seconds)</td></tr>
-<tr class="memdesc:a9f186a48821cb7ea3f7fc462cb974c49"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> for the given zone_info and epoch seconds.  <a href="zone__processor_8h.html#a9f186a48821cb7ea3f7fc462cb974c49">More...</a><br /></td></tr>
-<tr class="separator:a9f186a48821cb7ea3f7fc462cb974c49"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aede4673c4ef012f91ee06fda56a8e8f9"><td class="memItemLeft" align="right" valign="top"><a id="aede4673c4ef012f91ee06fda56a8e8f9"></a>
-int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processor_8h.html#aede4673c4ef012f91ee06fda56a8e8f9">atc_processor_find_by_epoch_seconds</a> (<a class="el" href="structAtcZoneProcessor.html">AtcZoneProcessor</a> *processor, const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *zone_info, <a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">atc_time_t</a> epoch_seconds, <a class="el" href="structAtcFindResult.html">AtcFindResult</a> *result)</td></tr>
-<tr class="memdesc:aede4673c4ef012f91ee06fda56a8e8f9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the <a class="el" href="structAtcFindResult.html" title="Data structure that converts the AtcTransitionForSeconds and AtcTransitionForDatetime into time offse...">AtcFindResult</a> at the given epoch_seconds. <br /></td></tr>
-<tr class="separator:aede4673c4ef012f91ee06fda56a8e8f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a9332b65f1e6688bceb63d84b6cb0d53f"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processor_8h.html#a9332b65f1e6688bceb63d84b6cb0d53f">atc_processor_find_by_local_date_time</a> (<a class="el" href="structAtcZoneProcessor.html">AtcZoneProcessor</a> *processor, const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *zone_info, const <a class="el" href="structAtcLocalDateTime.html">AtcLocalDateTime</a> *ldt, <a class="el" href="structAtcFindResult.html">AtcFindResult</a> *result)</td></tr>
-<tr class="memdesc:a9332b65f1e6688bceb63d84b6cb0d53f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the <a class="el" href="structAtcFindResult.html" title="Data structure that converts the AtcTransitionForSeconds and AtcTransitionForDatetime into time offse...">AtcFindResult</a> at the given LocalDateTime and fold.  <a href="zone__processor_8h.html#a9332b65f1e6688bceb63d84b6cb0d53f">More...</a><br /></td></tr>
-<tr class="separator:a9332b65f1e6688bceb63d84b6cb0d53f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:abb9a3e33a7edb675942b099556d714ef"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processor_8h.html#abb9a3e33a7edb675942b099556d714ef">atc_processor_init_for_zone_info</a> (<a class="el" href="structAtcZoneProcessor.html">AtcZoneProcessor</a> *processor, const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *zone_info)</td></tr>
+<tr class="memdesc:abb9a3e33a7edb675942b099556d714ef"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> for the given zone_info.  <a href="zone__processor_8h.html#abb9a3e33a7edb675942b099556d714ef">More...</a><br /></td></tr>
+<tr class="separator:abb9a3e33a7edb675942b099556d714ef"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a3723cb3336873164f0148a247b764c04"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processor_8h.html#a3723cb3336873164f0148a247b764c04">atc_processor_init_for_year</a> (<a class="el" href="structAtcZoneProcessor.html">AtcZoneProcessor</a> *processor, int16_t year)</td></tr>
+<tr class="memdesc:a3723cb3336873164f0148a247b764c04"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> for the given year.  <a href="zone__processor_8h.html#a3723cb3336873164f0148a247b764c04">More...</a><br /></td></tr>
+<tr class="separator:a3723cb3336873164f0148a247b764c04"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0132219e5f4d98cf0e25fd3282c95ca"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processor_8h.html#ac0132219e5f4d98cf0e25fd3282c95ca">atc_processor_init_for_epoch_seconds</a> (<a class="el" href="structAtcZoneProcessor.html">AtcZoneProcessor</a> *processor, <a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">atc_time_t</a> epoch_seconds)</td></tr>
+<tr class="memdesc:ac0132219e5f4d98cf0e25fd3282c95ca"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> for the given epoch seconds.  <a href="zone__processor_8h.html#ac0132219e5f4d98cf0e25fd3282c95ca">More...</a><br /></td></tr>
+<tr class="separator:ac0132219e5f4d98cf0e25fd3282c95ca"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa6fe63f0fc133102a5f77d8e9104a704"><td class="memItemLeft" align="right" valign="top"><a id="aa6fe63f0fc133102a5f77d8e9104a704"></a>
+int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processor_8h.html#aa6fe63f0fc133102a5f77d8e9104a704">atc_processor_find_by_epoch_seconds</a> (<a class="el" href="structAtcZoneProcessor.html">AtcZoneProcessor</a> *processor, <a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">atc_time_t</a> epoch_seconds, <a class="el" href="structAtcFindResult.html">AtcFindResult</a> *result)</td></tr>
+<tr class="memdesc:aa6fe63f0fc133102a5f77d8e9104a704"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the <a class="el" href="structAtcFindResult.html" title="Data structure that converts the AtcTransitionForSeconds and AtcTransitionForDatetime into time offse...">AtcFindResult</a> at the given epoch_seconds. <br /></td></tr>
+<tr class="separator:aa6fe63f0fc133102a5f77d8e9104a704"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9489ea56c86be7f71f2292631c4a7b86"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processor_8h.html#a9489ea56c86be7f71f2292631c4a7b86">atc_processor_find_by_local_date_time</a> (<a class="el" href="structAtcZoneProcessor.html">AtcZoneProcessor</a> *processor, const <a class="el" href="structAtcLocalDateTime.html">AtcLocalDateTime</a> *ldt, <a class="el" href="structAtcFindResult.html">AtcFindResult</a> *result)</td></tr>
+<tr class="memdesc:a9489ea56c86be7f71f2292631c4a7b86"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find the <a class="el" href="structAtcFindResult.html" title="Data structure that converts the AtcTransitionForSeconds and AtcTransitionForDatetime into time offse...">AtcFindResult</a> at the given LocalDateTime and fold.  <a href="zone__processor_8h.html#a9489ea56c86be7f71f2292631c4a7b86">More...</a><br /></td></tr>
+<tr class="separator:a9489ea56c86be7f71f2292631c4a7b86"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a49fe99960b14baf49454e85374de7af9"><td class="memItemLeft" align="right" valign="top"><a id="a49fe99960b14baf49454e85374de7af9"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processor_8h.html#a49fe99960b14baf49454e85374de7af9">atc_processor_find_matches</a> (const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *zone_info, <a class="el" href="structAtcYearMonth.html">AtcYearMonth</a> start_ym, <a class="el" href="structAtcYearMonth.html">AtcYearMonth</a> until_ym, <a class="el" href="structAtcMatchingEra.html">AtcMatchingEra</a> *matches, uint8_t num_matches)</td></tr>
 <tr class="memdesc:a49fe99960b14baf49454e85374de7af9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Find ZoneEra entries which match the [start_ym, until_ym) interval. <br /></td></tr>
@@ -237,10 +241,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processor_8h.html#a5cef8ec7f7303da56be4cdc83a901bd1">atc_processor_calc_abbreviations</a> (<a class="el" href="structAtcTransition.html">AtcTransition</a> **begin, <a class="el" href="structAtcTransition.html">AtcTransition</a> **end)</td></tr>
 <tr class="memdesc:a5cef8ec7f7303da56be4cdc83a901bd1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the time zone abbreviation of the specified transitions. <br /></td></tr>
 <tr class="separator:a5cef8ec7f7303da56be4cdc83a901bd1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a636221f33d1d8cb7a796e952b6576d58"><td class="memItemLeft" align="right" valign="top"><a id="a636221f33d1d8cb7a796e952b6576d58"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processor_8h.html#a636221f33d1d8cb7a796e952b6576d58">atc_processor_create_abbreviation</a> (char *dest, uint8_t dest_size, const char *format, int16_t delta_minutes, const char *letter_string)</td></tr>
-<tr class="memdesc:a636221f33d1d8cb7a796e952b6576d58"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the time zone abbreviation for the given parameters. <br /></td></tr>
-<tr class="separator:a636221f33d1d8cb7a796e952b6576d58"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d6262676d899a56fe2a5ec5b4062b3b"><td class="memItemLeft" align="right" valign="top"><a id="a2d6262676d899a56fe2a5ec5b4062b3b"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone__processor_8h.html#a2d6262676d899a56fe2a5ec5b4062b3b">atc_processor_create_abbreviation</a> (char *dest, uint8_t dest_size, const char *format, int32_t delta_seconds, const char *letter_string)</td></tr>
+<tr class="memdesc:a2d6262676d899a56fe2a5ec5b4062b3b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Compute the time zone abbreviation for the given parameters. <br /></td></tr>
+<tr class="separator:a2d6262676d899a56fe2a5ec5b4062b3b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Data structures and functions related to determining the UTC and DST offsets using the list of DST transitions encoded by the <a class="el" href="structAtcTransition.html" title="A transition from one DST rule to another, and the time period which that rule is valid for.">AtcTransition</a> objects. </p>
@@ -259,7 +263,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
       </table>
 </div><div class="memdoc">
 
-<p>Data structure that converts the <a class="el" href="structAtcTransitionForSeconds.html" title="The result returned by atc_transition_storage_find_for_seconds() when searching for Transition by epo...">AtcTransitionForSeconds</a> and AtcTransitionForDatetime into time offsets and other extra information which can be used to construct an <a class="el" href="structAtcOffsetDateTime.html" title="Date and time fields with a UTC offset in minutes.">AtcOffsetDateTime</a> or an <a class="el" href="structAtcZonedExtra.html" title="Extra information about a given time zone at a specified epoch seconds.">AtcZonedExtra</a>. </p>
+<p>Data structure that converts the <a class="el" href="structAtcTransitionForSeconds.html" title="The result returned by atc_transition_storage_find_for_seconds() when searching for Transition by epo...">AtcTransitionForSeconds</a> and AtcTransitionForDatetime into time offsets and other extra information which can be used to construct an <a class="el" href="structAtcOffsetDateTime.html" title="Date and time fields with a UTC offset in seconds.">AtcOffsetDateTime</a> or an <a class="el" href="structAtcZonedExtra.html" title="Extra information about a given time zone at a specified epoch seconds.">AtcZonedExtra</a>. </p>
 <p>Adapted from FindResult in ZoneProcessor.h of the AceTime library. </p>
 
 </div>
@@ -317,7 +321,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 <p>Determine if era is less than (-1), roughly equal (0), or greater than (1) the given (year, month). </p>
 <p>Determine if era is less than (-1), roughly equal (0), or greater than (1) the given (year, month). </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00016">16</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00018">18</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
@@ -369,7 +373,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 <p>Create new new_match, containing the given parameters.</p>
 <p>The interval is assumed to overlap the ZoneEra using the eraOverlapsInterval() method. The 'prev' ZoneEra is needed to define the startDateTime of the current era. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00060">60</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00078">78</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
@@ -427,7 +431,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 <p>Up to maxInteriorYears, usually 3 or 4. Returns the number of interior years.</p>
 <p>Exported for testing. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00260">260</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00278">278</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
@@ -477,12 +481,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 * onDayOfWeek=1-7, onDayOfMonth=-(1-31): dayOfWeek&lt;=dayOfMonth
 * </pre><p>Caveats: This function handles expressions which crosses month boundaries, but not year boundaries (e.g. Jan to Dec of the previous year, or Dec to Jan of the following year.) </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00120">120</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00138">138</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
-<a id="a9332b65f1e6688bceb63d84b6cb0d53f"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9332b65f1e6688bceb63d84b6cb0d53f">&#9670;&nbsp;</a></span>atc_processor_find_by_local_date_time()</h2>
+<a id="a9489ea56c86be7f71f2292631c4a7b86"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9489ea56c86be7f71f2292631c4a7b86">&#9670;&nbsp;</a></span>atc_processor_find_by_local_date_time()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -492,12 +496,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
           <td>(</td>
           <td class="paramtype"><a class="el" href="structAtcZoneProcessor.html">AtcZoneProcessor</a> *&#160;</td>
           <td class="paramname"><em>processor</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *&#160;</td>
-          <td class="paramname"><em>zone_info</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -522,7 +520,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 <p>Find the <a class="el" href="structAtcFindResult.html" title="Data structure that converts the AtcTransitionForSeconds and AtcTransitionForDatetime into time offse...">AtcFindResult</a> at the given LocalDateTime and fold. </p>
 <p>The fold parameter is used only when LocalDateTime falls in a gap or an overlap. library. Return non-zero error code upon failure. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00709">709</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00724">724</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
@@ -577,7 +575,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00279">279</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00297">297</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
@@ -600,12 +598,12 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 <p>Initialize <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> data structure. </p>
 <p>This needs to be called only once for each instance of <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00593">593</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00611">611</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
-<a id="a9f186a48821cb7ea3f7fc462cb974c49"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9f186a48821cb7ea3f7fc462cb974c49">&#9670;&nbsp;</a></span>atc_processor_init_for_epoch_seconds()</h2>
+<a id="ac0132219e5f4d98cf0e25fd3282c95ca"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0132219e5f4d98cf0e25fd3282c95ca">&#9670;&nbsp;</a></span>atc_processor_init_for_epoch_seconds()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -615,12 +613,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
           <td>(</td>
           <td class="paramtype"><a class="el" href="structAtcZoneProcessor.html">AtcZoneProcessor</a> *&#160;</td>
           <td class="paramname"><em>processor</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *&#160;</td>
-          <td class="paramname"><em>zone_info</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -636,15 +628,23 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
       </table>
 </div><div class="memdoc">
 
-<p>Initialize <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> for the given zone_info and epoch seconds. </p>
-<p>Return non-zero error code upon failure. </p>
+<p>Initialize <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> for the given epoch seconds. </p>
+<p>This calls <code><a class="el" href="zone__processor_8h.html#a3723cb3336873164f0148a247b764c04" title="Initialize AtcZoneProcessor for the given year.">atc_processor_init_for_year()</a></code> using the UTC year corresponding to the given <code>epoch_seconds</code>.</p>
+<p>Return non-zero error code upon failure.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">processor</td><td>pointer to <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a>, not NULLable </td></tr>
+    <tr><td class="paramname">epoch_seconds</td><td>seconds since the current epoch year </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00657">657</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00680">680</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
-<a id="afba97848714dc3a2784dc58234e6aa11"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afba97848714dc3a2784dc58234e6aa11">&#9670;&nbsp;</a></span>atc_processor_init_for_year()</h2>
+<a id="a3723cb3336873164f0148a247b764c04"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3723cb3336873164f0148a247b764c04">&#9670;&nbsp;</a></span>atc_processor_init_for_year()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -654,12 +654,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
           <td>(</td>
           <td class="paramtype"><a class="el" href="structAtcZoneProcessor.html">AtcZoneProcessor</a> *&#160;</td>
           <td class="paramname"><em>processor</em>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *&#160;</td>
-          <td class="paramname"><em>zone_info</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
@@ -675,10 +669,52 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
       </table>
 </div><div class="memdoc">
 
-<p>Initialize <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> for the given zone_info and year. </p>
-<p>Return non-zero error code upon failure. </p>
+<p>Initialize <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> for the given year. </p>
+<p>An internal cache for the given year prevents unnecessary computation if this function is called multiple times with the same year.</p>
+<p>Return non-zero error code upon failure.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">processor</td><td>pointer to <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a>, not NULLable </td></tr>
+    <tr><td class="paramname">year</td><td>year whose transitions should be precalculated </td></tr>
+  </table>
+  </dd>
+</dl>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00607">607</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00634">634</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+
+</div>
+</div>
+<a id="abb9a3e33a7edb675942b099556d714ef"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abb9a3e33a7edb675942b099556d714ef">&#9670;&nbsp;</a></span>atc_processor_init_for_zone_info()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void atc_processor_init_for_zone_info </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structAtcZoneProcessor.html">AtcZoneProcessor</a> *&#160;</td>
+          <td class="paramname"><em>processor</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *&#160;</td>
+          <td class="paramname"><em>zone_info</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> for the given zone_info. </p>
+<p>This allows an <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> to be re-used with different zone info.</p>
+<p>Normally, the client code will not need to use this if all interactions with the <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> occurs through the public functions attached to the <code><a class="el" href="structAtcTimeZone.html" title="A data structure that represents a specific Time Zone.">AtcTimeZone</a></code> object (in other words, the <code>atc_time_zone_xxx()</code> functions). If the <code><a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a></code> object is accessed directly, this function may need to be called each time the <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> is used with a new <a class="el" href="structAtcZoneInfo.html" title="Representation of a given time zone, implemented as an array of ZoneEra records.">AtcZoneInfo</a> object. </p>
+
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00618">618</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.7.0</span>
+   &#160;<span id="projectnumber">0.8.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -75,7 +75,7 @@ $(function() {
 : <a class="el" href="structAtcTransitionStorage.html#abead24376e043c0619a0c5025c010d84">AtcTransitionStorage</a>
 </li>
 <li>at_time_code
-: <a class="el" href="structAtcZoneRule.html#a48ee481906333ba876b553a178daff5a">AtcZoneRule</a>
+: <a class="el" href="structAtcZoneRule.html#ac22a86bfe96e7fc48a29e6d9bdd53668">AtcZoneRule</a>
 </li>
 <li>at_time_modifier
 : <a class="el" href="structAtcZoneRule.html#a8ce073048a9055242e6afbb8ccb433a5">AtcZoneRule</a>
@@ -102,16 +102,16 @@ $(function() {
 , <a class="el" href="structAtcOffsetDateTime.html#a7b722cd78673503807cf06c80052c57d">AtcOffsetDateTime</a>
 , <a class="el" href="structAtcZonedDateTime.html#af6a54c764a9413f0d2578aa3696010ca">AtcZonedDateTime</a>
 </li>
-<li>delta_code
-: <a class="el" href="structAtcZoneEra.html#afdc57d7832ca6af540d32c5971a39237">AtcZoneEra</a>
-, <a class="el" href="structAtcZoneRule.html#af36b55a9690c95ec12bd9e9410dac396">AtcZoneRule</a>
-</li>
 <li>delta_minutes
-: <a class="el" href="structAtcTransition.html#aa8cf01685e509002040f84d220c4b0ee">AtcTransition</a>
+: <a class="el" href="structAtcZoneEra.html#a03df862ac5bcaf9c8b4675f58bdc5b83">AtcZoneEra</a>
+, <a class="el" href="structAtcZoneRule.html#a091eb4151e11f0009b946842eadf2568">AtcZoneRule</a>
 </li>
-<li>dst_offset_minutes
-: <a class="el" href="structAtcFindResult.html#a26761ce724eba6d38dffb106fbe1a698">AtcFindResult</a>
-, <a class="el" href="structAtcZonedExtra.html#acc43d5ac53bd5027fb60c18a998ed268">AtcZonedExtra</a>
+<li>delta_seconds
+: <a class="el" href="structAtcTransition.html#ad07989e0b128e5978238bef5501f8813">AtcTransition</a>
+</li>
+<li>dst_offset_seconds
+: <a class="el" href="structAtcFindResult.html#acda14737bb9416951b2c0ed602275ea8">AtcFindResult</a>
+, <a class="el" href="structAtcZonedExtra.html#afb42f57fcc5e468b420bd640ad9aec78">AtcZonedExtra</a>
 </li>
 </ul>
 
@@ -181,11 +181,11 @@ $(function() {
 
 
 <h3><a id="index_l"></a>- l -</h3><ul>
-<li>last_delta_minutes
-: <a class="el" href="structAtcMatchingEra.html#a4c1421e4e0f92a5867506afd2bd30c8b">AtcMatchingEra</a>
+<li>last_delta_seconds
+: <a class="el" href="structAtcMatchingEra.html#a2e40e17a7bcc44a2e3f58614e462900e">AtcMatchingEra</a>
 </li>
-<li>last_offset_minutes
-: <a class="el" href="structAtcMatchingEra.html#acfa83c0886f4cc573b3997feee168453">AtcMatchingEra</a>
+<li>last_offset_seconds
+: <a class="el" href="structAtcMatchingEra.html#aa70fb41ef83ca9f8955a35148e0897a2">AtcMatchingEra</a>
 </li>
 <li>letter
 : <a class="el" href="structAtcTransition.html#a86f6b4391e4c43c2e00a616fa8a4178f">AtcTransition</a>
@@ -209,13 +209,13 @@ $(function() {
 <li>matches
 : <a class="el" href="structAtcZoneProcessor.html#aba134ba77efaff97d8bdd5a5c37b4288">AtcZoneProcessor</a>
 </li>
+<li>max_transitions
+: <a class="el" href="structAtcZoneContext.html#a639b86f9f91d04b3f42aa98c34f41797">AtcZoneContext</a>
+</li>
 <li>minute
 : <a class="el" href="structAtcLocalDateTime.html#a68e70f9ce8bcfde2682b09e87bdde03d">AtcLocalDateTime</a>
 , <a class="el" href="structAtcOffsetDateTime.html#a0def874f529588977481afe869e55dbf">AtcOffsetDateTime</a>
 , <a class="el" href="structAtcZonedDateTime.html#a11649f670514013224f0980dc3c3a569">AtcZonedDateTime</a>
-</li>
-<li>minutes
-: <a class="el" href="structAtcDateTuple.html#a7d2e575b077a324d6fa8716ffde4a073">AtcDateTuple</a>
 </li>
 <li>month
 : <a class="el" href="structAtcDateTuple.html#a7da72b58870e073ac54a4152496b654f">AtcDateTuple</a>
@@ -256,12 +256,15 @@ $(function() {
 
 <h3><a id="index_o"></a>- o -</h3><ul>
 <li>offset_code
-: <a class="el" href="structAtcZoneEra.html#a2886ec1bef0d9d6b3c8f90fb881f429c">AtcZoneEra</a>
+: <a class="el" href="structAtcZoneEra.html#aa432fe978286cd61ac63f5cb591a97c7">AtcZoneEra</a>
 </li>
-<li>offset_minutes
-: <a class="el" href="structAtcOffsetDateTime.html#a116dc8fc3224ac59674f1f24b169ac6f">AtcOffsetDateTime</a>
-, <a class="el" href="structAtcTransition.html#ab24c3175da82f04b42434ae05fbb8c01">AtcTransition</a>
-, <a class="el" href="structAtcZonedDateTime.html#af3211e0b4fe33139aad8d3229ed83426">AtcZonedDateTime</a>
+<li>offset_remainder
+: <a class="el" href="structAtcZoneEra.html#ad74aca698a99f7367d2533a3e9b1c0fe">AtcZoneEra</a>
+</li>
+<li>offset_seconds
+: <a class="el" href="structAtcOffsetDateTime.html#a296148a65467d01f4a323891456e043c">AtcOffsetDateTime</a>
+, <a class="el" href="structAtcTransition.html#a71afb1b7530ce7d18c5b6137122488e2">AtcTransition</a>
+, <a class="el" href="structAtcZonedDateTime.html#a72970648b73e3c6788c2de2faa869bfc">AtcZonedDateTime</a>
 </li>
 <li>on_day_of_month
 : <a class="el" href="structAtcZoneRule.html#af80f85f5f10c01b44db58e657a3583e8">AtcZoneRule</a>
@@ -289,13 +292,13 @@ $(function() {
 <li>registry
 : <a class="el" href="structAtcZoneRegistrar.html#af1a5cae7a5c292376909bb492fc51ccd">AtcZoneRegistrar</a>
 </li>
-<li>req_dst_offset_minutes
-: <a class="el" href="structAtcFindResult.html#ac4f0ab03827faed68346a599ee0f8a91">AtcFindResult</a>
-, <a class="el" href="structAtcZonedExtra.html#a1dfbe23bece2d0f461d80e192cce7b4f">AtcZonedExtra</a>
+<li>req_dst_offset_seconds
+: <a class="el" href="structAtcFindResult.html#a3a45af8f72a8405b3b252f34e43b9eb9">AtcFindResult</a>
+, <a class="el" href="structAtcZonedExtra.html#a1a97ad0b2abbb3b0a96ced728d530858">AtcZonedExtra</a>
 </li>
-<li>req_std_offset_minutes
-: <a class="el" href="structAtcFindResult.html#aad7b0b6c3fb8809cbc75461ed9592329">AtcFindResult</a>
-, <a class="el" href="structAtcZonedExtra.html#a29660c6b919e47c590a16a8c0ae2a680">AtcZonedExtra</a>
+<li>req_std_offset_seconds
+: <a class="el" href="structAtcFindResult.html#a32b8701aa057a2e390159f71fe598287">AtcFindResult</a>
+, <a class="el" href="structAtcZonedExtra.html#aefe00ea5efb493e6a2e8b75d0b8bba8b">AtcZonedExtra</a>
 </li>
 <li>rule
 : <a class="el" href="structAtcTransition.html#af0a636daadddea6003d622490b80e0e6">AtcTransition</a>
@@ -312,6 +315,9 @@ $(function() {
 , <a class="el" href="structAtcOffsetDateTime.html#ac33bae54d22036a16bed773074c2ec9f">AtcOffsetDateTime</a>
 , <a class="el" href="structAtcZonedDateTime.html#a357787ca5d5e61c81b3595fd69765b7f">AtcZonedDateTime</a>
 </li>
+<li>seconds
+: <a class="el" href="structAtcDateTuple.html#a19e8917e923f4086f9a77c1d38903089">AtcDateTuple</a>
+</li>
 <li>size
 : <a class="el" href="structAtcStringBuffer.html#a8e22e6352eae5b0ba199135263a38fce">AtcStringBuffer</a>
 , <a class="el" href="structAtcZoneRegistrar.html#ab033078541b31ded9b43c2ac97f54253">AtcZoneRegistrar</a>
@@ -326,9 +332,9 @@ $(function() {
 <li>start_year
 : <a class="el" href="structAtcZoneContext.html#abeddea10cf782c7d8cbaba6f426779dd">AtcZoneContext</a>
 </li>
-<li>std_offset_minutes
-: <a class="el" href="structAtcFindResult.html#ac4174388be7b0ca6a04addc72cb69c0e">AtcFindResult</a>
-, <a class="el" href="structAtcZonedExtra.html#a904d87896bbdc5727cc36d3d26c847f1">AtcZonedExtra</a>
+<li>std_offset_seconds
+: <a class="el" href="structAtcFindResult.html#a57f21dc3192f2a4bc018c69567df864b">AtcFindResult</a>
+, <a class="el" href="structAtcZonedExtra.html#a58311ccc1d1bfa57a4990384a466d63e">AtcZonedExtra</a>
 </li>
 <li>suffix
 : <a class="el" href="structAtcDateTuple.html#a5e4ad96fc2ee1d21bf77ea665bfec4f5">AtcDateTuple</a>
@@ -386,7 +392,7 @@ $(function() {
 : <a class="el" href="structAtcZoneEra.html#af0e8f368bc1c9a000ad7a7469ec0b476">AtcZoneEra</a>
 </li>
 <li>until_time_code
-: <a class="el" href="structAtcZoneEra.html#a4f50a954d8578a8db060f97b074229c2">AtcZoneEra</a>
+: <a class="el" href="structAtcZoneEra.html#a6e717e1b041bc86181a5fb0cec92c830">AtcZoneEra</a>
 </li>
 <li>until_time_modifier
 : <a class="el" href="structAtcZoneEra.html#ae1e60179ee3a0a765a6ac5bfc9a2021a">AtcZoneEra</a>
