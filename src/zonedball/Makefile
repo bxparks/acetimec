@@ -8,7 +8,7 @@ zone_registry.h
 
 TOOLS := $(abspath ../../../AceTimeTools)
 TZ_REPO := $(abspath $(TOOLS)/../tz)
-TZ_VERSION := 2022g
+TZ_VERSION := 2023c
 START_YEAR := 1800
 UNTIL_YEAR := 10000
 

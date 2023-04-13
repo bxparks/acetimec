@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/AceTimeC/src/zonedball/tzfiles
 //     --output_dir /home/brian/src/AceTimeC/src/zonedball
-//     --tz_version 2022g
+//     --tz_version 2023c
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -29,9 +29,9 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022g
+// from https://github.com/eggert/tz/releases/tag/2023c
 //
-// Supported Zones: 596 (351 zones, 245 links)
+// Supported Zones: 596 (350 zones, 246 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
 //
 // Original Years:  [1844,2087]
@@ -41,35 +41,35 @@
 //
 // Records:
 //   Infos: 596
-//   Eras: 1952
+//   Eras: 1949
 //   Policies: 134
-//   Rules: 2158
+//   Rules: 2238
 //
 // Memory (8-bits):
-//   Rules: 25896
+//   Rules: 26856
 //   Policies: 402
-//   Eras: 29280
-//   Zones: 4563
-//   Links: 3185
+//   Eras: 29235
+//   Zones: 4550
+//   Links: 3198
 //   Registry: 1192
 //   Formats: 1032
 //   Letters: 160
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 74786
+//   TOTAL: 75701
 //
 // Memory (32-bits):
-//   Rules: 25896
+//   Rules: 26856
 //   Policies: 1072
-//   Eras: 39040
-//   Zones: 8424
-//   Links: 5880
+//   Eras: 38980
+//   Zones: 8400
+//   Links: 5904
 //   Registry: 2384
 //   Formats: 1032
 //   Letters: 216
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 93020
+//   TOTAL: 93920
 //
 // DO NOT EDIT
 
@@ -90,8 +90,8 @@ extern "C" {
 extern const AtcZoneContext kAtcAllZoneContext;
 
 //---------------------------------------------------------------------------
-// Supported zones: 351
-// Supported eras: 1952
+// Supported zones: 350
+// Supported eras: 1949
 //---------------------------------------------------------------------------
 
 extern const AtcZoneInfo kAtcAllZoneAfrica_Abidjan; // Africa/Abidjan
@@ -233,7 +233,6 @@ extern const AtcZoneInfo kAtcAllZoneAmerica_Vancouver; // America/Vancouver
 extern const AtcZoneInfo kAtcAllZoneAmerica_Whitehorse; // America/Whitehorse
 extern const AtcZoneInfo kAtcAllZoneAmerica_Winnipeg; // America/Winnipeg
 extern const AtcZoneInfo kAtcAllZoneAmerica_Yakutat; // America/Yakutat
-extern const AtcZoneInfo kAtcAllZoneAmerica_Yellowknife; // America/Yellowknife
 extern const AtcZoneInfo kAtcAllZoneAntarctica_Casey; // Antarctica/Casey
 extern const AtcZoneInfo kAtcAllZoneAntarctica_Davis; // Antarctica/Davis
 extern const AtcZoneInfo kAtcAllZoneAntarctica_Macquarie; // Antarctica/Macquarie
@@ -588,7 +587,6 @@ extern const AtcZoneInfo kAtcAllZoneWET; // WET
 #define kAtcAllZoneIdAmerica_Whitehorse 0x54e0e3e8 /* America/Whitehorse */
 #define kAtcAllZoneIdAmerica_Winnipeg 0x8c7dafc7 /* America/Winnipeg */
 #define kAtcAllZoneIdAmerica_Yakutat 0xd8ee31e9 /* America/Yakutat */
-#define kAtcAllZoneIdAmerica_Yellowknife 0x0f76c76f /* America/Yellowknife */
 #define kAtcAllZoneIdAntarctica_Casey 0xe2022583 /* Antarctica/Casey */
 #define kAtcAllZoneIdAntarctica_Davis 0xe2144b45 /* Antarctica/Davis */
 #define kAtcAllZoneIdAntarctica_Macquarie 0x92f47626 /* Antarctica/Macquarie */
@@ -803,7 +801,7 @@ extern const AtcZoneInfo kAtcAllZoneWET; // WET
 
 
 //---------------------------------------------------------------------------
-// Supported links: 245
+// Supported links: 246
 //---------------------------------------------------------------------------
 
 extern const AtcZoneInfo kAtcAllZoneAfrica_Accra; // Africa/Accra -> Africa/Abidjan
@@ -888,6 +886,7 @@ extern const AtcZoneInfo kAtcAllZoneAmerica_St_Vincent; // America/St_Vincent ->
 extern const AtcZoneInfo kAtcAllZoneAmerica_Thunder_Bay; // America/Thunder_Bay -> America/Toronto
 extern const AtcZoneInfo kAtcAllZoneAmerica_Tortola; // America/Tortola -> America/Puerto_Rico
 extern const AtcZoneInfo kAtcAllZoneAmerica_Virgin; // America/Virgin -> America/Puerto_Rico
+extern const AtcZoneInfo kAtcAllZoneAmerica_Yellowknife; // America/Yellowknife -> America/Edmonton
 extern const AtcZoneInfo kAtcAllZoneAntarctica_DumontDUrville; // Antarctica/DumontDUrville -> Pacific/Port_Moresby
 extern const AtcZoneInfo kAtcAllZoneAntarctica_McMurdo; // Antarctica/McMurdo -> Pacific/Auckland
 extern const AtcZoneInfo kAtcAllZoneAntarctica_South_Pole; // Antarctica/South_Pole -> Pacific/Auckland
@@ -1137,6 +1136,7 @@ extern const AtcZoneInfo kAtcAllZoneZulu; // Zulu -> Etc/UTC
 #define kAtcAllZoneIdAmerica_Thunder_Bay 0xf962e71b /* America/Thunder_Bay */
 #define kAtcAllZoneIdAmerica_Tortola 0x7931462b /* America/Tortola */
 #define kAtcAllZoneIdAmerica_Virgin 0xc2183ab5 /* America/Virgin */
+#define kAtcAllZoneIdAmerica_Yellowknife 0x0f76c76f /* America/Yellowknife */
 #define kAtcAllZoneIdAntarctica_DumontDUrville 0x5a3c656c /* Antarctica/DumontDUrville */
 #define kAtcAllZoneIdAntarctica_McMurdo 0x6eeb5585 /* Antarctica/McMurdo */
 #define kAtcAllZoneIdAntarctica_South_Pole 0xcd96b290 /* Antarctica/South_Pole */
@@ -1419,7 +1419,7 @@ extern const AtcZoneInfo kAtcAllZoneZulu; // Zulu -> Etc/UTC
 #define kAtcAllZoneBufSizeAmerica_North_Dakota_Beulah 6  /* America/North_Dakota/Beulah in 2008 */
 #define kAtcAllZoneBufSizeAmerica_North_Dakota_Center 6  /* America/North_Dakota/Center in 2008 */
 #define kAtcAllZoneBufSizeAmerica_North_Dakota_New_Salem 6  /* America/North_Dakota/New_Salem in 2008 */
-#define kAtcAllZoneBufSizeAmerica_Nuuk 5  /* America/Nuuk in 1980 */
+#define kAtcAllZoneBufSizeAmerica_Nuuk 6  /* America/Nuuk in 2023 */
 #define kAtcAllZoneBufSizeAmerica_Ojinaga 7  /* America/Ojinaga in 2022 */
 #define kAtcAllZoneBufSizeAmerica_Panama 2  /* America/Panama in 1889 */
 #define kAtcAllZoneBufSizeAmerica_Paramaribo 2  /* America/Paramaribo in 1910 */
@@ -1449,7 +1449,6 @@ extern const AtcZoneInfo kAtcAllZoneZulu; // Zulu -> Etc/UTC
 #define kAtcAllZoneBufSizeAmerica_Whitehorse 6  /* America/Whitehorse in 2008 */
 #define kAtcAllZoneBufSizeAmerica_Winnipeg 6  /* America/Winnipeg in 2006 */
 #define kAtcAllZoneBufSizeAmerica_Yakutat 6  /* America/Yakutat in 1983 */
-#define kAtcAllZoneBufSizeAmerica_Yellowknife 6  /* America/Yellowknife in 2008 */
 #define kAtcAllZoneBufSizeAntarctica_Casey 3  /* Antarctica/Casey in 2018 */
 #define kAtcAllZoneBufSizeAntarctica_Davis 2  /* Antarctica/Davis in 1956 */
 #define kAtcAllZoneBufSizeAntarctica_Macquarie 5  /* Antarctica/Macquarie in 1967 */

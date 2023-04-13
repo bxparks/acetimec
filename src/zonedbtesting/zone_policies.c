@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/AceTimeC/src/zonedbtesting/tzfiles
 //     --output_dir /home/brian/src/AceTimeC/src/zonedbtesting
-//     --tz_version 2022g
+//     --tz_version 2023c
 //     --action zonedb
 //     --language c
 //     --scope extended
@@ -30,10 +30,10 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2022g
+// from https://github.com/eggert/tz/releases/tag/2023c
 //
 // Supported Zones: 17 (16 zones, 1 links)
-// Unsupported Zones: 579 (335 zones, 244 links)
+// Unsupported Zones: 579 (334 zones, 245 links)
 //
 // Original Years:  [1844,2087]
 // Generated Years: [1966,2087]
@@ -705,13 +705,13 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2023    only    -    Apr    30     2:00    0    -
+  // Rule    Morocco    2023    only    -    Apr    23     2:00    0    -
   {
     2023 /*from_year*/,
     2023 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
-    30 /*on_day_of_month*/,
+    23 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
@@ -897,13 +897,13 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2031    only    -    Feb     2     2:00    0    -
+  // Rule    Morocco    2031    only    -    Jan    26     2:00    0    -
   {
     2031 /*from_year*/,
     2031 /*to_year*/,
-    2 /*in_month*/,
+    1 /*in_month*/,
     0 /*on_day_of_week*/,
-    2 /*on_day_of_month*/,
+    26 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
@@ -1089,13 +1089,13 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2038    only    -    Nov     7     2:00    0    -
+  // Rule    Morocco    2038    only    -    Oct    31     2:00    0    -
   {
     2038 /*from_year*/,
     2038 /*to_year*/,
-    11 /*in_month*/,
+    10 /*in_month*/,
     0 /*on_day_of_week*/,
-    7 /*on_day_of_month*/,
+    31 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
@@ -1281,13 +1281,13 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2046    only    -    Aug    12     2:00    0    -
+  // Rule    Morocco    2046    only    -    Aug     5     2:00    0    -
   {
     2046 /*from_year*/,
     2046 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
-    12 /*on_day_of_month*/,
+    5 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
@@ -1473,13 +1473,13 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2054    only    -    May    17     2:00    0    -
+  // Rule    Morocco    2054    only    -    May    10     2:00    0    -
   {
     2054 /*from_year*/,
     2054 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
-    17 /*on_day_of_month*/,
+    10 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
@@ -1665,13 +1665,13 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2062    only    -    Feb    19     2:00    0    -
+  // Rule    Morocco    2062    only    -    Feb    12     2:00    0    -
   {
     2062 /*from_year*/,
     2062 /*to_year*/,
     2 /*in_month*/,
     0 /*on_day_of_week*/,
-    19 /*on_day_of_month*/,
+    12 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
@@ -1857,13 +1857,13 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2069    only    -    Nov    24     2:00    0    -
+  // Rule    Morocco    2069    only    -    Nov    17     2:00    0    -
   {
     2069 /*from_year*/,
     2069 /*to_year*/,
     11 /*in_month*/,
     0 /*on_day_of_week*/,
-    24 /*on_day_of_month*/,
+    17 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
@@ -2049,13 +2049,13 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2077    only    -    Aug    29     2:00    0    -
+  // Rule    Morocco    2077    only    -    Aug    22     2:00    0    -
   {
     2077 /*from_year*/,
     2077 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
-    29 /*on_day_of_month*/,
+    22 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
@@ -2169,13 +2169,13 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2082    only    -    Jul     5     2:00    0    -
+  // Rule    Morocco    2082    only    -    Jun    28     2:00    0    -
   {
     2082 /*from_year*/,
     2082 /*to_year*/,
-    7 /*in_month*/,
+    6 /*in_month*/,
     0 /*on_day_of_week*/,
-    5 /*on_day_of_month*/,
+    28 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
@@ -2241,13 +2241,13 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
     -60 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Morocco    2085    only    -    Jun     3     2:00    0    -
+  // Rule    Morocco    2085    only    -    May    27     2:00    0    -
   {
     2085 /*from_year*/,
     2085 /*to_year*/,
-    6 /*in_month*/,
+    5 /*in_month*/,
     0 /*on_day_of_week*/,
-    3 /*on_day_of_month*/,
+    27 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     0 /*delta_minutes*/,
