@@ -48,6 +48,7 @@ latter documents.
     * [Zone Database and Registry](#ZoneDatabaseAndRegistry)
     * [AtcZonedExtra](#AtcZonedExtra)
     * [AtcZoneRegistrar](#AtcZoneRegistrar)
+* [Bugs and Limitations](#Bugs)
 * [License](#License)
 * [Feedback and Support](#FeedbackAndSupport)
 * [Authors](#Authors)
@@ -846,6 +847,27 @@ The downstream application does not need to use the default zone registries
 (`kAtcZoneRegistry` or `kAtcZoneAndLinkRegistry`). It can create its own custom
 zone registry, and pass this custom registry into the
 `atc_registrar_find_by_name()` or `atc_registrar_find_by_id()` functions.
+
+<a name="Bugs"></a>
+## Bugs And Limitations
+
+* No support for constants in flash memory
+    * Some microcontrollers (e.g. AVR, ESP8266) use a modified-Harvard memory
+      architecture where the program and data are in 2 different address spaces.
+    * To place large data constants (e.g. arrays) into program flash memory
+      instead of static memory, special (non-standard) compiler directives need
+      to be used.
+    * On `avr-gcc` compiler, this is `PROGMEM` directive.
+    * AceTimeC library does not use the `PROGMEM` directive, so the library will
+      probably will not fit inside an AVR processor.
+    * On other microcontrollers (e.g. ARM), constants are automatically placed
+      into flash memory and referenced directly from there. No special compiler
+      directives are required.
+* The `atc_time_t` type is a 32-bit signed integer.
+    * This has a range of approximately +/- 68 years around the (adjustable)
+      current epoch year.
+    * A 64-bit type would solve the range problem, but would consume more flash
+      and ram resources. This option may be implemented in the future.
 
 <a name="License"></a>
 ## License
