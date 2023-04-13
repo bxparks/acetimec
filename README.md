@@ -22,6 +22,8 @@ the documentation provided by the README.md and USER_GUIDE.md documents of the
 AceTime library. If you need more detailed information, please consult those
 latter documents.
 
+**Status**: Alpha-level software, not ready for public consumption.
+
 **Version**: 0.7.0 (2023-02-12, TZDB version 2022g)
 
 **Changelog**: [CHANGELOG.md](CHANGELOG.md)
@@ -716,10 +718,10 @@ enum {
 
 typedef struct AtcZonedExtra {
   int8_t type;
-  int16_t std_offset_minutes; // STD offset
-  int16_t dst_offset_minutes; // DST offset
-  int16_t req_std_offset_minutes; // request STD offset
-  int16_t req_dst_offset_minutes; // request DST offset
+  int32_t std_offset_seconds; // STD offset
+  int32_t dst_offset_seconds; // DST offset
+  int32_t req_std_offset_seconds; // request STD offset
+  int32_t req_dst_offset_seconds; // request DST offset
   char abbrev[kAtcAbbrevSize];
 } AtcZonedExtra;
 ```
