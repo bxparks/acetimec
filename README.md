@@ -753,6 +753,21 @@ typedef struct AtcZonedExtra {
 } AtcZonedExtra;
 ```
 
+For `type` of `kAtcZonedExtraExact` and `kAtcZonedExtraOverlap`, the `req_std_offset_seconds` and `req_dst_offset_seconds` will be identical
+to the corresponding `std_offset_seconds` and `dst_offset_seconds` parameters.
+
+For `type` `kAtcZonedExtraGap`, which can be returned only by the
+`atc_zoned_extra_from_local_date_time()` function below, the `fold` parameter
+selects one of the 2 matching `AtcZonedDateTime` following the algorithms
+described by Python [PEP 495](https://www.python.org/dev/peps/pep-0495/). Since
+the `AtcLocalDateTime` instants before and after normalization are different, we
+need 2 different sets of offset seconds:
+
+* `req_std_offset_seconds` and `req_dst_offset_seconds` fields correspond
+  to the `AtcLocalDateTime` *before* normalization, and
+* `std_offset_seconds` and `dst_offset_seconds` fields correspond to the
+  `AtcLocalDateTime` *after* normalization.
+
 There are 2 functions that populates this data structure (analogous to the
 functions that populate the `AtcZonedDateTime` data structure):
 
