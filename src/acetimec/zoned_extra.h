@@ -26,7 +26,7 @@ typedef struct AtcLocalDateTime AtcLocalDateTime;
 
 /**
  * Values of the the AtcZonedExtra.type field. Should be identical to
- * AtcFindRresultXxx
+ * AtcFindResultXxx
  */
 enum {
   kAtcZonedExtraNotFound = 0,
