@@ -20,8 +20,10 @@ extern "C" {
 #include <stdint.h>
 #include "transition.h" // kAtcAbbrevSize
 
-// forward declarations
+/** Forward declaration for AceTimeZone. */
 typedef struct AtcTimeZone AtcTimeZone;
+
+/** Forward declaration for AtcLocalDateTime. */
 typedef struct AtcLocalDateTime AtcLocalDateTime;
 
 /**

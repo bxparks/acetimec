@@ -21,8 +21,10 @@
 extern "C" {
 #endif
 
-// forward declarations
+/** Forward declaration for AtcOffsetDateTime. */
 typedef struct AtcOffsetDateTime AtcOffsetDateTime;
+
+/** Forward declaration for AtcZonedExtra. */
 typedef struct AtcZonedExtra AtcZonedExtra;
 
 /** A data structure that represents a specific Time Zone. */

@@ -287,6 +287,9 @@ typedef struct AtcYearMonth {
  * Find ZoneEra entries which match the [start_ym, until_ym) interval.
  * Fills the entries into `matches` and returns the number of array elements.
  *
+ * @param zone_info timezone data stucture
+ * @param start_ym start year-month pair
+ * @param until_ym until year-month pair
  * @param matches array of buffer size `num_matches`
  * @param matches_size size of `matches` buffer
  *
