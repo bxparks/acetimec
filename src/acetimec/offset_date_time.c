@@ -27,9 +27,9 @@ atc_time_t atc_offset_date_time_to_epoch_seconds(
 }
 
 void atc_offset_date_time_from_epoch_seconds(
+    AtcOffsetDateTime *odt,
     atc_time_t epoch_seconds,
-    int32_t offset_seconds,
-    AtcOffsetDateTime *odt)
+    int32_t offset_seconds)
 {
   if (epoch_seconds == kAtcInvalidEpochSeconds) {
     atc_offset_date_time_set_error(odt);

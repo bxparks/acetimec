@@ -393,8 +393,8 @@ atc_time_t atc_local_date_time_to_epoch_seconds(
     const AtcLocalDateTime *ldt);
 
 void atc_local_date_time_from_epoch_seconds(
-    atc_time_t epoch_seconds,
-    AtcLocalDateTime *ldt);
+    AtcLocalDateTime *ldt,
+    atc_time_t epoch_seconds);
 
 void atc_local_date_time_print(
     AtcStringBuffer *sb,
@@ -469,9 +469,9 @@ atc_time_t atc_offset_date_time_to_epoch_seconds(
     const AtcOffsetDateTime *odt);
 
 void atc_offset_date_time_from_epoch_seconds(
+    AtcOffsetDateTime *odt,
     atc_time_t epoch_seconds,
-    int16_t offset_minutes,
-    AtcOffsetDateTime *odt);
+    int16_t offset_minutes);
 
 void atc_offset_date_time_print(
     AtcStringBuffer *sb,

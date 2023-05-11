@@ -41,7 +41,7 @@ void atc_time_zone_offset_date_time_from_epoch_seconds(
     fold = 0;
   }
 
-  atc_offset_date_time_from_epoch_seconds(epoch_seconds, offset_seconds, odt);
+  atc_offset_date_time_from_epoch_seconds(odt, epoch_seconds, offset_seconds);
   odt->fold = fold;
 }
 
@@ -82,7 +82,7 @@ void atc_time_zone_offset_date_time_from_local_date_time(
       int32_t target_offset =
           result.std_offset_seconds + result.dst_offset_seconds;
       atc_offset_date_time_from_epoch_seconds(
-          epoch_seconds, target_offset, odt);
+          odt, epoch_seconds, target_offset);
     }
   } else {
     odt->year = ldt->year;
