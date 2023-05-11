@@ -24,9 +24,9 @@ int8_t atc_offset_date_time_from_epoch_seconds(
   if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
 
   epoch_seconds += offset_seconds;
-  int8_t err = atc_local_date_time_from_epoch_seconds(
-      (AtcLocalDateTime *) odt, epoch_seconds);
-  if (err) return err;
+  AtcLocalDateTime *ldt = (AtcLocalDateTime *) odt;
+  atc_local_date_time_from_epoch_seconds(ldt, epoch_seconds);
+  if (atc_local_date_time_is_error(ldt)) return kAtcErrGeneric;
 
   odt->offset_seconds = offset_seconds;
   return kAtcErrOk;

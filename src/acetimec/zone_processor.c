@@ -682,8 +682,8 @@ int8_t atc_processor_init_for_epoch_seconds(
   atc_time_t epoch_seconds)
 {
   AtcLocalDateTime ldt;
-  int8_t err = atc_local_date_time_from_epoch_seconds(&ldt, epoch_seconds);
-  if (err) return err;
+  atc_local_date_time_from_epoch_seconds(&ldt, epoch_seconds);
+  if (atc_local_date_time_is_error(&ldt)) return kAtcErrGeneric;
   return atc_processor_init_for_year(processor, ldt.year);
 }
 

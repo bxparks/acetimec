@@ -382,24 +382,32 @@ typedef struct AtcLocalDateTime {
 } AtcLocalDateTime;
 ```
 
-There are 2 functions which operate on this data type:
+Here are the functions which operate on this data type:
 
 ```C
+void atc_local_date_time_set_error(AtcLocalDateTime *ldt);
+
+bool atc_local_date_time_is_error(const AtcLocalDateTime *ldt);
+
 atc_time_t atc_local_date_time_to_epoch_seconds(
     const AtcLocalDateTime *ldt);
 
-int8_t atc_local_date_time_from_epoch_seconds(
-  atc_time_t epoch_seconds,
-  AtcLocalDateTime *ldt);
+void atc_local_date_time_from_epoch_seconds(
+    atc_time_t epoch_seconds,
+    AtcLocalDateTime *ldt);
 ```
+
+The `atc_local_date_time_set_error(ldt)` sets an internal error flag in the
+given `ldt` to mark it as an invalid value. This causes
+`atc_local_date_time_is_error(ldt)` to return `true`.
 
 The `atc_local_date_time_to_epoch_seconds()` function converts the given
 `AtcLocalDateTime` into its `atc_time_t` epoch seconds. If an error occurs, the
 function returns `kAtcInvalidEpochSeconds`.
 
 The `atc_local_date_time_from_epoch_seconds()` function converts the given epoch
-seconds into the `AtcLocalDateTime` components. If an error occurs, the function
-returns `kAtcErrGeneric`, otherwise it returns `kAtcErrOk`.
+seconds into the `AtcLocalDateTime` components. If an error occurs, the `ldt` is
+set to its error value.
 
 The `fold` parameter is both an input parameter and an output parameter, and has
 the meaning as the `fold` parameter in the AceTime library, which borrowed the
