@@ -10,14 +10,16 @@ nano_results = check_output(
     "./generate_table.awk < nano.txt", shell=True, text=True)
 micro_results = check_output(
     "./generate_table.awk < micro.txt", shell=True, text=True)
+samd21_results = check_output(
+    "./generate_table.awk < samd21.txt", shell=True, text=True)
 stm32_results = check_output(
     "./generate_table.awk < stm32.txt", shell=True, text=True)
+samd51_results = check_output(
+    "./generate_table.awk < samd51.txt", shell=True, text=True)
 esp8266_results = check_output(
     "./generate_table.awk < esp8266.txt", shell=True, text=True)
 esp32_results = check_output(
     "./generate_table.awk < esp32.txt", shell=True, text=True)
-teensy32_results = check_output(
-    "./generate_table.awk < teensy32.txt", shell=True, text=True)
 
 print(f"""\
 # Memory Benchmark
@@ -78,6 +80,10 @@ ASCII table.
 * Upgrade to 2023c
 * Add memory numbers for `zonedball` database.
 
+**0.9.0**
+* Remove Teensy3.2, moved into Tier 2.
+* Add SAMD21 (Seeeduino XIAO) and SAMD51 (Adafruit ItsyBitsy M4).
+
 ### Arduino Nano
 
 * 16MHz ATmega328P
@@ -104,11 +110,37 @@ stored in RAM not in flash.
 `PROGMEM` not used in AceTimeC, which causes the `zonedb` data structures to be
 stored in RAM not in flash.
 
+### SAMD21 (Seeeduino XIAO)
+
+* SAMD21, 48 MHz ARM Cortex-M0+
+* Arduino IDE 1.8.19, Arduino CLI 0.31.0
+* Seeeduino SAMD 1.8.3
+
+```
+{samd21_results}
+```
+
+An entry of `-1` indicates that the memory usage exceeded the maximum of the
+microcontroller and the compiler did not generate the desired information.
+
 ### STM32 Blue Pill
 
 * STM32F103C8, 72 MHz ARM Cortex-M3
 * Arduino IDE 1.8.19, Arduino CLI 0.31.0
 * STM32duino 2.4.0
+
+```
+{stm32_results}
+```
+
+An entry of `-1` indicates that the memory usage exceeded the maximum of the
+microcontroller and the compiler did not generate the desired information.
+
+### SAMD51 (Adafruit ItsyBitsy M4)
+
+* SAMD51, 120 MHz ARM Cortex-M4
+* Arduino IDE 1.8.19, Arduino CLI 0.31.0
+* Adafruit SAMD 1.7.11
 
 ```
 {stm32_results}
@@ -138,19 +170,5 @@ stored in RAM not in flash.
 
 ```
 {esp32_results}
-```
-
-RAM usage remains constant as more objects are created, which indicates that an
-initial pool of a certain minimum size is created regardless of the actual RAM
-usage by objects.
-
-### Teensy 3.2
-
-* 96 MHz ARM Cortex-M4
-* Arduino IDE 1.8.19, Arduino CLI 0.31.0
-* Teensyduino 1.57
-
-```
-{teensy32_results}
 ```
 """)

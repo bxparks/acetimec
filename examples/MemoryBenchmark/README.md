@@ -108,11 +108,69 @@ stored in RAM not in flash.
 `PROGMEM` not used in AceTimeC, which causes the `zonedb` data structures to be
 stored in RAM not in flash.
 
+### SAMD21 (Seeeduino XIAO)
+
+* SAMD21, 48 MHz ARM Cortex-M0+
+* Arduino IDE 1.8.19, Arduino CLI 0.31.0
+* Seeeduino SAMD 1.8.3
+
+```
++---------------------------------------------------------------------+
+| Functionality                         |  flash/  ram |        delta |
+|---------------------------------------+--------------+--------------|
+| baseline                              |  34068/    0 |      0/    0 |
+|---------------------------------------+--------------+--------------|
+| LocalDateTime                         |  34316/    0 |    248/    0 |
+| ZonedDateTime                         |  38812/    0 |   4744/    0 |
+| TimeZone1                             |  39524/    0 |   5456/    0 |
+| TimeZone2                             |  40124/    0 |   6056/    0 |
+|---------------------------------------+--------------+--------------|
+| ZoneRegistry (zonedb)                 |  77388/    0 |  43320/    0 |
+| ZoneAndLinkRegistry (zonedb)          |  87852/    0 |  53784/    0 |
+|---------------------------------------+--------------+--------------|
+| ZoneRegistry (zonedball)              | 122348/    0 |  88280/    0 |
+| ZoneAndLinkRegistry (zonedball)       | 132812/    0 |  98744/    0 |
++---------------------------------------------------------------------+
+
+```
+
+An entry of `-1` indicates that the memory usage exceeded the maximum of the
+microcontroller and the compiler did not generate the desired information.
+
 ### STM32 Blue Pill
 
 * STM32F103C8, 72 MHz ARM Cortex-M3
 * Arduino IDE 1.8.19, Arduino CLI 0.31.0
 * STM32duino 2.4.0
+
+```
++---------------------------------------------------------------------+
+| Functionality                         |  flash/  ram |        delta |
+|---------------------------------------+--------------+--------------|
+| baseline                              |  21392/ 3556 |      0/    0 |
+|---------------------------------------+--------------+--------------|
+| LocalDateTime                         |  21664/ 3572 |    272/   16 |
+| ZonedDateTime                         |  25984/ 3592 |   4592/   36 |
+| TimeZone1                             |  26712/ 4384 |   5320/  828 |
+| TimeZone2                             |  27272/ 5196 |   5880/ 1640 |
+|---------------------------------------+--------------+--------------|
+| ZoneRegistry (zonedb)                 |  64544/ 4384 |  43152/  828 |
+| ZoneAndLinkRegistry (zonedb)          |  75008/ 4384 |  53616/  828 |
+|---------------------------------------+--------------+--------------|
+| ZoneRegistry (zonedball)              | 109504/ 4384 |  88112/  828 |
+| ZoneAndLinkRegistry (zonedball)       | 119968/ 4384 |  98576/  828 |
++---------------------------------------------------------------------+
+
+```
+
+An entry of `-1` indicates that the memory usage exceeded the maximum of the
+microcontroller and the compiler did not generate the desired information.
+
+### SAMD51 (Adafruit ItsyBitsy M4)
+
+* SAMD51, 120 MHz ARM Cortex-M4
+* Arduino IDE 1.8.19, Arduino CLI 0.31.0
+* Adafruit SAMD 1.7.11
 
 ```
 +---------------------------------------------------------------------+
@@ -185,36 +243,6 @@ stored in RAM not in flash.
 |---------------------------------------+--------------+--------------|
 | ZoneRegistry (zonedball)              | 317621/22808 |  89276/  832 |
 | ZoneAndLinkRegistry (zonedball)       | 328437/22808 | 100092/  832 |
-+---------------------------------------------------------------------+
-
-```
-
-RAM usage remains constant as more objects are created, which indicates that an
-initial pool of a certain minimum size is created regardless of the actual RAM
-usage by objects.
-
-### Teensy 3.2
-
-* 96 MHz ARM Cortex-M4
-* Arduino IDE 1.8.19, Arduino CLI 0.31.0
-* Teensyduino 1.57
-
-```
-+---------------------------------------------------------------------+
-| Functionality                         |  flash/  ram |        delta |
-|---------------------------------------+--------------+--------------|
-| baseline                              |  10060/ 4152 |      0/    0 |
-|---------------------------------------+--------------+--------------|
-| LocalDateTime                         |  10352/ 4168 |    292/   16 |
-| ZonedDateTime                         |  16252/ 4188 |   6192/   36 |
-| TimeZone1                             |  17124/ 4980 |   7064/  828 |
-| TimeZone2                             |  17708/ 5792 |   7648/ 1640 |
-|---------------------------------------+--------------+--------------|
-| ZoneRegistry (zonedb)                 |  56236/ 4980 |  46176/  828 |
-| ZoneAndLinkRegistry (zonedb)          |  67052/ 4980 |  56992/  828 |
-|---------------------------------------+--------------+--------------|
-| ZoneRegistry (zonedball)              | 101356/ 4980 |  91296/  828 |
-| ZoneAndLinkRegistry (zonedball)       | 112172/ 4980 | 102112/  828 |
 +---------------------------------------------------------------------+
 
 ```
