@@ -53,7 +53,7 @@ void setup() {
   char buf[80];
   struct AtcStringBuffer sb;
   atc_buf_init(&sb, buf, 80);
-  atc_zoned_date_time_print(&lat, &sb);
+  atc_zoned_date_time_print(&sb, &lat);
   atc_buf_close(&sb);
   SERIAL_PORT_MONITOR.println(sb.p);
 

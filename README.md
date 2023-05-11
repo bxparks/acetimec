@@ -88,7 +88,7 @@ void print_dates()
   char buf[80];
   struct AtcStringBuffer sb;
   atc_buf_init(&sb, buf, 80);
-  atc_zoned_date_time_print(&zdtla, &sb);
+  atc_zoned_date_time_print(&sb, &zdtla);
   atc_buf_close(&sb);
   printf("Los Angeles: %s\n", sb.p);
 
@@ -103,7 +103,7 @@ void print_dates()
   // Start with a LocalDateTime in an overlap, fold=1 for the second one.
   AtcLocalDateTime ldt = {2022, 11, 6, 1, 30, 0, 1 /*fold*/};
   atc_buf_reset(&sb);
-  atc_local_date_time_print(&ldt, &sb);
+  atc_local_date_time_print(&sb, &ldt);
   atc_buf_close(&sb);
   printf("LocalDateTime: %s\n", sb.p);
   printf("fold: 1\n");
@@ -115,7 +115,7 @@ void print_dates()
 
   // Print the date time.
   atc_buf_reset(&sb);
-  atc_zoned_date_time_print(&zdtla, &sb);
+  atc_zoned_date_time_print(&sb, &zdtla);
   atc_buf_close(&sb);
   printf("Los Angeles: %s\n", sb.p);
   epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
@@ -130,7 +130,7 @@ void print_dates()
   if (atc_zoned_date_time_is_error(&zdtla)) { ... }
 
   atc_buf_reset(&sb);
-  atc_zoned_date_time_print(&zdtny, &sb);
+  atc_zoned_date_time_print(&sb, zdtny);
   atc_buf_close(&sb);
   printf("New York: %s\n", sb.p);
   epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
@@ -395,6 +395,10 @@ atc_time_t atc_local_date_time_to_epoch_seconds(
 void atc_local_date_time_from_epoch_seconds(
     atc_time_t epoch_seconds,
     AtcLocalDateTime *ldt);
+
+void atc_local_date_time_print(
+    AtcStringBuffer *sb,
+    const AtcLocalDateTime *ldt);
 ```
 
 The `atc_local_date_time_set_error(ldt)` marks the given `ldt` as invalid. This
@@ -468,6 +472,10 @@ void atc_offset_date_time_from_epoch_seconds(
     atc_time_t epoch_seconds,
     int16_t offset_minutes,
     AtcOffsetDateTime *odt);
+
+void atc_offset_date_time_print(
+    AtcStringBuffer *sb,
+    const AtcOffsetDateTime *odt);
 ```
 
 The `atc_offset_date_time_set_error(odt)` marks the given `odt` as invalid .
@@ -542,8 +550,8 @@ void atc_zoned_date_time_normalize(
     AtcZonedDateTime *zdt);
 
 void atc_zoned_date_time_print(
-    const AtcZonedDateTime *zdt,
-    AtcStringBuffer *sb);
+    AtcStringBuffer *sb,
+    const AtcZonedDateTime *zdt);
 ```
 
 * `atc_offset_date_time_set_error(zdt)`

@@ -89,7 +89,7 @@ void atc_time_zone_zoned_extra_from_local_date_time(
   AtcZonedExtra *extra);
 
 /** Print the name of the current time zone. */
-void atc_time_zone_print(const AtcTimeZone *tz, AtcStringBuffer *sb);
+void atc_time_zone_print(AtcStringBuffer *sb, const AtcTimeZone *tz);
 
 #ifdef __cplusplus
 }

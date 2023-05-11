@@ -8,7 +8,7 @@ ACU_TEST(test_atc_time_zone_print_utc)
   AtcStringBuffer sb;
   atc_buf_init(&sb, buf, 80);
 
-  atc_time_zone_print(&atc_time_zone_utc, &sb);
+  atc_time_zone_print(&sb, &atc_time_zone_utc);
   atc_buf_close(&sb);
   ACU_ASSERT(strcmp(sb.p, "UTC") == 0);
 }
@@ -90,7 +90,7 @@ ACU_TEST(test_atc_time_zone_print_los_angeles)
   AtcStringBuffer sb;
   atc_buf_init(&sb, buf, 80);
 
-  atc_time_zone_print(&tz, &sb);
+  atc_time_zone_print(&sb, &tz);
   atc_buf_close(&sb);
   ACU_ASSERT(strcmp(sb.p, "America/Los_Angeles") == 0);
 }

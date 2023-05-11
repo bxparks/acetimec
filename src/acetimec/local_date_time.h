@@ -79,8 +79,8 @@ void atc_local_date_time_from_epoch_seconds(
 
 /** Print the local date time in ISO 8601 format. */
 void atc_local_date_time_print(
-    const AtcLocalDateTime *ldt,
-    AtcStringBuffer *sb);
+    AtcStringBuffer *sb,
+    const AtcLocalDateTime *ldt);
 
 #ifdef __cplusplus
 }

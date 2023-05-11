@@ -164,7 +164,7 @@ void atc_time_zone_zoned_extra_from_local_date_time(
   }
 }
 
-void atc_time_zone_print(const AtcTimeZone *tz, AtcStringBuffer *sb)
+void atc_time_zone_print(AtcStringBuffer *sb, const AtcTimeZone *tz)
 {
   if (tz->zone_info == NULL) {
     atc_print_string(sb, "UTC");

@@ -592,7 +592,7 @@ ACU_TEST(test_zoned_date_time_print)
   char buf[64];
   AtcStringBuffer sb;
   atc_buf_init(&sb, buf, 64);
-  atc_zoned_date_time_print(&zdt, &sb);
+  atc_zoned_date_time_print(&sb, &zdt);
   atc_buf_close(&sb);
 
   const char expected[] = "2018-03-11T03:30:00-07:00[America/Los_Angeles]";

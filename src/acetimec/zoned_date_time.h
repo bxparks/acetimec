@@ -109,8 +109,8 @@ void atc_zoned_date_time_normalize(AtcZonedDateTime *zdt);
 
 /** Print the zoned date time in ISO 8601 format. */
 void atc_zoned_date_time_print(
-    const AtcZonedDateTime *zdt,
-    AtcStringBuffer *sb);
+    AtcStringBuffer *sb,
+    const AtcZonedDateTime *zdt);
 
 #ifdef __cplusplus
 }

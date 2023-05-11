@@ -94,11 +94,11 @@ void atc_zoned_date_time_normalize(AtcZonedDateTime *zdt)
 }
 
 void atc_zoned_date_time_print(
-    const AtcZonedDateTime *zdt,
-    AtcStringBuffer *sb)
+    AtcStringBuffer *sb,
+    const AtcZonedDateTime *zdt)
 {
-  atc_offset_date_time_print((const AtcOffsetDateTime *) zdt, sb);
+  atc_offset_date_time_print(sb, (const AtcOffsetDateTime *) zdt);
   atc_print_char(sb, '[');
-  atc_time_zone_print(&zdt->tz, sb);
+  atc_time_zone_print(sb, &zdt->tz);
   atc_print_char(sb, ']');
 }

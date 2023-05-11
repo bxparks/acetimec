@@ -78,8 +78,8 @@ void atc_offset_date_time_from_epoch_seconds(
 
 /** Print the offset date time in ISO 8601 format. */
 void atc_offset_date_time_print(
-    const AtcOffsetDateTime *odt,
-    AtcStringBuffer *sb);
+    AtcStringBuffer *sb,
+    const AtcOffsetDateTime *odt);
 
 #ifdef __cplusplus
 }

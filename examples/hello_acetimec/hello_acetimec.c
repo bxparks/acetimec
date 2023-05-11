@@ -32,7 +32,7 @@ void print_dates()
   char buf[80];
   struct AtcStringBuffer sb;
   atc_buf_init(&sb, buf, 80);
-  atc_zoned_date_time_print(&zdtla, &sb);
+  atc_zoned_date_time_print(&sb, &zdtla);
   atc_buf_close(&sb);
   printf("Los Angeles: %s\n", sb.p);
 
@@ -54,7 +54,7 @@ void print_dates()
   // Start with a LocalDateTime in an overlap, fold=1 for the second one.
   AtcLocalDateTime ldt = {2022, 11, 6, 1, 30, 0, 1 /*fold*/};
   atc_buf_reset(&sb);
-  atc_local_date_time_print(&ldt, &sb);
+  atc_local_date_time_print(&sb, &ldt);
   atc_buf_close(&sb);
   printf("LocalDateTime: %s\n", sb.p);
   printf("fold: 1\n");
@@ -69,7 +69,7 @@ void print_dates()
 
   // Print the date time.
   atc_buf_reset(&sb);
-  atc_zoned_date_time_print(&zdtla, &sb);
+  atc_zoned_date_time_print(&sb, &zdtla);
   atc_buf_close(&sb);
   printf("Los Angeles: %s\n", sb.p);
   epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
@@ -87,7 +87,7 @@ void print_dates()
   }
 
   atc_buf_reset(&sb);
-  atc_zoned_date_time_print(&zdtny, &sb);
+  atc_zoned_date_time_print(&sb, &zdtny);
   atc_buf_close(&sb);
   printf("New York: %s\n", sb.p);
   epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);

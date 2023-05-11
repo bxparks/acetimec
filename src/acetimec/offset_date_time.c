@@ -66,9 +66,9 @@ static void print_offset_seconds(AtcStringBuffer *sb, int32_t seconds)
 }
 
 void atc_offset_date_time_print(
-    const AtcOffsetDateTime *odt,
-    AtcStringBuffer *sb)
+    AtcStringBuffer *sb,
+    const AtcOffsetDateTime *odt)
 {
-  atc_local_date_time_print((const AtcLocalDateTime *) odt, sb);
+  atc_local_date_time_print(sb, (const AtcLocalDateTime *) odt);
   print_offset_seconds(sb, odt->offset_seconds);
 }

@@ -63,8 +63,8 @@ void atc_local_date_time_from_epoch_seconds(
 }
 
 void atc_local_date_time_print(
-    const AtcLocalDateTime *ldt,
-    AtcStringBuffer *sb)
+    AtcStringBuffer *sb,
+    const AtcLocalDateTime *ldt)
 {
   atc_print_uint16_pad4(sb, ldt->year);
   atc_print_char(sb, '-');
