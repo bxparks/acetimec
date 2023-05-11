@@ -397,9 +397,8 @@ void atc_local_date_time_from_epoch_seconds(
     AtcLocalDateTime *ldt);
 ```
 
-The `atc_local_date_time_set_error(ldt)` sets an internal error flag in the
-given `ldt` to mark it as an invalid value. This causes
-`atc_local_date_time_is_error(ldt)` to return `true`.
+The `atc_local_date_time_set_error(ldt)` marks the given `ldt` as invalid. This
+causes `atc_local_date_time_is_error(ldt)` to return `true`.
 
 The `atc_local_date_time_to_epoch_seconds()` function converts the given
 `AtcLocalDateTime` into its `atc_time_t` epoch seconds. If an error occurs, the
@@ -471,9 +470,8 @@ void atc_offset_date_time_from_epoch_seconds(
     AtcOffsetDateTime *odt);
 ```
 
-The `atc_offset_date_time_set_error(odt)` sets an internal error flag in the
-given `odt` to mark it as an invalid value. This causes
-`atc_offset_date_time_is_error(odt)` to return `true`.
+The `atc_offset_date_time_set_error(odt)` marks the given `odt` as invalid .
+This causes `atc_offset_date_time_is_error(odt)` to return `true`.
 
 The `atc_offset_date_time_from_epoch_seconds()` function converts the given
 `AtcOffsetDateTime` into its `atc_time_t` epoch seconds, taking into account the
@@ -518,25 +516,29 @@ The memory layout of `AtcZonedDateTime` was designed to be identical to
 The following functions operate on the `AtcZonedDateTime` struct:
 
 ```C
-int8_t atc_zoned_date_time_from_epoch_seconds(
-    AtcZonedDateTime *zdt,
-    atc_time_t epoch_seconds,
-    AtcTimeZone *tz);
+void atc_zoned_date_time_set_error(AtcZonedDateTime *zdt);
+
+bool atc_zoned_date_time_is_error(const AtcZonedDateTime *zdt);
 
 atc_time_t atc_zoned_date_time_to_epoch_seconds(
     const AtcZonedDateTime *zdt);
 
-int8_t atc_zoned_date_time_from_local_date_time(
+void atc_zoned_date_time_from_epoch_seconds(
+    AtcZonedDateTime *zdt,
+    atc_time_t epoch_seconds,
+    AtcTimeZone *tz);
+
+void atc_zoned_date_time_from_local_date_time(
     AtcZonedDateTime *zdt,
     const AtcLocalDateTime *ldt,
     AtcTimeZone *tz);
 
-int8_t atc_zoned_date_time_convert(
-    const AtcZonedDateTime *src,
-    AtcTimeZone dst_tz,
-    AtcZonedDateTime *dst);
+void atc_zoned_date_time_convert(
+    const AtcZonedDateTime *from,
+    AtcTimeZone to_tz,
+    AtcZonedDateTime *to);
 
-int8_t atc_zoned_date_time_normalize(
+void atc_zoned_date_time_normalize(
     AtcZonedDateTime *zdt);
 
 void atc_zoned_date_time_print(
@@ -544,6 +546,9 @@ void atc_zoned_date_time_print(
     AtcStringBuffer *sb);
 ```
 
+* `atc_offset_date_time_set_error(zdt)`
+    * marks the given `zdt` as invalid
+    * causes `atc_offset_date_time_is_error(zdt)` to return `true`
 * `atc_offset_date_time_from_epoch_seconds()`
     * Converts the given `epoch_seconds` and `tz` into the `AtcZonedDateTime`
       components.

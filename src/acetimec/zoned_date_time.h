@@ -14,6 +14,7 @@
 #define ACE_TIME_C_ZONED_DATE_TIME_H
 
 #include <stdint.h>
+#include <stdbool.h>
 #include "../zoneinfo/zone_info.h"
 #include "common.h"
 #include "zone_processor.h"
@@ -52,15 +53,11 @@ typedef struct AtcZonedDateTime {
   AtcTimeZone tz;
 } AtcZonedDateTime;
 
-/**
- * Convert epoch seconds to AtcZonedDateTime using the time zone
- * identified by zone_info.
- * Return non-zero error code upon failure.
- */
-int8_t atc_zoned_date_time_from_epoch_seconds(
-    AtcZonedDateTime *zdt,
-    atc_time_t epoch_seconds,
-    const AtcTimeZone *tz);
+/** Set the given AtcZonedDateTime to its error state. */
+void atc_zoned_date_time_set_error(AtcZonedDateTime *zdt);
+
+/** Return true if AtcZonedDateTime is an error. */
+bool atc_zoned_date_time_is_error(const AtcZonedDateTime *zdt);
 
 /**
  * Convert AtcZonedDateTime to epoch seconds using the time zone
@@ -71,31 +68,44 @@ atc_time_t atc_zoned_date_time_to_epoch_seconds(
     const AtcZonedDateTime *zdt);
 
 /**
- * Create zoned date time from components and given time zone.
- * Return non-zero error code upon failure.
+ * Convert epoch seconds to AtcZonedDateTime using the time zone
+ * identified by zone_info.
+ * Return an error value for zdt upon error.
  */
-int8_t atc_zoned_date_time_from_local_date_time(
+void atc_zoned_date_time_from_epoch_seconds(
+    AtcZonedDateTime *zdt,
+    atc_time_t epoch_seconds,
+    const AtcTimeZone *tz);
+
+/**
+ * Create zoned date time from components and given time zone.
+ * Return an error value for zdt upon error.
+ */
+void atc_zoned_date_time_from_local_date_time(
     AtcZonedDateTime *zdt,
     const AtcLocalDateTime *ldt,
     const AtcTimeZone *tz);
 
 /**
- * Convert the source AtcZoneDateTime (src) into the destination
- * AtcZonedDateTime (dst) using the new time zone (dst_tz). The src and dst are
- * permitted to be the same instance. Returns kAtcErrGeneric upon failure.
+ * Convert the source AtcZonedDateTime `from` into the destination
+ * AtcZonedDateTime `to` using the new time zone `to_tz`. The `from` and `to`
+ * AtcZonedDateTime objects are permitted to be the same instance.
+ *
+ * Return an error value for `to` upon error.
  */
-int8_t atc_zoned_date_time_convert(
-    const AtcZonedDateTime *src,
-    const AtcTimeZone *dst_tz,
-    AtcZonedDateTime *dst);
+void atc_zoned_date_time_convert(
+    const AtcZonedDateTime *from,
+    const AtcTimeZone *to_tz,
+    AtcZonedDateTime *to);
 
 /**
  * Normalize the date time components for given time zone.
  * This is useful after performing arithmetic operations on the date or time
  * components (e.g. incrementing the day by one).
- * Return non-zero error code upon failure.
+ *
+ * Return an error value for `zdt` upon error.
  */
-int8_t atc_zoned_date_time_normalize(AtcZonedDateTime *zdt);
+void atc_zoned_date_time_normalize(AtcZonedDateTime *zdt);
 
 /** Print the zoned date time in ISO 8601 format. */
 void atc_zoned_date_time_print(
