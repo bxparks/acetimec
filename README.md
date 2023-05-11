@@ -81,8 +81,8 @@ void print_dates()
   // Convert epoch seconds to date/time components for given time zone.
   AtcTimeZone tzla = {&kAtcZoneAmerica_Los_Angeles, &processor_la};
   AtcZonedDateTime zdtla;
-  int8_t err = atc_zoned_date_time_from_epoch_seconds(&zdtla, seconds, &tzla);
-  if (err) { ... }
+  atc_zoned_date_time_from_epoch_seconds(&zdtla, seconds, &tzla);
+  if (atc_zoned_date_time_is_error(&zdtla)) { ... }
 
   // Print the date for Los Angeles.
   char buf[80];
@@ -110,8 +110,8 @@ void print_dates()
 
   // Convert components to zoned_date_time. 2022-11-06 01:30 occurred twice. Set
   // fold=1 to select the second occurrence.
-  err = atc_zoned_date_time_from_local_date_time(&zdtla, &ldt, &tzla);
-  if (err) { ... }
+  atc_zoned_date_time_from_local_date_time(&zdtla, &ldt, &tzla);
+  if (atc_zoned_date_time_is_error(&zdtla)) { ... }
 
   // Print the date time.
   atc_buf_reset(&sb);
@@ -126,8 +126,8 @@ void print_dates()
   // convert America/Los_Angles to America/New_York
   AtcTimeZone tzny = {&kAtcZoneAmerica_New_York, &processor_ny};
   AtcZonedDateTime zdtny;
-  err = atc_zoned_date_time_convert(&zdtla, tzny, &zdtny);
-  if (err) { ... }
+  atc_zoned_date_time_convert(&zdtla, tzny, &zdtny);
+  if (atc_zoned_date_time_is_error(&zdtla)) { ... }
 
   atc_buf_reset(&sb);
   atc_zoned_date_time_print(&zdtny, &sb);
@@ -789,23 +789,27 @@ need 2 different sets of offset seconds:
 * `std_offset_seconds` and `dst_offset_seconds` fields correspond to the
   `AtcLocalDateTime` *after* normalization.
 
-There are 2 functions that populates this data structure (analogous to the
-functions that populate the `AtcZonedDateTime` data structure):
+There following functions operate on this data structure (analogous to the
+functions that work with the `AtcZonedDateTime` data structure):
 
 ```C
-int8_t atc_zoned_extra_from_epoch_seconds(
+void atc_zoned_extra_set_error(AtcZonedExtra *extra);
+
+bool atc_zoned_extra_is_error(const AtcZonedExtra *extra);
+
+void atc_zoned_extra_from_epoch_seconds(
     AtcZonedExtra *extra,
     atc_time_t epoch_seconds,
     AtcTimeZone tz);
 
-int8_t atc_zoned_extra_from_local_date_time(
+void atc_zoned_extra_from_local_date_time(
     AtcZonedExtra *extra,
     AtcLocalDateTime *ldt,
     AtcTimeZone tz);
 ```
 
-This function returns `kAtcErrGeneric` if an error is encountered, otherwise it
-returns `kAtcErrOk`.
+On error, the `extra.type` field is set to `kAtcZonedExtraNotFound` and
+`atc_zoned_extra_is_error()` returns `true`.
 
 <a name="AtcZoneRegistrar"></a>
 ## AtcZoneRegistrar

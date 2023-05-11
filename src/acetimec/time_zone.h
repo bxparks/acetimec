@@ -42,48 +42,48 @@ extern const AtcTimeZone atc_time_zone_utc;
 
 /**
  * Convert epoch_seconds to an AtcOffsetDateTime using the given time zone.
- * The `zone_procssor` is rebound to the `zone_info` in case it was previously
- * bound to a different `zone_info`.
+ * The `tz.zone_processor` is rebound to the `zone_info` in case it was
+ * previously bound to a different `zone_info`.
  *
- * Return non-zero error code upon failure.
+ * Returns `odt` in an error state upon failure.
  */
-int8_t atc_time_zone_offset_date_time_from_epoch_seconds(
+void atc_time_zone_offset_date_time_from_epoch_seconds(
   const AtcTimeZone *tz,
   atc_time_t epoch_seconds,
   AtcOffsetDateTime *odt);
 
 /**
  * Convert the LocalDateTime to AtcOffsetDateTime using the given time zone.
- * The `zone_procssor` is rebound to the `zone_info` in case it was previously
- * bound to a different `zone_info`.
+ * The `tz.zone_processor` is rebound to the `zone_info` in case it was
+ * previously bound to a different `zone_info`.
  *
- * Return non-zero error code upon failure.
+ * Returns `odt` in an error state upon failure.
  */
-int8_t atc_time_zone_offset_date_time_from_local_date_time(
+void atc_time_zone_offset_date_time_from_local_date_time(
   const AtcTimeZone *tz,
   const AtcLocalDateTime *ldt,
   AtcOffsetDateTime *odt);
 
 /**
  * Populate the ZonedExtra using the given epoch seconds for the time zone.
- * The `zone_procssor` is rebound to the `zone_info` in case it was previously
- * bound to a different `zone_info`.
+ * The `tz.zone_processor` is rebound to the `zone_info` in case it was
+ * previously bound to a different `zone_info`.
  *
- * Return non-zero error code upon failure.
+ * Returns error code in `extra.type`.
  */
-int8_t atc_time_zone_zoned_extra_from_epoch_seconds(
+void atc_time_zone_zoned_extra_from_epoch_seconds(
   const AtcTimeZone *tz,
   atc_time_t epoch_seconds,
   AtcZonedExtra *extra);
 
 /**
  * Populate the ZonedExtra using the given local date time for the time zone.
- * The `zone_procssor` is rebound to the `zone_info` in case it was previously
- * bound to a different `zone_info`.
+ * The `tz.zone_processor` is rebound to the `zone_info` in case it was
+ * previously bound to a different `zone_info`.
  *
- * Return non-zero error code upon failure.
+ * Returns error code in `extra.type`.
  */
-int8_t atc_time_zone_zoned_extra_from_local_date_time(
+void atc_time_zone_zoned_extra_from_local_date_time(
   const AtcTimeZone *tz,
   const AtcLocalDateTime *ldt,
   AtcZonedExtra *extra);

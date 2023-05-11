@@ -49,11 +49,8 @@ void atc_zoned_date_time_from_local_date_time(
 {
   zdt->tz = *tz;
   // ZonedDateTime memory layout must be same as OffsetDateTime.
-  int8_t err = atc_time_zone_offset_date_time_from_local_date_time(
+  atc_time_zone_offset_date_time_from_local_date_time(
       tz, ldt, (AtcOffsetDateTime *) zdt);
-  if (err) {
-    atc_zoned_date_time_set_error(zdt);
-  }
 }
 
 void atc_zoned_date_time_convert(
@@ -92,11 +89,8 @@ void atc_zoned_date_time_normalize(AtcZonedDateTime *zdt)
   ldt.fold = zdt->fold;
 
   // ZonedDateTime memory layout must be same as OffsetDateTime.
-  int8_t err = atc_time_zone_offset_date_time_from_local_date_time(
+  atc_time_zone_offset_date_time_from_local_date_time(
       &zdt->tz, &ldt, (AtcOffsetDateTime *) zdt);
-  if (err) {
-    atc_zoned_date_time_set_error(zdt);
-  }
 }
 
 void atc_zoned_date_time_print(

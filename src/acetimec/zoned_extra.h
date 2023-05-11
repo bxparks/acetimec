@@ -25,14 +25,14 @@ typedef struct AtcTimeZone AtcTimeZone;
 typedef struct AtcLocalDateTime AtcLocalDateTime;
 
 /**
- * Values of the the AtcZonedExtra.type field. Should be identical to
- * AtcFindResultXxx
+ * Values of the the AtcZonedExtra.type field. Must be identical to the
+ * corresponding AtcFindResultXxx enums in zone_processor.h.
  */
 enum {
-  kAtcZonedExtraNotFound = 0,
+  kAtcZonedExtraNotFound = 0, // rename this to kAtcZonedExtraError?
   kAtcZonedExtraExact = 1,
-  kAtcZonedExtraGap = 2,
-  kAtcZonedExtraOverlap = 3,
+  kAtcZonedExtraOverlap = 2,
+  kAtcZonedExtraGap = 3,
 };
 
 /**
@@ -58,20 +58,26 @@ typedef struct AtcZonedExtra {
   char abbrev[kAtcAbbrevSize]; // TODO: Move this after 'type' to save space
 } AtcZonedExtra;
 
+/** Set the given AtcZonedDateTime to its error state, i.e. NotFound. */
+void atc_zoned_extra_set_error(AtcZonedExtra *extra);
+
+/** Return true if AtcZonedExtra is an error. */
+bool atc_zoned_extra_is_error(const AtcZonedExtra *extra);
+
 /**
  * Extract the extra zone information at given epoch_seconds.
- * Returns true upon success, false upon error.
+ * Returns error status in `extra->type`.
  */
-int8_t atc_zoned_extra_from_epoch_seconds(
+void atc_zoned_extra_from_epoch_seconds(
     AtcZonedExtra *extra,
     atc_time_t epoch_seconds,
     const AtcTimeZone *tz);
 
 /**
  * Extract the extra zone information at given LocalDateTime.
- * Returns true upon success, false upon error.
+ * Returns error status in `extra->type`.
  */
-int8_t atc_zoned_extra_from_local_date_time(
+void atc_zoned_extra_from_local_date_time(
     AtcZonedExtra *extra,
     const AtcLocalDateTime *ldt,
     const AtcTimeZone *tz);
