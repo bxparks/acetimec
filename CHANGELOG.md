@@ -11,6 +11,9 @@
             * `atc_offset_date_time_is_error()`
             * `atc_zoned_date_time_is_error()`
             * `atc_zoned_extra_is_error()`
+    * Change `atc_XXX_print()` functions to place `AtcStringBuffer` as first
+      argument.
+        * This is more consistent with the `fprintf()` function.
     * MemoryBenchmark
         * Remove Teensy 3.2
             * No longer recommended for new projects as of 2023-02-14
