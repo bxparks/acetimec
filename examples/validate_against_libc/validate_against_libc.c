@@ -117,12 +117,12 @@ int check_epoch_seconds(const AtcTimeZone *tz, atc_time_t epoch_seconds)
 {
   // Convert epoch seconds to ZonedDateTime using AceTimeC
   struct AtcZonedDateTime zdt;
-  int8_t err = atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, tz);
-  if (err) {
+  atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, tz);
+  if (atc_zoned_date_time_is_error(&zdt)) {
     printf("ERROR: Zone %s: epoch seconds=%d: "
         "unable to create AtcZoneDateTime\n",
         tz->zone_info->name, epoch_seconds);
-    return err;
+    return kAtcErrGeneric;
   }
 
   // Convert epoch seconds to date-time components using C libc.
@@ -243,16 +243,16 @@ int check_samples(const AtcTimeZone *tz)
           AtcZonedDateTime zdt;
           AtcLocalDateTime ldt = {year, month, day, 2, 0, 0, 0 /*fold*/};
 
-          int err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, tz);
-          if (err) {
+          atc_zoned_date_time_from_local_date_time(&zdt, &ldt, tz);
+          if (atc_zoned_date_time_is_error(&zdt)) {
             char s[64];
-            AtcStringBuffer buf;
-            atc_buf_init(&buf, s, sizeof(s));
-            atc_local_date_time_print(&ldt, &buf);
-            atc_buf_close(&buf);
+            AtcStringBuffer sb;
+            atc_buf_init(&sb, s, sizeof(s));
+            atc_local_date_time_print(&sb, &ldt);
+            atc_buf_close(&sb);
             printf("ERROR: Zone %s: unable to create AtcZoneDateTime for %s\n",
-                tz->zone_info->name, buf.p);
-            return err;
+                tz->zone_info->name, sb.p);
+            return kAtcErrGeneric;
           }
 
           num_samples++;

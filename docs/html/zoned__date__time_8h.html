@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.8.0</span>
+   &#160;<span id="projectnumber">0.9.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -79,6 +79,7 @@ $(function() {
 <p>Functions that relate to the date time with a reference to a specific time zone.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="zone__info_8h_source.html">../zoneinfo/zone_info.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>&quot;</code><br />
@@ -88,17 +89,18 @@ Include dependency graph for zoned_date_time.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="zoned__date__time_8h__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2zoned__date__time_8h" alt=""/></div>
 <map name="a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2zoned__date__time_8h" id="a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2zoned__date__time_8h">
-<area shape="rect" title="Functions that relate to the date time with a reference to a specific time zone." alt="" coords="99,5,336,47"/>
-<area shape="rect" title=" " alt="" coords="266,468,337,495"/>
-<area shape="rect" href="zone__info_8h.html" title="The data structures in the zone database, with the AtcZoneInfo representing a specific time zone." alt="" coords="43,319,213,345"/>
-<area shape="rect" href="common_8h.html" title="Some common shared typedefs, constants, and functions." alt="" coords="579,393,669,420"/>
-<area shape="rect" href="zone__processor_8h.html" title="Data structures and functions related to determining the UTC and DST offsets using the list of DST tr..." alt="" coords="254,169,389,196"/>
-<area shape="rect" href="time__zone_8h.html" title="A class representing a specific IANA time zone, containing a pointer to a ZoneInfo data containing th..." alt="" coords="166,95,269,121"/>
-<area shape="rect" title=" " alt="" coords="460,468,535,495"/>
-<area shape="rect" href="local__date__time_8h.html" title="Functions that relate to the local date time, without any reference to the time zone." alt="" coords="339,319,477,345"/>
-<area shape="rect" href="date__tuple_8h.html" title="An internal version of LocalDateTime that keeps track of the &#39;w&#39;, &#39;s&#39;, or &#39;u&#39; suffixes from the TZDB ..." alt="" coords="553,319,655,345"/>
-<area shape="rect" href="transition_8h.html" title="Data structures and functions related to calculating DST transitions." alt="" coords="288,244,384,271"/>
-<area shape="rect" href="string__buffer_8h.html" title="A simple set of integer to string conversion functions." alt="" coords="440,393,555,420"/>
+<area shape="rect" title="Functions that relate to the date time with a reference to a specific time zone." alt="" coords="177,5,414,47"/>
+<area shape="rect" title=" " alt="" coords="458,468,528,495"/>
+<area shape="rect" title=" " alt="" coords="625,393,708,420"/>
+<area shape="rect" href="zone__info_8h.html" title="The data structures in the zone database, with the AtcZoneInfo representing a specific time zone." alt="" coords="44,319,214,345"/>
+<area shape="rect" href="common_8h.html" title="Some common shared typedefs, constants, and functions." alt="" coords="270,393,361,420"/>
+<area shape="rect" href="zone__processor_8h.html" title="Data structures and functions related to determining the UTC and DST offsets using the list of DST tr..." alt="" coords="274,169,408,196"/>
+<area shape="rect" href="time__zone_8h.html" title="A class representing a specific IANA time zone, containing a pointer to a ZoneInfo data containing th..." alt="" coords="200,95,303,121"/>
+<area shape="rect" title=" " alt="" coords="278,468,353,495"/>
+<area shape="rect" href="local__date__time_8h.html" title="Functions that relate to the local date time, without any reference to the time zone." alt="" coords="518,319,657,345"/>
+<area shape="rect" href="date__tuple_8h.html" title="An internal version of LocalDateTime that keeps track of the &#39;w&#39;, &#39;s&#39;, or &#39;u&#39; suffixes from the TZDB ..." alt="" coords="290,319,392,345"/>
+<area shape="rect" href="transition_8h.html" title="Data structures and functions related to calculating DST transitions." alt="" coords="381,244,477,271"/>
+<area shape="rect" href="string__buffer_8h.html" title="A simple set of integer to string conversion functions." alt="" coords="436,393,550,420"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -128,25 +130,33 @@ Typedefs</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a790e5cbb501ad27b01021c3517aa66f7"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__date__time_8h.html#a790e5cbb501ad27b01021c3517aa66f7">atc_zoned_date_time_from_epoch_seconds</a> (<a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *zdt, <a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">atc_time_t</a> epoch_seconds, const <a class="el" href="structAtcTimeZone.html">AtcTimeZone</a> *tz)</td></tr>
-<tr class="memdesc:a790e5cbb501ad27b01021c3517aa66f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert epoch seconds to <a class="el" href="structAtcZonedDateTime.html" title="Date and time broken down into components.">AtcZonedDateTime</a> using the time zone identified by zone_info.  <a href="zoned__date__time_8h.html#a790e5cbb501ad27b01021c3517aa66f7">More...</a><br /></td></tr>
-<tr class="separator:a790e5cbb501ad27b01021c3517aa66f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aba0d6f9b61f61efc1f8fe0ce73e0198c"><td class="memItemLeft" align="right" valign="top"><a id="aba0d6f9b61f61efc1f8fe0ce73e0198c"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__date__time_8h.html#aba0d6f9b61f61efc1f8fe0ce73e0198c">atc_zoned_date_time_set_error</a> (<a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *zdt)</td></tr>
+<tr class="memdesc:aba0d6f9b61f61efc1f8fe0ce73e0198c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the given <a class="el" href="structAtcZonedDateTime.html" title="Date and time broken down into components.">AtcZonedDateTime</a> to its error state. <br /></td></tr>
+<tr class="separator:aba0d6f9b61f61efc1f8fe0ce73e0198c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afe7e2f2cec47f6e9e4f31327e558748c"><td class="memItemLeft" align="right" valign="top"><a id="afe7e2f2cec47f6e9e4f31327e558748c"></a>
+bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__date__time_8h.html#afe7e2f2cec47f6e9e4f31327e558748c">atc_zoned_date_time_is_error</a> (const <a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *zdt)</td></tr>
+<tr class="memdesc:afe7e2f2cec47f6e9e4f31327e558748c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if <a class="el" href="structAtcZonedDateTime.html" title="Date and time broken down into components.">AtcZonedDateTime</a> is an error. <br /></td></tr>
+<tr class="separator:afe7e2f2cec47f6e9e4f31327e558748c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:af7af315c2907bc0b921fd59d2ead00cf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">atc_time_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__date__time_8h.html#af7af315c2907bc0b921fd59d2ead00cf">atc_zoned_date_time_to_epoch_seconds</a> (const <a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *zdt)</td></tr>
 <tr class="memdesc:af7af315c2907bc0b921fd59d2ead00cf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert <a class="el" href="structAtcZonedDateTime.html" title="Date and time broken down into components.">AtcZonedDateTime</a> to epoch seconds using the time zone identified by the zone_info inside zdt.  <a href="zoned__date__time_8h.html#af7af315c2907bc0b921fd59d2ead00cf">More...</a><br /></td></tr>
 <tr class="separator:af7af315c2907bc0b921fd59d2ead00cf"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a782aa1e6d8b1510ddfebffe8ea2e61df"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__date__time_8h.html#a782aa1e6d8b1510ddfebffe8ea2e61df">atc_zoned_date_time_from_local_date_time</a> (<a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *zdt, const <a class="el" href="structAtcLocalDateTime.html">AtcLocalDateTime</a> *ldt, const <a class="el" href="structAtcTimeZone.html">AtcTimeZone</a> *tz)</td></tr>
-<tr class="memdesc:a782aa1e6d8b1510ddfebffe8ea2e61df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create zoned date time from components and given time zone.  <a href="zoned__date__time_8h.html#a782aa1e6d8b1510ddfebffe8ea2e61df">More...</a><br /></td></tr>
-<tr class="separator:a782aa1e6d8b1510ddfebffe8ea2e61df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ab012e7ee0a6b6ae18394af5feaa74739"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__date__time_8h.html#ab012e7ee0a6b6ae18394af5feaa74739">atc_zoned_date_time_convert</a> (const <a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *src, const <a class="el" href="structAtcTimeZone.html">AtcTimeZone</a> *dst_tz, <a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *dst)</td></tr>
-<tr class="memdesc:ab012e7ee0a6b6ae18394af5feaa74739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the source AtcZoneDateTime (src) into the destination <a class="el" href="structAtcZonedDateTime.html" title="Date and time broken down into components.">AtcZonedDateTime</a> (dst) using the new time zone (dst_tz).  <a href="zoned__date__time_8h.html#ab012e7ee0a6b6ae18394af5feaa74739">More...</a><br /></td></tr>
-<tr class="separator:ab012e7ee0a6b6ae18394af5feaa74739"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a778585a2b3ab2c3139abf06fb23b281b"><td class="memItemLeft" align="right" valign="top">int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__date__time_8h.html#a778585a2b3ab2c3139abf06fb23b281b">atc_zoned_date_time_normalize</a> (<a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *zdt)</td></tr>
-<tr class="memdesc:a778585a2b3ab2c3139abf06fb23b281b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize the date time components for given time zone.  <a href="zoned__date__time_8h.html#a778585a2b3ab2c3139abf06fb23b281b">More...</a><br /></td></tr>
-<tr class="separator:a778585a2b3ab2c3139abf06fb23b281b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a3137ef23cb97fbf8484eccc039b51d30"><td class="memItemLeft" align="right" valign="top"><a id="a3137ef23cb97fbf8484eccc039b51d30"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__date__time_8h.html#a3137ef23cb97fbf8484eccc039b51d30">atc_zoned_date_time_print</a> (const <a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *zdt, <a class="el" href="structAtcStringBuffer.html">AtcStringBuffer</a> *sb)</td></tr>
-<tr class="memdesc:a3137ef23cb97fbf8484eccc039b51d30"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the zoned date time in ISO 8601 format. <br /></td></tr>
-<tr class="separator:a3137ef23cb97fbf8484eccc039b51d30"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5cef146815de96a1ac520ff7c8986e78"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__date__time_8h.html#a5cef146815de96a1ac520ff7c8986e78">atc_zoned_date_time_from_epoch_seconds</a> (<a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *zdt, <a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">atc_time_t</a> epoch_seconds, const <a class="el" href="structAtcTimeZone.html">AtcTimeZone</a> *tz)</td></tr>
+<tr class="memdesc:a5cef146815de96a1ac520ff7c8986e78"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert epoch seconds to <a class="el" href="structAtcZonedDateTime.html" title="Date and time broken down into components.">AtcZonedDateTime</a> using the time zone identified by zone_info.  <a href="zoned__date__time_8h.html#a5cef146815de96a1ac520ff7c8986e78">More...</a><br /></td></tr>
+<tr class="separator:a5cef146815de96a1ac520ff7c8986e78"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acab530a64401349d2b1c7ef609e5dddc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__date__time_8h.html#acab530a64401349d2b1c7ef609e5dddc">atc_zoned_date_time_from_local_date_time</a> (<a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *zdt, const <a class="el" href="structAtcLocalDateTime.html">AtcLocalDateTime</a> *ldt, const <a class="el" href="structAtcTimeZone.html">AtcTimeZone</a> *tz)</td></tr>
+<tr class="memdesc:acab530a64401349d2b1c7ef609e5dddc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Create zoned date time from components and given time zone.  <a href="zoned__date__time_8h.html#acab530a64401349d2b1c7ef609e5dddc">More...</a><br /></td></tr>
+<tr class="separator:acab530a64401349d2b1c7ef609e5dddc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afb577eab9646dd57dcc83ab2835f35e4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__date__time_8h.html#afb577eab9646dd57dcc83ab2835f35e4">atc_zoned_date_time_convert</a> (const <a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *from, const <a class="el" href="structAtcTimeZone.html">AtcTimeZone</a> *to_tz, <a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *to)</td></tr>
+<tr class="memdesc:afb577eab9646dd57dcc83ab2835f35e4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert the source <a class="el" href="structAtcZonedDateTime.html" title="Date and time broken down into components.">AtcZonedDateTime</a> <code>from</code> into the destination <a class="el" href="structAtcZonedDateTime.html" title="Date and time broken down into components.">AtcZonedDateTime</a> <code>to</code> using the new time zone <code>to_tz</code>.  <a href="zoned__date__time_8h.html#afb577eab9646dd57dcc83ab2835f35e4">More...</a><br /></td></tr>
+<tr class="separator:afb577eab9646dd57dcc83ab2835f35e4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0c9d934fc7ecb43f96900dd573d5168"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__date__time_8h.html#af0c9d934fc7ecb43f96900dd573d5168">atc_zoned_date_time_normalize</a> (<a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *zdt)</td></tr>
+<tr class="memdesc:af0c9d934fc7ecb43f96900dd573d5168"><td class="mdescLeft">&#160;</td><td class="mdescRight">Normalize the date time components for given time zone.  <a href="zoned__date__time_8h.html#af0c9d934fc7ecb43f96900dd573d5168">More...</a><br /></td></tr>
+<tr class="separator:af0c9d934fc7ecb43f96900dd573d5168"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acd1f33fdf5aba5c84909f991c2bd45de"><td class="memItemLeft" align="right" valign="top"><a id="acd1f33fdf5aba5c84909f991c2bd45de"></a>
+void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__date__time_8h.html#acd1f33fdf5aba5c84909f991c2bd45de">atc_zoned_date_time_print</a> (<a class="el" href="structAtcStringBuffer.html">AtcStringBuffer</a> *sb, const <a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *zdt)</td></tr>
+<tr class="memdesc:acd1f33fdf5aba5c84909f991c2bd45de"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the zoned date time in ISO 8601 format. <br /></td></tr>
+<tr class="separator:acd1f33fdf5aba5c84909f991c2bd45de"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Functions that relate to the date time with a reference to a specific time zone. </p>
@@ -175,29 +185,29 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 </div>
 </div>
 <h2 class="groupheader">Function Documentation</h2>
-<a id="ab012e7ee0a6b6ae18394af5feaa74739"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ab012e7ee0a6b6ae18394af5feaa74739">&#9670;&nbsp;</a></span>atc_zoned_date_time_convert()</h2>
+<a id="afb577eab9646dd57dcc83ab2835f35e4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afb577eab9646dd57dcc83ab2835f35e4">&#9670;&nbsp;</a></span>atc_zoned_date_time_convert()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int8_t atc_zoned_date_time_convert </td>
+          <td class="memname">void atc_zoned_date_time_convert </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *&#160;</td>
-          <td class="paramname"><em>src</em>, </td>
+          <td class="paramname"><em>from</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype">const <a class="el" href="structAtcTimeZone.html">AtcTimeZone</a> *&#160;</td>
-          <td class="paramname"><em>dst_tz</em>, </td>
+          <td class="paramname"><em>to_tz</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
           <td class="paramtype"><a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *&#160;</td>
-          <td class="paramname"><em>dst</em>&#160;</td>
+          <td class="paramname"><em>to</em>&#160;</td>
         </tr>
         <tr>
           <td></td>
@@ -207,21 +217,22 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
       </table>
 </div><div class="memdoc">
 
-<p>Convert the source AtcZoneDateTime (src) into the destination <a class="el" href="structAtcZonedDateTime.html" title="Date and time broken down into components.">AtcZonedDateTime</a> (dst) using the new time zone (dst_tz). </p>
-<p>The src and dst are permitted to be the same instance. Returns kAtcErrGeneric upon failure. </p>
+<p>Convert the source <a class="el" href="structAtcZonedDateTime.html" title="Date and time broken down into components.">AtcZonedDateTime</a> <code>from</code> into the destination <a class="el" href="structAtcZonedDateTime.html" title="Date and time broken down into components.">AtcZonedDateTime</a> <code>to</code> using the new time zone <code>to_tz</code>. </p>
+<p>The <code>from</code> and <code>to</code> <a class="el" href="structAtcZonedDateTime.html" title="Date and time broken down into components.">AtcZonedDateTime</a> objects are permitted to be the same instance.</p>
+<p>Return an error value for <code>to</code> upon error. </p>
 
-<p class="definition">Definition at line <a class="el" href="zoned__date__time_8c_source.html#l00044">44</a> of file <a class="el" href="zoned__date__time_8c_source.html">zoned_date_time.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zoned__date__time_8c_source.html#l00056">56</a> of file <a class="el" href="zoned__date__time_8c_source.html">zoned_date_time.c</a>.</p>
 
 </div>
 </div>
-<a id="a790e5cbb501ad27b01021c3517aa66f7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a790e5cbb501ad27b01021c3517aa66f7">&#9670;&nbsp;</a></span>atc_zoned_date_time_from_epoch_seconds()</h2>
+<a id="a5cef146815de96a1ac520ff7c8986e78"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cef146815de96a1ac520ff7c8986e78">&#9670;&nbsp;</a></span>atc_zoned_date_time_from_epoch_seconds()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int8_t atc_zoned_date_time_from_epoch_seconds </td>
+          <td class="memname">void atc_zoned_date_time_from_epoch_seconds </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *&#160;</td>
           <td class="paramname"><em>zdt</em>, </td>
@@ -247,20 +258,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 </div><div class="memdoc">
 
 <p>Convert epoch seconds to <a class="el" href="structAtcZonedDateTime.html" title="Date and time broken down into components.">AtcZonedDateTime</a> using the time zone identified by zone_info. </p>
-<p>Return non-zero error code upon failure. </p>
+<p>Return an error value for zdt upon error. </p>
 
-<p class="definition">Definition at line <a class="el" href="zoned__date__time_8c_source.html#l00013">13</a> of file <a class="el" href="zoned__date__time_8c_source.html">zoned_date_time.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zoned__date__time_8c_source.html#l00029">29</a> of file <a class="el" href="zoned__date__time_8c_source.html">zoned_date_time.c</a>.</p>
 
 </div>
 </div>
-<a id="a782aa1e6d8b1510ddfebffe8ea2e61df"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a782aa1e6d8b1510ddfebffe8ea2e61df">&#9670;&nbsp;</a></span>atc_zoned_date_time_from_local_date_time()</h2>
+<a id="acab530a64401349d2b1c7ef609e5dddc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#acab530a64401349d2b1c7ef609e5dddc">&#9670;&nbsp;</a></span>atc_zoned_date_time_from_local_date_time()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int8_t atc_zoned_date_time_from_local_date_time </td>
+          <td class="memname">void atc_zoned_date_time_from_local_date_time </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *&#160;</td>
           <td class="paramname"><em>zdt</em>, </td>
@@ -286,20 +297,20 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 </div><div class="memdoc">
 
 <p>Create zoned date time from components and given time zone. </p>
-<p>Return non-zero error code upon failure. </p>
+<p>Return an error value for zdt upon error. </p>
 
-<p class="definition">Definition at line <a class="el" href="zoned__date__time_8c_source.html#l00033">33</a> of file <a class="el" href="zoned__date__time_8c_source.html">zoned_date_time.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zoned__date__time_8c_source.html#l00045">45</a> of file <a class="el" href="zoned__date__time_8c_source.html">zoned_date_time.c</a>.</p>
 
 </div>
 </div>
-<a id="a778585a2b3ab2c3139abf06fb23b281b"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a778585a2b3ab2c3139abf06fb23b281b">&#9670;&nbsp;</a></span>atc_zoned_date_time_normalize()</h2>
+<a id="af0c9d934fc7ecb43f96900dd573d5168"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0c9d934fc7ecb43f96900dd573d5168">&#9670;&nbsp;</a></span>atc_zoned_date_time_normalize()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int8_t atc_zoned_date_time_normalize </td>
+          <td class="memname">void atc_zoned_date_time_normalize </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structAtcZonedDateTime.html">AtcZonedDateTime</a> *&#160;</td>
           <td class="paramname"><em>zdt</em></td><td>)</td>
@@ -309,9 +320,10 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 </div><div class="memdoc">
 
 <p>Normalize the date time components for given time zone. </p>
-<p>This is useful after performing arithmetic operations on the date or time components (e.g. incrementing the day by one). Return non-zero error code upon failure. </p>
+<p>This is useful after performing arithmetic operations on the date or time components (e.g. incrementing the day by one).</p>
+<p>Return an error value for <code>zdt</code> upon error. </p>
 
-<p class="definition">Definition at line <a class="el" href="zoned__date__time_8c_source.html#l00064">64</a> of file <a class="el" href="zoned__date__time_8c_source.html">zoned_date_time.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zoned__date__time_8c_source.html#l00079">79</a> of file <a class="el" href="zoned__date__time_8c_source.html">zoned_date_time.c</a>.</p>
 
 </div>
 </div>
@@ -334,7 +346,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 <p>Convert <a class="el" href="structAtcZonedDateTime.html" title="Date and time broken down into components.">AtcZonedDateTime</a> to epoch seconds using the time zone identified by the zone_info inside zdt. </p>
 <p>Return kAtcInvalidEpochSeconds upon failure. </p>
 
-<p class="definition">Definition at line <a class="el" href="zoned__date__time_8c_source.html#l00026">26</a> of file <a class="el" href="zoned__date__time_8c_source.html">zoned_date_time.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zoned__date__time_8c_source.html#l00023">23</a> of file <a class="el" href="zoned__date__time_8c_source.html">zoned_date_time.c</a>.</p>
 
 </div>
 </div>

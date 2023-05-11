@@ -10,6 +10,16 @@
 #include "local_time.h"
 #include "local_date_time.h"
 
+void atc_local_date_time_set_error(AtcLocalDateTime *ldt)
+{
+  ldt->month = 0; // year 0 is valid, so can't use year field
+}
+
+bool atc_local_date_time_is_error(const AtcLocalDateTime *ldt)
+{
+  return ldt->month == 0;
+}
+
 atc_time_t atc_local_date_time_to_epoch_seconds(
     const AtcLocalDateTime *ldt)
 {
@@ -22,20 +32,15 @@ atc_time_t atc_local_date_time_to_epoch_seconds(
   return days * 86400 + seconds;
 }
 
-int8_t atc_local_date_time_from_epoch_seconds(
+void atc_local_date_time_from_epoch_seconds(
   AtcLocalDateTime *ldt,
   atc_time_t epoch_seconds)
 {
   ldt->fold = 0;
 
   if (epoch_seconds == kAtcInvalidEpochSeconds) {
-    ldt->year = kAtcInvalidYear;
-    ldt->month = 0;
-    ldt->day = 0;
-    ldt->hour = 0;
-    ldt->minute = 0;
-    ldt->second = 0;
-    return kAtcErrGeneric;
+    atc_local_date_time_set_error(ldt);
+    return;
   }
 
   // Integer floor-division towards -infinity
@@ -54,12 +59,12 @@ int8_t atc_local_date_time_from_epoch_seconds(
   ldt->minute = minutes % 60;
   ldt->hour = minutes / 60;
 
-  return kAtcErrOk;
+  return;
 }
 
 void atc_local_date_time_print(
-    const AtcLocalDateTime *ldt,
-    AtcStringBuffer *sb)
+    AtcStringBuffer *sb,
+    const AtcLocalDateTime *ldt)
 {
   atc_print_uint16_pad4(sb, ldt->year);
   atc_print_char(sb, '-');

@@ -14,6 +14,7 @@
 #define ACE_TIME_C_LOCAL_DATE_TIME_H
 
 #include <stdint.h>
+#include <stdbool.h>
 #include "common.h"
 #include "string_buffer.h"
 
@@ -28,7 +29,7 @@ extern "C" {
 typedef struct AtcLocalDateTime {
   /** year [0,9999] */
   int16_t year;
-  /** month [1,12] */
+  /** month [1,12]; 0 indicates error value */
   uint8_t month;
   /** day [1,31] */
   uint8_t day;
@@ -55,6 +56,12 @@ typedef struct AtcLocalDateTime {
   uint8_t fold;
 } AtcLocalDateTime;
 
+/** Set the given AtcLocalDateTime to its error state. */
+void atc_local_date_time_set_error(AtcLocalDateTime *ldt);
+
+/** Return true if AtcLocalDateTime is an error. */
+bool atc_local_date_time_is_error(const AtcLocalDateTime *ldt);
+
 /**
  * Convert LocalDateTime in UTC to epoch seconds.
  * Return kAtcInvalidEpochSeconds upon failure.
@@ -64,16 +71,16 @@ atc_time_t atc_local_date_time_to_epoch_seconds(
 
 /**
  * Convert epoch seconds to LocalDateTime in UTC.
- * Return non-zero error code upon failure.
+ * Return an error value for ldt upon error.
  */
-int8_t atc_local_date_time_from_epoch_seconds(
+void atc_local_date_time_from_epoch_seconds(
   AtcLocalDateTime *ldt,
   atc_time_t epoch_seconds);
 
 /** Print the local date time in ISO 8601 format. */
 void atc_local_date_time_print(
-    const AtcLocalDateTime *ldt,
-    AtcStringBuffer *sb);
+    AtcStringBuffer *sb,
+    const AtcLocalDateTime *ldt);
 
 #ifdef __cplusplus
 }

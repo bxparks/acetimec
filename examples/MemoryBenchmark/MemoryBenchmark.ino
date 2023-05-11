@@ -103,23 +103,25 @@ void setup() {
   atc_time_t epoch_seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   guard ^= epoch_seconds;
 #elif FEATURE == FEATURE_ZONED_DATE_TIME
-  int8_t err = atc_zoned_date_time_from_local_date_time(
+  atc_zoned_date_time_from_local_date_time(
       &zdt, &ldt, &atc_time_zone_utc);
-  if (err) return;
+  if (atc_zoned_date_time_is_error(&zdt)) return;
   atc_time_t epoch_seconds = atc_local_date_time_to_epoch_seconds(&ldt);
   guard ^= epoch_seconds;
 #elif FEATURE == FEATURE_TIME_ZONE
   atc_processor_init(&processor);
-  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  if (err) return;
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  if (atc_zoned_date_time_is_error(&zdt)) return;
   atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
   guard ^= epoch_seconds;
 #elif FEATURE == FEATURE_TIME_ZONE2
   atc_processor_init(&processor1);
   atc_processor_init(&processor2);
-  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt1, &ldt, &tz1);
-  if (err) return;
-  err = atc_zoned_date_time_from_local_date_time(&zdt2, &ldt, &tz2);
+  atc_zoned_date_time_from_local_date_time(&zdt1, &ldt, &tz1);
+  if (atc_zoned_date_time_is_error(&zdt1)) return;
+  atc_zoned_date_time_from_local_date_time(&zdt2, &ldt, &tz2);
+  if (atc_zoned_date_time_is_error(&zdt2)) return;
+
   atc_zoned_date_time_convert(&zdt1, &tz2, &zdt2);
   atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdt1);
   guard ^= epoch_seconds;
@@ -132,8 +134,8 @@ void setup() {
   const AtcZoneInfo *zone_info = atc_registrar_find_by_name(
     &registrar, "America/Los_Angeles");
   AtcTimeZone tz = {zone_info, &processor};
-  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  if (err) return;
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  if (atc_zoned_date_time_is_error(&zdt)) return;
   atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
   guard ^= epoch_seconds;
 
@@ -144,8 +146,8 @@ void setup() {
   const AtcZoneInfo *zone_info = atc_registrar_find_by_name(
     &registrar, "America/Los_Angeles");
   AtcTimeZone tz = {zone_info, &processor};
-  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  if (err) return;
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  if (atc_zoned_date_time_is_error(&zdt)) return;
   atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
   guard ^= epoch_seconds;
 
@@ -155,8 +157,8 @@ void setup() {
   const AtcZoneInfo *zone_info = atc_registrar_find_by_name(
     &registrar, "America/Los_Angeles");
   AtcTimeZone tz = {zone_info, &processor};
-  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  if (err) return;
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  if (atc_zoned_date_time_is_error(&zdt)) return;
   atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
   guard ^= epoch_seconds;
 
@@ -167,8 +169,8 @@ void setup() {
   const AtcZoneInfo *zone_info = atc_registrar_find_by_name(
     &registrar, "America/Los_Angeles");
   AtcTimeZone tz = {zone_info, &processor};
-  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  if (err) return;
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  if (atc_zoned_date_time_is_error(&zdt)) return;
   atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
   guard ^= epoch_seconds;
 

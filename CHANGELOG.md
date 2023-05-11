@@ -1,6 +1,30 @@
 # Changelog
 
 * Unreleased
+* 0.9.0 (2023-05-11, TZDB 2023c)
+    * Replace `err` return value from most external functions if there is an
+      out-parameter on the function signature (e.g. `AtcZonedDateTime`) that can
+      be sets to an error state.
+        * Simplifies the API with only a single place to check for errors.
+        * Error conditions are now be detected using:
+            * `atc_local_date_time_is_error()`
+            * `atc_offset_date_time_is_error()`
+            * `atc_zoned_date_time_is_error()`
+            * `atc_zoned_extra_is_error()`
+    * Change `atc_XXX_print()` functions to place `AtcStringBuffer` as first
+      argument.
+        * This is more consistent with the `fprintf()` function.
+    * MemoryBenchmark
+        * Remove Teensy 3.2
+            * No longer recommended for new projects as of 2023-02-14
+            * "PJRC recommends use of Teensy 4.0 / 4.1 for new projects. We do
+              not believe supply of chips for Teensy 3.x is likely to ever fully
+              recover. These chips are made with 90 nm silicon process. Most of
+              the world's semiconductor fabs are focusing on 45 nm or smaller,
+              leaving limited supply for older chips. We anticipate the cost of
+              these chips is likely to increase as the supply continues to
+              dwindle"
+        * Add SAMD21 (Seeeduino XIAO) and SAMD51 (Adafruit ItsyBitsy M4).
 * 0.8.0 (2023-04-13, TZDB 2023c)
     * Upgrade TZDB from 2023b to 2023c.
         * https://mm.icann.org/pipermail/tz-announce/2023-March/000079.html

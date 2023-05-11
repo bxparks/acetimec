@@ -56,6 +56,12 @@ typedef struct AtcOffsetDateTime {
   int32_t offset_seconds;
 } AtcOffsetDateTime;
 
+/** Set the given AtcOffsetDateTime to its error state. */
+void atc_offset_date_time_set_error(AtcOffsetDateTime *ldt);
+
+/** Return true if AtcOffsetDateTime is an error. */
+bool atc_offset_date_time_is_error(const AtcOffsetDateTime *ldt);
+
 /** Return the epoch seconds for the given AtcOffsetDateTime. */
 atc_time_t atc_offset_date_time_to_epoch_seconds(
     const AtcOffsetDateTime *odt);
@@ -63,17 +69,17 @@ atc_time_t atc_offset_date_time_to_epoch_seconds(
 /**
  * Create the AtcOffsetDateTime from the epoch_seconds and total offset seconds.
  * The 'fold' parameter is explicitly set to 0.
- * Returns non-zero error code upon failure.
+ * Return an error value for odt upon error.
  */
-int8_t atc_offset_date_time_from_epoch_seconds(
+void atc_offset_date_time_from_epoch_seconds(
+    AtcOffsetDateTime *odt,
     atc_time_t epoch_seconds,
-    int32_t offset_seconds,
-    AtcOffsetDateTime *odt);
+    int32_t offset_seconds);
 
 /** Print the offset date time in ISO 8601 format. */
 void atc_offset_date_time_print(
-    const AtcOffsetDateTime *odt,
-    AtcStringBuffer *sb);
+    AtcStringBuffer *sb,
+    const AtcOffsetDateTime *odt);
 
 #ifdef __cplusplus
 }

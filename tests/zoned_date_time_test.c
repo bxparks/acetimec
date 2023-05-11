@@ -20,8 +20,8 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds)
   AtcZonedDateTime zdt;
   atc_time_t epoch_seconds = 0;
 
-  int8_t err = atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 1999);
   ACU_ASSERT(zdt.month == 12);
   ACU_ASSERT(zdt.day == 31);
@@ -49,8 +49,8 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_epoch2050)
   AtcZonedDateTime zdt;
   atc_time_t epoch_seconds = 0;
 
-  int8_t err = atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2049);
   ACU_ASSERT(zdt.month == 12);
   ACU_ASSERT(zdt.day == 31);
@@ -78,8 +78,8 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_unix_max)
   AtcZonedDateTime zdt;
   atc_time_t epoch_seconds = 1200798847;
 
-  int8_t err = atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2038);
   ACU_ASSERT(zdt.month == 1);
   ACU_ASSERT(zdt.day == 19);
@@ -104,8 +104,8 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_invalid)
   AtcZonedDateTime zdt;
   atc_time_t epoch_seconds = kAtcInvalidEpochSeconds;
 
-  int8_t err = atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
-  ACU_ASSERT(err == kAtcErrGeneric);
+  atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
+  ACU_ASSERT(atc_zoned_date_time_is_error(&zdt));
 }
 
 ACU_TEST(test_zoned_date_time_from_epoch_seconds_fall_back)
@@ -123,8 +123,8 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_fall_back)
   atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(&odt);
 
   AtcZonedDateTime zdt;
-  int8_t err = atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(2022 == zdt.year);
   ACU_ASSERT(11 == zdt.month);
   ACU_ASSERT(6 == zdt.day);
@@ -138,8 +138,8 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_fall_back)
   // Go forward an hour. Should return 01:29:00-08:00, the second time this
   // was seen, so fold should be 1.
   epoch_seconds += 3600;
-  err = atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(2022 == zdt.year);
   ACU_ASSERT(11 == zdt.month);
   ACU_ASSERT(6 == zdt.day);
@@ -153,8 +153,8 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_fall_back)
   // Go forward another hour. Should return 02:29:00-08:00, which occurs only
   // once, so fold should be 0.
   epoch_seconds += 3600;
-  err = atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(2022 == zdt.year);
   ACU_ASSERT(11 == zdt.month);
   ACU_ASSERT(6 == zdt.day);
@@ -183,8 +183,8 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward)
   atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(&odt);
 
   AtcZonedDateTime zdt;
-  int8_t err = atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(2022 == zdt.year);
   ACU_ASSERT(3 == zdt.month);
   ACU_ASSERT(13 == zdt.day);
@@ -197,8 +197,8 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward)
 
   // An hour later, we spring forward to 03:29:00-07:00.
   epoch_seconds += 3600;
-  err = atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(2022 == zdt.year);
   ACU_ASSERT(3 == zdt.month);
   ACU_ASSERT(13 == zdt.day);
@@ -225,8 +225,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time)
 
   AtcLocalDateTime ldt = {2000, 1, 1, 0, 0, 0, 0 /*fold*/};
   AtcZonedDateTime zdt;
-  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2000);
   ACU_ASSERT(zdt.month == 1);
   ACU_ASSERT(zdt.day == 1);
@@ -241,8 +241,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time)
   // check that input fold=1 gives identical results, with output fold=0
   // because there is only a single LocalDateTime that matches
   ldt = (AtcLocalDateTime) {2000, 1, 1, 0, 0, 0, 1 /*fold*/};
-  err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2000);
   ACU_ASSERT(zdt.month == 1);
   ACU_ASSERT(zdt.day == 1);
@@ -268,8 +268,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_epoch2050)
 
   AtcLocalDateTime ldt = {2050, 1, 1, 0, 0, 0, 0 /*fold*/};
   AtcZonedDateTime zdt;
-  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2050);
   ACU_ASSERT(zdt.month == 1);
   ACU_ASSERT(zdt.day == 1);
@@ -283,8 +283,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_epoch2050)
 
   // check that input fold=1 gives identical results, with output fold=0
   ldt = (AtcLocalDateTime) {2050, 1, 1, 0, 0, 0, 1 /*fold*/};
-  err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2050);
   ACU_ASSERT(zdt.month == 1);
   ACU_ASSERT(zdt.day == 1);
@@ -308,8 +308,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_dst)
   // 01:59 should resolve to 01:59-08:00
   AtcZonedDateTime zdt;
   AtcLocalDateTime ldt = {2018, 3, 11, 1, 59, 0, 0 /*fold*/};
-  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 3);
   ACU_ASSERT(zdt.day == 11);
@@ -322,8 +322,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_dst)
 
   // check that input fold=1 gives identical results, with output fold=0
   ldt = (AtcLocalDateTime) {2018, 3, 11, 1, 59, 0, 1 /*fold*/};
-  err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 3);
   ACU_ASSERT(zdt.day == 11);
@@ -347,8 +347,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_gap)
   // normalized to 03:01-07:00.
   AtcZonedDateTime zdt;
   AtcLocalDateTime ldt = {2018, 3, 11, 2, 1, 0, 0 /*fold*/};
-  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 3);
   ACU_ASSERT(zdt.day == 11);
@@ -363,8 +363,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_gap)
   // UTC offset of -07:00, so this is interpreted as 02:01-07:00 which gets
   // normalized to 01:01-08:00.
   ldt = (AtcLocalDateTime) {2018, 3, 11, 2, 1, 0, 1 /*fold*/};
-  err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 3);
   ACU_ASSERT(zdt.day == 11);
@@ -385,8 +385,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_dst)
   // 03:01 should resolve to 03:01-07:00.
   AtcLocalDateTime ldt = { 2018, 3, 11, 3, 1, 0, 0 /*fold*/};
   AtcZonedDateTime zdt;
-  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 3);
   ACU_ASSERT(zdt.day == 11);
@@ -399,8 +399,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_dst)
 
   // check that input fold=1 gives identical results, with output fold=0
   ldt = (AtcLocalDateTime) { 2018, 3, 11, 3, 1, 0, 1 /*fold*/};
-  err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 3);
   ACU_ASSERT(zdt.day == 11);
@@ -422,8 +422,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_sdt)
   // 00:59-07:00.
   AtcZonedDateTime zdt;
   AtcLocalDateTime ldt = { 2018, 11, 4, 0, 59, 0, 0 /*fold*/};
-  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 11);
   ACU_ASSERT(zdt.day == 4);
@@ -436,8 +436,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_sdt)
 
   // check that input fold=1 gives identical results, with output fold=0
   ldt = (AtcLocalDateTime) { 2018, 11, 4, 0, 59, 0, 1 /*fold*/};
-  err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 11);
   ACU_ASSERT(zdt.day == 4);
@@ -460,8 +460,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_overlap)
   // Setting (fold==0) selects the first instance, resolves to 01:01-07:00.
   AtcZonedDateTime zdt;
   AtcLocalDateTime ldt = {2018, 11, 4, 1, 1, 0, 0 /*fold*/};
-  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 11);
   ACU_ASSERT(zdt.day == 4);
@@ -474,8 +474,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_overlap)
 
   // Setting (fold==1) selects the second instance, resolves to 01:01-08:00.
   ldt = (AtcLocalDateTime) {2018, 11, 4, 1, 1, 0, 1 /*fold*/};
-  err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 11);
   ACU_ASSERT(zdt.day == 4);
@@ -496,8 +496,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_after_overlap)
   // 02:01 should resolve to 02:01-08:00
   AtcZonedDateTime zdt;
   AtcLocalDateTime ldt = {2018, 11, 4, 2, 1, 0, 0 /*fold*/};
-  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 11);
   ACU_ASSERT(zdt.day == 4);
@@ -510,8 +510,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_after_overlap)
 
   // check that fold=1 gives identical results, while preserving fold
   ldt = (AtcLocalDateTime) {2018, 11, 4, 2, 1, 0, 1 /*fold*/};
-  err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 11);
   ACU_ASSERT(zdt.day == 4);
@@ -537,14 +537,14 @@ ACU_TEST(test_zoned_date_time_convert)
   // 2022-08-30 20:00-07:00 in LA
   AtcLocalDateTime ldt = {2022, 8, 30, 20, 0, 0, 0 /*fold*/};
   AtcZonedDateTime zdtla;
-  int8_t err = atc_zoned_date_time_from_local_date_time(&zdtla, &ldt, &tzla);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdtla, &ldt, &tzla);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdtla));
 
   AtcZonedDateTime zdtny;
   atc_zoned_date_time_convert(&zdtla, &tzny, &zdtny);
 
   // 2022-08-30 23:00-04:00 in NYC
-  ACU_ASSERT(err == kAtcErrOk);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdtny));
   ACU_ASSERT(zdtny.year == 2022);
   ACU_ASSERT(zdtny.month == 8);
   ACU_ASSERT(zdtny.day == 30);
@@ -565,9 +565,8 @@ ACU_TEST(test_zoned_date_time_normalize)
   // 2018-03-11 02:30:00-08:00(fold=0) is in the gap. After normalization, it
   // should be 03:30-07:00.
   AtcZonedDateTime zdt = {2018, 3, 11, 2, 30, 0, 0 /*fold*/, -8*3600, tz};
-  int8_t err = atc_zoned_date_time_normalize(&zdt);
-
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_normalize(&zdt);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 3);
   ACU_ASSERT(zdt.day == 11);
@@ -587,13 +586,13 @@ ACU_TEST(test_zoned_date_time_print)
 
   AtcZonedDateTime zdt;
   AtcLocalDateTime ldt = {2018, 3, 11, 2, 30, 0, 0 /*fold*/};
-  int8_t err = atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_zoned_date_time_from_local_date_time(&zdt, &ldt, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
 
   char buf[64];
   AtcStringBuffer sb;
   atc_buf_init(&sb, buf, 64);
-  atc_zoned_date_time_print(&zdt, &sb);
+  atc_zoned_date_time_print(&sb, &zdt);
   atc_buf_close(&sb);
 
   const char expected[] = "2018-03-11T03:30:00-07:00[America/Los_Angeles]";

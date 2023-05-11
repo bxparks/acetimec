@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.8.0</span>
+   &#160;<span id="projectnumber">0.9.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -84,7 +84,7 @@ int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <tr class="separator:aba6e5cfe7d8f47a5f4a5a173eca7af6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad07af43bdb50d16a51c592a74e858ff1"><td class="memItemLeft" align="right" valign="top"><a id="ad07af43bdb50d16a51c592a74e858ff1"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcLocalDateTime.html#ad07af43bdb50d16a51c592a74e858ff1">month</a></td></tr>
-<tr class="memdesc:ad07af43bdb50d16a51c592a74e858ff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">month [1,12] <br /></td></tr>
+<tr class="memdesc:ad07af43bdb50d16a51c592a74e858ff1"><td class="mdescLeft">&#160;</td><td class="mdescRight">month [1,12]; 0 indicates error value <br /></td></tr>
 <tr class="separator:ad07af43bdb50d16a51c592a74e858ff1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3f028bc6fff003804226bb850ccd3291"><td class="memItemLeft" align="right" valign="top"><a id="a3f028bc6fff003804226bb850ccd3291"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcLocalDateTime.html#a3f028bc6fff003804226bb850ccd3291">day</a></td></tr>
@@ -110,7 +110,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <div class="textblock"><p>Date and time fields which are independent of the time zone. </p>
 <p>Often this struct holds the date time fields in UTC, but not always. </p>
 
-<p class="definition">Definition at line <a class="el" href="local__date__time_8h_source.html#l00028">28</a> of file <a class="el" href="local__date__time_8h_source.html">local_date_time.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="local__date__time_8h_source.html#l00029">29</a> of file <a class="el" href="local__date__time_8h_source.html">local_date_time.h</a>.</p>
 </div><h2 class="groupheader">Member Data Documentation</h2>
 <a id="a51a2be455f91b1aa97263263ac200fe4"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a51a2be455f91b1aa97263263ac200fe4">&#9670;&nbsp;</a></span>fold</h2>
@@ -130,7 +130,7 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 back" overlap, it can be to 1 to select the second occurrence instead of the first occurrence. During a DST "spring forward" gap, setting this to 0 selects the UTC offset before the gap, which then normalizes to the UTC offset after the gap. Settings this to 1 selects the DST offset after the gap, which then normalizes to the UTC offset before the gap.</p>
 <p>As an output parameter, this indicates whether the the epoch_seconds occurs on the first or second occurrence of the DST overlap. </p>
 
-<p class="definition">Definition at line <a class="el" href="local__date__time_8h_source.html#l00055">55</a> of file <a class="el" href="local__date__time_8h_source.html">local_date_time.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="local__date__time_8h_source.html#l00056">56</a> of file <a class="el" href="local__date__time_8h_source.html">local_date_time.h</a>.</p>
 
 </div>
 </div>

@@ -22,8 +22,8 @@ void print_dates()
   // Convert epoch seconds to date/time components for given time zone.
   AtcTimeZone tzla = {&kAtcZoneAmerica_Los_Angeles, &processor_la};
   AtcZonedDateTime zdtla;
-  int8_t err = atc_zoned_date_time_from_epoch_seconds(&zdtla, seconds, &tzla);
-  if (err) { 
+  atc_zoned_date_time_from_epoch_seconds(&zdtla, seconds, &tzla);
+  if (atc_zoned_date_time_is_error(&zdtla)) {
     printf("ERROR: Unable to create ZonedDateTime from epoch seconds\n");
     exit(1);
   }
@@ -32,7 +32,7 @@ void print_dates()
   char buf[80];
   struct AtcStringBuffer sb;
   atc_buf_init(&sb, buf, 80);
-  atc_zoned_date_time_print(&zdtla, &sb);
+  atc_zoned_date_time_print(&sb, &zdtla);
   atc_buf_close(&sb);
   printf("Los Angeles: %s\n", sb.p);
 
@@ -54,22 +54,22 @@ void print_dates()
   // Start with a LocalDateTime in an overlap, fold=1 for the second one.
   AtcLocalDateTime ldt = {2022, 11, 6, 1, 30, 0, 1 /*fold*/};
   atc_buf_reset(&sb);
-  atc_local_date_time_print(&ldt, &sb);
+  atc_local_date_time_print(&sb, &ldt);
   atc_buf_close(&sb);
   printf("LocalDateTime: %s\n", sb.p);
   printf("fold: 1\n");
 
   // Convert components to zoned_date_time. 2022-11-06 01:30 occurred twice. Set
   // fold=1 to select the second occurrence.
-  err = atc_zoned_date_time_from_local_date_time(&zdtla, &ldt, &tzla);
-  if (err) { 
+  atc_zoned_date_time_from_local_date_time(&zdtla, &ldt, &tzla);
+  if (atc_zoned_date_time_is_error(&zdtla)) {
     printf("ERROR: Unable to create ZonedDateTime from LocalDateTime\n");
     exit(1);
   }
 
   // Print the date time.
   atc_buf_reset(&sb);
-  atc_zoned_date_time_print(&zdtla, &sb);
+  atc_zoned_date_time_print(&sb, &zdtla);
   atc_buf_close(&sb);
   printf("Los Angeles: %s\n", sb.p);
   epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
@@ -80,14 +80,14 @@ void print_dates()
   // convert America/Los_Angles to America/New_York
   AtcTimeZone tzny = {&kAtcZoneAmerica_New_York, &processor_ny};
   AtcZonedDateTime zdtny;
-  err = atc_zoned_date_time_convert(&zdtla, &tzny, &zdtny);
-  if (err) { 
+  atc_zoned_date_time_convert(&zdtla, &tzny, &zdtny);
+  if (atc_zoned_date_time_is_error(&zdtla)) {
     printf("ERROR: Unable to convert ZonedDateTime to New York time zone\n");
     exit(1);
   }
 
   atc_buf_reset(&sb);
-  atc_zoned_date_time_print(&zdtny, &sb);
+  atc_zoned_date_time_print(&sb, &zdtny);
   atc_buf_close(&sb);
   printf("New York: %s\n", sb.p);
   epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
