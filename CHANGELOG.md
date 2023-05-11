@@ -1,6 +1,15 @@
 # Changelog
 
 * Unreleased
+    * Replace `err` return value from most external functions if there is an
+      out-parameter on the function signature (e.g. `AtcZonedDateTime`) that can
+      be sets to an error state.
+        * Simplifies the API with only a single place to check for errors.
+        * Error conditions are now be detected using:
+            * `atc_local_date_time_is_error()`
+            * `atc_offset_date_time_is_error()`
+            * `atc_zoned_date_time_is_error()`
+            * `atc_zoned_extra_is_error()`
 * 0.8.0 (2023-04-13, TZDB 2023c)
     * Upgrade TZDB from 2023b to 2023c.
         * https://mm.icann.org/pipermail/tz-announce/2023-March/000079.html
