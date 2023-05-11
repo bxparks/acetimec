@@ -43,8 +43,8 @@ void setup() {
 
   // Create a ZonedDateTime from the epoch seconds.
   struct AtcZonedDateTime lat;
-  int8_t err = atc_zoned_date_time_from_epoch_seconds(&lat, epochSeconds, &tz);
-  if (err) {
+  atc_zoned_date_time_from_epoch_seconds(&lat, epochSeconds, &tz);
+  if (atc_zoned_date_time_is_error(&lat)) {
     SERIAL_PORT_MONITOR.println("ERROR");
     return;
   }
