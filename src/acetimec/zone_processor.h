@@ -288,16 +288,16 @@ typedef struct AtcYearMonth {
  * Fills the entries into `matches` and returns the number of array elements.
  *
  * @param matches array of buffer size `num_matches`
- * @param num_matches size of `matches` buffer
+ * @param matches_size size of `matches` buffer
  *
- * @return the number of entries in `matches` filled in
+ * @return the number of entries added to `matches`
  */
 uint8_t atc_processor_find_matches(
   const AtcZoneInfo *zone_info,
   AtcYearMonth start_ym,
   AtcYearMonth until_ym,
   AtcMatchingEra *matches,
-  uint8_t num_matches);
+  uint8_t matches_size);
 
 /**
  * Determine if era is less than (-1), roughly equal (0), or greater than (1)

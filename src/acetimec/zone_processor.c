@@ -191,7 +191,7 @@ uint8_t atc_processor_find_matches(
   AtcYearMonth start_ym,
   AtcYearMonth until_ym,
   AtcMatchingEra *matches,
-  uint8_t num_matches)
+  uint8_t matches_size)
 {
   uint8_t i_match = 0;
   AtcMatchingEra *prev_match = NULL;
@@ -201,7 +201,7 @@ uint8_t atc_processor_find_matches(
     if (atc_era_overlaps_interval(
         (prev_match ? prev_match->era : NULL),
         era, start_ym, until_ym)) {
-      if (i_match < num_matches) {
+      if (i_match < matches_size) {
         atc_create_matching_era(
             &matches[i_match], prev_match, era, start_ym, until_ym);
         prev_match = &matches[i_match];
