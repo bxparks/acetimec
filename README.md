@@ -455,17 +455,25 @@ The memory layout of `AtcOffsetDateTime` was designed to be identical to
 `AtcLocalDateTime` so that functions that accept a pointer to `AtcLocalDateTime`
 can be given a pointer to `AtcOffsetDateTime` as well.
 
-There are 2 functions that operate on the `AtcOffsetDateTime` object:
+Here are the functions that operate on the `AtcOffsetDateTime` object:
 
 ```C
+void atc_offset_date_time_set_error(AtcOffsetDateTime *odt);
+
+bool atc_offset_date_time_is_error(const AtcOffsetDateTime *odt);
+
 atc_time_t atc_offset_date_time_to_epoch_seconds(
     const AtcOffsetDateTime *odt);
 
-int8_t atc_offset_date_time_from_epoch_seconds(
+void atc_offset_date_time_from_epoch_seconds(
     atc_time_t epoch_seconds,
     int16_t offset_minutes,
     AtcOffsetDateTime *odt);
 ```
+
+The `atc_offset_date_time_set_error(odt)` sets an internal error flag in the
+given `odt` to mark it as an invalid value. This causes
+`atc_offset_date_time_is_error(odt)` to return `true`.
 
 The `atc_offset_date_time_from_epoch_seconds()` function converts the given
 `AtcOffsetDateTime` into its `atc_time_t` epoch seconds, taking into account the

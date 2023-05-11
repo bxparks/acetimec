@@ -39,9 +39,8 @@ int8_t atc_time_zone_offset_date_time_from_epoch_seconds(
     fold = 0;
   }
 
-  int8_t err = atc_offset_date_time_from_epoch_seconds(
-      epoch_seconds, offset_seconds, odt);
-  if (err) return err;
+  atc_offset_date_time_from_epoch_seconds(epoch_seconds, offset_seconds, odt);
+  if (atc_offset_date_time_is_error(odt)) return kAtcErrGeneric;
 
   odt->fold = fold;
   return kAtcErrOk;
