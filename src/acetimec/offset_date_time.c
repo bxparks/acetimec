@@ -7,6 +7,16 @@
 #include "local_date_time.h"
 #include "offset_date_time.h"
 
+void atc_offset_date_time_set_error(AtcOffsetDateTime *odt)
+{
+  odt->month = 0; // year 0 is valid, so can't use year field
+}
+
+bool atc_offset_date_time_is_error(const AtcOffsetDateTime *odt)
+{
+  return odt->month == 0;
+}
+
 atc_time_t atc_offset_date_time_to_epoch_seconds(
     const AtcOffsetDateTime *odt)
 {
@@ -16,20 +26,23 @@ atc_time_t atc_offset_date_time_to_epoch_seconds(
   return es - odt->offset_seconds;
 }
 
-int8_t atc_offset_date_time_from_epoch_seconds(
+void atc_offset_date_time_from_epoch_seconds(
     atc_time_t epoch_seconds,
     int32_t offset_seconds,
     AtcOffsetDateTime *odt)
 {
-  if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
+  if (epoch_seconds == kAtcInvalidEpochSeconds) {
+    atc_offset_date_time_set_error(odt);
+    return;
+  }
 
   epoch_seconds += offset_seconds;
-  int8_t err = atc_local_date_time_from_epoch_seconds(
-      (AtcLocalDateTime *) odt, epoch_seconds);
-  if (err) return err;
+  AtcLocalDateTime *ldt = (AtcLocalDateTime *) odt;
+  atc_local_date_time_from_epoch_seconds(ldt, epoch_seconds);
+  if (atc_local_date_time_is_error(ldt)) return;
 
   odt->offset_seconds = offset_seconds;
-  return kAtcErrOk;
+  return;
 }
 
 // Print +/-hh:mm, ignoring any ss component.

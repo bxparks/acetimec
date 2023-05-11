@@ -682,8 +682,8 @@ int8_t atc_processor_init_for_epoch_seconds(
   atc_time_t epoch_seconds)
 {
   AtcLocalDateTime ldt;
-  int8_t err = atc_local_date_time_from_epoch_seconds(&ldt, epoch_seconds);
-  if (err) return err;
+  atc_local_date_time_from_epoch_seconds(&ldt, epoch_seconds);
+  if (atc_local_date_time_is_error(&ldt)) return kAtcErrGeneric;
   return atc_processor_init_for_year(processor, ldt.year);
 }
 
@@ -692,18 +692,24 @@ int8_t atc_processor_init_for_epoch_seconds(
 // LocalDatetime.
 //---------------------------------------------------------------------------
 
-int8_t atc_processor_find_by_epoch_seconds(
+void atc_processor_find_by_epoch_seconds(
     AtcZoneProcessor *processor,
     atc_time_t epoch_seconds,
     AtcFindResult *result)
 {
   int8_t err = atc_processor_init_for_epoch_seconds(processor, epoch_seconds);
-  if (err) return err;
+  if (err) {
+    result->type = kAtcFindResultNotFound;
+    return;
+  }
 
   AtcTransitionForSeconds tfs = atc_transition_storage_find_for_seconds(
       &processor->transition_storage, epoch_seconds);
   const AtcTransition *t = tfs.curr;
-  if (! t) return kAtcErrGeneric;
+  if (! t) {
+    result->type = kAtcFindResultNotFound;
+    return;
+  }
 
   result->std_offset_seconds = t->offset_seconds;
   result->dst_offset_seconds = t->delta_seconds;
@@ -716,19 +722,21 @@ int8_t atc_processor_find_by_epoch_seconds(
   } else {
     result->type = kAtcFindResultExact;
   }
-  return kAtcErrOk;
 }
 
 // Adapted from ExtendedZoneProcessor::findByLocalDateTime() in the AceTime
 // library.
-int8_t atc_processor_find_by_local_date_time(
+void atc_processor_find_by_local_date_time(
     AtcZoneProcessor *processor,
     const AtcLocalDateTime *ldt,
     AtcFindResult *result)
 {
 
   int8_t err = atc_processor_init_for_year(processor, ldt->year);
-  if (err) return err;
+  if (err) {
+    result->type = kAtcFindResultNotFound;
+    return;
+  }
 
   AtcTransitionForDateTime tfd = atc_transition_storage_find_for_date_time(
       &processor->transition_storage, ldt);
@@ -781,12 +789,10 @@ int8_t atc_processor_find_by_local_date_time(
 
     if (! transition) {
       result->type = kAtcFindResultNotFound;
-      return kAtcErrGeneric; // TOOD: should this be kAtcErrOk?
+      return;
     }
 
     result->std_offset_seconds = transition->offset_seconds;
     result->dst_offset_seconds = transition->delta_seconds;
     result->abbrev = transition->abbrev;
-
-    return kAtcErrOk;
 }

@@ -127,12 +127,15 @@ typedef struct AtcZoneProcessor {
   AtcTransitionStorage transition_storage;
 } AtcZoneProcessor;
 
-/** Values of the the AtcFindResult.type field. */
+/**
+ * Values of the the AtcFindResult.type field. Must be identical to the
+ * corresponding kAtcZonedExtraXxx in zoned_extra.h.
+ */
 enum {
   kAtcFindResultNotFound = 0,
   kAtcFindResultExact = 1,
-  kAtcFindResultGap = 2,
-  kAtcFindResultOverlap = 3,
+  kAtcFindResultOverlap = 2,
+  kAtcFindResultGap = 3,
 };
 
 /**
@@ -247,8 +250,11 @@ int8_t atc_processor_init_for_epoch_seconds(
   AtcZoneProcessor *processor,
   atc_time_t epoch_seconds);
 
-/** Find the AtcFindResult at the given epoch_seconds. */
-int8_t atc_processor_find_by_epoch_seconds(
+/**
+ * Find the AtcFindResult at the given epoch_seconds, with the result status in
+ * `result.type`.
+ */
+void atc_processor_find_by_epoch_seconds(
     AtcZoneProcessor *processor,
     atc_time_t epoch_seconds,
     AtcFindResult *result);
@@ -256,9 +262,9 @@ int8_t atc_processor_find_by_epoch_seconds(
 /**
  * Find the AtcFindResult at the given LocalDateTime and fold. The fold
  * parameter is used only when LocalDateTime falls in a gap or an overlap.
- * library. Return non-zero error code upon failure.
+ * library.
  */
-int8_t atc_processor_find_by_local_date_time(
+void atc_processor_find_by_local_date_time(
     AtcZoneProcessor *processor,
     const AtcLocalDateTime *ldt,
     AtcFindResult *result);
@@ -277,7 +283,15 @@ typedef struct AtcYearMonth {
   uint8_t month;
 } AtcYearMonth;
 
-/** Find ZoneEra entries which match the [start_ym, until_ym) interval. */
+/**
+ * Find ZoneEra entries which match the [start_ym, until_ym) interval.
+ * Fills the entries into `matches` and returns the number of array elements.
+ *
+ * @param matches array of buffer size `num_matches`
+ * @param num_matches size of `matches` buffer
+ *
+ * @return the number of entries in `matches` filled in
+ */
 uint8_t atc_processor_find_matches(
   const AtcZoneInfo *zone_info,
   AtcYearMonth start_ym,

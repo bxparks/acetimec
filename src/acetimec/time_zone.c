@@ -17,7 +17,7 @@ const AtcTimeZone atc_time_zone_utc = {NULL, NULL};
 
 // Adapted from TimeZone::getOffsetDateTime(epochSeconds) from the
 // AceTime library.
-int8_t atc_time_zone_offset_date_time_from_epoch_seconds(
+void atc_time_zone_offset_date_time_from_epoch_seconds(
     const AtcTimeZone *tz,
     atc_time_t epoch_seconds,
     AtcOffsetDateTime *odt)
@@ -28,10 +28,12 @@ int8_t atc_time_zone_offset_date_time_from_epoch_seconds(
     atc_processor_init_for_zone_info(tz->zone_processor, tz->zone_info);
 
     AtcFindResult result;
-    int8_t err = atc_processor_find_by_epoch_seconds(
+    atc_processor_find_by_epoch_seconds(
         tz->zone_processor, epoch_seconds, &result);
-    if (err) return err;
-    if (result.type == kAtcFindResultNotFound) return kAtcErrGeneric;
+    if (result.type == kAtcFindResultNotFound) {
+      atc_offset_date_time_set_error(odt);
+      return;
+    }
     offset_seconds = result.std_offset_seconds + result.dst_offset_seconds;
     fold = result.fold;
   } else {
@@ -39,17 +41,13 @@ int8_t atc_time_zone_offset_date_time_from_epoch_seconds(
     fold = 0;
   }
 
-  int8_t err = atc_offset_date_time_from_epoch_seconds(
-      epoch_seconds, offset_seconds, odt);
-  if (err) return err;
-
+  atc_offset_date_time_from_epoch_seconds(epoch_seconds, offset_seconds, odt);
   odt->fold = fold;
-  return kAtcErrOk;
 }
 
 // Adapted from TimeZone::getOffsetDateTime(const LocalDatetime&) from the
 // AceTime library.
-int8_t atc_time_zone_offset_date_time_from_local_date_time(
+void atc_time_zone_offset_date_time_from_local_date_time(
     const AtcTimeZone *tz,
     const AtcLocalDateTime *ldt,
     AtcOffsetDateTime *odt)
@@ -58,10 +56,11 @@ int8_t atc_time_zone_offset_date_time_from_local_date_time(
     atc_processor_init_for_zone_info(tz->zone_processor, tz->zone_info);
 
     AtcFindResult result;
-    int8_t err = atc_processor_find_by_local_date_time(
-        tz->zone_processor, ldt, &result);
-    if (err) return err;
-    if (result.type == kAtcFindResultNotFound) return kAtcErrGeneric;
+    atc_processor_find_by_local_date_time(tz->zone_processor, ldt, &result);
+    if (result.type == kAtcFindResultNotFound) {
+      atc_offset_date_time_set_error(odt);
+      return;
+    }
 
     // Convert FindResult into OffsetDateTime using the requested offset.
     odt->year = ldt->year;
@@ -95,26 +94,29 @@ int8_t atc_time_zone_offset_date_time_from_local_date_time(
     odt->offset_seconds = 0;
     odt->fold = 0;
   }
-
-  return kAtcErrOk;
 }
 
-int8_t atc_time_zone_zoned_extra_from_epoch_seconds(
+void atc_time_zone_zoned_extra_from_epoch_seconds(
   const AtcTimeZone *tz,
   atc_time_t epoch_seconds,
   AtcZonedExtra *extra)
 {
-  if (epoch_seconds == kAtcInvalidEpochSeconds) return kAtcErrGeneric;
+  if (epoch_seconds == kAtcInvalidEpochSeconds) {
+    atc_zoned_extra_set_error(extra);
+    return;
+  }
 
   if (tz->zone_info) {
     atc_processor_init_for_zone_info(tz->zone_processor, tz->zone_info);
 
     AtcFindResult result;
-    int8_t err = atc_processor_find_by_epoch_seconds(
+    atc_processor_find_by_epoch_seconds(
         tz->zone_processor, epoch_seconds, &result);
-    if (err) return err;
-
     extra->type = result.type;
+    if (result.type == kAtcFindResultNotFound) {
+      return;
+    }
+
     extra->std_offset_seconds = result.std_offset_seconds;
     extra->dst_offset_seconds = result.dst_offset_seconds;
     extra->req_std_offset_seconds = result.req_std_offset_seconds;
@@ -129,11 +131,9 @@ int8_t atc_time_zone_zoned_extra_from_epoch_seconds(
     extra->req_dst_offset_seconds = 0;
     memcpy(extra->abbrev, "UTC", sizeof("UTC"));
   }
-
-  return kAtcErrOk;
 }
 
-int8_t atc_time_zone_zoned_extra_from_local_date_time(
+void atc_time_zone_zoned_extra_from_local_date_time(
   const AtcTimeZone *tz,
   const AtcLocalDateTime *ldt,
   AtcZonedExtra *extra)
@@ -142,11 +142,12 @@ int8_t atc_time_zone_zoned_extra_from_local_date_time(
     atc_processor_init_for_zone_info(tz->zone_processor, tz->zone_info);
 
     AtcFindResult result;
-    int8_t err = atc_processor_find_by_local_date_time(
-        tz->zone_processor, ldt, &result);
-    if (err) return err;
-
+    atc_processor_find_by_local_date_time(tz->zone_processor, ldt, &result);
     extra->type = result.type;
+    if (result.type == kAtcFindResultNotFound) {
+      return;
+    }
+
     extra->std_offset_seconds = result.std_offset_seconds;
     extra->dst_offset_seconds = result.dst_offset_seconds;
     extra->req_std_offset_seconds = result.req_std_offset_seconds;
@@ -161,8 +162,6 @@ int8_t atc_time_zone_zoned_extra_from_local_date_time(
     extra->req_dst_offset_seconds = 0;
     memcpy(extra->abbrev, "UTC", sizeof("UTC"));
   }
-
-  return kAtcErrOk;
 }
 
 void atc_time_zone_print(const AtcTimeZone *tz, AtcStringBuffer *sb)

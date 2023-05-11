@@ -101,9 +101,9 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_invalid)
   int32_t total_offset_seconds = 0;
   atc_time_t epoch_seconds = kAtcInvalidEpochSeconds;
 
-  int8_t err = atc_offset_date_time_from_epoch_seconds(
+  atc_offset_date_time_from_epoch_seconds(
       epoch_seconds, total_offset_seconds, &odt);
-  ACU_ASSERT(err == kAtcErrGeneric);
+  ACU_ASSERT(atc_offset_date_time_is_error(&odt));
 }
 
 ACU_TEST(test_offset_date_time_from_epoch_seconds_epoch2000)
@@ -112,15 +112,13 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_epoch2000)
   atc_set_current_epoch_year(2000);
 
   AtcOffsetDateTime odt;
-  int8_t err;
   int32_t offset_seconds;
   atc_time_t epoch_seconds;
 
   offset_seconds = 0;
   epoch_seconds = 0; // 00:00:00
-  err = atc_offset_date_time_from_epoch_seconds(
-      epoch_seconds, offset_seconds, &odt);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_offset_date_time_from_epoch_seconds(epoch_seconds, offset_seconds, &odt);
+  ACU_ASSERT(!atc_offset_date_time_is_error(&odt));
   ACU_ASSERT(odt.year == 2000);
   ACU_ASSERT(odt.month == 1);
   ACU_ASSERT(odt.day == 1);
@@ -130,9 +128,8 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_epoch2000)
 
   offset_seconds = 0;
   epoch_seconds = 3661; // 01:01:01 later
-  err = atc_offset_date_time_from_epoch_seconds(
-      epoch_seconds, offset_seconds, &odt);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_offset_date_time_from_epoch_seconds(epoch_seconds, offset_seconds, &odt);
+  ACU_ASSERT(!atc_offset_date_time_is_error(&odt));
   ACU_ASSERT(odt.year == 2000);
   ACU_ASSERT(odt.month == 1);
   ACU_ASSERT(odt.day == 1);
@@ -142,9 +139,8 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_epoch2000)
 
   offset_seconds = -8*3600; // UTC-08:00
   epoch_seconds = 0; // 00:00:00
-  err = atc_offset_date_time_from_epoch_seconds(
-      epoch_seconds, offset_seconds, &odt);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_offset_date_time_from_epoch_seconds(epoch_seconds, offset_seconds, &odt);
+  ACU_ASSERT(!atc_offset_date_time_is_error(&odt));
   ACU_ASSERT(odt.year == 1999);
   ACU_ASSERT(odt.month == 12);
   ACU_ASSERT(odt.day == 31);
@@ -163,15 +159,13 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_epoch2050)
   atc_set_current_epoch_year(2050);
 
   AtcOffsetDateTime odt;
-  int8_t err;
   int32_t offset_seconds;
   atc_time_t epoch_seconds;
 
   offset_seconds = 0;
   epoch_seconds = 0; // 00:00:00
-  err = atc_offset_date_time_from_epoch_seconds(
-      epoch_seconds, offset_seconds, &odt);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_offset_date_time_from_epoch_seconds(epoch_seconds, offset_seconds, &odt);
+  ACU_ASSERT(!atc_offset_date_time_is_error(&odt));
   ACU_ASSERT(odt.year == 2050);
   ACU_ASSERT(odt.month == 1);
   ACU_ASSERT(odt.day == 1);
@@ -181,9 +175,8 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_epoch2050)
 
   offset_seconds = 0;
   epoch_seconds = 3661; // 01:01:01 later
-  err = atc_offset_date_time_from_epoch_seconds(
-      epoch_seconds, offset_seconds, &odt);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_offset_date_time_from_epoch_seconds(epoch_seconds, offset_seconds, &odt);
+  ACU_ASSERT(!atc_offset_date_time_is_error(&odt));
   ACU_ASSERT(odt.year == 2050);
   ACU_ASSERT(odt.month == 1);
   ACU_ASSERT(odt.day == 1);
@@ -193,9 +186,8 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_epoch2050)
 
   offset_seconds = -8*3600; // UTC-08:00
   epoch_seconds = 0; // 00:00:00
-  err = atc_offset_date_time_from_epoch_seconds(
-      epoch_seconds, offset_seconds, &odt);
-  ACU_ASSERT(err == kAtcErrOk);
+  atc_offset_date_time_from_epoch_seconds(epoch_seconds, offset_seconds, &odt);
+  ACU_ASSERT(!atc_offset_date_time_is_error(&odt));
   ACU_ASSERT(odt.year == 2049);
   ACU_ASSERT(odt.month == 12);
   ACU_ASSERT(odt.day == 31);
