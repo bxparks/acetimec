@@ -24,7 +24,7 @@ latter documents.
 
 **Status**: Alpha-level software, not ready for public consumption.
 
-**Version**: 0.8.0 (2023-04-13, TZDB version 2023c)
+**Version**: 0.9.0 (2023-05-11, TZDB version 2023c)
 
 **Changelog**: [CHANGELOG.md](CHANGELOG.md)
 
@@ -735,7 +735,7 @@ contains the list of all Zones (and Links) supported by this library. It allows
 us to locate the `AtcZoneInfo` pointer using the human readable zone name (e.g.
 `"America/Los_Angeles"`) or its 32-bit zone identifier (e.g. `0xb7f7e8f2`).
 
-Each zonedb provies 2 zone registries:
+Each zonedb provides 2 zone registries:
 
 ```C
 #define kAtcZoneRegistrySize 356

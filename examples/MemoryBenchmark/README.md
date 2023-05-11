@@ -5,7 +5,7 @@ memory and static RAM sizes were recorded. The `FEATURE_BASELINE` selection is
 the baseline, and its memory usage  numbers are subtracted from the subsequent
 `FEATURE_*` memory usage.
 
-**Version**: 0.8.0 (2023-04-13, TZDB version 2023c)
+**Version**: 0.9.0 (2023-05-11, TZDB version 2023c)
 
 **DO NOT EDIT**: This file was auto-generated using `make README.md`.
 
@@ -55,6 +55,10 @@ ASCII table.
           it tries to instantiate the zonedb into RAM.
 * Upgrade to 2023c
 * Add memory numbers for `zonedball` database.
+
+**0.9.0**
+* Remove Teensy3.2, moved into Tier 2.
+* Add SAMD21 (Seeeduino XIAO) and SAMD51 (Adafruit ItsyBitsy M4).
 
 ### Arduino Nano
 
