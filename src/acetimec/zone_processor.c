@@ -611,7 +611,7 @@ void atc_processor_calc_abbreviations(
 void atc_processor_init(AtcZoneProcessor *processor)
 {
   processor->zone_info = NULL;
-  processor->is_filled = 0;
+  processor->is_filled = false;
   processor->num_matches = 0;
 }
 
@@ -641,10 +641,13 @@ int8_t atc_processor_init_for_year(
   processor->num_matches = 0;
   atc_transition_storage_init(
     &processor->transition_storage, processor->zone_info);
+  processor->is_filled = true; // set true to enable caching
   const AtcZoneContext *context = processor->zone_info->zone_context;
   if (year < context->start_year - 1 || context->until_year < year) {
     return kAtcErrGeneric;
   }
+
+  // Fill transitions over a 14-month window straddling the given year.
   AtcYearMonth start_ym = { year - 1, 12 };
   AtcYearMonth until_ym = { year + 1, 2 };
 

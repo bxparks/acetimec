@@ -15,6 +15,7 @@
 #define ACE_TIME_C_ZONE_PROCESSOR_H
 
 #include <stdint.h>
+#include <stdbool.h>
 #include "common.h" // atc_time_t
 #include "../zoneinfo/zone_info.h"
 #include "local_date_time.h" // AtcLocalDateTime
@@ -115,7 +116,7 @@ typedef struct AtcZoneProcessor {
   int16_t year;
 
   /** True if the cache is valid. */
-  uint8_t is_filled;
+  bool is_filled;
 
   /** Number of valid matches in the array. */
   uint8_t num_matches;
