@@ -112,11 +112,8 @@ typedef struct AtcZoneProcessor {
   /** The time zone attached to this Processor workspace. */
   const AtcZoneInfo *zone_info;
 
-  /** Cache year [0,9999] */
+  /** Cache year, [0,9999] or kAtcInvalidYear to indicate invalid cache. */
   int16_t year;
-
-  /** True if the cache is valid. */
-  bool is_filled;
 
   /** Number of valid matches in the array. */
   uint8_t num_matches;
