@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AceTimeC: AtcZoneProcessor Struct Reference</title>
+<title>acetimec: AtcZoneProcessor Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.9.0</span>
+   <div id="projectname">acetimec
+   &#160;<span id="projectnumber">0.10.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -101,12 +101,8 @@ const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *&#160;</td><t
 <tr class="separator:ad093aeacf34b8e53f2e412e8465942b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61155f6125ea1f959463b0662f037fc1"><td class="memItemLeft" align="right" valign="top"><a id="a61155f6125ea1f959463b0662f037fc1"></a>
 int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneProcessor.html#a61155f6125ea1f959463b0662f037fc1">year</a></td></tr>
-<tr class="memdesc:a61155f6125ea1f959463b0662f037fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cache year [0,9999]. <br /></td></tr>
+<tr class="memdesc:a61155f6125ea1f959463b0662f037fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cache year, [0,9999] or kAtcInvalidYear to indicate invalid cache. <br /></td></tr>
 <tr class="separator:a61155f6125ea1f959463b0662f037fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac45e3d18f03edba8aba8de42936ca366"><td class="memItemLeft" align="right" valign="top"><a id="ac45e3d18f03edba8aba8de42936ca366"></a>
-uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneProcessor.html#ac45e3d18f03edba8aba8de42936ca366">is_filled</a></td></tr>
-<tr class="memdesc:ac45e3d18f03edba8aba8de42936ca366"><td class="mdescLeft">&#160;</td><td class="mdescRight">True if the cache is valid. <br /></td></tr>
-<tr class="separator:ac45e3d18f03edba8aba8de42936ca366"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a747b01dc6bab46b7d3a0edd207949969"><td class="memItemLeft" align="right" valign="top"><a id="a747b01dc6bab46b7d3a0edd207949969"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneProcessor.html#a747b01dc6bab46b7d3a0edd207949969">num_matches</a></td></tr>
 <tr class="memdesc:a747b01dc6bab46b7d3a0edd207949969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of valid matches in the array. <br /></td></tr>
@@ -124,9 +120,9 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <div class="textblock"><p>Zone processor work space. </p>
 <p>One of these should be created for each active timezone. It can be reused among multiple timezones but a change of timezone causes the internal cache to be wiped and recreated. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8h_source.html#l00110">110</a> of file <a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8h_source.html#l00111">111</a> of file <a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>.</p>
 </div><hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/home/brian/src/AceTimeC/src/acetimec/<a class="el" href="zone__processor_8h_source.html">zone_processor.h</a></li>
+<li>/home/brian/src/acetimec/src/acetimec/<a class="el" href="zone__processor_8h_source.html">zone_processor.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

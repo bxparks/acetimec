@@ -1,5 +1,5 @@
 /*
- * A program to compare the DST transitions calculated by AceTimeC with the
+ * A program to compare the DST transitions calculated by acetimec with the
  * standard C library.
  */
 #include <stdio.h> // printf()
@@ -9,7 +9,7 @@
 #include <stdlib.h> // setenv()
 #include <stdbool.h> // bool
 #include <unistd.h> // sleep()
-#include <acetimec.h> // AceTimeC functions
+#include <acetimec.h> // acetimec functions
 
 //-----------------------------------------------------------------------------
 
@@ -78,7 +78,7 @@ void setup()
   atc_set_current_epoch_year(2050); // 2050 is the default
 }
 
-/** Check that the zones and links in AceTimeC are avaiable in libc. */
+/** Check that the zones and links in acetimec are avaiable in libc. */
 int check_zone_names()
 {
   printf("==== check_zone_names()\n");
@@ -96,7 +96,7 @@ int check_zone_names()
     }
   }
 
-  // Check all the zones and links in the AceTimeC zonedb registry.
+  // Check all the zones and links in the acetimec zonedb registry.
   printf("Checking %d Zones and Links\n", kAtcAllZoneAndLinkRegistrySize);
   for (int i = 0; i < kAtcAllZoneAndLinkRegistrySize; i++) {
     const AtcZoneInfo *info = kAtcAllZoneAndLinkRegistry[i];
@@ -115,7 +115,7 @@ int check_zone_names()
 
 int check_epoch_seconds(const AtcTimeZone *tz, atc_time_t epoch_seconds)
 {
-  // Convert epoch seconds to ZonedDateTime using AceTimeC
+  // Convert epoch seconds to ZonedDateTime using acetimec
   struct AtcZonedDateTime zdt;
   atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, tz);
   if (atc_zoned_date_time_is_error(&zdt)) {
@@ -266,7 +266,7 @@ int check_samples(const AtcTimeZone *tz)
   return kAtcErrOk;
 }
 
-// Check the DST transitions as determined by AceTimeC.
+// Check the DST transitions as determined by acetimec.
 int check_date_components()
 {
   printf("==== check_date_components()\n");

@@ -2,5 +2,5 @@
 # Makefile to compile and run Arduino programs natively on Linux or MacOS.
 
 APP_NAME := HelloTextClock
-ARDUINO_LIBS := AceCommon AceTimeC AceSorting
+ARDUINO_LIBS := acetimec
 include ../../../EpoxyDuino/EpoxyDuino.mk

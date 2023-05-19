@@ -7,8 +7,8 @@
 #define ACE_TIME_C_H
 
 /* Version format: xxyyzz == "xx.yy.zz" */
-#define ACE_TIME_C_VERSION 901
-#define ACE_TIME_C_VERSION_STRING "0.9.1"
+#define ACE_TIME_C_VERSION 1000
+#define ACE_TIME_C_VERSION_STRING "0.10.0"
 
 #include "zoneinfo/zone_info.h"
 #include "zoneinfo/zone_info_utils.h"

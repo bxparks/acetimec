@@ -2,7 +2,7 @@
 # EpoxyDuino to compile and run AUnit tests natively on Linux or MacOS.
 
 APP_NAME := MemoryBenchmark
-ARDUINO_LIBS := AUnit AceTimeC
+ARDUINO_LIBS := AUnit acetimec
 MORE_CLEAN := more_clean
 EXTRA_CFLAGS := -std=c11 -Wall -Wextra -Werror
 include ../../../EpoxyDuino/EpoxyDuino.mk

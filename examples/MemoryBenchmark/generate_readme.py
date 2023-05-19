@@ -94,7 +94,7 @@ ASCII table.
 {nano_results}
 ```
 
-`PROGMEM` not used in AceTimeC, which causes the `zonedb` data structures to be
+`PROGMEM` not used in acetimec, which causes the `zonedb` data structures to be
 stored in RAM not in flash.
 
 ### Sparkfun Pro Micro
@@ -107,7 +107,7 @@ stored in RAM not in flash.
 {micro_results}
 ```
 
-`PROGMEM` not used in AceTimeC, which causes the `zonedb` data structures to be
+`PROGMEM` not used in acetimec, which causes the `zonedb` data structures to be
 stored in RAM not in flash.
 
 ### SAMD21 (Seeeduino XIAO)
@@ -159,7 +159,7 @@ microcontroller and the compiler did not generate the desired information.
 {esp8266_results}
 ```
 
-`PROGMEM` not used in AceTimeC, which causes the `zonedb` data structures to be
+`PROGMEM` not used in acetimec, which causes the `zonedb` data structures to be
 stored in RAM not in flash.
 
 ### ESP32

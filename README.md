@@ -1,30 +1,30 @@
 # AceTime for C
 
-[![ACUnit Tests](https://github.com/bxparks/AceTimeC/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/bxparks/AceTimeC/actions/workflows/unit_tests.yml)
+[![ACUnit Tests](https://github.com/bxparks/acetimec/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/bxparks/acetimec/actions/workflows/unit_tests.yml)
 
-Time zone library for the C language, based on algorithms and techniques from
-the [AceTime](https://github.com/bxparks/AceTime) library for the Arduino
-programming environment. Just like AceTime, this library supports all time zones
-defined by the [IANA TZ database](https://www.iana.org/time-zones).
+The `acetimec` library is a date and time zone library for the C language, based
+on algorithms and techniques from the
+[AceTime](https://github.com/bxparks/AceTime) library for the Arduino
+environment. Just like AceTime, this library supports all time zones defined by
+the [IANA TZ database](https://www.iana.org/time-zones).
 
-The functionality provided by this library (in C) is a subset of the AceTime
-library (in C++), mostly because the C language does not provide the same level
-of expressiveness,  abstraction, and encapsulation of the C++ language. If the
-equivalent functionality of AceTime was attempted in this library, the public
-API would become too large and complex, with diminishing returns from the
-increased complexity. Therefore, I decided that this library would implement the
-only algorithms provided by the `ExtendedZoneProcessor` class of the AceTime
-library. It does not implement the functionality provided by the
-`BasicZoneProcessor` of the AceTime library.
+The functionality provided by acetimec is a subset of the AceTime, mostly
+because the C language does not provide the same level of abstraction and
+encapsulation of the C++ language. If the equivalent functionality of AceTime
+was attempted in this library, the public API would become too large and
+complex, with diminishing returns from the increased complexity. I decided that
+this library would implement the only algorithms provided by the
+`ExtendedZoneProcessor` class of the AceTime library. It does not implement the
+functionality provided by the `BasicZoneProcessor` of the AceTime library.
 
 Due to time constraints, this README document provides only a small fraction of
-the documentation provided by the README.md and USER_GUIDE.md documents of the
-AceTime library. If you need more detailed information, please consult those
+the documentation provided by the `README.md` and `USER_GUIDE.md` documents of
+the AceTime library. If you need more detailed information, please consult those
 latter documents.
 
 **Status**: Alpha-level software, not ready for public consumption.
 
-**Version**: 0.9.1 (2023-05-19, TZDB version 2023c)
+**Version**: 0.10.0 (2023-05-19, TZDB version 2023c)
 
 **Changelog**: [CHANGELOG.md](CHANGELOG.md)
 
@@ -171,8 +171,8 @@ I am not familiar with any of the C language package managers. To obtain this
 library, you should manually clone the project into an appropriate place on your
 computer:
 
-```C
-$ git clone https://github.com/bxparks/AceTimeC
+```
+$ git clone https://github.com/bxparks/acetimec
 ```
 
 There are many different ways that a C library can be incorporated into an
@@ -246,8 +246,8 @@ as described in the next section.
 <a name="Epoch"></a>
 ### Epoch
 
-The functions in [epoch.h](src/ace_time_c/epoch.h) provide features related to
-the epoch used by the AceTimeC library. By default, the epoch is 2050-01-01
+The functions in [epoch.h](src/acetimec/epoch.h) provide features related to
+the epoch used by the acetimec library. By default, the epoch is 2050-01-01
 00:00:00 UTC, which allows the 32-bit `ace_time_t` type to support dates from
 the year 2000 until the year 2100, at a minimum. However, unlike most timezone
 libraries, the epoch year can be changed at runtime so that the `ace_time_t` can
@@ -297,7 +297,7 @@ used by client applications.
 <a name="LocalDate"></a>
 ### LocalDate
 
-The functions in [local_date.h](src/ace_time_c/local_date.h) provide features
+The functions in [local_date.h](src/acetimec/local_date.h) provide features
 related to the Gregorian `(year, month, day)` triple. These functions do not
 know about the time components `(hour, minute, second)` or the timezone. They
 often represent either the local date, or the UTC date, depending on context.
@@ -366,7 +366,7 @@ int32_t atc_local_time_to_seconds(uint8_t hour, uint8_t minute, uint8_t second);
 <a name="AtcLocalDateTime"></a>
 ### AtcLocalDateTime
 
-The functions in [local_date_time.h](src/ace_time_c/local_date_time.h) operate
+The functions in [local_date_time.h](src/acetimec/local_date_time.h) operate
 on the `AtcLocalDateTime` type which represents the wall date and time, without
 reference to a time zone:
 
@@ -435,7 +435,7 @@ normalizes to a ZonedDateTime before the gap.
 <a name="AtcOffsetDateTime"></a>
 ### AtcOffsetDateTime
 
-The functions in [offset_date_time.h](src/ace_time_c/offset_date_time.h) operate
+The functions in [offset_date_time.h](src/acetimec/offset_date_time.h) operate
 on the `AtcOffsetDateTime` type which represents a date-time with a fixed offset
 from UTC:
 
@@ -496,7 +496,7 @@ an error occurs, the function returns `kAtcErrGeneric`, otherwise it returns
 <a name="AtcZonedDateTime"></a>
 ### AtcZonedDateTime
 
-The functions in [zoned_date_time.h](src/ace_time_c/zoned_date_time.h) operate
+The functions in [zoned_date_time.h](src/acetimec/zoned_date_time.h) operate
 on the `AtcZonedDateTime` data structure, which is identical to the
 `AtcOffsetDateTime` data structure with the addition of a reference to the TZDB
 time zone:
@@ -653,7 +653,7 @@ and recalculated, so the execution speed may decrease significantly.
 <a name="AtcZoneInfo"></a>
 ### AtcZoneInfo
 
-The `AtcZoneInfo` data structure in [zone_info.h](src/ace_time_c/zone_info.h)
+The `AtcZoneInfo` data structure in [zone_info.h](src/acetimec/zone_info.h)
 defines the DST transition rules of a single time zone. The pointer to the
 `AtcZoneInfo` is meant to be passed around as opaque object for the most part
 since most of the fields are meant for internal consumption. There are 3
@@ -719,7 +719,7 @@ respective `zone_infos.h` file, which is automatically included by the
 
 The IANA TZ database is often updated to track changes to the DST rules in
 different countries and regions. The version of the TZ database that was used to
-generate the AceTimeC Zone database is given by:
+generate the acetimec Zone database is given by:
 
 ```C
 extern const char kAtcTzDatabaseVersion[];
@@ -760,7 +760,7 @@ Registrar functions](#AtcZoneRegistrar) described below.
 <a name="AtcZonedExtra"></a>
 ### AtcZonedExtra
 
-The `AtcZonedExtra` structure in [zoned_extra.h](src/ace_time_c/zoned_extra.h)
+The `AtcZonedExtra` structure in [zoned_extra.h](src/acetimec/zoned_extra.h)
 holds additional meta information about a particular time zone, usually at a
 particular epoch seconds:
 
@@ -822,7 +822,7 @@ On error, the `extra.type` field is set to `kAtcZonedExtraNotFound` and
 <a name="AtcZoneRegistrar"></a>
 ## AtcZoneRegistrar
 
-The functions in [zone_registrar.h](src/ace_time_c/zone_registrar.h) allow
+The functions in [zone_registrar.h](src/acetimec/zone_registrar.h) allow
 searching of the [zone registries](#ZoneDatabaseAndRegistry) by human readable
 name (e.g. "America/Los_Angeles") or by a 32-bit numerical zoneId.
 
@@ -932,7 +932,7 @@ zone registry, and pass this custom registry into the
       instead of static memory, special (non-standard) compiler directives need
       to be used.
     * On `avr-gcc` compiler, this is `PROGMEM` directive.
-    * AceTimeC library does not use the `PROGMEM` directive, so the library will
+    * acetimec library does not use the `PROGMEM` directive, so the library will
       probably will not fit inside an AVR processor.
     * On other microcontrollers (e.g. ARM), constants are automatically placed
       into flash memory and referenced directly from there. No special compiler
@@ -953,9 +953,9 @@ zone registry, and pass this custom registry into the
 
 If you have any questions, comments, or feature requests for this library,
 please use the [GitHub
-Discussions](https://github.com/bxparks/AceTimeC/discussions) for this project.
+Discussions](https://github.com/bxparks/acetimec/discussions) for this project.
 If you have bug reports, please file a ticket in [GitHub
-Issues](https://github.com/bxparks/AceTimeC/issues). Feature requests should go
+Issues](https://github.com/bxparks/acetimec/issues). Feature requests should go
 into Discussions first because they often have alternative solutions which are
 useful to remain visible, instead of disappearing from the default view of the
 Issue tracker after the ticket is closed.
