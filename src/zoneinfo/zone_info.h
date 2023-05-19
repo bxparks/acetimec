@@ -151,7 +151,7 @@ typedef struct AtcZoneRule {
    * string comes from Rule.LETTER column. Most letter values are single
    * character strings (e.g. "S", "D", and ""). But a small number of zones have
    * LETTER columsn with multiple characters (e.g. "CST", "+00"). The string is
-   * substituted into the '%s' field (implemented in AceTimeC by just a '%') of
+   * substituted into the '%s' field (implemented in acetimee by just a '%') of
    * the AtcZoneInfo.format field (e.g. "P%T", "M%T").
    *
    * As of TZ DB version 2018i, 4 ZonePolicies have ZoneRules with a LETTER
