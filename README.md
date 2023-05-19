@@ -2,20 +2,20 @@
 
 [![ACUnit Tests](https://github.com/bxparks/acetimec/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/bxparks/acetimec/actions/workflows/unit_tests.yml)
 
-Time zone library for the C language, based on algorithms and techniques from
-the [AceTime](https://github.com/bxparks/AceTime) library for the Arduino
-programming environment. Just like AceTime, this library supports all time zones
-defined by the [IANA TZ database](https://www.iana.org/time-zones).
+The `acetimec` library is a date and time zone library for the C language, based
+on algorithms and techniques from the
+[AceTime](https://github.com/bxparks/AceTime) library for the Arduino
+environment. Just like AceTime, this library supports all time zones defined by
+the [IANA TZ database](https://www.iana.org/time-zones).
 
-The functionality provided by this library (in C) is a subset of the AceTime
-library (in C++), mostly because the C language does not provide the same level
-of expressiveness,  abstraction, and encapsulation of the C++ language. If the
-equivalent functionality of AceTime was attempted in this library, the public
-API would become too large and complex, with diminishing returns from the
-increased complexity. Therefore, I decided that this library would implement the
-only algorithms provided by the `ExtendedZoneProcessor` class of the AceTime
-library. It does not implement the functionality provided by the
-`BasicZoneProcessor` of the AceTime library.
+The functionality provided by acetimec is a subset of the AceTime, mostly
+because the C language does not provide the same level of abstraction and
+encapsulation of the C++ language. If the equivalent functionality of AceTime
+was attempted in this library, the public API would become too large and
+complex, with diminishing returns from the increased complexity. I decided that
+this library would implement the only algorithms provided by the
+`ExtendedZoneProcessor` class of the AceTime library. It does not implement the
+functionality provided by the `BasicZoneProcessor` of the AceTime library.
 
 Due to time constraints, this README document provides only a small fraction of
 the documentation provided by the `README.md` and `USER_GUIDE.md` documents of
@@ -24,7 +24,7 @@ latter documents.
 
 **Status**: Alpha-level software, not ready for public consumption.
 
-**Version**: 0.10.0(2023-05-19, TZDB version 2023c)
+**Version**: 0.10.0 (2023-05-19, TZDB version 2023c)
 
 **Changelog**: [CHANGELOG.md](CHANGELOG.md)
 
