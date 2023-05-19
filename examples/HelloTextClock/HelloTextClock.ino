@@ -1,6 +1,6 @@
 /*
  * An example program intended to be compiled in an Arduino environment,
- * using the AceTimeC library, also compiled under an Arduino environment.
+ * using the acetimec library, also compiled under an Arduino environment.
  *
  * The Makefile uses EpoxyDuino, which provides an Arduino API environment on a
  * POSIX (Linux, MacOS, FreeBSD) machine.

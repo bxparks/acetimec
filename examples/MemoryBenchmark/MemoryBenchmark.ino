@@ -1,5 +1,5 @@
 /*
- * Determine the size of various components of the AceTimeC library.
+ * Determine the size of various components of the acetimec library.
  */
 
 #include <stdint.h> // uint8_t
