@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AceTimeC: /home/brian/src/AceTimeC/src/acetimec/zone_processor.h File Reference</title>
+<title>acetimec: /home/brian/src/acetimec/src/acetimec/zone_processor.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -21,8 +21,8 @@
  <tbody>
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
-   <div id="projectname">AceTimeC
-   &#160;<span id="projectnumber">0.9.0</span>
+   <div id="projectname">acetimec
+   &#160;<span id="projectnumber">0.10.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -80,6 +80,7 @@ $(function() {
 <p>Data structures and functions related to determining the UTC and DST offsets using the list of DST transitions encoded by the <a class="el" href="structAtcTransition.html" title="A transition from one DST rule to another, and the time period which that rule is valid for.">AtcTransition</a> objects.  
 <a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
+<code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="common_8h_source.html">common.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="zone__info_8h_source.html">../zoneinfo/zone_info.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="local__date__time_8h_source.html">local_date_time.h</a>&quot;</code><br />
@@ -88,33 +89,33 @@ $(function() {
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for zone_processor.h:</div>
 <div class="dyncontent">
-<div class="center"><img src="zone__processor_8h__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2zone__processor_8h" alt=""/></div>
-<map name="a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2zone__processor_8h" id="a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2zone__processor_8h">
-<area shape="rect" title="Data structures and functions related to determining the UTC and DST offsets using the list of DST tr..." alt="" coords="215,5,440,47"/>
-<area shape="rect" title=" " alt="" coords="177,319,248,345"/>
-<area shape="rect" href="common_8h.html" title="Some common shared typedefs, constants, and functions." alt="" coords="547,244,638,271"/>
-<area shape="rect" href="zone__info_8h.html" title="The data structures in the zone database, with the AtcZoneInfo representing a specific time zone." alt="" coords="28,169,197,196"/>
-<area shape="rect" href="local__date__time_8h.html" title="Functions that relate to the local date time, without any reference to the time zone." alt="" coords="273,169,411,196"/>
-<area shape="rect" href="date__tuple_8h.html" title="An internal version of LocalDateTime that keeps track of the &#39;w&#39;, &#39;s&#39;, or &#39;u&#39; suffixes from the TZDB ..." alt="" coords="487,169,589,196"/>
-<area shape="rect" href="transition_8h.html" title="Data structures and functions related to calculating DST transitions." alt="" coords="322,95,418,121"/>
-<area shape="rect" title=" " alt="" coords="322,319,397,345"/>
-<area shape="rect" title=" " alt="" coords="441,244,523,271"/>
-<area shape="rect" href="string__buffer_8h.html" title="A simple set of integer to string conversion functions." alt="" coords="302,244,417,271"/>
+<div class="center"><img src="zone__processor_8h__incl.png" border="0" usemap="#a_2home_2brian_2src_2acetimec_2src_2acetimec_2zone__processor_8h" alt=""/></div>
+<map name="a_2home_2brian_2src_2acetimec_2src_2acetimec_2zone__processor_8h" id="a_2home_2brian_2src_2acetimec_2src_2acetimec_2zone__processor_8h">
+<area shape="rect" title="Data structures and functions related to determining the UTC and DST offsets using the list of DST tr..." alt="" coords="346,5,571,47"/>
+<area shape="rect" title=" " alt="" coords="373,319,443,345"/>
+<area shape="rect" title=" " alt="" coords="5,244,88,271"/>
+<area shape="rect" href="common_8h.html" title="Some common shared typedefs, constants, and functions." alt="" coords="403,244,493,271"/>
+<area shape="rect" href="zone__info_8h.html" title="The data structures in the zone database, with the AtcZoneInfo representing a specific time zone." alt="" coords="89,169,258,196"/>
+<area shape="rect" href="local__date__time_8h.html" title="Functions that relate to the local date time, without any reference to the time zone." alt="" coords="283,169,421,196"/>
+<area shape="rect" href="date__tuple_8h.html" title="An internal version of LocalDateTime that keeps track of the &#39;w&#39;, &#39;s&#39;, or &#39;u&#39; suffixes from the TZDB ..." alt="" coords="547,169,650,196"/>
+<area shape="rect" href="transition_8h.html" title="Data structures and functions related to calculating DST transitions." alt="" coords="411,95,507,121"/>
+<area shape="rect" title=" " alt="" coords="233,319,308,345"/>
+<area shape="rect" href="string__buffer_8h.html" title="A simple set of integer to string conversion functions." alt="" coords="213,244,328,271"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
-<div class="center"><img src="zone__processor_8h__dep__incl.png" border="0" usemap="#a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2zone__processor_8hdep" alt=""/></div>
-<map name="a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2zone__processor_8hdep" id="a_2home_2brian_2src_2AceTimeC_2src_2acetimec_2zone__processor_8hdep">
-<area shape="rect" title="Data structures and functions related to determining the UTC and DST offsets using the list of DST tr..." alt="" coords="316,5,542,47"/>
-<area shape="rect" href="time__zone_8c_source.html" title=" " alt="" coords="26,184,219,225"/>
-<area shape="rect" href="time__zone_8h.html" title="A class representing a specific IANA time zone, containing a pointer to a ZoneInfo data containing th..." alt="" coords="400,95,594,136"/>
-<area shape="rect" href="zoned__date__time_8h.html" title="Functions that relate to the date time with a reference to a specific time zone." alt="" coords="244,184,481,225"/>
+<div class="center"><img src="zone__processor_8h__dep__incl.png" border="0" usemap="#a_2home_2brian_2src_2acetimec_2src_2acetimec_2zone__processor_8hdep" alt=""/></div>
+<map name="a_2home_2brian_2src_2acetimec_2src_2acetimec_2zone__processor_8hdep" id="a_2home_2brian_2src_2acetimec_2src_2acetimec_2zone__processor_8hdep">
+<area shape="rect" title="Data structures and functions related to determining the UTC and DST offsets using the list of DST tr..." alt="" coords="314,5,539,47"/>
+<area shape="rect" href="time__zone_8c_source.html" title=" " alt="" coords="25,184,217,225"/>
+<area shape="rect" href="time__zone_8h.html" title="A class representing a specific IANA time zone, containing a pointer to a ZoneInfo data containing th..." alt="" coords="398,95,591,136"/>
+<area shape="rect" href="zoned__date__time_8h.html" title="Functions that relate to the date time with a reference to a specific time zone." alt="" coords="241,184,478,225"/>
 <area shape="rect" href="zoned__date__time_8c_source.html" title=" " alt="" coords="16,273,252,315"/>
-<area shape="rect" href="acetimec_8h_source.html" title=" " alt="" coords="422,273,615,315"/>
-<area shape="rect" href="zone__processor_8c_source.html" title=" " alt="" coords="836,95,1060,136"/>
-<area shape="rect" href="zoned__extra_8c_source.html" title=" " alt="" coords="556,184,760,225"/>
+<area shape="rect" href="acetimec_8h_source.html" title=" " alt="" coords="422,273,609,315"/>
+<area shape="rect" href="zone__processor_8c_source.html" title=" " alt="" coords="833,95,1057,136"/>
+<area shape="rect" href="zoned__extra_8c_source.html" title=" " alt="" coords="554,184,758,225"/>
 </map>
 </div>
 </div>
@@ -301,7 +302,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 <p>Values of the the <a class="el" href="structAtcFindResult.html#adda50f3ec6e0300a64beca476cb613bf" title="The result type of the find_by_xxx() function, one of the kAtcFindResultXxx enums.">AtcFindResult.type</a> field. </p>
 <p>Must be identical to the corresponding kAtcZonedExtraXxx in <a class="el" href="zoned__extra_8h.html" title="Additional information about a time zone such as the STD offset, the DST offset, and the abbreviation...">zoned_extra.h</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8h_source.html#l00134">134</a> of file <a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8h_source.html#l00132">132</a> of file <a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>.</p>
 
 </div>
 </div>
@@ -540,7 +541,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 <p>Find the <a class="el" href="structAtcFindResult.html" title="Data structure that converts the AtcTransitionForSeconds and AtcTransitionForDatetime into time offse...">AtcFindResult</a> at the given LocalDateTime and fold. </p>
 <p>The fold parameter is used only when LocalDateTime falls in a gap or an overlap. library. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00729">729</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00733">733</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
@@ -721,7 +722,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00680">680</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00684">684</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
