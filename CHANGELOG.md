@@ -1,6 +1,7 @@
 # Changelog
 
 * Unreleased
+* 0.9.1 (2023-05-19, TZDB 2023c)
     * `zone_processor.c`
         * Fix bug which prevented the transition cache from working after
           `atc_processor_init_for_year().
