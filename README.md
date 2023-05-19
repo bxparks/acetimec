@@ -171,7 +171,7 @@ I am not familiar with any of the C language package managers. To obtain this
 library, you should manually clone the project into an appropriate place on your
 computer:
 
-```C
+```
 $ git clone https://github.com/bxparks/acetimec
 ```
 
@@ -246,7 +246,7 @@ as described in the next section.
 <a name="Epoch"></a>
 ### Epoch
 
-The functions in [epoch.h](src/ace_time_c/epoch.h) provide features related to
+The functions in [epoch.h](src/acetimec/epoch.h) provide features related to
 the epoch used by the acetimec library. By default, the epoch is 2050-01-01
 00:00:00 UTC, which allows the 32-bit `ace_time_t` type to support dates from
 the year 2000 until the year 2100, at a minimum. However, unlike most timezone
@@ -297,7 +297,7 @@ used by client applications.
 <a name="LocalDate"></a>
 ### LocalDate
 
-The functions in [local_date.h](src/ace_time_c/local_date.h) provide features
+The functions in [local_date.h](src/acetimec/local_date.h) provide features
 related to the Gregorian `(year, month, day)` triple. These functions do not
 know about the time components `(hour, minute, second)` or the timezone. They
 often represent either the local date, or the UTC date, depending on context.
@@ -366,7 +366,7 @@ int32_t atc_local_time_to_seconds(uint8_t hour, uint8_t minute, uint8_t second);
 <a name="AtcLocalDateTime"></a>
 ### AtcLocalDateTime
 
-The functions in [local_date_time.h](src/ace_time_c/local_date_time.h) operate
+The functions in [local_date_time.h](src/acetimec/local_date_time.h) operate
 on the `AtcLocalDateTime` type which represents the wall date and time, without
 reference to a time zone:
 
@@ -435,7 +435,7 @@ normalizes to a ZonedDateTime before the gap.
 <a name="AtcOffsetDateTime"></a>
 ### AtcOffsetDateTime
 
-The functions in [offset_date_time.h](src/ace_time_c/offset_date_time.h) operate
+The functions in [offset_date_time.h](src/acetimec/offset_date_time.h) operate
 on the `AtcOffsetDateTime` type which represents a date-time with a fixed offset
 from UTC:
 
@@ -496,7 +496,7 @@ an error occurs, the function returns `kAtcErrGeneric`, otherwise it returns
 <a name="AtcZonedDateTime"></a>
 ### AtcZonedDateTime
 
-The functions in [zoned_date_time.h](src/ace_time_c/zoned_date_time.h) operate
+The functions in [zoned_date_time.h](src/acetimec/zoned_date_time.h) operate
 on the `AtcZonedDateTime` data structure, which is identical to the
 `AtcOffsetDateTime` data structure with the addition of a reference to the TZDB
 time zone:
@@ -653,7 +653,7 @@ and recalculated, so the execution speed may decrease significantly.
 <a name="AtcZoneInfo"></a>
 ### AtcZoneInfo
 
-The `AtcZoneInfo` data structure in [zone_info.h](src/ace_time_c/zone_info.h)
+The `AtcZoneInfo` data structure in [zone_info.h](src/acetimec/zone_info.h)
 defines the DST transition rules of a single time zone. The pointer to the
 `AtcZoneInfo` is meant to be passed around as opaque object for the most part
 since most of the fields are meant for internal consumption. There are 3
@@ -760,7 +760,7 @@ Registrar functions](#AtcZoneRegistrar) described below.
 <a name="AtcZonedExtra"></a>
 ### AtcZonedExtra
 
-The `AtcZonedExtra` structure in [zoned_extra.h](src/ace_time_c/zoned_extra.h)
+The `AtcZonedExtra` structure in [zoned_extra.h](src/acetimec/zoned_extra.h)
 holds additional meta information about a particular time zone, usually at a
 particular epoch seconds:
 
@@ -822,7 +822,7 @@ On error, the `extra.type` field is set to `kAtcZonedExtraNotFound` and
 <a name="AtcZoneRegistrar"></a>
 ## AtcZoneRegistrar
 
-The functions in [zone_registrar.h](src/ace_time_c/zone_registrar.h) allow
+The functions in [zone_registrar.h](src/acetimec/zone_registrar.h) allow
 searching of the [zone registries](#ZoneDatabaseAndRegistry) by human readable
 name (e.g. "America/Los_Angeles") or by a 32-bit numerical zoneId.
 
