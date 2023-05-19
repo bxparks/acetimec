@@ -1,6 +1,11 @@
 # Changelog
 
 * Unreleased
+* 0.9.1 (2023-05-19, TZDB 2023c)
+    * `zone_processor.c`
+        * Fix bug which prevented the transition cache from working after
+          `atc_processor_init_for_year().
+        * Increases performance by ~7X.
 * 0.9.0 (2023-05-11, TZDB 2023c)
     * Replace `err` return value from most external functions if there is an
       out-parameter on the function signature (e.g. `AtcZonedDateTime`) that can

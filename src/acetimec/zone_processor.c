@@ -611,7 +611,7 @@ void atc_processor_calc_abbreviations(
 void atc_processor_init(AtcZoneProcessor *processor)
 {
   processor->zone_info = NULL;
-  processor->is_filled = 0;
+  processor->year = kAtcInvalidYear;
   processor->num_matches = 0;
 }
 
@@ -624,27 +624,31 @@ void atc_processor_init_for_zone_info(
   processor->zone_info = zone_info;
 }
 
-static bool atc_processor_is_filled_for_year(
+static bool atc_processor_is_valid_for_year(
   AtcZoneProcessor *processor,
   int16_t year)
 {
-  return processor->is_filled && (year == processor->year);
+  return (year == processor->year);
 }
 
 int8_t atc_processor_init_for_year(
   AtcZoneProcessor *processor,
   int16_t year)
 {
-  if (atc_processor_is_filled_for_year(processor, year)) return kAtcErrOk;
+  if (year == kAtcInvalidYear) return kAtcErrGeneric;
+  if (atc_processor_is_valid_for_year(processor, year)) return kAtcErrOk;
+
+  const AtcZoneContext *context = processor->zone_info->zone_context;
+  if (year < context->start_year - 1 || context->until_year < year) {
+    return kAtcErrGeneric;
+  }
 
   processor->year = year;
   processor->num_matches = 0;
   atc_transition_storage_init(
     &processor->transition_storage, processor->zone_info);
-  const AtcZoneContext *context = processor->zone_info->zone_context;
-  if (year < context->start_year - 1 || context->until_year < year) {
-    return kAtcErrGeneric;
-  }
+
+  // Fill transitions over a 14-month window straddling the given year.
   AtcYearMonth start_ym = { year - 1, 12 };
   AtcYearMonth until_ym = { year + 1, 2 };
 
