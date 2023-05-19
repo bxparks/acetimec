@@ -1,6 +1,7 @@
 # Changelog
 
 * Unreleased
+* 0.10.0 (2023-05-19, TZDB 2023c)
     * Rename `AceTimeC` to `acetimec`
         * Better consistency with most other C libraries
         * More consistent with the `acetimepy` library in Python.
