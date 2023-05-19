@@ -1,6 +1,13 @@
 # Changelog
 
 * Unreleased
+    * Rename `AceTimeC` to `acetimec`
+        * Better consistency with most other C libraries
+        * More consistent with the `acetimepy` library in Python.
+        * Allows better distinction my various various Arduino libraries with
+          the naming pattern `AceXxx`.
+        * More consistent with the `acetimec.h` header file, and `acetimec.a`
+          archive file.
 * 0.9.1 (2023-05-19, TZDB 2023c)
     * `zone_processor.c`
         * Fix bug which prevented the transition cache from working after

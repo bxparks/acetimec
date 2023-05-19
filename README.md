@@ -1,6 +1,6 @@
 # AceTime for C
 
-[![ACUnit Tests](https://github.com/bxparks/AceTimeC/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/bxparks/AceTimeC/actions/workflows/unit_tests.yml)
+[![ACUnit Tests](https://github.com/bxparks/acetimec/actions/workflows/unit_tests.yml/badge.svg)](https://github.com/bxparks/acetimec/actions/workflows/unit_tests.yml)
 
 Time zone library for the C language, based on algorithms and techniques from
 the [AceTime](https://github.com/bxparks/AceTime) library for the Arduino
@@ -18,8 +18,8 @@ library. It does not implement the functionality provided by the
 `BasicZoneProcessor` of the AceTime library.
 
 Due to time constraints, this README document provides only a small fraction of
-the documentation provided by the README.md and USER_GUIDE.md documents of the
-AceTime library. If you need more detailed information, please consult those
+the documentation provided by the `README.md` and `USER_GUIDE.md` documents of
+the AceTime library. If you need more detailed information, please consult those
 latter documents.
 
 **Status**: Alpha-level software, not ready for public consumption.
@@ -172,7 +172,7 @@ library, you should manually clone the project into an appropriate place on your
 computer:
 
 ```C
-$ git clone https://github.com/bxparks/AceTimeC
+$ git clone https://github.com/bxparks/acetimec
 ```
 
 There are many different ways that a C library can be incorporated into an
@@ -247,7 +247,7 @@ as described in the next section.
 ### Epoch
 
 The functions in [epoch.h](src/ace_time_c/epoch.h) provide features related to
-the epoch used by the AceTimeC library. By default, the epoch is 2050-01-01
+the epoch used by the acetimec library. By default, the epoch is 2050-01-01
 00:00:00 UTC, which allows the 32-bit `ace_time_t` type to support dates from
 the year 2000 until the year 2100, at a minimum. However, unlike most timezone
 libraries, the epoch year can be changed at runtime so that the `ace_time_t` can
@@ -719,7 +719,7 @@ respective `zone_infos.h` file, which is automatically included by the
 
 The IANA TZ database is often updated to track changes to the DST rules in
 different countries and regions. The version of the TZ database that was used to
-generate the AceTimeC Zone database is given by:
+generate the acetimec Zone database is given by:
 
 ```C
 extern const char kAtcTzDatabaseVersion[];
@@ -932,7 +932,7 @@ zone registry, and pass this custom registry into the
       instead of static memory, special (non-standard) compiler directives need
       to be used.
     * On `avr-gcc` compiler, this is `PROGMEM` directive.
-    * AceTimeC library does not use the `PROGMEM` directive, so the library will
+    * acetimec library does not use the `PROGMEM` directive, so the library will
       probably will not fit inside an AVR processor.
     * On other microcontrollers (e.g. ARM), constants are automatically placed
       into flash memory and referenced directly from there. No special compiler
@@ -953,9 +953,9 @@ zone registry, and pass this custom registry into the
 
 If you have any questions, comments, or feature requests for this library,
 please use the [GitHub
-Discussions](https://github.com/bxparks/AceTimeC/discussions) for this project.
+Discussions](https://github.com/bxparks/acetimec/discussions) for this project.
 If you have bug reports, please file a ticket in [GitHub
-Issues](https://github.com/bxparks/AceTimeC/issues). Feature requests should go
+Issues](https://github.com/bxparks/acetimec/issues). Feature requests should go
 into Discussions first because they often have alternative solutions which are
 useful to remain visible, instead of disappearing from the default view of the
 Issue tracker after the ticket is closed.
