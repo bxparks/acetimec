@@ -49,13 +49,13 @@ int16_t atc_epoch_valid_year_upper(void)
   return atc_get_current_epoch_year() + 50;
 }
 
-int64_t atc_convert_to_unix_seconds(atc_time_t epoch_seconds)
+int64_t atc_epoch_seconds_to_unix_seconds(atc_time_t epoch_seconds)
 {
   return (int64_t) epoch_seconds
       + (int64_t) 86400 * atc_days_to_current_epoch_from_unix_epoch;
 }
 
-atc_time_t atc_convert_from_unix_seconds(int64_t unix_seconds)
+atc_time_t atc_unix_seconds_to_epoch_seconds(int64_t unix_seconds)
 {
   return (int64_t) unix_seconds
       - (int64_t) 86400 * atc_days_to_current_epoch_from_unix_epoch;
