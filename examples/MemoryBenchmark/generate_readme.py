@@ -143,7 +143,7 @@ microcontroller and the compiler did not generate the desired information.
 * Adafruit SAMD 1.7.11
 
 ```
-{stm32_results}
+{samd51_results}
 ```
 
 An entry of `-1` indicates that the memory usage exceeded the maximum of the
