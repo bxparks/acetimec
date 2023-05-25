@@ -78,8 +78,8 @@ uint8_t atc_local_date_day_of_week(int16_t year, uint8_t month, uint8_t day)
 int32_t atc_local_date_to_epoch_days(
     int16_t year, uint8_t month, uint8_t day)
 {
-  int32_t converter_days = atc_convert_to_days(year, month, day);
-  return converter_days - atc_get_days_to_current_epoch_from_converter_epoch();
+  int32_t internal_days = atc_convert_to_internal_days(year, month, day);
+  return internal_days - atc_get_days_to_current_epoch_from_internal_epoch();
 }
 
 void atc_local_date_from_epoch_days(
@@ -88,9 +88,9 @@ void atc_local_date_from_epoch_days(
     uint8_t *month,
     uint8_t *day)
 {
-  int32_t converter_days = epoch_days
-      + atc_get_days_to_current_epoch_from_converter_epoch();
-  atc_convert_from_days(converter_days, year, month, day);
+  int32_t internal_days = epoch_days
+      + atc_get_days_to_current_epoch_from_internal_epoch();
+  atc_convert_from_internal_days(internal_days, year, month, day);
 }
 
 void atc_local_date_increment_one_day(
