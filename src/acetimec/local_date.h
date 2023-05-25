@@ -35,14 +35,6 @@ enum {
   kAtcIsoWeekdaySunday,
 };
 
-enum {
-  /** Sentinel value for invalid year. */
-  kAtcInvalidYear = INT16_MIN,
-
-  /** Invalid epoch seconds. */
-  kAtcInvalidEpochSeconds = INT32_MIN,
-};
-
 /** Return true if year is a leap year. */
 bool atc_is_leap_year(int16_t year);
 

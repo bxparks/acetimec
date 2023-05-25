@@ -25,20 +25,6 @@
 extern "C" {
 #endif
 
-enum {
-  /**
-   * Epoch year used by the internal converter functions
-   * `atc_convert_to_internal_days()` and `atc_convert_from_internal_days()` so
-   * that the "internal epoch" is {year}-01-01T00:00:00. This must be a multiple
-   * of 400.
-   *
-   * This is an internal implementation detail and should not normally be needed
-   * by client applications. They should instead use
-   * atc_get_current_epoch_year() and atc_set_current_epoch_year().
-   */
-  kAtcInternalEpochYear = 2000,
-};
-
 /**
  * The epoch year which will be used to interpret the epoch seconds. By default,
  * the current epoch year is 2050, which means that the epoch is
