@@ -77,6 +77,21 @@ void atc_local_date_time_from_epoch_seconds(
   AtcLocalDateTime *ldt,
   atc_time_t epoch_seconds);
 
+/**
+ * Convert LocalDateTime in UTC to Unix seconds (since 1970).
+ * Return kAtcInvalidUnixSeconds upon failure.
+ */
+int64_t atc_local_date_time_to_unix_seconds(
+    const AtcLocalDateTime *ldt);
+
+/**
+ * Convert epoch seconds to LocalDateTime in UTC.
+ * Return an error value for ldt upon error.
+ */
+void atc_local_date_time_from_unix_seconds(
+  AtcLocalDateTime *ldt,
+  int64_t unix_seconds);
+
 /** Print the local date time in ISO 8601 format. */
 void atc_local_date_time_print(
     AtcStringBuffer *sb,

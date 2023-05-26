@@ -51,14 +51,17 @@ int16_t atc_get_current_epoch_year(void);
  */
 void atc_set_current_epoch_year(int16_t year);
 
-/** Get number of days from internal epoch to current epoch. */
-int32_t atc_get_days_to_current_epoch_from_internal_epoch(void);
-
-/** Convert epoch seconds to the 64-bit unix seconds from 1970. */
-int64_t atc_epoch_seconds_to_unix_seconds(atc_time_t epoch_seconds);
+/** Convert epoch seconds to the unix seconds from 1970. */
+int64_t atc_unix_seconds_from_epoch_seconds(atc_time_t epoch_seconds);
 
 /** Convert the 64-bit unix seconds from 1970 to acetimec epoch seconds. */
-atc_time_t atc_unix_seconds_to_epoch_seconds(int64_t unix_seconds);
+atc_time_t atc_epoch_seconds_from_unix_seconds(int64_t unix_seconds);
+
+/** Convert epoch days to unix days. */
+int32_t atc_unix_days_from_epoch_days(int32_t epoch_days);
+
+/** Convert unix days to epoch days. */
+int32_t atc_epoch_days_from_unix_days(int32_t unix_days);
 
 /**
  * The smallest year (inclusive) for which calculations involving the 32-bit

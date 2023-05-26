@@ -47,6 +47,9 @@ enum {
    */
   kAtcInternalEpochYear = 2000,
 
+  /** Number of days from Unix epoch to Internal epoch (2000). */
+  kAtcDaysToInternalEpochFromUnixEpoch = 10957,
+
   /** Sentinel value for invalid year. */
   kAtcInvalidYear = INT16_MIN,
 
