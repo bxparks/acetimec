@@ -1037,8 +1037,6 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
     2017, 12, 1, 0, 0, 0, 0 /*fold*/, -8*3600 /*offset_seconds*/
   };
   atc_time_t eps = atc_offset_date_time_to_epoch_seconds(&odt);
-  printf("eps=%d; transition->start_epoch_seconds=%d\n",
-      (int) eps, (int) transition0->start_epoch_seconds);
   ACU_ASSERT(eps == transition0->start_epoch_seconds);
 
   // Step 4: Verification: Second transition startTime is shifted forward one
