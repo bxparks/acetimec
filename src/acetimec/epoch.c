@@ -39,18 +39,26 @@ int16_t atc_epoch_valid_year_upper(void)
 
 int64_t atc_unix_seconds_from_epoch_seconds(atc_time_t epoch_seconds)
 {
-  return (int64_t) epoch_seconds
-      + (int64_t) 86400
-        * (atc_days_to_current_epoch_from_internal_epoch
-            + kAtcDaysToInternalEpochFromUnixEpoch);
+  if (epoch_seconds == kAtcInvalidEpochSeconds) {
+    return kAtcInvalidUnixSeconds;
+  } else {
+    return (int64_t) epoch_seconds
+        + (int64_t) 86400
+          * (atc_days_to_current_epoch_from_internal_epoch
+              + kAtcDaysToInternalEpochFromUnixEpoch);
+  }
 }
 
 atc_time_t atc_epoch_seconds_from_unix_seconds(int64_t unix_seconds)
 {
-  return (int64_t) unix_seconds
-      - (int64_t) 86400
-        * (atc_days_to_current_epoch_from_internal_epoch
-            + kAtcDaysToInternalEpochFromUnixEpoch);
+  if (unix_seconds == kAtcInvalidUnixSeconds) {
+    return kAtcInvalidEpochSeconds;
+  } else {
+    return (int64_t) unix_seconds
+        - (int64_t) 86400
+          * (atc_days_to_current_epoch_from_internal_epoch
+              + kAtcDaysToInternalEpochFromUnixEpoch);
+  }
 }
 
 int32_t atc_unix_days_from_epoch_days(int32_t epoch_days)

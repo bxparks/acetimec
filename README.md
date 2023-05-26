@@ -827,6 +827,11 @@ void atc_zoned_extra_from_epoch_seconds(
     atc_time_t epoch_seconds,
     AtcTimeZone tz);
 
+void atc_zoned_extra_from_unix_seconds(
+    AtcZonedExtra *extra,
+    int64_t unix_seconds,
+    AtcTimeZone tz);
+
 void atc_zoned_extra_from_local_date_time(
     AtcZonedExtra *extra,
     AtcLocalDateTime *ldt,

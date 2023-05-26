@@ -67,12 +67,25 @@ void atc_zoned_extra_set_error(AtcZonedExtra *extra);
 bool atc_zoned_extra_is_error(const AtcZonedExtra *extra);
 
 /**
- * Extract the extra zone information at given epoch_seconds.
+ * Extract the extra zone information at given epoch seconds.
  * Returns error status in `extra->type`.
  */
 void atc_zoned_extra_from_epoch_seconds(
     AtcZonedExtra *extra,
     atc_time_t epoch_seconds,
+    const AtcTimeZone *tz);
+
+/**
+ * Extract the extra zone information at given Unix seconds. Since this uses
+ * the AtcZoneProcessor and its transition cache, the range of supported Unix
+ * seconds is determined by the range of the epoch seconds in the context of the
+ * current epoch year.
+ *
+ * Returns error status in `extra->type`.
+ */
+void atc_zoned_extra_from_unix_seconds(
+    AtcZonedExtra *extra,
+    int64_t unix_seconds,
     const AtcTimeZone *tz);
 
 /**

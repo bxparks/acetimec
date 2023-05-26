@@ -2,7 +2,7 @@
 #include <acetimec.h>
 #include <acunit.h>
 
-ACU_TEST(test_atc_zoned_extra_types_equal_find_result_types)
+ACU_TEST(test_zoned_extra_types_equal_find_result_types)
 {
   ACU_ASSERT((int)kAtcZonedExtraNotFound == (int)kAtcFindResultNotFound);
   ACU_ASSERT((int)kAtcZonedExtraExact == (int)kAtcFindResultExact);
@@ -10,7 +10,7 @@ ACU_TEST(test_atc_zoned_extra_types_equal_find_result_types)
   ACU_ASSERT((int)kAtcZonedExtraOverlap == (int)kAtcFindResultOverlap);
 }
 
-ACU_TEST(test_atc_zoned_extra_from_epoch_seconds_invalid)
+ACU_TEST(test_zoned_extra_from_epoch_seconds_invalid)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
@@ -20,6 +20,19 @@ ACU_TEST(test_atc_zoned_extra_from_epoch_seconds_invalid)
   atc_time_t epoch_seconds = kAtcInvalidEpochSeconds;
 
   atc_zoned_extra_from_epoch_seconds(&extra, epoch_seconds, &tz);
+  ACU_ASSERT(atc_zoned_extra_is_error(&extra));
+}
+
+ACU_TEST(test_zoned_extra_from_unix_seconds_invalid)
+{
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcTestingZoneEtc_UTC, &processor};
+
+  AtcZonedExtra extra;
+  int64_t unix_seconds = kAtcInvalidUnixSeconds;
+
+  atc_zoned_extra_from_unix_seconds(&extra, unix_seconds, &tz);
   ACU_ASSERT(atc_zoned_extra_is_error(&extra));
 }
 
@@ -151,8 +164,9 @@ ACU_CONTEXT();
 
 int main()
 {
-  ACU_RUN_TEST(test_atc_zoned_extra_types_equal_find_result_types);
-  ACU_RUN_TEST(test_atc_zoned_extra_from_epoch_seconds_invalid);
+  ACU_RUN_TEST(test_zoned_extra_types_equal_find_result_types);
+  ACU_RUN_TEST(test_zoned_extra_from_epoch_seconds_invalid);
+  ACU_RUN_TEST(test_zoned_extra_from_unix_seconds_invalid);
   ACU_RUN_TEST(test_zoned_extra_from_epoch_seconds_fall_back);
   ACU_RUN_TEST(test_zoned_extra_from_epoch_seconds_spring_forward);
   ACU_RUN_TEST(test_zoned_extra_from_local_date_time_fall_back);
