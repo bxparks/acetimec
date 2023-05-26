@@ -3,6 +3,8 @@
 * Unreleased
     * Update path to ACUnit from https://github.com/bxparks/ACUnit (v0.1) to
       https://github.com/bxparks/acunit (v0.2).
+    * Support LocalDateTime, OffsetDateTime, and ZonedDateTime to and from
+      64-bit unix seconds.
 * 0.10.0 (2023-05-19, TZDB 2023c)
     * Rename `AceTimeC` to `acetimec`
         * Better consistency with most other C libraries

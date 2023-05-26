@@ -389,12 +389,17 @@ void atc_local_date_time_set_error(AtcLocalDateTime *ldt);
 
 bool atc_local_date_time_is_error(const AtcLocalDateTime *ldt);
 
-atc_time_t atc_local_date_time_to_epoch_seconds(
-    const AtcLocalDateTime *ldt);
+atc_time_t atc_local_date_time_to_epoch_seconds( const AtcLocalDateTime *ldt);
 
 void atc_local_date_time_from_epoch_seconds(
     AtcLocalDateTime *ldt,
     atc_time_t epoch_seconds);
+
+int64_t atc_local_date_time_to_unix_seconds( const AtcLocalDateTime *ldt);
+
+void atc_local_date_time_from_unix_seconds(
+    AtcLocalDateTime *ldt,
+    int64_t unix_seconds);
 
 void atc_local_date_time_print(
     AtcStringBuffer *sb,
@@ -450,7 +455,7 @@ typedef struct AtcOffsetDateTime {
   uint8_t second;
   uint8_t fold;
 
-  int16_t offset_minutes;
+  int32_t offset_seconds;
 } AtcOffsetDateTime;
 ```
 
@@ -465,13 +470,19 @@ void atc_offset_date_time_set_error(AtcOffsetDateTime *odt);
 
 bool atc_offset_date_time_is_error(const AtcOffsetDateTime *odt);
 
-atc_time_t atc_offset_date_time_to_epoch_seconds(
-    const AtcOffsetDateTime *odt);
+atc_time_t atc_offset_date_time_to_epoch_seconds(const AtcOffsetDateTime *odt);
 
 void atc_offset_date_time_from_epoch_seconds(
     AtcOffsetDateTime *odt,
     atc_time_t epoch_seconds,
-    int16_t offset_minutes);
+    int32_t offset_seconds);
+
+int64_t atc_offset_date_time_to_unix_seconds(const AtcOffsetDateTime *odt);
+
+void atc_offset_date_time_from_unix_seconds(
+    AtcOffsetDateTime *odt,
+    int64_t unix_seconds,
+    int32_t offset_seconds);
 
 void atc_offset_date_time_print(
     AtcStringBuffer *sb,
@@ -483,13 +494,13 @@ This causes `atc_offset_date_time_is_error(odt)` to return `true`.
 
 The `atc_offset_date_time_from_epoch_seconds()` function converts the given
 `AtcOffsetDateTime` into its `atc_time_t` epoch seconds, taking into account the
-`offset_minutes` field. If an error occurs, the function returns
+`offset_seconds` field. If an error occurs, the function returns
 `kAtcInvalidEpochSeconds`. The `fold` parameter of the input `AtcOffsetDateTime`
-is ignored because the `odt.offset_minutes` field is sufficient to disambiguate
+is ignored because the `odt.offset_seconds` field is sufficient to disambiguate
 multiple instances.
 
 The `atc_offset_date_time_from_epoch_seconds()` function converts the given
-`epoch_seconds` and `offset_minutes` into the `AtcOffsetDateTime` components. If
+`epoch_seconds` and `offset_seconds` into the `AtcOffsetDateTime` components. If
 an error occurs, the function returns `kAtcErrGeneric`, otherwise it returns
 `kAtcErrOk`. The `odt.fold` parameter will always be set to 0.
 
@@ -512,7 +523,7 @@ typedef struct AtcZonedDateTime {
   uint8_t second;
   uint8_t fold;
 
-  int16_t offset_minutes; /* possibly ignored */
+  int32_t offset_seconds; /* possibly ignored */
   AtcTimeZone tz;
 } AtcZonedDateTime;
 ```
@@ -528,12 +539,18 @@ void atc_zoned_date_time_set_error(AtcZonedDateTime *zdt);
 
 bool atc_zoned_date_time_is_error(const AtcZonedDateTime *zdt);
 
-atc_time_t atc_zoned_date_time_to_epoch_seconds(
-    const AtcZonedDateTime *zdt);
+atc_time_t atc_zoned_date_time_to_epoch_seconds(const AtcZonedDateTime *zdt);
 
 void atc_zoned_date_time_from_epoch_seconds(
     AtcZonedDateTime *zdt,
     atc_time_t epoch_seconds,
+    AtcTimeZone *tz);
+
+int64_t atc_zoned_date_time_to_unix_seconds(const AtcZonedDateTime *zdt);
+
+void atc_zoned_date_time_from_unix_seconds(
+    AtcZonedDateTime *zdt,
+    int64_t unix_seconds,
     AtcTimeZone *tz);
 
 void atc_zoned_date_time_from_local_date_time(
