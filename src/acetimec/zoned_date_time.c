@@ -3,7 +3,7 @@
  * Copyright (c) 2022 Brian T. Park
  */
 
-#include "../zoneinfo/zone_info_utils.h" // atc_zone_info_zone_name()
+#include "epoch.h" // atc_epoch_seconds_from_unix_seconds()
 #include "local_date.h"
 #include "local_date_time.h"
 #include "zone_processor.h"
@@ -40,6 +40,25 @@ void atc_zoned_date_time_from_epoch_seconds(
   // ZonedDateTime memory layout must be same as OffsetDateTime.
   atc_time_zone_offset_date_time_from_epoch_seconds(
       tz, epoch_seconds, (AtcOffsetDateTime *) zdt);
+}
+
+int64_t atc_zoned_date_time_to_unix_seconds(const AtcZonedDateTime *zdt)
+{
+  // ZonedDateTime memory layout must be same as OffsetDateTime.
+  return atc_offset_date_time_to_unix_seconds((const AtcOffsetDateTime*) zdt);
+}
+
+void atc_zoned_date_time_from_unix_seconds(
+    AtcZonedDateTime *zdt,
+    int64_t unix_seconds,
+    const AtcTimeZone *tz)
+{
+  if (unix_seconds == kAtcInvalidUnixSeconds) {
+    atc_zoned_date_time_set_error(zdt);
+    return;
+  }
+  atc_time_t epoch_seconds = atc_epoch_seconds_from_unix_seconds(unix_seconds);
+  atc_zoned_date_time_from_epoch_seconds(zdt, epoch_seconds, tz);
 }
 
 void atc_zoned_date_time_from_local_date_time(
