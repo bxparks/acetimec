@@ -1,14 +1,14 @@
 #include <acunit.h>
 #include <acetimec.h>
 
-ACU_TEST(test_atc_local_date_time_errors)
+ACU_TEST(test_local_date_time_errors)
 {
   AtcLocalDateTime ldt;
   atc_local_date_time_set_error(&ldt);
   ACU_ASSERT(atc_local_date_time_is_error(&ldt));
 }
 
-ACU_TEST(test_atc_local_date_time_to_epoch_seconds)
+ACU_TEST(test_local_date_time_to_epoch_seconds)
 {
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2000);
@@ -44,7 +44,7 @@ ACU_TEST(test_atc_local_date_time_to_epoch_seconds)
   atc_set_current_epoch_year(saved_epoch_year);
 }
 
-ACU_TEST(test_atc_local_date_time_from_epoch_seconds)
+ACU_TEST(test_local_date_time_from_epoch_seconds)
 {
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2000);
@@ -92,7 +92,7 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds)
 
 //---------------------------------------------------------------------------
 
-ACU_TEST(test_atc_local_date_time_to_epoch_seconds_epoch2050)
+ACU_TEST(test_local_date_time_to_epoch_seconds_epoch2050)
 {
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2050);
@@ -116,7 +116,7 @@ ACU_TEST(test_atc_local_date_time_to_epoch_seconds_epoch2050)
   atc_set_current_epoch_year(saved_epoch_year);
 }
 
-ACU_TEST(test_atc_local_date_time_from_epoch_seconds_epoch2050)
+ACU_TEST(test_local_date_time_from_epoch_seconds_epoch2050)
 {
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2050);
@@ -155,7 +155,7 @@ ACU_TEST(test_atc_local_date_time_from_epoch_seconds_epoch2050)
 
 //---------------------------------------------------------------------------
 
-ACU_TEST(test_atc_local_date_time_to_unix_seconds)
+ACU_TEST(test_local_date_time_to_unix_seconds)
 {
   AtcLocalDateTime ldt;
   atc_local_date_time_set_error(&ldt);
@@ -178,7 +178,7 @@ ACU_TEST(test_atc_local_date_time_to_unix_seconds)
   ACU_ASSERT(unix_seconds == 4102542245L);
 }
 
-ACU_TEST(test_atc_local_date_time_from_unix_seconds)
+ACU_TEST(test_local_date_time_from_unix_seconds)
 {
   AtcLocalDateTime ldt;
 
@@ -219,12 +219,12 @@ ACU_CONTEXT();
 
 int main()
 {
-  ACU_RUN_TEST(test_atc_local_date_time_errors);
-  ACU_RUN_TEST(test_atc_local_date_time_to_epoch_seconds);
-  ACU_RUN_TEST(test_atc_local_date_time_from_epoch_seconds);
-  ACU_RUN_TEST(test_atc_local_date_time_to_epoch_seconds_epoch2050);
-  ACU_RUN_TEST(test_atc_local_date_time_from_epoch_seconds_epoch2050);
-  ACU_RUN_TEST(test_atc_local_date_time_to_unix_seconds);
-  ACU_RUN_TEST(test_atc_local_date_time_from_unix_seconds);
+  ACU_RUN_TEST(test_local_date_time_errors);
+  ACU_RUN_TEST(test_local_date_time_to_epoch_seconds);
+  ACU_RUN_TEST(test_local_date_time_from_epoch_seconds);
+  ACU_RUN_TEST(test_local_date_time_to_epoch_seconds_epoch2050);
+  ACU_RUN_TEST(test_local_date_time_from_epoch_seconds_epoch2050);
+  ACU_RUN_TEST(test_local_date_time_to_unix_seconds);
+  ACU_RUN_TEST(test_local_date_time_from_unix_seconds);
   ACU_SUMMARY();
 }
