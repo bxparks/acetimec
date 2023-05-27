@@ -30,27 +30,39 @@ ACU_TEST(test_local_date_to_epoch_days) {
   ACU_ASSERT(atc_local_date_to_epoch_days(2050, 1, 1) == 0);
 }
 
-// Do a round-trip of conversion atc_local_date_to_epoch_days() and
-// atc_local_date_from_epoch_days() for almost every day from 0001-01-01 to
-// 9999-12-31:
-ACU_TEST(test_local_date_to_and_from_epoch_days)
+// Test round-trip of conversions for every day from 0001-01-01 to 9999-12-31.
+// To avoid code duplication and to reduce CPU time, we can test both
+// the epoch days and Unix days at the same time. In other words, we can test
+// the following conversions:
+//
+// * atc_local_date_to_epoch_days() and atc_local_date_from_epoch_days()
+// * atc_local_date_to_unix_days() and atc_local_date_from_unix_days()
+ACU_TEST(test_local_date_epoch_days_unix_days)
 {
-  // Number of epoch days from 2050 to 0001-01-01:
-  //  = 146097*5 [2000 years, 5*400 cycle]
+  // Number of days from 0001-01-01 to default epoch year of 2050:
+  //    = 146097*5 [2000 years, 5*400 cycle]
   //    + 365 * 50 [days from 2000 to 2050]
   //    + 13 [13 leap days from 2000 to 2050]
   //    - 366 [year 0 was a leap year]
+  // We need the negative of that.
   int32_t epoch_days = -(146097*5 + 365*50 + 13 - 366);
+
+  // Number of days from 0001-01-01 to Unix epoch year 1970:
+  //    = 146097*5 [2000 years, 5*400 cycle]
+  //    - kAtcDaysToInternalEpochFromUnixEpoch
+  //    - 366 [year 0 was a leap year]
+  // We need the negative of that.
+  int32_t unix_days = -(146097*5 - kAtcDaysToInternalEpochFromUnixEpoch - 366);
+
   for (int16_t year = 1; year <= 9999; year++) {
     for (uint8_t month = 1; month <= 12; month++) {
       uint8_t days_in_month = atc_local_date_days_in_year_month(year, month);
       for (uint8_t day = 1; day <= days_in_month; day++) {
-        // Test atc_to_epoch_days()
-        int32_t obs_epoch_days = atc_local_date_to_epoch_days(
-            year, month, day);
+        // atc_local_date_to_epoch_days()
+        int32_t obs_epoch_days = atc_local_date_to_epoch_days(year, month, day);
         ACU_ASSERT(epoch_days == obs_epoch_days);
 
-        // Test atc_from_epoch_days()
+        // atc_local_date_from_epoch_days()
         int16_t obs_year;
         uint8_t obs_month;
         uint8_t obs_day;
@@ -60,8 +72,19 @@ ACU_TEST(test_local_date_to_and_from_epoch_days)
         ACU_ASSERT(month == obs_month);
         ACU_ASSERT(day == obs_day);
 
-        // next epoch day
+        // atc_local_date_to_unix_days()
+        int32_t obs_unix_days = atc_local_date_to_unix_days(year, month, day);
+        ACU_ASSERT(unix_days == obs_unix_days);
+
+        // atc_local_date_from_unix_days()
+        atc_local_date_from_unix_days(
+            unix_days, &obs_year, &obs_month, &obs_day);
+        ACU_ASSERT(year == obs_year);
+        ACU_ASSERT(month == obs_month);
+        ACU_ASSERT(day == obs_day);
+
         epoch_days++;
+        unix_days++;
       }
     }
   }
@@ -216,7 +239,7 @@ int main()
   ACU_RUN_TEST(test_iso_week_enum);
   ACU_RUN_TEST(test_is_leap_year);
   ACU_RUN_TEST(test_local_date_to_epoch_days); // must be one of earliest
-  ACU_RUN_TEST(test_local_date_to_and_from_epoch_days);
+  ACU_RUN_TEST(test_local_date_epoch_days_unix_days);
   ACU_RUN_TEST(test_day_of_week);
   ACU_RUN_TEST(test_increment_one_day);
   ACU_RUN_TEST(test_decrement_one_day);

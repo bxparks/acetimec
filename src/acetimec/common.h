@@ -47,8 +47,21 @@ enum {
    */
   kAtcInternalEpochYear = 2000,
 
-  /** Number of days from Unix epoch to Internal epoch (2000). */
+  /** Number of days from the Unix epoch (1970) to the Internal epoch (2000). */
   kAtcDaysToInternalEpochFromUnixEpoch = 10957,
+
+  /**
+   * Default epoch year of the library. This is selected so that the 32-bit
+   * atc_time_t epoch seconds type is valid at least over the 100 years from
+   * 2000 to 2100.
+   */
+  kAtcDefaultEpochYear = 2050,
+
+  /**
+   * Number of days from the Internal epoch (2000) to the default epoch (2050).
+   * This is 50 years * 365 + 13 leap days.
+   */
+  kAtcDaysToDefaultEpochFromInternalEpoch = 365*50 + 13,
 
   /** Sentinel value for invalid year. */
   kAtcInvalidYear = INT16_MIN,

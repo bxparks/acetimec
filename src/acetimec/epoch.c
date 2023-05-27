@@ -9,11 +9,11 @@
 
 // Initialized to the default current epoch. If this is changed, then the
 // atc_days_to_current_epoch_from_internal must be changed as well.
-int16_t atc_current_epoch_year = 2050;
+int16_t atc_current_epoch_year = kAtcDefaultEpochYear;
 
 // Number of days from 2000 (internal epoch) to 2050 (default current epoch):
-// 50 years * 365 + 13 leap days.
-int32_t atc_days_to_current_epoch_from_internal_epoch = 365 * 50 + 13;
+int32_t atc_days_to_current_epoch_from_internal_epoch =
+    kAtcDaysToDefaultEpochFromInternalEpoch;
 
 int16_t atc_get_current_epoch_year(void)
 {
@@ -75,12 +75,14 @@ int32_t atc_epoch_days_from_unix_days(int32_t unix_days)
       - atc_days_to_current_epoch_from_internal_epoch;
 }
 
-/** Return the number days before the given month_prime. */
+// Return the number days before the given month_prime.
+// See AceTime/src/ace_time/internal/EpochConverterHinnant.h.
 static uint16_t atc_convert_to_days_until_month_prime(uint8_t month_prime)
 {
   return (153 * month_prime + 2) / 5;
 }
 
+// See AceTime/src/ace_time/internal/EpochConverterHinnant.h.
 int32_t atc_convert_to_internal_days(int16_t year, uint8_t month, uint8_t day)
 {
   int16_t year_prime = year - ((month <= 2) ? 1 : 0); // year begins on Mar 1
@@ -101,6 +103,7 @@ int32_t atc_convert_to_internal_days(int16_t year, uint8_t month, uint8_t day)
           + 60; // relative to 2000-01-01, 2000 is a leap year
 }
 
+// See AceTime/src/ace_time/internal/EpochConverterHinnant.h.
 void atc_convert_from_internal_days(
     int32_t internal_days,
     int16_t *year,

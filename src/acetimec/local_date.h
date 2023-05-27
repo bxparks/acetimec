@@ -49,15 +49,14 @@ uint8_t atc_local_date_days_in_year_month(int16_t year, uint8_t month);
 uint8_t atc_local_date_day_of_week(int16_t year, uint8_t month, uint8_t day);
 
 /**
- * Return the number of days from the current epoch year for the (year, month,
+ * Return the number of days from the current epoch year to the (year, month,
  * day) triple.
  *
  * @param year [1,9999]
  * @param month month integer, [1,12]
  * @param day day of month integer, [1,31]
  */
-int32_t atc_local_date_to_epoch_days(
-    int16_t year, uint8_t month, uint8_t day);
+int32_t atc_local_date_to_epoch_days(int16_t year, uint8_t month, uint8_t day);
 
 /**
  * Extract the (year, month, day) fields from the current epoch year
@@ -73,6 +72,34 @@ int32_t atc_local_date_to_epoch_days(
  */
 void atc_local_date_from_epoch_days(
     int32_t epoch_days,
+    int16_t *year,
+    uint8_t *month,
+    uint8_t *day);
+
+/**
+ * Return the number of days from the Unix epoch (1970) to the (year, month,
+ * day) triple.
+ *
+ * @param year [1,9999]
+ * @param month month integer, [1,12]
+ * @param day day of month integer, [1,31]
+ */
+int32_t atc_local_date_to_unix_days(int16_t year, uint8_t month, uint8_t day);
+
+/**
+ * Extract the (year, month, day) fields from the number of days since Unix
+ * epoch (1970).
+ *
+ * No input validation is performed. The behavior is undefined if the
+ * parameters are outside their expected range.
+ *
+ * @param unix_days number of days from the Unix epoch
+ * @param year year [1,9999]
+ * @param month month integer [1, 12]
+ * @param day day of month integer[1, 31]
+ */
+void atc_local_date_from_unix_days(
+    int32_t unix_days,
     int16_t *year,
     uint8_t *month,
     uint8_t *day);
