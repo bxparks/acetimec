@@ -7,6 +7,7 @@
 #include <string.h> // memcpy(), strncpy()
 #include "../zoneinfo/zone_info_utils.h"
 #include "common.h" // atc_copy_replace_string()
+#include "epoch.h" // atc_get_current_epoch_year()
 #include "local_date.h" // atc_local_date_days_in_year_month()
 #include "date_tuple.h" // AtcDateTuple
 #include "transition.h" // AtcTransition, AtcTransitionStorage
@@ -611,6 +612,7 @@ void atc_processor_calc_abbreviations(
 void atc_processor_init(AtcZoneProcessor *processor)
 {
   processor->zone_info = NULL;
+  processor->epoch_year = kAtcInvalidYear;
   processor->year = kAtcInvalidYear;
   processor->num_matches = 0;
 }
@@ -628,7 +630,8 @@ static bool atc_processor_is_valid_for_year(
   AtcZoneProcessor *processor,
   int16_t year)
 {
-  return (year == processor->year);
+  return (year == processor->year)
+      && (processor->epoch_year == atc_get_current_epoch_year());
 }
 
 int8_t atc_processor_init_for_year(
@@ -643,6 +646,7 @@ int8_t atc_processor_init_for_year(
     return kAtcErrGeneric;
   }
 
+  processor->epoch_year = atc_get_current_epoch_year();
   processor->year = year;
   processor->num_matches = 0;
   atc_transition_storage_init(

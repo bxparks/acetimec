@@ -112,7 +112,14 @@ typedef struct AtcZoneProcessor {
   /** The time zone attached to this Processor workspace. */
   const AtcZoneInfo *zone_info;
 
-  /** Cache year, [0,9999] or kAtcInvalidYear to indicate invalid cache. */
+  /**
+   * Epoch year used to generate the internal cache. The
+   * atc_processor_init_for_year() function invalidates and regenerates the
+   * cache if the epoch_year has changed.
+   */
+  int16_t epoch_year;
+
+  /** Cached year, [0,9999] or kAtcInvalidYear to indicate invalid cache. */
   int16_t year;
 
   /** Number of valid matches in the array. */
@@ -183,14 +190,18 @@ typedef struct AtcFindResult {
 //---------------------------------------------------------------------------
 // Externally exported API. The workflow is roughly:
 //
-// 1) Initialize the AtcZoneProcessor upon memory allocation. This needs to be
-// done only once. This is essentially the "constructor" of this object.
+// 1) Initialize the AtcZoneProcessor upon memory allocation using
+// `atc_processor_init()`. This needs to be done only once. This is essentially
+// the "constructor" of this object.
+//
 // 2) Initialize the AtcZoneProcessor with the AtcZoneInfo. This will usually be
 // done once for the duration of the client application. However, it can be
 // called more than once if the AtcZoneProcessor is reused (to save memory) for
 // multiple zone infos. The transition cache (see below) will be invalidated.
+//
 // 3) Initialze the AtcZoneProcessor with the epoch seconds or LocalDateTime
 // to populate the transition cache for that year.
+//
 // 4) Find the AtcFindResult for the epoch seconds or AtcLocalDateTime of
 // interest using the cache of transitions.
 //

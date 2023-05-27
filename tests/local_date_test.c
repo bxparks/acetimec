@@ -215,7 +215,7 @@ int main()
 {
   ACU_RUN_TEST(test_iso_week_enum);
   ACU_RUN_TEST(test_is_leap_year);
-  ACU_RUN_TEST(test_local_date_to_epoch_days);
+  ACU_RUN_TEST(test_local_date_to_epoch_days); // must be one of earliest
   ACU_RUN_TEST(test_local_date_to_and_from_epoch_days);
   ACU_RUN_TEST(test_day_of_week);
   ACU_RUN_TEST(test_increment_one_day);
