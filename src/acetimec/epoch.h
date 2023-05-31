@@ -117,7 +117,7 @@ int32_t atc_convert_to_internal_days(int16_t year, uint8_t month, uint8_t day);
  * No input validation is performed. The behavior is undefined if the
  * parameters are outside their expected range.
  *
- * @param epoch_days number of days from internal epoch of 2000-01-01
+ * @param internal_days number of days from internal epoch of 2000-01-01
  * @param year year [1,9999]
  * @param month month integer [1, 12]
  * @param day day of month integer[1, 31]
