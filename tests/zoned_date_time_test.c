@@ -8,7 +8,7 @@
 
 //---------------------------------------------------------------------------
 
-ACU_TEST(test_zoned_date_time_from_epoch_seconds)
+ACU_TEST(test_zoned_date_time_to_and_from_epoch_seconds)
 {
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2000);
@@ -37,7 +37,7 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds)
   atc_set_current_epoch_year(saved_epoch_year);
 }
 
-ACU_TEST(test_zoned_date_time_from_epoch_seconds_epoch2050)
+ACU_TEST(test_zoned_date_time_to_and_from_epoch_seconds_epoch2050)
 {
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2050);
@@ -106,6 +106,9 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_invalid)
 
   atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
   ACU_ASSERT(atc_zoned_date_time_is_error(&zdt));
+
+  ACU_ASSERT(atc_zoned_date_time_to_epoch_seconds(&zdt)
+      == kAtcInvalidEpochSeconds);
 }
 
 ACU_TEST(test_zoned_date_time_from_epoch_seconds_fall_back)
@@ -208,6 +211,81 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward)
   ACU_ASSERT(-7*3600 == zdt.offset_seconds);
   ACU_ASSERT(0 == zdt.fold);
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
+
+  atc_set_current_epoch_year(saved_epoch_year);
+}
+
+//---------------------------------------------------------------------------
+
+ACU_TEST(test_zoned_date_time_to_and_from_unix_seconds)
+{
+  // Use 2050 to test Unix seconds beyond the 32-bit time_t limit.
+  // And it is a valid epoch for the 'zonedbtesting' database.
+  int16_t saved_epoch_year = atc_get_current_epoch_year();
+  atc_set_current_epoch_year(2050);
+
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
+  AtcZonedDateTime zdt;
+
+  // date +%s -d '2000-01-01T00:00:00Z'
+  int64_t unix_seconds = 946684800L;
+
+  // from unix seconds
+  atc_zoned_date_time_from_unix_seconds(&zdt, unix_seconds, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
+  ACU_ASSERT(zdt.year == 1999);
+  ACU_ASSERT(zdt.month == 12);
+  ACU_ASSERT(zdt.day == 31);
+  ACU_ASSERT(zdt.hour == 16);
+  ACU_ASSERT(zdt.minute == 0);
+  ACU_ASSERT(zdt.second == 0);
+  ACU_ASSERT(zdt.fold == 0);
+  ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
+
+  // to unix seconds
+  int64_t seconds = atc_zoned_date_time_to_unix_seconds(&zdt);
+  ACU_ASSERT(seconds == unix_seconds);
+
+  // date +%s -d '2050-01-01T00:00:00Z'
+  unix_seconds = 2524608000L;
+
+  // from unix seconds
+  atc_zoned_date_time_from_unix_seconds(&zdt, unix_seconds, &tz);
+  ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
+  ACU_ASSERT(zdt.year == 2049);
+  ACU_ASSERT(zdt.month == 12);
+  ACU_ASSERT(zdt.day == 31);
+  ACU_ASSERT(zdt.hour == 16);
+  ACU_ASSERT(zdt.minute == 0);
+  ACU_ASSERT(zdt.second == 0);
+  ACU_ASSERT(zdt.fold == 0);
+  ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
+
+  // to unix seconds
+  seconds = atc_zoned_date_time_to_unix_seconds(&zdt);
+  ACU_ASSERT(seconds == unix_seconds);
+
+  atc_set_current_epoch_year(saved_epoch_year);
+}
+
+ACU_TEST(test_zoned_date_time_to_and_from_unix_seconds_invalid)
+{
+  // Use 2050 to test Unix seconds beyond the 32-bit time_t limit.
+  // And it is a valid epoch for the 'zonedbtesting' database.
+  int16_t saved_epoch_year = atc_get_current_epoch_year();
+  atc_set_current_epoch_year(2050);
+
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
+  AtcZonedDateTime zdt;
+
+  int64_t unix_seconds = kAtcInvalidUnixSeconds;
+  atc_zoned_date_time_from_unix_seconds(&zdt, unix_seconds, &tz);
+  ACU_ASSERT(atc_zoned_date_time_is_error(&zdt));
+  ACU_ASSERT(unix_seconds == atc_zoned_date_time_to_unix_seconds(&zdt));
 
   atc_set_current_epoch_year(saved_epoch_year);
 }
@@ -605,12 +683,14 @@ ACU_CONTEXT();
 
 int main()
 {
-  ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds);
-  ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_epoch2050);
+  ACU_RUN_TEST(test_zoned_date_time_to_and_from_epoch_seconds);
+  ACU_RUN_TEST(test_zoned_date_time_to_and_from_epoch_seconds_epoch2050);
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_unix_max);
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_invalid);
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_fall_back);
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward);
+  ACU_RUN_TEST(test_zoned_date_time_to_and_from_unix_seconds);
+  ACU_RUN_TEST(test_zoned_date_time_to_and_from_unix_seconds_invalid);
   ACU_RUN_TEST(test_zoned_date_time_from_local_date_time);
   ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_epoch2050);
   ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_before_dst);

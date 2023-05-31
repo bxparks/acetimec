@@ -7,9 +7,11 @@
  * @file epoch.h
  *
  * Function related to configuring the "current epoch" of the library.
- *
  * Uses the algorithm described in
  * https://howardhinnant.github.io/date_algorithms.html.
+ *
+ * These are intended to be internal implementation details, not normally needed
+ * by client applications. The API is not guaranteed to be stable.
  */
 
 #ifndef ACE_TIME_C_EPOCH_H
@@ -23,19 +25,6 @@
 extern "C" {
 #endif
 
-enum {
-  /**
-   * Epoch year used by the epoch days converter functions
-   * `atc_convert_to_days()` and `atc_convert_from_days()` so that the
-   * "converter epoch" is {year}-01-01T00:00:00. This must be a multiple of 400.
-   *
-   * This is an internal implementation detail and should not normally be needed
-   * by client applications. They should instead use
-   * atc_get_current_epoch_year() and atc_set_current_epoch_year().
-   */
-  kAtcConverterEpochYear = 2000,
-};
-
 /**
  * The epoch year which will be used to interpret the epoch seconds. By default,
  * the current epoch year is 2050, which means that the epoch is
@@ -47,8 +36,8 @@ enum {
  */
 extern int16_t atc_current_epoch_year;
 
-/** Number of days from epoch converter epoch to the current epoch. */
-extern int32_t atc_days_to_current_epoch_from_converter_epoch;
+/** Number of days from internal epoch to the current epoch. */
+extern int32_t atc_days_to_current_epoch_from_internal_epoch;
 
 /** Get the current epoch year. */
 int16_t atc_get_current_epoch_year(void);
@@ -56,20 +45,23 @@ int16_t atc_get_current_epoch_year(void);
 /**
  * Set the current epoch year. Any cached values (e.g. any internal or external
  * evaluations of `atc_time_t`) that used a previous epoch year must be
- * invalidated. In particular, the `atc_processor_init()` or
- * `atc_processor_init_for_zone_info()` must be called on each instance of
- * `AtcZoneProcessor` that was used with a different epoch year.
+ * invalidated. Cache invalidation is done automatically by `AtcZoneProcessor`,
+ * which takes care of `AtcZonedDateTime`, `AtcTimeZone`, and `AtcZonedExtra`.
+ * Any additional application-level caches must be invalidated manually.
  */
 void atc_set_current_epoch_year(int16_t year);
 
-/** Get number of days from converter epoch to current epoch. */
-int32_t atc_get_days_to_current_epoch_from_converter_epoch(void);
-
-/** Convert acetimec epoch seconds to the 64-bit unix seconds from 1970. */
-int64_t atc_convert_to_unix_seconds(atc_time_t epoch_seconds);
+/** Convert epoch seconds to the unix seconds from 1970. */
+int64_t atc_unix_seconds_from_epoch_seconds(atc_time_t epoch_seconds);
 
 /** Convert the 64-bit unix seconds from 1970 to acetimec epoch seconds. */
-atc_time_t atc_convert_from_unix_seconds(int64_t unix_seconds);
+atc_time_t atc_epoch_seconds_from_unix_seconds(int64_t unix_seconds);
+
+/** Convert epoch days to unix days. */
+int32_t atc_unix_days_from_epoch_days(int32_t epoch_days);
+
+/** Convert unix days to epoch days. */
+int32_t atc_epoch_days_from_unix_days(int32_t unix_days);
 
 /**
  * The smallest year (inclusive) for which calculations involving the 32-bit
@@ -104,7 +96,7 @@ int16_t atc_epoch_valid_year_lower(void);
 int16_t atc_epoch_valid_year_upper(void);
 
 /**
- * Convert (year, month, day) triple to the number of days since the converter
+ * Convert (year, month, day) triple to the number of days since the internal
  * epoch (2000-01-01). This algorithm corresponds to
  * AceTime/src/ace_time/internal/EpochConverterHinnant.h.
  *
@@ -115,23 +107,23 @@ int16_t atc_epoch_valid_year_upper(void);
  * @param month month integer, [1,12]
  * @param day day of month integer, [1,31]
  */
-int32_t atc_convert_to_days(int16_t year, uint8_t month, uint8_t day);
+int32_t atc_convert_to_internal_days(int16_t year, uint8_t month, uint8_t day);
 
 /**
- * Convert the days from converter epoch (2000-01-01) into (year, month, day)
+ * Convert the days from internal epoch (2000-01-01) into (year, month, day)
  * fields. This algorithm corresponds to
  * AceTime/src/ace_time/internal/EpochConverterHinnant.h.
  *
  * No input validation is performed. The behavior is undefined if the
  * parameters are outside their expected range.
  *
- * @param epoch_days number of days from converter epoch of 2000-01-01
+ * @param internal_days number of days from internal epoch of 2000-01-01
  * @param year year [1,9999]
  * @param month month integer [1, 12]
  * @param day day of month integer[1, 31]
  */
-void atc_convert_from_days(
-    int32_t epoch_days,
+void atc_convert_from_internal_days(
+    int32_t internal_days,
     int16_t *year,
     uint8_t *month,
     uint8_t *day);

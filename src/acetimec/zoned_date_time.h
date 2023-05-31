@@ -78,6 +78,31 @@ void atc_zoned_date_time_from_epoch_seconds(
     const AtcTimeZone *tz);
 
 /**
+ * Convert AtcZonedDateTime to unix seconds using the time zone
+ * identified by the zone_info inside zdt.
+ * Return kAtcInvalidUnixSeconds upon failure.
+ */
+int64_t atc_zoned_date_time_to_unix_seconds(
+    const AtcZonedDateTime *zdt);
+
+/**
+ * Convert unix seconds to AtcZonedDateTime using the time zone
+ * identified by zone_info.
+ *
+ * This implementation must convert the 64-bit Unix seconds to the 32-bit epoch
+ * seconds so that the internal time zone functions can be used (i.e.
+ * atc_time_zone_offset_date_time_from_epoch_seconds()). Therefore, the range of
+ * valid unix_seconds is determined by the range of the 32-bit epoch seconds and
+ * the current epoch year given by atc_get_current_epoch_year().
+ *
+ * Return an error value for zdt upon error.
+ */
+void atc_zoned_date_time_from_unix_seconds(
+    AtcZonedDateTime *zdt,
+    int64_t unix_seconds,
+    const AtcTimeZone *tz);
+
+/**
  * Create zoned date time from components and given time zone.
  * Return an error value for zdt upon error.
  */

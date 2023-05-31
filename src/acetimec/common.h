@@ -34,6 +34,45 @@ enum {
   kAtcErrGeneric = 1,
 };
 
+enum {
+  /**
+   * Epoch year used by the internal converter functions
+   * `atc_convert_to_internal_days()` and `atc_convert_from_internal_days()` so
+   * that the "internal epoch" is {year}-01-01T00:00:00. This must be a multiple
+   * of 400.
+   *
+   * This is an internal implementation detail and should not normally be needed
+   * by client applications. They should instead use
+   * atc_get_current_epoch_year() and atc_set_current_epoch_year().
+   */
+  kAtcInternalEpochYear = 2000,
+
+  /** Number of days from the Unix epoch (1970) to the Internal epoch (2000). */
+  kAtcDaysToInternalEpochFromUnixEpoch = 10957,
+
+  /**
+   * Default epoch year of the library. This is selected so that the 32-bit
+   * atc_time_t epoch seconds type is valid at least over the 100 years from
+   * 2000 to 2100.
+   */
+  kAtcDefaultEpochYear = 2050,
+
+  /**
+   * Number of days from the Internal epoch (2000) to the default epoch (2050).
+   * This is 50 years * 365 + 13 leap days.
+   */
+  kAtcDaysToDefaultEpochFromInternalEpoch = 365*50 + 13,
+
+  /** Sentinel value for invalid year. */
+  kAtcInvalidYear = INT16_MIN,
+
+  /** Invalid epoch seconds. */
+  kAtcInvalidEpochSeconds = INT32_MIN,
+
+  /** Invalid Unix seconds. */
+  kAtcInvalidUnixSeconds = INT64_MIN,
+};
+
 /**
  * Copy at most dst_size characters from src to dst, while replacing all
  * occurrence of old_char with new_string. If new_string is "", then replace

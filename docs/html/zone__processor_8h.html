@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">acetimec
-   &#160;<span id="projectnumber">0.10.0</span>
+   &#160;<span id="projectnumber">0.11.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -155,13 +155,13 @@ typedef struct <a class="el" href="structAtcYearMonth.html">AtcYearMonth</a>&#16
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:ac36f475ca5b446f4fde4c9b90bec77c8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kAtcFindResultNotFound</b> = 0
+<tr class="memitem:abc5c98fcc1211af2b80116dd6e0a035d"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kAtcFindResultNotFound</b> = 0
 , <b>kAtcFindResultExact</b> = 1
 , <b>kAtcFindResultOverlap</b> = 2
 , <b>kAtcFindResultGap</b> = 3
  }</td></tr>
-<tr class="memdesc:ac36f475ca5b446f4fde4c9b90bec77c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Values of the the <a class="el" href="structAtcFindResult.html#adda50f3ec6e0300a64beca476cb613bf" title="The result type of the find_by_xxx() function, one of the kAtcFindResultXxx enums.">AtcFindResult.type</a> field.  <a href="zone__processor_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8">More...</a><br /></td></tr>
-<tr class="separator:ac36f475ca5b446f4fde4c9b90bec77c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:abc5c98fcc1211af2b80116dd6e0a035d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Values of the the <a class="el" href="structAtcFindResult.html#adda50f3ec6e0300a64beca476cb613bf" title="The result type of the find_by_xxx() function, one of the kAtcFindResultXxx enums.">AtcFindResult.type</a> field.  <a href="zone__processor_8h.html#abc5c98fcc1211af2b80116dd6e0a035d">More...</a><br /></td></tr>
+<tr class="separator:abc5c98fcc1211af2b80116dd6e0a035d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -287,8 +287,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="ac36f475ca5b446f4fde4c9b90bec77c8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ac36f475ca5b446f4fde4c9b90bec77c8">&#9670;&nbsp;</a></span>anonymous enum</h2>
+<a id="abc5c98fcc1211af2b80116dd6e0a035d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abc5c98fcc1211af2b80116dd6e0a035d">&#9670;&nbsp;</a></span>anonymous enum</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -300,9 +300,9 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 </div><div class="memdoc">
 
 <p>Values of the the <a class="el" href="structAtcFindResult.html#adda50f3ec6e0300a64beca476cb613bf" title="The result type of the find_by_xxx() function, one of the kAtcFindResultXxx enums.">AtcFindResult.type</a> field. </p>
-<p>Must be identical to the corresponding kAtcZonedExtraXxx in <a class="el" href="zoned__extra_8h.html" title="Additional information about a time zone such as the STD offset, the DST offset, and the abbreviation...">zoned_extra.h</a>. </p>
+<p>Must be identical to the corresponding kAtcFoldTypeXxx in <a class="el" href="zoned__extra_8h.html" title="Additional information about a time zone such as the STD offset, the DST offset, and the abbreviation...">zoned_extra.h</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8h_source.html#l00132">132</a> of file <a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8h_source.html#l00139">139</a> of file <a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>.</p>
 
 </div>
 </div>
@@ -342,7 +342,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 <p>Determine if era is less than (-1), roughly equal (0), or greater than (1) the given (year, month). </p>
 <p>Determine if era is less than (-1), roughly equal (0), or greater than (1) the given (year, month). </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00018">18</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00019">19</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
@@ -394,7 +394,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 <p>Create new new_match, containing the given parameters.</p>
 <p>The interval is assumed to overlap the ZoneEra using the eraOverlapsInterval() method. The 'prev' ZoneEra is needed to define the startDateTime of the current era. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00078">78</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00079">79</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
@@ -452,7 +452,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 <p>Up to maxInteriorYears, usually 3 or 4. Returns the number of interior years.</p>
 <p>Exported for testing. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00278">278</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00279">279</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
@@ -502,7 +502,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 * onDayOfWeek=1-7, onDayOfMonth=-(1-31): dayOfWeek&lt;=dayOfMonth
 * </pre><p>Caveats: This function handles expressions which crosses month boundaries, but not year boundaries (e.g. Jan to Dec of the previous year, or Dec to Jan of the following year.) </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00138">138</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00139">139</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
@@ -541,7 +541,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 <p>Find the <a class="el" href="structAtcFindResult.html" title="Data structure that converts the AtcTransitionForSeconds and AtcTransitionForDatetime into time offse...">AtcFindResult</a> at the given LocalDateTime and fold. </p>
 <p>The fold parameter is used only when LocalDateTime falls in a gap or an overlap. library. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00733">733</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00737">737</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
@@ -603,7 +603,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>the number of entries added to <code>matches</code> </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00189">189</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00190">190</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
@@ -658,7 +658,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00297">297</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00298">298</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
@@ -681,7 +681,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 <p>Initialize <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> data structure. </p>
 <p>This needs to be called only once for each instance of <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a>. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00611">611</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00612">612</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
@@ -722,7 +722,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00684">684</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00688">688</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
@@ -763,7 +763,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00634">634</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00637">637</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>
@@ -797,7 +797,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 <p>This allows an <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> to be re-used with different zone info.</p>
 <p>Normally, the client code will not need to use this if all interactions with the <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> occurs through the public functions attached to the <code><a class="el" href="structAtcTimeZone.html" title="A data structure that represents a specific Time Zone.">AtcTimeZone</a></code> object (in other words, the <code>atc_time_zone_xxx()</code> functions). If the <code><a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a></code> object is accessed directly, this function may need to be called each time the <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> is used with a new <a class="el" href="structAtcZoneInfo.html" title="Representation of a given time zone, implemented as an array of ZoneEra records.">AtcZoneInfo</a> object. </p>
 
-<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00618">618</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zone__processor_8c_source.html#l00620">620</a> of file <a class="el" href="zone__processor_8c_source.html">zone_processor.c</a>.</p>
 
 </div>
 </div>

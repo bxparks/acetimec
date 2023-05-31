@@ -1,6 +1,17 @@
 # Changelog
 
 * Unreleased
+* 0.11.0 (2023-05-31, TZDB 2023c)
+    * Update path to ACUnit from https://github.com/bxparks/ACUnit (v0.1) to
+      https://github.com/bxparks/acunit (v0.2).
+    * Support LocalDateTime, OffsetDateTime, and ZonedDateTime to and from
+      64-bit unix seconds.
+    * `zone_processor.c`
+        * Automatically invalidate the transitions cache when the
+          current epoch year is changed through `atc_set_current_epoch_year()`.
+    * `zone_extra.h`
+        * Rename `AtcZonedExtra.type` to `fold_type`.
+        * Rename `kAtcZonedExtraXxx` constants to `kAtcFoldTypeXxx`.
 * 0.10.0 (2023-05-19, TZDB 2023c)
     * Rename `AceTimeC` to `acetimec`
         * Better consistency with most other C libraries

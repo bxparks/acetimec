@@ -1,6 +1,6 @@
 CFLAGS := -std=c11 -Wall -Wextra -Werror -pedantic \
 	-D ATC_HIRES_ZONEDB=1 \
-	-I../../ACUnit/src \
+	-I../../acunit/src \
 	-I../src
 
 TARGETS := \

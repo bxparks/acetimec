@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">acetimec
-   &#160;<span id="projectnumber">0.10.0</span>
+   &#160;<span id="projectnumber">0.11.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -99,16 +99,19 @@ Public Attributes</h2></td></tr>
 const <a class="el" href="structAtcZoneInfo.html">AtcZoneInfo</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneProcessor.html#ad093aeacf34b8e53f2e412e8465942b7">zone_info</a></td></tr>
 <tr class="memdesc:ad093aeacf34b8e53f2e412e8465942b7"><td class="mdescLeft">&#160;</td><td class="mdescRight">The time zone attached to this Processor workspace. <br /></td></tr>
 <tr class="separator:ad093aeacf34b8e53f2e412e8465942b7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0289329baf011e0d0af6518c836b6f9f"><td class="memItemLeft" align="right" valign="top">int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneProcessor.html#a0289329baf011e0d0af6518c836b6f9f">epoch_year</a></td></tr>
+<tr class="memdesc:a0289329baf011e0d0af6518c836b6f9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Epoch year used to generate the internal cache.  <a href="structAtcZoneProcessor.html#a0289329baf011e0d0af6518c836b6f9f">More...</a><br /></td></tr>
+<tr class="separator:a0289329baf011e0d0af6518c836b6f9f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a61155f6125ea1f959463b0662f037fc1"><td class="memItemLeft" align="right" valign="top"><a id="a61155f6125ea1f959463b0662f037fc1"></a>
 int16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneProcessor.html#a61155f6125ea1f959463b0662f037fc1">year</a></td></tr>
-<tr class="memdesc:a61155f6125ea1f959463b0662f037fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cache year, [0,9999] or kAtcInvalidYear to indicate invalid cache. <br /></td></tr>
+<tr class="memdesc:a61155f6125ea1f959463b0662f037fc1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Cached year, [0,9999] or kAtcInvalidYear to indicate invalid cache. <br /></td></tr>
 <tr class="separator:a61155f6125ea1f959463b0662f037fc1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a747b01dc6bab46b7d3a0edd207949969"><td class="memItemLeft" align="right" valign="top"><a id="a747b01dc6bab46b7d3a0edd207949969"></a>
 uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneProcessor.html#a747b01dc6bab46b7d3a0edd207949969">num_matches</a></td></tr>
 <tr class="memdesc:a747b01dc6bab46b7d3a0edd207949969"><td class="mdescLeft">&#160;</td><td class="mdescRight">Number of valid matches in the array. <br /></td></tr>
 <tr class="separator:a747b01dc6bab46b7d3a0edd207949969"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aba134ba77efaff97d8bdd5a5c37b4288"><td class="memItemLeft" align="right" valign="top"><a id="aba134ba77efaff97d8bdd5a5c37b4288"></a>
-<a class="el" href="structAtcMatchingEra.html">AtcMatchingEra</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneProcessor.html#aba134ba77efaff97d8bdd5a5c37b4288">matches</a> [<a class="el" href="transition_8h.html#a61dadd085c1777f559549e05962b2c9eac0a3a12b114e8fbfc75a9c34e31f55da">kAtcMaxMatches</a>]</td></tr>
+<a class="el" href="structAtcMatchingEra.html">AtcMatchingEra</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZoneProcessor.html#aba134ba77efaff97d8bdd5a5c37b4288">matches</a> [<a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06cac0a3a12b114e8fbfc75a9c34e31f55da">kAtcMaxMatches</a>]</td></tr>
 <tr class="memdesc:aba134ba77efaff97d8bdd5a5c37b4288"><td class="mdescLeft">&#160;</td><td class="mdescRight">The matching eras for the current zone and year. <br /></td></tr>
 <tr class="separator:aba134ba77efaff97d8bdd5a5c37b4288"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab366210c9c8681a9073792f912338189"><td class="memItemLeft" align="right" valign="top"><a id="ab366210c9c8681a9073792f912338189"></a>
@@ -121,7 +124,27 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <p>One of these should be created for each active timezone. It can be reused among multiple timezones but a change of timezone causes the internal cache to be wiped and recreated. </p>
 
 <p class="definition">Definition at line <a class="el" href="zone__processor_8h_source.html#l00111">111</a> of file <a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>.</p>
-</div><hr/>The documentation for this struct was generated from the following file:<ul>
+</div><h2 class="groupheader">Member Data Documentation</h2>
+<a id="a0289329baf011e0d0af6518c836b6f9f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a0289329baf011e0d0af6518c836b6f9f">&#9670;&nbsp;</a></span>epoch_year</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int16_t AtcZoneProcessor::epoch_year</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Epoch year used to generate the internal cache. </p>
+<p>The <a class="el" href="zone__processor_8h.html#a3723cb3336873164f0148a247b764c04" title="Initialize AtcZoneProcessor for the given year.">atc_processor_init_for_year()</a> function invalidates and regenerates the cache if the epoch_year has changed. </p>
+
+<p class="definition">Definition at line <a class="el" href="zone__processor_8h_source.html#l00120">120</a> of file <a class="el" href="zone__processor_8h_source.html">zone_processor.h</a>.</p>
+
+</div>
+</div>
+<hr/>The documentation for this struct was generated from the following file:<ul>
 <li>/home/brian/src/acetimec/src/acetimec/<a class="el" href="zone__processor_8h_source.html">zone_processor.h</a></li>
 </ul>
 </div><!-- contents -->

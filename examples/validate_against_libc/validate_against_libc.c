@@ -127,7 +127,7 @@ int check_epoch_seconds(const AtcTimeZone *tz, atc_time_t epoch_seconds)
 
   // Convert epoch seconds to date-time components using C libc.
   struct tm tms;
-  time_t unix_seconds = atc_convert_to_unix_seconds(epoch_seconds);
+  time_t unix_seconds = atc_unix_seconds_from_epoch_seconds(epoch_seconds);
   localtime_r(&unix_seconds, &tms);
   int year = tms.tm_year + 1900;
   int month = tms.tm_mon + 1;

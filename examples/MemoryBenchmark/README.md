@@ -180,18 +180,18 @@ microcontroller and the compiler did not generate the desired information.
 +---------------------------------------------------------------------+
 | Functionality                         |  flash/  ram |        delta |
 |---------------------------------------+--------------+--------------|
-| baseline                              |  21392/ 3556 |      0/    0 |
+| baseline                              |  10580/    0 |      0/    0 |
 |---------------------------------------+--------------+--------------|
-| LocalDateTime                         |  21664/ 3572 |    272/   16 |
-| ZonedDateTime                         |  25984/ 3592 |   4592/   36 |
-| TimeZone1                             |  26712/ 4384 |   5320/  828 |
-| TimeZone2                             |  27272/ 5196 |   5880/ 1640 |
+| LocalDateTime                         |  10828/    0 |    248/    0 |
+| ZonedDateTime                         |  15132/    0 |   4552/    0 |
+| TimeZone1                             |  15852/    0 |   5272/    0 |
+| TimeZone2                             |  16424/    0 |   5844/    0 |
 |---------------------------------------+--------------+--------------|
-| ZoneRegistry (zonedb)                 |  64544/ 4384 |  43152/  828 |
-| ZoneAndLinkRegistry (zonedb)          |  75008/ 4384 |  53616/  828 |
+| ZoneRegistry (zonedb)                 |  53696/    0 |  43116/    0 |
+| ZoneAndLinkRegistry (zonedb)          |  64160/    0 |  53580/    0 |
 |---------------------------------------+--------------+--------------|
-| ZoneRegistry (zonedball)              | 109504/ 4384 |  88112/  828 |
-| ZoneAndLinkRegistry (zonedball)       | 119968/ 4384 |  98576/  828 |
+| ZoneRegistry (zonedball)              |  98656/    0 |  88076/    0 |
+| ZoneAndLinkRegistry (zonedball)       | 109120/    0 |  98540/    0 |
 +---------------------------------------------------------------------+
 
 ```

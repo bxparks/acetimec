@@ -24,7 +24,7 @@ latter documents.
 
 **Status**: Alpha-level software, not ready for public consumption.
 
-**Version**: 0.10.0 (2023-05-19, TZDB version 2023c)
+**Version**: 0.11.0 (2023-05-31, TZDB version 2023c)
 
 **Changelog**: [CHANGELOG.md](CHANGELOG.md)
 
@@ -389,12 +389,17 @@ void atc_local_date_time_set_error(AtcLocalDateTime *ldt);
 
 bool atc_local_date_time_is_error(const AtcLocalDateTime *ldt);
 
-atc_time_t atc_local_date_time_to_epoch_seconds(
-    const AtcLocalDateTime *ldt);
+atc_time_t atc_local_date_time_to_epoch_seconds( const AtcLocalDateTime *ldt);
 
 void atc_local_date_time_from_epoch_seconds(
     AtcLocalDateTime *ldt,
     atc_time_t epoch_seconds);
+
+int64_t atc_local_date_time_to_unix_seconds( const AtcLocalDateTime *ldt);
+
+void atc_local_date_time_from_unix_seconds(
+    AtcLocalDateTime *ldt,
+    int64_t unix_seconds);
 
 void atc_local_date_time_print(
     AtcStringBuffer *sb,
@@ -450,7 +455,7 @@ typedef struct AtcOffsetDateTime {
   uint8_t second;
   uint8_t fold;
 
-  int16_t offset_minutes;
+  int32_t offset_seconds;
 } AtcOffsetDateTime;
 ```
 
@@ -465,13 +470,19 @@ void atc_offset_date_time_set_error(AtcOffsetDateTime *odt);
 
 bool atc_offset_date_time_is_error(const AtcOffsetDateTime *odt);
 
-atc_time_t atc_offset_date_time_to_epoch_seconds(
-    const AtcOffsetDateTime *odt);
+atc_time_t atc_offset_date_time_to_epoch_seconds(const AtcOffsetDateTime *odt);
 
 void atc_offset_date_time_from_epoch_seconds(
     AtcOffsetDateTime *odt,
     atc_time_t epoch_seconds,
-    int16_t offset_minutes);
+    int32_t offset_seconds);
+
+int64_t atc_offset_date_time_to_unix_seconds(const AtcOffsetDateTime *odt);
+
+void atc_offset_date_time_from_unix_seconds(
+    AtcOffsetDateTime *odt,
+    int64_t unix_seconds,
+    int32_t offset_seconds);
 
 void atc_offset_date_time_print(
     AtcStringBuffer *sb,
@@ -483,13 +494,13 @@ This causes `atc_offset_date_time_is_error(odt)` to return `true`.
 
 The `atc_offset_date_time_from_epoch_seconds()` function converts the given
 `AtcOffsetDateTime` into its `atc_time_t` epoch seconds, taking into account the
-`offset_minutes` field. If an error occurs, the function returns
+`offset_seconds` field. If an error occurs, the function returns
 `kAtcInvalidEpochSeconds`. The `fold` parameter of the input `AtcOffsetDateTime`
-is ignored because the `odt.offset_minutes` field is sufficient to disambiguate
+is ignored because the `odt.offset_seconds` field is sufficient to disambiguate
 multiple instances.
 
 The `atc_offset_date_time_from_epoch_seconds()` function converts the given
-`epoch_seconds` and `offset_minutes` into the `AtcOffsetDateTime` components. If
+`epoch_seconds` and `offset_seconds` into the `AtcOffsetDateTime` components. If
 an error occurs, the function returns `kAtcErrGeneric`, otherwise it returns
 `kAtcErrOk`. The `odt.fold` parameter will always be set to 0.
 
@@ -512,7 +523,7 @@ typedef struct AtcZonedDateTime {
   uint8_t second;
   uint8_t fold;
 
-  int16_t offset_minutes; /* possibly ignored */
+  int32_t offset_seconds; /* possibly ignored */
   AtcTimeZone tz;
 } AtcZonedDateTime;
 ```
@@ -528,12 +539,18 @@ void atc_zoned_date_time_set_error(AtcZonedDateTime *zdt);
 
 bool atc_zoned_date_time_is_error(const AtcZonedDateTime *zdt);
 
-atc_time_t atc_zoned_date_time_to_epoch_seconds(
-    const AtcZonedDateTime *zdt);
+atc_time_t atc_zoned_date_time_to_epoch_seconds(const AtcZonedDateTime *zdt);
 
 void atc_zoned_date_time_from_epoch_seconds(
     AtcZonedDateTime *zdt,
     atc_time_t epoch_seconds,
+    AtcTimeZone *tz);
+
+int64_t atc_zoned_date_time_to_unix_seconds(const AtcZonedDateTime *zdt);
+
+void atc_zoned_date_time_from_unix_seconds(
+    AtcZonedDateTime *zdt,
+    int64_t unix_seconds,
     AtcTimeZone *tz);
 
 void atc_zoned_date_time_from_local_date_time(
@@ -766,14 +783,14 @@ particular epoch seconds:
 
 ```C
 enum {
-  kAtcZonedExtraNotFound = 0,
-  kAtcZonedExtraExact = 1,
-  kAtcZonedExtraGap = 2,
-  kAtcZonedExtraOverlap = 3,
+  kAtcFoldTypeNotFound = 0,
+  kAtcFoldTypeExact = 1,
+  kAtcFoldTypeGap = 2,
+  kAtcFoldTypeOverlap = 3,
 };
 
 typedef struct AtcZonedExtra {
-  int8_t type;
+  int8_t fold_type;
   int32_t std_offset_seconds; // STD offset
   int32_t dst_offset_seconds; // DST offset
   int32_t req_std_offset_seconds; // request STD offset
@@ -782,10 +799,10 @@ typedef struct AtcZonedExtra {
 } AtcZonedExtra;
 ```
 
-For `type` of `kAtcZonedExtraExact` and `kAtcZonedExtraOverlap`, the `req_std_offset_seconds` and `req_dst_offset_seconds` will be identical
+For `type` of `kAtcFoldTypeExact` and `kAtcFoldTypeOverlap`, the `req_std_offset_seconds` and `req_dst_offset_seconds` will be identical
 to the corresponding `std_offset_seconds` and `dst_offset_seconds` parameters.
 
-For `type` `kAtcZonedExtraGap`, which can be returned only by the
+For `type` `kAtcFoldTypeGap`, which can be returned only by the
 `atc_zoned_extra_from_local_date_time()` function below, the `fold` parameter
 selects one of the 2 matching `AtcZonedDateTime` following the algorithms
 described by Python [PEP 495](https://www.python.org/dev/peps/pep-0495/). Since
@@ -810,13 +827,18 @@ void atc_zoned_extra_from_epoch_seconds(
     atc_time_t epoch_seconds,
     AtcTimeZone tz);
 
+void atc_zoned_extra_from_unix_seconds(
+    AtcZonedExtra *extra,
+    int64_t unix_seconds,
+    AtcTimeZone tz);
+
 void atc_zoned_extra_from_local_date_time(
     AtcZonedExtra *extra,
     AtcLocalDateTime *ldt,
     AtcTimeZone tz);
 ```
 
-On error, the `extra.type` field is set to `kAtcZonedExtraNotFound` and
+On error, the `extra.type` field is set to `kAtcFoldTypeNotFound` and
 `atc_zoned_extra_is_error()` returns `true`.
 
 <a name="AtcZoneRegistrar"></a>

@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">acetimec
-   &#160;<span id="projectnumber">0.10.0</span>
+   &#160;<span id="projectnumber">0.11.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -78,10 +78,13 @@ $(function() {
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
-<tr class="memitem:a836e80485a7ed200bfceebb926e53cac"><td class="memItemLeft" align="right" valign="top"><a id="a836e80485a7ed200bfceebb926e53cac"></a>
-int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonedExtra.html#a836e80485a7ed200bfceebb926e53cac">type</a></td></tr>
-<tr class="memdesc:a836e80485a7ed200bfceebb926e53cac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Type of match against the LocalDateTime or epoch_seconds. <br /></td></tr>
-<tr class="separator:a836e80485a7ed200bfceebb926e53cac"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaff1381eaedc5e5885d6b9bb1ae19e72"><td class="memItemLeft" align="right" valign="top"><a id="aaff1381eaedc5e5885d6b9bb1ae19e72"></a>
+int8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonedExtra.html#aaff1381eaedc5e5885d6b9bb1ae19e72">fold_type</a></td></tr>
+<tr class="memdesc:aaff1381eaedc5e5885d6b9bb1ae19e72"><td class="mdescLeft">&#160;</td><td class="mdescRight">Result of search for the LocalDateTime or epoch_seconds, which is determines by the type of fold. <br /></td></tr>
+<tr class="separator:aaff1381eaedc5e5885d6b9bb1ae19e72"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a90ea7f732ec6f8646930ad544c1e0dd2"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonedExtra.html#a90ea7f732ec6f8646930ad544c1e0dd2">abbrev</a> [<a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06ca9262981dc217adabd9b160f3b8e29c80">kAtcAbbrevSize</a>]</td></tr>
+<tr class="memdesc:a90ea7f732ec6f8646930ad544c1e0dd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">abbreviation (e.g.  <a href="structAtcZonedExtra.html#a90ea7f732ec6f8646930ad544c1e0dd2">More...</a><br /></td></tr>
+<tr class="separator:a90ea7f732ec6f8646930ad544c1e0dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a58311ccc1d1bfa57a4990384a466d63e"><td class="memItemLeft" align="right" valign="top"><a id="a58311ccc1d1bfa57a4990384a466d63e"></a>
 int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonedExtra.html#a58311ccc1d1bfa57a4990384a466d63e">std_offset_seconds</a></td></tr>
 <tr class="memdesc:a58311ccc1d1bfa57a4990384a466d63e"><td class="mdescLeft">&#160;</td><td class="mdescRight">STD offset. <br /></td></tr>
@@ -98,9 +101,6 @@ int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonedExtra.html#a1a97ad0b2abbb3b0a96ced728d530858">req_dst_offset_seconds</a></td></tr>
 <tr class="memdesc:a1a97ad0b2abbb3b0a96ced728d530858"><td class="mdescLeft">&#160;</td><td class="mdescRight">DST offset of the requested LocalDateTime or epoch_seconds. <br /></td></tr>
 <tr class="separator:a1a97ad0b2abbb3b0a96ced728d530858"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a90ea7f732ec6f8646930ad544c1e0dd2"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structAtcZonedExtra.html#a90ea7f732ec6f8646930ad544c1e0dd2">abbrev</a> [<a class="el" href="transition_8h.html#a61dadd085c1777f559549e05962b2c9ea9262981dc217adabd9b160f3b8e29c80">kAtcAbbrevSize</a>]</td></tr>
-<tr class="memdesc:a90ea7f732ec6f8646930ad544c1e0dd2"><td class="mdescLeft">&#160;</td><td class="mdescRight">abbreviation (e.g.  <a href="structAtcZonedExtra.html#a90ea7f732ec6f8646930ad544c1e0dd2">More...</a><br /></td></tr>
-<tr class="separator:a90ea7f732ec6f8646930ad544c1e0dd2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Extra information about a given time zone at a specified epoch seconds. </p>
@@ -114,7 +114,7 @@ int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">char AtcZonedExtra::abbrev[<a class="el" href="transition_8h.html#a61dadd085c1777f559549e05962b2c9ea9262981dc217adabd9b160f3b8e29c80">kAtcAbbrevSize</a>]</td>
+          <td class="memname">char AtcZonedExtra::abbrev[<a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06ca9262981dc217adabd9b160f3b8e29c80">kAtcAbbrevSize</a>]</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -122,7 +122,7 @@ int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="s
 <p>abbreviation (e.g. </p>
 <p>PST, PDT) </p>
 
-<p class="definition">Definition at line <a class="el" href="zoned__extra_8h_source.html#l00060">60</a> of file <a class="el" href="zoned__extra_8h_source.html">zoned_extra.h</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zoned__extra_8h_source.html#l00051">51</a> of file <a class="el" href="zoned__extra_8h_source.html">zoned_extra.h</a>.</p>
 
 </div>
 </div>

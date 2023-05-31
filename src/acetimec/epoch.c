@@ -8,16 +8,12 @@
 #include "epoch.h"
 
 // Initialized to the default current epoch. If this is changed, then the
-// atc_days_to_current_epoch_from_converter_epoch must be changed as well.
-int16_t atc_current_epoch_year = 2050;
+// atc_days_to_current_epoch_from_internal must be changed as well.
+int16_t atc_current_epoch_year = kAtcDefaultEpochYear;
 
-// Number of days from 2000 (converter epoch) to 2050 (default current epoch):
-// 50 years * 365 + 13 leap days.
-int32_t atc_days_to_current_epoch_from_converter_epoch = 365 * 50 + 13;
-
-// Number of days to Unix epoch (1970) from current epoch: 80 years + 20
-// leap days from 1970 to 2050.
-int32_t atc_days_to_current_epoch_from_unix_epoch = 365 * 80 + 20;
+// Number of days from 2000 (internal epoch) to 2050 (default current epoch):
+int32_t atc_days_to_current_epoch_from_internal_epoch =
+    kAtcDaysToDefaultEpochFromInternalEpoch;
 
 int16_t atc_get_current_epoch_year(void)
 {
@@ -27,16 +23,8 @@ int16_t atc_get_current_epoch_year(void)
 void atc_set_current_epoch_year(int16_t year)
 {
   atc_current_epoch_year = year;
-  atc_days_to_current_epoch_from_converter_epoch =
-      atc_convert_to_days(year, 1, 1);
-  atc_days_to_current_epoch_from_unix_epoch =
-      atc_days_to_current_epoch_from_converter_epoch
-      - atc_convert_to_days(1970, 1, 1);
-}
-
-int32_t atc_get_days_to_current_epoch_from_converter_epoch(void)
-{
-  return atc_days_to_current_epoch_from_converter_epoch;
+  atc_days_to_current_epoch_from_internal_epoch =
+      atc_convert_to_internal_days(year, 1, 1);
 }
 
 int16_t atc_epoch_valid_year_lower(void)
@@ -49,25 +37,53 @@ int16_t atc_epoch_valid_year_upper(void)
   return atc_get_current_epoch_year() + 50;
 }
 
-int64_t atc_convert_to_unix_seconds(atc_time_t epoch_seconds)
+int64_t atc_unix_seconds_from_epoch_seconds(atc_time_t epoch_seconds)
 {
-  return (int64_t) epoch_seconds
-      + (int64_t) 86400 * atc_days_to_current_epoch_from_unix_epoch;
+  if (epoch_seconds == kAtcInvalidEpochSeconds) {
+    return kAtcInvalidUnixSeconds;
+  } else {
+    return (int64_t) epoch_seconds
+        + (int64_t) 86400
+          * (atc_days_to_current_epoch_from_internal_epoch
+              + kAtcDaysToInternalEpochFromUnixEpoch);
+  }
 }
 
-atc_time_t atc_convert_from_unix_seconds(int64_t unix_seconds)
+atc_time_t atc_epoch_seconds_from_unix_seconds(int64_t unix_seconds)
 {
-  return (int64_t) unix_seconds
-      - (int64_t) 86400 * atc_days_to_current_epoch_from_unix_epoch;
+  if (unix_seconds == kAtcInvalidUnixSeconds) {
+    return kAtcInvalidEpochSeconds;
+  } else {
+    return (int64_t) unix_seconds
+        - (int64_t) 86400
+          * (atc_days_to_current_epoch_from_internal_epoch
+              + kAtcDaysToInternalEpochFromUnixEpoch);
+  }
 }
 
-/** Return the number days before the given month_prime. */
+int32_t atc_unix_days_from_epoch_days(int32_t epoch_days)
+{
+  return epoch_days
+      + atc_days_to_current_epoch_from_internal_epoch
+      + kAtcDaysToInternalEpochFromUnixEpoch;
+}
+
+int32_t atc_epoch_days_from_unix_days(int32_t unix_days)
+{
+  return unix_days
+      - kAtcDaysToInternalEpochFromUnixEpoch
+      - atc_days_to_current_epoch_from_internal_epoch;
+}
+
+// Return the number days before the given month_prime.
+// See AceTime/src/ace_time/internal/EpochConverterHinnant.h.
 static uint16_t atc_convert_to_days_until_month_prime(uint8_t month_prime)
 {
   return (153 * month_prime + 2) / 5;
 }
 
-int32_t atc_convert_to_days(int16_t year, uint8_t month, uint8_t day)
+// See AceTime/src/ace_time/internal/EpochConverterHinnant.h.
+int32_t atc_convert_to_internal_days(int16_t year, uint8_t month, uint8_t day)
 {
   int16_t year_prime = year - ((month <= 2) ? 1 : 0); // year begins on Mar 1
   uint16_t era = year_prime / 400; // [0,24]
@@ -83,19 +99,20 @@ int32_t atc_convert_to_days(int16_t year, uint8_t month, uint8_t day)
   // epoch_prime days is relative to 0000-03-01
   int32_t day_of_epoch_prime = day_of_era + 146097 * era;
   return day_of_epoch_prime
-          - (kAtcConverterEpochYear / 400) * 146097 // relative to 2000-03-01
+          - (kAtcInternalEpochYear / 400) * 146097 // relative to 2000-03-01
           + 60; // relative to 2000-01-01, 2000 is a leap year
 }
 
-void atc_convert_from_days(
-    int32_t epoch_days,
+// See AceTime/src/ace_time/internal/EpochConverterHinnant.h.
+void atc_convert_from_internal_days(
+    int32_t internal_days,
     int16_t *year,
     uint8_t *month,
     uint8_t *day)
 {
   // epoch_prime days is relative to 0000-03-01
-  int32_t day_of_epoch_prime = epoch_days
-      + (kAtcConverterEpochYear / 400) * 146097
+  int32_t day_of_epoch_prime = internal_days
+      + (kAtcInternalEpochYear / 400) * 146097
       - 60;
 
   uint16_t era = (uint32_t) day_of_epoch_prime / 146097; // [0,24]

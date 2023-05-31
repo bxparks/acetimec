@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">acetimec
-   &#160;<span id="projectnumber">0.10.0</span>
+   &#160;<span id="projectnumber">0.11.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -96,46 +96,47 @@ $(function() {
 <div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;  kAtcIsoWeekdaySunday,</div>
 <div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;};</div>
 <div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160; </div>
-<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;<span class="keyword">enum</span> {</div>
-<div class="line"><a name="l00040"></a><span class="lineno"><a class="line" href="local__date_8h.html#adc29c2ff13d900c2f185ee95427fb06ca4b9dc56529c3c997277aa3edebff7de0">   40</a></span>&#160;  <a class="code" href="local__date_8h.html#adc29c2ff13d900c2f185ee95427fb06ca4b9dc56529c3c997277aa3edebff7de0">kAtcInvalidYear</a> = INT16_MIN,</div>
-<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160; </div>
-<div class="line"><a name="l00043"></a><span class="lineno"><a class="line" href="local__date_8h.html#adc29c2ff13d900c2f185ee95427fb06cafb10cd3ddb3157ee07491ce67b70ac71">   43</a></span>&#160;  <a class="code" href="local__date_8h.html#adc29c2ff13d900c2f185ee95427fb06cafb10cd3ddb3157ee07491ce67b70ac71">kAtcInvalidEpochSeconds</a> = INT32_MIN,</div>
-<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;};</div>
-<div class="line"><a name="l00045"></a><span class="lineno">   45</span>&#160; </div>
-<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="local__date_8h.html#ad56a9df5e994d20403b0261b5c62e069">atc_is_leap_year</a>(int16_t year);</div>
-<div class="line"><a name="l00048"></a><span class="lineno">   48</span>&#160; </div>
-<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;uint8_t <a class="code" href="local__date_8h.html#ab3fae33c46c836fadcd35bc4cc86b33d">atc_local_date_days_in_year_month</a>(int16_t year, uint8_t month);</div>
-<div class="line"><a name="l00051"></a><span class="lineno">   51</span>&#160; </div>
-<div class="line"><a name="l00057"></a><span class="lineno">   57</span>&#160;uint8_t <a class="code" href="local__date_8h.html#aea2c30f437bdaafed7c33ca2b1059567">atc_local_date_day_of_week</a>(int16_t year, uint8_t month, uint8_t day);</div>
-<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160; </div>
-<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;int32_t <a class="code" href="local__date_8h.html#aa88cdfb5680791efd935b304877c953d">atc_local_date_to_epoch_days</a>(</div>
-<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;    int16_t year, uint8_t month, uint8_t day);</div>
-<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160; </div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;<span class="keywordtype">void</span> <a class="code" href="local__date_8h.html#a385fcd84e9fb482f5b6da92a2800e383">atc_local_date_from_epoch_days</a>(</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    int32_t epoch_days,</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;    int16_t *year,</div>
-<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;    uint8_t *month,</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    uint8_t *day);</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160; </div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;<span class="keywordtype">void</span> <a class="code" href="local__date_8h.html#ae3761861c0c6b0a1c58c6412cda75f54">atc_local_date_increment_one_day</a>(</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    int16_t *year, uint8_t *month, uint8_t *day);</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;<span class="keywordtype">void</span> <a class="code" href="local__date_8h.html#acffbb16835eb30c277fc4282fdd20611">atc_local_date_decrement_one_day</a>(</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    int16_t *year, uint8_t *month, uint8_t *day);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160; </div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160; </div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="preprocessor">#endif</span></div>
-<div class="ttc" id="alocal__date_8h_html_a385fcd84e9fb482f5b6da92a2800e383"><div class="ttname"><a href="local__date_8h.html#a385fcd84e9fb482f5b6da92a2800e383">atc_local_date_from_epoch_days</a></div><div class="ttdeci">void atc_local_date_from_epoch_days(int32_t epoch_days, int16_t *year, uint8_t *month, uint8_t *day)</div><div class="ttdoc">Extract the (year, month, day) fields from the current epoch year defined by atc_set_current_epoch_ye...</div><div class="ttdef"><b>Definition:</b> <a href="local__date_8c_source.html#l00085">local_date.c:85</a></div></div>
-<div class="ttc" id="alocal__date_8h_html_aa88cdfb5680791efd935b304877c953d"><div class="ttname"><a href="local__date_8h.html#aa88cdfb5680791efd935b304877c953d">atc_local_date_to_epoch_days</a></div><div class="ttdeci">int32_t atc_local_date_to_epoch_days(int16_t year, uint8_t month, uint8_t day)</div><div class="ttdoc">Return the number of days from the current epoch year for the (year, month, day) triple.</div><div class="ttdef"><b>Definition:</b> <a href="local__date_8c_source.html#l00078">local_date.c:78</a></div></div>
+<div class="line"><a name="l00039"></a><span class="lineno">   39</span>&#160;<span class="keywordtype">bool</span> <a class="code" href="local__date_8h.html#ad56a9df5e994d20403b0261b5c62e069">atc_is_leap_year</a>(int16_t year);</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160; </div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;uint8_t <a class="code" href="local__date_8h.html#ab3fae33c46c836fadcd35bc4cc86b33d">atc_local_date_days_in_year_month</a>(int16_t year, uint8_t month);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160; </div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;uint8_t <a class="code" href="local__date_8h.html#aea2c30f437bdaafed7c33ca2b1059567">atc_local_date_day_of_week</a>(int16_t year, uint8_t month, uint8_t day);</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160; </div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;int32_t <a class="code" href="local__date_8h.html#aa88cdfb5680791efd935b304877c953d">atc_local_date_to_epoch_days</a>(int16_t year, uint8_t month, uint8_t day);</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160; </div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;<span class="keywordtype">void</span> <a class="code" href="local__date_8h.html#a385fcd84e9fb482f5b6da92a2800e383">atc_local_date_from_epoch_days</a>(</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    int32_t epoch_days,</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    int16_t *year,</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    uint8_t *month,</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    uint8_t *day);</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160; </div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;int32_t <a class="code" href="local__date_8h.html#ad8c5bd2adc3dfbaaa342c31dcdbc940f">atc_local_date_to_unix_days</a>(int16_t year, uint8_t month, uint8_t day);</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160; </div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keywordtype">void</span> <a class="code" href="local__date_8h.html#a6e4ecfa90422fda40a82328448689a82">atc_local_date_from_unix_days</a>(</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;    int32_t unix_days,</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;    int16_t *year,</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;    uint8_t *month,</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;    uint8_t *day);</div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160; </div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="keywordtype">void</span> <a class="code" href="local__date_8h.html#ae3761861c0c6b0a1c58c6412cda75f54">atc_local_date_increment_one_day</a>(</div>
+<div class="line"><a name="l00109"></a><span class="lineno">  109</span>&#160;    int16_t *year, uint8_t *month, uint8_t *day);</div>
+<div class="line"><a name="l00110"></a><span class="lineno">  110</span>&#160; </div>
+<div class="line"><a name="l00112"></a><span class="lineno">  112</span>&#160;<span class="keywordtype">void</span> <a class="code" href="local__date_8h.html#acffbb16835eb30c277fc4282fdd20611">atc_local_date_decrement_one_day</a>(</div>
+<div class="line"><a name="l00113"></a><span class="lineno">  113</span>&#160;    int16_t *year, uint8_t *month, uint8_t *day);</div>
+<div class="line"><a name="l00114"></a><span class="lineno">  114</span>&#160; </div>
+<div class="line"><a name="l00115"></a><span class="lineno">  115</span>&#160;<span class="preprocessor">#ifdef __cplusplus</span></div>
+<div class="line"><a name="l00116"></a><span class="lineno">  116</span>&#160;}</div>
+<div class="line"><a name="l00117"></a><span class="lineno">  117</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00118"></a><span class="lineno">  118</span>&#160; </div>
+<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="ttc" id="alocal__date_8h_html_a385fcd84e9fb482f5b6da92a2800e383"><div class="ttname"><a href="local__date_8h.html#a385fcd84e9fb482f5b6da92a2800e383">atc_local_date_from_epoch_days</a></div><div class="ttdeci">void atc_local_date_from_epoch_days(int32_t epoch_days, int16_t *year, uint8_t *month, uint8_t *day)</div><div class="ttdoc">Extract the (year, month, day) fields from the current epoch year defined by atc_set_current_epoch_ye...</div><div class="ttdef"><b>Definition:</b> <a href="local__date_8c_source.html#l00084">local_date.c:84</a></div></div>
+<div class="ttc" id="alocal__date_8h_html_a6e4ecfa90422fda40a82328448689a82"><div class="ttname"><a href="local__date_8h.html#a6e4ecfa90422fda40a82328448689a82">atc_local_date_from_unix_days</a></div><div class="ttdeci">void atc_local_date_from_unix_days(int32_t unix_days, int16_t *year, uint8_t *month, uint8_t *day)</div><div class="ttdoc">Extract the (year, month, day) fields from the number of days since Unix epoch (1970).</div><div class="ttdef"><b>Definition:</b> <a href="local__date_8c_source.html#l00101">local_date.c:101</a></div></div>
+<div class="ttc" id="alocal__date_8h_html_aa88cdfb5680791efd935b304877c953d"><div class="ttname"><a href="local__date_8h.html#aa88cdfb5680791efd935b304877c953d">atc_local_date_to_epoch_days</a></div><div class="ttdeci">int32_t atc_local_date_to_epoch_days(int16_t year, uint8_t month, uint8_t day)</div><div class="ttdoc">Return the number of days from the current epoch year to the (year, month, day) triple.</div><div class="ttdef"><b>Definition:</b> <a href="local__date_8c_source.html#l00078">local_date.c:78</a></div></div>
 <div class="ttc" id="alocal__date_8h_html_ab3fae33c46c836fadcd35bc4cc86b33d"><div class="ttname"><a href="local__date_8h.html#ab3fae33c46c836fadcd35bc4cc86b33d">atc_local_date_days_in_year_month</a></div><div class="ttdeci">uint8_t atc_local_date_days_in_year_month(int16_t year, uint8_t month)</div><div class="ttdoc">Return the number of days in the month for the given year.</div><div class="ttdef"><b>Definition:</b> <a href="local__date_8c_source.html#l00059">local_date.c:59</a></div></div>
-<div class="ttc" id="alocal__date_8h_html_acffbb16835eb30c277fc4282fdd20611"><div class="ttname"><a href="local__date_8h.html#acffbb16835eb30c277fc4282fdd20611">atc_local_date_decrement_one_day</a></div><div class="ttdeci">void atc_local_date_decrement_one_day(int16_t *year, uint8_t *month, uint8_t *day)</div><div class="ttdoc">Decrement given (year, month, day) by one day.</div><div class="ttdef"><b>Definition:</b> <a href="local__date_8c_source.html#l00111">local_date.c:111</a></div></div>
+<div class="ttc" id="alocal__date_8h_html_acffbb16835eb30c277fc4282fdd20611"><div class="ttname"><a href="local__date_8h.html#acffbb16835eb30c277fc4282fdd20611">atc_local_date_decrement_one_day</a></div><div class="ttdeci">void atc_local_date_decrement_one_day(int16_t *year, uint8_t *month, uint8_t *day)</div><div class="ttdoc">Decrement given (year, month, day) by one day.</div><div class="ttdef"><b>Definition:</b> <a href="local__date_8c_source.html#l00126">local_date.c:126</a></div></div>
 <div class="ttc" id="alocal__date_8h_html_ad56a9df5e994d20403b0261b5c62e069"><div class="ttname"><a href="local__date_8h.html#ad56a9df5e994d20403b0261b5c62e069">atc_is_leap_year</a></div><div class="ttdeci">bool atc_is_leap_year(int16_t year)</div><div class="ttdoc">Return true if year is a leap year.</div><div class="ttdef"><b>Definition:</b> <a href="local__date_8c_source.html#l00054">local_date.c:54</a></div></div>
-<div class="ttc" id="alocal__date_8h_html_adc29c2ff13d900c2f185ee95427fb06ca4b9dc56529c3c997277aa3edebff7de0"><div class="ttname"><a href="local__date_8h.html#adc29c2ff13d900c2f185ee95427fb06ca4b9dc56529c3c997277aa3edebff7de0">kAtcInvalidYear</a></div><div class="ttdeci">@ kAtcInvalidYear</div><div class="ttdoc">Sentinel value for invalid year.</div><div class="ttdef"><b>Definition:</b> <a href="local__date_8h_source.html#l00040">local_date.h:40</a></div></div>
-<div class="ttc" id="alocal__date_8h_html_adc29c2ff13d900c2f185ee95427fb06cafb10cd3ddb3157ee07491ce67b70ac71"><div class="ttname"><a href="local__date_8h.html#adc29c2ff13d900c2f185ee95427fb06cafb10cd3ddb3157ee07491ce67b70ac71">kAtcInvalidEpochSeconds</a></div><div class="ttdeci">@ kAtcInvalidEpochSeconds</div><div class="ttdoc">Invalid epoch seconds.</div><div class="ttdef"><b>Definition:</b> <a href="local__date_8h_source.html#l00043">local_date.h:43</a></div></div>
-<div class="ttc" id="alocal__date_8h_html_ae3761861c0c6b0a1c58c6412cda75f54"><div class="ttname"><a href="local__date_8h.html#ae3761861c0c6b0a1c58c6412cda75f54">atc_local_date_increment_one_day</a></div><div class="ttdeci">void atc_local_date_increment_one_day(int16_t *year, uint8_t *month, uint8_t *day)</div><div class="ttdoc">Increment given (year, month, day) by one day.</div><div class="ttdef"><b>Definition:</b> <a href="local__date_8c_source.html#l00096">local_date.c:96</a></div></div>
+<div class="ttc" id="alocal__date_8h_html_ad8c5bd2adc3dfbaaa342c31dcdbc940f"><div class="ttname"><a href="local__date_8h.html#ad8c5bd2adc3dfbaaa342c31dcdbc940f">atc_local_date_to_unix_days</a></div><div class="ttdeci">int32_t atc_local_date_to_unix_days(int16_t year, uint8_t month, uint8_t day)</div><div class="ttdoc">Return the number of days from the Unix epoch (1970) to the (year, month, day) triple.</div><div class="ttdef"><b>Definition:</b> <a href="local__date_8c_source.html#l00095">local_date.c:95</a></div></div>
+<div class="ttc" id="alocal__date_8h_html_ae3761861c0c6b0a1c58c6412cda75f54"><div class="ttname"><a href="local__date_8h.html#ae3761861c0c6b0a1c58c6412cda75f54">atc_local_date_increment_one_day</a></div><div class="ttdeci">void atc_local_date_increment_one_day(int16_t *year, uint8_t *month, uint8_t *day)</div><div class="ttdoc">Increment given (year, month, day) by one day.</div><div class="ttdef"><b>Definition:</b> <a href="local__date_8c_source.html#l00111">local_date.c:111</a></div></div>
 <div class="ttc" id="alocal__date_8h_html_aea2c30f437bdaafed7c33ca2b1059567"><div class="ttname"><a href="local__date_8h.html#aea2c30f437bdaafed7c33ca2b1059567">atc_local_date_day_of_week</a></div><div class="ttdeci">uint8_t atc_local_date_day_of_week(int16_t year, uint8_t month, uint8_t day)</div><div class="ttdoc">Calculate the ISO day of week (i.e.</div><div class="ttdef"><b>Definition:</b> <a href="local__date_8c_source.html#l00065">local_date.c:65</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->

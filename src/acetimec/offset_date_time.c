@@ -17,12 +17,10 @@ bool atc_offset_date_time_is_error(const AtcOffsetDateTime *odt)
   return odt->month == 0;
 }
 
-atc_time_t atc_offset_date_time_to_epoch_seconds(
-    const AtcOffsetDateTime *odt)
-{
+atc_time_t atc_offset_date_time_to_epoch_seconds(const AtcOffsetDateTime *odt) {
   const AtcLocalDateTime *ldt = (const AtcLocalDateTime *) odt;
   atc_time_t es = atc_local_date_time_to_epoch_seconds(ldt);
-  if (es == kAtcInvalidEpochSeconds) return es;
+  if (es == kAtcInvalidEpochSeconds) return kAtcInvalidEpochSeconds;
   return es - odt->offset_seconds;
 }
 
@@ -42,7 +40,31 @@ void atc_offset_date_time_from_epoch_seconds(
   if (atc_local_date_time_is_error(ldt)) return;
 
   odt->offset_seconds = offset_seconds;
-  return;
+}
+
+int64_t atc_offset_date_time_to_unix_seconds(const AtcOffsetDateTime *odt) {
+  const AtcLocalDateTime *ldt = (const AtcLocalDateTime *) odt;
+  int64_t unix_seconds = atc_local_date_time_to_unix_seconds(ldt);
+  if (unix_seconds == kAtcInvalidUnixSeconds) return kAtcInvalidUnixSeconds;
+  return unix_seconds - odt->offset_seconds;
+}
+
+void atc_offset_date_time_from_unix_seconds(
+    AtcOffsetDateTime *odt,
+    int64_t unix_seconds,
+    int32_t offset_seconds)
+{
+  if (unix_seconds == kAtcInvalidUnixSeconds) {
+    atc_offset_date_time_set_error(odt);
+    return;
+  }
+
+  unix_seconds += offset_seconds;
+  AtcLocalDateTime *ldt = (AtcLocalDateTime *) odt;
+  atc_local_date_time_from_unix_seconds(ldt, unix_seconds);
+  if (atc_local_date_time_is_error(ldt)) return;
+
+  odt->offset_seconds = offset_seconds;
 }
 
 // Print +/-hh:mm, ignoring any ss component.

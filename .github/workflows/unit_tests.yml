@@ -17,7 +17,7 @@ jobs:
     - name: Setup
       run: |
         cd ..
-        git clone --depth 1 https://github.com/bxparks/ACUnit
+        git clone --depth 1 https://github.com/bxparks/acunit
         git clone --depth 1 https://github.com/bxparks/EpoxyDuino
 
     - name: Verify examples

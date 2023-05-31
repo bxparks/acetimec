@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">acetimec
-   &#160;<span id="projectnumber">0.10.0</span>
+   &#160;<span id="projectnumber">0.11.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -78,17 +78,11 @@ $(function() {
 <li>atc_compare_era_to_year_month()
 : <a class="el" href="zone__processor_8h.html#a6c38f9724e4b56feae82a019ce0b9c47">zone_processor.h</a>
 </li>
-<li>atc_convert_from_days()
-: <a class="el" href="epoch_8h.html#a45128050cfbce1409a563aca1db24238">epoch.h</a>
+<li>atc_convert_from_internal_days()
+: <a class="el" href="epoch_8h.html#a4fa6cf84a7e283af7bea5b1ba0261923">epoch.h</a>
 </li>
-<li>atc_convert_from_unix_seconds()
-: <a class="el" href="epoch_8h.html#aad2b71e6da41c858baa9a52b5eedbf43">epoch.h</a>
-</li>
-<li>atc_convert_to_days()
-: <a class="el" href="epoch_8h.html#afd8062e8c861203196883a0640e42d11">epoch.h</a>
-</li>
-<li>atc_convert_to_unix_seconds()
-: <a class="el" href="epoch_8h.html#aa1a89fde6d79420b513db03b3a250ca3">epoch.h</a>
+<li>atc_convert_to_internal_days()
+: <a class="el" href="epoch_8h.html#a71ae4d31e14bec51fa900fcc6041e78e">epoch.h</a>
 </li>
 <li>atc_copy_replace_string()
 : <a class="el" href="common_8h.html#a3524006cfa67e08e009187b670d667fe">common.h</a>
@@ -114,6 +108,12 @@ $(function() {
 <li>atc_djb2()
 : <a class="el" href="common_8h.html#adf398a9b212b8331b21fc2becf8b720e">common.h</a>
 </li>
+<li>atc_epoch_days_from_unix_days()
+: <a class="el" href="epoch_8h.html#a96f4040656fd60bd5eab924041732250">epoch.h</a>
+</li>
+<li>atc_epoch_seconds_from_unix_seconds()
+: <a class="el" href="epoch_8h.html#ae70302c1bbc88128f5120f5026a2d201">epoch.h</a>
+</li>
 <li>atc_epoch_valid_year_lower()
 : <a class="el" href="epoch_8h.html#a0f7b5d41a49fc1a0d00416f87dc2cd48">epoch.h</a>
 </li>
@@ -122,9 +122,6 @@ $(function() {
 </li>
 <li>atc_get_current_epoch_year()
 : <a class="el" href="epoch_8h.html#a4e1dda5b76ff50e2afdc336e83b0cd6a">epoch.h</a>
-</li>
-<li>atc_get_days_to_current_epoch_from_converter_epoch()
-: <a class="el" href="epoch_8h.html#a51cc82a7217092194f356ebd6aae85e6">epoch.h</a>
 </li>
 <li>atc_is_leap_year()
 : <a class="el" href="local__date_8h.html#ad56a9df5e994d20403b0261b5c62e069">local_date.h</a>
@@ -141,11 +138,17 @@ $(function() {
 <li>atc_local_date_from_epoch_days()
 : <a class="el" href="local__date_8h.html#a385fcd84e9fb482f5b6da92a2800e383">local_date.h</a>
 </li>
+<li>atc_local_date_from_unix_days()
+: <a class="el" href="local__date_8h.html#a6e4ecfa90422fda40a82328448689a82">local_date.h</a>
+</li>
 <li>atc_local_date_increment_one_day()
 : <a class="el" href="local__date_8h.html#ae3761861c0c6b0a1c58c6412cda75f54">local_date.h</a>
 </li>
 <li>atc_local_date_time_from_epoch_seconds()
 : <a class="el" href="local__date__time_8h.html#ab258292d473240c450b6dddd8d76f84b">local_date_time.h</a>
+</li>
+<li>atc_local_date_time_from_unix_seconds()
+: <a class="el" href="local__date__time_8h.html#adbbee048ee59b1dd4cac7a147c1c4bfb">local_date_time.h</a>
 </li>
 <li>atc_local_date_time_is_error()
 : <a class="el" href="local__date__time_8h.html#aef759ae10853f6a45b88c8ba23d55cf0">local_date_time.h</a>
@@ -159,8 +162,14 @@ $(function() {
 <li>atc_local_date_time_to_epoch_seconds()
 : <a class="el" href="local__date__time_8h.html#a47ae8261528b13df61c1d2f270a5d185">local_date_time.h</a>
 </li>
+<li>atc_local_date_time_to_unix_seconds()
+: <a class="el" href="local__date__time_8h.html#a6155a998216d18c58e7efe7694535446">local_date_time.h</a>
+</li>
 <li>atc_local_date_to_epoch_days()
 : <a class="el" href="local__date_8h.html#aa88cdfb5680791efd935b304877c953d">local_date.h</a>
+</li>
+<li>atc_local_date_to_unix_days()
+: <a class="el" href="local__date_8h.html#ad8c5bd2adc3dfbaaa342c31dcdbc940f">local_date.h</a>
 </li>
 <li>atc_local_time_to_seconds()
 : <a class="el" href="local__time_8h.html#a7a18833661a80f73895339a07a25df6a">local_time.h</a>
@@ -168,17 +177,23 @@ $(function() {
 <li>atc_offset_date_time_from_epoch_seconds()
 : <a class="el" href="offset__date__time_8h.html#af1533ef3e48080981f962127dc6df27c">offset_date_time.h</a>
 </li>
+<li>atc_offset_date_time_from_unix_seconds()
+: <a class="el" href="offset__date__time_8h.html#a709817dc2b3d85cf5e6318f3daec7184">offset_date_time.h</a>
+</li>
 <li>atc_offset_date_time_is_error()
-: <a class="el" href="offset__date__time_8h.html#ab5930551fd508739ba29a66966fa842d">offset_date_time.h</a>
+: <a class="el" href="offset__date__time_8h.html#a0a7e650aa58991a21feebe74660f74ae">offset_date_time.h</a>
 </li>
 <li>atc_offset_date_time_print()
 : <a class="el" href="offset__date__time_8h.html#a3da3eed00d621061fdd891e848f8a19d">offset_date_time.h</a>
 </li>
 <li>atc_offset_date_time_set_error()
-: <a class="el" href="offset__date__time_8h.html#a35fa11788af94246fce195750bee2884">offset_date_time.h</a>
+: <a class="el" href="offset__date__time_8h.html#ad4315b98631a3298d377cb0d5307189d">offset_date_time.h</a>
 </li>
 <li>atc_offset_date_time_to_epoch_seconds()
 : <a class="el" href="offset__date__time_8h.html#aa3e28840fa903ac35b59cf7a1b4510b3">offset_date_time.h</a>
+</li>
+<li>atc_offset_date_time_to_unix_seconds()
+: <a class="el" href="offset__date__time_8h.html#abeed3f354726f4ef2e480a09a2d323de">offset_date_time.h</a>
 </li>
 <li>atc_print_char()
 : <a class="el" href="string__buffer_8h.html#a4b6f4600158c8fbb79dc3cc1a6f97567">string_buffer.h</a>
@@ -345,6 +360,12 @@ $(function() {
 <li>atc_transition_storage_set_free_agent_as_prior_if_valid()
 : <a class="el" href="transition_8h.html#a3774924480ce623164ea45a90fd3e8fd">transition.h</a>
 </li>
+<li>atc_unix_days_from_epoch_days()
+: <a class="el" href="epoch_8h.html#a217664650ec62774040c099e37e45e75">epoch.h</a>
+</li>
+<li>atc_unix_seconds_from_epoch_seconds()
+: <a class="el" href="epoch_8h.html#aa85af9ef38eaa327a13f9e485dcfea3b">epoch.h</a>
+</li>
 <li>atc_zone_era_dst_offset_seconds()
 : <a class="el" href="zone__info__utils_8h.html#a940476595709b0a5d41db5e3f16b6d27">zone_info_utils.h</a>
 </li>
@@ -387,6 +408,9 @@ $(function() {
 <li>atc_zoned_date_time_from_local_date_time()
 : <a class="el" href="zoned__date__time_8h.html#acab530a64401349d2b1c7ef609e5dddc">zoned_date_time.h</a>
 </li>
+<li>atc_zoned_date_time_from_unix_seconds()
+: <a class="el" href="zoned__date__time_8h.html#abb1f89923270dffe44b3065307596d08">zoned_date_time.h</a>
+</li>
 <li>atc_zoned_date_time_is_error()
 : <a class="el" href="zoned__date__time_8h.html#afe7e2f2cec47f6e9e4f31327e558748c">zoned_date_time.h</a>
 </li>
@@ -402,11 +426,17 @@ $(function() {
 <li>atc_zoned_date_time_to_epoch_seconds()
 : <a class="el" href="zoned__date__time_8h.html#af7af315c2907bc0b921fd59d2ead00cf">zoned_date_time.h</a>
 </li>
+<li>atc_zoned_date_time_to_unix_seconds()
+: <a class="el" href="zoned__date__time_8h.html#afb2ea3d058466cfdf2f27aaae8a98e71">zoned_date_time.h</a>
+</li>
 <li>atc_zoned_extra_from_epoch_seconds()
 : <a class="el" href="zoned__extra_8h.html#aff8986afcc652cf635ab4463f74a0f9a">zoned_extra.h</a>
 </li>
 <li>atc_zoned_extra_from_local_date_time()
 : <a class="el" href="zoned__extra_8h.html#ad02a4c1bbd8103b015871cdcb8c9ca20">zoned_extra.h</a>
+</li>
+<li>atc_zoned_extra_from_unix_seconds()
+: <a class="el" href="zoned__extra_8h.html#a268361e1e4c3430d3ee7af71c374a1db">zoned_extra.h</a>
 </li>
 <li>atc_zoned_extra_is_error()
 : <a class="el" href="zoned__extra_8h.html#a36da5d17e7d8eb89210584b992001bf0">zoned_extra.h</a>

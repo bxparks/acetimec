@@ -2,15 +2,15 @@
 #include <acetimec.h>
 #include <acunit.h>
 
-ACU_TEST(test_atc_zoned_extra_types_equal_find_result_types)
+ACU_TEST(test_zoned_extra_fold_types_equal_find_result_types)
 {
-  ACU_ASSERT((int)kAtcZonedExtraNotFound == (int)kAtcFindResultNotFound);
-  ACU_ASSERT((int)kAtcZonedExtraExact == (int)kAtcFindResultExact);
-  ACU_ASSERT((int)kAtcZonedExtraGap == (int)kAtcFindResultGap);
-  ACU_ASSERT((int)kAtcZonedExtraOverlap == (int)kAtcFindResultOverlap);
+  ACU_ASSERT((int)kAtcFoldTypeNotFound == (int)kAtcFindResultNotFound);
+  ACU_ASSERT((int)kAtcFoldTypeExact == (int)kAtcFindResultExact);
+  ACU_ASSERT((int)kAtcFoldTypeGap == (int)kAtcFindResultGap);
+  ACU_ASSERT((int)kAtcFoldTypeOverlap == (int)kAtcFindResultOverlap);
 }
 
-ACU_TEST(test_atc_zoned_extra_from_epoch_seconds_invalid)
+ACU_TEST(test_zoned_extra_from_epoch_seconds_invalid)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
@@ -20,6 +20,19 @@ ACU_TEST(test_atc_zoned_extra_from_epoch_seconds_invalid)
   atc_time_t epoch_seconds = kAtcInvalidEpochSeconds;
 
   atc_zoned_extra_from_epoch_seconds(&extra, epoch_seconds, &tz);
+  ACU_ASSERT(atc_zoned_extra_is_error(&extra));
+}
+
+ACU_TEST(test_zoned_extra_from_unix_seconds_invalid)
+{
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcTestingZoneEtc_UTC, &processor};
+
+  AtcZonedExtra extra;
+  int64_t unix_seconds = kAtcInvalidUnixSeconds;
+
+  atc_zoned_extra_from_unix_seconds(&extra, unix_seconds, &tz);
   ACU_ASSERT(atc_zoned_extra_is_error(&extra));
 }
 
@@ -36,7 +49,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_fall_back)
 
   AtcZonedExtra extra;
   atc_zoned_extra_from_epoch_seconds(&extra, epoch_seconds, &tz);
-  ACU_ASSERT(kAtcZonedExtraOverlap == extra.type);
+  ACU_ASSERT(kAtcFoldTypeOverlap == extra.fold_type);
   ACU_ASSERT(-8*3600 == extra.std_offset_seconds);
   ACU_ASSERT(1*3600 == extra.dst_offset_seconds);
   ACU_ASSERT(-8*3600 == extra.req_std_offset_seconds);
@@ -46,7 +59,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_fall_back)
   // Go forward an hour. Should be 01:29:00-08:00.
   epoch_seconds += 3600;
   atc_zoned_extra_from_epoch_seconds(&extra, epoch_seconds, &tz);
-  ACU_ASSERT(kAtcZonedExtraOverlap == extra.type);
+  ACU_ASSERT(kAtcFoldTypeOverlap == extra.fold_type);
   ACU_ASSERT(-8*3600 == extra.std_offset_seconds);
   ACU_ASSERT(0*3600 == extra.dst_offset_seconds);
   ACU_ASSERT(-8*3600 == extra.req_std_offset_seconds);
@@ -67,7 +80,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_spring_forward)
 
   AtcZonedExtra extra;
   atc_zoned_extra_from_epoch_seconds(&extra, epoch_seconds, &tz);
-  ACU_ASSERT(kAtcZonedExtraExact == extra.type);
+  ACU_ASSERT(kAtcFoldTypeExact == extra.fold_type);
   ACU_ASSERT(-8*3600 == extra.std_offset_seconds);
   ACU_ASSERT(0*3600 == extra.dst_offset_seconds);
   ACU_ASSERT(-8*3600 == extra.req_std_offset_seconds);
@@ -77,7 +90,7 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_spring_forward)
   // An hour later, we spring forward to 03:29:00-07:00.
   epoch_seconds += 3600;
   atc_zoned_extra_from_epoch_seconds(&extra, epoch_seconds, &tz);
-  ACU_ASSERT(kAtcZonedExtraExact == extra.type);
+  ACU_ASSERT(kAtcFoldTypeExact == extra.fold_type);
   ACU_ASSERT(-8*3600 == extra.std_offset_seconds);
   ACU_ASSERT(1*3600 == extra.dst_offset_seconds);
   ACU_ASSERT(-8*3600 == extra.req_std_offset_seconds);
@@ -97,7 +110,7 @@ ACU_TEST(test_zoned_extra_from_local_date_time_fall_back)
 
   AtcZonedExtra extra;
   atc_zoned_extra_from_local_date_time(&extra, &ldt, &tz);
-  ACU_ASSERT(kAtcZonedExtraOverlap == extra.type);
+  ACU_ASSERT(kAtcFoldTypeOverlap == extra.fold_type);
   ACU_ASSERT(-8*3600 == extra.std_offset_seconds);
   ACU_ASSERT(1*3600 == extra.dst_offset_seconds);
   ACU_ASSERT(-8*3600 == extra.req_std_offset_seconds);
@@ -107,7 +120,7 @@ ACU_TEST(test_zoned_extra_from_local_date_time_fall_back)
   // For fold=1, the second transition is selected.
   ldt.fold = 1;
   atc_zoned_extra_from_local_date_time(&extra, &ldt, &tz);
-  ACU_ASSERT(kAtcZonedExtraOverlap == extra.type);
+  ACU_ASSERT(kAtcFoldTypeOverlap == extra.fold_type);
   ACU_ASSERT(-8*3600 == extra.std_offset_seconds);
   ACU_ASSERT(0*3600 == extra.dst_offset_seconds);
   ACU_ASSERT(-8*3600 == extra.req_std_offset_seconds);
@@ -127,7 +140,7 @@ ACU_TEST(test_zoned_extra_from_local_date_time_spring_forward)
   // first transition, and normalizes to 03:29:00-07:00.
   AtcZonedExtra extra;
   atc_zoned_extra_from_local_date_time(&extra, &ldt, &tz);
-  ACU_ASSERT(kAtcZonedExtraGap == extra.type);
+  ACU_ASSERT(kAtcFoldTypeGap == extra.fold_type);
   ACU_ASSERT(-8*3600 == extra.std_offset_seconds);
   ACU_ASSERT(1*3600 == extra.dst_offset_seconds);
   ACU_ASSERT(-8*3600 == extra.req_std_offset_seconds);
@@ -137,7 +150,7 @@ ACU_TEST(test_zoned_extra_from_local_date_time_spring_forward)
   // For fold=1, use the second transition, and normalize to 01:29:00-08:00.
   ldt.fold = 1;
   atc_zoned_extra_from_local_date_time(&extra, &ldt, &tz);
-  ACU_ASSERT(kAtcZonedExtraGap == extra.type);
+  ACU_ASSERT(kAtcFoldTypeGap == extra.fold_type);
   ACU_ASSERT(-8*3600 == extra.std_offset_seconds);
   ACU_ASSERT(0*3600 == extra.dst_offset_seconds);
   ACU_ASSERT(-8*3600 == extra.req_std_offset_seconds);
@@ -151,8 +164,9 @@ ACU_CONTEXT();
 
 int main()
 {
-  ACU_RUN_TEST(test_atc_zoned_extra_types_equal_find_result_types);
-  ACU_RUN_TEST(test_atc_zoned_extra_from_epoch_seconds_invalid);
+  ACU_RUN_TEST(test_zoned_extra_fold_types_equal_find_result_types);
+  ACU_RUN_TEST(test_zoned_extra_from_epoch_seconds_invalid);
+  ACU_RUN_TEST(test_zoned_extra_from_unix_seconds_invalid);
   ACU_RUN_TEST(test_zoned_extra_from_epoch_seconds_fall_back);
   ACU_RUN_TEST(test_zoned_extra_from_epoch_seconds_spring_forward);
   ACU_RUN_TEST(test_zoned_extra_from_local_date_time_fall_back);
