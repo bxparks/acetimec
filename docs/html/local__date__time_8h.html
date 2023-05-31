@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">acetimec
-   &#160;<span id="projectnumber">0.10.0</span>
+   &#160;<span id="projectnumber">0.11.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -147,6 +147,12 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="loca
 <tr class="memitem:ab258292d473240c450b6dddd8d76f84b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="local__date__time_8h.html#ab258292d473240c450b6dddd8d76f84b">atc_local_date_time_from_epoch_seconds</a> (<a class="el" href="structAtcLocalDateTime.html">AtcLocalDateTime</a> *ldt, <a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">atc_time_t</a> epoch_seconds)</td></tr>
 <tr class="memdesc:ab258292d473240c450b6dddd8d76f84b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert epoch seconds to LocalDateTime in UTC.  <a href="local__date__time_8h.html#ab258292d473240c450b6dddd8d76f84b">More...</a><br /></td></tr>
 <tr class="separator:ab258292d473240c450b6dddd8d76f84b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6155a998216d18c58e7efe7694535446"><td class="memItemLeft" align="right" valign="top">int64_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="local__date__time_8h.html#a6155a998216d18c58e7efe7694535446">atc_local_date_time_to_unix_seconds</a> (const <a class="el" href="structAtcLocalDateTime.html">AtcLocalDateTime</a> *ldt)</td></tr>
+<tr class="memdesc:a6155a998216d18c58e7efe7694535446"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert LocalDateTime in UTC to Unix seconds (since 1970).  <a href="local__date__time_8h.html#a6155a998216d18c58e7efe7694535446">More...</a><br /></td></tr>
+<tr class="separator:a6155a998216d18c58e7efe7694535446"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:adbbee048ee59b1dd4cac7a147c1c4bfb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="local__date__time_8h.html#adbbee048ee59b1dd4cac7a147c1c4bfb">atc_local_date_time_from_unix_seconds</a> (<a class="el" href="structAtcLocalDateTime.html">AtcLocalDateTime</a> *ldt, int64_t unix_seconds)</td></tr>
+<tr class="memdesc:adbbee048ee59b1dd4cac7a147c1c4bfb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Convert epoch seconds to LocalDateTime in UTC.  <a href="local__date__time_8h.html#adbbee048ee59b1dd4cac7a147c1c4bfb">More...</a><br /></td></tr>
+<tr class="separator:adbbee048ee59b1dd4cac7a147c1c4bfb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3101297e2c75acc639c63b74070343f4"><td class="memItemLeft" align="right" valign="top"><a id="a3101297e2c75acc639c63b74070343f4"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="local__date__time_8h.html#a3101297e2c75acc639c63b74070343f4">atc_local_date_time_print</a> (<a class="el" href="structAtcStringBuffer.html">AtcStringBuffer</a> *sb, const <a class="el" href="structAtcLocalDateTime.html">AtcLocalDateTime</a> *ldt)</td></tr>
 <tr class="memdesc:a3101297e2c75acc639c63b74070343f4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the local date time in ISO 8601 format. <br /></td></tr>
@@ -204,7 +210,40 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="loca
 <p>Convert epoch seconds to LocalDateTime in UTC. </p>
 <p>Return an error value for ldt upon error. </p>
 
-<p class="definition">Definition at line <a class="el" href="local__date__time_8c_source.html#l00035">35</a> of file <a class="el" href="local__date__time_8c_source.html">local_date_time.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="local__date__time_8c_source.html#l00036">36</a> of file <a class="el" href="local__date__time_8c_source.html">local_date_time.c</a>.</p>
+
+</div>
+</div>
+<a id="adbbee048ee59b1dd4cac7a147c1c4bfb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adbbee048ee59b1dd4cac7a147c1c4bfb">&#9670;&nbsp;</a></span>atc_local_date_time_from_unix_seconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void atc_local_date_time_from_unix_seconds </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structAtcLocalDateTime.html">AtcLocalDateTime</a> *&#160;</td>
+          <td class="paramname"><em>ldt</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int64_t&#160;</td>
+          <td class="paramname"><em>unix_seconds</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert epoch seconds to LocalDateTime in UTC. </p>
+<p>Return an error value for ldt upon error. </p>
+
+<p class="definition">Definition at line <a class="el" href="local__date__time_8c_source.html#l00075">75</a> of file <a class="el" href="local__date__time_8c_source.html">local_date_time.c</a>.</p>
 
 </div>
 </div>
@@ -227,7 +266,30 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="loca
 <p>Convert LocalDateTime in UTC to epoch seconds. </p>
 <p>Return kAtcInvalidEpochSeconds upon failure. </p>
 
-<p class="definition">Definition at line <a class="el" href="local__date__time_8c_source.html#l00023">23</a> of file <a class="el" href="local__date__time_8c_source.html">local_date_time.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="local__date__time_8c_source.html#l00024">24</a> of file <a class="el" href="local__date__time_8c_source.html">local_date_time.c</a>.</p>
+
+</div>
+</div>
+<a id="a6155a998216d18c58e7efe7694535446"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6155a998216d18c58e7efe7694535446">&#9670;&nbsp;</a></span>atc_local_date_time_to_unix_seconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int64_t atc_local_date_time_to_unix_seconds </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structAtcLocalDateTime.html">AtcLocalDateTime</a> *&#160;</td>
+          <td class="paramname"><em>ldt</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Convert LocalDateTime in UTC to Unix seconds (since 1970). </p>
+<p>Return kAtcInvalidUnixSeconds upon failure. </p>
+
+<p class="definition">Definition at line <a class="el" href="local__date__time_8c_source.html#l00064">64</a> of file <a class="el" href="local__date__time_8c_source.html">local_date_time.c</a>.</p>
 
 </div>
 </div>

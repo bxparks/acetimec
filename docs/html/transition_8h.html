@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">acetimec
-   &#160;<span id="projectnumber">0.10.0</span>
+   &#160;<span id="projectnumber">0.11.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -162,12 +162,12 @@ typedef struct <a class="el" href="structAtcTransitionStorage.html">AtcTransitio
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a61dadd085c1777f559549e05962b2c9e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="transition_8h.html#a61dadd085c1777f559549e05962b2c9ea9262981dc217adabd9b160f3b8e29c80">kAtcAbbrevSize</a> = 7
-, <a class="el" href="transition_8h.html#a61dadd085c1777f559549e05962b2c9ea8bf03ded4b77c7045e9204ab53b55916">kAtcTransitionStorageSize</a> = 8
-, <a class="el" href="transition_8h.html#a61dadd085c1777f559549e05962b2c9eac0a3a12b114e8fbfc75a9c34e31f55da">kAtcMaxMatches</a> = 4
-, <a class="el" href="transition_8h.html#a61dadd085c1777f559549e05962b2c9eaec20c31a8bd02a6af88b3ccc2318c14d">kAtcMaxInteriorYears</a> = 4
+<tr class="memitem:adc29c2ff13d900c2f185ee95427fb06c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06ca9262981dc217adabd9b160f3b8e29c80">kAtcAbbrevSize</a> = 7
+, <a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06ca8bf03ded4b77c7045e9204ab53b55916">kAtcTransitionStorageSize</a> = 8
+, <a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06cac0a3a12b114e8fbfc75a9c34e31f55da">kAtcMaxMatches</a> = 4
+, <a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06caec20c31a8bd02a6af88b3ccc2318c14d">kAtcMaxInteriorYears</a> = 4
  }</td></tr>
-<tr class="separator:a61dadd085c1777f559549e05962b2c9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="separator:adc29c2ff13d900c2f185ee95427fb06c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -280,8 +280,8 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
 </div>
 </div>
 <h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a61dadd085c1777f559549e05962b2c9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a61dadd085c1777f559549e05962b2c9e">&#9670;&nbsp;</a></span>anonymous enum</h2>
+<a id="adc29c2ff13d900c2f185ee95427fb06c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#adc29c2ff13d900c2f185ee95427fb06c">&#9670;&nbsp;</a></span>anonymous enum</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -292,15 +292,15 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="tran
       </table>
 </div><div class="memdoc">
 <table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="a61dadd085c1777f559549e05962b2c9ea9262981dc217adabd9b160f3b8e29c80"></a>kAtcAbbrevSize&#160;</td><td class="fielddoc"><p>Number of characters in a time zone abbreviation. </p>
+<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adc29c2ff13d900c2f185ee95427fb06ca9262981dc217adabd9b160f3b8e29c80"></a>kAtcAbbrevSize&#160;</td><td class="fielddoc"><p>Number of characters in a time zone abbreviation. </p>
 <p>6 is the maximum plus 1 for the NUL terminator. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a61dadd085c1777f559549e05962b2c9ea8bf03ded4b77c7045e9204ab53b55916"></a>kAtcTransitionStorageSize&#160;</td><td class="fielddoc"><p>Number of transitions in the transition_storage. </p>
+<tr><td class="fieldname"><a id="adc29c2ff13d900c2f185ee95427fb06ca8bf03ded4b77c7045e9204ab53b55916"></a>kAtcTransitionStorageSize&#160;</td><td class="fielddoc"><p>Number of transitions in the transition_storage. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a61dadd085c1777f559549e05962b2c9eac0a3a12b114e8fbfc75a9c34e31f55da"></a>kAtcMaxMatches&#160;</td><td class="fielddoc"><p>Number of Matches. </p>
+<tr><td class="fieldname"><a id="adc29c2ff13d900c2f185ee95427fb06cac0a3a12b114e8fbfc75a9c34e31f55da"></a>kAtcMaxMatches&#160;</td><td class="fielddoc"><p>Number of Matches. </p>
 <p>We look at the 3 years straddling the current year, plus the most recent prior year, so that makes 4. </p>
 </td></tr>
-<tr><td class="fieldname"><a id="a61dadd085c1777f559549e05962b2c9eaec20c31a8bd02a6af88b3ccc2318c14d"></a>kAtcMaxInteriorYears&#160;</td><td class="fielddoc"><p>Maximum number of interior years. </p>
+<tr><td class="fieldname"><a id="adc29c2ff13d900c2f185ee95427fb06caec20c31a8bd02a6af88b3ccc2318c14d"></a>kAtcMaxInteriorYears&#160;</td><td class="fielddoc"><p>Maximum number of interior years. </p>
 <p>For a viewing window of 14 months, this will be 4. (Verify: I think this can be changed to 3.) </p>
 </td></tr>
 </table>

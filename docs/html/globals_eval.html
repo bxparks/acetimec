@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">acetimec
-   &#160;<span id="projectnumber">0.10.0</span>
+   &#160;<span id="projectnumber">0.11.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -65,10 +65,16 @@ $(function() {
 <div class="contents">
 &#160;<ul>
 <li>kAtcAbbrevSize
-: <a class="el" href="transition_8h.html#a61dadd085c1777f559549e05962b2c9ea9262981dc217adabd9b160f3b8e29c80">transition.h</a>
+: <a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06ca9262981dc217adabd9b160f3b8e29c80">transition.h</a>
 </li>
-<li>kAtcConverterEpochYear
-: <a class="el" href="epoch_8h.html#a99fb83031ce9923c84392b4e92f956b5aec79c9fcf07937557893397d049eb850">epoch.h</a>
+<li>kAtcDaysToDefaultEpochFromInternalEpoch
+: <a class="el" href="common_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a39c75a60cb86b1f10260bbe9d3727bd1">common.h</a>
+</li>
+<li>kAtcDaysToInternalEpochFromUnixEpoch
+: <a class="el" href="common_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a145e4bf15f2c021c612b110349e3c20d">common.h</a>
+</li>
+<li>kAtcDefaultEpochYear
+: <a class="el" href="common_8h.html#adf764cbdea00d65edcd07bb9953ad2b7af3707b09ef522987288668cbd6cc7781">common.h</a>
 </li>
 <li>kAtcErrGeneric
 : <a class="el" href="common_8h.html#a06fc87d81c62e9abb8790b6e5713c55ba99ccc2843b8ff5cae20113ddbd42853e">common.h</a>
@@ -76,38 +82,44 @@ $(function() {
 <li>kAtcErrOk
 : <a class="el" href="common_8h.html#a06fc87d81c62e9abb8790b6e5713c55bad95f83b14b8d362a1290bca5e061566d">common.h</a>
 </li>
+<li>kAtcInternalEpochYear
+: <a class="el" href="common_8h.html#adf764cbdea00d65edcd07bb9953ad2b7ac4d6a37a16a7aba3afcbfdae9eb870a7">common.h</a>
+</li>
 <li>kAtcInvalidEpochSeconds
-: <a class="el" href="local__date_8h.html#adc29c2ff13d900c2f185ee95427fb06cafb10cd3ddb3157ee07491ce67b70ac71">local_date.h</a>
+: <a class="el" href="common_8h.html#adf764cbdea00d65edcd07bb9953ad2b7afb10cd3ddb3157ee07491ce67b70ac71">common.h</a>
+</li>
+<li>kAtcInvalidUnixSeconds
+: <a class="el" href="common_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a63f3337195de5d461adab77dae9173a2">common.h</a>
 </li>
 <li>kAtcInvalidYear
-: <a class="el" href="local__date_8h.html#adc29c2ff13d900c2f185ee95427fb06ca4b9dc56529c3c997277aa3edebff7de0">local_date.h</a>
+: <a class="el" href="common_8h.html#adf764cbdea00d65edcd07bb9953ad2b7a4b9dc56529c3c997277aa3edebff7de0">common.h</a>
 </li>
 <li>kAtcMaxInteriorYears
-: <a class="el" href="transition_8h.html#a61dadd085c1777f559549e05962b2c9eaec20c31a8bd02a6af88b3ccc2318c14d">transition.h</a>
+: <a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06caec20c31a8bd02a6af88b3ccc2318c14d">transition.h</a>
 </li>
 <li>kAtcMaxMatches
-: <a class="el" href="transition_8h.html#a61dadd085c1777f559549e05962b2c9eac0a3a12b114e8fbfc75a9c34e31f55da">transition.h</a>
+: <a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06cac0a3a12b114e8fbfc75a9c34e31f55da">transition.h</a>
 </li>
 <li>kAtcMaxZoneEraUntilYear
-: <a class="el" href="zone__info_8h.html#a16af7b253440dadd46a80a4b9fddba4da516a2896c00f03bd6ac34ec713c54ad0">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#a05589fbab0657f08285ebdfe93f5ec9ea516a2896c00f03bd6ac34ec713c54ad0">zone_info.h</a>
 </li>
 <li>kAtcMaxZoneRuleYear
-: <a class="el" href="zone__info_8h.html#a16af7b253440dadd46a80a4b9fddba4da020efc50d7fe1dfa04a417815a316e7e">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#a05589fbab0657f08285ebdfe93f5ec9ea020efc50d7fe1dfa04a417815a316e7e">zone_info.h</a>
 </li>
 <li>kAtcMinZoneRuleYear
-: <a class="el" href="zone__info_8h.html#a16af7b253440dadd46a80a4b9fddba4dafa4d2fca8a6cd40b22c7ef123a23cf12">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#a05589fbab0657f08285ebdfe93f5ec9eafa4d2fca8a6cd40b22c7ef123a23cf12">zone_info.h</a>
 </li>
 <li>kAtcSuffixS
-: <a class="el" href="zone__info_8h.html#aba01db17f4a2bfbc3db60dc172972a25a04280bfe4ef963779851e427e0c17b83">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#a16af7b253440dadd46a80a4b9fddba4da04280bfe4ef963779851e427e0c17b83">zone_info.h</a>
 </li>
 <li>kAtcSuffixU
-: <a class="el" href="zone__info_8h.html#aba01db17f4a2bfbc3db60dc172972a25a128db30aed8e7e11cf8341574f7c0bea">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#a16af7b253440dadd46a80a4b9fddba4da128db30aed8e7e11cf8341574f7c0bea">zone_info.h</a>
 </li>
 <li>kAtcSuffixW
-: <a class="el" href="zone__info_8h.html#aba01db17f4a2bfbc3db60dc172972a25a1d9d9152e8f121be37b8e743248cd2d8">zone_info.h</a>
+: <a class="el" href="zone__info_8h.html#a16af7b253440dadd46a80a4b9fddba4da1d9d9152e8f121be37b8e743248cd2d8">zone_info.h</a>
 </li>
 <li>kAtcTransitionStorageSize
-: <a class="el" href="transition_8h.html#a61dadd085c1777f559549e05962b2c9ea8bf03ded4b77c7045e9204ab53b55916">transition.h</a>
+: <a class="el" href="transition_8h.html#adc29c2ff13d900c2f185ee95427fb06ca8bf03ded4b77c7045e9204ab53b55916">transition.h</a>
 </li>
 </ul>
 </div><!-- contents -->

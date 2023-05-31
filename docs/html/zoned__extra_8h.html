@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">acetimec
-   &#160;<span id="projectnumber">0.10.0</span>
+   &#160;<span id="projectnumber">0.11.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -135,13 +135,13 @@ typedef struct <a class="el" href="structAtcZonedExtra.html">AtcZonedExtra</a>&#
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
 Enumerations</h2></td></tr>
-<tr class="memitem:a05589fbab0657f08285ebdfe93f5ec9e"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kAtcZonedExtraNotFound</b> = 0
-, <b>kAtcZonedExtraExact</b> = 1
-, <b>kAtcZonedExtraOverlap</b> = 2
-, <b>kAtcZonedExtraGap</b> = 3
+<tr class="memitem:ac36f475ca5b446f4fde4c9b90bec77c8"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <b>kAtcFoldTypeNotFound</b> = 0
+, <b>kAtcFoldTypeExact</b> = 1
+, <b>kAtcFoldTypeOverlap</b> = 2
+, <b>kAtcFoldTypeGap</b> = 3
  }</td></tr>
-<tr class="memdesc:a05589fbab0657f08285ebdfe93f5ec9e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Values of the the <a class="el" href="structAtcZonedExtra.html#a836e80485a7ed200bfceebb926e53cac" title="Type of match against the LocalDateTime or epoch_seconds.">AtcZonedExtra.type</a> field.  <a href="zoned__extra_8h.html#a05589fbab0657f08285ebdfe93f5ec9e">More...</a><br /></td></tr>
-<tr class="separator:a05589fbab0657f08285ebdfe93f5ec9e"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memdesc:ac36f475ca5b446f4fde4c9b90bec77c8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Values of the the <a class="el" href="structAtcZonedExtra.html#aaff1381eaedc5e5885d6b9bb1ae19e72" title="Result of search for the LocalDateTime or epoch_seconds, which is determines by the type of fold.">AtcZonedExtra.fold_type</a> field.  <a href="zoned__extra_8h.html#ac36f475ca5b446f4fde4c9b90bec77c8">More...</a><br /></td></tr>
+<tr class="separator:ac36f475ca5b446f4fde4c9b90bec77c8"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -150,11 +150,14 @@ Functions</h2></td></tr>
 <tr class="separator:a5f6af4657d01172dc63638c7427bc8f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a36da5d17e7d8eb89210584b992001bf0"><td class="memItemLeft" align="right" valign="top"><a id="a36da5d17e7d8eb89210584b992001bf0"></a>
 bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__extra_8h.html#a36da5d17e7d8eb89210584b992001bf0">atc_zoned_extra_is_error</a> (const <a class="el" href="structAtcZonedExtra.html">AtcZonedExtra</a> *extra)</td></tr>
-<tr class="memdesc:a36da5d17e7d8eb89210584b992001bf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if <a class="el" href="structAtcZonedExtra.html" title="Extra information about a given time zone at a specified epoch seconds.">AtcZonedExtra</a> is an error. <br /></td></tr>
+<tr class="memdesc:a36da5d17e7d8eb89210584b992001bf0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return true if <a class="el" href="structAtcZonedExtra.html" title="Extra information about a given time zone at a specified epoch seconds.">AtcZonedExtra</a> is an error defined by fold_type == kFoldTypeNotFound. <br /></td></tr>
 <tr class="separator:a36da5d17e7d8eb89210584b992001bf0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aff8986afcc652cf635ab4463f74a0f9a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__extra_8h.html#aff8986afcc652cf635ab4463f74a0f9a">atc_zoned_extra_from_epoch_seconds</a> (<a class="el" href="structAtcZonedExtra.html">AtcZonedExtra</a> *extra, <a class="el" href="common_8h.html#acbc70d84c280bc21542b1292be411847">atc_time_t</a> epoch_seconds, const <a class="el" href="structAtcTimeZone.html">AtcTimeZone</a> *tz)</td></tr>
-<tr class="memdesc:aff8986afcc652cf635ab4463f74a0f9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the extra zone information at given epoch_seconds.  <a href="zoned__extra_8h.html#aff8986afcc652cf635ab4463f74a0f9a">More...</a><br /></td></tr>
+<tr class="memdesc:aff8986afcc652cf635ab4463f74a0f9a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the extra zone information at given epoch seconds.  <a href="zoned__extra_8h.html#aff8986afcc652cf635ab4463f74a0f9a">More...</a><br /></td></tr>
 <tr class="separator:aff8986afcc652cf635ab4463f74a0f9a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a268361e1e4c3430d3ee7af71c374a1db"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__extra_8h.html#a268361e1e4c3430d3ee7af71c374a1db">atc_zoned_extra_from_unix_seconds</a> (<a class="el" href="structAtcZonedExtra.html">AtcZonedExtra</a> *extra, int64_t unix_seconds, const <a class="el" href="structAtcTimeZone.html">AtcTimeZone</a> *tz)</td></tr>
+<tr class="memdesc:a268361e1e4c3430d3ee7af71c374a1db"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the extra zone information at given Unix seconds.  <a href="zoned__extra_8h.html#a268361e1e4c3430d3ee7af71c374a1db">More...</a><br /></td></tr>
+<tr class="separator:a268361e1e4c3430d3ee7af71c374a1db"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad02a4c1bbd8103b015871cdcb8c9ca20"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zoned__extra_8h.html#ad02a4c1bbd8103b015871cdcb8c9ca20">atc_zoned_extra_from_local_date_time</a> (<a class="el" href="structAtcZonedExtra.html">AtcZonedExtra</a> *extra, const <a class="el" href="structAtcLocalDateTime.html">AtcLocalDateTime</a> *ldt, const <a class="el" href="structAtcTimeZone.html">AtcTimeZone</a> *tz)</td></tr>
 <tr class="memdesc:ad02a4c1bbd8103b015871cdcb8c9ca20"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the extra zone information at given LocalDateTime.  <a href="zoned__extra_8h.html#ad02a4c1bbd8103b015871cdcb8c9ca20">More...</a><br /></td></tr>
 <tr class="separator:ad02a4c1bbd8103b015871cdcb8c9ca20"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -164,8 +167,8 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 
 <p class="definition">Definition in file <a class="el" href="zoned__extra_8h_source.html">zoned_extra.h</a>.</p>
 </div><h2 class="groupheader">Enumeration Type Documentation</h2>
-<a id="a05589fbab0657f08285ebdfe93f5ec9e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a05589fbab0657f08285ebdfe93f5ec9e">&#9670;&nbsp;</a></span>anonymous enum</h2>
+<a id="ac36f475ca5b446f4fde4c9b90bec77c8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac36f475ca5b446f4fde4c9b90bec77c8">&#9670;&nbsp;</a></span>anonymous enum</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -176,7 +179,7 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
       </table>
 </div><div class="memdoc">
 
-<p>Values of the the <a class="el" href="structAtcZonedExtra.html#a836e80485a7ed200bfceebb926e53cac" title="Type of match against the LocalDateTime or epoch_seconds.">AtcZonedExtra.type</a> field. </p>
+<p>Values of the the <a class="el" href="structAtcZonedExtra.html#aaff1381eaedc5e5885d6b9bb1ae19e72" title="Result of search for the LocalDateTime or epoch_seconds, which is determines by the type of fold.">AtcZonedExtra.fold_type</a> field. </p>
 <p>Must be identical to the corresponding AtcFindResultXxx enums in <a class="el" href="zone__processor_8h.html" title="Data structures and functions related to determining the UTC and DST offsets using the list of DST tr...">zone_processor.h</a>. </p>
 
 <p class="definition">Definition at line <a class="el" href="zoned__extra_8h_source.html#l00033">33</a> of file <a class="el" href="zoned__extra_8h_source.html">zoned_extra.h</a>.</p>
@@ -216,10 +219,10 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
       </table>
 </div><div class="memdoc">
 
-<p>Extract the extra zone information at given epoch_seconds. </p>
-<p>Returns error status in <code>extra-&gt;type</code>. </p>
+<p>Extract the extra zone information at given epoch seconds. </p>
+<p>Returns error status in <code>extra-&gt;fold_type</code>. </p>
 
-<p class="definition">Definition at line <a class="el" href="zoned__extra_8c_source.html#l00019">19</a> of file <a class="el" href="zoned__extra_8c_source.html">zoned_extra.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zoned__extra_8c_source.html#l00020">20</a> of file <a class="el" href="zoned__extra_8c_source.html">zoned_extra.c</a>.</p>
 
 </div>
 </div>
@@ -256,7 +259,47 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 </div><div class="memdoc">
 
 <p>Extract the extra zone information at given LocalDateTime. </p>
-<p>Returns error status in <code>extra-&gt;type</code>. </p>
+<p>Returns <code>extra-&gt;fold_type == kAtcFoldTypeNotFound</code> if not found. </p>
+
+<p class="definition">Definition at line <a class="el" href="zoned__extra_8c_source.html#l00037">37</a> of file <a class="el" href="zoned__extra_8c_source.html">zoned_extra.c</a>.</p>
+
+</div>
+</div>
+<a id="a268361e1e4c3430d3ee7af71c374a1db"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a268361e1e4c3430d3ee7af71c374a1db">&#9670;&nbsp;</a></span>atc_zoned_extra_from_unix_seconds()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void atc_zoned_extra_from_unix_seconds </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structAtcZonedExtra.html">AtcZonedExtra</a> *&#160;</td>
+          <td class="paramname"><em>extra</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int64_t&#160;</td>
+          <td class="paramname"><em>unix_seconds</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structAtcTimeZone.html">AtcTimeZone</a> *&#160;</td>
+          <td class="paramname"><em>tz</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extract the extra zone information at given Unix seconds. </p>
+<p>Since this uses the <a class="el" href="structAtcZoneProcessor.html" title="Zone processor work space.">AtcZoneProcessor</a> and its transition cache, the range of supported Unix seconds is determined by the range of the epoch seconds in the context of the current epoch year.</p>
+<p>Returns <code>extra-&gt;fold_type == kAtcFoldTypeNotFound</code> if not found. </p>
 
 <p class="definition">Definition at line <a class="el" href="zoned__extra_8c_source.html#l00028">28</a> of file <a class="el" href="zoned__extra_8c_source.html">zoned_extra.c</a>.</p>
 
@@ -279,9 +322,9 @@ bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="zone
 </div><div class="memdoc">
 
 <p>Set the given <a class="el" href="structAtcZonedDateTime.html" title="Date and time broken down into components.">AtcZonedDateTime</a> to its error state, i.e. </p>
-<p>NotFound. </p>
+<p>kFoldTypeNotFound. </p>
 
-<p class="definition">Definition at line <a class="el" href="zoned__extra_8c_source.html#l00009">9</a> of file <a class="el" href="zoned__extra_8c_source.html">zoned_extra.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="zoned__extra_8c_source.html#l00010">10</a> of file <a class="el" href="zoned__extra_8c_source.html">zoned_extra.c</a>.</p>
 
 </div>
 </div>

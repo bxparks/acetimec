@@ -22,7 +22,7 @@
  <tr style="height: 56px;">
   <td id="projectalign" style="padding-left: 0.5em;">
    <div id="projectname">acetimec
-   &#160;<span id="projectnumber">0.10.0</span>
+   &#160;<span id="projectnumber">0.11.0</span>
    </div>
    <div id="projectbrief">Date and time library in C that supports timezones from the TZ Database.</div>
   </td>
@@ -124,10 +124,6 @@ Enumerations</h2></td></tr>
  }</td></tr>
 <tr class="memdesc:abc6126af1d45847bc59afa0aa3216b04"><td class="mdescLeft">&#160;</td><td class="mdescRight">ISO Weekday numbers.  <a href="local__date_8h.html#abc6126af1d45847bc59afa0aa3216b04">More...</a><br /></td></tr>
 <tr class="separator:abc6126af1d45847bc59afa0aa3216b04"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adc29c2ff13d900c2f185ee95427fb06c"><td class="memItemLeft" align="right" valign="top">enum &#160;</td><td class="memItemRight" valign="bottom">{ <a class="el" href="local__date_8h.html#adc29c2ff13d900c2f185ee95427fb06ca4b9dc56529c3c997277aa3edebff7de0">kAtcInvalidYear</a> = INT16_MIN
-, <a class="el" href="local__date_8h.html#adc29c2ff13d900c2f185ee95427fb06cafb10cd3ddb3157ee07491ce67b70ac71">kAtcInvalidEpochSeconds</a> = INT32_MIN
- }</td></tr>
-<tr class="separator:adc29c2ff13d900c2f185ee95427fb06c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
@@ -143,11 +139,17 @@ uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="l
 <tr class="memdesc:aea2c30f437bdaafed7c33ca2b1059567"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the ISO day of week (i.e.  <a href="local__date_8h.html#aea2c30f437bdaafed7c33ca2b1059567">More...</a><br /></td></tr>
 <tr class="separator:aea2c30f437bdaafed7c33ca2b1059567"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aa88cdfb5680791efd935b304877c953d"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="local__date_8h.html#aa88cdfb5680791efd935b304877c953d">atc_local_date_to_epoch_days</a> (int16_t year, uint8_t month, uint8_t day)</td></tr>
-<tr class="memdesc:aa88cdfb5680791efd935b304877c953d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of days from the current epoch year for the (year, month, day) triple.  <a href="local__date_8h.html#aa88cdfb5680791efd935b304877c953d">More...</a><br /></td></tr>
+<tr class="memdesc:aa88cdfb5680791efd935b304877c953d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of days from the current epoch year to the (year, month, day) triple.  <a href="local__date_8h.html#aa88cdfb5680791efd935b304877c953d">More...</a><br /></td></tr>
 <tr class="separator:aa88cdfb5680791efd935b304877c953d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a385fcd84e9fb482f5b6da92a2800e383"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="local__date_8h.html#a385fcd84e9fb482f5b6da92a2800e383">atc_local_date_from_epoch_days</a> (int32_t epoch_days, int16_t *year, uint8_t *month, uint8_t *day)</td></tr>
 <tr class="memdesc:a385fcd84e9fb482f5b6da92a2800e383"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the (year, month, day) fields from the current epoch year defined by <a class="el" href="epoch_8h.html#a4263750f0b027e0a96d6baefd7f1ada1" title="Set the current epoch year.">atc_set_current_epoch_year()</a>.  <a href="local__date_8h.html#a385fcd84e9fb482f5b6da92a2800e383">More...</a><br /></td></tr>
 <tr class="separator:a385fcd84e9fb482f5b6da92a2800e383"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad8c5bd2adc3dfbaaa342c31dcdbc940f"><td class="memItemLeft" align="right" valign="top">int32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="local__date_8h.html#ad8c5bd2adc3dfbaaa342c31dcdbc940f">atc_local_date_to_unix_days</a> (int16_t year, uint8_t month, uint8_t day)</td></tr>
+<tr class="memdesc:ad8c5bd2adc3dfbaaa342c31dcdbc940f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the number of days from the Unix epoch (1970) to the (year, month, day) triple.  <a href="local__date_8h.html#ad8c5bd2adc3dfbaaa342c31dcdbc940f">More...</a><br /></td></tr>
+<tr class="separator:ad8c5bd2adc3dfbaaa342c31dcdbc940f"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6e4ecfa90422fda40a82328448689a82"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="local__date_8h.html#a6e4ecfa90422fda40a82328448689a82">atc_local_date_from_unix_days</a> (int32_t unix_days, int16_t *year, uint8_t *month, uint8_t *day)</td></tr>
+<tr class="memdesc:a6e4ecfa90422fda40a82328448689a82"><td class="mdescLeft">&#160;</td><td class="mdescRight">Extract the (year, month, day) fields from the number of days since Unix epoch (1970).  <a href="local__date_8h.html#a6e4ecfa90422fda40a82328448689a82">More...</a><br /></td></tr>
+<tr class="separator:a6e4ecfa90422fda40a82328448689a82"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae3761861c0c6b0a1c58c6412cda75f54"><td class="memItemLeft" align="right" valign="top"><a id="ae3761861c0c6b0a1c58c6412cda75f54"></a>
 void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="local__date_8h.html#ae3761861c0c6b0a1c58c6412cda75f54">atc_local_date_increment_one_day</a> (int16_t *year, uint8_t *month, uint8_t *day)</td></tr>
 <tr class="memdesc:ae3761861c0c6b0a1c58c6412cda75f54"><td class="mdescLeft">&#160;</td><td class="mdescRight">Increment given (year, month, day) by one day. <br /></td></tr>
@@ -179,28 +181,6 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="loca
 <p>Monday=1, Sunday=7. </p>
 
 <p class="definition">Definition at line <a class="el" href="local__date_8h_source.html#l00028">28</a> of file <a class="el" href="local__date_8h_source.html">local_date.h</a>.</p>
-
-</div>
-</div>
-<a id="adc29c2ff13d900c2f185ee95427fb06c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adc29c2ff13d900c2f185ee95427fb06c">&#9670;&nbsp;</a></span>anonymous enum</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">anonymous enum</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<table class="fieldtable">
-<tr><th colspan="2">Enumerator</th></tr><tr><td class="fieldname"><a id="adc29c2ff13d900c2f185ee95427fb06ca4b9dc56529c3c997277aa3edebff7de0"></a>kAtcInvalidYear&#160;</td><td class="fielddoc"><p>Sentinel value for invalid year. </p>
-</td></tr>
-<tr><td class="fieldname"><a id="adc29c2ff13d900c2f185ee95427fb06cafb10cd3ddb3157ee07491ce67b70ac71"></a>kAtcInvalidEpochSeconds&#160;</td><td class="fielddoc"><p>Invalid epoch seconds. </p>
-</td></tr>
-</table>
-
-<p class="definition">Definition at line <a class="el" href="local__date_8h_source.html#l00038">38</a> of file <a class="el" href="local__date_8h_source.html">local_date.h</a>.</p>
 
 </div>
 </div>
@@ -294,7 +274,61 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="loca
   </dd>
 </dl>
 
-<p class="definition">Definition at line <a class="el" href="local__date_8c_source.html#l00085">85</a> of file <a class="el" href="local__date_8c_source.html">local_date.c</a>.</p>
+<p class="definition">Definition at line <a class="el" href="local__date_8c_source.html#l00084">84</a> of file <a class="el" href="local__date_8c_source.html">local_date.c</a>.</p>
+
+</div>
+</div>
+<a id="a6e4ecfa90422fda40a82328448689a82"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6e4ecfa90422fda40a82328448689a82">&#9670;&nbsp;</a></span>atc_local_date_from_unix_days()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void atc_local_date_from_unix_days </td>
+          <td>(</td>
+          <td class="paramtype">int32_t&#160;</td>
+          <td class="paramname"><em>unix_days</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">int16_t *&#160;</td>
+          <td class="paramname"><em>year</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>month</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *&#160;</td>
+          <td class="paramname"><em>day</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Extract the (year, month, day) fields from the number of days since Unix epoch (1970). </p>
+<p>No input validation is performed. The behavior is undefined if the parameters are outside their expected range.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">unix_days</td><td>number of days from the Unix epoch </td></tr>
+    <tr><td class="paramname">year</td><td>year [1,9999] </td></tr>
+    <tr><td class="paramname">month</td><td>month integer [1, 12] </td></tr>
+    <tr><td class="paramname">day</td><td>day of month integer[1, 31] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="local__date_8c_source.html#l00101">101</a> of file <a class="el" href="local__date_8c_source.html">local_date.c</a>.</p>
 
 </div>
 </div>
@@ -330,7 +364,7 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="loca
       </table>
 </div><div class="memdoc">
 
-<p>Return the number of days from the current epoch year for the (year, month, day) triple. </p>
+<p>Return the number of days from the current epoch year to the (year, month, day) triple. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">year</td><td>[1,9999] </td></tr>
@@ -341,6 +375,52 @@ void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="loca
 </dl>
 
 <p class="definition">Definition at line <a class="el" href="local__date_8c_source.html#l00078">78</a> of file <a class="el" href="local__date_8c_source.html">local_date.c</a>.</p>
+
+</div>
+</div>
+<a id="ad8c5bd2adc3dfbaaa342c31dcdbc940f"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad8c5bd2adc3dfbaaa342c31dcdbc940f">&#9670;&nbsp;</a></span>atc_local_date_to_unix_days()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">int32_t atc_local_date_to_unix_days </td>
+          <td>(</td>
+          <td class="paramtype">int16_t&#160;</td>
+          <td class="paramname"><em>year</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>month</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>day</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Return the number of days from the Unix epoch (1970) to the (year, month, day) triple. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">year</td><td>[1,9999] </td></tr>
+    <tr><td class="paramname">month</td><td>month integer, [1,12] </td></tr>
+    <tr><td class="paramname">day</td><td>day of month integer, [1,31] </td></tr>
+  </table>
+  </dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="local__date_8c_source.html#l00095">95</a> of file <a class="el" href="local__date_8c_source.html">local_date.c</a>.</p>
 
 </div>
 </div>
