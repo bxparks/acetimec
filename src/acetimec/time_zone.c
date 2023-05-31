@@ -112,7 +112,7 @@ void atc_time_zone_zoned_extra_from_epoch_seconds(
     AtcFindResult result;
     atc_processor_find_by_epoch_seconds(
         tz->zone_processor, epoch_seconds, &result);
-    extra->type = result.type;
+    extra->fold_type = result.type;
     if (result.type == kAtcFindResultNotFound) {
       return;
     }
@@ -124,7 +124,7 @@ void atc_time_zone_zoned_extra_from_epoch_seconds(
     memcpy(extra->abbrev, result.abbrev, kAtcAbbrevSize);
     extra->abbrev[kAtcAbbrevSize - 1] = '\0';
   } else {
-    extra->type = kAtcFindResultExact;
+    extra->fold_type = kAtcFindResultExact;
     extra->std_offset_seconds = 0;
     extra->dst_offset_seconds = 0;
     extra->req_std_offset_seconds = 0;
@@ -143,7 +143,7 @@ void atc_time_zone_zoned_extra_from_local_date_time(
 
     AtcFindResult result;
     atc_processor_find_by_local_date_time(tz->zone_processor, ldt, &result);
-    extra->type = result.type;
+    extra->fold_type = result.type;
     if (result.type == kAtcFindResultNotFound) {
       return;
     }
@@ -155,7 +155,7 @@ void atc_time_zone_zoned_extra_from_local_date_time(
     memcpy(extra->abbrev, result.abbrev, kAtcAbbrevSize);
     extra->abbrev[kAtcAbbrevSize - 1] = '\0';
   } else {
-    extra->type = kAtcFindResultExact;
+    extra->fold_type = kAtcFindResultExact;
     extra->std_offset_seconds = 0;
     extra->dst_offset_seconds = 0;
     extra->req_std_offset_seconds = 0;

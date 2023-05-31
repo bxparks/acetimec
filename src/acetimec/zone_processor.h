@@ -134,7 +134,7 @@ typedef struct AtcZoneProcessor {
 
 /**
  * Values of the the AtcFindResult.type field. Must be identical to the
- * corresponding kAtcZonedExtraXxx in zoned_extra.h.
+ * corresponding kAtcFoldTypeXxx in zoned_extra.h.
  */
 enum {
   kAtcFindResultNotFound = 0,

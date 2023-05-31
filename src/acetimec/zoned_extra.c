@@ -9,12 +9,12 @@
 
 void atc_zoned_extra_set_error(AtcZonedExtra *extra)
 {
-  extra->type = kAtcZonedExtraNotFound;
+  extra->fold_type = kAtcFoldTypeNotFound;
 }
 
 bool atc_zoned_extra_is_error(const AtcZonedExtra *extra)
 {
-  return extra->type == kAtcZonedExtraNotFound;
+  return extra->fold_type == kAtcFoldTypeNotFound;
 }
 
 void atc_zoned_extra_from_epoch_seconds(

@@ -783,14 +783,14 @@ particular epoch seconds:
 
 ```C
 enum {
-  kAtcZonedExtraNotFound = 0,
-  kAtcZonedExtraExact = 1,
-  kAtcZonedExtraGap = 2,
-  kAtcZonedExtraOverlap = 3,
+  kAtcFoldTypeNotFound = 0,
+  kAtcFoldTypeExact = 1,
+  kAtcFoldTypeGap = 2,
+  kAtcFoldTypeOverlap = 3,
 };
 
 typedef struct AtcZonedExtra {
-  int8_t type;
+  int8_t fold_type;
   int32_t std_offset_seconds; // STD offset
   int32_t dst_offset_seconds; // DST offset
   int32_t req_std_offset_seconds; // request STD offset
@@ -799,10 +799,10 @@ typedef struct AtcZonedExtra {
 } AtcZonedExtra;
 ```
 
-For `type` of `kAtcZonedExtraExact` and `kAtcZonedExtraOverlap`, the `req_std_offset_seconds` and `req_dst_offset_seconds` will be identical
+For `type` of `kAtcFoldTypeExact` and `kAtcFoldTypeOverlap`, the `req_std_offset_seconds` and `req_dst_offset_seconds` will be identical
 to the corresponding `std_offset_seconds` and `dst_offset_seconds` parameters.
 
-For `type` `kAtcZonedExtraGap`, which can be returned only by the
+For `type` `kAtcFoldTypeGap`, which can be returned only by the
 `atc_zoned_extra_from_local_date_time()` function below, the `fold` parameter
 selects one of the 2 matching `AtcZonedDateTime` following the algorithms
 described by Python [PEP 495](https://www.python.org/dev/peps/pep-0495/). Since
@@ -838,7 +838,7 @@ void atc_zoned_extra_from_local_date_time(
     AtcTimeZone tz);
 ```
 
-On error, the `extra.type` field is set to `kAtcZonedExtraNotFound` and
+On error, the `extra.type` field is set to `kAtcFoldTypeNotFound` and
 `atc_zoned_extra_is_error()` returns `true`.
 
 <a name="AtcZoneRegistrar"></a>
