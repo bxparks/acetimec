@@ -47,6 +47,9 @@ typedef struct AtcZonedExtra {
    */
   int8_t fold_type;
 
+  /** abbreviation (e.g. PST, PDT) */
+  char abbrev[kAtcAbbrevSize];
+
   /** STD offset */
   int32_t std_offset_seconds;
 
@@ -58,9 +61,6 @@ typedef struct AtcZonedExtra {
 
   /** DST offset of the requested LocalDateTime or epoch_seconds */
   int32_t req_dst_offset_seconds;
-
-  /** abbreviation (e.g. PST, PDT) */
-  char abbrev[kAtcAbbrevSize]; // Move this to after 'fold_type' to save space?
 } AtcZonedExtra;
 
 /**
