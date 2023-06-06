@@ -6,13 +6,8 @@
 //     --tz_version 2023c
 //     --action zonedb
 //     --language c
-//     --scope extended
+//     --scope complete
 //     --db_namespace AtcTesting
-//     --offset_granularity 1
-//     --delta_granularity 60
-//     --until_at_granularity 1
-//     --generate_int16_years
-//     --generate_hires
 //     --start_year 2000
 //     --until_year 10000
 //     --nocompress

@@ -18,13 +18,8 @@ all:
 		--tag $(TZ_VERSION) \
 		--action zonedb \
 		--language c \
-		--scope extended \
+		--scope complete \
 		--db_namespace AtcTesting \
-		--offset_granularity 1 \
-		--delta_granularity 60 \
-		--until_at_granularity 1 \
-		--generate_int16_years \
-		--generate_hires \
 		--start_year $(START_YEAR) \
 		--until_year $(UNTIL_YEAR) \
 		--nocompress \
@@ -36,10 +31,10 @@ zonedb.json:
 		--tag $(TZ_VERSION) \
 		--action zonedb \
 		--language json \
-		--scope extended \
-		--generate_int16_years \
+		--scope complete \
 		--start_year $(START_YEAR) \
 		--until_year $(UNTIL_YEAR)
+		--include_list include_list.txt
 
 clean:
 	rm -rf tzfiles zonedb.json
