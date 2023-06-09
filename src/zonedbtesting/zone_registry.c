@@ -42,6 +42,7 @@
 //   Rules: 201
 //
 // Memory (8-bits):
+//   Context: 16
 //   Rules: 2412
 //   Policies: 24
 //   Eras: 330
@@ -52,9 +53,10 @@
 //   Letters: 23
 //   Fragments: 0
 //   Names: 268 (original: 268)
-//   TOTAL: 3390
+//   TOTAL: 3406
 //
 // Memory (32-bits):
+//   Context: 24
 //   Rules: 2412
 //   Policies: 64
 //   Eras: 440
@@ -65,7 +67,7 @@
 //   Letters: 33
 //   Fragments: 0
 //   Names: 268 (original: 268)
-//   TOTAL: 3771
+//   TOTAL: 3795
 //
 // DO NOT EDIT
 

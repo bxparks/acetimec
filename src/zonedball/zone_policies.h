@@ -41,6 +41,7 @@
 //   Rules: 2238
 //
 // Memory (8-bits):
+//   Context: 16
 //   Rules: 26856
 //   Policies: 402
 //   Eras: 29235
@@ -51,9 +52,10 @@
 //   Letters: 160
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 75701
+//   TOTAL: 75717
 //
 // Memory (32-bits):
+//   Context: 24
 //   Rules: 26856
 //   Policies: 1072
 //   Eras: 38980
@@ -64,7 +66,7 @@
 //   Letters: 216
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 93920
+//   TOTAL: 93944
 //
 // DO NOT EDIT
 
@@ -79,7 +81,6 @@ extern "C" {
 
 //---------------------------------------------------------------------------
 // Supported policies: 134
-// Supported rules: 2238
 //---------------------------------------------------------------------------
 
 extern const AtcZonePolicy kAtcAllZonePolicyAN;
