@@ -9,7 +9,7 @@
 //     --scope complete
 //     --db_namespace Atc
 //     --start_year 2000
-//     --until_year 10000
+//     --until_year 2200
 //     --nocompress
 //
 // using the TZ Database files
@@ -29,9 +29,12 @@
 // Supported Zones: 596 (350 zones, 246 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
 //
+// Requested Years: [2000,2200]
+// Accurate Years: [2000,32767]
+//
 // Original Years:  [1844,2087]
 // Generated Years: [1950,2087]
-// Lower/Upper Truncated: [True, False]
+// Lower/Upper Truncated: [True,False]
 //
 // Estimator Years: [1950,2090]
 // Max Buffer Size: 7
@@ -101,7 +104,9 @@ static const char* const kAtcLetters[] = {
 
 const AtcZoneContext kAtcZoneContext = {
   2000 /*start_year*/,
-  10000 /*until_year*/,
+  2200 /*until_year*/,
+  2000 /*start_year_accurate*/,
+  32767 /*until_year_accurate*/,
   7 /*max_transitions*/,
   kAtcTzDatabaseVersion /*tz_version*/,
   1 /*num_fragments*/,

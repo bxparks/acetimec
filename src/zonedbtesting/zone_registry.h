@@ -9,7 +9,7 @@
 //     --scope complete
 //     --db_namespace AtcTesting
 //     --start_year 2000
-//     --until_year 10000
+//     --until_year 2200
 //     --nocompress
 //     --include_list include_list.txt
 //
@@ -30,9 +30,12 @@
 // Supported Zones: 17 (16 zones, 1 links)
 // Unsupported Zones: 579 (334 zones, 245 links)
 //
+// Requested Years: [2000,2200]
+// Accurate Years: [2000,32767]
+//
 // Original Years:  [1844,2087]
 // Generated Years: [1966,2087]
-// Lower/Upper Truncated: [True, False]
+// Lower/Upper Truncated: [True,False]
 //
 // Estimator Years: [1966,2090]
 // Max Buffer Size: 7

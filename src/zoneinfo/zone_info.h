@@ -198,11 +198,23 @@ enum {
 
 /** Information about the zone database. */
 typedef struct AtcZoneContext {
-  /** Start year of the zone files. */
+  /** Start year of the zone files as requested. */
   int16_t start_year;
 
-  /** Until year of the zone files. */
+  /** Until year of the zone files as requested. */
   int16_t until_year;
+
+  /**
+   * Start year of accurate transitions. kAtcMinZoneRuleYear indicates
+   * -Infinity
+   */
+  int16_t start_year_accurate;
+
+  /**
+   * Until year of accurate transitions. kAtcMaxZoneEraUntilYear indicates
+   * +Infinity
+   */
+  int16_t until_year_accurate;
 
   /** The maximum transitions required in TransitionStorage. */
   int16_t max_transitions;
