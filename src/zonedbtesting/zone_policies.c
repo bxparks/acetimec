@@ -4,8 +4,8 @@
 //     --input_dir /home/brian/src/acetimec/src/zonedbtesting/tzfiles
 //     --output_dir /home/brian/src/acetimec/src/zonedbtesting
 //     --tz_version 2023c
-//     --action zonedb
-//     --language c
+//     --actions zonedb
+//     --languages c
 //     --scope complete
 //     --db_namespace AtcTesting
 //     --start_year 2000

@@ -4,8 +4,8 @@
 //     --input_dir /home/brian/src/acetimec/src/zonedb/tzfiles
 //     --output_dir /home/brian/src/acetimec/src/zonedb
 //     --tz_version 2023c
-//     --action zonedb
-//     --language c
+//     --actions zonedb
+//     --languages c
 //     --scope complete
 //     --db_namespace Atc
 //     --start_year 2000

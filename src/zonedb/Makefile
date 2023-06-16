@@ -16,8 +16,8 @@ all:
 	$(TOOLS)/tzcompiler.sh \
 		--tzrepo $(TZ_REPO) \
 		--tag $(TZ_VERSION) \
-		--action zonedb \
-		--language c \
+		--actions zonedb \
+		--languages c \
 		--scope complete \
 		--db_namespace Atc \
 		--start_year $(START_YEAR) \
@@ -28,8 +28,8 @@ zonedb.json:
 	$(TOOLS)/tzcompiler.sh \
 		--tzrepo $(TZ_REPO) \
 		--tag $(TZ_VERSION) \
-		--action zonedb \
-		--language json \
+		--actions json \
+		--languages c \
 		--scope complete \
 		--start_year $(START_YEAR) \
 		--until_year $(UNTIL_YEAR)
