@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/acetimec/src/zonedb/tzfiles
 //     --output_dir /home/brian/src/acetimec/src/zonedb
-//     --tz_version 2023c
+//     --tz_version 2023d
 //     --actions zonedb
 //     --languages c
 //     --scope complete
@@ -24,9 +24,9 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2023c
+// from https://github.com/eggert/tz/releases/tag/2023d
 //
-// Supported Zones: 596 (350 zones, 246 links)
+// Supported Zones: 596 (351 zones, 245 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
 //
 // Requested Years: [2000,2200]
@@ -41,7 +41,7 @@
 //
 // Records:
 //   Infos: 596
-//   Eras: 646
+//   Eras: 655
 //   Policies: 83
 //   Rules: 735
 //
@@ -49,29 +49,29 @@
 //   Context: 16
 //   Rules: 8820
 //   Policies: 249
-//   Eras: 9690
-//   Zones: 4550
-//   Links: 3198
+//   Eras: 9825
+//   Zones: 4563
+//   Links: 3185
 //   Registry: 1192
 //   Formats: 597
 //   Letters: 46
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 37434
+//   TOTAL: 37569
 //
 // Memory (32-bits):
 //   Context: 24
 //   Rules: 8820
 //   Policies: 664
-//   Eras: 12920
-//   Zones: 8400
-//   Links: 5904
+//   Eras: 13100
+//   Zones: 8424
+//   Links: 5880
 //   Registry: 2384
 //   Formats: 597
 //   Letters: 64
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 48853
+//   TOTAL: 49033
 //
 // DO NOT EDIT
 
@@ -92,8 +92,8 @@ extern "C" {
 extern const AtcZoneContext kAtcZoneContext;
 
 //---------------------------------------------------------------------------
-// Supported zones: 350
-// Supported eras: 646
+// Supported zones: 351
+// Supported eras: 655
 //---------------------------------------------------------------------------
 
 extern const AtcZoneInfo kAtcZoneAfrica_Abidjan; // Africa/Abidjan
@@ -242,6 +242,7 @@ extern const AtcZoneInfo kAtcZoneAntarctica_Mawson; // Antarctica/Mawson
 extern const AtcZoneInfo kAtcZoneAntarctica_Palmer; // Antarctica/Palmer
 extern const AtcZoneInfo kAtcZoneAntarctica_Rothera; // Antarctica/Rothera
 extern const AtcZoneInfo kAtcZoneAntarctica_Troll; // Antarctica/Troll
+extern const AtcZoneInfo kAtcZoneAntarctica_Vostok; // Antarctica/Vostok
 extern const AtcZoneInfo kAtcZoneAsia_Almaty; // Asia/Almaty
 extern const AtcZoneInfo kAtcZoneAsia_Amman; // Asia/Amman
 extern const AtcZoneInfo kAtcZoneAsia_Anadyr; // Asia/Anadyr
@@ -596,6 +597,7 @@ extern const AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdAntarctica_Palmer 0x40962f4f /* Antarctica/Palmer */
 #define kAtcZoneIdAntarctica_Rothera 0x0e86d203 /* Antarctica/Rothera */
 #define kAtcZoneIdAntarctica_Troll 0xe33f085b /* Antarctica/Troll */
+#define kAtcZoneIdAntarctica_Vostok 0x4f966fd4 /* Antarctica/Vostok */
 #define kAtcZoneIdAsia_Almaty 0xa61f41fa /* Asia/Almaty */
 #define kAtcZoneIdAsia_Amman 0x148d21bc /* Asia/Amman */
 #define kAtcZoneIdAsia_Anadyr 0xa63cebd1 /* Asia/Anadyr */
@@ -803,7 +805,7 @@ extern const AtcZoneInfo kAtcZoneWET; // WET
 
 
 //---------------------------------------------------------------------------
-// Supported links: 246
+// Supported links: 245
 //---------------------------------------------------------------------------
 
 extern const AtcZoneInfo kAtcZoneAfrica_Accra; // Africa/Accra -> Africa/Abidjan
@@ -893,7 +895,6 @@ extern const AtcZoneInfo kAtcZoneAntarctica_DumontDUrville; // Antarctica/Dumont
 extern const AtcZoneInfo kAtcZoneAntarctica_McMurdo; // Antarctica/McMurdo -> Pacific/Auckland
 extern const AtcZoneInfo kAtcZoneAntarctica_South_Pole; // Antarctica/South_Pole -> Pacific/Auckland
 extern const AtcZoneInfo kAtcZoneAntarctica_Syowa; // Antarctica/Syowa -> Asia/Riyadh
-extern const AtcZoneInfo kAtcZoneAntarctica_Vostok; // Antarctica/Vostok -> Asia/Urumqi
 extern const AtcZoneInfo kAtcZoneArctic_Longyearbyen; // Arctic/Longyearbyen -> Europe/Berlin
 extern const AtcZoneInfo kAtcZoneAsia_Aden; // Asia/Aden -> Asia/Riyadh
 extern const AtcZoneInfo kAtcZoneAsia_Ashkhabad; // Asia/Ashkhabad -> Asia/Ashgabat
@@ -1143,7 +1144,6 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdAntarctica_McMurdo 0x6eeb5585 /* Antarctica/McMurdo */
 #define kAtcZoneIdAntarctica_South_Pole 0xcd96b290 /* Antarctica/South_Pole */
 #define kAtcZoneIdAntarctica_Syowa 0xe330c7e1 /* Antarctica/Syowa */
-#define kAtcZoneIdAntarctica_Vostok 0x4f966fd4 /* Antarctica/Vostok */
 #define kAtcZoneIdArctic_Longyearbyen 0xd23e7859 /* Arctic/Longyearbyen */
 #define kAtcZoneIdAsia_Aden 0x1fa7084a /* Asia/Aden */
 #define kAtcZoneIdAsia_Ashkhabad 0x15454f09 /* Asia/Ashkhabad */
@@ -1439,7 +1439,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeAmerica_Santiago 5  /* America/Santiago in 2002 */
 #define kAtcZoneBufSizeAmerica_Santo_Domingo 4  /* America/Santo_Domingo in 2000 */
 #define kAtcZoneBufSizeAmerica_Sao_Paulo 6  /* America/Sao_Paulo in 2003 */
-#define kAtcZoneBufSizeAmerica_Scoresbysund 5  /* America/Scoresbysund in 1983 */
+#define kAtcZoneBufSizeAmerica_Scoresbysund 6  /* America/Scoresbysund in 2024 */
 #define kAtcZoneBufSizeAmerica_Sitka 6  /* America/Sitka in 2008 */
 #define kAtcZoneBufSizeAmerica_St_Johns 6  /* America/St_Johns in 2008 */
 #define kAtcZoneBufSizeAmerica_Swift_Current 1  /* America/Swift_Current in 1949 */
@@ -1458,6 +1458,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeAntarctica_Palmer 5  /* Antarctica/Palmer in 2002 */
 #define kAtcZoneBufSizeAntarctica_Rothera 1  /* Antarctica/Rothera in 1949 */
 #define kAtcZoneBufSizeAntarctica_Troll 6  /* Antarctica/Troll in 2005 */
+#define kAtcZoneBufSizeAntarctica_Vostok 2  /* Antarctica/Vostok in 2023 */
 #define kAtcZoneBufSizeAsia_Almaty 5  /* Asia/Almaty in 1987 */
 #define kAtcZoneBufSizeAsia_Amman 6  /* Asia/Amman in 2014 */
 #define kAtcZoneBufSizeAsia_Anadyr 5  /* Asia/Anadyr in 1987 */

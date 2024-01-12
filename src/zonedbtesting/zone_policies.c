@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/acetimec/src/zonedbtesting/tzfiles
 //     --output_dir /home/brian/src/acetimec/src/zonedbtesting
-//     --tz_version 2023c
+//     --tz_version 2023d
 //     --actions zonedb
 //     --languages c
 //     --scope complete
@@ -25,10 +25,10 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2023c
+// from https://github.com/eggert/tz/releases/tag/2023d
 //
 // Supported Zones: 17 (16 zones, 1 links)
-// Unsupported Zones: 579 (334 zones, 245 links)
+// Unsupported Zones: 579 (335 zones, 244 links)
 //
 // Requested Years: [2000,2200]
 // Accurate Years: [2000,32767]

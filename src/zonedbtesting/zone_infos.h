@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/acetimec/src/zonedbtesting/tzfiles
 //     --output_dir /home/brian/src/acetimec/src/zonedbtesting
-//     --tz_version 2023c
+//     --tz_version 2023d
 //     --actions zonedb
 //     --languages c
 //     --scope complete
@@ -25,10 +25,10 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2023c
+// from https://github.com/eggert/tz/releases/tag/2023d
 //
 // Supported Zones: 17 (16 zones, 1 links)
-// Unsupported Zones: 579 (334 zones, 245 links)
+// Unsupported Zones: 579 (335 zones, 244 links)
 //
 // Requested Years: [2000,2200]
 // Accurate Years: [2000,32767]
@@ -174,7 +174,7 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 
 
 //---------------------------------------------------------------------------
-// Unsupported zones: 334
+// Unsupported zones: 335
 //---------------------------------------------------------------------------
 
 // Africa/Abidjan {Zone missing from include list}
@@ -311,6 +311,7 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // Antarctica/Palmer {Zone missing from include list}
 // Antarctica/Rothera {Zone missing from include list}
 // Antarctica/Troll {Zone missing from include list}
+// Antarctica/Vostok {Zone missing from include list}
 // Asia/Almaty {Zone missing from include list}
 // Asia/Amman {Zone missing from include list}
 // Asia/Anadyr {Zone missing from include list}
@@ -530,7 +531,7 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 
 
 //---------------------------------------------------------------------------
-// Unsupported links: 245
+// Unsupported links: 244
 //---------------------------------------------------------------------------
 
 // Africa/Accra {Link missing from include list}
@@ -620,7 +621,6 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // Antarctica/McMurdo {Link missing from include list}
 // Antarctica/South_Pole {Link missing from include list}
 // Antarctica/Syowa {Link missing from include list}
-// Antarctica/Vostok {Link missing from include list}
 // Arctic/Longyearbyen {Link missing from include list}
 // Asia/Aden {Link missing from include list}
 // Asia/Ashkhabad {Link missing from include list}

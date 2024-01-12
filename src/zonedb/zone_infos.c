@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/acetimec/src/zonedb/tzfiles
 //     --output_dir /home/brian/src/acetimec/src/zonedb
-//     --tz_version 2023c
+//     --tz_version 2023d
 //     --actions zonedb
 //     --languages c
 //     --scope complete
@@ -24,9 +24,9 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2023c
+// from https://github.com/eggert/tz/releases/tag/2023d
 //
-// Supported Zones: 596 (350 zones, 246 links)
+// Supported Zones: 596 (351 zones, 245 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
 //
 // Requested Years: [2000,2200]
@@ -41,7 +41,7 @@
 //
 // Records:
 //   Infos: 596
-//   Eras: 646
+//   Eras: 655
 //   Policies: 83
 //   Rules: 735
 //
@@ -49,29 +49,29 @@
 //   Context: 16
 //   Rules: 8820
 //   Policies: 249
-//   Eras: 9690
-//   Zones: 4550
-//   Links: 3198
+//   Eras: 9825
+//   Zones: 4563
+//   Links: 3185
 //   Registry: 1192
 //   Formats: 597
 //   Letters: 46
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 37434
+//   TOTAL: 37569
 //
 // Memory (32-bits):
 //   Context: 24
 //   Rules: 8820
 //   Policies: 664
-//   Eras: 12920
-//   Zones: 8400
-//   Links: 5904
+//   Eras: 13100
+//   Zones: 8424
+//   Links: 5880
 //   Registry: 2384
 //   Formats: 597
 //   Letters: 64
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 48853
+//   TOTAL: 49033
 //
 // DO NOT EDIT
 
@@ -82,7 +82,7 @@
 // ZoneContext
 //---------------------------------------------------------------------------
 
-static const char kAtcTzDatabaseVersion[] = "2023c";
+static const char kAtcTzDatabaseVersion[] = "2023d";
 
 static const char * const kAtcFragments[] = {
 /*\x00*/ NULL,
@@ -116,8 +116,8 @@ const AtcZoneContext kAtcZoneContext = {
 };
 
 //---------------------------------------------------------------------------
-// Zones: 350
-// Eras: 646
+// Zones: 351
+// Eras: 655
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
@@ -5344,16 +5344,29 @@ const AtcZoneInfo kAtcZoneAmerica_North_Dakota_New_Salem  = {
 
 //---------------------------------------------------------------------------
 // Zone name: America/Nuuk
-// Zone Eras: 2
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Nuuk[]  = {
-  //             -3:00    EU    -03/-02    2023 Oct 29  1:00u
+  //             -3:00    EU    -03/-02    2023 Mar 26  1:00u
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "-03/-02" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    2023 /*until_year*/,
+    3 /*until_month*/,
+    26 /*until_day*/,
+    240 /*until_time_code (3600/15)*/,
+    32 /*until_time_modifier (kAtcSuffixU + seconds=0)*/,
+  },
+  //             -2:00    -    -02    2023 Oct 29  1:00u
+  {
+    NULL /*zone_policy*/,
+    "-02" /*format*/,
+    -480 /*offset_code (-7200/15)*/,
+    0 /*offset_remainder (-7200%15)*/,
     0 /*delta_minutes*/,
     2023 /*until_year*/,
     10 /*until_month*/,
@@ -5383,7 +5396,7 @@ const AtcZoneInfo kAtcZoneAmerica_Nuuk  = {
   kAtcZoneNameAmerica_Nuuk /*name*/,
   0x9805b5a9 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Nuuk /*eras*/,
   NULL /*target_info*/,
 };
@@ -6198,16 +6211,29 @@ const AtcZoneInfo kAtcZoneAmerica_Sao_Paulo  = {
 
 //---------------------------------------------------------------------------
 // Zone name: America/Scoresbysund
-// Zone Eras: 1
+// Zone Eras: 2
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Scoresbysund[]  = {
-  //             -1:00    EU    -01/+00
+  //             -1:00    EU    -01/+00 2024 Mar 31
   {
     &kAtcZonePolicyEU /*zone_policy*/,
     "-01/+00" /*format*/,
     -240 /*offset_code (-3600/15)*/,
     0 /*offset_remainder (-3600%15)*/,
+    0 /*delta_minutes*/,
+    2024 /*until_year*/,
+    3 /*until_month*/,
+    31 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             -2:00    EU    -02/-01
+  {
+    &kAtcZonePolicyEU /*zone_policy*/,
+    "-02/-01" /*format*/,
+    -480 /*offset_code (-7200/15)*/,
+    0 /*offset_remainder (-7200%15)*/,
     0 /*delta_minutes*/,
     32767 /*until_year*/,
     1 /*until_month*/,
@@ -6224,7 +6250,7 @@ const AtcZoneInfo kAtcZoneAmerica_Scoresbysund  = {
   kAtcZoneNameAmerica_Scoresbysund /*name*/,
   0x123f8d2a /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
+  2 /*num_eras*/,
   kAtcZoneEraAmerica_Scoresbysund /*eras*/,
   NULL /*target_info*/,
 };
@@ -6672,7 +6698,7 @@ const AtcZoneInfo kAtcZoneAmerica_Yakutat  = {
 
 //---------------------------------------------------------------------------
 // Zone name: Antarctica/Casey
-// Zone Eras: 12
+// Zone Eras: 17
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAntarctica_Casey[]  = {
@@ -6819,12 +6845,77 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Casey[]  = {
     4 /*until_time_code (60/15)*/,
     0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
-  //             11:00    -    +11
+  //             11:00    -    +11    2021 Mar 14  0:00
   {
     NULL /*zone_policy*/,
     "+11" /*format*/,
     2640 /*offset_code (39600/15)*/,
     0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
+    2021 /*until_year*/,
+    3 /*until_month*/,
+    14 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //              8:00    -    +08    2021 Oct  3  0:01
+  {
+    NULL /*zone_policy*/,
+    "+08" /*format*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
+    2021 /*until_year*/,
+    10 /*until_month*/,
+    3 /*until_day*/,
+    4 /*until_time_code (60/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             11:00    -    +11    2022 Mar 13  0:00
+  {
+    NULL /*zone_policy*/,
+    "+11" /*format*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
+    2022 /*until_year*/,
+    3 /*until_month*/,
+    13 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //              8:00    -    +08    2022 Oct  2  0:01
+  {
+    NULL /*zone_policy*/,
+    "+08" /*format*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
+    0 /*delta_minutes*/,
+    2022 /*until_year*/,
+    10 /*until_month*/,
+    2 /*until_day*/,
+    4 /*until_time_code (60/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             11:00    -    +11    2023 Mar  9  3:00
+  {
+    NULL /*zone_policy*/,
+    "+11" /*format*/,
+    2640 /*offset_code (39600/15)*/,
+    0 /*offset_remainder (39600%15)*/,
+    0 /*delta_minutes*/,
+    2023 /*until_year*/,
+    3 /*until_month*/,
+    9 /*until_day*/,
+    720 /*until_time_code (10800/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //              8:00    -    +08
+  {
+    NULL /*zone_policy*/,
+    "+08" /*format*/,
+    1920 /*offset_code (28800/15)*/,
+    0 /*offset_remainder (28800%15)*/,
     0 /*delta_minutes*/,
     32767 /*until_year*/,
     1 /*until_month*/,
@@ -6841,7 +6932,7 @@ const AtcZoneInfo kAtcZoneAntarctica_Casey  = {
   kAtcZoneNameAntarctica_Casey /*name*/,
   0xe2022583 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  12 /*num_eras*/,
+  17 /*num_eras*/,
   kAtcZoneEraAntarctica_Casey /*eras*/,
   NULL /*target_info*/,
 };
@@ -7158,6 +7249,52 @@ const AtcZoneInfo kAtcZoneAntarctica_Troll  = {
   &kAtcZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAntarctica_Troll /*eras*/,
+  NULL /*target_info*/,
+};
+
+//---------------------------------------------------------------------------
+// Zone name: Antarctica/Vostok
+// Zone Eras: 2
+//---------------------------------------------------------------------------
+
+static const AtcZoneEra kAtcZoneEraAntarctica_Vostok[]  = {
+  //             7:00    -    +07    2023 Dec 18  2:00
+  {
+    NULL /*zone_policy*/,
+    "+07" /*format*/,
+    1680 /*offset_code (25200/15)*/,
+    0 /*offset_remainder (25200%15)*/,
+    0 /*delta_minutes*/,
+    2023 /*until_year*/,
+    12 /*until_month*/,
+    18 /*until_day*/,
+    480 /*until_time_code (7200/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             5:00    -    +05
+  {
+    NULL /*zone_policy*/,
+    "+05" /*format*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
+    1 /*until_month*/,
+    1 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+
+};
+
+static const char kAtcZoneNameAntarctica_Vostok[]  = "Antarctica/Vostok";
+
+const AtcZoneInfo kAtcZoneAntarctica_Vostok  = {
+  kAtcZoneNameAntarctica_Vostok /*name*/,
+  0x4f966fd4 /*zone_id*/,
+  &kAtcZoneContext /*zone_context*/,
+  2 /*num_eras*/,
+  kAtcZoneEraAntarctica_Vostok /*eras*/,
   NULL /*target_info*/,
 };
 
@@ -15521,7 +15658,7 @@ const AtcZoneInfo kAtcZoneWET  = {
 
 
 //---------------------------------------------------------------------------
-// Links: 246
+// Links: 245
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
@@ -16314,7 +16451,7 @@ const AtcZoneInfo kAtcZoneAmerica_Godthab  = {
   kAtcZoneNameAmerica_Godthab /*name*/,
   0x8f7eba1f /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAmerica_Nuuk /*eras*/,
   &kAtcZoneAmerica_Nuuk /*target_info*/,
 };
@@ -16827,21 +16964,6 @@ const AtcZoneInfo kAtcZoneAntarctica_Syowa  = {
   1 /*num_eras*/,
   kAtcZoneEraAsia_Riyadh /*eras*/,
   &kAtcZoneAsia_Riyadh /*target_info*/,
-};
-
-//---------------------------------------------------------------------------
-// Link name: Antarctica/Vostok -> Asia/Urumqi
-//---------------------------------------------------------------------------
-
-static const char kAtcZoneNameAntarctica_Vostok[]  = "Antarctica/Vostok";
-
-const AtcZoneInfo kAtcZoneAntarctica_Vostok  = {
-  kAtcZoneNameAntarctica_Vostok /*name*/,
-  0x4f966fd4 /*zone_id*/,
-  &kAtcZoneContext /*zone_context*/,
-  1 /*num_eras*/,
-  kAtcZoneEraAsia_Urumqi /*eras*/,
-  &kAtcZoneAsia_Urumqi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
