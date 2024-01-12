@@ -34,21 +34,21 @@ enum {
    * by synthetic entries for certain zones, to guarantee that all zones have at
    * least one transition.
    */
-  kAtcMinZoneRuleYear = -32767,
+  kAtcZoneInfoMinYear = -32767,
 
   /**
    * The maximum value of AtcZoneRule::from_year and AtcZoneRule::to_year,
    * representing the sentinel value "max" in the TO and FROM columns of the
-   * TZDB files. Must be less than kAtcMaxZoneEraUntilYear.
+   * TZDB files. Must be less than kAtcMaxUntilYear.
    */
-  kAtcMaxZoneRuleYear = 32766,
+  kAtcZoneInfoMaxYear = 32766,
 
   /**
    * The maximum value of ZoneEra::until_year, representing the sentinel value
    * "-" in the UNTIL column of the TZDB files. Must be greater than
-   * kAtcMaxZoneRuleYear.
+   * kAtcZoneInfoMaxYear.
    */
-  kAtcMaxZoneEraUntilYear = kAtcMaxZoneRuleYear + 1,
+  kAtcZoneInfoMaxUntilYear = kAtcZoneInfoMaxYear + 1,
 };
 
 //---------------------------------------------------------------------------
@@ -198,11 +198,23 @@ enum {
 
 /** Information about the zone database. */
 typedef struct AtcZoneContext {
-  /** Start year of the zone files. */
+  /** Start year of the zone files as requested. */
   int16_t start_year;
 
-  /** Until year of the zone files. */
+  /** Until year of the zone files as requested. */
   int16_t until_year;
+
+  /**
+   * Start year of accurate transitions. kAtcZoneInfoMinYear indicates
+   * -Infinity
+   */
+  int16_t start_year_accurate;
+
+  /**
+   * Until year of accurate transitions. kAtcZoneInfoMaxUntilYear indicates
+   * +Infinity
+   */
+  int16_t until_year_accurate;
 
   /** The maximum transitions required in TransitionStorage. */
   int16_t max_transitions;

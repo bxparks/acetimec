@@ -8,23 +8,18 @@ zone_registry.h
 
 TOOLS := $(abspath ../../../AceTimeTools)
 TZ_REPO := $(abspath $(TOOLS)/../tz)
-TZ_VERSION := 2023c
+TZ_VERSION := 2023d
 START_YEAR := 1800
-UNTIL_YEAR := 10000
+UNTIL_YEAR := 2200
 
 all:
 	$(TOOLS)/tzcompiler.sh \
 		--tzrepo $(TZ_REPO) \
 		--tag $(TZ_VERSION) \
-		--action zonedb \
-		--language c \
-		--scope extended \
+		--actions zonedb \
+		--languages c \
+		--scope complete \
 		--db_namespace AtcAll \
-		--offset_granularity 1 \
-		--delta_granularity 60 \
-		--until_at_granularity 1 \
-		--generate_int16_years \
-		--generate_hires \
 		--start_year $(START_YEAR) \
 		--until_year $(UNTIL_YEAR) \
 		--nocompress
@@ -33,10 +28,9 @@ zonedb.json:
 	$(TOOLS)/tzcompiler.sh \
 		--tzrepo $(TZ_REPO) \
 		--tag $(TZ_VERSION) \
-		--action zonedb \
-		--language json \
-		--scope extended \
-		--generate_int16_years \
+		--actions json \
+		--languages c \
+		--scope complete \
 		--start_year $(START_YEAR) \
 		--until_year $(UNTIL_YEAR)
 

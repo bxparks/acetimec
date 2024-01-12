@@ -638,13 +638,13 @@ int8_t atc_processor_init_for_year(
   AtcZoneProcessor *processor,
   int16_t year)
 {
-  if (year == kAtcInvalidYear) return kAtcErrGeneric;
-  if (atc_processor_is_valid_for_year(processor, year)) return kAtcErrOk;
-
-  const AtcZoneContext *context = processor->zone_info->zone_context;
-  if (year < context->start_year - 1 || context->until_year < year) {
+  // Restrict to [1,9999], even though `local_date.h` should be able to handle
+  // [0,10000].
+  if (year <= kAtcMinYear || kAtcMaxYear <= year) {
     return kAtcErrGeneric;
   }
+
+  if (atc_processor_is_valid_for_year(processor, year)) return kAtcErrOk;
 
   processor->epoch_year = atc_get_current_epoch_year();
   processor->year = year;

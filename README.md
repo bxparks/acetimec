@@ -24,7 +24,7 @@ latter documents.
 
 **Status**: Alpha-level software, not ready for public consumption.
 
-**Version**: 0.11.0 (2023-05-31, TZDB version 2023c)
+**Version**: 0.11.1 (2024-01-12, TZDB 2023d)
 
 **Changelog**: [CHANGELOG.md](CHANGELOG.md)
 

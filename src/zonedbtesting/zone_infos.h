@@ -3,18 +3,13 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/acetimec/src/zonedbtesting/tzfiles
 //     --output_dir /home/brian/src/acetimec/src/zonedbtesting
-//     --tz_version 2023c
-//     --action zonedb
-//     --language c
-//     --scope extended
+//     --tz_version 2023d
+//     --actions zonedb
+//     --languages c
+//     --scope complete
 //     --db_namespace AtcTesting
-//     --offset_granularity 1
-//     --delta_granularity 60
-//     --until_at_granularity 1
-//     --generate_int16_years
-//     --generate_hires
 //     --start_year 2000
-//     --until_year 10000
+//     --until_year 2200
 //     --nocompress
 //     --include_list include_list.txt
 //
@@ -30,13 +25,18 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2023c
+// from https://github.com/eggert/tz/releases/tag/2023d
 //
 // Supported Zones: 17 (16 zones, 1 links)
-// Unsupported Zones: 579 (334 zones, 245 links)
+// Unsupported Zones: 579 (335 zones, 244 links)
+//
+// Requested Years: [2000,2200]
+// Accurate Years: [2000,32767]
 //
 // Original Years:  [1844,2087]
 // Generated Years: [1966,2087]
+// Lower/Upper Truncated: [True,False]
+//
 // Estimator Years: [1966,2090]
 // Max Buffer Size: 7
 //
@@ -47,6 +47,7 @@
 //   Rules: 201
 //
 // Memory (8-bits):
+//   Context: 16
 //   Rules: 2412
 //   Policies: 24
 //   Eras: 330
@@ -57,9 +58,10 @@
 //   Letters: 23
 //   Fragments: 0
 //   Names: 268 (original: 268)
-//   TOTAL: 3390
+//   TOTAL: 3406
 //
 // Memory (32-bits):
+//   Context: 24
 //   Rules: 2412
 //   Policies: 64
 //   Eras: 440
@@ -70,7 +72,7 @@
 //   Letters: 33
 //   Fragments: 0
 //   Names: 268 (original: 268)
-//   TOTAL: 3771
+//   TOTAL: 3795
 //
 // DO NOT EDIT
 
@@ -172,7 +174,7 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 
 
 //---------------------------------------------------------------------------
-// Unsupported zones: 334
+// Unsupported zones: 335
 //---------------------------------------------------------------------------
 
 // Africa/Abidjan {Zone missing from include list}
@@ -309,6 +311,7 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // Antarctica/Palmer {Zone missing from include list}
 // Antarctica/Rothera {Zone missing from include list}
 // Antarctica/Troll {Zone missing from include list}
+// Antarctica/Vostok {Zone missing from include list}
 // Asia/Almaty {Zone missing from include list}
 // Asia/Amman {Zone missing from include list}
 // Asia/Anadyr {Zone missing from include list}
@@ -528,7 +531,7 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 
 
 //---------------------------------------------------------------------------
-// Unsupported links: 245
+// Unsupported links: 244
 //---------------------------------------------------------------------------
 
 // Africa/Accra {Link missing from include list}
@@ -618,7 +621,6 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // Antarctica/McMurdo {Link missing from include list}
 // Antarctica/South_Pole {Link missing from include list}
 // Antarctica/Syowa {Link missing from include list}
-// Antarctica/Vostok {Link missing from include list}
 // Arctic/Longyearbyen {Link missing from include list}
 // Asia/Aden {Link missing from include list}
 // Asia/Ashkhabad {Link missing from include list}

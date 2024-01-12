@@ -3,18 +3,13 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/acetimec/src/zonedb/tzfiles
 //     --output_dir /home/brian/src/acetimec/src/zonedb
-//     --tz_version 2023c
-//     --action zonedb
-//     --language c
-//     --scope extended
+//     --tz_version 2023d
+//     --actions zonedb
+//     --languages c
+//     --scope complete
 //     --db_namespace Atc
-//     --offset_granularity 1
-//     --delta_granularity 60
-//     --until_at_granularity 1
-//     --generate_int16_years
-//     --generate_hires
 //     --start_year 2000
-//     --until_year 10000
+//     --until_year 2200
 //     --nocompress
 //
 // using the TZ Database files
@@ -29,47 +24,54 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2023c
+// from https://github.com/eggert/tz/releases/tag/2023d
 //
-// Supported Zones: 596 (350 zones, 246 links)
+// Supported Zones: 596 (351 zones, 245 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
+//
+// Requested Years: [2000,2200]
+// Accurate Years: [2000,32767]
 //
 // Original Years:  [1844,2087]
 // Generated Years: [1950,2087]
+// Lower/Upper Truncated: [True,False]
+//
 // Estimator Years: [1950,2090]
 // Max Buffer Size: 7
 //
 // Records:
 //   Infos: 596
-//   Eras: 646
+//   Eras: 655
 //   Policies: 83
 //   Rules: 735
 //
 // Memory (8-bits):
+//   Context: 16
 //   Rules: 8820
 //   Policies: 249
-//   Eras: 9690
-//   Zones: 4550
-//   Links: 3198
+//   Eras: 9825
+//   Zones: 4563
+//   Links: 3185
 //   Registry: 1192
 //   Formats: 597
 //   Letters: 46
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 37418
+//   TOTAL: 37569
 //
 // Memory (32-bits):
+//   Context: 24
 //   Rules: 8820
 //   Policies: 664
-//   Eras: 12920
-//   Zones: 8400
-//   Links: 5904
+//   Eras: 13100
+//   Zones: 8424
+//   Links: 5880
 //   Registry: 2384
 //   Formats: 597
 //   Letters: 64
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 48829
+//   TOTAL: 49033
 //
 // DO NOT EDIT
 
@@ -83,8 +85,8 @@ extern "C" {
 #endif
 
 // Zones
-#define kAtcZoneRegistrySize 350
-extern const AtcZoneInfo * const kAtcZoneRegistry[350];
+#define kAtcZoneRegistrySize 351
+extern const AtcZoneInfo * const kAtcZoneRegistry[351];
 
 // Zones and Links
 #define kAtcZoneAndLinkRegistrySize 596
