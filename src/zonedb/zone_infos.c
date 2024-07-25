@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/acetimec/src/zonedb/tzfiles
 //     --output_dir /home/brian/src/acetimec/src/zonedb
-//     --tz_version 2023d
+//     --tz_version 2024a
 //     --actions zonedb
 //     --languages c
 //     --scope complete
@@ -24,7 +24,7 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2023d
+// from https://github.com/eggert/tz/releases/tag/2024a
 //
 // Supported Zones: 596 (351 zones, 245 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
@@ -41,7 +41,7 @@
 //
 // Records:
 //   Infos: 596
-//   Eras: 655
+//   Eras: 657
 //   Policies: 83
 //   Rules: 735
 //
@@ -49,7 +49,7 @@
 //   Context: 16
 //   Rules: 8820
 //   Policies: 249
-//   Eras: 9825
+//   Eras: 9855
 //   Zones: 4563
 //   Links: 3185
 //   Registry: 1192
@@ -57,13 +57,13 @@
 //   Letters: 46
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 37569
+//   TOTAL: 37599
 //
 // Memory (32-bits):
 //   Context: 24
 //   Rules: 8820
 //   Policies: 664
-//   Eras: 13100
+//   Eras: 13140
 //   Zones: 8424
 //   Links: 5880
 //   Registry: 2384
@@ -71,7 +71,7 @@
 //   Letters: 64
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 49033
+//   TOTAL: 49073
 //
 // DO NOT EDIT
 
@@ -82,7 +82,7 @@
 // ZoneContext
 //---------------------------------------------------------------------------
 
-static const char kAtcTzDatabaseVersion[] = "2023d";
+static const char kAtcTzDatabaseVersion[] = "2024a";
 
 static const char * const kAtcFragments[] = {
 /*\x00*/ NULL,
@@ -117,7 +117,7 @@ const AtcZoneContext kAtcZoneContext = {
 
 //---------------------------------------------------------------------------
 // Zones: 351
-// Eras: 655
+// Eras: 657
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
@@ -7300,7 +7300,7 @@ const AtcZoneInfo kAtcZoneAntarctica_Vostok  = {
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Almaty
-// Zone Eras: 2
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Almaty[]  = {
@@ -7317,12 +7317,25 @@ static const AtcZoneEra kAtcZoneEraAsia_Almaty[]  = {
     480 /*until_time_code (7200/15)*/,
     16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
-  //             6:00    -    +06
+  //             6:00    -    +06    2024 Mar  1  0:00
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
+    2024 /*until_year*/,
+    3 /*until_month*/,
+    1 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             5:00    -    +05
+  {
+    NULL /*zone_policy*/,
+    "+05" /*format*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
     0 /*delta_minutes*/,
     32767 /*until_year*/,
     1 /*until_month*/,
@@ -7339,7 +7352,7 @@ const AtcZoneInfo kAtcZoneAsia_Almaty  = {
   kAtcZoneNameAsia_Almaty /*name*/,
   0xa61f41fa /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Almaty /*eras*/,
   NULL /*target_info*/,
 };
@@ -9672,7 +9685,7 @@ const AtcZoneInfo kAtcZoneAsia_Qatar  = {
 
 //---------------------------------------------------------------------------
 // Zone name: Asia/Qostanay
-// Zone Eras: 2
+// Zone Eras: 3
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAsia_Qostanay[]  = {
@@ -9689,12 +9702,25 @@ static const AtcZoneEra kAtcZoneEraAsia_Qostanay[]  = {
     480 /*until_time_code (7200/15)*/,
     16 /*until_time_modifier (kAtcSuffixS + seconds=0)*/,
   },
-  //             6:00    -    +06
+  //             6:00    -    +06    2024 Mar  1  0:00
   {
     NULL /*zone_policy*/,
     "+06" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
+    0 /*delta_minutes*/,
+    2024 /*until_year*/,
+    3 /*until_month*/,
+    1 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             5:00    -    +05
+  {
+    NULL /*zone_policy*/,
+    "+05" /*format*/,
+    1200 /*offset_code (18000/15)*/,
+    0 /*offset_remainder (18000%15)*/,
     0 /*delta_minutes*/,
     32767 /*until_year*/,
     1 /*until_month*/,
@@ -9711,7 +9737,7 @@ const AtcZoneInfo kAtcZoneAsia_Qostanay  = {
   kAtcZoneNameAsia_Qostanay /*name*/,
   0x654fe522 /*zone_id*/,
   &kAtcZoneContext /*zone_context*/,
-  2 /*num_eras*/,
+  3 /*num_eras*/,
   kAtcZoneEraAsia_Qostanay /*eras*/,
   NULL /*target_info*/,
 };

@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/acetimec/src/zonedb/tzfiles
 //     --output_dir /home/brian/src/acetimec/src/zonedb
-//     --tz_version 2023d
+//     --tz_version 2024a
 //     --actions zonedb
 //     --languages c
 //     --scope complete
@@ -24,7 +24,7 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2023d
+// from https://github.com/eggert/tz/releases/tag/2024a
 //
 // Supported Zones: 596 (351 zones, 245 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
@@ -41,7 +41,7 @@
 //
 // Records:
 //   Infos: 596
-//   Eras: 655
+//   Eras: 657
 //   Policies: 83
 //   Rules: 735
 //
@@ -49,7 +49,7 @@
 //   Context: 16
 //   Rules: 8820
 //   Policies: 249
-//   Eras: 9825
+//   Eras: 9855
 //   Zones: 4563
 //   Links: 3185
 //   Registry: 1192
@@ -57,13 +57,13 @@
 //   Letters: 46
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 37569
+//   TOTAL: 37599
 //
 // Memory (32-bits):
 //   Context: 24
 //   Rules: 8820
 //   Policies: 664
-//   Eras: 13100
+//   Eras: 13140
 //   Zones: 8424
 //   Links: 5880
 //   Registry: 2384
@@ -71,7 +71,7 @@
 //   Letters: 64
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 49033
+//   TOTAL: 49073
 //
 // DO NOT EDIT
 
@@ -7308,25 +7308,25 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
-  // Rule Palestine    2024    only    -    Apr    13    2:00    1:00    S
+  // Rule Palestine    2024    only    -    Apr    20    2:00    1:00    S
   {
     2024 /*from_year*/,
     2024 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
-    13 /*on_day_of_month*/,
+    20 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
-  // Rule Palestine    2025    only    -    Apr     5    2:00    1:00    S
+  // Rule Palestine    2025    only    -    Apr    12    2:00    1:00    S
   {
     2025 /*from_year*/,
     2025 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
-    5 /*on_day_of_month*/,
+    12 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7392,30 +7392,6 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2039    only    -    Oct    22    2:00    1:00    S
-  {
-    2039 /*from_year*/,
-    2039 /*to_year*/,
-    10 /*in_month*/,
-    0 /*on_day_of_week*/,
-    22 /*on_day_of_month*/,
-    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
-    480 /*at_time_code (7200/15)*/,
-    60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
-  },
-  // Rule Palestine    2039    2067    -    Oct    Sat<=30    2:00    0    -
-  {
-    2039 /*from_year*/,
-    2067 /*to_year*/,
-    10 /*in_month*/,
-    6 /*on_day_of_week*/,
-    -30 /*on_day_of_month*/,
-    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
-    480 /*at_time_code (7200/15)*/,
-    0 /*delta_minutes*/,
-    0 /*letterIndex ("")*/,
-  },
   // Rule Palestine    2040    only    -    Sep     1    2:00    0    -
   {
     2040 /*from_year*/,
@@ -7428,17 +7404,29 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2040    only    -    Oct    13    2:00    1:00    S
+  // Rule Palestine    2040    only    -    Oct    20    2:00    1:00    S
   {
     2040 /*from_year*/,
     2040 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
-    13 /*on_day_of_month*/,
+    20 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2040    2067    -    Oct    Sat<=30    2:00    0    -
+  {
+    2040 /*from_year*/,
+    2067 /*to_year*/,
+    10 /*in_month*/,
+    6 /*on_day_of_week*/,
+    -30 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
   },
   // Rule Palestine    2041    only    -    Aug    24    2:00    0    -
   {
@@ -7452,13 +7440,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2041    only    -    Sep    28    2:00    1:00    S
+  // Rule Palestine    2041    only    -    Oct     5    2:00    1:00    S
   {
     2041 /*from_year*/,
     2041 /*to_year*/,
-    9 /*in_month*/,
+    10 /*in_month*/,
     0 /*on_day_of_week*/,
-    28 /*on_day_of_month*/,
+    5 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7476,13 +7464,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2042    only    -    Sep    20    2:00    1:00    S
+  // Rule Palestine    2042    only    -    Sep    27    2:00    1:00    S
   {
     2042 /*from_year*/,
     2042 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
-    20 /*on_day_of_month*/,
+    27 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7500,13 +7488,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2043    only    -    Sep    12    2:00    1:00    S
+  // Rule Palestine    2043    only    -    Sep    19    2:00    1:00    S
   {
     2043 /*from_year*/,
     2043 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
-    12 /*on_day_of_month*/,
+    19 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7524,13 +7512,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2044    only    -    Aug    27    2:00    1:00    S
+  // Rule Palestine    2044    only    -    Sep     3    2:00    1:00    S
   {
     2044 /*from_year*/,
     2044 /*to_year*/,
-    8 /*in_month*/,
+    9 /*in_month*/,
     0 /*on_day_of_week*/,
-    27 /*on_day_of_month*/,
+    3 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7548,13 +7536,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2045    only    -    Aug    19    2:00    1:00    S
+  // Rule Palestine    2045    only    -    Aug    26    2:00    1:00    S
   {
     2045 /*from_year*/,
     2045 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
-    19 /*on_day_of_month*/,
+    26 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7572,13 +7560,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2046    only    -    Aug    11    2:00    1:00    S
+  // Rule Palestine    2046    only    -    Aug    18    2:00    1:00    S
   {
     2046 /*from_year*/,
     2046 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
-    11 /*on_day_of_month*/,
+    18 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7596,13 +7584,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2047    only    -    Jul    27    2:00    1:00    S
+  // Rule Palestine    2047    only    -    Aug     3    2:00    1:00    S
   {
     2047 /*from_year*/,
     2047 /*to_year*/,
-    7 /*in_month*/,
+    8 /*in_month*/,
     0 /*on_day_of_week*/,
-    27 /*on_day_of_month*/,
+    3 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7620,13 +7608,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2048    only    -    Jul    18    2:00    1:00    S
+  // Rule Palestine    2048    only    -    Jul    25    2:00    1:00    S
   {
     2048 /*from_year*/,
     2048 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
-    18 /*on_day_of_month*/,
+    25 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7644,13 +7632,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2049    only    -    Jul     3    2:00    1:00    S
+  // Rule Palestine    2049    only    -    Jul    10    2:00    1:00    S
   {
     2049 /*from_year*/,
     2049 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
-    3 /*on_day_of_month*/,
+    10 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7668,13 +7656,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2050    only    -    Jun    25    2:00    1:00    S
+  // Rule Palestine    2050    only    -    Jul     2    2:00    1:00    S
   {
     2050 /*from_year*/,
     2050 /*to_year*/,
-    6 /*in_month*/,
+    7 /*in_month*/,
     0 /*on_day_of_week*/,
-    25 /*on_day_of_month*/,
+    2 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7692,13 +7680,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2051    only    -    Jun    17    2:00    1:00    S
+  // Rule Palestine    2051    only    -    Jun    24    2:00    1:00    S
   {
     2051 /*from_year*/,
     2051 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
-    17 /*on_day_of_month*/,
+    24 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7716,13 +7704,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2052    only    -    Jun     1    2:00    1:00    S
+  // Rule Palestine    2052    only    -    Jun     8    2:00    1:00    S
   {
     2052 /*from_year*/,
     2052 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
-    1 /*on_day_of_month*/,
+    8 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7740,13 +7728,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2053    only    -    May    24    2:00    1:00    S
+  // Rule Palestine    2053    only    -    May    31    2:00    1:00    S
   {
     2053 /*from_year*/,
     2053 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
-    24 /*on_day_of_month*/,
+    31 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7764,57 +7752,69 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2054    only    -    May    16    2:00    1:00    S
+  // Rule Palestine    2054    only    -    May    23    2:00    1:00    S
   {
     2054 /*from_year*/,
     2054 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
-    16 /*on_day_of_month*/,
+    23 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
-  // Rule Palestine    2055    only    -    May     1    2:00    1:00    S
+  // Rule Palestine    2055    only    -    May     8    2:00    1:00    S
   {
     2055 /*from_year*/,
     2055 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
-    1 /*on_day_of_month*/,
+    8 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
-  // Rule Palestine    2056    only    -    Apr    22    2:00    1:00    S
+  // Rule Palestine    2056    only    -    Apr    29    2:00    1:00    S
   {
     2056 /*from_year*/,
     2056 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
-    22 /*on_day_of_month*/,
+    29 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
-  // Rule Palestine    2057    only    -    Apr     7    2:00    1:00    S
+  // Rule Palestine    2057    only    -    Apr    14    2:00    1:00    S
   {
     2057 /*from_year*/,
     2057 /*to_year*/,
     4 /*in_month*/,
     0 /*on_day_of_week*/,
-    7 /*on_day_of_month*/,
+    14 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
     7 /*letterIndex ("S")*/,
   },
-  // Rule Palestine    2058    max    -    Mar    Sat<=30    2:00    1:00    S
+  // Rule Palestine    2058    only    -    Apr     6    2:00    1:00    S
   {
     2058 /*from_year*/,
+    2058 /*to_year*/,
+    4 /*in_month*/,
+    0 /*on_day_of_week*/,
+    6 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    480 /*at_time_code (7200/15)*/,
+    60 /*delta_minutes*/,
+    7 /*letterIndex ("S")*/,
+  },
+  // Rule Palestine    2059    max    -    Mar    Sat<=30    2:00    1:00    S
+  {
+    2059 /*from_year*/,
     32766 /*to_year*/,
     3 /*in_month*/,
     6 /*on_day_of_week*/,
@@ -7884,13 +7884,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2072    only    -    Oct    15    2:00    1:00    S
+  // Rule Palestine    2072    only    -    Oct    22    2:00    1:00    S
   {
     2072 /*from_year*/,
     2072 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
-    15 /*on_day_of_month*/,
+    22 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7920,13 +7920,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2073    only    -    Oct     7    2:00    1:00    S
+  // Rule Palestine    2073    only    -    Oct    14    2:00    1:00    S
   {
     2073 /*from_year*/,
     2073 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
-    7 /*on_day_of_month*/,
+    14 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7944,13 +7944,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2074    only    -    Sep    29    2:00    1:00    S
+  // Rule Palestine    2074    only    -    Oct     6    2:00    1:00    S
   {
     2074 /*from_year*/,
     2074 /*to_year*/,
-    9 /*in_month*/,
+    10 /*in_month*/,
     0 /*on_day_of_week*/,
-    29 /*on_day_of_month*/,
+    6 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7968,13 +7968,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2075    only    -    Sep    14    2:00    1:00    S
+  // Rule Palestine    2075    only    -    Sep    21    2:00    1:00    S
   {
     2075 /*from_year*/,
     2075 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
-    14 /*on_day_of_month*/,
+    21 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -7992,13 +7992,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2076    only    -    Sep     5    2:00    1:00    S
+  // Rule Palestine    2076    only    -    Sep    12    2:00    1:00    S
   {
     2076 /*from_year*/,
     2076 /*to_year*/,
     9 /*in_month*/,
     0 /*on_day_of_week*/,
-    5 /*on_day_of_month*/,
+    12 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -8016,13 +8016,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2077    only    -    Aug    28    2:00    1:00    S
+  // Rule Palestine    2077    only    -    Sep     4    2:00    1:00    S
   {
     2077 /*from_year*/,
     2077 /*to_year*/,
-    8 /*in_month*/,
+    9 /*in_month*/,
     0 /*on_day_of_week*/,
-    28 /*on_day_of_month*/,
+    4 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -8040,13 +8040,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2078    only    -    Aug    13    2:00    1:00    S
+  // Rule Palestine    2078    only    -    Aug    20    2:00    1:00    S
   {
     2078 /*from_year*/,
     2078 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
-    13 /*on_day_of_month*/,
+    20 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -8064,13 +8064,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2079    only    -    Aug     5    2:00    1:00    S
+  // Rule Palestine    2079    only    -    Aug    12    2:00    1:00    S
   {
     2079 /*from_year*/,
     2079 /*to_year*/,
     8 /*in_month*/,
     0 /*on_day_of_week*/,
-    5 /*on_day_of_month*/,
+    12 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -8088,13 +8088,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2080    only    -    Jul    20    2:00    1:00    S
+  // Rule Palestine    2080    only    -    Jul    27    2:00    1:00    S
   {
     2080 /*from_year*/,
     2080 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
-    20 /*on_day_of_month*/,
+    27 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -8112,13 +8112,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2081    only    -    Jul    12    2:00    1:00    S
+  // Rule Palestine    2081    only    -    Jul    19    2:00    1:00    S
   {
     2081 /*from_year*/,
     2081 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
-    12 /*on_day_of_month*/,
+    19 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -8136,13 +8136,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2082    only    -    Jul     4    2:00    1:00    S
+  // Rule Palestine    2082    only    -    Jul    11    2:00    1:00    S
   {
     2082 /*from_year*/,
     2082 /*to_year*/,
     7 /*in_month*/,
     0 /*on_day_of_week*/,
-    4 /*on_day_of_month*/,
+    11 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -8160,13 +8160,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2083    only    -    Jun    19    2:00    1:00    S
+  // Rule Palestine    2083    only    -    Jun    26    2:00    1:00    S
   {
     2083 /*from_year*/,
     2083 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
-    19 /*on_day_of_month*/,
+    26 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -8184,13 +8184,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2084    only    -    Jun    10    2:00    1:00    S
+  // Rule Palestine    2084    only    -    Jun    17    2:00    1:00    S
   {
     2084 /*from_year*/,
     2084 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
-    10 /*on_day_of_month*/,
+    17 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -8208,13 +8208,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2085    only    -    Jun     2    2:00    1:00    S
+  // Rule Palestine    2085    only    -    Jun     9    2:00    1:00    S
   {
     2085 /*from_year*/,
     2085 /*to_year*/,
     6 /*in_month*/,
     0 /*on_day_of_week*/,
-    2 /*on_day_of_month*/,
+    9 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
@@ -8232,13 +8232,13 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule Palestine    2086    only    -    May    18    2:00    1:00    S
+  // Rule Palestine    2086    only    -    May    25    2:00    1:00    S
   {
     2086 /*from_year*/,
     2086 /*to_year*/,
     5 /*in_month*/,
     0 /*on_day_of_week*/,
-    18 /*on_day_of_month*/,
+    25 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
     480 /*at_time_code (7200/15)*/,
     60 /*delta_minutes*/,
