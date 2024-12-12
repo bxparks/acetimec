@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/acetimec/src/zonedb/tzfiles
 //     --output_dir /home/brian/src/acetimec/src/zonedb
-//     --tz_version 2024a
+//     --tz_version 2024b
 //     --actions zonedb
 //     --languages c
 //     --scope complete
@@ -24,9 +24,9 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2024a
+// from https://github.com/eggert/tz/releases/tag/2024b
 //
-// Supported Zones: 596 (351 zones, 245 links)
+// Supported Zones: 596 (339 zones, 257 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
 //
 // Requested Years: [2000,2200]
@@ -41,45 +41,45 @@
 //
 // Records:
 //   Infos: 596
-//   Eras: 657
-//   Policies: 83
-//   Rules: 735
+//   Eras: 644
+//   Policies: 82
+//   Rules: 731
 //
 // Memory (8-bits):
 //   Context: 16
-//   Rules: 8820
-//   Policies: 249
-//   Eras: 9855
-//   Zones: 4563
-//   Links: 3185
+//   Rules: 8772
+//   Policies: 246
+//   Eras: 9660
+//   Zones: 4407
+//   Links: 3341
 //   Registry: 1192
-//   Formats: 597
+//   Formats: 231
 //   Letters: 46
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 37599
+//   TOTAL: 36987
 //
 // Memory (32-bits):
 //   Context: 24
-//   Rules: 8820
-//   Policies: 664
-//   Eras: 13140
-//   Zones: 8424
-//   Links: 5880
+//   Rules: 8772
+//   Policies: 656
+//   Eras: 12880
+//   Zones: 8136
+//   Links: 6168
 //   Registry: 2384
-//   Formats: 597
+//   Formats: 231
 //   Letters: 64
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 49073
+//   TOTAL: 48391
 //
 // DO NOT EDIT
 
 #include "zone_policies.h"
 
 //---------------------------------------------------------------------------
-// Policies: 83
-// Rules: 735
+// Policies: 82
+// Rules: 731
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
@@ -1222,68 +1222,6 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
 const AtcZonePolicy kAtcZonePolicyBrazil  = {
   kAtcZoneRulesBrazil /*rules*/,
   21 /*num_rules*/,
-};
-
-//---------------------------------------------------------------------------
-// Policy name: C-Eur
-// Rules: 4
-//---------------------------------------------------------------------------
-
-static const AtcZoneRule kAtcZoneRulesC_Eur[]  = {
-  // Anchor: Rule    C-Eur    1979    1995    -    Sep    lastSun     2:00s    0    -
-  {
-    -32767 /*from_year*/,
-    -32767 /*to_year*/,
-    1 /*in_month*/,
-    0 /*on_day_of_week*/,
-    1 /*on_day_of_month*/,
-    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
-    0 /*at_time_code (0/15)*/,
-    0 /*delta_minutes*/,
-    0 /*letterIndex ("")*/,
-  },
-  // Rule    C-Eur    1979    1995    -    Sep    lastSun     2:00s    0    -
-  {
-    1979 /*from_year*/,
-    1995 /*to_year*/,
-    9 /*in_month*/,
-    7 /*on_day_of_week*/,
-    0 /*on_day_of_month*/,
-    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
-    480 /*at_time_code (7200/15)*/,
-    0 /*delta_minutes*/,
-    0 /*letterIndex ("")*/,
-  },
-  // Rule    C-Eur    1981    max    -    Mar    lastSun     2:00s    1:00    S
-  {
-    1981 /*from_year*/,
-    32766 /*to_year*/,
-    3 /*in_month*/,
-    7 /*on_day_of_week*/,
-    0 /*on_day_of_month*/,
-    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
-    480 /*at_time_code (7200/15)*/,
-    60 /*delta_minutes*/,
-    7 /*letterIndex ("S")*/,
-  },
-  // Rule    C-Eur    1996    max    -    Oct    lastSun     2:00s    0    -
-  {
-    1996 /*from_year*/,
-    32766 /*to_year*/,
-    10 /*in_month*/,
-    7 /*on_day_of_week*/,
-    0 /*on_day_of_month*/,
-    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
-    480 /*at_time_code (7200/15)*/,
-    0 /*delta_minutes*/,
-    0 /*letterIndex ("")*/,
-  },
-
-};
-
-const AtcZonePolicy kAtcZonePolicyC_Eur  = {
-  kAtcZoneRulesC_Eur /*rules*/,
-  4 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------
