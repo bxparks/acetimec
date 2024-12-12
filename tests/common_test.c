@@ -40,6 +40,33 @@ ACU_TEST(test_atc_djb2)
 
 //---------------------------------------------------------------------------
 
+ACU_TEST(test_atc_seconds_to_hms)
+{
+  uint16_t hh, mm, ss;
+
+  atc_seconds_to_hms(0, &hh, &mm, &ss);
+  ACU_ASSERT((uint16_t) 0 == hh);
+  ACU_ASSERT((uint16_t) 0 == mm);
+  ACU_ASSERT((uint16_t) 0 == ss);
+
+  atc_seconds_to_hms(3600, &hh, &mm, &ss);
+  ACU_ASSERT((uint16_t) 1 == hh);
+  ACU_ASSERT((uint16_t) 0 == mm);
+  ACU_ASSERT((uint16_t) 0 == ss);
+
+  atc_seconds_to_hms(3720, &hh, &mm, &ss);
+  ACU_ASSERT((uint16_t) 1 == hh);
+  ACU_ASSERT((uint16_t) 2 == mm);
+  ACU_ASSERT((uint16_t) 0 == ss);
+
+  atc_seconds_to_hms(3723, &hh, &mm, &ss);
+  ACU_ASSERT((uint16_t) 1 == hh);
+  ACU_ASSERT((uint16_t) 2 == mm);
+  ACU_ASSERT((uint16_t) 3 == ss);
+}
+
+//---------------------------------------------------------------------------
+
 ACU_CONTEXT();
 
 int main()
@@ -47,5 +74,6 @@ int main()
   ACU_RUN_TEST(test_atc_copy_replace_string_normal);
   ACU_RUN_TEST(test_atc_copy_replace_string_out_of_bounds);
   ACU_RUN_TEST(test_atc_djb2);
+  ACU_RUN_TEST(test_atc_seconds_to_hms);
   ACU_SUMMARY();
 }

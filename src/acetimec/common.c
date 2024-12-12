@@ -38,3 +38,12 @@ uint32_t atc_djb2(const char *s) {
 
   return hash;
 }
+
+void atc_seconds_to_hms(
+    uint32_t seconds, uint16_t *hh, uint16_t *mm, uint16_t *ss)
+{
+  *ss = seconds % 60;
+  uint16_t minutes = seconds / 60;
+  *mm = minutes % 60;
+  *hh = minutes / 60;
+}

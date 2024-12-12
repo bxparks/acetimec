@@ -391,6 +391,7 @@ void atc_processor_create_abbreviation(
     char *dest,
     uint8_t dest_size,
     const char *format,
+    int32_t offset_seconds,
     int32_t delta_seconds,
     const char *letter_string);
 

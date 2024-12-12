@@ -554,11 +554,36 @@ void atc_processor_create_abbreviation(
     char *dest,
     uint8_t dest_size,
     const char *format,
+    int32_t offset_seconds,
     int32_t delta_seconds,
-    const char *letter_string) {
+    const char *letter_string)
+{
+  (void) offset_seconds;
+
+  // Check if FORMAT was a "%z", which is encoded as an empty string.
+  if (*format == '\0') {
+    int32_t total_seconds = offset_seconds + delta_seconds;
+
+    // Convert to hms
+    uint32_t secs = (total_seconds >= 0) ? total_seconds : -total_seconds;
+    uint16_t hh, mm, ss;
+    atc_seconds_to_hms(secs, &hh, &mm, &ss);
+
+    // Convert to string
+    AtcStringBuffer sb;
+    atc_buf_init(&sb, dest, dest_size);
+    atc_print_char(&sb, (total_seconds >= 0) ? '+' : '-');
+    atc_print_uint16_pad2(&sb, hh);
+    if (mm != 0 || ss != 0) {
+      atc_print_uint16_pad2(&sb, mm);
+    }
+    if (ss != 0) {
+      atc_print_uint16_pad2(&sb, ss);
+    }
+    atc_buf_close(&sb);
 
   // Check if FORMAT contains a '%'.
-  if (strchr(format, '%') != NULL) {
+  } else if (strchr(format, '%') != NULL) {
     // Check if RULES column empty, therefore no 'letter'
     if (letter_string == NULL) {
       strncpy(dest, format, dest_size - 1);
@@ -600,6 +625,7 @@ void atc_processor_calc_abbreviations(
         t->abbrev,
         kAtcAbbrevSize,
         t->match->era->format,
+        t->offset_seconds,
         t->delta_seconds,
         t->letter);
   }

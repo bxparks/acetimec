@@ -103,6 +103,10 @@ void atc_copy_replace_string(char *dst, size_t dst_size, const char *src,
  */
 uint32_t atc_djb2(const char *s);
 
+/** Convert (unsigned) seconds to hour, minute, and second components. */
+void atc_seconds_to_hms(
+    uint32_t seconds, uint16_t *hh, uint16_t *mm, uint16_t *ss);
+
 #ifdef __cplusplus
 }
 #endif

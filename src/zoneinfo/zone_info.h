@@ -260,17 +260,14 @@ typedef struct AtcZoneEra {
 
   /**
    * Zone abbreviations (e.g. PST, EST) determined by the FORMAT column. It has
-   * 3 encodings in the TZ DB files:
+   * 4 encodings in the TZ DB files:
    *
    *  1) A fixed string, e.g. "GMT".
    *  2) Two strings separated by a '/', e.g. "-03/-02" indicating
    *     "{std}/{dst}" options.
    *  3) A single string with a substitution, e.g. "E%sT", where the "%s" is
    *  replaced by the LETTER value from the ZoneRule.
-   *
-   * BasicZoneProcessor supports only a single letter subsitution from LETTER,
-   * but ExtendedZoneProcessor supports substituting multi-character strings
-   * (e.g. "CAT", "DD", "+00").
+   *  4) An empty string which represents the format string of "%z".
    *
    * The TZ DB files use '%s' to indicate the substitution, but for simplicity,
    * AceTime replaces the "%s" with just a '%' character with no loss of

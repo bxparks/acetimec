@@ -1088,48 +1088,87 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
 // Step 5
 //---------------------------------------------------------------------------
 
-ACU_TEST(test_atc_processor_create_abbreviation)
+ACU_TEST(test_atc_processor_create_abbreviation_simple)
 {
   const uint8_t kDstSize = 6;
   char dst[kDstSize];
 
   // If no '%', deltaMinutes and letter should not matter
-  atc_processor_create_abbreviation(dst, kDstSize, "SAST", 0, NULL);
+  atc_processor_create_abbreviation(dst, kDstSize, "SAST", 0, 0, NULL);
   ACU_ASSERT(strcmp("SAST", dst) == 0);
 
-  atc_processor_create_abbreviation(dst, kDstSize, "SAST", 60, "A");
+  atc_processor_create_abbreviation(dst, kDstSize, "SAST", 0, 60, "A");
   ACU_ASSERT(strcmp("SAST", dst) == 0);
+}
+
+ACU_TEST(test_atc_processor_create_abbreviation_percent_s)
+{
+  const uint8_t kDstSize = 6;
+  char dst[kDstSize];
 
   // If '%', and letter is (incorrectly) set to '\0', just copy the thing
-  atc_processor_create_abbreviation(dst, kDstSize, "SA%ST", 0, NULL);
+  atc_processor_create_abbreviation(dst, kDstSize, "SA%ST", 0, 0, NULL);
   ACU_ASSERT(strcmp("SA%ST", dst) == 0);
 
   // If '%', then replaced with (non-null) letterString.
-  atc_processor_create_abbreviation(dst, kDstSize, "P%T", 60, "D");
+  atc_processor_create_abbreviation(dst, kDstSize, "P%T", 0, 60, "D");
   ACU_ASSERT(strcmp("PDT", dst) == 0);
 
-  atc_processor_create_abbreviation(dst, kDstSize, "P%T", 0, "S");
+  atc_processor_create_abbreviation(dst, kDstSize, "P%T", 0, 0, "S");
   ACU_ASSERT(strcmp("PST", dst) == 0);
 
-  atc_processor_create_abbreviation(dst, kDstSize, "P%T", 0, "");
+  atc_processor_create_abbreviation(dst, kDstSize, "P%T", 0, 0, "");
   ACU_ASSERT(strcmp("PT", dst) == 0);
 
-  atc_processor_create_abbreviation(dst, kDstSize, "%", 60, "CAT");
+  atc_processor_create_abbreviation(dst, kDstSize, "%", 0, 60, "CAT");
   ACU_ASSERT(strcmp("CAT", dst) == 0);
 
-  atc_processor_create_abbreviation(dst, kDstSize, "%", 0, "WAT");
+  atc_processor_create_abbreviation(dst, kDstSize, "%", 0, 0, "WAT");
   ACU_ASSERT(strcmp("WAT", dst) == 0);
+}
+
+ACU_TEST(test_atc_processor_create_abbreviation_slash)
+{
+  const uint8_t kDstSize = 6;
+  char dst[kDstSize];
 
   // If '/', then deltaMinutes selects the first or second component.
-  atc_processor_create_abbreviation(dst, kDstSize, "GMT/BST", 0, "");
+  atc_processor_create_abbreviation(dst, kDstSize, "GMT/BST", 0, 0, "");
   ACU_ASSERT(strcmp("GMT", dst) == 0);
 
-  atc_processor_create_abbreviation(dst, kDstSize, "GMT/BST", 60, "");
+  atc_processor_create_abbreviation(dst, kDstSize, "GMT/BST", 0, 60, "");
   ACU_ASSERT(strcmp("BST", dst) == 0);
 
   // test truncation to kDstSize
-  atc_processor_create_abbreviation(dst, kDstSize, "P%T3456", 60, "DD");
+  atc_processor_create_abbreviation(dst, kDstSize, "P%T3456", 0, 60, "DD");
   ACU_ASSERT(strcmp("PDDT3", dst) == 0);
+}
+
+ACU_TEST(test_atc_processor_create_abbreviation_percent_z)
+{
+  const uint8_t kDstSize = 8;
+  char dst[kDstSize];
+
+  atc_processor_create_abbreviation(dst, kDstSize, "", 0, 0, "");
+  ACU_ASSERT(strcmp("+00", dst) == 0);
+
+  atc_processor_create_abbreviation(dst, kDstSize, "", 3600, 0, "");
+  ACU_ASSERT(strcmp("+01", dst) == 0);
+
+  atc_processor_create_abbreviation(dst, kDstSize, "", -3600, 0, "");
+  ACU_ASSERT(strcmp("-01", dst) == 0);
+
+  atc_processor_create_abbreviation(dst, kDstSize, "", 3600, 120, "");
+  ACU_ASSERT(strcmp("+0102", dst) == 0);
+
+  atc_processor_create_abbreviation(dst, kDstSize, "", -3600, -120, "");
+  ACU_ASSERT(strcmp("-0102", dst) == 0);
+
+  atc_processor_create_abbreviation(dst, kDstSize, "", 3600, 123, "");
+  ACU_ASSERT(strcmp("+010203", dst) == 0);
+
+  atc_processor_create_abbreviation(dst, kDstSize, "", -3600, -123, "");
+  ACU_ASSERT(strcmp("-010203", dst) == 0);
 }
 
 //---------------------------------------------------------------------------
@@ -1152,6 +1191,9 @@ int main()
   ACU_RUN_TEST(test_atc_processor_process_transition_match_status);
   ACU_RUN_TEST(test_atc_processor_create_transitions_from_named_match);
   ACU_RUN_TEST(test_fix_transition_times_generate_start_until_times);
-  ACU_RUN_TEST(test_atc_processor_create_abbreviation);
+  ACU_RUN_TEST(test_atc_processor_create_abbreviation_simple);
+  ACU_RUN_TEST(test_atc_processor_create_abbreviation_percent_s);
+  ACU_RUN_TEST(test_atc_processor_create_abbreviation_slash);
+  ACU_RUN_TEST(test_atc_processor_create_abbreviation_percent_z);
   ACU_SUMMARY();
 }
