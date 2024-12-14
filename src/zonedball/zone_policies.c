@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/acetimec/src/zonedball/tzfiles
 //     --output_dir /home/brian/src/acetimec/src/zonedball
-//     --tz_version 2024a
+//     --tz_version 2024b
 //     --actions zonedb
 //     --languages c
 //     --scope complete
@@ -24,9 +24,9 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2024a
+// from https://github.com/eggert/tz/releases/tag/2024b
 //
-// Supported Zones: 596 (351 zones, 245 links)
+// Supported Zones: 596 (339 zones, 257 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
 //
 // Requested Years: [1800,2200]
@@ -41,37 +41,37 @@
 //
 // Records:
 //   Infos: 596
-//   Eras: 1963
+//   Eras: 1941
 //   Policies: 134
-//   Rules: 2234
+//   Rules: 2231
 //
 // Memory (8-bits):
 //   Context: 16
-//   Rules: 26808
+//   Rules: 26772
 //   Policies: 402
-//   Eras: 29445
-//   Zones: 4563
-//   Links: 3185
+//   Eras: 29115
+//   Zones: 4407
+//   Links: 3341
 //   Registry: 1192
-//   Formats: 1032
+//   Formats: 486
 //   Letters: 160
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 75879
+//   TOTAL: 74967
 //
 // Memory (32-bits):
 //   Context: 24
-//   Rules: 26808
+//   Rules: 26772
 //   Policies: 1072
-//   Eras: 39260
-//   Zones: 8424
-//   Links: 5880
+//   Eras: 38820
+//   Zones: 8136
+//   Links: 6168
 //   Registry: 2384
-//   Formats: 1032
+//   Formats: 486
 //   Letters: 216
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 94176
+//   TOTAL: 93154
 //
 // DO NOT EDIT
 
@@ -79,7 +79,7 @@
 
 //---------------------------------------------------------------------------
 // Policies: 134
-// Rules: 2234
+// Rules: 2231
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
@@ -14940,15 +14940,15 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
     0 /*delta_minutes*/,
     25 /*letterIndex ("S")*/,
   },
-  // Rule    Mexico    1931    only    -    May    1    23:00    1:00    D
+  // Rule    Mexico    1931    only    -    April    30    0:00    1:00    D
   {
     1931 /*from_year*/,
     1931 /*to_year*/,
-    5 /*in_month*/,
+    4 /*in_month*/,
     0 /*on_day_of_week*/,
-    1 /*on_day_of_month*/,
+    30 /*on_day_of_month*/,
     0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
-    5520 /*at_time_code (82800/15)*/,
+    0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
     13 /*letterIndex ("D")*/,
   },
@@ -20906,7 +20906,7 @@ const AtcZonePolicy kAtcAllZonePolicyPoland  = {
 
 //---------------------------------------------------------------------------
 // Policy name: Port
-// Rules: 49
+// Rules: 46
 //---------------------------------------------------------------------------
 
 static const AtcZoneRule kAtcZoneRulesPort[]  = {
@@ -20946,77 +20946,29 @@ static const AtcZoneRule kAtcZoneRulesPort[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Port    1917    only    -    Feb    28    23:00s    1:00    S
+  // Rule    Port    1917    1921    -    Mar     1     0:00    1:00    S
   {
     1917 /*from_year*/,
-    1917 /*to_year*/,
-    2 /*in_month*/,
+    1921 /*to_year*/,
+    3 /*in_month*/,
     0 /*on_day_of_week*/,
-    28 /*on_day_of_month*/,
-    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
-    5520 /*at_time_code (82800/15)*/,
+    1 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
     25 /*letterIndex ("S")*/,
   },
-  // Rule    Port    1917    1921    -    Oct    14    23:00s    0    -
+  // Rule    Port    1917    1921    -    Oct    14    24:00    0    -
   {
     1917 /*from_year*/,
     1921 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
     14 /*on_day_of_month*/,
-    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
-    5520 /*at_time_code (82800/15)*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    5760 /*at_time_code (86400/15)*/,
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
-  },
-  // Rule    Port    1918    only    -    Mar     1    23:00s    1:00    S
-  {
-    1918 /*from_year*/,
-    1918 /*to_year*/,
-    3 /*in_month*/,
-    0 /*on_day_of_week*/,
-    1 /*on_day_of_month*/,
-    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
-    5520 /*at_time_code (82800/15)*/,
-    60 /*delta_minutes*/,
-    25 /*letterIndex ("S")*/,
-  },
-  // Rule    Port    1919    only    -    Feb    28    23:00s    1:00    S
-  {
-    1919 /*from_year*/,
-    1919 /*to_year*/,
-    2 /*in_month*/,
-    0 /*on_day_of_week*/,
-    28 /*on_day_of_month*/,
-    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
-    5520 /*at_time_code (82800/15)*/,
-    60 /*delta_minutes*/,
-    25 /*letterIndex ("S")*/,
-  },
-  // Rule    Port    1920    only    -    Feb    29    23:00s    1:00    S
-  {
-    1920 /*from_year*/,
-    1920 /*to_year*/,
-    2 /*in_month*/,
-    0 /*on_day_of_week*/,
-    29 /*on_day_of_month*/,
-    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
-    5520 /*at_time_code (82800/15)*/,
-    60 /*delta_minutes*/,
-    25 /*letterIndex ("S")*/,
-  },
-  // Rule    Port    1921    only    -    Feb    28    23:00s    1:00    S
-  {
-    1921 /*from_year*/,
-    1921 /*to_year*/,
-    2 /*in_month*/,
-    0 /*on_day_of_week*/,
-    28 /*on_day_of_month*/,
-    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
-    5520 /*at_time_code (82800/15)*/,
-    60 /*delta_minutes*/,
-    25 /*letterIndex ("S")*/,
   },
   // Rule    Port    1924    only    -    Apr    16    23:00s    1:00    S
   {
@@ -21030,13 +20982,13 @@ static const AtcZoneRule kAtcZoneRulesPort[]  = {
     60 /*delta_minutes*/,
     25 /*letterIndex ("S")*/,
   },
-  // Rule    Port    1924    only    -    Oct    14    23:00s    0    -
+  // Rule    Port    1924    only    -    Oct     4    23:00s    0    -
   {
     1924 /*from_year*/,
     1924 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
-    14 /*on_day_of_month*/,
+    4 /*on_day_of_month*/,
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     5520 /*at_time_code (82800/15)*/,
     0 /*delta_minutes*/,
@@ -21246,13 +21198,13 @@ static const AtcZoneRule kAtcZoneRulesPort[]  = {
     60 /*delta_minutes*/,
     25 /*letterIndex ("S")*/,
   },
-  // Rule    Port    1940    1941    -    Oct     5    23:00s    0    -
+  // Rule    Port    1940    only    -    Oct     7    23:00s    0    -
   {
     1940 /*from_year*/,
-    1941 /*to_year*/,
+    1940 /*to_year*/,
     10 /*in_month*/,
     0 /*on_day_of_week*/,
-    5 /*on_day_of_month*/,
+    7 /*on_day_of_month*/,
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     5520 /*at_time_code (82800/15)*/,
     0 /*delta_minutes*/,
@@ -21269,6 +21221,18 @@ static const AtcZoneRule kAtcZoneRulesPort[]  = {
     5520 /*at_time_code (82800/15)*/,
     60 /*delta_minutes*/,
     25 /*letterIndex ("S")*/,
+  },
+  // Rule    Port    1941    only    -    Oct     5    23:00s    0    -
+  {
+    1941 /*from_year*/,
+    1941 /*to_year*/,
+    10 /*in_month*/,
+    0 /*on_day_of_week*/,
+    5 /*on_day_of_month*/,
+    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
+    5520 /*at_time_code (82800/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
   },
   // Rule    Port    1942    1945    -    Mar    Sat>=8    23:00s    1:00    S
   {
@@ -21378,10 +21342,10 @@ static const AtcZoneRule kAtcZoneRulesPort[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Port    1947    1965    -    Apr    Sun>=1     2:00s    1:00    S
+  // Rule    Port    1947    1966    -    Apr    Sun>=1     2:00s    1:00    S
   {
     1947 /*from_year*/,
-    1965 /*to_year*/,
+    1966 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
@@ -21402,43 +21366,55 @@ static const AtcZoneRule kAtcZoneRulesPort[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Port    1977    only    -    Mar    27     0:00s    1:00    S
+  // Rule    Port    1976    only    -    Sep    lastSun     1:00    0    -
+  {
+    1976 /*from_year*/,
+    1976 /*to_year*/,
+    9 /*in_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
+    0 /*at_time_modifier (kAtcSuffixW + seconds=0)*/,
+    240 /*at_time_code (3600/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
+  },
+  // Rule    Port    1977    only    -    Mar    lastSun     0:00s    1:00    S
   {
     1977 /*from_year*/,
     1977 /*to_year*/,
     3 /*in_month*/,
-    0 /*on_day_of_week*/,
-    27 /*on_day_of_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     60 /*delta_minutes*/,
     25 /*letterIndex ("S")*/,
   },
-  // Rule    Port    1977    only    -    Sep    25     0:00s    0    -
+  // Rule    Port    1977    only    -    Sep    lastSun     0:00s    0    -
   {
     1977 /*from_year*/,
     1977 /*to_year*/,
     9 /*in_month*/,
-    0 /*on_day_of_week*/,
-    25 /*on_day_of_month*/,
+    7 /*on_day_of_week*/,
+    0 /*on_day_of_month*/,
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
     0 /*at_time_code (0/15)*/,
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Port    1978    1979    -    Apr    Sun>=1     0:00s    1:00    S
+  // Rule    Port    1978    1980    -    Apr    Sun>=1     1:00s    1:00    S
   {
     1978 /*from_year*/,
-    1979 /*to_year*/,
+    1980 /*to_year*/,
     4 /*in_month*/,
     7 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
-    0 /*at_time_code (0/15)*/,
+    240 /*at_time_code (3600/15)*/,
     60 /*delta_minutes*/,
     25 /*letterIndex ("S")*/,
   },
-  // Rule    Port    1978    only    -    Oct     1     0:00s    0    -
+  // Rule    Port    1978    only    -    Oct     1     1:00s    0    -
   {
     1978 /*from_year*/,
     1978 /*to_year*/,
@@ -21446,14 +21422,14 @@ static const AtcZoneRule kAtcZoneRulesPort[]  = {
     0 /*on_day_of_week*/,
     1 /*on_day_of_month*/,
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
-    0 /*at_time_code (0/15)*/,
+    240 /*at_time_code (3600/15)*/,
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Port    1979    1982    -    Sep    lastSun     1:00s    0    -
+  // Rule    Port    1979    1980    -    Sep    lastSun     1:00s    0    -
   {
     1979 /*from_year*/,
-    1982 /*to_year*/,
+    1980 /*to_year*/,
     9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -21462,10 +21438,10 @@ static const AtcZoneRule kAtcZoneRulesPort[]  = {
     0 /*delta_minutes*/,
     0 /*letterIndex ("")*/,
   },
-  // Rule    Port    1980    only    -    Mar    lastSun     0:00s    1:00    S
+  // Rule    Port    1981    1986    -    Mar    lastSun     0:00s    1:00    S
   {
-    1980 /*from_year*/,
-    1980 /*to_year*/,
+    1981 /*from_year*/,
+    1986 /*to_year*/,
     3 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
@@ -21474,36 +21450,24 @@ static const AtcZoneRule kAtcZoneRulesPort[]  = {
     60 /*delta_minutes*/,
     25 /*letterIndex ("S")*/,
   },
-  // Rule    Port    1981    1982    -    Mar    lastSun     1:00s    1:00    S
+  // Rule    Port    1981    1985    -    Sep    lastSun     0:00s    0    -
   {
     1981 /*from_year*/,
-    1982 /*to_year*/,
-    3 /*in_month*/,
+    1985 /*to_year*/,
+    9 /*in_month*/,
     7 /*on_day_of_week*/,
     0 /*on_day_of_month*/,
     16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
-    240 /*at_time_code (3600/15)*/,
-    60 /*delta_minutes*/,
-    25 /*letterIndex ("S")*/,
-  },
-  // Rule    Port    1983    only    -    Mar    lastSun     2:00s    1:00    S
-  {
-    1983 /*from_year*/,
-    1983 /*to_year*/,
-    3 /*in_month*/,
-    7 /*on_day_of_week*/,
-    0 /*on_day_of_month*/,
-    16 /*at_time_modifier (kAtcSuffixS + seconds=0)*/,
-    480 /*at_time_code (7200/15)*/,
-    60 /*delta_minutes*/,
-    25 /*letterIndex ("S")*/,
+    0 /*at_time_code (0/15)*/,
+    0 /*delta_minutes*/,
+    0 /*letterIndex ("")*/,
   },
 
 };
 
 const AtcZonePolicy kAtcAllZonePolicyPort  = {
   kAtcZoneRulesPort /*rules*/,
-  49 /*num_rules*/,
+  46 /*num_rules*/,
 };
 
 //---------------------------------------------------------------------------

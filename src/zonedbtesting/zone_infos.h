@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/acetimec/src/zonedbtesting/tzfiles
 //     --output_dir /home/brian/src/acetimec/src/zonedbtesting
-//     --tz_version 2024a
+//     --tz_version 2024b
 //     --actions zonedb
 //     --languages c
 //     --scope complete
@@ -25,10 +25,10 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2024a
+// from https://github.com/eggert/tz/releases/tag/2024b
 //
 // Supported Zones: 17 (16 zones, 1 links)
-// Unsupported Zones: 579 (335 zones, 244 links)
+// Unsupported Zones: 579 (323 zones, 256 links)
 //
 // Requested Years: [2000,2200]
 // Accurate Years: [2000,32767]
@@ -54,11 +54,11 @@
 //   Zones: 208
 //   Links: 13
 //   Registry: 34
-//   Formats: 78
+//   Formats: 37
 //   Letters: 23
 //   Fragments: 0
 //   Names: 268 (original: 268)
-//   TOTAL: 3406
+//   TOTAL: 3365
 //
 // Memory (32-bits):
 //   Context: 24
@@ -68,11 +68,11 @@
 //   Zones: 384
 //   Links: 24
 //   Registry: 68
-//   Formats: 78
+//   Formats: 37
 //   Letters: 33
 //   Fragments: 0
 //   Names: 268 (original: 268)
-//   TOTAL: 3795
+//   TOTAL: 3754
 //
 // DO NOT EDIT
 
@@ -174,7 +174,7 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 
 
 //---------------------------------------------------------------------------
-// Unsupported zones: 335
+// Unsupported zones: 323
 //---------------------------------------------------------------------------
 
 // Africa/Abidjan {Zone missing from include list}
@@ -326,7 +326,6 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // Asia/Beirut {Zone missing from include list}
 // Asia/Bishkek {Zone missing from include list}
 // Asia/Chita {Zone missing from include list}
-// Asia/Choibalsan {Zone missing from include list}
 // Asia/Colombo {Zone missing from include list}
 // Asia/Damascus {Zone missing from include list}
 // Asia/Dhaka {Zone missing from include list}
@@ -405,11 +404,6 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // Australia/Melbourne {Zone missing from include list}
 // Australia/Perth {Zone missing from include list}
 // Australia/Sydney {Zone missing from include list}
-// CET {Zone missing from include list}
-// CST6CDT {Zone missing from include list}
-// EET {Zone missing from include list}
-// EST {Zone missing from include list}
-// EST5EDT {Zone missing from include list}
 // Etc/GMT {Zone missing from include list}
 // Etc/GMT+1 {Zone missing from include list}
 // Etc/GMT+10 {Zone missing from include list}
@@ -474,14 +468,9 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // Europe/Volgograd {Zone missing from include list}
 // Europe/Warsaw {Zone missing from include list}
 // Europe/Zurich {Zone missing from include list}
-// HST {Zone missing from include list}
 // Indian/Chagos {Zone missing from include list}
 // Indian/Maldives {Zone missing from include list}
 // Indian/Mauritius {Zone missing from include list}
-// MET {Zone missing from include list}
-// MST {Zone missing from include list}
-// MST7MDT {Zone missing from include list}
-// PST8PDT {Zone missing from include list}
 // Pacific/Auckland {Zone missing from include list}
 // Pacific/Bougainville {Zone missing from include list}
 // Pacific/Chatham {Zone missing from include list}
@@ -511,14 +500,14 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // Pacific/Tahiti {Zone missing from include list}
 // Pacific/Tarawa {Zone missing from include list}
 // Pacific/Tongatapu {Zone missing from include list}
-// WET {Zone missing from include list}
 
 
 //---------------------------------------------------------------------------
-// Notable zones: 0
+// Notable zones: 2
 //---------------------------------------------------------------------------
 
 // Africa/Casablanca {
+//   RULES not fixed but FORMAT is missing '%s' or '/',
 //   Morocco {SAVE '-1:00' is a negative DST}
 // }
 // Africa/Windhoek {
@@ -528,10 +517,11 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 //     SAVE '-1:00' is a negative DST,
 //   }
 // }
+// Pacific/Apia {RULES not fixed but FORMAT is missing '%s' or '/'}
 
 
 //---------------------------------------------------------------------------
-// Unsupported links: 244
+// Unsupported links: 256
 //---------------------------------------------------------------------------
 
 // Africa/Accra {Link missing from include list}
@@ -627,6 +617,7 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // Asia/Bahrain {Link missing from include list}
 // Asia/Brunei {Link missing from include list}
 // Asia/Calcutta {Link missing from include list}
+// Asia/Choibalsan {Link missing from include list}
 // Asia/Chongqing {Link missing from include list}
 // Asia/Chungking {Link missing from include list}
 // Asia/Dacca {Link missing from include list}
@@ -666,6 +657,8 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // Brazil/DeNoronha {Link missing from include list}
 // Brazil/East {Link missing from include list}
 // Brazil/West {Link missing from include list}
+// CET {Link missing from include list}
+// CST6CDT {Link missing from include list}
 // Canada/Atlantic {Link missing from include list}
 // Canada/Central {Link missing from include list}
 // Canada/Eastern {Link missing from include list}
@@ -677,6 +670,9 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // Chile/Continental {Link missing from include list}
 // Chile/EasterIsland {Link missing from include list}
 // Cuba {Link missing from include list}
+// EET {Link missing from include list}
+// EST {Link missing from include list}
+// EST5EDT {Link missing from include list}
 // Egypt {Link missing from include list}
 // Eire {Link missing from include list}
 // Etc/GMT+0 {Link missing from include list}
@@ -719,6 +715,7 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // GMT-0 {Link missing from include list}
 // GMT0 {Link missing from include list}
 // Greenwich {Link missing from include list}
+// HST {Link missing from include list}
 // Hongkong {Link missing from include list}
 // Iceland {Link missing from include list}
 // Indian/Antananarivo {Link missing from include list}
@@ -735,6 +732,9 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // Japan {Link missing from include list}
 // Kwajalein {Link missing from include list}
 // Libya {Link missing from include list}
+// MET {Link missing from include list}
+// MST {Link missing from include list}
+// MST7MDT {Link missing from include list}
 // Mexico/BajaNorte {Link missing from include list}
 // Mexico/BajaSur {Link missing from include list}
 // Mexico/General {Link missing from include list}
@@ -742,6 +742,7 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // NZ-CHAT {Link missing from include list}
 // Navajo {Link missing from include list}
 // PRC {Link missing from include list}
+// PST8PDT {Link missing from include list}
 // Pacific/Chuuk {Link missing from include list}
 // Pacific/Enderbury {Link missing from include list}
 // Pacific/Funafuti {Link missing from include list}
@@ -777,6 +778,7 @@ extern const AtcZoneInfo kAtcTestingZoneUS_Pacific; // US/Pacific -> America/Los
 // UTC {Link missing from include list}
 // Universal {Link missing from include list}
 // W-SU {Link missing from include list}
+// WET {Link missing from include list}
 // Zulu {Link missing from include list}
 
 

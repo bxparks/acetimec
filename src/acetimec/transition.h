@@ -26,10 +26,13 @@ extern "C" {
 
 enum {
   /**
-   * Number of characters in a time zone abbreviation. 6 is the maximum
-   * plus 1 for the NUL terminator.
+   * Number of characters in a time zone abbreviation. Most human-assigned
+   * abbreviations have at most 6 characters. But if the FORMAT column is a
+   * "%z", the abbreviation can be generated programmatically using the format
+   * "[+/-]hh[mm[ss]]" which can be 7 characters long. So we need the buffer
+   * size to be 8 to include the terminating NUL character.
    */
-  kAtcAbbrevSize = 7,
+  kAtcAbbrevSize = 8,
 
   /** Number of transitions in the transition_storage. */
   kAtcTransitionStorageSize = 8,
@@ -133,7 +136,7 @@ typedef struct AtcTransition {
   /** The DST delta seconds. */
   int32_t delta_seconds;
 
-  /** The calculated effective time zone abbreviation, e.g. "PST" or "PDT". */
+  /** The computed time zone abbreviation, e.g. "PST", "PDT", or "+0830". */
   char abbrev[kAtcAbbrevSize];
 
   /** Storage for the single letter 'letter' field if 'rule' is not null. */

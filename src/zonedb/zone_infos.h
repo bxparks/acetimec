@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/acetimec/src/zonedb/tzfiles
 //     --output_dir /home/brian/src/acetimec/src/zonedb
-//     --tz_version 2024a
+//     --tz_version 2024b
 //     --actions zonedb
 //     --languages c
 //     --scope complete
@@ -24,9 +24,9 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2024a
+// from https://github.com/eggert/tz/releases/tag/2024b
 //
-// Supported Zones: 596 (351 zones, 245 links)
+// Supported Zones: 596 (339 zones, 257 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
 //
 // Requested Years: [2000,2200]
@@ -41,37 +41,37 @@
 //
 // Records:
 //   Infos: 596
-//   Eras: 657
-//   Policies: 83
-//   Rules: 735
+//   Eras: 644
+//   Policies: 82
+//   Rules: 731
 //
 // Memory (8-bits):
 //   Context: 16
-//   Rules: 8820
-//   Policies: 249
-//   Eras: 9855
-//   Zones: 4563
-//   Links: 3185
+//   Rules: 8772
+//   Policies: 246
+//   Eras: 9660
+//   Zones: 4407
+//   Links: 3341
 //   Registry: 1192
-//   Formats: 597
+//   Formats: 231
 //   Letters: 46
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 37599
+//   TOTAL: 36987
 //
 // Memory (32-bits):
 //   Context: 24
-//   Rules: 8820
-//   Policies: 664
-//   Eras: 13140
-//   Zones: 8424
-//   Links: 5880
+//   Rules: 8772
+//   Policies: 656
+//   Eras: 12880
+//   Zones: 8136
+//   Links: 6168
 //   Registry: 2384
-//   Formats: 597
+//   Formats: 231
 //   Letters: 64
 //   Fragments: 0
 //   Names: 9076 (original: 9076)
-//   TOTAL: 49073
+//   TOTAL: 48391
 //
 // DO NOT EDIT
 
@@ -92,8 +92,8 @@ extern "C" {
 extern const AtcZoneContext kAtcZoneContext;
 
 //---------------------------------------------------------------------------
-// Supported zones: 351
-// Supported eras: 657
+// Supported zones: 339
+// Supported eras: 644
 //---------------------------------------------------------------------------
 
 extern const AtcZoneInfo kAtcZoneAfrica_Abidjan; // Africa/Abidjan
@@ -257,7 +257,6 @@ extern const AtcZoneInfo kAtcZoneAsia_Barnaul; // Asia/Barnaul
 extern const AtcZoneInfo kAtcZoneAsia_Beirut; // Asia/Beirut
 extern const AtcZoneInfo kAtcZoneAsia_Bishkek; // Asia/Bishkek
 extern const AtcZoneInfo kAtcZoneAsia_Chita; // Asia/Chita
-extern const AtcZoneInfo kAtcZoneAsia_Choibalsan; // Asia/Choibalsan
 extern const AtcZoneInfo kAtcZoneAsia_Colombo; // Asia/Colombo
 extern const AtcZoneInfo kAtcZoneAsia_Damascus; // Asia/Damascus
 extern const AtcZoneInfo kAtcZoneAsia_Dhaka; // Asia/Dhaka
@@ -337,11 +336,6 @@ extern const AtcZoneInfo kAtcZoneAustralia_Lord_Howe; // Australia/Lord_Howe
 extern const AtcZoneInfo kAtcZoneAustralia_Melbourne; // Australia/Melbourne
 extern const AtcZoneInfo kAtcZoneAustralia_Perth; // Australia/Perth
 extern const AtcZoneInfo kAtcZoneAustralia_Sydney; // Australia/Sydney
-extern const AtcZoneInfo kAtcZoneCET; // CET
-extern const AtcZoneInfo kAtcZoneCST6CDT; // CST6CDT
-extern const AtcZoneInfo kAtcZoneEET; // EET
-extern const AtcZoneInfo kAtcZoneEST; // EST
-extern const AtcZoneInfo kAtcZoneEST5EDT; // EST5EDT
 extern const AtcZoneInfo kAtcZoneEtc_GMT; // Etc/GMT
 extern const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_1; // Etc/GMT+1
 extern const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_10; // Etc/GMT+10
@@ -408,14 +402,9 @@ extern const AtcZoneInfo kAtcZoneEurope_Vilnius; // Europe/Vilnius
 extern const AtcZoneInfo kAtcZoneEurope_Volgograd; // Europe/Volgograd
 extern const AtcZoneInfo kAtcZoneEurope_Warsaw; // Europe/Warsaw
 extern const AtcZoneInfo kAtcZoneEurope_Zurich; // Europe/Zurich
-extern const AtcZoneInfo kAtcZoneHST; // HST
 extern const AtcZoneInfo kAtcZoneIndian_Chagos; // Indian/Chagos
 extern const AtcZoneInfo kAtcZoneIndian_Maldives; // Indian/Maldives
 extern const AtcZoneInfo kAtcZoneIndian_Mauritius; // Indian/Mauritius
-extern const AtcZoneInfo kAtcZoneMET; // MET
-extern const AtcZoneInfo kAtcZoneMST; // MST
-extern const AtcZoneInfo kAtcZoneMST7MDT; // MST7MDT
-extern const AtcZoneInfo kAtcZonePST8PDT; // PST8PDT
 extern const AtcZoneInfo kAtcZonePacific_Apia; // Pacific/Apia
 extern const AtcZoneInfo kAtcZonePacific_Auckland; // Pacific/Auckland
 extern const AtcZoneInfo kAtcZonePacific_Bougainville; // Pacific/Bougainville
@@ -446,7 +435,6 @@ extern const AtcZoneInfo kAtcZonePacific_Rarotonga; // Pacific/Rarotonga
 extern const AtcZoneInfo kAtcZonePacific_Tahiti; // Pacific/Tahiti
 extern const AtcZoneInfo kAtcZonePacific_Tarawa; // Pacific/Tarawa
 extern const AtcZoneInfo kAtcZonePacific_Tongatapu; // Pacific/Tongatapu
-extern const AtcZoneInfo kAtcZoneWET; // WET
 
 
 // Zone Ids
@@ -612,7 +600,6 @@ extern const AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdAsia_Beirut 0xa7f3d5fd /* Asia/Beirut */
 #define kAtcZoneIdAsia_Bishkek 0xb0728553 /* Asia/Bishkek */
 #define kAtcZoneIdAsia_Chita 0x14ae863b /* Asia/Chita */
-#define kAtcZoneIdAsia_Choibalsan 0x928aa4a6 /* Asia/Choibalsan */
 #define kAtcZoneIdAsia_Colombo 0x0af0e91d /* Asia/Colombo */
 #define kAtcZoneIdAsia_Damascus 0x20fbb063 /* Asia/Damascus */
 #define kAtcZoneIdAsia_Dhaka 0x14c07b8b /* Asia/Dhaka */
@@ -692,11 +679,6 @@ extern const AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdAustralia_Melbourne 0x0fe559a3 /* Australia/Melbourne */
 #define kAtcZoneIdAustralia_Perth 0x8db8269d /* Australia/Perth */
 #define kAtcZoneIdAustralia_Sydney 0x4d1e9776 /* Australia/Sydney */
-#define kAtcZoneIdCET 0x0b87d921 /* CET */
-#define kAtcZoneIdCST6CDT 0xf0e87d00 /* CST6CDT */
-#define kAtcZoneIdEET 0x0b87e1a3 /* EET */
-#define kAtcZoneIdEST 0x0b87e371 /* EST */
-#define kAtcZoneIdEST5EDT 0x8adc72a3 /* EST5EDT */
 #define kAtcZoneIdEtc_GMT 0xd8e2de58 /* Etc/GMT */
 #define kAtcZoneIdEtc_GMT_PLUS_1 0x9d13da14 /* Etc/GMT+1 */
 #define kAtcZoneIdEtc_GMT_PLUS_10 0x3f8f1cc4 /* Etc/GMT+10 */
@@ -763,14 +745,9 @@ extern const AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdEurope_Volgograd 0x3ed0f389 /* Europe/Volgograd */
 #define kAtcZoneIdEurope_Warsaw 0x75185c19 /* Europe/Warsaw */
 #define kAtcZoneIdEurope_Zurich 0x7d8195b9 /* Europe/Zurich */
-#define kAtcZoneIdHST 0x0b87f034 /* HST */
 #define kAtcZoneIdIndian_Chagos 0x456f7c3c /* Indian/Chagos */
 #define kAtcZoneIdIndian_Maldives 0x9869681c /* Indian/Maldives */
 #define kAtcZoneIdIndian_Mauritius 0x7b09c02a /* Indian/Mauritius */
-#define kAtcZoneIdMET 0x0b8803ab /* MET */
-#define kAtcZoneIdMST 0x0b880579 /* MST */
-#define kAtcZoneIdMST7MDT 0xf2af9375 /* MST7MDT */
-#define kAtcZoneIdPST8PDT 0xd99ee2dc /* PST8PDT */
 #define kAtcZoneIdPacific_Apia 0x23359b5e /* Pacific/Apia */
 #define kAtcZoneIdPacific_Auckland 0x25062f86 /* Pacific/Auckland */
 #define kAtcZoneIdPacific_Bougainville 0x5e10f7a4 /* Pacific/Bougainville */
@@ -801,11 +778,10 @@ extern const AtcZoneInfo kAtcZoneWET; // WET
 #define kAtcZoneIdPacific_Tahiti 0xf24c2446 /* Pacific/Tahiti */
 #define kAtcZoneIdPacific_Tarawa 0xf2517e63 /* Pacific/Tarawa */
 #define kAtcZoneIdPacific_Tongatapu 0x262ca836 /* Pacific/Tongatapu */
-#define kAtcZoneIdWET 0x0b882e35 /* WET */
 
 
 //---------------------------------------------------------------------------
-// Supported links: 245
+// Supported links: 257
 //---------------------------------------------------------------------------
 
 extern const AtcZoneInfo kAtcZoneAfrica_Accra; // Africa/Accra -> Africa/Abidjan
@@ -901,6 +877,7 @@ extern const AtcZoneInfo kAtcZoneAsia_Ashkhabad; // Asia/Ashkhabad -> Asia/Ashga
 extern const AtcZoneInfo kAtcZoneAsia_Bahrain; // Asia/Bahrain -> Asia/Qatar
 extern const AtcZoneInfo kAtcZoneAsia_Brunei; // Asia/Brunei -> Asia/Kuching
 extern const AtcZoneInfo kAtcZoneAsia_Calcutta; // Asia/Calcutta -> Asia/Kolkata
+extern const AtcZoneInfo kAtcZoneAsia_Choibalsan; // Asia/Choibalsan -> Asia/Ulaanbaatar
 extern const AtcZoneInfo kAtcZoneAsia_Chongqing; // Asia/Chongqing -> Asia/Shanghai
 extern const AtcZoneInfo kAtcZoneAsia_Chungking; // Asia/Chungking -> Asia/Shanghai
 extern const AtcZoneInfo kAtcZoneAsia_Dacca; // Asia/Dacca -> Asia/Dhaka
@@ -940,6 +917,8 @@ extern const AtcZoneInfo kAtcZoneBrazil_Acre; // Brazil/Acre -> America/Rio_Bran
 extern const AtcZoneInfo kAtcZoneBrazil_DeNoronha; // Brazil/DeNoronha -> America/Noronha
 extern const AtcZoneInfo kAtcZoneBrazil_East; // Brazil/East -> America/Sao_Paulo
 extern const AtcZoneInfo kAtcZoneBrazil_West; // Brazil/West -> America/Manaus
+extern const AtcZoneInfo kAtcZoneCET; // CET -> Europe/Brussels
+extern const AtcZoneInfo kAtcZoneCST6CDT; // CST6CDT -> America/Chicago
 extern const AtcZoneInfo kAtcZoneCanada_Atlantic; // Canada/Atlantic -> America/Halifax
 extern const AtcZoneInfo kAtcZoneCanada_Central; // Canada/Central -> America/Winnipeg
 extern const AtcZoneInfo kAtcZoneCanada_Eastern; // Canada/Eastern -> America/Toronto
@@ -951,6 +930,9 @@ extern const AtcZoneInfo kAtcZoneCanada_Yukon; // Canada/Yukon -> America/Whiteh
 extern const AtcZoneInfo kAtcZoneChile_Continental; // Chile/Continental -> America/Santiago
 extern const AtcZoneInfo kAtcZoneChile_EasterIsland; // Chile/EasterIsland -> Pacific/Easter
 extern const AtcZoneInfo kAtcZoneCuba; // Cuba -> America/Havana
+extern const AtcZoneInfo kAtcZoneEET; // EET -> Europe/Athens
+extern const AtcZoneInfo kAtcZoneEST; // EST -> America/Panama
+extern const AtcZoneInfo kAtcZoneEST5EDT; // EST5EDT -> America/New_York
 extern const AtcZoneInfo kAtcZoneEgypt; // Egypt -> Africa/Cairo
 extern const AtcZoneInfo kAtcZoneEire; // Eire -> Europe/Dublin
 extern const AtcZoneInfo kAtcZoneEtc_GMT_PLUS_0; // Etc/GMT+0 -> Etc/GMT
@@ -993,6 +975,7 @@ extern const AtcZoneInfo kAtcZoneGMT_PLUS_0; // GMT+0 -> Etc/GMT
 extern const AtcZoneInfo kAtcZoneGMT_0; // GMT-0 -> Etc/GMT
 extern const AtcZoneInfo kAtcZoneGMT0; // GMT0 -> Etc/GMT
 extern const AtcZoneInfo kAtcZoneGreenwich; // Greenwich -> Etc/GMT
+extern const AtcZoneInfo kAtcZoneHST; // HST -> Pacific/Honolulu
 extern const AtcZoneInfo kAtcZoneHongkong; // Hongkong -> Asia/Hong_Kong
 extern const AtcZoneInfo kAtcZoneIceland; // Iceland -> Africa/Abidjan
 extern const AtcZoneInfo kAtcZoneIndian_Antananarivo; // Indian/Antananarivo -> Africa/Nairobi
@@ -1009,6 +992,9 @@ extern const AtcZoneInfo kAtcZoneJamaica; // Jamaica -> America/Jamaica
 extern const AtcZoneInfo kAtcZoneJapan; // Japan -> Asia/Tokyo
 extern const AtcZoneInfo kAtcZoneKwajalein; // Kwajalein -> Pacific/Kwajalein
 extern const AtcZoneInfo kAtcZoneLibya; // Libya -> Africa/Tripoli
+extern const AtcZoneInfo kAtcZoneMET; // MET -> Europe/Brussels
+extern const AtcZoneInfo kAtcZoneMST; // MST -> America/Phoenix
+extern const AtcZoneInfo kAtcZoneMST7MDT; // MST7MDT -> America/Denver
 extern const AtcZoneInfo kAtcZoneMexico_BajaNorte; // Mexico/BajaNorte -> America/Tijuana
 extern const AtcZoneInfo kAtcZoneMexico_BajaSur; // Mexico/BajaSur -> America/Mazatlan
 extern const AtcZoneInfo kAtcZoneMexico_General; // Mexico/General -> America/Mexico_City
@@ -1016,6 +1002,7 @@ extern const AtcZoneInfo kAtcZoneNZ; // NZ -> Pacific/Auckland
 extern const AtcZoneInfo kAtcZoneNZ_CHAT; // NZ-CHAT -> Pacific/Chatham
 extern const AtcZoneInfo kAtcZoneNavajo; // Navajo -> America/Denver
 extern const AtcZoneInfo kAtcZonePRC; // PRC -> Asia/Shanghai
+extern const AtcZoneInfo kAtcZonePST8PDT; // PST8PDT -> America/Los_Angeles
 extern const AtcZoneInfo kAtcZonePacific_Chuuk; // Pacific/Chuuk -> Pacific/Port_Moresby
 extern const AtcZoneInfo kAtcZonePacific_Enderbury; // Pacific/Enderbury -> Pacific/Kanton
 extern const AtcZoneInfo kAtcZonePacific_Funafuti; // Pacific/Funafuti -> Pacific/Tarawa
@@ -1052,6 +1039,7 @@ extern const AtcZoneInfo kAtcZoneUS_Samoa; // US/Samoa -> Pacific/Pago_Pago
 extern const AtcZoneInfo kAtcZoneUTC; // UTC -> Etc/UTC
 extern const AtcZoneInfo kAtcZoneUniversal; // Universal -> Etc/UTC
 extern const AtcZoneInfo kAtcZoneW_SU; // W-SU -> Europe/Moscow
+extern const AtcZoneInfo kAtcZoneWET; // WET -> Europe/Lisbon
 extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 
 
@@ -1150,6 +1138,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdAsia_Bahrain 0x9d078487 /* Asia/Bahrain */
 #define kAtcZoneIdAsia_Brunei 0xa8e595f7 /* Asia/Brunei */
 #define kAtcZoneIdAsia_Calcutta 0x328a44c3 /* Asia/Calcutta */
+#define kAtcZoneIdAsia_Choibalsan 0x928aa4a6 /* Asia/Choibalsan */
 #define kAtcZoneIdAsia_Chongqing 0xf937fb90 /* Asia/Chongqing */
 #define kAtcZoneIdAsia_Chungking 0xc7121dd0 /* Asia/Chungking */
 #define kAtcZoneIdAsia_Dacca 0x14bcac5e /* Asia/Dacca */
@@ -1189,6 +1178,8 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdBrazil_DeNoronha 0x9b4cb496 /* Brazil/DeNoronha */
 #define kAtcZoneIdBrazil_East 0x669578c5 /* Brazil/East */
 #define kAtcZoneIdBrazil_West 0x669f689b /* Brazil/West */
+#define kAtcZoneIdCET 0x0b87d921 /* CET */
+#define kAtcZoneIdCST6CDT 0xf0e87d00 /* CST6CDT */
 #define kAtcZoneIdCanada_Atlantic 0x536b119c /* Canada/Atlantic */
 #define kAtcZoneIdCanada_Central 0x626710f5 /* Canada/Central */
 #define kAtcZoneIdCanada_Eastern 0xf3612d5e /* Canada/Eastern */
@@ -1200,6 +1191,9 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdChile_Continental 0x7e2bdb18 /* Chile/Continental */
 #define kAtcZoneIdChile_EasterIsland 0xb0982af8 /* Chile/EasterIsland */
 #define kAtcZoneIdCuba 0x7c83cba0 /* Cuba */
+#define kAtcZoneIdEET 0x0b87e1a3 /* EET */
+#define kAtcZoneIdEST 0x0b87e371 /* EST */
+#define kAtcZoneIdEST5EDT 0x8adc72a3 /* EST5EDT */
 #define kAtcZoneIdEgypt 0x0d1a278e /* Egypt */
 #define kAtcZoneIdEire 0x7c84b36a /* Eire */
 #define kAtcZoneIdEtc_GMT_PLUS_0 0x9d13da13 /* Etc/GMT+0 */
@@ -1242,6 +1236,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdGMT_0 0x0d2f706a /* GMT-0 */
 #define kAtcZoneIdGMT0 0x7c8550fd /* GMT0 */
 #define kAtcZoneIdGreenwich 0xc84d4221 /* Greenwich */
+#define kAtcZoneIdHST 0x0b87f034 /* HST */
 #define kAtcZoneIdHongkong 0x56d36560 /* Hongkong */
 #define kAtcZoneIdIceland 0xe56a35b5 /* Iceland */
 #define kAtcZoneIdIndian_Antananarivo 0x9ebf5289 /* Indian/Antananarivo */
@@ -1258,6 +1253,9 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdJapan 0x0d712f8f /* Japan */
 #define kAtcZoneIdKwajalein 0x0e57afbb /* Kwajalein */
 #define kAtcZoneIdLibya 0x0d998b16 /* Libya */
+#define kAtcZoneIdMET 0x0b8803ab /* MET */
+#define kAtcZoneIdMST 0x0b880579 /* MST */
+#define kAtcZoneIdMST7MDT 0xf2af9375 /* MST7MDT */
 #define kAtcZoneIdMexico_BajaNorte 0xfcf7150f /* Mexico/BajaNorte */
 #define kAtcZoneIdMexico_BajaSur 0x08ee3641 /* Mexico/BajaSur */
 #define kAtcZoneIdMexico_General 0x93711d57 /* Mexico/General */
@@ -1265,6 +1263,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdNZ_CHAT 0x4d42afda /* NZ-CHAT */
 #define kAtcZoneIdNavajo 0xc4ef0e24 /* Navajo */
 #define kAtcZoneIdPRC 0x0b88120a /* PRC */
+#define kAtcZoneIdPST8PDT 0xd99ee2dc /* PST8PDT */
 #define kAtcZoneIdPacific_Chuuk 0x8a090b23 /* Pacific/Chuuk */
 #define kAtcZoneIdPacific_Enderbury 0x61599a93 /* Pacific/Enderbury */
 #define kAtcZoneIdPacific_Funafuti 0xdb402d65 /* Pacific/Funafuti */
@@ -1301,6 +1300,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneIdUTC 0x0b882791 /* UTC */
 #define kAtcZoneIdUniversal 0xd0ff523e /* Universal */
 #define kAtcZoneIdW_SU 0x7c8d8ef1 /* W-SU */
+#define kAtcZoneIdWET 0x0b882e35 /* WET */
 #define kAtcZoneIdZulu 0x7c9069b5 /* Zulu */
 
 
@@ -1473,7 +1473,6 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeAsia_Beirut 5  /* Asia/Beirut in 1993 */
 #define kAtcZoneBufSizeAsia_Bishkek 5  /* Asia/Bishkek in 1997 */
 #define kAtcZoneBufSizeAsia_Chita 5  /* Asia/Chita in 1987 */
-#define kAtcZoneBufSizeAsia_Choibalsan 5  /* Asia/Choibalsan in 2004 */
 #define kAtcZoneBufSizeAsia_Colombo 2  /* Asia/Colombo in 2006 */
 #define kAtcZoneBufSizeAsia_Damascus 6  /* Asia/Damascus in 2008 */
 #define kAtcZoneBufSizeAsia_Dhaka 4  /* Asia/Dhaka in 2009 */
@@ -1553,11 +1552,6 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeAustralia_Melbourne 5  /* Australia/Melbourne in 1993 */
 #define kAtcZoneBufSizeAustralia_Perth 6  /* Australia/Perth in 2007 */
 #define kAtcZoneBufSizeAustralia_Sydney 5  /* Australia/Sydney in 1992 */
-#define kAtcZoneBufSizeCET 5  /* CET in 1983 */
-#define kAtcZoneBufSizeCST6CDT 6  /* CST6CDT in 2008 */
-#define kAtcZoneBufSizeEET 5  /* EET in 1983 */
-#define kAtcZoneBufSizeEST 1  /* EST in 1949 */
-#define kAtcZoneBufSizeEST5EDT 6  /* EST5EDT in 2008 */
 #define kAtcZoneBufSizeEtc_GMT 1  /* Etc/GMT in 1949 */
 #define kAtcZoneBufSizeEtc_GMT_PLUS_1 1  /* Etc/GMT+1 in 1949 */
 #define kAtcZoneBufSizeEtc_GMT_PLUS_10 1  /* Etc/GMT+10 in 1949 */
@@ -1624,14 +1618,9 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeEurope_Volgograd 5  /* Europe/Volgograd in 1987 */
 #define kAtcZoneBufSizeEurope_Warsaw 5  /* Europe/Warsaw in 1983 */
 #define kAtcZoneBufSizeEurope_Zurich 5  /* Europe/Zurich in 1983 */
-#define kAtcZoneBufSizeHST 1  /* HST in 1949 */
 #define kAtcZoneBufSizeIndian_Chagos 1  /* Indian/Chagos in 1949 */
 #define kAtcZoneBufSizeIndian_Maldives 1  /* Indian/Maldives in 1949 */
 #define kAtcZoneBufSizeIndian_Mauritius 3  /* Indian/Mauritius in 2008 */
-#define kAtcZoneBufSizeMET 5  /* MET in 1983 */
-#define kAtcZoneBufSizeMST 1  /* MST in 1949 */
-#define kAtcZoneBufSizeMST7MDT 6  /* MST7MDT in 2008 */
-#define kAtcZoneBufSizePST8PDT 6  /* PST8PDT in 2008 */
 #define kAtcZoneBufSizePacific_Apia 5  /* Pacific/Apia in 2011 */
 #define kAtcZoneBufSizePacific_Auckland 5  /* Pacific/Auckland in 1992 */
 #define kAtcZoneBufSizePacific_Bougainville 2  /* Pacific/Bougainville in 2014 */
@@ -1662,7 +1651,6 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizePacific_Tahiti 1  /* Pacific/Tahiti in 1949 */
 #define kAtcZoneBufSizePacific_Tarawa 1  /* Pacific/Tarawa in 1949 */
 #define kAtcZoneBufSizePacific_Tongatapu 5  /* Pacific/Tongatapu in 1999 */
-#define kAtcZoneBufSizeWET 5  /* WET in 1983 */
 
 
 //---------------------------------------------------------------------------
@@ -1672,16 +1660,18 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 
 
 //---------------------------------------------------------------------------
-// Notable zones: 6
+// Notable zones: 92
 //---------------------------------------------------------------------------
 
 // Africa/Casablanca {
+//   RULES not fixed but FORMAT is missing '%s' or '/',
 //   Morocco {SAVE '-1:00' is a negative DST}
 // }
 // Africa/El_Aaiun {
+//   RULES not fixed but FORMAT is missing '%s' or '/',
 //   Morocco {SAVE '-1:00' is a negative DST}
 // }
-// Africa/Johannesburg {RULES not fixed but FORMAT is missing '%' or '/'}
+// Africa/Johannesburg {RULES not fixed but FORMAT is missing '%s' or '/'}
 // Africa/Windhoek {
 //   Namibia {
 //     LETTER 'CAT' not single character,
@@ -1689,9 +1679,29 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '-1:00' is a negative DST,
 //   }
 // }
+// America/Araguaina {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Argentina/Buenos_Aires {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Argentina/Catamarca {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Argentina/Cordoba {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Argentina/Jujuy {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Argentina/La_Rioja {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Argentina/Mendoza {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Argentina/Rio_Gallegos {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Argentina/Salta {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Argentina/San_Juan {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Argentina/San_Luis {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Argentina/Tucuman {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Argentina/Ushuaia {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Asuncion {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Bahia {RULES not fixed but FORMAT is missing '%s' or '/'}
 // America/Belize {
 //   Belize {LETTER 'CST' not single character}
 // }
+// America/Boa_Vista {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Bogota {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Campo_Grande {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Cuiaba {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Fortaleza {RULES not fixed but FORMAT is missing '%s' or '/'}
 // America/Goose_Bay {
 //   StJohns {
 //     AT '0:01' not multiple of :15 min,
@@ -1699,9 +1709,21 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
+// America/Guayaquil {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Lima {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Maceio {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Miquelon {RULES not fixed but FORMAT is missing '%s' or '/'}
 // America/Moncton {
 //   Moncton {AT '0:01' not multiple of :15 min}
 // }
+// America/Montevideo {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Noronha {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Nuuk {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Punta_Arenas {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Recife {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Santiago {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Sao_Paulo {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Scoresbysund {RULES not fixed but FORMAT is missing '%s' or '/'}
 // America/St_Johns {
 //   StJohns {
 //     AT '0:01' not multiple of :15 min,
@@ -1710,6 +1732,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //   }
 // }
 // Antarctica/Casey {UNTIL '0:01' not multiple of :15 min}
+// Antarctica/Palmer {RULES not fixed but FORMAT is missing '%s' or '/'}
 // Antarctica/Troll {
 //   Troll {
 //     LETTER '+00' not single character,
@@ -1717,6 +1740,17 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 //     SAVE '2:00' different from 1:00,
 //   }
 // }
+// Asia/Almaty {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Anadyr {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Aqtau {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Aqtobe {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Atyrau {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Baghdad {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Baku {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Barnaul {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Bishkek {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Chita {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Dhaka {RULES not fixed but FORMAT is missing '%s' or '/'}
 // Asia/Gaza {
 //   UNTIL '0:01' not multiple of :15 min,
 //   Palestine {AT '0:01' not multiple of :15 min}
@@ -1724,15 +1758,61 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 // Asia/Hebron {
 //   Palestine {AT '0:01' not multiple of :15 min}
 // }
+// Asia/Hovd {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Irkutsk {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Kamchatka {RULES not fixed but FORMAT is missing '%s' or '/'}
 // Asia/Kathmandu {STDOFF '5:45' not multiple of :30 min}
-// Australia/Eucla {STDOFF '8:45' not multiple of :30 min}
+// Asia/Khandyga {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Krasnoyarsk {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Magadan {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Novokuznetsk {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Novosibirsk {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Omsk {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Oral {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Qostanay {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Qyzylorda {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Sakhalin {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Srednekolymsk {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Tbilisi {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Tehran {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Tomsk {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Ulaanbaatar {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Ust-Nera {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Vladivostok {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Yakutsk {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Yekaterinburg {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Asia/Yerevan {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Atlantic/Azores {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Atlantic/Stanley {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Australia/Eucla {
+//   RULES not fixed but FORMAT is missing '%s' or '/',
+//   STDOFF '8:45' not multiple of :30 min,
+// }
 // Australia/Lord_Howe {
+//   RULES not fixed but FORMAT is missing '%s' or '/',
 //   LH {SAVE '0:30' different from 1:00}
 // }
+// Europe/Astrakhan {RULES not fixed but FORMAT is missing '%s' or '/'}
 // Europe/Dublin {
 //   Eire {SAVE '-1:00' is a negative DST}
 // }
-// Pacific/Chatham {STDOFF '12:45' not multiple of :30 min}
+// Europe/Samara {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Europe/Saratov {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Europe/Ulyanovsk {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Indian/Mauritius {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Pacific/Apia {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Pacific/Chatham {
+//   RULES not fixed but FORMAT is missing '%s' or '/',
+//   STDOFF '12:45' not multiple of :30 min,
+// }
+// Pacific/Easter {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Pacific/Efate {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Pacific/Fiji {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Pacific/Galapagos {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Pacific/Norfolk {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Pacific/Noumea {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Pacific/Rarotonga {RULES not fixed but FORMAT is missing '%s' or '/'}
+// Pacific/Tongatapu {RULES not fixed but FORMAT is missing '%s' or '/'}
 
 
 //---------------------------------------------------------------------------

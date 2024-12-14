@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeTools/src/acetimetools/tzcompiler.py
 //     --input_dir /home/brian/src/acetimec/src/zonedbtesting/tzfiles
 //     --output_dir /home/brian/src/acetimec/src/zonedbtesting
-//     --tz_version 2024a
+//     --tz_version 2024b
 //     --actions zonedb
 //     --languages c
 //     --scope complete
@@ -25,10 +25,10 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2024a
+// from https://github.com/eggert/tz/releases/tag/2024b
 //
 // Supported Zones: 17 (16 zones, 1 links)
-// Unsupported Zones: 579 (335 zones, 244 links)
+// Unsupported Zones: 579 (323 zones, 256 links)
 //
 // Requested Years: [2000,2200]
 // Accurate Years: [2000,32767]
@@ -54,11 +54,11 @@
 //   Zones: 208
 //   Links: 13
 //   Registry: 34
-//   Formats: 78
+//   Formats: 37
 //   Letters: 23
 //   Fragments: 0
 //   Names: 268 (original: 268)
-//   TOTAL: 3406
+//   TOTAL: 3365
 //
 // Memory (32-bits):
 //   Context: 24
@@ -68,11 +68,11 @@
 //   Zones: 384
 //   Links: 24
 //   Registry: 68
-//   Formats: 78
+//   Formats: 37
 //   Letters: 33
 //   Fragments: 0
 //   Names: 268 (original: 268)
-//   TOTAL: 3795
+//   TOTAL: 3754
 //
 // DO NOT EDIT
 
@@ -83,7 +83,7 @@
 // ZoneContext
 //---------------------------------------------------------------------------
 
-static const char kAtcTzDatabaseVersion[] = "2024a";
+static const char kAtcTzDatabaseVersion[] = "2024b";
 
 static const char * const kAtcFragments[] = {
 /*\x00*/ NULL,
@@ -123,10 +123,10 @@ const AtcZoneContext kAtcTestingZoneContext = {
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAfrica_Casablanca[]  = {
-  //              0:00    Morocco    +00/+01    2018 Oct 28  3:00
+  //              0:00    Morocco    %z    2018 Oct 28  3:00
   {
     &kAtcTestingZonePolicyMorocco /*zone_policy*/,
-    "+00/+01" /*format*/,
+    "" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
     0 /*delta_minutes*/,
@@ -136,10 +136,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Casablanca[]  = {
     720 /*until_time_code (10800/15)*/,
     0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
-  //              1:00    Morocco    +01/+00
+  //              1:00    Morocco    %z
   {
     &kAtcTestingZonePolicyMorocco /*zone_policy*/,
-    "+01/+00" /*format*/,
+    "" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
     0 /*delta_minutes*/,
@@ -202,10 +202,10 @@ const AtcZoneInfo kAtcTestingZoneAfrica_Windhoek  = {
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraAmerica_Caracas[]  = {
-  //             -4:00    -    -04    2007 Dec  9  3:00
+  //             -4:00    -    %z    2007 Dec  9  3:00
   {
     NULL /*zone_policy*/,
-    "-04" /*format*/,
+    "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
     0 /*delta_minutes*/,
@@ -215,10 +215,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Caracas[]  = {
     720 /*until_time_code (10800/15)*/,
     0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
-  //             -4:30    -    -0430    2016 May  1  2:30
+  //             -4:30    -    %z    2016 May  1  2:30
   {
     NULL /*zone_policy*/,
-    "-0430" /*format*/,
+    "" /*format*/,
     -1080 /*offset_code (-16200/15)*/,
     0 /*offset_remainder (-16200%15)*/,
     0 /*delta_minutes*/,
@@ -228,10 +228,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Caracas[]  = {
     600 /*until_time_code (9000/15)*/,
     0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
-  //             -4:00    -    -04
+  //             -4:00    -    %z
   {
     NULL /*zone_policy*/,
-    "-04" /*format*/,
+    "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
     0 /*delta_minutes*/,
@@ -683,10 +683,10 @@ const AtcZoneInfo kAtcTestingZoneEurope_Lisbon  = {
 //---------------------------------------------------------------------------
 
 static const AtcZoneEra kAtcZoneEraPacific_Apia[]  = {
-  //             -11:00    WS    -11/-10    2011 Dec 29 24:00
+  //             -11:00    WS    %z    2011 Dec 29 24:00
   {
     &kAtcTestingZonePolicyWS /*zone_policy*/,
-    "-11/-10" /*format*/,
+    "" /*format*/,
     -2640 /*offset_code (-39600/15)*/,
     0 /*offset_remainder (-39600%15)*/,
     0 /*delta_minutes*/,
@@ -696,10 +696,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Apia[]  = {
     5760 /*until_time_code (86400/15)*/,
     0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
-  //              13:00    WS    +13/+14
+  //              13:00    WS    %z
   {
     &kAtcTestingZonePolicyWS /*zone_policy*/,
-    "+13/+14" /*format*/,
+    "" /*format*/,
     3120 /*offset_code (46800/15)*/,
     0 /*offset_remainder (46800%15)*/,
     0 /*delta_minutes*/,
