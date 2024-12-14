@@ -1,6 +1,7 @@
 # Changelog
 
 - Unreleased
+- 0.12.0 (2024-12-14, TZDB 2024b)
     - Support new `%z` value in FORMAT column.
     - Upgrade TZDB to 2024b
         - https://lists.iana.org/hyperkitty/list/tz-announce@iana.org/thread/IZ7AO6WRE3W3TWBL5IR6PMQUL433BQIE/
