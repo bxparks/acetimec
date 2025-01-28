@@ -6,9 +6,9 @@ zone_policies.h \
 zone_registry.c \
 zone_registry.h
 
-TOOLS := $(abspath ../../../AceTimeTools)
-TZ_REPO := $(abspath $(TOOLS)/../tz)
-TZ_VERSION := 2024b
+TOOLS := $(abspath ../../../../compiler)
+TZ_REPO := $(abspath $(TOOLS)/../../tz)
+TZ_VERSION := 2025a
 START_YEAR := 1800
 UNTIL_YEAR := 2200
 
