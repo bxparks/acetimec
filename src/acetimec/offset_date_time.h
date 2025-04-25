@@ -25,18 +25,18 @@ extern "C" {
 /**
  * Date and time fields with a UTC offset in seconds.
  *
- * In the AceTime library, the 'fold' parameter was included in the low-level
- * LocalTime class, which then got absorbed into the LocalDatetime class. This
- * extra parameter is mostly transparent to the user because C++ supports
- * default parameters in the constructor and functions.
+ * In the AceTime library, the 'resolved' parameter was included in the
+ * low-level LocalTime class, which then got absorbed into the LocalDatetime
+ * class. This extra parameter is mostly transparent to the user because C++
+ * supports default parameters in the constructor and functions.
  *
- * Unfortunately C does not have default parameters, so adding a 'fold' in
- * LocalDateTime causes unnecessary friction. Therefore, I am adding this
+ * Unfortunately C does not support default parameters, so adding a 'resolved'
+ * in LocalDateTime causes unnecessary friction. Therefore, I am adding this
  * parameter to the OffsetDateTime instead, which is higher level so hopefully
- * the parameter is exposed to the user only when the user needs.
+ * the parameter is exposed to the user only when the user needs it.
  */
 typedef struct AtcOffsetDateTime {
-  /** year [0,9999] */
+  /** year [1,9999] */
   int16_t year;
   /** month [1,12] */
   uint8_t month;
@@ -49,8 +49,9 @@ typedef struct AtcOffsetDateTime {
   uint8_t minute;
   /** second [0, 59] */
   uint8_t second;
-  /** fold [0,1] */
-  uint8_t fold;
+
+  /** See 'resolved' in AtcZonedDateTime. */
+  uint8_t resolved;
 
   /** offset_seconds [-10h,+14h] roughly */
   int32_t offset_seconds;

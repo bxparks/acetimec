@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeSuite/compiler/src/acetimecompiler/tzcompiler.py
 //     --input_dir /home/brian/src/AceTimeSuite/libraries/acetimec/src/zonedb/tzfiles
 //     --output_dir /home/brian/src/AceTimeSuite/libraries/acetimec/src/zonedb
-//     --tz_version 2025a
+//     --tz_version 2025b
 //     --actions zonedb
 //     --languages c
 //     --scope complete
@@ -24,9 +24,9 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2025a
+// from https://github.com/eggert/tz/releases/tag/2025b
 //
-// Supported Zones: 596 (339 zones, 257 links)
+// Supported Zones: 597 (340 zones, 257 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
 //
 // Requested Years: [2000,2200]
@@ -40,8 +40,8 @@
 // Max Buffer Size: 7
 //
 // Records:
-//   Infos: 596
-//   Eras: 645
+//   Infos: 597
+//   Eras: 647
 //   Policies: 82
 //   Rules: 731
 //
@@ -49,29 +49,29 @@
 //   Context: 16
 //   Rules: 8772
 //   Policies: 246
-//   Eras: 9675
-//   Zones: 4407
+//   Eras: 9705
+//   Zones: 4420
 //   Links: 3341
-//   Registry: 1192
+//   Registry: 1194
 //   Formats: 231
 //   Letters: 46
 //   Fragments: 0
-//   Names: 9076 (original: 9076)
-//   TOTAL: 37002
+//   Names: 9094 (original: 9094)
+//   TOTAL: 37065
 //
 // Memory (32-bits):
 //   Context: 24
 //   Rules: 8772
 //   Policies: 656
-//   Eras: 12900
-//   Zones: 8136
+//   Eras: 12940
+//   Zones: 8160
 //   Links: 6168
-//   Registry: 2384
+//   Registry: 2388
 //   Formats: 231
 //   Letters: 64
 //   Fragments: 0
-//   Names: 9076 (original: 9076)
-//   TOTAL: 48411
+//   Names: 9094 (original: 9094)
+//   TOTAL: 48497
 //
 // DO NOT EDIT
 
@@ -92,8 +92,8 @@ extern "C" {
 extern const AtcZoneContext kAtcZoneContext;
 
 //---------------------------------------------------------------------------
-// Supported zones: 339
-// Supported eras: 645
+// Supported zones: 340
+// Supported eras: 647
 //---------------------------------------------------------------------------
 
 extern const AtcZoneInfo kAtcZoneAfrica_Abidjan; // Africa/Abidjan
@@ -148,6 +148,7 @@ extern const AtcZoneInfo kAtcZoneAmerica_Chicago; // America/Chicago
 extern const AtcZoneInfo kAtcZoneAmerica_Chihuahua; // America/Chihuahua
 extern const AtcZoneInfo kAtcZoneAmerica_Ciudad_Juarez; // America/Ciudad_Juarez
 extern const AtcZoneInfo kAtcZoneAmerica_Costa_Rica; // America/Costa_Rica
+extern const AtcZoneInfo kAtcZoneAmerica_Coyhaique; // America/Coyhaique
 extern const AtcZoneInfo kAtcZoneAmerica_Cuiaba; // America/Cuiaba
 extern const AtcZoneInfo kAtcZoneAmerica_Danmarkshavn; // America/Danmarkshavn
 extern const AtcZoneInfo kAtcZoneAmerica_Dawson; // America/Dawson
@@ -491,6 +492,7 @@ extern const AtcZoneInfo kAtcZonePacific_Tongatapu; // Pacific/Tongatapu
 #define kAtcZoneIdAmerica_Chihuahua 0x8827d776 /* America/Chihuahua */
 #define kAtcZoneIdAmerica_Ciudad_Juarez 0x7347fc60 /* America/Ciudad_Juarez */
 #define kAtcZoneIdAmerica_Costa_Rica 0x63ff66be /* America/Costa_Rica */
+#define kAtcZoneIdAmerica_Coyhaique 0xcc3314ee /* America/Coyhaique */
 #define kAtcZoneIdAmerica_Cuiaba 0x969a52eb /* America/Cuiaba */
 #define kAtcZoneIdAmerica_Danmarkshavn 0xf554d204 /* America/Danmarkshavn */
 #define kAtcZoneIdAmerica_Dawson 0x978d8d12 /* America/Dawson */
@@ -1364,6 +1366,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 #define kAtcZoneBufSizeAmerica_Chihuahua 4  /* America/Chihuahua in 1996 */
 #define kAtcZoneBufSizeAmerica_Ciudad_Juarez 7  /* America/Ciudad_Juarez in 2022 */
 #define kAtcZoneBufSizeAmerica_Costa_Rica 2  /* America/Costa_Rica in 1949 */
+#define kAtcZoneBufSizeAmerica_Coyhaique 5  /* America/Coyhaique in 2002 */
 #define kAtcZoneBufSizeAmerica_Cuiaba 6  /* America/Cuiaba in 2005 */
 #define kAtcZoneBufSizeAmerica_Danmarkshavn 1  /* America/Danmarkshavn in 1949 */
 #define kAtcZoneBufSizeAmerica_Dawson 6  /* America/Dawson in 2008 */
@@ -1660,7 +1663,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 
 
 //---------------------------------------------------------------------------
-// Notable zones: 92
+// Notable zones: 93
 //---------------------------------------------------------------------------
 
 // Africa/Casablanca {
@@ -1700,6 +1703,7 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 // America/Boa_Vista {RULES not fixed but FORMAT is missing '%s' or '/'}
 // America/Bogota {RULES not fixed but FORMAT is missing '%s' or '/'}
 // America/Campo_Grande {RULES not fixed but FORMAT is missing '%s' or '/'}
+// America/Coyhaique {RULES not fixed but FORMAT is missing '%s' or '/'}
 // America/Cuiaba {RULES not fixed but FORMAT is missing '%s' or '/'}
 // America/Fortaleza {RULES not fixed but FORMAT is missing '%s' or '/'}
 // America/Goose_Bay {

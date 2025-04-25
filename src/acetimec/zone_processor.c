@@ -763,6 +763,7 @@ void atc_processor_find_by_epoch_seconds(
 void atc_processor_find_by_local_date_time(
     AtcZoneProcessor *processor,
     const AtcLocalDateTime *ldt,
+    uint8_t disambiguate,
     AtcFindResult *result)
 {
 
@@ -791,14 +792,15 @@ void atc_processor_find_by_local_date_time(
         result->type = kAtcFindResultNotFound;
         result->fold = 0;
       } else { // gap or overlap
-        if (tfd.num == 0) { // num==0, Gap
+        if (tfd.num == 0) { // gap
           result->type = kAtcFindResultGap;
-          result->fold = 0;
-          if (ldt->fold == 0) {
+          if ((disambiguate == kAtcDisambiguateCompatible)
+              || disambiguate == kAtcDisambiguateLater) {
             // ldt wants to use the 'prev' transition to convert to
             // epochSeconds.
             result->req_std_offset_seconds = tfd.prev->offset_seconds;
             result->req_dst_offset_seconds = tfd.prev->delta_seconds;
+            result->fold = 0;
             // But after normalization, it will be shifted into the curr
             // transition, so select 'curr' as the target transition.
             transition = tfd.curr;
@@ -807,14 +809,21 @@ void atc_processor_find_by_local_date_time(
             // epochSeconds.
             result->req_std_offset_seconds = tfd.curr->offset_seconds;
             result->req_dst_offset_seconds = tfd.curr->delta_seconds;
+            result->fold = 1;
             // But after normalization, it will be shifted into the prev
             // transition, so select 'prev' as the target transition.
             transition = tfd.prev;
           }
-        } else { // num==2, Overlap
-          transition = (ldt->fold == 0) ? tfd.prev : tfd.curr;
+        } else { // num==2, overlap
           result->type = kAtcFindResultOverlap;
-          result->fold = ldt->fold;
+          if ((disambiguate == kAtcDisambiguateCompatible)
+              || (disambiguate == kAtcDisambiguateEarlier)) {
+            transition = tfd.prev;
+            result->fold = 0;
+          } else {
+            transition = tfd.curr;
+            result->fold = 1;
+          }
           result->req_std_offset_seconds = transition->offset_seconds;
           result->req_dst_offset_seconds = transition->delta_seconds;
         }

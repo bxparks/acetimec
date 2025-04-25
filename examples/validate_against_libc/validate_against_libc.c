@@ -241,9 +241,10 @@ int check_samples(const AtcTimeZone *tz)
       for (uint8_t month = 1; month <= 12; month++) {
         for (uint8_t day = 1; day <= 28; day += 3) { // every 3rd, for speed
           AtcZonedDateTime zdt;
-          AtcLocalDateTime ldt = {year, month, day, 2, 0, 0, 0 /*fold*/};
+          AtcLocalDateTime ldt = {year, month, day, 2, 0, 0};
 
-          atc_zoned_date_time_from_local_date_time(&zdt, &ldt, tz);
+          atc_zoned_date_time_from_local_date_time(
+              &zdt, &ldt, tz, kAtcDisambiguateCompatible);
           if (atc_zoned_date_time_is_error(&zdt)) {
             char s[64];
             AtcStringBuffer sb;

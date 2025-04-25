@@ -103,7 +103,8 @@ void atc_zoned_extra_from_unix_seconds(
 void atc_zoned_extra_from_local_date_time(
     AtcZonedExtra *extra,
     const AtcLocalDateTime *ldt,
-    const AtcTimeZone *tz);
+    const AtcTimeZone *tz,
+    uint8_t disambiguate);
 
 #ifdef __cplusplus
 }

@@ -151,13 +151,10 @@ enum {
  * Adapted from FindResult in ZoneProcessor.h of the AceTime library.
  */
 typedef struct AtcFindResult {
-  /**
-   * The result type of the find_by_xxx() function, one of the
-   * kAtcFindResultXxx enums.
-   */
+  /** NotFound, Exact, Overlap, Gap. */
   uint8_t type;
 
-  /** The fold of the resulting OffsetDateTime. */
+  /** Found earlier (0) or later (1) transition. */
   uint8_t fold;
 
   /** The STD offset of the target OffsetDateTime. */
@@ -276,6 +273,7 @@ void atc_processor_find_by_epoch_seconds(
 void atc_processor_find_by_local_date_time(
     AtcZoneProcessor *processor,
     const AtcLocalDateTime *ldt,
+    uint8_t disambiguate,
     AtcFindResult *result);
 
 //---------------------------------------------------------------------------

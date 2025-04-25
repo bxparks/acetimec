@@ -3,7 +3,7 @@
 //   $ /home/brian/src/AceTimeSuite/compiler/src/acetimecompiler/tzcompiler.py
 //     --input_dir /home/brian/src/AceTimeSuite/libraries/acetimec/src/zonedball/tzfiles
 //     --output_dir /home/brian/src/AceTimeSuite/libraries/acetimec/src/zonedball
-//     --tz_version 2025a
+//     --tz_version 2025b
 //     --actions zonedb
 //     --languages c
 //     --scope complete
@@ -24,9 +24,9 @@
 //   northamerica
 //   southamerica
 //
-// from https://github.com/eggert/tz/releases/tag/2025a
+// from https://github.com/eggert/tz/releases/tag/2025b
 //
-// Supported Zones: 596 (339 zones, 257 links)
+// Supported Zones: 597 (340 zones, 257 links)
 // Unsupported Zones: 0 (0 zones, 0 links)
 //
 // Requested Years: [1800,2200]
@@ -40,8 +40,8 @@
 // Max Buffer Size: 8
 //
 // Records:
-//   Infos: 596
-//   Eras: 1942
+//   Infos: 597
+//   Eras: 1956
 //   Policies: 134
 //   Rules: 2235
 //
@@ -49,29 +49,29 @@
 //   Context: 16
 //   Rules: 26820
 //   Policies: 402
-//   Eras: 29130
-//   Zones: 4407
+//   Eras: 29340
+//   Zones: 4420
 //   Links: 3341
-//   Registry: 1192
+//   Registry: 1194
 //   Formats: 486
 //   Letters: 160
 //   Fragments: 0
-//   Names: 9076 (original: 9076)
-//   TOTAL: 75030
+//   Names: 9094 (original: 9094)
+//   TOTAL: 75273
 //
 // Memory (32-bits):
 //   Context: 24
 //   Rules: 26820
 //   Policies: 1072
-//   Eras: 38840
-//   Zones: 8136
+//   Eras: 39120
+//   Zones: 8160
 //   Links: 6168
-//   Registry: 2384
+//   Registry: 2388
 //   Formats: 486
 //   Letters: 216
 //   Fragments: 0
-//   Names: 9076 (original: 9076)
-//   TOTAL: 93222
+//   Names: 9094 (original: 9094)
+//   TOTAL: 93548
 //
 // DO NOT EDIT
 
@@ -82,7 +82,7 @@
 // ZoneContext
 //---------------------------------------------------------------------------
 
-static const char kAtcTzDatabaseVersion[] = "2025a";
+static const char kAtcTzDatabaseVersion[] = "2025b";
 
 static const char * const kAtcFragments[] = {
 /*\x00*/ NULL,
@@ -135,8 +135,8 @@ const AtcZoneContext kAtcAllZoneContext = {
 };
 
 //---------------------------------------------------------------------------
-// Zones: 339
-// Eras: 1942
+// Zones: 340
+// Eras: 1956
 //---------------------------------------------------------------------------
 
 //---------------------------------------------------------------------------
@@ -5700,6 +5700,208 @@ const AtcZoneInfo kAtcAllZoneAmerica_Costa_Rica  = {
   &kAtcAllZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Costa_Rica /*eras*/,
+  NULL /*target_info*/,
+};
+
+//---------------------------------------------------------------------------
+// Zone name: America/Coyhaique
+// Zone Eras: 14
+//---------------------------------------------------------------------------
+
+static const AtcZoneEra kAtcZoneEraAmerica_Coyhaique[]  = {
+  // -4:48:16 - LMT 1890
+  {
+    NULL /*zone_policy*/,
+    "LMT" /*format*/,
+    -1154 /*offset_code (-17296/15)*/,
+    14 /*offset_remainder (-17296%15)*/,
+    0 /*delta_minutes*/,
+    1890 /*until_year*/,
+    1 /*until_month*/,
+    1 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             -4:42:45 -    SMT    1910 Jan 10
+  {
+    NULL /*zone_policy*/,
+    "SMT" /*format*/,
+    -1131 /*offset_code (-16965/15)*/,
+    0 /*offset_remainder (-16965%15)*/,
+    0 /*delta_minutes*/,
+    1910 /*until_year*/,
+    1 /*until_month*/,
+    10 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             -5:00    -    %z    1916 Jul  1
+  {
+    NULL /*zone_policy*/,
+    "" /*format*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    1916 /*until_year*/,
+    7 /*until_month*/,
+    1 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             -4:42:45 -    SMT    1918 Sep 10
+  {
+    NULL /*zone_policy*/,
+    "SMT" /*format*/,
+    -1131 /*offset_code (-16965/15)*/,
+    0 /*offset_remainder (-16965%15)*/,
+    0 /*delta_minutes*/,
+    1918 /*until_year*/,
+    9 /*until_month*/,
+    10 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             -4:00    -    %z    1919 Jul  1
+  {
+    NULL /*zone_policy*/,
+    "" /*format*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    1919 /*until_year*/,
+    7 /*until_month*/,
+    1 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             -4:42:45 -    SMT    1927 Sep  1
+  {
+    NULL /*zone_policy*/,
+    "SMT" /*format*/,
+    -1131 /*offset_code (-16965/15)*/,
+    0 /*offset_remainder (-16965%15)*/,
+    0 /*delta_minutes*/,
+    1927 /*until_year*/,
+    9 /*until_month*/,
+    1 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             -5:00    Chile    %z    1932 Sep  1
+  {
+    &kAtcAllZonePolicyChile /*zone_policy*/,
+    "" /*format*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    1932 /*until_year*/,
+    9 /*until_month*/,
+    1 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             -4:00    -    %z    1942 Jun  1
+  {
+    NULL /*zone_policy*/,
+    "" /*format*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    1942 /*until_year*/,
+    6 /*until_month*/,
+    1 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             -5:00    -    %z    1942 Aug  1
+  {
+    NULL /*zone_policy*/,
+    "" /*format*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    1942 /*until_year*/,
+    8 /*until_month*/,
+    1 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             -4:00    -    %z    1946 Aug 28 24:00
+  {
+    NULL /*zone_policy*/,
+    "" /*format*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    1946 /*until_year*/,
+    8 /*until_month*/,
+    28 /*until_day*/,
+    5760 /*until_time_code (86400/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             -5:00    1:00    %z    1947 Mar 31 24:00
+  {
+    NULL /*zone_policy*/,
+    "" /*format*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    60 /*delta_minutes*/,
+    1947 /*until_year*/,
+    3 /*until_month*/,
+    31 /*until_day*/,
+    5760 /*until_time_code (86400/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             -5:00    -    %z    1947 May 21 23:00
+  {
+    NULL /*zone_policy*/,
+    "" /*format*/,
+    -1200 /*offset_code (-18000/15)*/,
+    0 /*offset_remainder (-18000%15)*/,
+    0 /*delta_minutes*/,
+    1947 /*until_year*/,
+    5 /*until_month*/,
+    21 /*until_day*/,
+    5520 /*until_time_code (82800/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             -4:00    Chile    %z    2025 Mar 20
+  {
+    &kAtcAllZonePolicyChile /*zone_policy*/,
+    "" /*format*/,
+    -960 /*offset_code (-14400/15)*/,
+    0 /*offset_remainder (-14400%15)*/,
+    0 /*delta_minutes*/,
+    2025 /*until_year*/,
+    3 /*until_month*/,
+    20 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+  //             -3:00    -    %z
+  {
+    NULL /*zone_policy*/,
+    "" /*format*/,
+    -720 /*offset_code (-10800/15)*/,
+    0 /*offset_remainder (-10800%15)*/,
+    0 /*delta_minutes*/,
+    32767 /*until_year*/,
+    1 /*until_month*/,
+    1 /*until_day*/,
+    0 /*until_time_code (0/15)*/,
+    0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
+  },
+
+};
+
+static const char kAtcZoneNameAmerica_Coyhaique[]  = "America/Coyhaique";
+
+const AtcZoneInfo kAtcAllZoneAmerica_Coyhaique  = {
+  kAtcZoneNameAmerica_Coyhaique /*name*/,
+  0xcc3314ee /*zone_id*/,
+  &kAtcAllZoneContext /*zone_context*/,
+  14 /*num_eras*/,
+  kAtcZoneEraAmerica_Coyhaique /*eras*/,
   NULL /*target_info*/,
 };
 
@@ -21693,17 +21895,17 @@ static const AtcZoneEra kAtcZoneEraAsia_Tehran[]  = {
     5760 /*until_time_code (86400/15)*/,
     0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
-  //             4:00    Iran    %z    1979
+  //             4:00    Iran    %z    1978 Nov 10 24:00
   {
     &kAtcAllZonePolicyIran /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
     0 /*delta_minutes*/,
-    1979 /*until_year*/,
-    1 /*until_month*/,
-    1 /*until_day*/,
-    0 /*until_time_code (0/15)*/,
+    1978 /*until_year*/,
+    11 /*until_month*/,
+    10 /*until_day*/,
+    5760 /*until_time_code (86400/15)*/,
     0 /*until_time_modifier (kAtcSuffixW + seconds=0)*/,
   },
   //             3:30    Iran    %z

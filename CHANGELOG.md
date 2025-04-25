@@ -1,11 +1,15 @@
 # Changelog
 
-- 3.0.0 (2025-01-28, TZDB 2025a)
+- unreleased
+- 0.13.0 (2025-04-25, TZDB 2025b)
     - merge various AceTime projects into single AceTimeSuite repo
     - [upgrade to TZDB 2025a](https://lists.iana.org/hyperkitty/list/tz-announce@iana.org/thread/MWII7R3HMCEDNUCIYQKSSTYYR7UWK4OQ/)
         - Paraguay adopts permanent -03 starting spring 2024.
         - Improve pre-1991 data for the Philippines.
         - Etc/Unknown is now reserved.
+    - [upgrade to TZDB 2025b](https://lists.iana.org/hyperkitty/list/tz-announce@iana.org/thread/6JVHNHLB6I2WAYTQ75L6KEPEQHFXAJK3/)
+        - New zone for Aysén Region in Chile which moves from -04/-03 to -03.
+          (Creates new zone named America/Coyhaique)
 - 0.12.0 (2024-12-14, TZDB 2024b)
     - Support new `%z` value in FORMAT column.
     - Upgrade TZDB to 2024b

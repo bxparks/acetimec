@@ -8,7 +8,7 @@ zone_registry.h
 
 TOOLS := $(abspath ../../../../compiler)
 TZ_REPO := $(abspath $(TOOLS)/../../tz)
-TZ_VERSION := 2025a
+TZ_VERSION := 2025b
 START_YEAR := 2000
 UNTIL_YEAR := 2200
 
