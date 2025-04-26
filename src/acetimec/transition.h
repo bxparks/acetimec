@@ -348,10 +348,10 @@ typedef struct AtcTransitionForSeconds {
  * Find the Transition matching the given epochSeconds. Return
  * AtcTransitionForSeconds.curr == nullptr if no matching Transition found. If a
  * zone does not have any transition according to TZ Database, the
- * AceTimeTools/transformer.py script adds an "anchor" transition at the
- * "beginning of time" which happens to be the year 1872 (because the year is
- * stored as an int8_t). Therefore, this method should never return a nullptr
- * for a well-formed ZoneInfo file.
+ * acetimecompiler/transformer/transformer.py script adds an "anchor" transition
+ * at the "beginning of time" which happens to be the year 1872 (because the
+ * year is stored as an int8_t). Therefore, this method should never return a
+ * nullptr for a well-formed ZoneInfo file.
  */
 AtcTransitionForSeconds atc_transition_storage_find_for_seconds(
     const AtcTransitionStorage *ts,

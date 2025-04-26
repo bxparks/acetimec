@@ -1308,8 +1308,9 @@ extern const AtcZoneInfo kAtcZoneZulu; // Zulu -> Etc/UTC
 
 //---------------------------------------------------------------------------
 // Maximum size of the Transition buffer in ExtendedZoneProcessor for each zone
-// over the given years. Used only in the AceTimeValidation/Extended*Test tests
-// for ExtendedZoneProcessor.
+// over the given years. Used by the AceTimeSuite/validation/tests/*ExtendedTest
+// tests (which uses AceTime) and got copied here for simplicity. I don't think
+// these constants are used by anything in the acetimec library.
 //
 // MaxBufSize: 7
 //---------------------------------------------------------------------------

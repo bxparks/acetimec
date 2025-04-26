@@ -8,6 +8,9 @@ all:
 runtests:
 	$(MAKE) -C tests runtests
 
+zonedbs:
+	$(MAKE) -C src zonedbs
+
 clean:
 	set -e; \
 	for i in src/Makefile tests/Makefile examples/Makefile; do \
