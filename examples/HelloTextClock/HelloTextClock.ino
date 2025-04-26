@@ -24,17 +24,18 @@ void setup() {
   Serial.begin(115200);
   if (!Serial) {} // wait for Serial ready (Leonardo/Micro)
 
-#if defined(EPOXY_DUINO)                                                        
-  Serial.setLineModeUnix();                                                     
+#if defined(EPOXY_DUINO)
+  Serial.setLineModeUnix();
 #endif
 
   atc_processor_init(&losAngelesProcessor);
   AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &losAngelesProcessor};
 
   // Create a ZoneDateTime of 2019-03-10T03:00:00, just after DST shift
-  struct AtcLocalDateTime localTime = {2019, 3, 10, 3, 0, 0, 0 /*fold*/};
+  struct AtcLocalDateTime localTime = {2019, 3, 10, 3, 0, 0};
   struct AtcZonedDateTime startTime;
-  atc_zoned_date_time_from_local_date_time(&startTime, &localTime, &tz);
+  atc_zoned_date_time_from_local_date_time(
+      &startTime, &localTime, &tz, kAtcDisambiguateCompatible);
 
   // Print the AceTime epoch seconds
   SERIAL_PORT_MONITOR.print(F("Epoch Seconds: "));

@@ -30,7 +30,7 @@ extern "C" {
  *    * ZonedDateTime from AceTime library
  */
 typedef struct AtcZonedDateTime {
-  /** year [0,9999] */
+  /** year [1,9999] */
   int16_t year;
   /** month [1,12] */
   uint8_t month;
@@ -43,8 +43,9 @@ typedef struct AtcZonedDateTime {
   uint8_t minute;
   /** second [0, 59] */
   uint8_t second;
-  /** fold [0,1] */
-  uint8_t fold;
+
+  /** resolved [0,4], see kAtcResolvedXxx enum, output param only */
+  uint8_t resolved;
 
   /** offset_seconds [-10h,+14h] roughly */
   int32_t offset_seconds;
@@ -109,7 +110,8 @@ void atc_zoned_date_time_from_unix_seconds(
 void atc_zoned_date_time_from_local_date_time(
     AtcZonedDateTime *zdt,
     const AtcLocalDateTime *ldt,
-    const AtcTimeZone *tz);
+    const AtcTimeZone *tz,
+    uint8_t disambiguate);
 
 /**
  * Convert the source AtcZonedDateTime `from` into the destination
@@ -130,7 +132,9 @@ void atc_zoned_date_time_convert(
  *
  * Return an error value for `zdt` upon error.
  */
-void atc_zoned_date_time_normalize(AtcZonedDateTime *zdt);
+void atc_zoned_date_time_normalize(
+  AtcZonedDateTime *zdt,
+  uint8_t disambiguate);
 
 /** Print the zoned date time in ISO 8601 format. */
 void atc_zoned_date_time_print(

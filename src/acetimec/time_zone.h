@@ -64,6 +64,7 @@ void atc_time_zone_offset_date_time_from_epoch_seconds(
 void atc_time_zone_offset_date_time_from_local_date_time(
   const AtcTimeZone *tz,
   const AtcLocalDateTime *ldt,
+  uint8_t disambiguate,
   AtcOffsetDateTime *odt);
 
 /**
@@ -88,6 +89,7 @@ void atc_time_zone_zoned_extra_from_epoch_seconds(
 void atc_time_zone_zoned_extra_from_local_date_time(
   const AtcTimeZone *tz,
   const AtcLocalDateTime *ldt,
+  uint8_t disambiguate,
   AtcZonedExtra *extra);
 
 /** Print the name of the current time zone. */

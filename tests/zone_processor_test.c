@@ -1034,7 +1034,7 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
   ACU_ASSERT(udt->suffix == kAtcSuffixW);
   //
   AtcOffsetDateTime odt = {
-    2017, 12, 1, 0, 0, 0, 0 /*fold*/, -8*3600 /*offset_seconds*/
+    2017, 12, 1, 0, 0, 0, 0 /*resolved*/, -8*3600 /*offset_seconds*/
   };
   atc_time_t eps = atc_offset_date_time_to_epoch_seconds(&odt);
   ACU_ASSERT(eps == transition0->start_epoch_seconds);
@@ -1056,7 +1056,7 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
   ACU_ASSERT(udt->suffix == kAtcSuffixW);
   //
   odt = (AtcOffsetDateTime) {
-    2018, 3, 11, 3, 0, 0, 0 /*fold*/, -7*3600 /*offset_seconds*/
+    2018, 3, 11, 3, 0, 0, 0 /*resolved*/, -7*3600 /*offset_seconds*/
   };
   eps = atc_offset_date_time_to_epoch_seconds(&odt);
   ACU_ASSERT(eps == transition1->start_epoch_seconds);
@@ -1078,7 +1078,7 @@ ACU_TEST(test_fix_transition_times_generate_start_until_times)
   ACU_ASSERT(udt->suffix == kAtcSuffixW);
   //
   odt = (AtcOffsetDateTime) {
-    2018, 11, 4, 1, 0, 0, 0 /*fold*/, -8*3600 /*offset_seconds*/
+    2018, 11, 4, 1, 0, 0, 0 /*resolved*/, -8*3600 /*offset_seconds*/
   };
   eps = atc_offset_date_time_to_epoch_seconds(&odt);
   ACU_ASSERT(eps == transition2->start_epoch_seconds);

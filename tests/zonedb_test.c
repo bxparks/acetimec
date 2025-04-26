@@ -11,16 +11,16 @@
 
 ACU_TEST(test_zonedb_sizes)
 {
-  // These numbers are correct for TZDB 2024b
-  ACU_ASSERT(sizeof(kAtcZoneRegistry) / sizeof(AtcZoneInfo*) == 339);
-  ACU_ASSERT(sizeof(kAtcZoneAndLinkRegistry) / sizeof(AtcZoneInfo*) == 596);
+  // These numbers are correct for TZDB 2025b
+  ACU_ASSERT(sizeof(kAtcZoneRegistry) / sizeof(AtcZoneInfo*) == 340);
+  ACU_ASSERT(sizeof(kAtcZoneAndLinkRegistry) / sizeof(AtcZoneInfo*) == 597);
 }
 
 ACU_TEST(test_zonedball_sizes)
 {
-  // These numbers are correct for TZDB 2024b
-  ACU_ASSERT(sizeof(kAtcAllZoneRegistry) / sizeof(AtcZoneInfo*) == 339);
-  ACU_ASSERT(sizeof(kAtcAllZoneAndLinkRegistry) / sizeof(AtcZoneInfo*) == 596);
+  // These numbers are correct for TZDB 2025b
+  ACU_ASSERT(sizeof(kAtcAllZoneRegistry) / sizeof(AtcZoneInfo*) == 340);
+  ACU_ASSERT(sizeof(kAtcAllZoneAndLinkRegistry) / sizeof(AtcZoneInfo*) == 597);
 }
 
 //---------------------------------------------------------------------------

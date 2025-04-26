@@ -88,6 +88,37 @@ enum {
   kAtcMaxYear = 10000,
 };
 
+enum {
+  /** Resolved to unique ZonedDateTime. */
+  kAtcResolvedUnique = 0,
+
+  /** In overlap and resolved to earlier time. */
+  kAtcResolvedOverlapEarlier = 1,
+
+  /** In overlap and resolved to later time. */
+  kAtcResolvedOverlapLater = 2,
+
+  /** In gap and resolved to earlier time. */
+  kAtcResolvedGapEarlier = 3,
+
+  /** In gap and resolved to later time. */
+  kAtcResolvedGapLater = 4,
+};
+
+enum {
+  /** Earlier for overlap, later for gap. */
+  kAtcDisambiguateCompatible = 0,
+
+  /** Always pick earlier. */
+  kAtcDisambiguateEarlier = 1,
+
+  /** Always pick later. */
+  kAtcDisambiguateLater = 2,
+
+  /** Opposite of Compatible. */
+  kAtcDisambiguateReversed = 3,
+};
+
 /**
  * Copy at most dst_size characters from src to dst, while replacing all
  * occurrence of old_char with new_string. If new_string is "", then replace

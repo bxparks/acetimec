@@ -37,8 +37,6 @@ void atc_local_date_time_from_epoch_seconds(
   AtcLocalDateTime *ldt,
   atc_time_t epoch_seconds)
 {
-  ldt->fold = 0;
-
   if (epoch_seconds == kAtcInvalidEpochSeconds) {
     atc_local_date_time_set_error(ldt);
     return;
@@ -76,8 +74,6 @@ void atc_local_date_time_from_unix_seconds(
   AtcLocalDateTime *ldt,
   int64_t unix_seconds)
 {
-  ldt->fold = 0;
-
   if (unix_seconds == kAtcInvalidUnixSeconds) {
     atc_local_date_time_set_error(ldt);
     return;

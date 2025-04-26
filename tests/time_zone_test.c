@@ -27,15 +27,16 @@ ACU_TEST(test_atc_time_zone_offset_date_time_from_epoch_seconds_utc)
   ACU_ASSERT(odt.minute == 0);
   ACU_ASSERT(odt.second == 0);
   ACU_ASSERT(odt.offset_seconds == 0);
-  ACU_ASSERT(odt.fold == 0);
+  ACU_ASSERT(odt.resolved == kAtcResolvedUnique);
 }
 
 ACU_TEST(test_atc_time_zone_offset_date_time_from_local_date_time_utc)
 {
   const AtcTimeZone *tz = &atc_time_zone_utc;
-  AtcLocalDateTime ldt = {2023, 2, 14, 12, 32, 0, 1 /*fold*/};
+  AtcLocalDateTime ldt = {2023, 2, 14, 12, 32, 0};
   AtcOffsetDateTime odt;
-  atc_time_zone_offset_date_time_from_local_date_time(tz, &ldt, &odt);
+  atc_time_zone_offset_date_time_from_local_date_time(
+      tz, &ldt, kAtcDisambiguateCompatible, &odt);
 
   ACU_ASSERT(odt.year == 2023);
   ACU_ASSERT(odt.month == 2);
@@ -44,7 +45,7 @@ ACU_TEST(test_atc_time_zone_offset_date_time_from_local_date_time_utc)
   ACU_ASSERT(odt.minute == 32);
   ACU_ASSERT(odt.second == 0);
   ACU_ASSERT(odt.offset_seconds == 0);
-  ACU_ASSERT(odt.fold == 0);
+  ACU_ASSERT(odt.resolved == kAtcResolvedUnique);
 }
 
 ACU_TEST(test_atc_time_zone_zoned_extra_from_epoch_seconds_utc)
@@ -66,9 +67,10 @@ ACU_TEST(test_atc_time_zone_zoned_extra_from_epoch_seconds_utc)
 ACU_TEST(test_atc_time_zone_zoned_extra_from_local_date_time_utc)
 {
   const AtcTimeZone *tz = &atc_time_zone_utc;
-  AtcLocalDateTime ldt = {2023, 2, 14, 12, 32, 0, 1 /*fold*/};
+  AtcLocalDateTime ldt = {2023, 2, 14, 12, 32, 0};
   AtcZonedExtra extra;
-  atc_time_zone_zoned_extra_from_local_date_time(tz, &ldt, &extra);
+  atc_time_zone_zoned_extra_from_local_date_time(
+      tz, &ldt, kAtcDisambiguateCompatible, &extra);
 
   ACU_ASSERT(extra.fold_type == kAtcFoldTypeExact);
   ACU_ASSERT(extra.std_offset_seconds == 0);
@@ -112,7 +114,7 @@ ACU_TEST(test_atc_time_zone_offset_date_time_from_epoch_seconds_los_angeles)
   ACU_ASSERT(odt.minute == 0);
   ACU_ASSERT(odt.second == 0);
   ACU_ASSERT(odt.offset_seconds == -8*3600);
-  ACU_ASSERT(odt.fold == 0);
+  ACU_ASSERT(odt.resolved == kAtcResolvedUnique);
 }
 
 ACU_TEST(test_atc_time_zone_offset_date_time_from_local_date_time_los_angeles)
@@ -121,9 +123,10 @@ ACU_TEST(test_atc_time_zone_offset_date_time_from_local_date_time_los_angeles)
   atc_processor_init(&processor);
   AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
-  AtcLocalDateTime ldt = {2023, 2, 14, 12, 32, 0, 1 /*fold*/};
+  AtcLocalDateTime ldt = {2023, 2, 14, 12, 32, 0};
   AtcOffsetDateTime odt;
-  atc_time_zone_offset_date_time_from_local_date_time(&tz, &ldt, &odt);
+  atc_time_zone_offset_date_time_from_local_date_time(
+      &tz, &ldt, kAtcDisambiguateCompatible, &odt);
 
   ACU_ASSERT(odt.year == 2023);
   ACU_ASSERT(odt.month == 2);
@@ -132,7 +135,7 @@ ACU_TEST(test_atc_time_zone_offset_date_time_from_local_date_time_los_angeles)
   ACU_ASSERT(odt.minute == 32);
   ACU_ASSERT(odt.second == 0);
   ACU_ASSERT(odt.offset_seconds == -8*3600);
-  ACU_ASSERT(odt.fold == 0);
+  ACU_ASSERT(odt.resolved == kAtcResolvedUnique);
 }
 
 ACU_TEST(test_atc_time_zone_zoned_extra_from_epoch_seconds_los_angeles)
@@ -159,9 +162,10 @@ ACU_TEST(test_atc_time_zone_zoned_extra_from_local_date_time_los_angeles)
   atc_processor_init(&processor);
   AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
-  AtcLocalDateTime ldt = {2023, 2, 14, 12, 32, 0, 1 /*fold*/};
+  AtcLocalDateTime ldt = {2023, 2, 14, 12, 32, 0};
   AtcZonedExtra extra;
-  atc_time_zone_zoned_extra_from_local_date_time(&tz, &ldt, &extra);
+  atc_time_zone_zoned_extra_from_local_date_time(
+      &tz, &ldt, kAtcDisambiguateCompatible, &extra);
 
   ACU_ASSERT(extra.fold_type == kAtcFoldTypeExact);
   ACU_ASSERT(extra.std_offset_seconds == -8*3600);

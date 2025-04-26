@@ -348,10 +348,10 @@ typedef struct AtcTransitionForSeconds {
  * Find the Transition matching the given epochSeconds. Return
  * AtcTransitionForSeconds.curr == nullptr if no matching Transition found. If a
  * zone does not have any transition according to TZ Database, the
- * AceTimeTools/transformer.py script adds an "anchor" transition at the
- * "beginning of time" which happens to be the year 1872 (because the year is
- * stored as an int8_t). Therefore, this method should never return a nullptr
- * for a well-formed ZoneInfo file.
+ * acetimecompiler/transformer/transformer.py script adds an "anchor" transition
+ * at the "beginning of time" which happens to be the year 1872 (because the
+ * year is stored as an int8_t). Therefore, this method should never return a
+ * nullptr for a well-formed ZoneInfo file.
  */
 AtcTransitionForSeconds atc_transition_storage_find_for_seconds(
     const AtcTransitionStorage *ts,
@@ -361,11 +361,11 @@ AtcTransitionForSeconds atc_transition_storage_find_for_seconds(
  * The result returned by atc_transition_storage_find_for_date_time() when
  * searching for transitions by local date time. There are 5 possibilities:
  *
- *  * num=0, prev==NULL, curr=curr: datetime is far past
+ *  * num=0, prev==NULL, curr=curr: datetime is far past (should not happen)
  *  * num=1, prev==prev, curr=prev: exact match to datetime
  *  * num=2, prev==prev, curr=curr: datetime in overlap
  *  * num=0, prev==prev, curr=curr: datetime in gap
- *  * num=0, prev==prev, curr=NULL: datetime is far future
+ *  * num=0, prev==prev, curr=NULL: datetime is far future (should not happen)
  *
  * Adapted from TransitionForDateTime in Transition.h of the AceTime library.
  */
