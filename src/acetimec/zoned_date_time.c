@@ -44,8 +44,10 @@ void atc_zoned_date_time_from_epoch_seconds(
 
 int64_t atc_zoned_date_time_to_unix_seconds(const AtcZonedDateTime *zdt)
 {
-  // ZonedDateTime memory layout must be same as OffsetDateTime.
-  return atc_offset_date_time_to_unix_seconds((const AtcOffsetDateTime*) zdt);
+  const AtcLocalDateTime *ldt = (const AtcLocalDateTime *) zdt;
+  int64_t unix_seconds = atc_local_date_time_to_unix_seconds(ldt);
+  if (unix_seconds == kAtcInvalidUnixSeconds) return kAtcInvalidUnixSeconds;
+  return unix_seconds;
 }
 
 void atc_zoned_date_time_from_unix_seconds(
