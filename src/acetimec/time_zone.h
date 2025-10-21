@@ -55,15 +55,15 @@ void atc_time_zone_offset_date_time_from_epoch_seconds(
   AtcOffsetDateTime *odt);
 
 /**
- * Convert the LocalDateTime to AtcOffsetDateTime using the given time zone.
+ * Convert the PlainDateTime to AtcOffsetDateTime using the given time zone.
  * The `tz.zone_processor` is rebound to the `zone_info` in case it was
  * previously bound to a different `zone_info`.
  *
  * Returns `odt` in an error state upon failure.
  */
-void atc_time_zone_offset_date_time_from_local_date_time(
+void atc_time_zone_offset_date_time_from_plain_date_time(
   const AtcTimeZone *tz,
-  const AtcLocalDateTime *ldt,
+  const AtcPlainDateTime *pdt,
   uint8_t disambiguate,
   AtcOffsetDateTime *odt);
 
@@ -86,9 +86,9 @@ void atc_time_zone_zoned_extra_from_epoch_seconds(
  *
  * Returns error code in `extra.type`.
  */
-void atc_time_zone_zoned_extra_from_local_date_time(
+void atc_time_zone_zoned_extra_from_plain_date_time(
   const AtcTimeZone *tz,
-  const AtcLocalDateTime *ldt,
+  const AtcPlainDateTime *pdt,
   uint8_t disambiguate,
   AtcZonedExtra *extra);
 

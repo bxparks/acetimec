@@ -1,7 +1,93 @@
 # Changelog
 
 - unreleased
+- 0.14.0 (2025-10-21, TZDB 2025b)
+    - Graduate to Beta-level, API should be mostly stable
+    - **Breaking** Rename LocalXxx to PlainXxx, following the conventions
+      used by more modern timezone libraries (JavaScript Temporal, Python
+      whenever).
+        - structs
+            - AtcLocalDate -> AtcPlainDate
+            - AtcLocalDateTime -> AtcPlainDateTime
+            - AtcLocalTime -> AtcPlainTime
+        - functions
+            - atc_local_date_decrement_one_day() -> atc_plain_date_decrement_one_day()
+            - atc_local_date_from_epoch_days() -> atc_plain_date_from_epoch_days()
+            - atc_local_date_from_unix_days() -> atc_plain_date_from_unix_days()
+            - atc_local_date_increment_one_day() -> atc_plain_date_increment_one_day()
+            - atc_local_date_time_set_error -> atc_plain_date_time_set_error()
+            - atc_local_date_to_epoch_days() -> atc_plain_date_to_epoch_days()
+            - atc_local_date_to_unix_days() -> atc_plain_date_to_unix_days()
+            - atc_local_time_to_seconds() -> atc_plain_time_to_seconds()
+            - atc_processor_find_by_local_date_time() - atc_processor_find_by_plain_date_time()
+            - atc_zoned_date_time_from_local_date_time() -> atc_zoned_date_time_from_plain_date_time()
+            - atc_zoned_extra_from_local_date_time() -> atc_zoned_extra_from_plain_date_time()
+    - **Breaking** Use consistent naming scheme for ZoneDB identifiers
+        - Rename `zonedb` database to `zonedb2000`.
+            - The AtcZoneInfo entries are now named:
+                - `extern const AtcZoneInfo kAtcZonedb2000ZoneAfrica_Abidjan;`
+                - `extern const AtcZoneInfo kAtcZonedb2000ZoneZulu;`
+                - ... and so on
+            - The registries are:
+                - `kAtcZonedb2000ZoneRegistry`
+                - `kAtcZonedb2000ZoneAndLinkRegistry`
+        - Add new `zonedb2025` database.
+            - Same as `zonedb2000` but only for 2025 and onwards.
+            - Reduces size of the database from 48 kB to about 37 kB.
+            - The AtcZoneInfo entries are now named:
+                - `extern const AtcZoneInfo kAtcZonedb2025ZoneAfrica_Abidjan`
+                - `extern const AtcZoneInfo kAtcZonedb2025ZoneZulu;`
+                - ... and so on
+            - The registries are:
+                - `kAtcZonedb2025ZoneRegistry`
+                - `kAtcZonedb2025ZoneAndLinkRegistry`
+        - Apply naming scheme to `zonedball` database:
+            - The AtcZoneInfo entries are now named:
+                - `extern const AtcZoneInfo kAtcZonedballZoneAfrica_Abidjan;`
+                - `extern const AtcZoneInfo kAtcZonedballZoneZulu;`
+                - ... and so on
+            - The registries are:
+                - `kAtcZonedballZoneRegistry`
+                - `kAtcZonedballZoneAndLinkRegistry`
+    - Add undocumented `ACE_TIME_C_ZONEDB_RES_MID` option
+        - This is internal and experimental.
+        - It does not reduce the memory consumption of various zonedb files as
+          much as I thought it would.
+        - However, this option contains the infrastructure to support an 8-bit
+          version of the zonedb files in the future, so I'm keeping all that
+          code around for reference.
+    - Date and Time Validations
+        - Add `atc_plain_date_is_valid()` function that validates the (year,
+          month, day) triple of a PlainDate.
+        - Add `atc_plain_time_is_valid()` function that validates the (hour,
+          minute, second) triple of a PlainTime.
+    - Add more examples:
+        - `examples/hello_acetimec`
+        - `examples/hello_acetimec_more`
+        - `examples/hello_custom_registry`
+        - `examples/hello_registrar`
+        - `examples/hello_zonedextra`
+    - README.md
+        - upgrade from "alpha" to "beta" level
+        - expand documentation significantly
+        - add references various `examples/hello*` code
+        - add subsection on 'Custom Registry`
+        - expand 'Bugs and Limitations` subsection
 - 0.13.0 (2025-04-25, TZDB 2025b)
+    - **Breaking** Replace the confusing `uint8_t fold` parameter with a pure
+      input `uint8_t disambiguate` parameter. See README.md for more details.
+        - Affects lookup functions that convert an AtcPlainDateTime (or an
+          equivalent) to an AtcZonedDateTime:
+          `atc_zoned_date_time_from_plain_date_time()`,
+          `atc_zoned_date_time_normalize()`. `
+        - Define 4 types of disambiguation: kAtcDisambiguateCompatible,
+          kAtcDisambiguateEarlier, kAtcDisambiguateLater,
+          kAtcDisambiguateReversed. Most people are expected to use
+          kAtcDisambiguateCompatiblein most situations.
+    - **Breaking** Replace `fold` parameter in AtcOffsetDateTime and
+      AtcZonedDateTime with the `resolved` parameter. See README.md for details.
+        - This is a pure output parameter that describes how an overlap or gap
+          was resolved, as requested by the `disambiguate` input parameter.
     - merge various AceTime projects into single AceTimeSuite repo
     - [upgrade to TZDB 2025a](https://lists.iana.org/hyperkitty/list/tz-announce@iana.org/thread/MWII7R3HMCEDNUCIYQKSSTYYR7UWK4OQ/)
         - Paraguay adopts permanent -03 starting spring 2024.
@@ -37,7 +123,7 @@
 - 0.11.0 (2023-05-31, TZDB 2023c)
     - Update path to ACUnit from https://github.com/bxparks/ACUnit (v0.1) to
       https://github.com/bxparks/acunit (v0.2).
-    - Support LocalDateTime, OffsetDateTime, and ZonedDateTime to and from
+    - Support PlainDateTime, OffsetDateTime, and ZonedDateTime to and from
       64-bit unix seconds.
     - `zone_processor.c`
         - Automatically invalidate the transitions cache when the
@@ -64,7 +150,7 @@
       be sets to an error state.
         - Simplifies the API with only a single place to check for errors.
         - Error conditions are now be detected using:
-            - `atc_local_date_time_is_error()`
+            - `atc_plain_date_time_is_error()`
             - `atc_offset_date_time_is_error()`
             - `atc_zoned_date_time_is_error()`
             - `atc_zoned_extra_is_error()`
@@ -114,7 +200,9 @@
           TZDB 2022g).
         - Increases flash consumption by roughly 100%, 40kB to 80kB on 32-bit
           processors.
-        - The old format still available through `-D ATC_HIRES_ZONEDB=0`.
+        - The old format still available through `-D
+          ACE_TIME_C_ZONEDB_RES=ACE_TIME_C_ZONEDB_RES_MID`. The default is now
+          `ACE_TIME_C_ZONEDB_RES_HIGH`.
         - Validation program `validate_against_libc/` shows that transitions
           are identical to the C libc library for all zones, for all years
           `[1800,2100)`.
@@ -165,11 +253,11 @@
         - Renamed from `zone_processing.h`.
         - Rename `AtcZoneProcessing` to `AtcZoneProcessor`.
         - Incorporate same algorithm as AceTime
-        - Unify `find_by_epochseconds()` and `find_by_local_date_time()` using a
+        - Unify `find_by_epochseconds()` and `find_by_plain_date_time()` using a
           common `FindResult`.
         - Fix handling of input and output `fold` parameters during overlap in
-          `find_by_local_date_time()`.
-    - `AtcLocalDateTime`
+          `find_by_plain_date_time()`.
+    - `AtcPlainDateTime`
         - Incorporate `fold` parameter, for consistency with `AtcOffsetDateTime`
           and `AtcZonedDateTime`.
         - Removes the explicit `uint8_t fold` argument from a number of

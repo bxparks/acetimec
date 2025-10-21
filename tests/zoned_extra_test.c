@@ -101,20 +101,20 @@ ACU_TEST(test_zoned_extra_from_epoch_seconds_in_gap)
   ACU_ASSERT(strcmp(extra.abbrev, "PDT") == 0);
 }
 
-ACU_TEST(test_zoned_extra_from_local_date_time_in_overlap)
+ACU_TEST(test_zoned_extra_from_plain_date_time_in_overlap)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
   AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // Start our sampling at 01:29:00 which is within the overlap.
-  AtcLocalDateTime ldt = {2022, 11, 6, 1, 29, 0};
+  AtcPlainDateTime pdt = {2022, 11, 6, 1, 29, 0};
 
   // For kAtcDisambiguateCompatible, the earlier time is selected to get
   // 01:29:00-07:00.
   AtcZonedExtra extra;
-  atc_zoned_extra_from_local_date_time(
-      &extra, &ldt, &tz, kAtcDisambiguateCompatible);
+  atc_zoned_extra_from_plain_date_time(
+      &extra, &pdt, &tz, kAtcDisambiguateCompatible);
   ACU_ASSERT(kAtcFoldTypeOverlap == extra.fold_type);
   ACU_ASSERT(-8*3600 == extra.std_offset_seconds);
   ACU_ASSERT(1*3600 == extra.dst_offset_seconds);
@@ -124,8 +124,8 @@ ACU_TEST(test_zoned_extra_from_local_date_time_in_overlap)
 
   // For kAtcDisambiguateReversed, the later time is selected to get
   // 01:19:00-08:00.
-  atc_zoned_extra_from_local_date_time(
-      &extra, &ldt, &tz, kAtcDisambiguateReversed);
+  atc_zoned_extra_from_plain_date_time(
+      &extra, &pdt, &tz, kAtcDisambiguateReversed);
   ACU_ASSERT(kAtcFoldTypeOverlap == extra.fold_type);
   ACU_ASSERT(-8*3600 == extra.std_offset_seconds);
   ACU_ASSERT(0*3600 == extra.dst_offset_seconds);
@@ -134,19 +134,19 @@ ACU_TEST(test_zoned_extra_from_local_date_time_in_overlap)
   ACU_ASSERT(strcmp(extra.abbrev, "PST") == 0);
 }
 
-ACU_TEST(test_zoned_extra_from_local_date_time_in_gap)
+ACU_TEST(test_zoned_extra_from_plain_date_time_in_gap)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
   AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
-  AtcLocalDateTime ldt = {2022, 3, 13, 2, 29, 0};
+  AtcPlainDateTime pdt = {2022, 3, 13, 2, 29, 0};
 
   // Start our sampling at 02:29:00 which occurs in the gap. Select the later
   // time which normalizes to 03:29:00-07:00.
   AtcZonedExtra extra;
-  atc_zoned_extra_from_local_date_time(
-      &extra, &ldt, &tz, kAtcDisambiguateCompatible);
+  atc_zoned_extra_from_plain_date_time(
+      &extra, &pdt, &tz, kAtcDisambiguateCompatible);
   ACU_ASSERT(kAtcFoldTypeGap == extra.fold_type);
   ACU_ASSERT(-8*3600 == extra.std_offset_seconds);
   ACU_ASSERT(1*3600 == extra.dst_offset_seconds);
@@ -155,8 +155,8 @@ ACU_TEST(test_zoned_extra_from_local_date_time_in_gap)
   ACU_ASSERT(strcmp(extra.abbrev, "PDT") == 0);
 
   // Check that selecting the earlier time normalizes to 01:29:00-08:00.
-  atc_zoned_extra_from_local_date_time(
-      &extra, &ldt, &tz, kAtcDisambiguateReversed);
+  atc_zoned_extra_from_plain_date_time(
+      &extra, &pdt, &tz, kAtcDisambiguateReversed);
   ACU_ASSERT(kAtcFoldTypeGap == extra.fold_type);
   ACU_ASSERT(-8*3600 == extra.std_offset_seconds);
   ACU_ASSERT(0*3600 == extra.dst_offset_seconds);
@@ -177,7 +177,7 @@ int main()
   ACU_RUN_TEST(test_zoned_extra_from_unix_seconds_invalid);
   ACU_RUN_TEST(test_zoned_extra_from_epoch_seconds_in_overlap);
   ACU_RUN_TEST(test_zoned_extra_from_epoch_seconds_in_gap);
-  ACU_RUN_TEST(test_zoned_extra_from_local_date_time_in_overlap);
-  ACU_RUN_TEST(test_zoned_extra_from_local_date_time_in_gap);
+  ACU_RUN_TEST(test_zoned_extra_from_plain_date_time_in_overlap);
+  ACU_RUN_TEST(test_zoned_extra_from_plain_date_time_in_gap);
   ACU_SUMMARY();
 }

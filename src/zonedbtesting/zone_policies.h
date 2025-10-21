@@ -5,9 +5,9 @@
 //     --output_dir /home/brian/src/AceTimeSuite/libraries/acetimec/src/zonedbtesting
 //     --tz_version 2025b
 //     --actions zonedb
-//     --languages c
+//     --language c
 //     --scope complete
-//     --db_namespace AtcTesting
+//     --db_namespace Testing
 //     --start_year 2000
 //     --until_year 2200
 //     --nocompress
@@ -47,7 +47,7 @@
 //   Rules: 201
 //
 // Memory (8-bits):
-//   Context: 16
+//   Context: 20
 //   Rules: 2412
 //   Policies: 24
 //   Eras: 330
@@ -58,10 +58,10 @@
 //   Letters: 23
 //   Fragments: 0
 //   Names: 268 (original: 268)
-//   TOTAL: 3365
+//   TOTAL: 3369
 //
 // Memory (32-bits):
-//   Context: 24
+//   Context: 28
 //   Rules: 2412
 //   Policies: 64
 //   Eras: 440
@@ -72,12 +72,12 @@
 //   Letters: 33
 //   Fragments: 0
 //   Names: 268 (original: 268)
-//   TOTAL: 3754
+//   TOTAL: 3758
 //
 // DO NOT EDIT
 
-#ifndef ACE_TIME_C_ZONEDB_ATCTESTING_ZONE_POLICIES_H
-#define ACE_TIME_C_ZONEDB_ATCTESTING_ZONE_POLICIES_H
+#ifndef ACE_TIME_C_ZONEDB_TESTING_ZONE_POLICIES_H
+#define ACE_TIME_C_ZONEDB_TESTING_ZONE_POLICIES_H
 
 #include "../zoneinfo/zone_info.h"
 

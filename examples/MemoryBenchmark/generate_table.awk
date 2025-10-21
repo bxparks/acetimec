@@ -7,7 +7,7 @@
 
 BEGIN {
   labels[0] = "baseline"
-  labels[1] = "LocalDateTime"
+  labels[1] = "PlainDateTime"
   labels[2] = "ZonedDateTime"
   labels[3] = "TimeZone1"
   labels[4] = "TimeZone2"
@@ -47,7 +47,7 @@ END {
 
     name = labels[i]
     if (name ~ /^baseline$/ \
-        || name ~ /^LocalDateTime$/ \
+        || name ~ /^PlainDateTime$/ \
         || name ~ /^ZoneRegistry/) {
       printf(\
     "|---------------------------------------+--------------+--------------|\n")

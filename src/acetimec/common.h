@@ -66,21 +66,30 @@ enum {
   /** Sentinel value for invalid year. */
   kAtcInvalidYear = INT16_MIN,
 
+  /** Invalid seconds, for example, from a PlainTime. */
+  kAtcInvalidSeconds = INT32_MIN,
+
+  /** Invalid epoch days. */
+  kAtcInvalidEpochDays = INT32_MIN,
+
   /** Invalid epoch seconds. */
   kAtcInvalidEpochSeconds = INT32_MIN,
+
+  /** Invalid Unix days. */
+  kAtcInvalidUnixDays = INT32_MIN,
 
   /** Invalid Unix seconds. */
   kAtcInvalidUnixSeconds = INT64_MIN,
 
   /**
-   * Minimum year reasonablly supported by the functions in `local_date.h`.
+   * Minimum year reasonablly supported by the functions in `plain_date.h`.
    * It might be more strict to make this 1, but those functions need to handle
    * yeare 0 to handle year shifts due to UTC offset.
    */
   kAtcMinYear = 0,
 
   /**
-   * Maxium year reasonablly supported by the functions in `local_date.h`.
+   * Maxium year reasonablly supported by the functions in `plain_date.h`.
    * It might be more strict to make this 9999 to prevent formatting problems
    * with more than 4 digits. But those functions need to handle a little bit of
    * slop to handle year shifts due to UTC offset.

@@ -1,7 +1,7 @@
 #include <acunit.h>
 #include <acetimec.h>
 
-ACU_TEST(test_offset_date_time_to_epoch_seconds)
+ACU_TEST(test_offset_date_time_to_epoch_seconds_epoch2000)
 {
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2000);
@@ -33,7 +33,7 @@ ACU_TEST(test_offset_date_time_to_epoch_seconds)
   atc_set_current_epoch_year(saved_epoch_year);
 }
 
-ACU_TEST(test_offset_date_time_to_epoch_seconds_with_offset)
+ACU_TEST(test_offset_date_time_to_epoch_seconds_with_offset_epoch2000)
 {
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2000);
@@ -45,17 +45,62 @@ ACU_TEST(test_offset_date_time_to_epoch_seconds_with_offset)
   atc_set_current_epoch_year(saved_epoch_year);
 }
 
+//---------------------------------------------------------------------------
+
 ACU_TEST(test_offset_date_time_to_epoch_seconds_invalid)
 {
-  int16_t saved_epoch_year = atc_get_current_epoch_year();
-  atc_set_current_epoch_year(2000);
-
   AtcOffsetDateTime odt;
   atc_offset_date_time_set_error(&odt);
-  atc_time_t epoch_seconds = atc_offset_date_time_to_epoch_seconds(&odt);
-  ACU_ASSERT(kAtcInvalidEpochSeconds == epoch_seconds);
+  atc_time_t seconds = atc_offset_date_time_to_epoch_seconds(&odt);
+  ACU_ASSERT(seconds == kAtcInvalidEpochSeconds);
 
-  atc_set_current_epoch_year(saved_epoch_year);
+  odt = (AtcOffsetDateTime) {
+    0, 1, 2, 3, 4, 5,
+    0 /*resolved*/,
+    0 /*offset*/
+  }; // 0000-01-02 03:04:05+00:00
+  seconds = atc_offset_date_time_to_epoch_seconds(&odt);
+  ACU_ASSERT(seconds == kAtcInvalidEpochSeconds);
+
+  odt = (AtcOffsetDateTime) {
+    2000, 0, 2, 3, 4, 5,
+    0 /*resolved*/,
+    0 /*offset*/
+  }; // 2000-00-02 03:04:05+00:00
+  seconds = atc_offset_date_time_to_epoch_seconds(&odt);
+  ACU_ASSERT(seconds == kAtcInvalidEpochSeconds);
+
+  odt = (AtcOffsetDateTime) {
+    2000, 1, 32, 3, 4, 5,
+    0 /*resolved*/,
+    0 /*offset*/
+  }; // 2000-01-32 03:04:05+00:00
+  seconds = atc_offset_date_time_to_epoch_seconds(&odt);
+  ACU_ASSERT(seconds == kAtcInvalidEpochSeconds);
+
+  odt = (AtcOffsetDateTime) {
+    2000, 1, 2, 24, 4, 5,
+    0 /*resolved*/,
+    0 /*offset*/
+  }; // 2000-01-02 24:04:05+00:00
+  seconds = atc_offset_date_time_to_epoch_seconds(&odt);
+  ACU_ASSERT(seconds == kAtcInvalidEpochSeconds);
+
+  odt = (AtcOffsetDateTime) {
+    2000, 1, 2, 3, 60, 5,
+    0 /*resolved*/,
+    0 /*offset*/
+  }; // 2000-01-02 03:60:05+00:00
+  seconds = atc_offset_date_time_to_epoch_seconds(&odt);
+  ACU_ASSERT(seconds == kAtcInvalidEpochSeconds);
+
+  odt = (AtcOffsetDateTime) {
+    2000, 1, 2, 3, 4, 60,
+    0 /*resolved*/,
+    0 /*offset*/
+  }; // 2000-01-02 03:04:60+00:00
+  seconds = atc_offset_date_time_to_epoch_seconds(&odt);
+  ACU_ASSERT(seconds == kAtcInvalidEpochSeconds);
 }
 
 //---------------------------------------------------------------------------
@@ -98,6 +143,8 @@ ACU_TEST(test_offset_date_time_from_epoch_seconds_invalid)
       &odt, epoch_seconds, total_offset_seconds);
   ACU_ASSERT(atc_offset_date_time_is_error(&odt));
 }
+
+//---------------------------------------------------------------------------
 
 ACU_TEST(test_offset_date_time_from_epoch_seconds_epoch2000)
 {
@@ -216,6 +263,8 @@ ACU_TEST(test_offset_date_time_to_unix_seconds)
   ACU_ASSERT(unix_seconds == 4102542245L - 60);
 }
 
+//---------------------------------------------------------------------------
+
 ACU_TEST(test_offset_date_time_from_unix_seconds)
 {
   AtcOffsetDateTime odt;
@@ -256,12 +305,70 @@ ACU_TEST(test_offset_date_time_from_unix_seconds)
 
 //---------------------------------------------------------------------------
 
+ACU_TEST(test_offset_date_time_to_unix_seconds_invalid)
+{
+  AtcOffsetDateTime odt;
+  atc_offset_date_time_set_error(&odt);
+  int64_t seconds = atc_offset_date_time_to_unix_seconds(&odt);
+  ACU_ASSERT(seconds == kAtcInvalidUnixSeconds);
+
+  odt = (AtcOffsetDateTime) {
+    0, 1, 2, 3, 4, 5,
+    0 /*resolved*/,
+    0 /*offset*/
+  }; // 0000-01-02 03:04:05+00:00
+  seconds = atc_offset_date_time_to_unix_seconds(&odt);
+  ACU_ASSERT(seconds == kAtcInvalidUnixSeconds);
+
+  odt = (AtcOffsetDateTime) {
+    2000, 0, 2, 3, 4, 5,
+    0 /*resolved*/,
+    0 /*offset*/
+  }; // 2000-00-02 03:04:05+00:00
+  seconds = atc_offset_date_time_to_unix_seconds(&odt);
+  ACU_ASSERT(seconds == kAtcInvalidUnixSeconds);
+
+  odt = (AtcOffsetDateTime) {
+    2000, 1, 32, 3, 4, 5,
+    0 /*resolved*/,
+    0 /*offset*/
+  }; // 2000-01-32 03:04:05+00:00
+  seconds = atc_offset_date_time_to_unix_seconds(&odt);
+  ACU_ASSERT(seconds == kAtcInvalidUnixSeconds);
+
+  odt = (AtcOffsetDateTime) {
+    2000, 1, 2, 24, 4, 5,
+    0 /*resolved*/,
+    0 /*offset*/
+  }; // 2000-01-02 24:04:05+00:00
+  seconds = atc_offset_date_time_to_unix_seconds(&odt);
+  ACU_ASSERT(seconds == kAtcInvalidUnixSeconds);
+
+  odt = (AtcOffsetDateTime) {
+    2000, 1, 2, 3, 60, 5,
+    0 /*resolved*/,
+    0 /*offset*/
+  }; // 2000-01-02 03:60:05+00:00
+  seconds = atc_offset_date_time_to_unix_seconds(&odt);
+  ACU_ASSERT(seconds == kAtcInvalidUnixSeconds);
+
+  odt = (AtcOffsetDateTime) {
+    2000, 1, 2, 3, 4, 60,
+    0 /*resolved*/,
+    0 /*offset*/
+  }; // 2000-01-02 03:04:60+00:00
+  seconds = atc_offset_date_time_to_unix_seconds(&odt);
+  ACU_ASSERT(seconds == kAtcInvalidUnixSeconds);
+}
+
+//---------------------------------------------------------------------------
+
 ACU_CONTEXT();
 
 int main()
 {
-  ACU_RUN_TEST(test_offset_date_time_to_epoch_seconds);
-  ACU_RUN_TEST(test_offset_date_time_to_epoch_seconds_with_offset);
+  ACU_RUN_TEST(test_offset_date_time_to_epoch_seconds_epoch2000);
+  ACU_RUN_TEST(test_offset_date_time_to_epoch_seconds_with_offset_epoch2000);
   ACU_RUN_TEST(test_offset_date_time_to_epoch_seconds_invalid);
   ACU_RUN_TEST(test_offset_date_time_to_epoch_seconds_epoch2050);
   ACU_RUN_TEST(test_offset_date_time_from_epoch_seconds_invalid);
@@ -269,5 +376,6 @@ int main()
   ACU_RUN_TEST(test_offset_date_time_from_epoch_seconds_epoch2050);
   ACU_RUN_TEST(test_offset_date_time_to_unix_seconds);
   ACU_RUN_TEST(test_offset_date_time_from_unix_seconds);
+  ACU_RUN_TEST(test_offset_date_time_to_unix_seconds_invalid);
   ACU_SUMMARY();
 }

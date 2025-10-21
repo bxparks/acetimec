@@ -7,7 +7,7 @@
 #include "../zoneinfo/zone_info.h"
 #include "../zoneinfo/zone_info_utils.h"
 #include "common.h" // atc_time_t
-#include "local_date.h"
+#include "plain_date.h"
 #include "date_tuple.h"
 
 int8_t atc_date_tuple_compare(
@@ -29,8 +29,8 @@ atc_time_t atc_date_tuple_subtract(
     const AtcDateTuple *a,
     const AtcDateTuple *b)
 {
-  int32_t da = atc_local_date_to_epoch_days(a->year, a->month, a->day);
-  int32_t db = atc_local_date_to_epoch_days(b->year, b->month, b->day);
+  int32_t da = atc_plain_date_to_epoch_days(a->year, a->month, a->day);
+  int32_t db = atc_plain_date_to_epoch_days(b->year, b->month, b->day);
 
   // Subtract the days, before converting to seconds, to avoid overflowing the
   // int32_t when a.year or b.year is more than 68 years from the
@@ -103,10 +103,10 @@ void atc_date_tuple_normalize(AtcDateTuple *dt)
   const int32_t kOneDayAsSeconds = 60 * 60 * 24;
 
   if (dt->seconds <= -kOneDayAsSeconds) {
-    atc_local_date_decrement_one_day(&dt->year, &dt->month, &dt->day);
+    atc_plain_date_decrement_one_day(&dt->year, &dt->month, &dt->day);
     dt->seconds += kOneDayAsSeconds;
   } else if (kOneDayAsSeconds <= dt->seconds) {
-    atc_local_date_increment_one_day(&dt->year, &dt->month, &dt->day);
+    atc_plain_date_increment_one_day(&dt->year, &dt->month, &dt->day);
     dt->seconds -= kOneDayAsSeconds;
   } else {
     // do nothing

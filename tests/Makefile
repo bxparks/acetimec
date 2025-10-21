@@ -1,136 +1,98 @@
 CFLAGS := -std=c11 -Wall -Wextra -Werror -pedantic \
-	-D ATC_HIRES_ZONEDB=1 \
 	-I../../acunit/src \
 	-I../src
 
-TARGETS := \
-	common_test.out \
-	date_tuple_test.out \
-	epoch_test.out \
-	local_date_test.out \
-	local_date_time_test.out \
-	local_time_test.out \
-	offset_date_time_test.out \
-	string_buffer_test.out \
-	time_zone_test.out \
-	transition_test.out \
-	zone_info_utils_test.out \
-	zone_processor_test.out \
-	zone_processor_transition_test.out \
-	zone_registrar_test.out \
-	zoned_date_time_test.out \
-	zoned_extra_test.out \
-	zonedb_test.out
-
-all: $(TARGETS)
-
 #-----------------------------------------------------------------------------
-# Copy the acetimec.a library here. The sole purpose of this rule is to force
-# the acetime.a file to be regenerated if necessary. The .PHONY rule causes it
-# to always run. This indirection rule of copying the *.a file here prevents
-# all the *.o files from recompiled if the acetimec.a file was not changed.
-
-.PHONY: ../src/acetimec.a
-
-acetimec.a: ../src/acetimec.a
-	$(MAKE) -C ../src
-	cp -a $< $@
-
+# Common sources and targets
 #-----------------------------------------------------------------------------
 
-common_test.out: common_test.o acetimec.a
-	$(CC) -o $@ $^
+SRCS := $(wildcard *.c)
 
-date_tuple_test.out: date_tuple_test.o acetimec.a
-	$(CC) -o $@ $^
-
-epoch_test.out: epoch_test.o acetimec.a
-	$(CC) -o $@ $^
-
-local_date_test.out: local_date_test.o acetimec.a
-	$(CC) -o $@ $^
-
-local_date_time_test.out: local_date_time_test.o acetimec.a
-	$(CC) -o $@ $^
-
-local_time_test.out: local_time_test.o acetimec.a
-	$(CC) -o $@ $^
-
-offset_date_time_test.out: offset_date_time_test.o acetimec.a
-	$(CC) -o $@ $^
-
-string_buffer_test.out: string_buffer_test.o acetimec.a
-	$(CC) -o $@ $^
-
-time_zone_test.out: time_zone_test.o acetimec.a
-	$(CC) -o $@ $^
-
-transition_test.out: transition_test.o acetimec.a
-	$(CC) -o $@ $^
-
-zone_info_utils_test.out: zone_info_utils_test.o acetimec.a
-	$(CC) -o $@ $^
-
-zone_processor_test.out: zone_processor_test.o acetimec.a
-	$(CC) -o $@ $^
-
-zone_processor_transition_test.out: zone_processor_transition_test.o acetimec.a
-	$(CC) -o $@ $^
-
-zone_registrar_test.out: zone_registrar_test.o acetimec.a
-	$(CC) -o $@ $^
-
-zoned_date_time_test.out: zoned_date_time_test.o acetimec.a
-	$(CC) -o $@ $^
-
-zoned_extra_test.out: zoned_extra_test.o acetimec.a
-	$(CC) -o $@ $^
-
-zonedb_test.out: zonedb_test.o acetimec.a
-	$(CC) -o $@ $^
+OUTS := $(SRCS:.c=.out)
 
 #-----------------------------------------------------------------------------
-
-common_test.o: common_test.c acetimec.a
-
-date_tuple_test.o: date_tuple_test.c acetimec.a
-
-epoch_test.o: epoch_test.c acetimec.a
-
-local_date_test.o: local_date_test.c acetimec.a
-
-local_date_time_test.o: local_date_time_test.c acetimec.a
-
-offset_date_time_test.o: offset_date_time_test.c acetimec.a
-
-string_buffer.o: string_buffer.c acetimec.a
-
-time_zone_test.o: time_zone_test.c acetimec.a
-
-transition_test.o: transition_test.c acetimec.a
-
-zone_info_utils_test.o: zone_info_utils_test.c acetimec.a
-
-zone_processor_test.o: zone_processor_test.c acetimec.a
-
-zone_processor_transition_test.o: zone_processor_transition_test.c acetimec.a
-
-zone_registrar_test.o: zone_registrar_test.c acetimec.a
-
-zoned_date_time_test.o: zoned_date_time_test.c acetimec.a
-
-zoned_extra_test.o: zoned_extra_test.c acetimec.a
-
-zonedb_test.o: zonedb_test.c acetimec.a
-
+# Highres targets
 #-----------------------------------------------------------------------------
 
-runtests:
+# The Highres version is technically selected using
+# 'ACE_TIME_C_ZONEDB_RES_HIGH', but it should be the default. Downstream
+# clients are not expected to set this macro, so let's omit this from our tests
+# to catch any potential bugs that would appear in downstream clients.
+#HIGHRES_FLAGS := -D ACE_TIME_C_ZONEDB_RES=ACE_TIME_C_ZONEDB_RES_HIGH
+HIGHRES_FLAGS :=
+HIGHRES_DIR := highres
+HIGHRES_OUTS := $(addprefix $(HIGHRES_DIR)/, $(OUTS))
+
+#-----------------------------------------------------------------------------
+# Midres targets
+#-----------------------------------------------------------------------------
+
+MIDRES_FLAGS := -D ACE_TIME_C_ZONEDB_RES=ACE_TIME_C_ZONEDB_RES_MID
+MIDRES_DIR := midres
+MIDRES_OUTS := $(addprefix $(MIDRES_DIR)/, $(OUTS))
+
+#-----------------------------------------------------------------------------
+# Run tests
+#-----------------------------------------------------------------------------
+
+all: $(HIGHRES_OUTS) $(MIDRES_OUTS)
+
+runtests: runtestshigh runtestsmid
+
+runtestshigh:
 	set -e; \
-	for i in $(TARGETS); do \
+	for i in $(HIGHRES_OUTS); do \
 		echo '==== Running' $$i; \
 		./$$i; \
 	done
 
+runtestsmid:
+	set -e; \
+	for i in $(MIDRES_OUTS); do \
+		echo '==== Running' $$i; \
+		./$$i; \
+	done
+
+#-----------------------------------------------------------------------------
+# Highres dependents
+#-----------------------------------------------------------------------------
+
+HIGHRES_BUILD_PROXY := highres_build.touch
+
+$(HIGHRES_DIR)/%.out: %.c ../src/acetimec.a $(HIGHRES_BUILD_PROXY)
+	$(CC) $(CFLAGS) $(HIGHRES_FLAGS) -o $@ $^
+
+# The touch file is a proxy for the res-specific build directory. If we try to
+# depend directly on the directory, 'make' seems to build everything all the
+# time.
+$(HIGHRES_BUILD_PROXY):
+	@touch $@
+	@mkdir -p $(HIGHRES_DIR)
+
+../src/acetimec.a:
+	$(MAKE) -C ../src acetimec.a
+
+#-----------------------------------------------------------------------------
+# Midres dependents
+#-----------------------------------------------------------------------------
+
+MIDRES_BUILD_PROXY := midres_build.touch
+
+$(MIDRES_DIR)/%.out: %.c ../src/acetimecm.a $(MIDRES_BUILD_PROXY)
+	$(CC) $(CFLAGS) $(MIDRES_FLAGS) -o $@ $^
+
+# The touch file is a proxy for the res-specific build directory. If we try to
+# depend directly on the directory, 'make' seems to build everything all the
+# time.
+$(MIDRES_BUILD_PROXY):
+	@touch $@
+	@mkdir -p $(MIDRES_DIR)
+
+../src/acetimecm.a:
+	$(MAKE) -C ../src acetimecm.a
+
+#-----------------------------------------------------------------------------
+
 clean:
-	rm -f *.o $(TARGETS) acetimec.a
+	rm -rf $(HIGHRES_DIR) $(HIGHRES_BUILD_PROXY) acetimec.a \
+		$(MIDRES_DIR) $(MIDRES_BUILD_PROXY) acetimecm.a

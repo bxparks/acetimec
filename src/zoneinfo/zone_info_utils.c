@@ -38,7 +38,7 @@ const char *atc_zone_info_short_name(const AtcZoneInfo *info)
 
 //---------------------------------------------------------------------------
 
-#if ATC_HIRES_ZONEDB
+#if ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_HIGH
 
 int32_t atc_zone_era_std_offset_seconds(const AtcZoneEra *era)
 {
@@ -55,7 +55,7 @@ int32_t atc_zone_era_until_seconds(const AtcZoneEra *era)
   return era->until_time_code * (int32_t)15 + (era->until_time_modifier & 0x0f);
 }
 
-#else
+#elif ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_MID
 
 int32_t atc_zone_era_std_offset_seconds(const AtcZoneEra *era)
 {
@@ -83,7 +83,7 @@ uint8_t atc_zone_era_until_suffix(const AtcZoneEra *era)
 
 //---------------------------------------------------------------------------
 
-#if ATC_HIRES_ZONEDB
+#if ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_HIGH
 
 int32_t atc_zone_rule_at_seconds(const AtcZoneRule *rule)
 {
@@ -95,7 +95,7 @@ int32_t atc_zone_rule_dst_offset_seconds(const AtcZoneRule *rule)
   return (int32_t)rule->delta_minutes * 60;
 }
 
-#else
+#elif ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_MID
 
 int32_t atc_zone_rule_at_seconds(const AtcZoneRule *rule)
 {

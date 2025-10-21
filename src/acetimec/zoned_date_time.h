@@ -107,9 +107,9 @@ void atc_zoned_date_time_from_unix_seconds(
  * Create zoned date time from components and given time zone.
  * Return an error value for zdt upon error.
  */
-void atc_zoned_date_time_from_local_date_time(
+void atc_zoned_date_time_from_plain_date_time(
     AtcZonedDateTime *zdt,
-    const AtcLocalDateTime *ldt,
+    const AtcPlainDateTime *pdt,
     const AtcTimeZone *tz,
     uint8_t disambiguate);
 

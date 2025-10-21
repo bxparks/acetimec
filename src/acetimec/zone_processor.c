@@ -8,7 +8,7 @@
 #include "../zoneinfo/zone_info_utils.h"
 #include "common.h" // atc_copy_replace_string()
 #include "epoch.h" // atc_get_current_epoch_year()
-#include "local_date.h" // atc_local_date_days_in_year_month()
+#include "plain_date.h" // atc_plain_date_days_in_year_month()
 #include "date_tuple.h" // AtcDateTuple
 #include "transition.h" // AtcTransition, AtcTransitionStorage
 #include "zone_processor.h"
@@ -151,11 +151,11 @@ AtcMonthDay atc_processor_calc_start_day_of_month(
   }
 
   if (on_day_of_month >= 0) {
-    uint8_t days_in_month = atc_local_date_days_in_year_month(year, month);
+    uint8_t days_in_month = atc_plain_date_days_in_year_month(year, month);
     if (on_day_of_month == 0) {
       on_day_of_month = days_in_month - 6;
     }
-    uint8_t dow = atc_local_date_day_of_week(year, month, on_day_of_month);
+    uint8_t dow = atc_plain_date_day_of_week(year, month, on_day_of_month);
     uint8_t day_of_week_shift = (on_day_of_week - dow + 7) % 7;
     uint8_t day = (uint8_t) (on_day_of_month + day_of_week_shift);
     if (day > days_in_month) {
@@ -167,13 +167,13 @@ AtcMonthDay atc_processor_calc_start_day_of_month(
     md.day = day;
   } else {
     on_day_of_month = -on_day_of_month;
-    uint8_t dow = atc_local_date_day_of_week(year, month, on_day_of_month);
+    uint8_t dow = atc_plain_date_day_of_week(year, month, on_day_of_month);
     int8_t day_of_week_shift = (dow - on_day_of_week + 7) % 7;
     int8_t day = on_day_of_month - day_of_week_shift;
     if (day < 1) {
       // TODO: Support shifting from Jan to Dec of the previous year.
       month--;
-      uint8_t days_in_prev_month = atc_local_date_days_in_year_month(
+      uint8_t days_in_prev_month = atc_plain_date_days_in_year_month(
           year, month);
       day += days_in_prev_month;
     }
@@ -524,7 +524,7 @@ void atc_processor_generate_start_until_times(
     const atc_time_t offset_seconds = (atc_time_t)
         (st->seconds - (t->offset_seconds + t->delta_seconds));
     atc_time_t epoch_seconds = (atc_time_t) 86400
-        * atc_local_date_to_epoch_days(st->year, st->month, st->day);
+        * atc_plain_date_to_epoch_days(st->year, st->month, st->day);
     t->start_epoch_seconds = epoch_seconds + offset_seconds;
 
     prev = t;
@@ -664,7 +664,7 @@ int8_t atc_processor_init_for_year(
   AtcZoneProcessor *processor,
   int16_t year)
 {
-  // Restrict to [1,9999], even though `local_date.h` should be able to handle
+  // Restrict to [1,9999], even though `plain_date.h` should be able to handle
   // [0,10000].
   if (year <= kAtcMinYear || kAtcMaxYear <= year) {
     return kAtcErrGeneric;
@@ -715,15 +715,15 @@ int8_t atc_processor_init_for_epoch_seconds(
   AtcZoneProcessor *processor,
   atc_time_t epoch_seconds)
 {
-  AtcLocalDateTime ldt;
-  atc_local_date_time_from_epoch_seconds(&ldt, epoch_seconds);
-  if (atc_local_date_time_is_error(&ldt)) return kAtcErrGeneric;
-  return atc_processor_init_for_year(processor, ldt.year);
+  AtcPlainDateTime pdt;
+  atc_plain_date_time_from_epoch_seconds(&pdt, epoch_seconds);
+  if (atc_plain_date_time_is_error(&pdt)) return kAtcErrGeneric;
+  return atc_processor_init_for_year(processor, pdt.year);
 }
 
 //---------------------------------------------------------------------------
 // findByXxx() routines to find Transitions at a given epoch_seconds or
-// LocalDatetime.
+// PlainDatetime.
 //---------------------------------------------------------------------------
 
 void atc_processor_find_by_epoch_seconds(
@@ -758,23 +758,23 @@ void atc_processor_find_by_epoch_seconds(
   }
 }
 
-// Adapted from ExtendedZoneProcessor::findByLocalDateTime() in the AceTime
+// Adapted from ExtendedZoneProcessor::findByPlainDateTime() in the AceTime
 // library.
-void atc_processor_find_by_local_date_time(
+void atc_processor_find_by_plain_date_time(
     AtcZoneProcessor *processor,
-    const AtcLocalDateTime *ldt,
+    const AtcPlainDateTime *pdt,
     uint8_t disambiguate,
     AtcFindResult *result)
 {
 
-  int8_t err = atc_processor_init_for_year(processor, ldt->year);
+  int8_t err = atc_processor_init_for_year(processor, pdt->year);
   if (err) {
     result->type = kAtcFindResultNotFound;
     return;
   }
 
   AtcTransitionForDateTime tfd = atc_transition_storage_find_for_date_time(
-      &processor->transition_storage, ldt);
+      &processor->transition_storage, pdt);
 
     // Extract the target Transition, depending on the requested fold
     // and the tfd.num.
@@ -787,7 +787,7 @@ void atc_processor_find_by_local_date_time(
       result->req_dst_offset_seconds = transition->delta_seconds;
     } else { // num = 0 or 2
       if (tfd.prev == NULL || tfd.curr == NULL) {
-        // ldt was far past or far future
+        // pdt was far past or far future
         transition = NULL;
         result->type = kAtcFindResultNotFound;
         result->fold = 0;
@@ -796,7 +796,7 @@ void atc_processor_find_by_local_date_time(
           result->type = kAtcFindResultGap;
           if ((disambiguate == kAtcDisambiguateCompatible)
               || disambiguate == kAtcDisambiguateLater) {
-            // ldt wants to use the 'prev' transition to convert to
+            // pdt wants to use the 'prev' transition to convert to
             // epochSeconds.
             result->req_std_offset_seconds = tfd.prev->offset_seconds;
             result->req_dst_offset_seconds = tfd.prev->delta_seconds;
@@ -805,7 +805,7 @@ void atc_processor_find_by_local_date_time(
             // transition, so select 'curr' as the target transition.
             transition = tfd.curr;
           } else {
-            // ldt wants to use the 'curr' transition to convert to
+            // pdt wants to use the 'curr' transition to convert to
             // epochSeconds.
             result->req_std_offset_seconds = tfd.curr->offset_seconds;
             result->req_dst_offset_seconds = tfd.curr->delta_seconds;

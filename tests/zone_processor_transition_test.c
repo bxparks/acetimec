@@ -63,25 +63,89 @@ static void validate_zone(
   }
 }
 
+//---------------------------------------------------------------------------
+
+ACU_TEST(test_transitions_for_zonedb2000) {
+  int16_t saved_epoch_year = atc_get_current_epoch_year();
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+
+  for (uint16_t i = 0; i < kAtcZonedb2000ZoneRegistrySize; i++) {
+    const AtcZoneInfo *info = kAtcZonedb2000ZoneRegistry[i];
+
+    // Loop from [start_year, 3000), in chunks of 100 years, shifting
+    // the current_epoch_year by 100 years.
+    for (
+        int16_t start_year = kAtcZonedb2000ZoneContext.start_year;
+        start_year < 3000;
+        start_year += 100) {
+
+      atc_set_current_epoch_year(start_year + 50);
+      int16_t until_year = start_year + 100;
+      if (until_year > kAtcZonedb2000ZoneContext.until_year) {
+        until_year = kAtcZonedb2000ZoneContext.until_year;
+      }
+
+      ACU_ASSERT_NO_FATAL_FAILURE(
+          validate_zone(
+              acu_context, &processor, info, start_year, until_year));
+    }
+  }
+
+  atc_set_current_epoch_year(saved_epoch_year);
+}
+
+ACU_TEST(test_transitions_for_zonedb2025) {
+  int16_t saved_epoch_year = atc_get_current_epoch_year();
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+
+  for (uint16_t i = 0; i < kAtcZonedb2025ZoneRegistrySize; i++) {
+    const AtcZoneInfo *info = kAtcZonedb2025ZoneRegistry[i];
+
+    // Loop from [start_year, 3000), in chunks of 100 years, shifting
+    // the current_epoch_year by 100 years.
+    for (
+        int16_t start_year = kAtcZonedb2025ZoneContext.start_year;
+        start_year < 3000;
+        start_year += 100) {
+
+      atc_set_current_epoch_year(start_year + 50);
+      int16_t until_year = start_year + 100;
+      if (until_year > kAtcZonedb2025ZoneContext.until_year) {
+        until_year = kAtcZonedb2025ZoneContext.until_year;
+      }
+
+      ACU_ASSERT_NO_FATAL_FAILURE(
+          validate_zone(
+              acu_context, &processor, info, start_year, until_year));
+    }
+  }
+
+  atc_set_current_epoch_year(saved_epoch_year);
+}
+
+#if ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_HIGH
+
 ACU_TEST(test_transitions_for_zonedball) {
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
 
-  for (uint16_t i = 0; i < kAtcAllZoneRegistrySize; i++) {
-    const AtcZoneInfo *info = kAtcAllZoneRegistry[i];
+  for (uint16_t i = 0; i < kAtcZonedballZoneRegistrySize; i++) {
+    const AtcZoneInfo *info = kAtcZonedballZoneRegistry[i];
 
     // Loop from [start_year, 3000), in chunks of 100 years, shifting
     // the current_epoch_year by 100 years.
     for (
-        int16_t start_year = kAtcAllZoneContext.start_year;
+        int16_t start_year = kAtcZonedballZoneContext.start_year;
         start_year < 3000;
         start_year += 100) {
 
       atc_set_current_epoch_year(start_year + 50);
       int16_t until_year = start_year + 100;
-      if (until_year > kAtcAllZoneContext.until_year) {
-        until_year = kAtcAllZoneContext.until_year;
+      if (until_year > kAtcZonedballZoneContext.until_year) {
+        until_year = kAtcZonedballZoneContext.until_year;
       }
 
       ACU_ASSERT_NO_FATAL_FAILURE(
@@ -93,35 +157,7 @@ ACU_TEST(test_transitions_for_zonedball) {
   atc_set_current_epoch_year(saved_epoch_year);
 }
 
-ACU_TEST(test_transitions_for_zonedb) {
-  int16_t saved_epoch_year = atc_get_current_epoch_year();
-  AtcZoneProcessor processor;
-  atc_processor_init(&processor);
-
-  for (uint16_t i = 0; i < kAtcZoneRegistrySize; i++) {
-    const AtcZoneInfo *info = kAtcZoneRegistry[i];
-
-    // Loop from [start_year, 3000), in chunks of 100 years, shifting
-    // the current_epoch_year by 100 years.
-    for (
-        int16_t start_year = kAtcZoneContext.start_year;
-        start_year < 3000;
-        start_year += 100) {
-
-      atc_set_current_epoch_year(start_year + 50);
-      int16_t until_year = start_year + 100;
-      if (until_year > kAtcZoneContext.until_year) {
-        until_year = kAtcZoneContext.until_year;
-      }
-
-      ACU_ASSERT_NO_FATAL_FAILURE(
-          validate_zone(
-              acu_context, &processor, info, start_year, until_year));
-    }
-  }
-
-  atc_set_current_epoch_year(saved_epoch_year);
-}
+#endif
 
 //---------------------------------------------------------------------------
 
@@ -129,7 +165,10 @@ ACU_CONTEXT();
 
 int main()
 {
-  ACU_RUN_TEST(test_transitions_for_zonedb);
+  ACU_RUN_TEST(test_transitions_for_zonedb2000);
+  ACU_RUN_TEST(test_transitions_for_zonedb2025);
+#if ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_HIGH
   ACU_RUN_TEST(test_transitions_for_zonedball);
+#endif
   ACU_SUMMARY();
 }

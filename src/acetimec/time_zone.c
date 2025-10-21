@@ -5,7 +5,7 @@
 
 #include <stdbool.h>
 #include <string.h> // memcpy()
-#include "local_date.h" // kAtcInvalidEpochSeconds
+#include "plain_date.h" // kAtcInvalidEpochSeconds
 #include "../zoneinfo/zone_info_utils.h" // atc_zone_info_zone_name()
 #include "zone_processor.h"
 #include "offset_date_time.h" // AtcOffsetDateTime
@@ -24,6 +24,11 @@ void atc_time_zone_offset_date_time_from_epoch_seconds(
     atc_time_t epoch_seconds,
     AtcOffsetDateTime *odt)
 {
+  if (epoch_seconds == kAtcInvalidEpochSeconds) {
+    atc_offset_date_time_set_error(odt);
+    return;
+  }
+
   int32_t offset_seconds;
   if (tz->zone_info) {
     atc_processor_init_for_zone_info(tz->zone_processor, tz->zone_info);
@@ -46,32 +51,39 @@ void atc_time_zone_offset_date_time_from_epoch_seconds(
   atc_offset_date_time_from_epoch_seconds(odt, epoch_seconds, offset_seconds);
 }
 
-// Adapted from TimeZone::getOffsetDateTime(const LocalDatetime&) from the
+// Adapted from TimeZone::getOffsetDateTime(const PlainDatetime&) from the
 // AceTime library.
-void atc_time_zone_offset_date_time_from_local_date_time(
+void atc_time_zone_offset_date_time_from_plain_date_time(
     const AtcTimeZone *tz,
-    const AtcLocalDateTime *ldt,
+    const AtcPlainDateTime *pdt,
     uint8_t disambiguate,
     AtcOffsetDateTime *odt)
 {
+  // Validate `pdt`.
+  if (atc_plain_date_time_is_error(pdt)
+      || ! atc_plain_date_time_is_valid(pdt)) {
+    atc_offset_date_time_set_error(odt);
+    return;
+  }
+
   if (tz->zone_info) {
     atc_processor_init_for_zone_info(tz->zone_processor, tz->zone_info);
 
     AtcFindResult result;
-    atc_processor_find_by_local_date_time(
-      tz->zone_processor, ldt, disambiguate, &result);
+    atc_processor_find_by_plain_date_time(
+      tz->zone_processor, pdt, disambiguate, &result);
     if (result.type == kAtcFindResultNotFound) {
       atc_offset_date_time_set_error(odt);
       return;
     }
 
     // Convert FindResult into OffsetDateTime using the requested offset.
-    odt->year = ldt->year;
-    odt->month = ldt->month;
-    odt->day = ldt->day;
-    odt->hour = ldt->hour;
-    odt->minute = ldt->minute;
-    odt->second = ldt->second;
+    odt->year = pdt->year;
+    odt->month = pdt->month;
+    odt->day = pdt->day;
+    odt->hour = pdt->hour;
+    odt->minute = pdt->minute;
+    odt->second = pdt->second;
     odt->offset_seconds =
         result.req_std_offset_seconds + result.req_dst_offset_seconds;
     odt->resolved = resolve_for_result_type_and_fold(result.type, result.fold);
@@ -88,12 +100,12 @@ void atc_time_zone_offset_date_time_from_local_date_time(
           odt, epoch_seconds, target_offset);
     }
   } else { // UTC or Error
-    odt->year = ldt->year;
-    odt->month = ldt->month;
-    odt->day = ldt->day;
-    odt->hour = ldt->hour;
-    odt->minute = ldt->minute;
-    odt->second = ldt->second;
+    odt->year = pdt->year;
+    odt->month = pdt->month;
+    odt->day = pdt->day;
+    odt->hour = pdt->hour;
+    odt->minute = pdt->minute;
+    odt->second = pdt->second;
     odt->offset_seconds = 0;
     odt->resolved = kAtcResolvedUnique;
   }
@@ -136,18 +148,25 @@ void atc_time_zone_zoned_extra_from_epoch_seconds(
   }
 }
 
-void atc_time_zone_zoned_extra_from_local_date_time(
+void atc_time_zone_zoned_extra_from_plain_date_time(
   const AtcTimeZone *tz,
-  const AtcLocalDateTime *ldt,
+  const AtcPlainDateTime *pdt,
   uint8_t disambiguate,
   AtcZonedExtra *extra)
 {
+  // Validate `pdt`.
+  if (atc_plain_date_time_is_error(pdt)
+      || ! atc_plain_date_time_is_valid(pdt)) {
+    atc_zoned_extra_set_error(extra);
+    return;
+  }
+
   if (tz->zone_info) {
     atc_processor_init_for_zone_info(tz->zone_processor, tz->zone_info);
 
     AtcFindResult result;
-    atc_processor_find_by_local_date_time(
-      tz->zone_processor, ldt, disambiguate, &result);
+    atc_processor_find_by_plain_date_time(
+      tz->zone_processor, pdt, disambiguate, &result);
     extra->fold_type = result.type;
     if (result.type == kAtcFindResultNotFound) {
       return;

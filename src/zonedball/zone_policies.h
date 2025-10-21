@@ -5,9 +5,9 @@
 //     --output_dir /home/brian/src/AceTimeSuite/libraries/acetimec/src/zonedball
 //     --tz_version 2025b
 //     --actions zonedb
-//     --languages c
+//     --language c
 //     --scope complete
-//     --db_namespace AtcAll
+//     --db_namespace Zonedball
 //     --start_year 1800
 //     --until_year 2200
 //     --nocompress
@@ -46,7 +46,7 @@
 //   Rules: 2235
 //
 // Memory (8-bits):
-//   Context: 16
+//   Context: 20
 //   Rules: 26820
 //   Policies: 402
 //   Eras: 29340
@@ -57,10 +57,10 @@
 //   Letters: 160
 //   Fragments: 0
 //   Names: 9094 (original: 9094)
-//   TOTAL: 75273
+//   TOTAL: 75277
 //
 // Memory (32-bits):
-//   Context: 24
+//   Context: 28
 //   Rules: 26820
 //   Policies: 1072
 //   Eras: 39120
@@ -71,12 +71,12 @@
 //   Letters: 216
 //   Fragments: 0
 //   Names: 9094 (original: 9094)
-//   TOTAL: 93548
+//   TOTAL: 93552
 //
 // DO NOT EDIT
 
-#ifndef ACE_TIME_C_ZONEDB_ATCALL_ZONE_POLICIES_H
-#define ACE_TIME_C_ZONEDB_ATCALL_ZONE_POLICIES_H
+#ifndef ACE_TIME_C_ZONEDB_ZONEDBALL_ZONE_POLICIES_H
+#define ACE_TIME_C_ZONEDB_ZONEDBALL_ZONE_POLICIES_H
 
 #include "../zoneinfo/zone_info.h"
 
@@ -88,140 +88,140 @@ extern "C" {
 // Supported policies: 134
 //---------------------------------------------------------------------------
 
-extern const AtcZonePolicy kAtcAllZonePolicyAN;
-extern const AtcZonePolicy kAtcAllZonePolicyAQ;
-extern const AtcZonePolicy kAtcAllZonePolicyAS;
-extern const AtcZonePolicy kAtcAllZonePolicyAT;
-extern const AtcZonePolicy kAtcAllZonePolicyAV;
-extern const AtcZonePolicy kAtcAllZonePolicyAW;
-extern const AtcZonePolicy kAtcAllZonePolicyAlbania;
-extern const AtcZonePolicy kAtcAllZonePolicyAlgeria;
-extern const AtcZonePolicy kAtcAllZonePolicyArg;
-extern const AtcZonePolicy kAtcAllZonePolicyArmenia;
-extern const AtcZonePolicy kAtcAllZonePolicyAus;
-extern const AtcZonePolicy kAtcAllZonePolicyAustria;
-extern const AtcZonePolicy kAtcAllZonePolicyAzer;
-extern const AtcZonePolicy kAtcAllZonePolicyBarb;
-extern const AtcZonePolicy kAtcAllZonePolicyBelgium;
-extern const AtcZonePolicy kAtcAllZonePolicyBelize;
-extern const AtcZonePolicy kAtcAllZonePolicyBermuda;
-extern const AtcZonePolicy kAtcAllZonePolicyBrazil;
-extern const AtcZonePolicy kAtcAllZonePolicyBulg;
-extern const AtcZonePolicy kAtcAllZonePolicyC_Eur;
-extern const AtcZonePolicy kAtcAllZonePolicyCA;
-extern const AtcZonePolicy kAtcAllZonePolicyCO;
-extern const AtcZonePolicy kAtcAllZonePolicyCR;
-extern const AtcZonePolicy kAtcAllZonePolicyCanada;
-extern const AtcZonePolicy kAtcAllZonePolicyChatham;
-extern const AtcZonePolicy kAtcAllZonePolicyChicago;
-extern const AtcZonePolicy kAtcAllZonePolicyChile;
-extern const AtcZonePolicy kAtcAllZonePolicyCook;
-extern const AtcZonePolicy kAtcAllZonePolicyCuba;
-extern const AtcZonePolicy kAtcAllZonePolicyCyprus;
-extern const AtcZonePolicy kAtcAllZonePolicyCzech;
-extern const AtcZonePolicy kAtcAllZonePolicyDR;
-extern const AtcZonePolicy kAtcAllZonePolicyDenver;
-extern const AtcZonePolicy kAtcAllZonePolicyDetroit;
-extern const AtcZonePolicy kAtcAllZonePolicyDhaka;
-extern const AtcZonePolicy kAtcAllZonePolicyE_Eur;
-extern const AtcZonePolicy kAtcAllZonePolicyE_EurAsia;
-extern const AtcZonePolicy kAtcAllZonePolicyEU;
-extern const AtcZonePolicy kAtcAllZonePolicyEUAsia;
-extern const AtcZonePolicy kAtcAllZonePolicyEcuador;
-extern const AtcZonePolicy kAtcAllZonePolicyEdm;
-extern const AtcZonePolicy kAtcAllZonePolicyEgypt;
-extern const AtcZonePolicy kAtcAllZonePolicyEgyptAsia;
-extern const AtcZonePolicy kAtcAllZonePolicyEire;
-extern const AtcZonePolicy kAtcAllZonePolicyFalk;
-extern const AtcZonePolicy kAtcAllZonePolicyFiji;
-extern const AtcZonePolicy kAtcAllZonePolicyFinland;
-extern const AtcZonePolicy kAtcAllZonePolicyFrance;
-extern const AtcZonePolicy kAtcAllZonePolicyGB_Eire;
-extern const AtcZonePolicy kAtcAllZonePolicyGermany;
-extern const AtcZonePolicy kAtcAllZonePolicyGreece;
-extern const AtcZonePolicy kAtcAllZonePolicyGuam;
-extern const AtcZonePolicy kAtcAllZonePolicyGuat;
-extern const AtcZonePolicy kAtcAllZonePolicyHK;
-extern const AtcZonePolicy kAtcAllZonePolicyHaiti;
-extern const AtcZonePolicy kAtcAllZonePolicyHalifax;
-extern const AtcZonePolicy kAtcAllZonePolicyHoliday;
-extern const AtcZonePolicy kAtcAllZonePolicyHond;
-extern const AtcZonePolicy kAtcAllZonePolicyHungary;
-extern const AtcZonePolicy kAtcAllZonePolicyIndianapolis;
-extern const AtcZonePolicy kAtcAllZonePolicyIran;
-extern const AtcZonePolicy kAtcAllZonePolicyIraq;
-extern const AtcZonePolicy kAtcAllZonePolicyItaly;
-extern const AtcZonePolicy kAtcAllZonePolicyJapan;
-extern const AtcZonePolicy kAtcAllZonePolicyJordan;
-extern const AtcZonePolicy kAtcAllZonePolicyKyrgyz;
-extern const AtcZonePolicy kAtcAllZonePolicyLH;
-extern const AtcZonePolicy kAtcAllZonePolicyLatvia;
-extern const AtcZonePolicy kAtcAllZonePolicyLebanon;
-extern const AtcZonePolicy kAtcAllZonePolicyLibya;
-extern const AtcZonePolicy kAtcAllZonePolicyLouisville;
-extern const AtcZonePolicy kAtcAllZonePolicyMacau;
-extern const AtcZonePolicy kAtcAllZonePolicyMalta;
-extern const AtcZonePolicy kAtcAllZonePolicyMarengo;
-extern const AtcZonePolicy kAtcAllZonePolicyMauritius;
-extern const AtcZonePolicy kAtcAllZonePolicyMenominee;
-extern const AtcZonePolicy kAtcAllZonePolicyMexico;
-extern const AtcZonePolicy kAtcAllZonePolicyMoldova;
-extern const AtcZonePolicy kAtcAllZonePolicyMoncton;
-extern const AtcZonePolicy kAtcAllZonePolicyMongol;
-extern const AtcZonePolicy kAtcAllZonePolicyMorocco;
-extern const AtcZonePolicy kAtcAllZonePolicyNBorneo;
-extern const AtcZonePolicy kAtcAllZonePolicyNC;
-extern const AtcZonePolicy kAtcAllZonePolicyNT_YK;
-extern const AtcZonePolicy kAtcAllZonePolicyNYC;
-extern const AtcZonePolicy kAtcAllZonePolicyNZ;
-extern const AtcZonePolicy kAtcAllZonePolicyNamibia;
-extern const AtcZonePolicy kAtcAllZonePolicyNic;
-extern const AtcZonePolicy kAtcAllZonePolicyPRC;
-extern const AtcZonePolicy kAtcAllZonePolicyPakistan;
-extern const AtcZonePolicy kAtcAllZonePolicyPalestine;
-extern const AtcZonePolicy kAtcAllZonePolicyPara;
-extern const AtcZonePolicy kAtcAllZonePolicyPerry;
-extern const AtcZonePolicy kAtcAllZonePolicyPeru;
-extern const AtcZonePolicy kAtcAllZonePolicyPhil;
-extern const AtcZonePolicy kAtcAllZonePolicyPike;
-extern const AtcZonePolicy kAtcAllZonePolicyPoland;
-extern const AtcZonePolicy kAtcAllZonePolicyPort;
-extern const AtcZonePolicy kAtcAllZonePolicyPulaski;
-extern const AtcZonePolicy kAtcAllZonePolicyROK;
-extern const AtcZonePolicy kAtcAllZonePolicyRegina;
-extern const AtcZonePolicy kAtcAllZonePolicyRomania;
-extern const AtcZonePolicy kAtcAllZonePolicyRussia;
-extern const AtcZonePolicy kAtcAllZonePolicyRussiaAsia;
-extern const AtcZonePolicy kAtcAllZonePolicySA;
-extern const AtcZonePolicy kAtcAllZonePolicySalv;
-extern const AtcZonePolicy kAtcAllZonePolicySanLuis;
-extern const AtcZonePolicy kAtcAllZonePolicyShang;
-extern const AtcZonePolicy kAtcAllZonePolicySovietZone;
-extern const AtcZonePolicy kAtcAllZonePolicySpain;
-extern const AtcZonePolicy kAtcAllZonePolicySpainAfrica;
-extern const AtcZonePolicy kAtcAllZonePolicyStJohns;
-extern const AtcZonePolicy kAtcAllZonePolicyStarke;
-extern const AtcZonePolicy kAtcAllZonePolicySudan;
-extern const AtcZonePolicy kAtcAllZonePolicySwift;
-extern const AtcZonePolicy kAtcAllZonePolicySwiss;
-extern const AtcZonePolicy kAtcAllZonePolicySyria;
-extern const AtcZonePolicy kAtcAllZonePolicyTaiwan;
-extern const AtcZonePolicy kAtcAllZonePolicyThule;
-extern const AtcZonePolicy kAtcAllZonePolicyTonga;
-extern const AtcZonePolicy kAtcAllZonePolicyToronto;
-extern const AtcZonePolicy kAtcAllZonePolicyTroll;
-extern const AtcZonePolicy kAtcAllZonePolicyTunisia;
-extern const AtcZonePolicy kAtcAllZonePolicyTurkey;
-extern const AtcZonePolicy kAtcAllZonePolicyUS;
-extern const AtcZonePolicy kAtcAllZonePolicyUruguay;
-extern const AtcZonePolicy kAtcAllZonePolicyVanc;
-extern const AtcZonePolicy kAtcAllZonePolicyVanuatu;
-extern const AtcZonePolicy kAtcAllZonePolicyVincennes;
-extern const AtcZonePolicy kAtcAllZonePolicyW_Eur;
-extern const AtcZonePolicy kAtcAllZonePolicyWS;
-extern const AtcZonePolicy kAtcAllZonePolicyWinn;
-extern const AtcZonePolicy kAtcAllZonePolicyYukon;
-extern const AtcZonePolicy kAtcAllZonePolicyZion;
+extern const AtcZonePolicy kAtcZonedballZonePolicyAN;
+extern const AtcZonePolicy kAtcZonedballZonePolicyAQ;
+extern const AtcZonePolicy kAtcZonedballZonePolicyAS;
+extern const AtcZonePolicy kAtcZonedballZonePolicyAT;
+extern const AtcZonePolicy kAtcZonedballZonePolicyAV;
+extern const AtcZonePolicy kAtcZonedballZonePolicyAW;
+extern const AtcZonePolicy kAtcZonedballZonePolicyAlbania;
+extern const AtcZonePolicy kAtcZonedballZonePolicyAlgeria;
+extern const AtcZonePolicy kAtcZonedballZonePolicyArg;
+extern const AtcZonePolicy kAtcZonedballZonePolicyArmenia;
+extern const AtcZonePolicy kAtcZonedballZonePolicyAus;
+extern const AtcZonePolicy kAtcZonedballZonePolicyAustria;
+extern const AtcZonePolicy kAtcZonedballZonePolicyAzer;
+extern const AtcZonePolicy kAtcZonedballZonePolicyBarb;
+extern const AtcZonePolicy kAtcZonedballZonePolicyBelgium;
+extern const AtcZonePolicy kAtcZonedballZonePolicyBelize;
+extern const AtcZonePolicy kAtcZonedballZonePolicyBermuda;
+extern const AtcZonePolicy kAtcZonedballZonePolicyBrazil;
+extern const AtcZonePolicy kAtcZonedballZonePolicyBulg;
+extern const AtcZonePolicy kAtcZonedballZonePolicyC_Eur;
+extern const AtcZonePolicy kAtcZonedballZonePolicyCA;
+extern const AtcZonePolicy kAtcZonedballZonePolicyCO;
+extern const AtcZonePolicy kAtcZonedballZonePolicyCR;
+extern const AtcZonePolicy kAtcZonedballZonePolicyCanada;
+extern const AtcZonePolicy kAtcZonedballZonePolicyChatham;
+extern const AtcZonePolicy kAtcZonedballZonePolicyChicago;
+extern const AtcZonePolicy kAtcZonedballZonePolicyChile;
+extern const AtcZonePolicy kAtcZonedballZonePolicyCook;
+extern const AtcZonePolicy kAtcZonedballZonePolicyCuba;
+extern const AtcZonePolicy kAtcZonedballZonePolicyCyprus;
+extern const AtcZonePolicy kAtcZonedballZonePolicyCzech;
+extern const AtcZonePolicy kAtcZonedballZonePolicyDR;
+extern const AtcZonePolicy kAtcZonedballZonePolicyDenver;
+extern const AtcZonePolicy kAtcZonedballZonePolicyDetroit;
+extern const AtcZonePolicy kAtcZonedballZonePolicyDhaka;
+extern const AtcZonePolicy kAtcZonedballZonePolicyE_Eur;
+extern const AtcZonePolicy kAtcZonedballZonePolicyE_EurAsia;
+extern const AtcZonePolicy kAtcZonedballZonePolicyEU;
+extern const AtcZonePolicy kAtcZonedballZonePolicyEUAsia;
+extern const AtcZonePolicy kAtcZonedballZonePolicyEcuador;
+extern const AtcZonePolicy kAtcZonedballZonePolicyEdm;
+extern const AtcZonePolicy kAtcZonedballZonePolicyEgypt;
+extern const AtcZonePolicy kAtcZonedballZonePolicyEgyptAsia;
+extern const AtcZonePolicy kAtcZonedballZonePolicyEire;
+extern const AtcZonePolicy kAtcZonedballZonePolicyFalk;
+extern const AtcZonePolicy kAtcZonedballZonePolicyFiji;
+extern const AtcZonePolicy kAtcZonedballZonePolicyFinland;
+extern const AtcZonePolicy kAtcZonedballZonePolicyFrance;
+extern const AtcZonePolicy kAtcZonedballZonePolicyGB_Eire;
+extern const AtcZonePolicy kAtcZonedballZonePolicyGermany;
+extern const AtcZonePolicy kAtcZonedballZonePolicyGreece;
+extern const AtcZonePolicy kAtcZonedballZonePolicyGuam;
+extern const AtcZonePolicy kAtcZonedballZonePolicyGuat;
+extern const AtcZonePolicy kAtcZonedballZonePolicyHK;
+extern const AtcZonePolicy kAtcZonedballZonePolicyHaiti;
+extern const AtcZonePolicy kAtcZonedballZonePolicyHalifax;
+extern const AtcZonePolicy kAtcZonedballZonePolicyHoliday;
+extern const AtcZonePolicy kAtcZonedballZonePolicyHond;
+extern const AtcZonePolicy kAtcZonedballZonePolicyHungary;
+extern const AtcZonePolicy kAtcZonedballZonePolicyIndianapolis;
+extern const AtcZonePolicy kAtcZonedballZonePolicyIran;
+extern const AtcZonePolicy kAtcZonedballZonePolicyIraq;
+extern const AtcZonePolicy kAtcZonedballZonePolicyItaly;
+extern const AtcZonePolicy kAtcZonedballZonePolicyJapan;
+extern const AtcZonePolicy kAtcZonedballZonePolicyJordan;
+extern const AtcZonePolicy kAtcZonedballZonePolicyKyrgyz;
+extern const AtcZonePolicy kAtcZonedballZonePolicyLH;
+extern const AtcZonePolicy kAtcZonedballZonePolicyLatvia;
+extern const AtcZonePolicy kAtcZonedballZonePolicyLebanon;
+extern const AtcZonePolicy kAtcZonedballZonePolicyLibya;
+extern const AtcZonePolicy kAtcZonedballZonePolicyLouisville;
+extern const AtcZonePolicy kAtcZonedballZonePolicyMacau;
+extern const AtcZonePolicy kAtcZonedballZonePolicyMalta;
+extern const AtcZonePolicy kAtcZonedballZonePolicyMarengo;
+extern const AtcZonePolicy kAtcZonedballZonePolicyMauritius;
+extern const AtcZonePolicy kAtcZonedballZonePolicyMenominee;
+extern const AtcZonePolicy kAtcZonedballZonePolicyMexico;
+extern const AtcZonePolicy kAtcZonedballZonePolicyMoldova;
+extern const AtcZonePolicy kAtcZonedballZonePolicyMoncton;
+extern const AtcZonePolicy kAtcZonedballZonePolicyMongol;
+extern const AtcZonePolicy kAtcZonedballZonePolicyMorocco;
+extern const AtcZonePolicy kAtcZonedballZonePolicyNBorneo;
+extern const AtcZonePolicy kAtcZonedballZonePolicyNC;
+extern const AtcZonePolicy kAtcZonedballZonePolicyNT_YK;
+extern const AtcZonePolicy kAtcZonedballZonePolicyNYC;
+extern const AtcZonePolicy kAtcZonedballZonePolicyNZ;
+extern const AtcZonePolicy kAtcZonedballZonePolicyNamibia;
+extern const AtcZonePolicy kAtcZonedballZonePolicyNic;
+extern const AtcZonePolicy kAtcZonedballZonePolicyPRC;
+extern const AtcZonePolicy kAtcZonedballZonePolicyPakistan;
+extern const AtcZonePolicy kAtcZonedballZonePolicyPalestine;
+extern const AtcZonePolicy kAtcZonedballZonePolicyPara;
+extern const AtcZonePolicy kAtcZonedballZonePolicyPerry;
+extern const AtcZonePolicy kAtcZonedballZonePolicyPeru;
+extern const AtcZonePolicy kAtcZonedballZonePolicyPhil;
+extern const AtcZonePolicy kAtcZonedballZonePolicyPike;
+extern const AtcZonePolicy kAtcZonedballZonePolicyPoland;
+extern const AtcZonePolicy kAtcZonedballZonePolicyPort;
+extern const AtcZonePolicy kAtcZonedballZonePolicyPulaski;
+extern const AtcZonePolicy kAtcZonedballZonePolicyROK;
+extern const AtcZonePolicy kAtcZonedballZonePolicyRegina;
+extern const AtcZonePolicy kAtcZonedballZonePolicyRomania;
+extern const AtcZonePolicy kAtcZonedballZonePolicyRussia;
+extern const AtcZonePolicy kAtcZonedballZonePolicyRussiaAsia;
+extern const AtcZonePolicy kAtcZonedballZonePolicySA;
+extern const AtcZonePolicy kAtcZonedballZonePolicySalv;
+extern const AtcZonePolicy kAtcZonedballZonePolicySanLuis;
+extern const AtcZonePolicy kAtcZonedballZonePolicyShang;
+extern const AtcZonePolicy kAtcZonedballZonePolicySovietZone;
+extern const AtcZonePolicy kAtcZonedballZonePolicySpain;
+extern const AtcZonePolicy kAtcZonedballZonePolicySpainAfrica;
+extern const AtcZonePolicy kAtcZonedballZonePolicyStJohns;
+extern const AtcZonePolicy kAtcZonedballZonePolicyStarke;
+extern const AtcZonePolicy kAtcZonedballZonePolicySudan;
+extern const AtcZonePolicy kAtcZonedballZonePolicySwift;
+extern const AtcZonePolicy kAtcZonedballZonePolicySwiss;
+extern const AtcZonePolicy kAtcZonedballZonePolicySyria;
+extern const AtcZonePolicy kAtcZonedballZonePolicyTaiwan;
+extern const AtcZonePolicy kAtcZonedballZonePolicyThule;
+extern const AtcZonePolicy kAtcZonedballZonePolicyTonga;
+extern const AtcZonePolicy kAtcZonedballZonePolicyToronto;
+extern const AtcZonePolicy kAtcZonedballZonePolicyTroll;
+extern const AtcZonePolicy kAtcZonedballZonePolicyTunisia;
+extern const AtcZonePolicy kAtcZonedballZonePolicyTurkey;
+extern const AtcZonePolicy kAtcZonedballZonePolicyUS;
+extern const AtcZonePolicy kAtcZonedballZonePolicyUruguay;
+extern const AtcZonePolicy kAtcZonedballZonePolicyVanc;
+extern const AtcZonePolicy kAtcZonedballZonePolicyVanuatu;
+extern const AtcZonePolicy kAtcZonedballZonePolicyVincennes;
+extern const AtcZonePolicy kAtcZonedballZonePolicyW_Eur;
+extern const AtcZonePolicy kAtcZonedballZonePolicyWS;
+extern const AtcZonePolicy kAtcZonedballZonePolicyWinn;
+extern const AtcZonePolicy kAtcZonedballZonePolicyYukon;
+extern const AtcZonePolicy kAtcZonedballZonePolicyZion;
 
 
 //---------------------------------------------------------------------------

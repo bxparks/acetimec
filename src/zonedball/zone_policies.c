@@ -5,9 +5,9 @@
 //     --output_dir /home/brian/src/AceTimeSuite/libraries/acetimec/src/zonedball
 //     --tz_version 2025b
 //     --actions zonedb
-//     --languages c
+//     --language c
 //     --scope complete
-//     --db_namespace AtcAll
+//     --db_namespace Zonedball
 //     --start_year 1800
 //     --until_year 2200
 //     --nocompress
@@ -46,7 +46,7 @@
 //   Rules: 2235
 //
 // Memory (8-bits):
-//   Context: 16
+//   Context: 20
 //   Rules: 26820
 //   Policies: 402
 //   Eras: 29340
@@ -57,10 +57,10 @@
 //   Letters: 160
 //   Fragments: 0
 //   Names: 9094 (original: 9094)
-//   TOTAL: 75273
+//   TOTAL: 75277
 //
 // Memory (32-bits):
-//   Context: 24
+//   Context: 28
 //   Rules: 26820
 //   Policies: 1072
 //   Eras: 39120
@@ -71,7 +71,7 @@
 //   Letters: 216
 //   Fragments: 0
 //   Names: 9094 (original: 9094)
-//   TOTAL: 93548
+//   TOTAL: 93552
 //
 // DO NOT EDIT
 
@@ -295,7 +295,7 @@ static const AtcZoneRule kAtcZoneRulesAN[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyAN  = {
+const AtcZonePolicy kAtcZonedballZonePolicyAN  = {
   kAtcZoneRulesAN /*rules*/,
   17 /*num_rules*/,
 };
@@ -369,7 +369,7 @@ static const AtcZoneRule kAtcZoneRulesAQ[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyAQ  = {
+const AtcZonePolicy kAtcZonedballZonePolicyAQ  = {
   kAtcZoneRulesAQ /*rules*/,
   5 /*num_rules*/,
 };
@@ -575,7 +575,7 @@ static const AtcZoneRule kAtcZoneRulesAS[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyAS  = {
+const AtcZonePolicy kAtcZonedballZonePolicyAS  = {
   kAtcZoneRulesAS /*rules*/,
   16 /*num_rules*/,
 };
@@ -877,7 +877,7 @@ static const AtcZoneRule kAtcZoneRulesAT[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyAT  = {
+const AtcZonePolicy kAtcZonedballZonePolicyAT  = {
   kAtcZoneRulesAT /*rules*/,
   24 /*num_rules*/,
 };
@@ -1071,7 +1071,7 @@ static const AtcZoneRule kAtcZoneRulesAV[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyAV  = {
+const AtcZonePolicy kAtcZonedballZonePolicyAV  = {
   kAtcZoneRulesAV /*rules*/,
   15 /*num_rules*/,
 };
@@ -1205,7 +1205,7 @@ static const AtcZoneRule kAtcZoneRulesAW[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyAW  = {
+const AtcZonePolicy kAtcZonedballZonePolicyAW  = {
   kAtcZoneRulesAW /*rules*/,
   10 /*num_rules*/,
 };
@@ -1531,7 +1531,7 @@ static const AtcZoneRule kAtcZoneRulesAlbania[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyAlbania  = {
+const AtcZonePolicy kAtcZonedballZonePolicyAlbania  = {
   kAtcZoneRulesAlbania /*rules*/,
   26 /*num_rules*/,
 };
@@ -1821,7 +1821,7 @@ static const AtcZoneRule kAtcZoneRulesAlgeria[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyAlgeria  = {
+const AtcZonePolicy kAtcZonedballZonePolicyAlgeria  = {
   kAtcZoneRulesAlgeria /*rules*/,
   23 /*num_rules*/,
 };
@@ -2195,7 +2195,7 @@ static const AtcZoneRule kAtcZoneRulesArg[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyArg  = {
+const AtcZonePolicy kAtcZonedballZonePolicyArg  = {
   kAtcZoneRulesArg /*rules*/,
   30 /*num_rules*/,
 };
@@ -2245,7 +2245,7 @@ static const AtcZoneRule kAtcZoneRulesArmenia[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyArmenia  = {
+const AtcZonePolicy kAtcZonedballZonePolicyArmenia  = {
   kAtcZoneRulesArmenia /*rules*/,
   3 /*num_rules*/,
 };
@@ -2355,7 +2355,7 @@ static const AtcZoneRule kAtcZoneRulesAus[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyAus  = {
+const AtcZonePolicy kAtcZonedballZonePolicyAus  = {
   kAtcZoneRulesAus /*rules*/,
   8 /*num_rules*/,
 };
@@ -2489,7 +2489,7 @@ static const AtcZoneRule kAtcZoneRulesAustria[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyAustria  = {
+const AtcZonePolicy kAtcZonedballZonePolicyAustria  = {
   kAtcZoneRulesAustria /*rules*/,
   10 /*num_rules*/,
 };
@@ -2539,7 +2539,7 @@ static const AtcZoneRule kAtcZoneRulesAzer[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyAzer  = {
+const AtcZonePolicy kAtcZonedballZonePolicyAzer  = {
   kAtcZoneRulesAzer /*rules*/,
   3 /*num_rules*/,
 };
@@ -2697,7 +2697,7 @@ static const AtcZoneRule kAtcZoneRulesBarb[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyBarb  = {
+const AtcZonePolicy kAtcZonedballZonePolicyBarb  = {
   kAtcZoneRulesBarb /*rules*/,
   12 /*num_rules*/,
 };
@@ -3131,7 +3131,7 @@ static const AtcZoneRule kAtcZoneRulesBelgium[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyBelgium  = {
+const AtcZonePolicy kAtcZonedballZonePolicyBelgium  = {
   kAtcZoneRulesBelgium /*rules*/,
   35 /*num_rules*/,
 };
@@ -3289,7 +3289,7 @@ static const AtcZoneRule kAtcZoneRulesBelize[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyBelize  = {
+const AtcZonePolicy kAtcZonedballZonePolicyBelize  = {
   kAtcZoneRulesBelize /*rules*/,
   12 /*num_rules*/,
 };
@@ -3507,7 +3507,7 @@ static const AtcZoneRule kAtcZoneRulesBermuda[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyBermuda  = {
+const AtcZonePolicy kAtcZonedballZonePolicyBermuda  = {
   kAtcZoneRulesBermuda /*rules*/,
   17 /*num_rules*/,
 };
@@ -4217,7 +4217,7 @@ static const AtcZoneRule kAtcZoneRulesBrazil[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyBrazil  = {
+const AtcZonePolicy kAtcZonedballZonePolicyBrazil  = {
   kAtcZoneRulesBrazil /*rules*/,
   58 /*num_rules*/,
 };
@@ -4303,7 +4303,7 @@ static const AtcZoneRule kAtcZoneRulesBulg[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyBulg  = {
+const AtcZonePolicy kAtcZonedballZonePolicyBulg  = {
   kAtcZoneRulesBulg /*rules*/,
   6 /*num_rules*/,
 };
@@ -4533,7 +4533,7 @@ static const AtcZoneRule kAtcZoneRulesC_Eur[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyC_Eur  = {
+const AtcZonePolicy kAtcZonedballZonePolicyC_Eur  = {
   kAtcZoneRulesC_Eur /*rules*/,
   18 /*num_rules*/,
 };
@@ -4619,7 +4619,7 @@ static const AtcZoneRule kAtcZoneRulesCA[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyCA  = {
+const AtcZonePolicy kAtcZonedballZonePolicyCA  = {
   kAtcZoneRulesCA /*rules*/,
   6 /*num_rules*/,
 };
@@ -4669,7 +4669,7 @@ static const AtcZoneRule kAtcZoneRulesCO[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyCO  = {
+const AtcZonePolicy kAtcZonedballZonePolicyCO  = {
   kAtcZoneRulesCO /*rules*/,
   3 /*num_rules*/,
 };
@@ -4755,7 +4755,7 @@ static const AtcZoneRule kAtcZoneRulesCR[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyCR  = {
+const AtcZonePolicy kAtcZonedballZonePolicyCR  = {
   kAtcZoneRulesCR /*rules*/,
   6 /*num_rules*/,
 };
@@ -4901,7 +4901,7 @@ static const AtcZoneRule kAtcZoneRulesCanada[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyCanada  = {
+const AtcZonePolicy kAtcZonedballZonePolicyCanada  = {
   kAtcZoneRulesCanada /*rules*/,
   11 /*num_rules*/,
 };
@@ -5035,7 +5035,7 @@ static const AtcZoneRule kAtcZoneRulesChatham[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyChatham  = {
+const AtcZonePolicy kAtcZonedballZonePolicyChatham  = {
   kAtcZoneRulesChatham /*rules*/,
   10 /*num_rules*/,
 };
@@ -5133,7 +5133,7 @@ static const AtcZoneRule kAtcZoneRulesChicago[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyChicago  = {
+const AtcZonePolicy kAtcZonedballZonePolicyChicago  = {
   kAtcZoneRulesChicago /*rules*/,
   7 /*num_rules*/,
 };
@@ -5591,7 +5591,7 @@ static const AtcZoneRule kAtcZoneRulesChile[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyChile  = {
+const AtcZonePolicy kAtcZonedballZonePolicyChile  = {
   kAtcZoneRulesChile /*rules*/,
   37 /*num_rules*/,
 };
@@ -5653,7 +5653,7 @@ static const AtcZoneRule kAtcZoneRulesCook[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyCook  = {
+const AtcZonePolicy kAtcZonedballZonePolicyCook  = {
   kAtcZoneRulesCook /*rules*/,
   4 /*num_rules*/,
 };
@@ -6147,7 +6147,7 @@ static const AtcZoneRule kAtcZoneRulesCuba[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyCuba  = {
+const AtcZonePolicy kAtcZonedballZonePolicyCuba  = {
   kAtcZoneRulesCuba /*rules*/,
   40 /*num_rules*/,
 };
@@ -6281,7 +6281,7 @@ static const AtcZoneRule kAtcZoneRulesCyprus[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyCyprus  = {
+const AtcZonePolicy kAtcZonedballZonePolicyCyprus  = {
   kAtcZoneRulesCyprus /*rules*/,
   10 /*num_rules*/,
 };
@@ -6379,7 +6379,7 @@ static const AtcZoneRule kAtcZoneRulesCzech[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyCzech  = {
+const AtcZonePolicy kAtcZonedballZonePolicyCzech  = {
   kAtcZoneRulesCzech /*rules*/,
   7 /*num_rules*/,
 };
@@ -6477,7 +6477,7 @@ static const AtcZoneRule kAtcZoneRulesDR[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyDR  = {
+const AtcZonePolicy kAtcZonedballZonePolicyDR  = {
   kAtcZoneRulesDR /*rules*/,
   7 /*num_rules*/,
 };
@@ -6563,7 +6563,7 @@ static const AtcZoneRule kAtcZoneRulesDenver[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyDenver  = {
+const AtcZonePolicy kAtcZonedballZonePolicyDenver  = {
   kAtcZoneRulesDenver /*rules*/,
   6 /*num_rules*/,
 };
@@ -6613,7 +6613,7 @@ static const AtcZoneRule kAtcZoneRulesDetroit[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyDetroit  = {
+const AtcZonePolicy kAtcZonedballZonePolicyDetroit  = {
   kAtcZoneRulesDetroit /*rules*/,
   3 /*num_rules*/,
 };
@@ -6663,7 +6663,7 @@ static const AtcZoneRule kAtcZoneRulesDhaka[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyDhaka  = {
+const AtcZonePolicy kAtcZonedballZonePolicyDhaka  = {
   kAtcZoneRulesDhaka /*rules*/,
   3 /*num_rules*/,
 };
@@ -6761,7 +6761,7 @@ static const AtcZoneRule kAtcZoneRulesE_Eur[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyE_Eur  = {
+const AtcZonePolicy kAtcZonedballZonePolicyE_Eur  = {
   kAtcZoneRulesE_Eur /*rules*/,
   7 /*num_rules*/,
 };
@@ -6823,7 +6823,7 @@ static const AtcZoneRule kAtcZoneRulesE_EurAsia[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyE_EurAsia  = {
+const AtcZonePolicy kAtcZonedballZonePolicyE_EurAsia  = {
   kAtcZoneRulesE_EurAsia /*rules*/,
   4 /*num_rules*/,
 };
@@ -6921,7 +6921,7 @@ static const AtcZoneRule kAtcZoneRulesEU[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyEU  = {
+const AtcZonePolicy kAtcZonedballZonePolicyEU  = {
   kAtcZoneRulesEU /*rules*/,
   7 /*num_rules*/,
 };
@@ -6983,7 +6983,7 @@ static const AtcZoneRule kAtcZoneRulesEUAsia[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyEUAsia  = {
+const AtcZonePolicy kAtcZonedballZonePolicyEUAsia  = {
   kAtcZoneRulesEUAsia /*rules*/,
   4 /*num_rules*/,
 };
@@ -7033,7 +7033,7 @@ static const AtcZoneRule kAtcZoneRulesEcuador[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyEcuador  = {
+const AtcZonePolicy kAtcZonedballZonePolicyEcuador  = {
   kAtcZoneRulesEcuador /*rules*/,
   3 /*num_rules*/,
 };
@@ -7215,7 +7215,7 @@ static const AtcZoneRule kAtcZoneRulesEdm[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyEdm  = {
+const AtcZonePolicy kAtcZonedballZonePolicyEdm  = {
   kAtcZoneRulesEdm /*rules*/,
   14 /*num_rules*/,
 };
@@ -7649,7 +7649,7 @@ static const AtcZoneRule kAtcZoneRulesEgypt[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyEgypt  = {
+const AtcZonePolicy kAtcZonedballZonePolicyEgypt  = {
   kAtcZoneRulesEgypt /*rules*/,
   35 /*num_rules*/,
 };
@@ -7747,7 +7747,7 @@ static const AtcZoneRule kAtcZoneRulesEgyptAsia[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyEgyptAsia  = {
+const AtcZonePolicy kAtcZonedballZonePolicyEgyptAsia  = {
   kAtcZoneRulesEgyptAsia /*rules*/,
   7 /*num_rules*/,
 };
@@ -7857,7 +7857,7 @@ static const AtcZoneRule kAtcZoneRulesEire[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyEire  = {
+const AtcZonePolicy kAtcZonedballZonePolicyEire  = {
   kAtcZoneRulesEire /*rules*/,
   8 /*num_rules*/,
 };
@@ -8027,7 +8027,7 @@ static const AtcZoneRule kAtcZoneRulesFalk[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyFalk  = {
+const AtcZonePolicy kAtcZonedballZonePolicyFalk  = {
   kAtcZoneRulesFalk /*rules*/,
   13 /*num_rules*/,
 };
@@ -8197,7 +8197,7 @@ static const AtcZoneRule kAtcZoneRulesFiji[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyFiji  = {
+const AtcZonePolicy kAtcZonedballZonePolicyFiji  = {
   kAtcZoneRulesFiji /*rules*/,
   13 /*num_rules*/,
 };
@@ -8271,7 +8271,7 @@ static const AtcZoneRule kAtcZoneRulesFinland[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyFinland  = {
+const AtcZonePolicy kAtcZonedballZonePolicyFinland  = {
   kAtcZoneRulesFinland /*rules*/,
   5 /*num_rules*/,
 };
@@ -8801,7 +8801,7 @@ static const AtcZoneRule kAtcZoneRulesFrance[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyFrance  = {
+const AtcZonePolicy kAtcZonedballZonePolicyFrance  = {
   kAtcZoneRulesFrance /*rules*/,
   43 /*num_rules*/,
 };
@@ -9607,7 +9607,7 @@ static const AtcZoneRule kAtcZoneRulesGB_Eire[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyGB_Eire  = {
+const AtcZonePolicy kAtcZonedballZonePolicyGB_Eire  = {
   kAtcZoneRulesGB_Eire /*rules*/,
   66 /*num_rules*/,
 };
@@ -9729,7 +9729,7 @@ static const AtcZoneRule kAtcZoneRulesGermany[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyGermany  = {
+const AtcZonePolicy kAtcZonedballZonePolicyGermany  = {
   kAtcZoneRulesGermany /*rules*/,
   9 /*num_rules*/,
 };
@@ -9983,7 +9983,7 @@ static const AtcZoneRule kAtcZoneRulesGreece[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyGreece  = {
+const AtcZonePolicy kAtcZonedballZonePolicyGreece  = {
   kAtcZoneRulesGreece /*rules*/,
   20 /*num_rules*/,
 };
@@ -10177,7 +10177,7 @@ static const AtcZoneRule kAtcZoneRulesGuam[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyGuam  = {
+const AtcZonePolicy kAtcZonedballZonePolicyGuam  = {
   kAtcZoneRulesGuam /*rules*/,
   15 /*num_rules*/,
 };
@@ -10299,7 +10299,7 @@ static const AtcZoneRule kAtcZoneRulesGuat[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyGuat  = {
+const AtcZonePolicy kAtcZonedballZonePolicyGuat  = {
   kAtcZoneRulesGuat /*rules*/,
   9 /*num_rules*/,
 };
@@ -10493,7 +10493,7 @@ static const AtcZoneRule kAtcZoneRulesHK[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyHK  = {
+const AtcZonePolicy kAtcZonedballZonePolicyHK  = {
   kAtcZoneRulesHK /*rules*/,
   15 /*num_rules*/,
 };
@@ -10651,7 +10651,7 @@ static const AtcZoneRule kAtcZoneRulesHaiti[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyHaiti  = {
+const AtcZonePolicy kAtcZonedballZonePolicyHaiti  = {
   kAtcZoneRulesHaiti /*rules*/,
   12 /*num_rules*/,
 };
@@ -11169,7 +11169,7 @@ static const AtcZoneRule kAtcZoneRulesHalifax[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyHalifax  = {
+const AtcZonePolicy kAtcZonedballZonePolicyHalifax  = {
   kAtcZoneRulesHalifax /*rules*/,
   42 /*num_rules*/,
 };
@@ -11219,7 +11219,7 @@ static const AtcZoneRule kAtcZoneRulesHoliday[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyHoliday  = {
+const AtcZonePolicy kAtcZonedballZonePolicyHoliday  = {
   kAtcZoneRulesHoliday /*rules*/,
   3 /*num_rules*/,
 };
@@ -11293,7 +11293,7 @@ static const AtcZoneRule kAtcZoneRulesHond[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyHond  = {
+const AtcZonePolicy kAtcZonedballZonePolicyHond  = {
   kAtcZoneRulesHond /*rules*/,
   5 /*num_rules*/,
 };
@@ -11547,7 +11547,7 @@ static const AtcZoneRule kAtcZoneRulesHungary[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyHungary  = {
+const AtcZonePolicy kAtcZonedballZonePolicyHungary  = {
   kAtcZoneRulesHungary /*rules*/,
   20 /*num_rules*/,
 };
@@ -11609,7 +11609,7 @@ static const AtcZoneRule kAtcZoneRulesIndianapolis[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyIndianapolis  = {
+const AtcZonePolicy kAtcZonedballZonePolicyIndianapolis  = {
   kAtcZoneRulesIndianapolis /*rules*/,
   4 /*num_rules*/,
 };
@@ -12115,7 +12115,7 @@ static const AtcZoneRule kAtcZoneRulesIran[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyIran  = {
+const AtcZonePolicy kAtcZonedballZonePolicyIran  = {
   kAtcZoneRulesIran /*rules*/,
   41 /*num_rules*/,
 };
@@ -12237,7 +12237,7 @@ static const AtcZoneRule kAtcZoneRulesIraq[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyIraq  = {
+const AtcZonePolicy kAtcZonedballZonePolicyIraq  = {
   kAtcZoneRulesIraq /*rules*/,
   9 /*num_rules*/,
 };
@@ -12755,7 +12755,7 @@ static const AtcZoneRule kAtcZoneRulesItaly[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyItaly  = {
+const AtcZonePolicy kAtcZonedballZonePolicyItaly  = {
   kAtcZoneRulesItaly /*rules*/,
   42 /*num_rules*/,
 };
@@ -12829,7 +12829,7 @@ static const AtcZoneRule kAtcZoneRulesJapan[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyJapan  = {
+const AtcZonePolicy kAtcZonedballZonePolicyJapan  = {
   kAtcZoneRulesJapan /*rules*/,
   5 /*num_rules*/,
 };
@@ -13239,7 +13239,7 @@ static const AtcZoneRule kAtcZoneRulesJordan[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyJordan  = {
+const AtcZonePolicy kAtcZonedballZonePolicyJordan  = {
   kAtcZoneRulesJordan /*rules*/,
   33 /*num_rules*/,
 };
@@ -13313,7 +13313,7 @@ static const AtcZoneRule kAtcZoneRulesKyrgyz[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyKyrgyz  = {
+const AtcZonePolicy kAtcZonedballZonePolicyKyrgyz  = {
   kAtcZoneRulesKyrgyz /*rules*/,
   5 /*num_rules*/,
 };
@@ -13507,7 +13507,7 @@ static const AtcZoneRule kAtcZoneRulesLH[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyLH  = {
+const AtcZonePolicy kAtcZonedballZonePolicyLH  = {
   kAtcZoneRulesLH /*rules*/,
   15 /*num_rules*/,
 };
@@ -13557,7 +13557,7 @@ static const AtcZoneRule kAtcZoneRulesLatvia[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyLatvia  = {
+const AtcZonePolicy kAtcZonedballZonePolicyLatvia  = {
   kAtcZoneRulesLatvia /*rules*/,
   3 /*num_rules*/,
 };
@@ -13871,7 +13871,7 @@ static const AtcZoneRule kAtcZoneRulesLebanon[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyLebanon  = {
+const AtcZonePolicy kAtcZonedballZonePolicyLebanon  = {
   kAtcZoneRulesLebanon /*rules*/,
   25 /*num_rules*/,
 };
@@ -14101,7 +14101,7 @@ static const AtcZoneRule kAtcZoneRulesLibya[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyLibya  = {
+const AtcZonePolicy kAtcZonedballZonePolicyLibya  = {
   kAtcZoneRulesLibya /*rules*/,
   18 /*num_rules*/,
 };
@@ -14235,7 +14235,7 @@ static const AtcZoneRule kAtcZoneRulesLouisville[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyLouisville  = {
+const AtcZonePolicy kAtcZonedballZonePolicyLouisville  = {
   kAtcZoneRulesLouisville /*rules*/,
   10 /*num_rules*/,
 };
@@ -14585,7 +14585,7 @@ static const AtcZoneRule kAtcZoneRulesMacau[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyMacau  = {
+const AtcZonePolicy kAtcZonedballZonePolicyMacau  = {
   kAtcZoneRulesMacau /*rules*/,
   28 /*num_rules*/,
 };
@@ -14695,7 +14695,7 @@ static const AtcZoneRule kAtcZoneRulesMalta[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyMalta  = {
+const AtcZonePolicy kAtcZonedballZonePolicyMalta  = {
   kAtcZoneRulesMalta /*rules*/,
   8 /*num_rules*/,
 };
@@ -14769,7 +14769,7 @@ static const AtcZoneRule kAtcZoneRulesMarengo[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyMarengo  = {
+const AtcZonePolicy kAtcZonedballZonePolicyMarengo  = {
   kAtcZoneRulesMarengo /*rules*/,
   5 /*num_rules*/,
 };
@@ -14843,7 +14843,7 @@ static const AtcZoneRule kAtcZoneRulesMauritius[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyMauritius  = {
+const AtcZonePolicy kAtcZonedballZonePolicyMauritius  = {
   kAtcZoneRulesMauritius /*rules*/,
   5 /*num_rules*/,
 };
@@ -14917,7 +14917,7 @@ static const AtcZoneRule kAtcZoneRulesMenominee[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyMenominee  = {
+const AtcZonePolicy kAtcZonedballZonePolicyMenominee  = {
   kAtcZoneRulesMenominee /*rules*/,
   5 /*num_rules*/,
 };
@@ -15135,7 +15135,7 @@ static const AtcZoneRule kAtcZoneRulesMexico[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyMexico  = {
+const AtcZonePolicy kAtcZonedballZonePolicyMexico  = {
   kAtcZoneRulesMexico /*rules*/,
   17 /*num_rules*/,
 };
@@ -15185,7 +15185,7 @@ static const AtcZoneRule kAtcZoneRulesMoldova[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyMoldova  = {
+const AtcZonePolicy kAtcZonedballZonePolicyMoldova  = {
   kAtcZoneRulesMoldova /*rules*/,
   3 /*num_rules*/,
 };
@@ -15367,7 +15367,7 @@ static const AtcZoneRule kAtcZoneRulesMoncton[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyMoncton  = {
+const AtcZonePolicy kAtcZonedballZonePolicyMoncton  = {
   kAtcZoneRulesMoncton /*rules*/,
   14 /*num_rules*/,
 };
@@ -15501,7 +15501,7 @@ static const AtcZoneRule kAtcZoneRulesMongol[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyMongol  = {
+const AtcZonePolicy kAtcZonedballZonePolicyMongol  = {
   kAtcZoneRulesMongol /*rules*/,
   10 /*num_rules*/,
 };
@@ -17723,7 +17723,7 @@ static const AtcZoneRule kAtcZoneRulesMorocco[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyMorocco  = {
+const AtcZonePolicy kAtcZonedballZonePolicyMorocco  = {
   kAtcZoneRulesMorocco /*rules*/,
   184 /*num_rules*/,
 };
@@ -17773,7 +17773,7 @@ static const AtcZoneRule kAtcZoneRulesNBorneo[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyNBorneo  = {
+const AtcZonePolicy kAtcZonedballZonePolicyNBorneo  = {
   kAtcZoneRulesNBorneo /*rules*/,
   3 /*num_rules*/,
 };
@@ -17847,7 +17847,7 @@ static const AtcZoneRule kAtcZoneRulesNC[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyNC  = {
+const AtcZonePolicy kAtcZonedballZonePolicyNC  = {
   kAtcZoneRulesNC /*rules*/,
   5 /*num_rules*/,
 };
@@ -17993,7 +17993,7 @@ static const AtcZoneRule kAtcZoneRulesNT_YK[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyNT_YK  = {
+const AtcZonePolicy kAtcZonedballZonePolicyNT_YK  = {
   kAtcZoneRulesNT_YK /*rules*/,
   11 /*num_rules*/,
 };
@@ -18079,7 +18079,7 @@ static const AtcZoneRule kAtcZoneRulesNYC[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyNYC  = {
+const AtcZonePolicy kAtcZonedballZonePolicyNYC  = {
   kAtcZoneRulesNYC /*rules*/,
   6 /*num_rules*/,
 };
@@ -18297,7 +18297,7 @@ static const AtcZoneRule kAtcZoneRulesNZ[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyNZ  = {
+const AtcZonePolicy kAtcZonedballZonePolicyNZ  = {
   kAtcZoneRulesNZ /*rules*/,
   17 /*num_rules*/,
 };
@@ -18359,7 +18359,7 @@ static const AtcZoneRule kAtcZoneRulesNamibia[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyNamibia  = {
+const AtcZonePolicy kAtcZonedballZonePolicyNamibia  = {
   kAtcZoneRulesNamibia /*rules*/,
   4 /*num_rules*/,
 };
@@ -18457,7 +18457,7 @@ static const AtcZoneRule kAtcZoneRulesNic[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyNic  = {
+const AtcZonePolicy kAtcZonedballZonePolicyNic  = {
   kAtcZoneRulesNic /*rules*/,
   7 /*num_rules*/,
 };
@@ -18519,7 +18519,7 @@ static const AtcZoneRule kAtcZoneRulesPRC[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyPRC  = {
+const AtcZonePolicy kAtcZonedballZonePolicyPRC  = {
   kAtcZoneRulesPRC /*rules*/,
   4 /*num_rules*/,
 };
@@ -18605,7 +18605,7 @@ static const AtcZoneRule kAtcZoneRulesPakistan[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyPakistan  = {
+const AtcZonePolicy kAtcZonedballZonePolicyPakistan  = {
   kAtcZoneRulesPakistan /*rules*/,
   6 /*num_rules*/,
 };
@@ -19951,7 +19951,7 @@ static const AtcZoneRule kAtcZoneRulesPalestine[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyPalestine  = {
+const AtcZonePolicy kAtcZonedballZonePolicyPalestine  = {
   kAtcZoneRulesPalestine /*rules*/,
   111 /*num_rules*/,
 };
@@ -20241,7 +20241,7 @@ static const AtcZoneRule kAtcZoneRulesPara[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyPara  = {
+const AtcZonePolicy kAtcZonedballZonePolicyPara  = {
   kAtcZoneRulesPara /*rules*/,
   23 /*num_rules*/,
 };
@@ -20315,7 +20315,7 @@ static const AtcZoneRule kAtcZoneRulesPerry[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyPerry  = {
+const AtcZonePolicy kAtcZonedballZonePolicyPerry  = {
   kAtcZoneRulesPerry /*rules*/,
   5 /*num_rules*/,
 };
@@ -20461,7 +20461,7 @@ static const AtcZoneRule kAtcZoneRulesPeru[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyPeru  = {
+const AtcZonePolicy kAtcZonedballZonePolicyPeru  = {
   kAtcZoneRulesPeru /*rules*/,
   11 /*num_rules*/,
 };
@@ -20607,7 +20607,7 @@ static const AtcZoneRule kAtcZoneRulesPhil[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyPhil  = {
+const AtcZonePolicy kAtcZonedballZonePolicyPhil  = {
   kAtcZoneRulesPhil /*rules*/,
   11 /*num_rules*/,
 };
@@ -20681,7 +20681,7 @@ static const AtcZoneRule kAtcZoneRulesPike[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyPike  = {
+const AtcZonePolicy kAtcZonedballZonePolicyPike  = {
   kAtcZoneRulesPike /*rules*/,
   5 /*num_rules*/,
 };
@@ -20947,7 +20947,7 @@ static const AtcZoneRule kAtcZoneRulesPoland[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyPoland  = {
+const AtcZonePolicy kAtcZonedballZonePolicyPoland  = {
   kAtcZoneRulesPoland /*rules*/,
   21 /*num_rules*/,
 };
@@ -21513,7 +21513,7 @@ static const AtcZoneRule kAtcZoneRulesPort[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyPort  = {
+const AtcZonePolicy kAtcZonedballZonePolicyPort  = {
   kAtcZoneRulesPort /*rules*/,
   46 /*num_rules*/,
 };
@@ -21587,7 +21587,7 @@ static const AtcZoneRule kAtcZoneRulesPulaski[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyPulaski  = {
+const AtcZonePolicy kAtcZonedballZonePolicyPulaski  = {
   kAtcZoneRulesPulaski /*rules*/,
   5 /*num_rules*/,
 };
@@ -21781,7 +21781,7 @@ static const AtcZoneRule kAtcZoneRulesROK[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyROK  = {
+const AtcZonePolicy kAtcZonedballZonePolicyROK  = {
   kAtcZoneRulesROK /*rules*/,
   15 /*num_rules*/,
 };
@@ -22011,7 +22011,7 @@ static const AtcZoneRule kAtcZoneRulesRegina[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyRegina  = {
+const AtcZonePolicy kAtcZonedballZonePolicyRegina  = {
   kAtcZoneRulesRegina /*rules*/,
   18 /*num_rules*/,
 };
@@ -22145,7 +22145,7 @@ static const AtcZoneRule kAtcZoneRulesRomania[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyRomania  = {
+const AtcZonePolicy kAtcZonedballZonePolicyRomania  = {
   kAtcZoneRulesRomania /*rules*/,
   10 /*num_rules*/,
 };
@@ -22363,7 +22363,7 @@ static const AtcZoneRule kAtcZoneRulesRussia[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyRussia  = {
+const AtcZonePolicy kAtcZonedballZonePolicyRussia  = {
   kAtcZoneRulesRussia /*rules*/,
   17 /*num_rules*/,
 };
@@ -22449,7 +22449,7 @@ static const AtcZoneRule kAtcZoneRulesRussiaAsia[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyRussiaAsia  = {
+const AtcZonePolicy kAtcZonedballZonePolicyRussiaAsia  = {
   kAtcZoneRulesRussiaAsia /*rules*/,
   6 /*num_rules*/,
 };
@@ -22499,7 +22499,7 @@ static const AtcZoneRule kAtcZoneRulesSA[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicySA  = {
+const AtcZonePolicy kAtcZonedballZonePolicySA  = {
   kAtcZoneRulesSA /*rules*/,
   3 /*num_rules*/,
 };
@@ -22549,7 +22549,7 @@ static const AtcZoneRule kAtcZoneRulesSalv[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicySalv  = {
+const AtcZonePolicy kAtcZonedballZonePolicySalv  = {
   kAtcZoneRulesSalv /*rules*/,
   3 /*num_rules*/,
 };
@@ -22599,7 +22599,7 @@ static const AtcZoneRule kAtcZoneRulesSanLuis[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicySanLuis  = {
+const AtcZonePolicy kAtcZonedballZonePolicySanLuis  = {
   kAtcZoneRulesSanLuis /*rules*/,
   3 /*num_rules*/,
 };
@@ -22793,7 +22793,7 @@ static const AtcZoneRule kAtcZoneRulesShang[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyShang  = {
+const AtcZonePolicy kAtcZonedballZonePolicyShang  = {
   kAtcZoneRulesShang /*rules*/,
   15 /*num_rules*/,
 };
@@ -22855,7 +22855,7 @@ static const AtcZoneRule kAtcZoneRulesSovietZone[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicySovietZone  = {
+const AtcZonePolicy kAtcZonedballZonePolicySovietZone  = {
   kAtcZoneRulesSovietZone /*rules*/,
   4 /*num_rules*/,
 };
@@ -23241,7 +23241,7 @@ static const AtcZoneRule kAtcZoneRulesSpain[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicySpain  = {
+const AtcZonePolicy kAtcZonedballZonePolicySpain  = {
   kAtcZoneRulesSpain /*rules*/,
   31 /*num_rules*/,
 };
@@ -23375,7 +23375,7 @@ static const AtcZoneRule kAtcZoneRulesSpainAfrica[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicySpainAfrica  = {
+const AtcZonePolicy kAtcZonedballZonePolicySpainAfrica  = {
   kAtcZoneRulesSpainAfrica /*rules*/,
   10 /*num_rules*/,
 };
@@ -23629,7 +23629,7 @@ static const AtcZoneRule kAtcZoneRulesStJohns[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyStJohns  = {
+const AtcZonePolicy kAtcZonedballZonePolicyStJohns  = {
   kAtcZoneRulesStJohns /*rules*/,
   20 /*num_rules*/,
 };
@@ -23715,7 +23715,7 @@ static const AtcZoneRule kAtcZoneRulesStarke[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyStarke  = {
+const AtcZonePolicy kAtcZonedballZonePolicyStarke  = {
   kAtcZoneRulesStarke /*rules*/,
   6 /*num_rules*/,
 };
@@ -23789,7 +23789,7 @@ static const AtcZoneRule kAtcZoneRulesSudan[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicySudan  = {
+const AtcZonePolicy kAtcZonedballZonePolicySudan  = {
   kAtcZoneRulesSudan /*rules*/,
   5 /*num_rules*/,
 };
@@ -23875,7 +23875,7 @@ static const AtcZoneRule kAtcZoneRulesSwift[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicySwift  = {
+const AtcZonePolicy kAtcZonedballZonePolicySwift  = {
   kAtcZoneRulesSwift /*rules*/,
   6 /*num_rules*/,
 };
@@ -23925,7 +23925,7 @@ static const AtcZoneRule kAtcZoneRulesSwiss[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicySwiss  = {
+const AtcZonePolicy kAtcZonedballZonePolicySwiss  = {
   kAtcZoneRulesSwiss /*rules*/,
   3 /*num_rules*/,
 };
@@ -24443,7 +24443,7 @@ static const AtcZoneRule kAtcZoneRulesSyria[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicySyria  = {
+const AtcZonePolicy kAtcZonedballZonePolicySyria  = {
   kAtcZoneRulesSyria /*rules*/,
   42 /*num_rules*/,
 };
@@ -24649,7 +24649,7 @@ static const AtcZoneRule kAtcZoneRulesTaiwan[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyTaiwan  = {
+const AtcZonePolicy kAtcZonedballZonePolicyTaiwan  = {
   kAtcZoneRulesTaiwan /*rules*/,
   16 /*num_rules*/,
 };
@@ -24747,7 +24747,7 @@ static const AtcZoneRule kAtcZoneRulesThule[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyThule  = {
+const AtcZonePolicy kAtcZonedballZonePolicyThule  = {
   kAtcZoneRulesThule /*rules*/,
   7 /*num_rules*/,
 };
@@ -24845,7 +24845,7 @@ static const AtcZoneRule kAtcZoneRulesTonga[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyTonga  = {
+const AtcZonePolicy kAtcZonedballZonePolicyTonga  = {
   kAtcZoneRulesTonga /*rules*/,
   7 /*num_rules*/,
 };
@@ -25087,7 +25087,7 @@ static const AtcZoneRule kAtcZoneRulesToronto[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyToronto  = {
+const AtcZonePolicy kAtcZonedballZonePolicyToronto  = {
   kAtcZoneRulesToronto /*rules*/,
   19 /*num_rules*/,
 };
@@ -25137,7 +25137,7 @@ static const AtcZoneRule kAtcZoneRulesTroll[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyTroll  = {
+const AtcZonePolicy kAtcZonedballZonePolicyTroll  = {
   kAtcZoneRulesTroll /*rules*/,
   3 /*num_rules*/,
 };
@@ -25463,7 +25463,7 @@ static const AtcZoneRule kAtcZoneRulesTunisia[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyTunisia  = {
+const AtcZonePolicy kAtcZonedballZonePolicyTunisia  = {
   kAtcZoneRulesTunisia /*rules*/,
   26 /*num_rules*/,
 };
@@ -26029,7 +26029,7 @@ static const AtcZoneRule kAtcZoneRulesTurkey[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyTurkey  = {
+const AtcZonePolicy kAtcZonedballZonePolicyTurkey  = {
   kAtcZoneRulesTurkey /*rules*/,
   46 /*num_rules*/,
 };
@@ -26211,7 +26211,7 @@ static const AtcZoneRule kAtcZoneRulesUS[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyUS  = {
+const AtcZonePolicy kAtcZonedballZonePolicyUS  = {
   kAtcZoneRulesUS /*rules*/,
   14 /*num_rules*/,
 };
@@ -26813,7 +26813,7 @@ static const AtcZoneRule kAtcZoneRulesUruguay[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyUruguay  = {
+const AtcZonePolicy kAtcZonedballZonePolicyUruguay  = {
   kAtcZoneRulesUruguay /*rules*/,
   49 /*num_rules*/,
 };
@@ -26947,7 +26947,7 @@ static const AtcZoneRule kAtcZoneRulesVanc[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyVanc  = {
+const AtcZonePolicy kAtcZonedballZonePolicyVanc  = {
   kAtcZoneRulesVanc /*rules*/,
   10 /*num_rules*/,
 };
@@ -27045,7 +27045,7 @@ static const AtcZoneRule kAtcZoneRulesVanuatu[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyVanuatu  = {
+const AtcZonePolicy kAtcZonedballZonePolicyVanuatu  = {
   kAtcZoneRulesVanuatu /*rules*/,
   7 /*num_rules*/,
 };
@@ -27179,7 +27179,7 @@ static const AtcZoneRule kAtcZoneRulesVincennes[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyVincennes  = {
+const AtcZonePolicy kAtcZonedballZonePolicyVincennes  = {
   kAtcZoneRulesVincennes /*rules*/,
   10 /*num_rules*/,
 };
@@ -27277,7 +27277,7 @@ static const AtcZoneRule kAtcZoneRulesW_Eur[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyW_Eur  = {
+const AtcZonePolicy kAtcZonedballZonePolicyW_Eur  = {
   kAtcZoneRulesW_Eur /*rules*/,
   7 /*num_rules*/,
 };
@@ -27363,7 +27363,7 @@ static const AtcZoneRule kAtcZoneRulesWS[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyWS  = {
+const AtcZonePolicy kAtcZonedballZonePolicyWS  = {
   kAtcZoneRulesWS /*rules*/,
   6 /*num_rules*/,
 };
@@ -27677,7 +27677,7 @@ static const AtcZoneRule kAtcZoneRulesWinn[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyWinn  = {
+const AtcZonePolicy kAtcZonedballZonePolicyWinn  = {
   kAtcZoneRulesWinn /*rules*/,
   25 /*num_rules*/,
 };
@@ -27727,7 +27727,7 @@ static const AtcZoneRule kAtcZoneRulesYukon[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyYukon  = {
+const AtcZonePolicy kAtcZonedballZonePolicyYukon  = {
   kAtcZoneRulesYukon /*rules*/,
   3 /*num_rules*/,
 };
@@ -28773,7 +28773,7 @@ static const AtcZoneRule kAtcZoneRulesZion[]  = {
 
 };
 
-const AtcZonePolicy kAtcAllZonePolicyZion  = {
+const AtcZonePolicy kAtcZonedballZonePolicyZion  = {
   kAtcZoneRulesZion /*rules*/,
   86 /*num_rules*/,
 };

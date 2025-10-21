@@ -97,7 +97,7 @@ ACU_TEST(test_atc_transition_compare_to_match)
 {
   // UNTIL = 2002-01-02T03:00
   const AtcZoneEra ERA = {
-  #if ATC_HIRES_ZONEDB
+  #if ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_HIGH
     .zone_policy = NULL,
     .format = "",
     .offset_code = 0,
@@ -108,7 +108,7 @@ ACU_TEST(test_atc_transition_compare_to_match)
     .until_day = 2,
     .until_time_code = 3*3600/15,
     .until_time_modifier = kAtcSuffixW,
-  #else
+  #elif ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_MID
     .zone_policy = NULL,
     .format = "",
     .offset_code = 0,

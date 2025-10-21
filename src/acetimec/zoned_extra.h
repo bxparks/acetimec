@@ -23,8 +23,8 @@ extern "C" {
 /** Forward declaration for AceTimeZone. */
 typedef struct AtcTimeZone AtcTimeZone;
 
-/** Forward declaration for AtcLocalDateTime. */
-typedef struct AtcLocalDateTime AtcLocalDateTime;
+/** Forward declaration for AtcPlainDateTime. */
+typedef struct AtcPlainDateTime AtcPlainDateTime;
 
 /**
  * Values of the the AtcZonedExtra.fold_type field. Must be identical to the
@@ -42,7 +42,7 @@ enum {
  */
 typedef struct AtcZonedExtra {
   /**
-   * Result of search for the LocalDateTime or epoch_seconds, which is
+   * Result of search for the PlainDateTime or epoch_seconds, which is
    * determines by the type of fold.
    */
   int8_t fold_type;
@@ -56,10 +56,10 @@ typedef struct AtcZonedExtra {
   /** DST offset */
   int32_t dst_offset_seconds;
 
-  /** STD offset of the requested LocalDateTime or epoch_seconds */
+  /** STD offset of the requested PlainDateTime or epoch_seconds */
   int32_t req_std_offset_seconds;
 
-  /** DST offset of the requested LocalDateTime or epoch_seconds */
+  /** DST offset of the requested PlainDateTime or epoch_seconds */
   int32_t req_dst_offset_seconds;
 } AtcZonedExtra;
 
@@ -97,12 +97,12 @@ void atc_zoned_extra_from_unix_seconds(
     const AtcTimeZone *tz);
 
 /**
- * Extract the extra zone information at given LocalDateTime.
+ * Extract the extra zone information at given PlainDateTime.
  * Returns `extra->fold_type == kAtcFoldTypeNotFound` if not found.
  */
-void atc_zoned_extra_from_local_date_time(
+void atc_zoned_extra_from_plain_date_time(
     AtcZonedExtra *extra,
-    const AtcLocalDateTime *ldt,
+    const AtcPlainDateTime *pdt,
     const AtcTimeZone *tz,
     uint8_t disambiguate);
 

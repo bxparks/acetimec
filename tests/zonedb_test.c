@@ -9,19 +9,31 @@
 // testing infrastructure.
 // 
 
-ACU_TEST(test_zonedb_sizes)
+ACU_TEST(test_zonedb2000_sizes)
 {
   // These numbers are correct for TZDB 2025b
-  ACU_ASSERT(sizeof(kAtcZoneRegistry) / sizeof(AtcZoneInfo*) == 340);
-  ACU_ASSERT(sizeof(kAtcZoneAndLinkRegistry) / sizeof(AtcZoneInfo*) == 597);
+  ACU_ASSERT(sizeof(kAtcZonedb2000ZoneRegistry) / sizeof(AtcZoneInfo*) == 340);
+  ACU_ASSERT(sizeof(kAtcZonedb2000ZoneAndLinkRegistry) / sizeof(AtcZoneInfo*)
+      == 597);
 }
 
+ACU_TEST(test_zonedb2025_sizes)
+{
+  // These numbers are correct for TZDB 2025b
+  ACU_ASSERT(sizeof(kAtcZonedb2025ZoneRegistry) / sizeof(AtcZoneInfo*) == 340);
+  ACU_ASSERT(sizeof(kAtcZonedb2025ZoneAndLinkRegistry) / sizeof(AtcZoneInfo*)
+      == 597);
+}
+
+#if ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_HIGH
 ACU_TEST(test_zonedball_sizes)
 {
   // These numbers are correct for TZDB 2025b
-  ACU_ASSERT(sizeof(kAtcAllZoneRegistry) / sizeof(AtcZoneInfo*) == 340);
-  ACU_ASSERT(sizeof(kAtcAllZoneAndLinkRegistry) / sizeof(AtcZoneInfo*) == 597);
+  ACU_ASSERT(sizeof(kAtcZonedballZoneRegistry) / sizeof(AtcZoneInfo*) == 340);
+  ACU_ASSERT(sizeof(kAtcZonedballZoneAndLinkRegistry) / sizeof(AtcZoneInfo*)
+      == 597);
 }
+#endif
 
 //---------------------------------------------------------------------------
 
@@ -29,7 +41,10 @@ ACU_CONTEXT();
 
 int main()
 {
-  ACU_RUN_TEST(test_zonedb_sizes);
+  ACU_RUN_TEST(test_zonedb2000_sizes);
+  ACU_RUN_TEST(test_zonedb2025_sizes);
+#if ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_HIGH
   ACU_RUN_TEST(test_zonedball_sizes);
+#endif
   ACU_SUMMARY();
 }

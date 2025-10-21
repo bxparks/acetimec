@@ -33,38 +33,39 @@ ASCII table.
 ## Results
 
 **0.7.0**
-* Initial version
+- Initial version
 
 **0.8.0**
-* Regenerate using `ATC_HIRES_ZONEDB` using years `[2000,10000)`.
-    * one-second resolution for AT, UNTIL, STDOFF
-    * one-minute resolution for DSTOFF (Zone.RULES, Rule.SAVE)
-    * 8-bit
-        * flash increases by ~650 bytes, independent of number of zones
-        * RAM increases ~100 bytes per zone
-    * 32-bit
-        * NO flash increase
-        * RAM increases by ~150 bytes per zone
-* Regenerate using `ATC_HIRES_ZONEDB` using years `[1800,10000)`, covering
-  all TZDB transitions.
-    * Increases flash of ZoneRegistry by almost 100%.
-        * 8-bit: 33kB to 66kB
-        * 32-bit: 40kB to 80kB
-    * ZoneAndLinkRegistry is another 10kB.
-        * Microprocessors without `PROGMEM` support no longer compiles because
+- Regenerate using `ACE_TIME_C_ZONEDB_RES=ACE_TIME_C_ZONEDB_RES_HIGH` using
+  years `[2000,10000)`.
+    - one-second resolution for AT, UNTIL, STDOFF
+    - one-minute resolution for DSTOFF (Zone.RULES, Rule.SAVE)
+    - 8-bit
+        - flash increases by ~650 bytes, independent of number of zones
+        - RAM increases ~100 bytes per zone
+    - 32-bit
+        - NO flash increase
+        - RAM increases by ~150 bytes per zone
+- Regenerate using `ACE_TIME_C_ZONEDB_RES=ACE_TIME_C_ZONEDB_RES_HIGH` using
+  years `[1800,10000)`, covering all TZDB transitions.
+    - Increases flash of ZoneRegistry by almost 100%.
+        - 8-bit: 33kB to 66kB
+        - 32-bit: 40kB to 80kB
+    - ZoneAndLinkRegistry is another 10kB.
+        - Microprocessors without `PROGMEM` support no longer compiles because
           it tries to instantiate the zonedb into RAM.
-* Upgrade to 2023c
-* Add memory numbers for `zonedball` database.
+- Upgrade to 2023c
+- Add memory numbers for `zonedball` database.
 
 **0.9.0**
-* Remove Teensy3.2, moved into Tier 2.
-* Add SAMD21 (Seeeduino XIAO) and SAMD51 (Adafruit ItsyBitsy M4).
+- Remove Teensy3.2, moved into Tier 2.
+- Add SAMD21 (Seeeduino XIAO) and SAMD51 (Adafruit ItsyBitsy M4).
 
 ### Arduino Nano
 
-* 16MHz ATmega328P
-* Arduino IDE 1.8.19, Arduino CLI 0.31.0
-* Arduino AVR Boards 1.8.6
+- 16MHz ATmega328P
+- Arduino IDE 1.8.19, Arduino CLI 0.31.0
+- Arduino AVR Boards 1.8.6
 
 ```
 +---------------------------------------------------------------------+
@@ -72,7 +73,7 @@ ASCII table.
 |---------------------------------------+--------------+--------------|
 | baseline                              |    474/   11 |      0/    0 |
 |---------------------------------------+--------------+--------------|
-| LocalDateTime                         |   1006/   21 |    532/   10 |
+| PlainDateTime                         |   1006/   21 |    532/   10 |
 | ZonedDateTime                         |   3034/   67 |   2560/   56 |
 | TimeZone1                             |   7540/  829 |   7066/  818 |
 | TimeZone2                             |   8374/ 1471 |   7900/ 1460 |
@@ -88,9 +89,9 @@ stored in RAM not in flash.
 
 ### Sparkfun Pro Micro
 
-* 16 MHz ATmega32U4
-* Arduino IDE 1.8.19, Arduino CLI 0.31.0
-* SparkFun AVR Boards 1.1.13
+- 16 MHz ATmega32U4
+- Arduino IDE 1.8.19, Arduino CLI 0.31.0
+- SparkFun AVR Boards 1.1.13
 
 ```
 +---------------------------------------------------------------------+
@@ -98,7 +99,7 @@ stored in RAM not in flash.
 |---------------------------------------+--------------+--------------|
 | baseline                              |   3470/  153 |      0/    0 |
 |---------------------------------------+--------------+--------------|
-| LocalDateTime                         |   3962/  161 |    492/    8 |
+| PlainDateTime                         |   3962/  161 |    492/    8 |
 | ZonedDateTime                         |   5988/  205 |   2518/   52 |
 | TimeZone1                             |  10496/  969 |   7026/  816 |
 | TimeZone2                             |  11328/ 1609 |   7858/ 1456 |
@@ -114,9 +115,9 @@ stored in RAM not in flash.
 
 ### SAMD21 (Seeeduino XIAO)
 
-* SAMD21, 48 MHz ARM Cortex-M0+
-* Arduino IDE 1.8.19, Arduino CLI 0.31.0
-* Seeeduino SAMD 1.8.3
+- SAMD21, 48 MHz ARM Cortex-M0+
+- Arduino IDE 1.8.19, Arduino CLI 0.31.0
+- Seeeduino SAMD 1.8.3
 
 ```
 +---------------------------------------------------------------------+
@@ -124,7 +125,7 @@ stored in RAM not in flash.
 |---------------------------------------+--------------+--------------|
 | baseline                              |  34068/    0 |      0/    0 |
 |---------------------------------------+--------------+--------------|
-| LocalDateTime                         |  34316/    0 |    248/    0 |
+| PlainDateTime                         |  34316/    0 |    248/    0 |
 | ZonedDateTime                         |  38812/    0 |   4744/    0 |
 | TimeZone1                             |  39524/    0 |   5456/    0 |
 | TimeZone2                             |  40124/    0 |   6056/    0 |
@@ -143,9 +144,9 @@ microcontroller and the compiler did not generate the desired information.
 
 ### STM32 Blue Pill
 
-* STM32F103C8, 72 MHz ARM Cortex-M3
-* Arduino IDE 1.8.19, Arduino CLI 0.31.0
-* STM32duino 2.4.0
+- STM32F103C8, 72 MHz ARM Cortex-M3
+- Arduino IDE 1.8.19, Arduino CLI 0.31.0
+- STM32duino 2.4.0
 
 ```
 +---------------------------------------------------------------------+
@@ -153,7 +154,7 @@ microcontroller and the compiler did not generate the desired information.
 |---------------------------------------+--------------+--------------|
 | baseline                              |  21392/ 3556 |      0/    0 |
 |---------------------------------------+--------------+--------------|
-| LocalDateTime                         |  21664/ 3572 |    272/   16 |
+| PlainDateTime                         |  21664/ 3572 |    272/   16 |
 | ZonedDateTime                         |  25984/ 3592 |   4592/   36 |
 | TimeZone1                             |  26712/ 4384 |   5320/  828 |
 | TimeZone2                             |  27272/ 5196 |   5880/ 1640 |
@@ -172,9 +173,9 @@ microcontroller and the compiler did not generate the desired information.
 
 ### SAMD51 (Adafruit ItsyBitsy M4)
 
-* SAMD51, 120 MHz ARM Cortex-M4
-* Arduino IDE 1.8.19, Arduino CLI 0.31.0
-* Adafruit SAMD 1.7.11
+- SAMD51, 120 MHz ARM Cortex-M4
+- Arduino IDE 1.8.19, Arduino CLI 0.31.0
+- Adafruit SAMD 1.7.11
 
 ```
 +---------------------------------------------------------------------+
@@ -182,7 +183,7 @@ microcontroller and the compiler did not generate the desired information.
 |---------------------------------------+--------------+--------------|
 | baseline                              |  10580/    0 |      0/    0 |
 |---------------------------------------+--------------+--------------|
-| LocalDateTime                         |  10828/    0 |    248/    0 |
+| PlainDateTime                         |  10828/    0 |    248/    0 |
 | ZonedDateTime                         |  15132/    0 |   4552/    0 |
 | TimeZone1                             |  15852/    0 |   5272/    0 |
 | TimeZone2                             |  16424/    0 |   5844/    0 |
@@ -201,9 +202,9 @@ microcontroller and the compiler did not generate the desired information.
 
 ### ESP8266
 
-* NodeMCU 1.0, 80MHz ESP8266
-* Arduino IDE 1.8.19, Arduino CLI 0.31.0
-* ESP8266 Boards 3.0.2
+- NodeMCU 1.0, 80MHz ESP8266
+- Arduino IDE 1.8.19, Arduino CLI 0.31.0
+- ESP8266 Boards 3.0.2
 
 ```
 +---------------------------------------------------------------------+
@@ -211,7 +212,7 @@ microcontroller and the compiler did not generate the desired information.
 |---------------------------------------+--------------+--------------|
 | baseline                              | 260089/27892 |      0/    0 |
 |---------------------------------------+--------------+--------------|
-| LocalDateTime                         | 260525/27912 |    436/   20 |
+| PlainDateTime                         | 260525/27912 |    436/   20 |
 | ZonedDateTime                         | 266461/27968 |   6372/   76 |
 | TimeZone1                             | 267213/29464 |   7124/ 1572 |
 | TimeZone2                             | 267941/30336 |   7852/ 2444 |
@@ -227,9 +228,9 @@ stored in RAM not in flash.
 
 ### ESP32
 
-* ESP32-01 Dev Board, 240 MHz Tensilica LX6
-* Arduino IDE 1.8.19, Arduino CLI 0.31.0
-* ESP32 Boards 2.0.7
+- ESP32-01 Dev Board, 240 MHz Tensilica LX6
+- Arduino IDE 1.8.19, Arduino CLI 0.31.0
+- ESP32 Boards 2.0.7
 
 ```
 +---------------------------------------------------------------------+
@@ -237,7 +238,7 @@ stored in RAM not in flash.
 |---------------------------------------+--------------+--------------|
 | baseline                              | 228345/21976 |      0/    0 |
 |---------------------------------------+--------------+--------------|
-| LocalDateTime                         | 228761/21992 |    416/   16 |
+| PlainDateTime                         | 228761/21992 |    416/   16 |
 | ZonedDateTime                         | 233541/22016 |   5196/   40 |
 | TimeZone1                             | 234281/22800 |   5936/  824 |
 | TimeZone2                             | 234865/23616 |   6520/ 1640 |
