@@ -15,7 +15,7 @@
 #include <stdint.h>
 #include "../zoneinfo/zone_info.h" // AtcZoneEra
 #include "common.h" // atc_time_t
-#include "local_date_time.h" // AtcLocalDateTime
+#include "plain_date_time.h" // AtcPlainDateTime
 #include "date_tuple.h" // AtcDateTuple
 
 #ifdef __cplusplus
@@ -323,7 +323,7 @@ uint8_t atc_transition_compare_to_match_fuzzy(
  * The result returned by atc_transition_storage_find_for_seconds() when
  * searching for Transition by epoch seconds. Searching by epoch_seconds is
  * guaranteed to return only a single Transition if found. Usually `fold=0`. But
- * if the epoch_seconds maps to a AtcLocalDateTime which occurs a second time
+ * if the epoch_seconds maps to a AtcPlainDateTime which occurs a second time
  * during a "fall back", then `fold` is set to 1.
  *
  * Adapted from TransitionForSeconds in Transition.h of the AceTime library.
@@ -336,9 +336,9 @@ typedef struct AtcTransitionForSeconds {
   uint8_t fold;
 
   /**
-   * Number of occurrences of the resulting AtcLocalDateTime: 0, 1, or 2.
-   * This is needed because a fold=0 can mean that the AtcLocalDateTime occurs
-   * exactly once, or that the first of two occurrences of AtcLocalDateTime was
+   * Number of occurrences of the resulting AtcPlainDateTime: 0, 1, or 2.
+   * This is needed because a fold=0 can mean that the AtcPlainDateTime occurs
+   * exactly once, or that the first of two occurrences of AtcPlainDateTime was
    * selected by the epoch_seconds.
    */
   uint8_t num;
@@ -376,7 +376,7 @@ typedef struct AtcTransitionForDateTime {
   /** The matching transition or null if not found. */
   const AtcTransition *curr;
 
-  /** Number of matches for given LocalDateTime: 0, 1, or 2. */
+  /** Number of matches for given PlainDateTime: 0, 1, or 2. */
   uint8_t num;
 } AtcTransitionForDateTime;
 
@@ -387,7 +387,7 @@ typedef struct AtcTransitionForDateTime {
  */
 AtcTransitionForDateTime atc_transition_storage_find_for_date_time(
     const AtcTransitionStorage *ts,
-    const AtcLocalDateTime *ldt);
+    const AtcPlainDateTime *pdt);
 
 #ifdef __cplusplus
 }

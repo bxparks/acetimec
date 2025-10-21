@@ -14,7 +14,7 @@
 ACU_TEST(test_atc_compare_era_to_year_month) {
   // 2000-01-02T03:00
   const AtcZoneEra era = {
-#if ATC_HIRES_ZONEDB
+#if ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_HIGH
     .zone_policy = NULL,
     .format = "",
     .offset_code = 0,
@@ -25,7 +25,7 @@ ACU_TEST(test_atc_compare_era_to_year_month) {
     .until_day = 2,
     .until_time_code = 3*3600/15,
     .until_time_modifier = kAtcSuffixW,
-#else
+#elif ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_MID
     .zone_policy = NULL,
     .format = "",
     .offset_code = 0,
@@ -47,7 +47,7 @@ ACU_TEST(test_atc_compare_era_to_year_month) {
 ACU_TEST(test_atc_compare_era_to_year_month_equal) {
   // 2000-01-01T00:00
   const AtcZoneEra era2 = {
-#if ATC_HIRES_ZONEDB
+#if ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_HIGH
     .zone_policy = NULL,
     .format = "",
     .offset_code = 0,
@@ -58,7 +58,7 @@ ACU_TEST(test_atc_compare_era_to_year_month_equal) {
     .until_day = 1,
     .until_time_code = 0*3600/15,
     .until_time_modifier = kAtcSuffixW,
-#else
+#elif ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_MID
     .zone_policy = NULL,
     .format = "",
     .offset_code = 0,
@@ -82,7 +82,7 @@ ACU_TEST(test_atc_create_matching_era) {
 
   // UNTIL = 2000-12-02 3:00
   const AtcZoneEra era1 = {
-#if ATC_HIRES_ZONEDB
+#if ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_HIGH
     .zone_policy = NULL,
     .format = "",
     .offset_code = 0,
@@ -93,7 +93,7 @@ ACU_TEST(test_atc_create_matching_era) {
     .until_day = 2,
     .until_time_code = 3*3600/15,
     .until_time_modifier = kAtcSuffixW,
-#else
+#elif ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_MID
     .zone_policy = NULL,
     .format = "",
     .offset_code = 0,
@@ -108,7 +108,7 @@ ACU_TEST(test_atc_create_matching_era) {
 
   // UNTIL = 2001-02-03 4:00
   const AtcZoneEra era2 = {
-#if ATC_HIRES_ZONEDB
+#if ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_HIGH
     .zone_policy = NULL,
     .format = "",
     .offset_code = 0,
@@ -119,7 +119,7 @@ ACU_TEST(test_atc_create_matching_era) {
     .until_day = 3,
     .until_time_code = 4*3600/15,
     .until_time_modifier = kAtcSuffixW,
-#else
+#elif ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_MID
     .zone_policy = NULL,
     .format = "",
     .offset_code = 0,
@@ -134,7 +134,7 @@ ACU_TEST(test_atc_create_matching_era) {
 
   // UNTIL = 2002-10-11 4:00
   const AtcZoneEra era3 = {
-#if ATC_HIRES_ZONEDB
+#if ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_HIGH
     .zone_policy = NULL,
     .format = "",
     .offset_code = 0,
@@ -145,7 +145,7 @@ ACU_TEST(test_atc_create_matching_era) {
     .until_day = 11,
     .until_time_code = 4*3600/15,
     .until_time_modifier = kAtcSuffixW,
-#else
+#elif ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_MID
     .zone_policy = NULL,
     .format = "",
     .offset_code = 0,
@@ -242,8 +242,8 @@ static const AtcZoneContext kZoneContext = {
   .letters = NULL,
 };
 
-#if ATC_HIRES_ZONEDB
   const AtcZoneEra era1 = {
+#if ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_HIGH
     .zone_policy = NULL,
     .format = "",
     .offset_code = 0,
@@ -254,9 +254,7 @@ static const AtcZoneContext kZoneContext = {
     .until_day = 2,
     .until_time_code = 3*3600/15,
     .until_time_modifier = kAtcSuffixW,
-  };
-#else
-  const AtcZoneEra era1 = {
+#elif ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_MID
     .zone_policy = NULL,
     .format = "",
     .offset_code = 0,
@@ -266,11 +264,12 @@ static const AtcZoneContext kZoneContext = {
     .until_day = 2,
     .until_time_code = 3*60/15,
     .until_time_modifier = kAtcSuffixW,
-  }
 #endif
+  };
+
 // Create simplified ZoneEras which approximate America/Los_Angeles
 static const AtcZoneEra kZoneEraAlmostLosAngeles[] = {
-#if ATC_HIRES_ZONEDB
+#if ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_HIGH
   {
     .zone_policy = NULL,
     .format = "PST",
@@ -307,7 +306,7 @@ static const AtcZoneEra kZoneEraAlmostLosAngeles[] = {
     .until_time_code = 2*3600/15,
     .until_time_modifier = kAtcSuffixW,
   },
-#else
+#elif ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_MID
   {
     .zone_policy = NULL,
     .format = "PST",
@@ -691,7 +690,7 @@ ACU_TEST(test_atc_processor_process_transition_match_status)
 {
   // UNTIL = 2002-01-02T03:00
   const AtcZoneEra era = {
-#if ATC_HIRES_ZONEDB
+#if ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_HIGH
     .zone_policy = NULL,
     .format = "",
     .offset_code = 0,
@@ -702,7 +701,7 @@ ACU_TEST(test_atc_processor_process_transition_match_status)
     .until_day = 2,
     .until_time_code = 3*3600/15,
     .until_time_modifier = kAtcSuffixW,
-#else
+#elif ACE_TIME_C_ZONEDB_RES == ACE_TIME_C_ZONEDB_RES_MID
     .zone_policy = NULL,
     .format = "",
     .offset_code = 0,

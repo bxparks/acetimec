@@ -34,10 +34,10 @@ void atc_zoned_extra_from_unix_seconds(
   atc_time_zone_zoned_extra_from_epoch_seconds(tz, epoch_seconds, extra);
 }
 
-void atc_zoned_extra_from_local_date_time(
+void atc_zoned_extra_from_plain_date_time(
     AtcZonedExtra *extra,
-    const AtcLocalDateTime *ldt,
+    const AtcPlainDateTime *pdt,
     const AtcTimeZone *tz,
     uint8_t disambiguate) {
-  atc_time_zone_zoned_extra_from_local_date_time(tz, ldt, disambiguate, extra);
+  atc_time_zone_zoned_extra_from_plain_date_time(tz, pdt, disambiguate, extra);
 }

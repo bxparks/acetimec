@@ -32,9 +32,9 @@ void setup() {
   AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &losAngelesProcessor};
 
   // Create a ZoneDateTime of 2019-03-10T03:00:00, just after DST shift
-  struct AtcLocalDateTime localTime = {2019, 3, 10, 3, 0, 0};
+  struct AtcPlainDateTime localTime = {2019, 3, 10, 3, 0, 0};
   struct AtcZonedDateTime startTime;
-  atc_zoned_date_time_from_local_date_time(
+  atc_zoned_date_time_from_plain_date_time(
       &startTime, &localTime, &tz, kAtcDisambiguateCompatible);
 
   // Print the AceTime epoch seconds

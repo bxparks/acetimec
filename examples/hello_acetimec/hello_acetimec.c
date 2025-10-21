@@ -1,41 +1,34 @@
 /*
-Sample program used the README.md file.
+Sample program used in the README.md file that demonstrates the basic features
+of the acetimec library. WARNING: This performs no error checking to reduce
+clutter for demo purposes.
 
 Usage:
 $ make
 $ ./hello_acetimec.out
-======== ZonedDateTime from epoch seconds
-Epoch Seconds: 3432423
-Resolved: 0
+==== ZonedDateTime from epoch seconds
+Epoch seconds: 3432423
 Los Angeles: 2050-02-09T09:27:03-08:00[America/Los_Angeles]
-Converted Seconds: 3432423
-======== ZonedDateTime from LocalDateTime using DisambiguateCompatible
-LocalDateTime: 2022-11-06T01:30:00
-Resolved: 1
+Epoch seconds: 3432423
+Unix seconds: 2528040423
+==== ZonedDateTime from PlainDateTime with DisambiguateCompatible
+PlainDateTime: 2022-11-06T01:30:00
 Los Angeles: 2022-11-06T01:30:00-07:00[America/Los_Angeles]
-Epoch Seconds: -856884600
-======== Convert ZonedDateTime to different time zone
-Resolved: 0
+Epoch seconds: -856884600
+Unix seconds: 1667723400
+==== Convert ZonedDateTime to different time zone
 New York: 2022-11-06T03:30:00-05:00[America/New_York]
-Epoch Seconds: -856884600
-======== Modify ZonedDateTime without normalization
-Resolved: 0
-New York: 2022-11-06T00:30:00-05:00[America/New_York]
-Epoch Seconds: -856884600
-======== Normalize ZonedDateTime using DisambiguateCompatible
-Resolved: 0
-New York: 2022-11-06T00:30:00-04:00[America/New_York]
-Epoch Seconds: -856884600
+Epoch seconds: -856884600
+Unix seconds: 1667723400
 */
 
-#include <stdlib.h> // exit()
 #include <stdio.h>
 #include <acetimec.h>
 
 AtcZoneProcessor processor_la; // Los Angeles
 AtcZoneProcessor processor_ny; // New York
 
-// initialize the time zone processor workspace
+// Initialize the time zone processor workspace.
 void setup()
 {
   atc_processor_init(&processor_la);
@@ -44,128 +37,93 @@ void setup()
 
 void print_dates()
 {
-  printf("======== ZonedDateTime from epoch seconds\n");
+  printf("==== ZonedDateTime from epoch seconds\n");
 
   atc_time_t seconds = 3432423;
-  printf("Epoch Seconds: %ld\n", (long) seconds);
+  printf("Epoch seconds: %ld\n", (long) seconds);
 
   // Convert epoch seconds to date/time components for given time zone.
-  AtcTimeZone tzla = {&kAtcZoneAmerica_Los_Angeles, &processor_la};
+  AtcTimeZone tzla = {&kAtcZonedb2000ZoneAmerica_Los_Angeles, &processor_la};
   AtcZonedDateTime zdtla;
   atc_zoned_date_time_from_epoch_seconds(&zdtla, seconds, &tzla);
-  if (atc_zoned_date_time_is_error(&zdtla)) {
-    printf("ERROR: Unable to create ZonedDateTime from epoch seconds\n");
-    exit(1);
-  }
+  if (atc_zoned_date_time_is_error(&zdtla)) { /*error*/ }
+
+  // Allocate string buffer for human readable strings.
+  struct AtcStringBuffer sb;
+  char buf[80];
+  atc_buf_init(&sb, buf, sizeof(buf));
 
   // Print the date for Los Angeles.
-  printf("Resolved: %d\n", zdtla.resolved);
-  char buf[80];
-  struct AtcStringBuffer sb;
-  atc_buf_init(&sb, buf, 80);
   atc_zoned_date_time_print(&sb, &zdtla);
   atc_buf_close(&sb);
   printf("Los Angeles: %s\n", sb.p);
 
-  // Convert zoned_date_time to back to epoch seconds.
+  // Print the epoch seconds.
   atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
-  if (epoch_seconds == kAtcInvalidEpochSeconds) {
-    printf("ERROR: Unable to convert ZonedDateTime to epoch seconds\n");
-    exit(1);
-  }
-  if (seconds != epoch_seconds) {
-    printf("ERROR: Converted seconds (%ld) != original seconds (%ld)\n",
-        (long) epoch_seconds, (long) seconds);
-    exit(1);
-  }
-  printf("Converted Seconds: %ld\n", (long) epoch_seconds);
+  if (epoch_seconds == kAtcInvalidEpochSeconds) { /*error*/ }
+  if (seconds != epoch_seconds) { /*error*/ }
+  printf("Epoch seconds: %ld\n", (long) epoch_seconds);
 
-  printf("======== ZonedDateTime from LocalDateTime using DisambiguateCompatible\n");
+  // Print the unix seconds.
+  int64_t unix_seconds = atc_zoned_date_time_to_unix_seconds(&zdtla);
+  if (unix_seconds == kAtcInvalidUnixSeconds) { /*error*/ }
+  printf("Unix seconds: %lld\n", (long long) unix_seconds);
 
-  // Start with a LocalDateTime in an overlap.
-  AtcLocalDateTime ldt = {2022, 11, 6, 1, 30, 0};
+  printf("==== ZonedDateTime from PlainDateTime with DisambiguateCompatible\n");
+
+  // Start with a PlainDateTime in an overlap.
+  AtcPlainDateTime pdt = {2022, 11, 6, 1, 30, 0};
   atc_buf_reset(&sb);
-  atc_local_date_time_print(&sb, &ldt);
+  atc_plain_date_time_print(&sb, &pdt);
   atc_buf_close(&sb);
-  printf("LocalDateTime: %s\n", sb.p);
+  printf("PlainDateTime: %s\n", sb.p);
 
   // Convert components to an AtcZonedDateTime. 2022-11-06 01:30 occurred twice.
   // It is probably most common to want the earlier one, which can be done
   // using either kAtcDisambiguateCompatible or kAtcDisambiguateEarlier.
-  atc_zoned_date_time_from_local_date_time(
-      &zdtla, &ldt, &tzla, kAtcDisambiguateCompatible);
-  if (atc_zoned_date_time_is_error(&zdtla)) {
-    printf("ERROR: Unable to create ZonedDateTime from LocalDateTime\n");
-    exit(1);
-  }
+  atc_zoned_date_time_from_plain_date_time(
+      &zdtla, &pdt, &tzla, kAtcDisambiguateCompatible);
+  if (atc_zoned_date_time_is_error(&zdtla)) { /*error*/ }
 
   // Print the date time.
-  printf("Resolved: %d\n", zdtla.resolved);
   atc_buf_reset(&sb);
   atc_zoned_date_time_print(&sb, &zdtla);
   atc_buf_close(&sb);
   printf("Los Angeles: %s\n", sb.p);
-  epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
-  printf("Epoch Seconds: %ld\n", (long) epoch_seconds);
 
-  printf("======== Convert ZonedDateTime to different time zone\n");
+  // Print the epoch seconds.
+  epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
+  if (epoch_seconds == kAtcInvalidEpochSeconds) { /*error*/ }
+  printf("Epoch seconds: %ld\n", (long) epoch_seconds);
+
+  // Print the unix seconds.
+  unix_seconds = atc_zoned_date_time_to_unix_seconds(&zdtla);
+  if (unix_seconds == kAtcInvalidUnixSeconds) { /*error*/ }
+  printf("Unix seconds: %lld\n", (long long) unix_seconds);
+
+  printf("==== Convert ZonedDateTime to different time zone\n");
 
   // convert America/Los_Angeles to America/New_York
-  AtcTimeZone tzny = {&kAtcZoneAmerica_New_York, &processor_ny};
+  AtcTimeZone tzny = {&kAtcZonedb2000ZoneAmerica_New_York, &processor_ny};
   AtcZonedDateTime zdtny;
   atc_zoned_date_time_convert(&zdtla, &tzny, &zdtny);
-  if (atc_zoned_date_time_is_error(&zdtny)) {
-    printf("ERROR: Unable to convert ZonedDateTime to New York time zone\n");
-    exit(1);
-  }
+  if (atc_zoned_date_time_is_error(&zdtla)) { /*error*/ }
 
   // Print the date time.
-  printf("Resolved: %d\n", zdtny.resolved);
   atc_buf_reset(&sb);
   atc_zoned_date_time_print(&sb, &zdtny);
   atc_buf_close(&sb);
   printf("New York: %s\n", sb.p);
+
+  // Print the epoch seconds.
   epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
-  printf("Epoch Seconds: %ld\n", (long) epoch_seconds);
+  if (epoch_seconds == kAtcInvalidEpochSeconds) { /*error*/ }
+  printf("Epoch seconds: %ld\n", (long) epoch_seconds);
 
-  printf("======== Modify ZonedDateTime without normalization\n");
-
-  // Manually modify the date time in New York to 2022-11-06T00:30:00. The
-  // object's UTC offset remains at -05:00, but should be -04:00 because
-  // 2022-11-06T00:30:00 is still under DST.
-  zdtny.hour = 0;
-  epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtny);
-  if (epoch_seconds == kAtcInvalidEpochSeconds) {
-    printf("ERROR: Invalid epoch seconds for modified New York date time\n");
-    exit(1);
-  }
-
-  // Print the incorrect epoch seconds.
-  printf("Resolved: %d\n", zdtny.resolved);
-  atc_buf_reset(&sb);
-  atc_zoned_date_time_print(&sb, &zdtny);
-  atc_buf_close(&sb);
-  printf("New York: %s\n", sb.p);
-  epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
-  printf("Epoch Seconds: %ld\n", (long) epoch_seconds);
-
-  printf("======== Normalize ZonedDateTime using DisambiguateCompatible\n");
-
-  // Normalize to the later time in the overlap
-  atc_zoned_date_time_normalize(&zdtny, kAtcDisambiguateCompatible);
-  if (atc_zoned_date_time_is_error(&zdtny)) {
-    printf("ERROR: Unable to normalize ZonedDateTime\n");
-    exit(1);
-  }
-
-  // Print the date time.
-  printf("Resolved: %d\n", zdtny.resolved);
-  atc_buf_reset(&sb);
-  atc_zoned_date_time_print(&sb, &zdtny);
-  atc_buf_close(&sb);
-  printf("New York: %s\n", sb.p);
-  epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdtla);
-  printf("Epoch Seconds: %ld\n", (long) epoch_seconds);
+  // Print the unix seconds.
+  unix_seconds = atc_zoned_date_time_to_unix_seconds(&zdtla);
+  if (unix_seconds == kAtcInvalidUnixSeconds) { /*error*/ }
+  printf("Unix seconds: %lld\n", (long long) unix_seconds);
 }
 
 int main(int argc, char **argv)

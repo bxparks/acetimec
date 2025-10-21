@@ -41,17 +41,17 @@ volatile int16_t year = 2019;
 // which do not get detected as memory consumption, so don't show up in the
 // *.txt files.
 #if FEATURE == FEATURE_LOCAL_DATE_TIME
-  AtcLocalDateTime ldt = {year, 6, 17, 9, 18, 0};
+  AtcPlainDateTime pdt = {year, 6, 17, 9, 18, 0};
 #elif FEATURE == FEATURE_ZONED_DATE_TIME
-  AtcLocalDateTime ldt = {year, 6, 17, 9, 18, 0};
+  AtcPlainDateTime pdt = {year, 6, 17, 9, 18, 0};
   AtcZonedDateTime zdt;
 #elif FEATURE == FEATURE_TIME_ZONE
-  AtcLocalDateTime ldt = {year, 6, 17, 9, 18, 0};
+  AtcPlainDateTime pdt = {year, 6, 17, 9, 18, 0};
   AtcZoneProcessor processor;
   AtcTimeZone tz = {&kAtcZoneAmerica_Los_Angeles, &processor};
   AtcZonedDateTime zdt;
 #elif FEATURE == FEATURE_TIME_ZONE2
-  AtcLocalDateTime ldt = {year, 6, 17, 9, 18, 0};
+  AtcPlainDateTime pdt = {year, 6, 17, 9, 18, 0};
   AtcZoneProcessor processor1;
   AtcZoneProcessor processor2;
   AtcTimeZone tz1 = {&kAtcZoneAmerica_Los_Angeles, &processor1};
@@ -61,13 +61,13 @@ volatile int16_t year = 2019;
 #elif FEATURE == FEATURE_ZONE_REGISTRY \
     || FEATURE == FEATURE_ZONE_REGISTRY_ALL
   AtcZoneRegistrar registrar;
-  AtcLocalDateTime ldt = {year, 6, 17, 9, 18, 0};
+  AtcPlainDateTime pdt = {year, 6, 17, 9, 18, 0};
   AtcZoneProcessor processor;
   AtcZonedDateTime zdt;
 #elif FEATURE == FEATURE_ZONE_AND_LINK_REGISTRY \
     || FEATURE == FEATURE_ZONE_AND_LINK_REGISTRY_ALL
   AtcZoneRegistrar registrar;
-  AtcLocalDateTime ldt = {year, 6, 17, 9, 18, 0};
+  AtcPlainDateTime pdt = {year, 6, 17, 9, 18, 0};
   AtcZoneProcessor processor;
   AtcZonedDateTime zdt;
 
@@ -100,29 +100,29 @@ void setup() {
 #if FEATURE == FEATURE_BASELINE
   guard = 0;
 #elif FEATURE == FEATURE_LOCAL_DATE_TIME
-  atc_time_t epoch_seconds = atc_local_date_time_to_epoch_seconds(&ldt);
+  atc_time_t epoch_seconds = atc_plain_date_time_to_epoch_seconds(&pdt);
   guard ^= epoch_seconds;
 #elif FEATURE == FEATURE_ZONED_DATE_TIME
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &atc_time_zone_utc, kAtcDisambiguateCompatible);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &atc_time_zone_utc, kAtcDisambiguateCompatible);
   if (atc_zoned_date_time_is_error(&zdt)) return;
-  atc_time_t epoch_seconds = atc_local_date_time_to_epoch_seconds(&ldt);
+  atc_time_t epoch_seconds = atc_plain_date_time_to_epoch_seconds(&pdt);
   guard ^= epoch_seconds;
 #elif FEATURE == FEATURE_TIME_ZONE
   atc_processor_init(&processor);
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateCompatible);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
   if (atc_zoned_date_time_is_error(&zdt)) return;
   atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
   guard ^= epoch_seconds;
 #elif FEATURE == FEATURE_TIME_ZONE2
   atc_processor_init(&processor1);
   atc_processor_init(&processor2);
-  atc_zoned_date_time_from_local_date_time(
-      &zdt1, &ldt, &tz1, kAtcDisambiguateCompatible);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt1, &pdt, &tz1, kAtcDisambiguateCompatible);
   if (atc_zoned_date_time_is_error(&zdt1)) return;
-  atc_zoned_date_time_from_local_date_time(
-      &zdt2, &ldt, &tz2, kAtcDisambiguateCompatible);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt2, &pdt, &tz2, kAtcDisambiguateCompatible);
   if (atc_zoned_date_time_is_error(&zdt2)) return;
 
   atc_zoned_date_time_convert(&zdt1, &tz2, &zdt2);
@@ -137,8 +137,8 @@ void setup() {
   const AtcZoneInfo *zone_info = atc_registrar_find_by_name(
     &registrar, "America/Los_Angeles");
   AtcTimeZone tz = {zone_info, &processor};
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateCompatible);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
   if (atc_zoned_date_time_is_error(&zdt)) return;
   atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
   guard ^= epoch_seconds;
@@ -150,8 +150,8 @@ void setup() {
   const AtcZoneInfo *zone_info = atc_registrar_find_by_name(
     &registrar, "America/Los_Angeles");
   AtcTimeZone tz = {zone_info, &processor};
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateCompatible);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
   if (atc_zoned_date_time_is_error(&zdt)) return;
   atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
   guard ^= epoch_seconds;
@@ -162,8 +162,8 @@ void setup() {
   const AtcZoneInfo *zone_info = atc_registrar_find_by_name(
     &registrar, "America/Los_Angeles");
   AtcTimeZone tz = {zone_info, &processor};
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateCompatible);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
   if (atc_zoned_date_time_is_error(&zdt)) return;
   atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
   guard ^= epoch_seconds;
@@ -175,8 +175,8 @@ void setup() {
   const AtcZoneInfo *zone_info = atc_registrar_find_by_name(
     &registrar, "America/Los_Angeles");
   AtcTimeZone tz = {zone_info, &processor};
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateCompatible);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
   if (atc_zoned_date_time_is_error(&zdt)) return;
   atc_time_t epoch_seconds = atc_zoned_date_time_to_epoch_seconds(&zdt);
   guard ^= epoch_seconds;

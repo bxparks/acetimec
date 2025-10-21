@@ -5,9 +5,9 @@
 //     --output_dir /home/brian/src/AceTimeSuite/libraries/acetimec/src/zonedball
 //     --tz_version 2025b
 //     --actions zonedb
-//     --languages c
+//     --language c
 //     --scope complete
-//     --db_namespace AtcAll
+//     --db_namespace Zonedball
 //     --start_year 1800
 //     --until_year 2200
 //     --nocompress
@@ -46,7 +46,7 @@
 //   Rules: 2235
 //
 // Memory (8-bits):
-//   Context: 16
+//   Context: 20
 //   Rules: 26820
 //   Policies: 402
 //   Eras: 29340
@@ -57,10 +57,10 @@
 //   Letters: 160
 //   Fragments: 0
 //   Names: 9094 (original: 9094)
-//   TOTAL: 75273
+//   TOTAL: 75277
 //
 // Memory (32-bits):
-//   Context: 24
+//   Context: 28
 //   Rules: 26820
 //   Policies: 1072
 //   Eras: 39120
@@ -71,12 +71,12 @@
 //   Letters: 216
 //   Fragments: 0
 //   Names: 9094 (original: 9094)
-//   TOTAL: 93548
+//   TOTAL: 93552
 //
 // DO NOT EDIT
 
-#ifndef ACE_TIME_C_ZONEDB_ATCALL_ZONE_REGISTRY_H
-#define ACE_TIME_C_ZONEDB_ATCALL_ZONE_REGISTRY_H
+#ifndef ACE_TIME_C_ZONEDB_ZONEDBALL_ZONE_REGISTRY_H
+#define ACE_TIME_C_ZONEDB_ZONEDBALL_ZONE_REGISTRY_H
 
 #include "../zoneinfo/zone_info.h"
 
@@ -85,12 +85,12 @@ extern "C" {
 #endif
 
 // Zones
-#define kAtcAllZoneRegistrySize 340
-extern const AtcZoneInfo * const kAtcAllZoneRegistry[340];
+#define kAtcZonedballZoneRegistrySize 340
+extern const AtcZoneInfo * const kAtcZonedballZoneRegistry[340];
 
 // Zones and Links
-#define kAtcAllZoneAndLinkRegistrySize 597
-extern const AtcZoneInfo * const kAtcAllZoneAndLinkRegistry[597];
+#define kAtcZonedballZoneAndLinkRegistrySize 597
+extern const AtcZoneInfo * const kAtcZonedballZoneAndLinkRegistry[597];
 
 #ifdef __cplusplus
 }

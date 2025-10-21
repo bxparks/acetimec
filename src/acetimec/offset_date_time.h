@@ -26,12 +26,12 @@ extern "C" {
  * Date and time fields with a UTC offset in seconds.
  *
  * In the AceTime library, the 'resolved' parameter was included in the
- * low-level LocalTime class, which then got absorbed into the LocalDatetime
+ * low-level PlainTime class, which then got absorbed into the PlainDatetime
  * class. This extra parameter is mostly transparent to the user because C++
  * supports default parameters in the constructor and functions.
  *
  * Unfortunately C does not support default parameters, so adding a 'resolved'
- * in LocalDateTime causes unnecessary friction. Therefore, I am adding this
+ * in PlainDateTime causes unnecessary friction. Therefore, I am adding this
  * parameter to the OffsetDateTime instead, which is higher level so hopefully
  * the parameter is exposed to the user only when the user needs it.
  */
@@ -63,12 +63,13 @@ void atc_offset_date_time_set_error(AtcOffsetDateTime *odt);
 /** Return true if AtcOffsetDateTime is an error. */
 bool atc_offset_date_time_is_error(const AtcOffsetDateTime *odt);
 
-/** Return the epoch seconds for the given AtcOffsetDateTime. */
+/** Return the epoch seconds for the given AtcOffsetDateTime. Returns
+ * kAtcInvalidEpochSeconds if `odt` is invalid.
+ */
 atc_time_t atc_offset_date_time_to_epoch_seconds(const AtcOffsetDateTime *odt);
 
 /**
  * Create the AtcOffsetDateTime from the epoch_seconds and total offset seconds.
- * The 'fold' parameter is explicitly set to 0.
  * Return an error value for odt upon error.
  */
 void atc_offset_date_time_from_epoch_seconds(
@@ -76,12 +77,13 @@ void atc_offset_date_time_from_epoch_seconds(
     atc_time_t epoch_seconds,
     int32_t offset_seconds);
 
-/** Return the Unix seconds for the given AtcOffsetDateTime. */
+/** Return the Unix seconds for the given AtcOffsetDateTime. Returns
+ * kAtcInvalidUnixSeconds if `odt` is invalid.
+ */
 int64_t atc_offset_date_time_to_unix_seconds(const AtcOffsetDateTime *odt);
 
 /**
  * Create the AtcOffsetDateTime from the Unix seconds and total offset seconds.
- * The 'fold' parameter is explicitly set to 0.
  * Return an error value for odt upon error.
  */
 void atc_offset_date_time_from_unix_seconds(

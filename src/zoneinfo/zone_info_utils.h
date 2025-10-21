@@ -20,10 +20,6 @@
 #include <stdint.h>
 #include "zone_info.h"
 
-#ifndef ATC_HIRES_ZONEDB
-#define ATC_HIRES_ZONEDB 1
-#endif
-
 #ifdef __cplusplus
 extern "C" {
 #endif
@@ -35,9 +31,6 @@ extern "C" {
  * true if the info is actually a Link instead of a Zone.
  */
 bool atc_zone_info_is_link(const AtcZoneInfo *info);
-
-/** Return the effective number of eras, after resolving the Link. */
-uint8_t atc_zone_info_num_eras(const AtcZoneInfo *info);
 
 /** Return the full zone name of the given zone info. */
 const char *atc_zone_info_zone_name(const AtcZoneInfo *info);

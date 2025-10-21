@@ -17,9 +17,9 @@ all:
 		--tzrepo $(TZ_REPO) \
 		--tag $(TZ_VERSION) \
 		--actions zonedb \
-		--languages c \
+		--language c \
 		--scope complete \
-		--db_namespace AtcTesting \
+		--db_namespace Testing \
 		--start_year $(START_YEAR) \
 		--until_year $(UNTIL_YEAR) \
 		--nocompress \
@@ -30,7 +30,7 @@ zonedb.json:
 		--tzrepo $(TZ_REPO) \
 		--tag $(TZ_VERSION) \
 		--actions json \
-		--languages c \
+		--language c \
 		--scope complete \
 		--start_year $(START_YEAR) \
 		--until_year $(UNTIL_YEAR)

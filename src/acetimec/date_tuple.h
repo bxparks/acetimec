@@ -6,12 +6,16 @@
 /**
  * @file date_tuple.h
  *
- * An internal version of LocalDateTime that keeps track of the 'w', 's', or 'u'
+ * An internal version of PlainDateTime that keeps track of the 'w', 's', or 'u'
  * suffixes from the TZDB raw files.
  */
 
 #ifndef ACE_TIME_C_DATE_TUPLE_H
 #define ACE_TIME_C_DATE_TUPLE_H
+
+#ifdef __cplusplus
+extern "C" {
+#endif
 
 /**
  * An internal simplified version of the AtcDateTime class that uses the
@@ -94,5 +98,9 @@ uint8_t atc_date_tuple_compare_fuzzy(
     const AtcDateTuple *t,
     const AtcDateTuple *start,
     const AtcDateTuple *until);
+
+#ifdef __cplusplus
+}
+#endif
 
 #endif

@@ -4,8 +4,8 @@
  */
 
 #include "epoch.h" // atc_epoch_seconds_from_unix_seconds()
-#include "local_date.h"
-#include "local_date_time.h"
+#include "plain_date.h"
+#include "plain_date_time.h"
 #include "zone_processor.h"
 #include "offset_date_time.h"
 #include "zoned_date_time.h"
@@ -61,16 +61,16 @@ void atc_zoned_date_time_from_unix_seconds(
   atc_zoned_date_time_from_epoch_seconds(zdt, epoch_seconds, tz);
 }
 
-void atc_zoned_date_time_from_local_date_time(
+void atc_zoned_date_time_from_plain_date_time(
     AtcZonedDateTime *zdt,
-    const AtcLocalDateTime *ldt,
+    const AtcPlainDateTime *pdt,
     const AtcTimeZone *tz,
     uint8_t disambiguate)
 {
   zdt->tz = *tz;
   // ZonedDateTime memory layout must be same as OffsetDateTime.
-  atc_time_zone_offset_date_time_from_local_date_time(
-      tz, ldt, disambiguate, (AtcOffsetDateTime *) zdt);
+  atc_time_zone_offset_date_time_from_plain_date_time(
+      tz, pdt, disambiguate, (AtcOffsetDateTime *) zdt);
 }
 
 void atc_zoned_date_time_convert(
@@ -86,8 +86,8 @@ void atc_zoned_date_time_convert(
   atc_zoned_date_time_from_epoch_seconds(to, epoch_seconds, to_tz);
 }
 
-// The current implementation looks up the LocalDateTime using
-// atc_time_zone_offset_date_time_from_local_date_time().
+// The current implementation looks up the PlainDateTime using
+// atc_time_zone_offset_date_time_from_plain_date_time().
 //
 // An alternative implementation is to convert zdt into epoch_seconds, then call
 // atc_time_zone_offset_date_time_from_epoch_seconds() instead. This uses the
@@ -100,17 +100,17 @@ void atc_zoned_date_time_normalize(
   uint8_t disambiguate)
 {
   // Copy the date/time components.
-  AtcLocalDateTime ldt;
-  ldt.year = zdt->year;
-  ldt.month = zdt->month;
-  ldt.day = zdt->day;
-  ldt.hour = zdt->hour;
-  ldt.minute = zdt->minute;
-  ldt.second = zdt->second;
+  AtcPlainDateTime pdt;
+  pdt.year = zdt->year;
+  pdt.month = zdt->month;
+  pdt.day = zdt->day;
+  pdt.hour = zdt->hour;
+  pdt.minute = zdt->minute;
+  pdt.second = zdt->second;
 
   // ZonedDateTime memory layout must be same as OffsetDateTime.
-  atc_time_zone_offset_date_time_from_local_date_time(
-      &zdt->tz, &ldt, disambiguate, (AtcOffsetDateTime *) zdt);
+  atc_time_zone_offset_date_time_from_plain_date_time(
+      &zdt->tz, &pdt, disambiguate, (AtcOffsetDateTime *) zdt);
 }
 
 void atc_zoned_date_time_print(

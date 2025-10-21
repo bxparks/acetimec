@@ -97,9 +97,9 @@ int check_zone_names()
   }
 
   // Check all the zones and links in the acetimec zonedb registry.
-  printf("Checking %d Zones and Links\n", kAtcAllZoneAndLinkRegistrySize);
-  for (int i = 0; i < kAtcAllZoneAndLinkRegistrySize; i++) {
-    const AtcZoneInfo *info = kAtcAllZoneAndLinkRegistry[i];
+  printf("Checking %d Zones and Links\n", kAtcZonedballZoneAndLinkRegistrySize);
+  for (int i = 0; i < kAtcZonedballZoneAndLinkRegistrySize; i++) {
+    const AtcZoneInfo *info = kAtcZonedballZoneAndLinkRegistry[i];
     // Check that the zone name is supported by the current libc.
     int local_err = set_time_zone(info->name);
     if (local_err) {
@@ -241,15 +241,15 @@ int check_samples(const AtcTimeZone *tz)
       for (uint8_t month = 1; month <= 12; month++) {
         for (uint8_t day = 1; day <= 28; day += 3) { // every 3rd, for speed
           AtcZonedDateTime zdt;
-          AtcLocalDateTime ldt = {year, month, day, 2, 0, 0};
+          AtcPlainDateTime pdt = {year, month, day, 2, 0, 0};
 
-          atc_zoned_date_time_from_local_date_time(
-              &zdt, &ldt, tz, kAtcDisambiguateCompatible);
+          atc_zoned_date_time_from_plain_date_time(
+              &zdt, &pdt, tz, kAtcDisambiguateCompatible);
           if (atc_zoned_date_time_is_error(&zdt)) {
             char s[64];
             AtcStringBuffer sb;
             atc_buf_init(&sb, s, sizeof(s));
-            atc_local_date_time_print(&sb, &ldt);
+            atc_plain_date_time_print(&sb, &pdt);
             atc_buf_close(&sb);
             printf("ERROR: Zone %s: unable to create AtcZoneDateTime for %s\n",
                 tz->zone_info->name, sb.p);
@@ -273,8 +273,8 @@ int check_date_components()
   printf("==== check_date_components()\n");
 
   int err = 0;
-  for (int i = 0; i < kAtcAllZoneRegistrySize; i++) {
-    const AtcZoneInfo *info = kAtcAllZoneRegistry[i];
+  for (int i = 0; i < kAtcZonedballZoneRegistrySize; i++) {
+    const AtcZoneInfo *info = kAtcZonedballZoneRegistry[i];
     printf("%d: Zone %s: ", i, info->name);
     AtcTimeZone tz = {info, &processor};
 

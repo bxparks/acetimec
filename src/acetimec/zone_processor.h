@@ -18,7 +18,7 @@
 #include <stdbool.h>
 #include "common.h" // atc_time_t
 #include "../zoneinfo/zone_info.h"
-#include "local_date_time.h" // AtcLocalDateTime
+#include "plain_date_time.h" // AtcPlainDateTime
 #include "date_tuple.h" // AtcDateTuple
 #include "transition.h" // AtcTransition, AtcTransitionStorage
 
@@ -69,7 +69,7 @@ AtcMonthDay atc_processor_calc_start_day_of_month(
  * Return the most recent year from the Rule[from_year, to_year] which is
  * prior to the matching ZoneEra years of [start_year, end_year].
  *
- * Return LocalDate::kInvalidYear if the rule[from_year, to_year] has no prior
+ * Return PlainDate::kInvalidYear if the rule[from_year, to_year] has no prior
  * year to the MatchingEra[start_year, end_year].
  *
  * Exported for testing.
@@ -100,7 +100,7 @@ uint8_t atc_processor_calc_interior_years(
 //---------------------------------------------------------------------------
 // Data structures related to the AtcZoneProcessor object which is responsible
 // for finding the active Transitions of a time zone, and for finding the
-// matching Transitions at a gien epoch_seconds or LocalDatetime.
+// matching Transitions at a gien epoch_seconds or PlainDatetime.
 //---------------------------------------------------------------------------
 
 /**
@@ -164,15 +164,15 @@ typedef struct AtcFindResult {
   int32_t dst_offset_seconds;
 
   /**
-   * The STD offset of the requested LocalDateTime when
-   * atc_processor_find_by_local_date_time() finds a gap. Otherwise, this will
+   * The STD offset of the requested PlainDateTime when
+   * atc_processor_find_by_plain_date_time() finds a gap. Otherwise, this will
    * be identical to std_offset_seconds.
    */
   int32_t req_std_offset_seconds;
 
   /**
-   * The DST offset of the requested LocalDateTime when
-   * atc_processor_find_by_local_date_time() finds a gap. Otherwise, this will
+   * The DST offset of the requested PlainDateTime when
+   * atc_processor_find_by_plain_date_time() finds a gap. Otherwise, this will
    * be identical to dst_offset_seconds.
    */
   int32_t req_dst_offset_seconds;
@@ -196,10 +196,10 @@ typedef struct AtcFindResult {
 // called more than once if the AtcZoneProcessor is reused (to save memory) for
 // multiple zone infos. The transition cache (see below) will be invalidated.
 //
-// 3) Initialze the AtcZoneProcessor with the epoch seconds or LocalDateTime
+// 3) Initialze the AtcZoneProcessor with the epoch seconds or PlainDateTime
 // to populate the transition cache for that year.
 //
-// 4) Find the AtcFindResult for the epoch seconds or AtcLocalDateTime of
+// 4) Find the AtcFindResult for the epoch seconds or AtcPlainDateTime of
 // interest using the cache of transitions.
 //
 // The AtcTimeZone object and its associated `atc_time_zone_xxx()` functions
@@ -266,13 +266,13 @@ void atc_processor_find_by_epoch_seconds(
     AtcFindResult *result);
 
 /**
- * Find the AtcFindResult at the given LocalDateTime and fold. The fold
- * parameter is used only when LocalDateTime falls in a gap or an overlap.
+ * Find the AtcFindResult at the given PlainDateTime and fold. The fold
+ * parameter is used only when PlainDateTime falls in a gap or an overlap.
  * library.
  */
-void atc_processor_find_by_local_date_time(
+void atc_processor_find_by_plain_date_time(
     AtcZoneProcessor *processor,
-    const AtcLocalDateTime *ldt,
+    const AtcPlainDateTime *pdt,
     uint8_t disambiguate,
     AtcFindResult *result);
 

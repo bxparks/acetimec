@@ -5,9 +5,9 @@
 //     --output_dir /home/brian/src/AceTimeSuite/libraries/acetimec/src/zonedball
 //     --tz_version 2025b
 //     --actions zonedb
-//     --languages c
+//     --language c
 //     --scope complete
-//     --db_namespace AtcAll
+//     --db_namespace Zonedball
 //     --start_year 1800
 //     --until_year 2200
 //     --nocompress
@@ -46,7 +46,7 @@
 //   Rules: 2235
 //
 // Memory (8-bits):
-//   Context: 16
+//   Context: 20
 //   Rules: 26820
 //   Policies: 402
 //   Eras: 29340
@@ -57,10 +57,10 @@
 //   Letters: 160
 //   Fragments: 0
 //   Names: 9094 (original: 9094)
-//   TOTAL: 75273
+//   TOTAL: 75277
 //
 // Memory (32-bits):
-//   Context: 24
+//   Context: 28
 //   Rules: 26820
 //   Policies: 1072
 //   Eras: 39120
@@ -71,7 +71,7 @@
 //   Letters: 216
 //   Fragments: 0
 //   Names: 9094 (original: 9094)
-//   TOTAL: 93548
+//   TOTAL: 93552
 //
 // DO NOT EDIT
 
@@ -121,7 +121,7 @@ static const char* const kAtcLetters[] = {
 
 };
 
-const AtcZoneContext kAtcAllZoneContext = {
+const AtcZoneContext kAtcZonedballZoneContext = {
   1800 /*start_year*/,
   2200 /*until_year*/,
   -32767 /*start_year_accurate*/,
@@ -176,10 +176,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Abidjan[]  = {
 
 static const char kAtcZoneNameAfrica_Abidjan[]  = "Africa/Abidjan";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Abidjan  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Abidjan  = {
   kAtcZoneNameAfrica_Abidjan /*name*/,
   0xc21305a3 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
   NULL /*target_info*/,
@@ -219,7 +219,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Algiers[]  = {
   },
   //             0:00    Algeria    WE%sT    1940 Feb 25  2:00
   {
-    &kAtcAllZonePolicyAlgeria /*zone_policy*/,
+    &kAtcZonedballZonePolicyAlgeria /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -232,7 +232,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Algiers[]  = {
   },
   //             1:00    Algeria    CE%sT    1946 Oct  7
   {
-    &kAtcAllZonePolicyAlgeria /*zone_policy*/,
+    &kAtcZonedballZonePolicyAlgeria /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -271,7 +271,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Algiers[]  = {
   },
   //             0:00    Algeria    WE%sT    1977 Oct 21
   {
-    &kAtcAllZonePolicyAlgeria /*zone_policy*/,
+    &kAtcZonedballZonePolicyAlgeria /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -284,7 +284,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Algiers[]  = {
   },
   //             1:00    Algeria    CE%sT    1979 Oct 26
   {
-    &kAtcAllZonePolicyAlgeria /*zone_policy*/,
+    &kAtcZonedballZonePolicyAlgeria /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -297,7 +297,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Algiers[]  = {
   },
   //             0:00    Algeria    WE%sT    1981 May
   {
-    &kAtcAllZonePolicyAlgeria /*zone_policy*/,
+    &kAtcZonedballZonePolicyAlgeria /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -326,10 +326,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Algiers[]  = {
 
 static const char kAtcZoneNameAfrica_Algiers[]  = "Africa/Algiers";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Algiers  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Algiers  = {
   kAtcZoneNameAfrica_Algiers /*name*/,
   0xd94515c1 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraAfrica_Algiers /*eras*/,
   NULL /*target_info*/,
@@ -385,10 +385,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Bissau[]  = {
 
 static const char kAtcZoneNameAfrica_Bissau[]  = "Africa/Bissau";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Bissau  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Bissau  = {
   kAtcZoneNameAfrica_Bissau /*name*/,
   0x75564141 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAfrica_Bissau /*eras*/,
   NULL /*target_info*/,
@@ -415,7 +415,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Cairo[]  = {
   },
   //             2:00    Egypt    EE%sT
   {
-    &kAtcAllZonePolicyEgypt /*zone_policy*/,
+    &kAtcZonedballZonePolicyEgypt /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -431,10 +431,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Cairo[]  = {
 
 static const char kAtcZoneNameAfrica_Cairo[]  = "Africa/Cairo";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Cairo  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Cairo  = {
   kAtcZoneNameAfrica_Cairo /*name*/,
   0x77f8e228 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Cairo /*eras*/,
   NULL /*target_info*/,
@@ -461,7 +461,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Casablanca[]  = {
   },
   //              0:00    Morocco    %z    1984 Mar 16
   {
-    &kAtcAllZonePolicyMorocco /*zone_policy*/,
+    &kAtcZonedballZonePolicyMorocco /*zone_policy*/,
     "" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -487,7 +487,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Casablanca[]  = {
   },
   //              0:00    Morocco    %z    2018 Oct 28  3:00
   {
-    &kAtcAllZonePolicyMorocco /*zone_policy*/,
+    &kAtcZonedballZonePolicyMorocco /*zone_policy*/,
     "" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -500,7 +500,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Casablanca[]  = {
   },
   //              1:00    Morocco    %z
   {
-    &kAtcAllZonePolicyMorocco /*zone_policy*/,
+    &kAtcZonedballZonePolicyMorocco /*zone_policy*/,
     "" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -516,10 +516,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Casablanca[]  = {
 
 static const char kAtcZoneNameAfrica_Casablanca[]  = "Africa/Casablanca";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Casablanca  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Casablanca  = {
   kAtcZoneNameAfrica_Casablanca /*name*/,
   0xc59f1b33 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAfrica_Casablanca /*eras*/,
   NULL /*target_info*/,
@@ -585,7 +585,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Ceuta[]  = {
   },
   //              0:00    Spain    WE%sT    1929
   {
-    &kAtcAllZonePolicySpain /*zone_policy*/,
+    &kAtcZonedballZonePolicySpain /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -611,7 +611,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Ceuta[]  = {
   },
   //              0:00 SpainAfrica WE%sT    1984 Mar 16
   {
-    &kAtcAllZonePolicySpainAfrica /*zone_policy*/,
+    &kAtcZonedballZonePolicySpainAfrica /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -637,7 +637,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Ceuta[]  = {
   },
   //              1:00    EU    CE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -653,10 +653,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Ceuta[]  = {
 
 static const char kAtcZoneNameAfrica_Ceuta[]  = "Africa/Ceuta";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Ceuta  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Ceuta  = {
   kAtcZoneNameAfrica_Ceuta /*name*/,
   0x77fb46ec /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAfrica_Ceuta /*eras*/,
   NULL /*target_info*/,
@@ -696,7 +696,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_El_Aaiun[]  = {
   },
   //              0:00    Morocco    %z    2018 Oct 28  3:00
   {
-    &kAtcAllZonePolicyMorocco /*zone_policy*/,
+    &kAtcZonedballZonePolicyMorocco /*zone_policy*/,
     "" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -709,7 +709,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_El_Aaiun[]  = {
   },
   //              1:00    Morocco    %z
   {
-    &kAtcAllZonePolicyMorocco /*zone_policy*/,
+    &kAtcZonedballZonePolicyMorocco /*zone_policy*/,
     "" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -725,10 +725,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_El_Aaiun[]  = {
 
 static const char kAtcZoneNameAfrica_El_Aaiun[]  = "Africa/El_Aaiun";
 
-const AtcZoneInfo kAtcAllZoneAfrica_El_Aaiun  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_El_Aaiun  = {
   kAtcZoneNameAfrica_El_Aaiun /*name*/,
   0x9d6fb118 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAfrica_El_Aaiun /*eras*/,
   NULL /*target_info*/,
@@ -768,7 +768,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Johannesburg[]  = {
   },
   //             2:00    SA    SAST
   {
-    &kAtcAllZonePolicySA /*zone_policy*/,
+    &kAtcZonedballZonePolicySA /*zone_policy*/,
     "SAST" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -784,10 +784,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Johannesburg[]  = {
 
 static const char kAtcZoneNameAfrica_Johannesburg[]  = "Africa/Johannesburg";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Johannesburg  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Johannesburg  = {
   kAtcZoneNameAfrica_Johannesburg /*name*/,
   0xd5d157a0 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAfrica_Johannesburg /*eras*/,
   NULL /*target_info*/,
@@ -814,7 +814,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Juba[]  = {
   },
   //             2:00    Sudan    CA%sT    2000 Jan 15 12:00
   {
-    &kAtcAllZonePolicySudan /*zone_policy*/,
+    &kAtcZonedballZonePolicySudan /*zone_policy*/,
     "CA%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -856,10 +856,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Juba[]  = {
 
 static const char kAtcZoneNameAfrica_Juba[]  = "Africa/Juba";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Juba  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Juba  = {
   kAtcZoneNameAfrica_Juba /*name*/,
   0xd51b395c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAfrica_Juba /*eras*/,
   NULL /*target_info*/,
@@ -886,7 +886,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Khartoum[]  = {
   },
   //             2:00    Sudan    CA%sT    2000 Jan 15 12:00
   {
-    &kAtcAllZonePolicySudan /*zone_policy*/,
+    &kAtcZonedballZonePolicySudan /*zone_policy*/,
     "CA%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -928,10 +928,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Khartoum[]  = {
 
 static const char kAtcZoneNameAfrica_Khartoum[]  = "Africa/Khartoum";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Khartoum  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Khartoum  = {
   kAtcZoneNameAfrica_Khartoum /*name*/,
   0xfb3d4205 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAfrica_Khartoum /*eras*/,
   NULL /*target_info*/,
@@ -1013,10 +1013,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Lagos[]  = {
 
 static const char kAtcZoneNameAfrica_Lagos[]  = "Africa/Lagos";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Lagos  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Lagos  = {
   kAtcZoneNameAfrica_Lagos /*name*/,
   0x789bb5d0 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
   NULL /*target_info*/,
@@ -1059,10 +1059,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Maputo[]  = {
 
 static const char kAtcZoneNameAfrica_Maputo[]  = "Africa/Maputo";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Maputo  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Maputo  = {
   kAtcZoneNameAfrica_Maputo /*name*/,
   0x8e6ca1f0 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
   NULL /*target_info*/,
@@ -1131,10 +1131,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Monrovia[]  = {
 
 static const char kAtcZoneNameAfrica_Monrovia[]  = "Africa/Monrovia";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Monrovia  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Monrovia  = {
   kAtcZoneNameAfrica_Monrovia /*name*/,
   0x0ce90385 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAfrica_Monrovia /*eras*/,
   NULL /*target_info*/,
@@ -1229,10 +1229,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Nairobi[]  = {
 
 static const char kAtcZoneNameAfrica_Nairobi[]  = "Africa/Nairobi";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Nairobi  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Nairobi  = {
   kAtcZoneNameAfrica_Nairobi /*name*/,
   0xa87ab57e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
   NULL /*target_info*/,
@@ -1301,10 +1301,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Ndjamena[]  = {
 
 static const char kAtcZoneNameAfrica_Ndjamena[]  = "Africa/Ndjamena";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Ndjamena  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Ndjamena  = {
   kAtcZoneNameAfrica_Ndjamena /*name*/,
   0x9fe09898 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAfrica_Ndjamena /*eras*/,
   NULL /*target_info*/,
@@ -1386,10 +1386,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Sao_Tome[]  = {
 
 static const char kAtcZoneNameAfrica_Sao_Tome[]  = "Africa/Sao_Tome";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Sao_Tome  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Sao_Tome  = {
   kAtcZoneNameAfrica_Sao_Tome /*name*/,
   0x61b319d1 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAfrica_Sao_Tome /*eras*/,
   NULL /*target_info*/,
@@ -1416,7 +1416,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Tripoli[]  = {
   },
   //             1:00    Libya    CE%sT    1959
   {
-    &kAtcAllZonePolicyLibya /*zone_policy*/,
+    &kAtcZonedballZonePolicyLibya /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -1442,7 +1442,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Tripoli[]  = {
   },
   //             1:00    Libya    CE%sT    1990 May  4
   {
-    &kAtcAllZonePolicyLibya /*zone_policy*/,
+    &kAtcZonedballZonePolicyLibya /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -1468,7 +1468,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Tripoli[]  = {
   },
   //             1:00    Libya    CE%sT    1997 Oct  4
   {
-    &kAtcAllZonePolicyLibya /*zone_policy*/,
+    &kAtcZonedballZonePolicyLibya /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -1494,7 +1494,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Tripoli[]  = {
   },
   //             1:00    Libya    CE%sT    2013 Oct 25  2:00
   {
-    &kAtcAllZonePolicyLibya /*zone_policy*/,
+    &kAtcZonedballZonePolicyLibya /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -1523,10 +1523,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Tripoli[]  = {
 
 static const char kAtcZoneNameAfrica_Tripoli[]  = "Africa/Tripoli";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Tripoli  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Tripoli  = {
   kAtcZoneNameAfrica_Tripoli /*name*/,
   0x9dfebd3d /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAfrica_Tripoli /*eras*/,
   NULL /*target_info*/,
@@ -1566,7 +1566,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Tunis[]  = {
   },
   //             1:00    Tunisia    CE%sT
   {
-    &kAtcAllZonePolicyTunisia /*zone_policy*/,
+    &kAtcZonedballZonePolicyTunisia /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -1582,10 +1582,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Tunis[]  = {
 
 static const char kAtcZoneNameAfrica_Tunis[]  = "Africa/Tunis";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Tunis  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Tunis  = {
   kAtcZoneNameAfrica_Tunis /*name*/,
   0x79378e6d /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAfrica_Tunis /*eras*/,
   NULL /*target_info*/,
@@ -1664,7 +1664,7 @@ static const AtcZoneEra kAtcZoneEraAfrica_Windhoek[]  = {
   },
   //             2:00    Namibia    %s
   {
-    &kAtcAllZonePolicyNamibia /*zone_policy*/,
+    &kAtcZonedballZonePolicyNamibia /*zone_policy*/,
     "%" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -1680,10 +1680,10 @@ static const AtcZoneEra kAtcZoneEraAfrica_Windhoek[]  = {
 
 static const char kAtcZoneNameAfrica_Windhoek[]  = "Africa/Windhoek";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Windhoek  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Windhoek  = {
   kAtcZoneNameAfrica_Windhoek /*name*/,
   0x789c9bd3 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAfrica_Windhoek /*eras*/,
   NULL /*target_info*/,
@@ -1736,7 +1736,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Adak[]  = {
   },
   //             -11:00    US    N%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "N%T" /*format*/,
     -2640 /*offset_code (-39600/15)*/,
     0 /*offset_remainder (-39600%15)*/,
@@ -1775,7 +1775,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Adak[]  = {
   },
   //             -11:00    US    B%sT    1983 Oct 30  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "B%T" /*format*/,
     -2640 /*offset_code (-39600/15)*/,
     0 /*offset_remainder (-39600%15)*/,
@@ -1788,7 +1788,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Adak[]  = {
   },
   //             -10:00    US    AH%sT    1983 Nov 30
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "AH%T" /*format*/,
     -2400 /*offset_code (-36000/15)*/,
     0 /*offset_remainder (-36000%15)*/,
@@ -1801,7 +1801,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Adak[]  = {
   },
   //             -10:00    US    H%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "H%T" /*format*/,
     -2400 /*offset_code (-36000/15)*/,
     0 /*offset_remainder (-36000%15)*/,
@@ -1817,10 +1817,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Adak[]  = {
 
 static const char kAtcZoneNameAmerica_Adak[]  = "America/Adak";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Adak  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Adak  = {
   kAtcZoneNameAmerica_Adak /*name*/,
   0x97fe49d7 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAmerica_Adak /*eras*/,
   NULL /*target_info*/,
@@ -1873,7 +1873,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Anchorage[]  = {
   },
   //             -10:00    US    A%sT    1967 Apr
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "A%T" /*format*/,
     -2400 /*offset_code (-36000/15)*/,
     0 /*offset_remainder (-36000%15)*/,
@@ -1899,7 +1899,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Anchorage[]  = {
   },
   //             -10:00    US    AH%sT    1983 Oct 30  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "AH%T" /*format*/,
     -2400 /*offset_code (-36000/15)*/,
     0 /*offset_remainder (-36000%15)*/,
@@ -1912,7 +1912,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Anchorage[]  = {
   },
   //              -9:00    US    Y%sT    1983 Nov 30
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "Y%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -1925,7 +1925,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Anchorage[]  = {
   },
   //              -9:00    US    AK%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "AK%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -1941,10 +1941,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Anchorage[]  = {
 
 static const char kAtcZoneNameAmerica_Anchorage[]  = "America/Anchorage";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Anchorage  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Anchorage  = {
   kAtcZoneNameAmerica_Anchorage /*name*/,
   0x5a79260e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAmerica_Anchorage /*eras*/,
   NULL /*target_info*/,
@@ -1971,7 +1971,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Araguaina[]  = {
   },
   //             -3:00    Brazil    %z    1990 Sep 17
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -1997,7 +1997,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Araguaina[]  = {
   },
   //             -3:00    Brazil    %z    2003 Sep 24
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2023,7 +2023,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Araguaina[]  = {
   },
   //             -3:00    Brazil    %z    2013 Sep
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2052,10 +2052,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Araguaina[]  = {
 
 static const char kAtcZoneNameAmerica_Araguaina[]  = "America/Araguaina";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Araguaina  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Araguaina  = {
   kAtcZoneNameAmerica_Araguaina /*name*/,
   0x6f9a3aef /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Araguaina /*eras*/,
   NULL /*target_info*/,
@@ -2108,7 +2108,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Buenos_Aires[]  = {
   },
   //             -4:00    Arg    %z    1969 Oct  5
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -2121,7 +2121,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Buenos_Aires[]  = {
   },
   //             -3:00    Arg    %z    1999 Oct  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2134,7 +2134,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Buenos_Aires[]  = {
   },
   //             -4:00    Arg    %z    2000 Mar  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -2147,7 +2147,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Buenos_Aires[]  = {
   },
   //             -3:00    Arg    %z
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2163,10 +2163,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Buenos_Aires[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Buenos_Aires[]  = "America/Argentina/Buenos_Aires";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Argentina_Buenos_Aires  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Argentina_Buenos_Aires  = {
   kAtcZoneNameAmerica_Argentina_Buenos_Aires /*name*/,
   0xd43b4c0d /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Buenos_Aires /*eras*/,
   NULL /*target_info*/,
@@ -2219,7 +2219,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Catamarca[]  = {
   },
   //             -4:00    Arg    %z    1969 Oct  5
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -2232,7 +2232,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Catamarca[]  = {
   },
   //             -3:00    Arg    %z    1991 Mar  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2258,7 +2258,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Catamarca[]  = {
   },
   //             -3:00    Arg    %z    1999 Oct  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2271,7 +2271,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Catamarca[]  = {
   },
   //             -4:00    Arg    %z    2000 Mar  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -2310,7 +2310,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Catamarca[]  = {
   },
   //             -3:00    Arg    %z    2008 Oct 18
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2339,10 +2339,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Catamarca[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Catamarca[]  = "America/Argentina/Catamarca";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Argentina_Catamarca  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Argentina_Catamarca  = {
   kAtcZoneNameAmerica_Argentina_Catamarca /*name*/,
   0x8d40986b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   12 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Catamarca /*eras*/,
   NULL /*target_info*/,
@@ -2395,7 +2395,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Cordoba[]  = {
   },
   //             -4:00    Arg    %z    1969 Oct  5
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -2408,7 +2408,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Cordoba[]  = {
   },
   //             -3:00    Arg    %z    1991 Mar  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2434,7 +2434,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Cordoba[]  = {
   },
   //             -3:00    Arg    %z    1999 Oct  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2447,7 +2447,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Cordoba[]  = {
   },
   //             -4:00    Arg    %z    2000 Mar  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -2460,7 +2460,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Cordoba[]  = {
   },
   //             -3:00    Arg    %z
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2476,10 +2476,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Cordoba[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Cordoba[]  = "America/Argentina/Cordoba";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Argentina_Cordoba  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Argentina_Cordoba  = {
   kAtcZoneNameAmerica_Argentina_Cordoba /*name*/,
   0xbfccc308 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Cordoba /*eras*/,
   NULL /*target_info*/,
@@ -2532,7 +2532,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Jujuy[]  = {
   },
   //             -4:00    Arg    %z    1969 Oct  5
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -2545,7 +2545,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Jujuy[]  = {
   },
   //             -3:00    Arg    %z    1990 Mar  4
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2610,7 +2610,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Jujuy[]  = {
   },
   //             -3:00    Arg    %z    1999 Oct  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2623,7 +2623,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Jujuy[]  = {
   },
   //             -4:00    Arg    %z    2000 Mar  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -2636,7 +2636,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Jujuy[]  = {
   },
   //             -3:00    Arg    %z    2008 Oct 18
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2665,10 +2665,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Jujuy[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Jujuy[]  = "America/Argentina/Jujuy";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Argentina_Jujuy  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Argentina_Jujuy  = {
   kAtcZoneNameAmerica_Argentina_Jujuy /*name*/,
   0x5f2f46c5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   13 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Jujuy /*eras*/,
   NULL /*target_info*/,
@@ -2721,7 +2721,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_La_Rioja[]  = {
   },
   //             -4:00    Arg    %z    1969 Oct  5
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -2734,7 +2734,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_La_Rioja[]  = {
   },
   //             -3:00    Arg    %z    1991 Mar  1
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2760,7 +2760,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_La_Rioja[]  = {
   },
   //             -3:00    Arg    %z    1999 Oct  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2773,7 +2773,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_La_Rioja[]  = {
   },
   //             -4:00    Arg    %z    2000 Mar  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -2812,7 +2812,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_La_Rioja[]  = {
   },
   //             -3:00    Arg    %z    2008 Oct 18
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2841,10 +2841,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_La_Rioja[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_La_Rioja[]  = "America/Argentina/La_Rioja";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Argentina_La_Rioja  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Argentina_La_Rioja  = {
   kAtcZoneNameAmerica_Argentina_La_Rioja /*name*/,
   0xa46b7eef /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   12 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_La_Rioja /*eras*/,
   NULL /*target_info*/,
@@ -2897,7 +2897,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Mendoza[]  = {
   },
   //             -4:00    Arg    %z    1969 Oct  5
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -2910,7 +2910,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Mendoza[]  = {
   },
   //             -3:00    Arg    %z    1990 Mar  4
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -2988,7 +2988,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Mendoza[]  = {
   },
   //             -3:00    Arg    %z    1999 Oct  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -3001,7 +3001,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Mendoza[]  = {
   },
   //             -4:00    Arg    %z    2000 Mar  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -3040,7 +3040,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Mendoza[]  = {
   },
   //             -3:00    Arg    %z    2008 Oct 18
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -3069,10 +3069,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Mendoza[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Mendoza[]  = "America/Argentina/Mendoza";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Argentina_Mendoza  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Argentina_Mendoza  = {
   kAtcZoneNameAmerica_Argentina_Mendoza /*name*/,
   0xa9f72d5c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   16 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Mendoza /*eras*/,
   NULL /*target_info*/,
@@ -3125,7 +3125,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Rio_Gallegos[]  = {
   },
   //             -4:00    Arg    %z    1969 Oct  5
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -3138,7 +3138,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Rio_Gallegos[]  = {
   },
   //             -3:00    Arg    %z    1999 Oct  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -3151,7 +3151,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Rio_Gallegos[]  = {
   },
   //             -4:00    Arg    %z    2000 Mar  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -3190,7 +3190,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Rio_Gallegos[]  = {
   },
   //             -3:00    Arg    %z    2008 Oct 18
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -3219,10 +3219,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Rio_Gallegos[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Rio_Gallegos[]  = "America/Argentina/Rio_Gallegos";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Argentina_Rio_Gallegos  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Argentina_Rio_Gallegos  = {
   kAtcZoneNameAmerica_Argentina_Rio_Gallegos /*name*/,
   0xc5b0f565 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Rio_Gallegos /*eras*/,
   NULL /*target_info*/,
@@ -3275,7 +3275,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Salta[]  = {
   },
   //             -4:00    Arg    %z    1969 Oct  5
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -3288,7 +3288,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Salta[]  = {
   },
   //             -3:00    Arg    %z    1991 Mar  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -3314,7 +3314,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Salta[]  = {
   },
   //             -3:00    Arg    %z    1999 Oct  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -3327,7 +3327,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Salta[]  = {
   },
   //             -4:00    Arg    %z    2000 Mar  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -3340,7 +3340,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Salta[]  = {
   },
   //             -3:00    Arg    %z    2008 Oct 18
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -3369,10 +3369,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Salta[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Salta[]  = "America/Argentina/Salta";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Argentina_Salta  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Argentina_Salta  = {
   kAtcZoneNameAmerica_Argentina_Salta /*name*/,
   0x5fc73403 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Salta /*eras*/,
   NULL /*target_info*/,
@@ -3425,7 +3425,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Juan[]  = {
   },
   //             -4:00    Arg    %z    1969 Oct  5
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -3438,7 +3438,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Juan[]  = {
   },
   //             -3:00    Arg    %z    1991 Mar  1
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -3464,7 +3464,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Juan[]  = {
   },
   //             -3:00    Arg    %z    1999 Oct  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -3477,7 +3477,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Juan[]  = {
   },
   //             -4:00    Arg    %z    2000 Mar  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -3516,7 +3516,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Juan[]  = {
   },
   //             -3:00    Arg    %z    2008 Oct 18
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -3545,10 +3545,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Juan[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_San_Juan[]  = "America/Argentina/San_Juan";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Argentina_San_Juan  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Argentina_San_Juan  = {
   kAtcZoneNameAmerica_Argentina_San_Juan /*name*/,
   0x3e1009bd /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   12 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_San_Juan /*eras*/,
   NULL /*target_info*/,
@@ -3601,7 +3601,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Luis[]  = {
   },
   //             -4:00    Arg    %z    1969 Oct  5
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -3614,7 +3614,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Luis[]  = {
   },
   //             -3:00    Arg    %z    1990
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -3731,7 +3731,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Luis[]  = {
   },
   //             -3:00    Arg    %z    2008 Jan 21
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -3744,7 +3744,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Luis[]  = {
   },
   //             -4:00    SanLuis    %z    2009 Oct 11
   {
-    &kAtcAllZonePolicySanLuis /*zone_policy*/,
+    &kAtcZonedballZonePolicySanLuis /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -3773,10 +3773,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_San_Luis[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_San_Luis[]  = "America/Argentina/San_Luis";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Argentina_San_Luis  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Argentina_San_Luis  = {
   kAtcZoneNameAmerica_Argentina_San_Luis /*name*/,
   0x3e11238c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   16 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_San_Luis /*eras*/,
   NULL /*target_info*/,
@@ -3829,7 +3829,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Tucuman[]  = {
   },
   //             -4:00    Arg    %z    1969 Oct  5
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -3842,7 +3842,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Tucuman[]  = {
   },
   //             -3:00    Arg    %z    1991 Mar  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -3868,7 +3868,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Tucuman[]  = {
   },
   //             -3:00    Arg    %z    1999 Oct  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -3881,7 +3881,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Tucuman[]  = {
   },
   //             -4:00    Arg    %z    2000 Mar  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -3920,7 +3920,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Tucuman[]  = {
   },
   //             -3:00    Arg    %z
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -3936,10 +3936,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Tucuman[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Tucuman[]  = "America/Argentina/Tucuman";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Argentina_Tucuman  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Argentina_Tucuman  = {
   kAtcZoneNameAmerica_Argentina_Tucuman /*name*/,
   0xe96399eb /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   11 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Tucuman /*eras*/,
   NULL /*target_info*/,
@@ -3992,7 +3992,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Ushuaia[]  = {
   },
   //             -4:00    Arg    %z    1969 Oct  5
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -4005,7 +4005,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Ushuaia[]  = {
   },
   //             -3:00    Arg    %z    1999 Oct  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -4018,7 +4018,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Ushuaia[]  = {
   },
   //             -4:00    Arg    %z    2000 Mar  3
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -4057,7 +4057,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Ushuaia[]  = {
   },
   //             -3:00    Arg    %z    2008 Oct 18
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -4086,10 +4086,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Argentina_Ushuaia[]  = {
 
 static const char kAtcZoneNameAmerica_Argentina_Ushuaia[]  = "America/Argentina/Ushuaia";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Argentina_Ushuaia  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Argentina_Ushuaia  = {
   kAtcZoneNameAmerica_Argentina_Ushuaia /*name*/,
   0x320dcdde /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Ushuaia /*eras*/,
   NULL /*target_info*/,
@@ -4155,7 +4155,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Asuncion[]  = {
   },
   //             -4:00    Para    %z    2024 Oct 15
   {
-    &kAtcAllZonePolicyPara /*zone_policy*/,
+    &kAtcZonedballZonePolicyPara /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -4184,10 +4184,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Asuncion[]  = {
 
 static const char kAtcZoneNameAmerica_Asuncion[]  = "America/Asuncion";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Asuncion  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Asuncion  = {
   kAtcZoneNameAmerica_Asuncion /*name*/,
   0x50ec79a6 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Asuncion /*eras*/,
   NULL /*target_info*/,
@@ -4214,7 +4214,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Bahia[]  = {
   },
   //             -3:00    Brazil    %z    2003 Sep 24
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -4240,7 +4240,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Bahia[]  = {
   },
   //             -3:00    Brazil    %z    2012 Oct 21
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -4269,10 +4269,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Bahia[]  = {
 
 static const char kAtcZoneNameAmerica_Bahia[]  = "America/Bahia";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Bahia  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Bahia  = {
   kAtcZoneNameAmerica_Bahia /*name*/,
   0x97d815fb /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Bahia /*eras*/,
   NULL /*target_info*/,
@@ -4325,7 +4325,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Bahia_Banderas[]  = {
   },
   //             -7:00    Mexico    M%sT    1932 Apr  1
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -4364,7 +4364,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Bahia_Banderas[]  = {
   },
   //             -7:00    Mexico    M%sT    2010 Apr  4  2:00
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -4377,7 +4377,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Bahia_Banderas[]  = {
   },
   //             -6:00    Mexico    C%sT
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -4393,10 +4393,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Bahia_Banderas[]  = {
 
 static const char kAtcZoneNameAmerica_Bahia_Banderas[]  = "America/Bahia_Banderas";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Bahia_Banderas  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Bahia_Banderas  = {
   kAtcZoneNameAmerica_Bahia_Banderas /*name*/,
   0x14f6329a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAmerica_Bahia_Banderas /*eras*/,
   NULL /*target_info*/,
@@ -4423,7 +4423,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Barbados[]  = {
   },
   //             -4:00    Barb    A%sT    1944
   {
-    &kAtcAllZonePolicyBarb /*zone_policy*/,
+    &kAtcZonedballZonePolicyBarb /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -4436,7 +4436,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Barbados[]  = {
   },
   //             -4:00    Barb    AST/-0330 1945
   {
-    &kAtcAllZonePolicyBarb /*zone_policy*/,
+    &kAtcZonedballZonePolicyBarb /*zone_policy*/,
     "AST/-0330" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -4449,7 +4449,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Barbados[]  = {
   },
   //             -4:00    Barb    A%sT
   {
-    &kAtcAllZonePolicyBarb /*zone_policy*/,
+    &kAtcZonedballZonePolicyBarb /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -4465,10 +4465,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Barbados[]  = {
 
 static const char kAtcZoneNameAmerica_Barbados[]  = "America/Barbados";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Barbados  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Barbados  = {
   kAtcZoneNameAmerica_Barbados /*name*/,
   0xcbbc3b04 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Barbados /*eras*/,
   NULL /*target_info*/,
@@ -4495,7 +4495,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Belem[]  = {
   },
   //             -3:00    Brazil    %z    1988 Sep 12
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -4524,10 +4524,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Belem[]  = {
 
 static const char kAtcZoneNameAmerica_Belem[]  = "America/Belem";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Belem  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Belem  = {
   kAtcZoneNameAmerica_Belem /*name*/,
   0x97da580b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Belem /*eras*/,
   NULL /*target_info*/,
@@ -4554,7 +4554,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Belize[]  = {
   },
   //             -6:00    Belize    %s
   {
-    &kAtcAllZonePolicyBelize /*zone_policy*/,
+    &kAtcZonedballZonePolicyBelize /*zone_policy*/,
     "%" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -4570,10 +4570,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Belize[]  = {
 
 static const char kAtcZoneNameAmerica_Belize[]  = "America/Belize";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Belize  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Belize  = {
   kAtcZoneNameAmerica_Belize /*name*/,
   0x93256c81 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Belize /*eras*/,
   NULL /*target_info*/,
@@ -4600,7 +4600,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Boa_Vista[]  = {
   },
   //             -4:00    Brazil    %z    1988 Sep 12
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -4626,7 +4626,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Boa_Vista[]  = {
   },
   //             -4:00    Brazil    %z    2000 Oct 15
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -4655,10 +4655,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Boa_Vista[]  = {
 
 static const char kAtcZoneNameAmerica_Boa_Vista[]  = "America/Boa_Vista";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Boa_Vista  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Boa_Vista  = {
   kAtcZoneNameAmerica_Boa_Vista /*name*/,
   0x0a7b7efe /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Boa_Vista /*eras*/,
   NULL /*target_info*/,
@@ -4698,7 +4698,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Bogota[]  = {
   },
   //             -5:00    CO    %z
   {
-    &kAtcAllZonePolicyCO /*zone_policy*/,
+    &kAtcZonedballZonePolicyCO /*zone_policy*/,
     "" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -4714,10 +4714,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Bogota[]  = {
 
 static const char kAtcZoneNameAmerica_Bogota[]  = "America/Bogota";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Bogota  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Bogota  = {
   kAtcZoneNameAmerica_Bogota /*name*/,
   0x93d7bc62 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Bogota /*eras*/,
   NULL /*target_info*/,
@@ -4744,7 +4744,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Boise[]  = {
   },
   //             -8:00    US    P%sT    1923 May 13  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -4757,7 +4757,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Boise[]  = {
   },
   //             -7:00    US    M%sT    1974
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -4783,7 +4783,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Boise[]  = {
   },
   //             -7:00    US    M%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -4799,10 +4799,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Boise[]  = {
 
 static const char kAtcZoneNameAmerica_Boise[]  = "America/Boise";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Boise  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Boise  = {
   kAtcZoneNameAmerica_Boise /*name*/,
   0x97dfc8d8 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Boise /*eras*/,
   NULL /*target_info*/,
@@ -4829,7 +4829,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Cambridge_Bay[]  = {
   },
   //             -7:00    NT_YK    M%sT    1999 Oct 31  2:00
   {
-    &kAtcAllZonePolicyNT_YK /*zone_policy*/,
+    &kAtcZonedballZonePolicyNT_YK /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -4842,7 +4842,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Cambridge_Bay[]  = {
   },
   //             -6:00    Canada    C%sT    2000 Oct 29  2:00
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -4881,7 +4881,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Cambridge_Bay[]  = {
   },
   //             -7:00    Canada    M%sT
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -4897,10 +4897,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Cambridge_Bay[]  = {
 
 static const char kAtcZoneNameAmerica_Cambridge_Bay[]  = "America/Cambridge_Bay";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Cambridge_Bay  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Cambridge_Bay  = {
   kAtcZoneNameAmerica_Cambridge_Bay /*name*/,
   0xd5a44aff /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Cambridge_Bay /*eras*/,
   NULL /*target_info*/,
@@ -4927,7 +4927,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Campo_Grande[]  = {
   },
   //             -4:00    Brazil    %z
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -4943,10 +4943,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Campo_Grande[]  = {
 
 static const char kAtcZoneNameAmerica_Campo_Grande[]  = "America/Campo_Grande";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Campo_Grande  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Campo_Grande  = {
   kAtcZoneNameAmerica_Campo_Grande /*name*/,
   0xfec3e7a6 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Campo_Grande /*eras*/,
   NULL /*target_info*/,
@@ -4999,7 +4999,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Cancun[]  = {
   },
   //             -6:00    Mexico    C%sT    1997 Oct 26  2:00
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -5012,7 +5012,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Cancun[]  = {
   },
   //             -5:00    Mexico    E%sT    1998 Aug  2  2:00
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -5025,7 +5025,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Cancun[]  = {
   },
   //             -6:00    Mexico    C%sT    2015 Feb  1  2:00
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -5054,10 +5054,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Cancun[]  = {
 
 static const char kAtcZoneNameAmerica_Cancun[]  = "America/Cancun";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Cancun  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Cancun  = {
   kAtcZoneNameAmerica_Cancun /*name*/,
   0x953331be /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Cancun /*eras*/,
   NULL /*target_info*/,
@@ -5152,10 +5152,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Caracas[]  = {
 
 static const char kAtcZoneNameAmerica_Caracas[]  = "America/Caracas";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Caracas  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Caracas  = {
   kAtcZoneNameAmerica_Caracas /*name*/,
   0x3be064f4 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Caracas /*eras*/,
   NULL /*target_info*/,
@@ -5211,10 +5211,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Cayenne[]  = {
 
 static const char kAtcZoneNameAmerica_Cayenne[]  = "America/Cayenne";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Cayenne  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Cayenne  = {
   kAtcZoneNameAmerica_Cayenne /*name*/,
   0x3c617269 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Cayenne /*eras*/,
   NULL /*target_info*/,
@@ -5241,7 +5241,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Chicago[]  = {
   },
   //             -6:00    US    C%sT    1920
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -5254,7 +5254,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Chicago[]  = {
   },
   //             -6:00    Chicago    C%sT    1936 Mar  1  2:00
   {
-    &kAtcAllZonePolicyChicago /*zone_policy*/,
+    &kAtcZonedballZonePolicyChicago /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -5280,7 +5280,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Chicago[]  = {
   },
   //             -6:00    Chicago    C%sT    1942
   {
-    &kAtcAllZonePolicyChicago /*zone_policy*/,
+    &kAtcZonedballZonePolicyChicago /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -5293,7 +5293,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Chicago[]  = {
   },
   //             -6:00    US    C%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -5306,7 +5306,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Chicago[]  = {
   },
   //             -6:00    Chicago    C%sT    1967
   {
-    &kAtcAllZonePolicyChicago /*zone_policy*/,
+    &kAtcZonedballZonePolicyChicago /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -5319,7 +5319,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Chicago[]  = {
   },
   //             -6:00    US    C%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -5335,10 +5335,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Chicago[]  = {
 
 static const char kAtcZoneNameAmerica_Chicago[]  = "America/Chicago";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Chicago  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Chicago  = {
   kAtcZoneNameAmerica_Chicago /*name*/,
   0x4b92b5d4 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAmerica_Chicago /*eras*/,
   NULL /*target_info*/,
@@ -5391,7 +5391,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Chihuahua[]  = {
   },
   //             -7:00    Mexico    M%sT    1932 Apr  1
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -5417,7 +5417,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Chihuahua[]  = {
   },
   //             -6:00    Mexico    C%sT    1998
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -5443,7 +5443,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Chihuahua[]  = {
   },
   //             -7:00    Mexico    M%sT    2022 Oct 30  2:00
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -5472,10 +5472,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Chihuahua[]  = {
 
 static const char kAtcZoneNameAmerica_Chihuahua[]  = "America/Chihuahua";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Chihuahua  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Chihuahua  = {
   kAtcZoneNameAmerica_Chihuahua /*name*/,
   0x8827d776 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAmerica_Chihuahua /*eras*/,
   NULL /*target_info*/,
@@ -5528,7 +5528,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Ciudad_Juarez[]  = {
   },
   //             -7:00    Mexico    M%sT    1932 Apr  1
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -5554,7 +5554,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Ciudad_Juarez[]  = {
   },
   //             -6:00    Mexico    C%sT    1998
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -5580,7 +5580,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Ciudad_Juarez[]  = {
   },
   //             -7:00    Mexico    M%sT    2010
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -5593,7 +5593,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Ciudad_Juarez[]  = {
   },
   //             -7:00    US    M%sT    2022 Oct 30  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -5619,7 +5619,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Ciudad_Juarez[]  = {
   },
   //             -7:00    US    M%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -5635,10 +5635,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Ciudad_Juarez[]  = {
 
 static const char kAtcZoneNameAmerica_Ciudad_Juarez[]  = "America/Ciudad_Juarez";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Ciudad_Juarez  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Ciudad_Juarez  = {
   kAtcZoneNameAmerica_Ciudad_Juarez /*name*/,
   0x7347fc60 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   11 /*num_eras*/,
   kAtcZoneEraAmerica_Ciudad_Juarez /*eras*/,
   NULL /*target_info*/,
@@ -5678,7 +5678,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Costa_Rica[]  = {
   },
   //             -6:00    CR    C%sT
   {
-    &kAtcAllZonePolicyCR /*zone_policy*/,
+    &kAtcZonedballZonePolicyCR /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -5694,10 +5694,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Costa_Rica[]  = {
 
 static const char kAtcZoneNameAmerica_Costa_Rica[]  = "America/Costa_Rica";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Costa_Rica  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Costa_Rica  = {
   kAtcZoneNameAmerica_Costa_Rica /*name*/,
   0x63ff66be /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Costa_Rica /*eras*/,
   NULL /*target_info*/,
@@ -5789,7 +5789,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Coyhaique[]  = {
   },
   //             -5:00    Chile    %z    1932 Sep  1
   {
-    &kAtcAllZonePolicyChile /*zone_policy*/,
+    &kAtcZonedballZonePolicyChile /*zone_policy*/,
     "" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -5867,7 +5867,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Coyhaique[]  = {
   },
   //             -4:00    Chile    %z    2025 Mar 20
   {
-    &kAtcAllZonePolicyChile /*zone_policy*/,
+    &kAtcZonedballZonePolicyChile /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -5896,10 +5896,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Coyhaique[]  = {
 
 static const char kAtcZoneNameAmerica_Coyhaique[]  = "America/Coyhaique";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Coyhaique  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Coyhaique  = {
   kAtcZoneNameAmerica_Coyhaique /*name*/,
   0xcc3314ee /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   14 /*num_eras*/,
   kAtcZoneEraAmerica_Coyhaique /*eras*/,
   NULL /*target_info*/,
@@ -5926,7 +5926,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Cuiaba[]  = {
   },
   //             -4:00    Brazil    %z    2003 Sep 24
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -5952,7 +5952,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Cuiaba[]  = {
   },
   //             -4:00    Brazil    %z
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -5968,10 +5968,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Cuiaba[]  = {
 
 static const char kAtcZoneNameAmerica_Cuiaba[]  = "America/Cuiaba";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Cuiaba  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Cuiaba  = {
   kAtcZoneNameAmerica_Cuiaba /*name*/,
   0x969a52eb /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Cuiaba /*eras*/,
   NULL /*target_info*/,
@@ -6011,7 +6011,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Danmarkshavn[]  = {
   },
   //             -3:00    EU    %z    1996
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -6040,10 +6040,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Danmarkshavn[]  = {
 
 static const char kAtcZoneNameAmerica_Danmarkshavn[]  = "America/Danmarkshavn";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Danmarkshavn  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Danmarkshavn  = {
   kAtcZoneNameAmerica_Danmarkshavn /*name*/,
   0xf554d204 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Danmarkshavn /*eras*/,
   NULL /*target_info*/,
@@ -6070,7 +6070,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Dawson[]  = {
   },
   //             -9:00    NT_YK    Y%sT    1965
   {
-    &kAtcAllZonePolicyNT_YK /*zone_policy*/,
+    &kAtcZonedballZonePolicyNT_YK /*zone_policy*/,
     "Y%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -6083,7 +6083,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Dawson[]  = {
   },
   //             -9:00    Yukon    Y%sT    1973 Oct 28  0:00
   {
-    &kAtcAllZonePolicyYukon /*zone_policy*/,
+    &kAtcZonedballZonePolicyYukon /*zone_policy*/,
     "Y%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -6109,7 +6109,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Dawson[]  = {
   },
   //             -8:00    Canada    P%sT    2020 Nov  1
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -6138,10 +6138,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Dawson[]  = {
 
 static const char kAtcZoneNameAmerica_Dawson[]  = "America/Dawson";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Dawson  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Dawson  = {
   kAtcZoneNameAmerica_Dawson /*name*/,
   0x978d8d12 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Dawson /*eras*/,
   NULL /*target_info*/,
@@ -6168,7 +6168,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Dawson_Creek[]  = {
   },
   //             -8:00    Canada    P%sT    1947
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -6181,7 +6181,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Dawson_Creek[]  = {
   },
   //             -8:00    Vanc    P%sT    1972 Aug 30  2:00
   {
-    &kAtcAllZonePolicyVanc /*zone_policy*/,
+    &kAtcZonedballZonePolicyVanc /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -6210,10 +6210,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Dawson_Creek[]  = {
 
 static const char kAtcZoneNameAmerica_Dawson_Creek[]  = "America/Dawson_Creek";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Dawson_Creek  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Dawson_Creek  = {
   kAtcZoneNameAmerica_Dawson_Creek /*name*/,
   0x6cf24e5b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Dawson_Creek /*eras*/,
   NULL /*target_info*/,
@@ -6240,7 +6240,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Denver[]  = {
   },
   //             -7:00    US    M%sT    1920
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -6253,7 +6253,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Denver[]  = {
   },
   //             -7:00    Denver    M%sT    1942
   {
-    &kAtcAllZonePolicyDenver /*zone_policy*/,
+    &kAtcZonedballZonePolicyDenver /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -6266,7 +6266,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Denver[]  = {
   },
   //             -7:00    US    M%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -6279,7 +6279,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Denver[]  = {
   },
   //             -7:00    Denver    M%sT    1967
   {
-    &kAtcAllZonePolicyDenver /*zone_policy*/,
+    &kAtcZonedballZonePolicyDenver /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -6292,7 +6292,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Denver[]  = {
   },
   //             -7:00    US    M%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -6308,10 +6308,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Denver[]  = {
 
 static const char kAtcZoneNameAmerica_Denver[]  = "America/Denver";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Denver  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Denver  = {
   kAtcZoneNameAmerica_Denver /*name*/,
   0x97d10b2a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Denver /*eras*/,
   NULL /*target_info*/,
@@ -6364,7 +6364,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Detroit[]  = {
   },
   //             -5:00    US    E%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -6377,7 +6377,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Detroit[]  = {
   },
   //             -5:00    Detroit    E%sT    1967 Jun 14  0:01
   {
-    &kAtcAllZonePolicyDetroit /*zone_policy*/,
+    &kAtcZonedballZonePolicyDetroit /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -6390,7 +6390,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Detroit[]  = {
   },
   //             -5:00    US    E%sT    1969
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -6416,7 +6416,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Detroit[]  = {
   },
   //             -5:00    US    E%sT    1975
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -6442,7 +6442,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Detroit[]  = {
   },
   //             -5:00    US    E%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -6458,10 +6458,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Detroit[]  = {
 
 static const char kAtcZoneNameAmerica_Detroit[]  = "America/Detroit";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Detroit  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Detroit  = {
   kAtcZoneNameAmerica_Detroit /*name*/,
   0x925cfbc1 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraAmerica_Detroit /*eras*/,
   NULL /*target_info*/,
@@ -6488,7 +6488,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Edmonton[]  = {
   },
   //             -7:00    Edm    M%sT    1987
   {
-    &kAtcAllZonePolicyEdm /*zone_policy*/,
+    &kAtcZonedballZonePolicyEdm /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -6501,7 +6501,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Edmonton[]  = {
   },
   //             -7:00    Canada    M%sT
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -6517,10 +6517,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Edmonton[]  = {
 
 static const char kAtcZoneNameAmerica_Edmonton[]  = "America/Edmonton";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Edmonton  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Edmonton  = {
   kAtcZoneNameAmerica_Edmonton /*name*/,
   0x6cb9484a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Edmonton /*eras*/,
   NULL /*target_info*/,
@@ -6547,7 +6547,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Eirunepe[]  = {
   },
   //             -5:00    Brazil    %z    1988 Sep 12
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -6573,7 +6573,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Eirunepe[]  = {
   },
   //             -5:00    Brazil    %z    1994 Sep 22
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -6628,10 +6628,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Eirunepe[]  = {
 
 static const char kAtcZoneNameAmerica_Eirunepe[]  = "America/Eirunepe";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Eirunepe  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Eirunepe  = {
   kAtcZoneNameAmerica_Eirunepe /*name*/,
   0xf9b29683 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Eirunepe /*eras*/,
   NULL /*target_info*/,
@@ -6658,7 +6658,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_El_Salvador[]  = {
   },
   //             -6:00    Salv    C%sT
   {
-    &kAtcAllZonePolicySalv /*zone_policy*/,
+    &kAtcZonedballZonePolicySalv /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -6674,10 +6674,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_El_Salvador[]  = {
 
 static const char kAtcZoneNameAmerica_El_Salvador[]  = "America/El_Salvador";
 
-const AtcZoneInfo kAtcAllZoneAmerica_El_Salvador  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_El_Salvador  = {
   kAtcZoneNameAmerica_El_Salvador /*name*/,
   0x752ad652 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_El_Salvador /*eras*/,
   NULL /*target_info*/,
@@ -6704,7 +6704,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Fort_Nelson[]  = {
   },
   //             -8:00    Vanc    P%sT    1946
   {
-    &kAtcAllZonePolicyVanc /*zone_policy*/,
+    &kAtcZonedballZonePolicyVanc /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -6730,7 +6730,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Fort_Nelson[]  = {
   },
   //             -8:00    Vanc    P%sT    1987
   {
-    &kAtcAllZonePolicyVanc /*zone_policy*/,
+    &kAtcZonedballZonePolicyVanc /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -6743,7 +6743,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Fort_Nelson[]  = {
   },
   //             -8:00    Canada    P%sT    2015 Mar  8  2:00
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -6772,10 +6772,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Fort_Nelson[]  = {
 
 static const char kAtcZoneNameAmerica_Fort_Nelson[]  = "America/Fort_Nelson";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Fort_Nelson  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Fort_Nelson  = {
   kAtcZoneNameAmerica_Fort_Nelson /*name*/,
   0x3f437e0f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Fort_Nelson /*eras*/,
   NULL /*target_info*/,
@@ -6802,7 +6802,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Fortaleza[]  = {
   },
   //             -3:00    Brazil    %z    1990 Sep 17
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -6828,7 +6828,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Fortaleza[]  = {
   },
   //             -3:00    Brazil    %z    2000 Oct 22
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -6854,7 +6854,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Fortaleza[]  = {
   },
   //             -3:00    Brazil    %z    2002 Oct  1
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -6883,10 +6883,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Fortaleza[]  = {
 
 static const char kAtcZoneNameAmerica_Fortaleza[]  = "America/Fortaleza";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Fortaleza  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Fortaleza  = {
   kAtcZoneNameAmerica_Fortaleza /*name*/,
   0x2ad018ee /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Fortaleza /*eras*/,
   NULL /*target_info*/,
@@ -6913,7 +6913,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Glace_Bay[]  = {
   },
   //             -4:00    Canada    A%sT    1953
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -6926,7 +6926,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Glace_Bay[]  = {
   },
   //             -4:00    Halifax    A%sT    1954
   {
-    &kAtcAllZonePolicyHalifax /*zone_policy*/,
+    &kAtcZonedballZonePolicyHalifax /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -6952,7 +6952,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Glace_Bay[]  = {
   },
   //             -4:00    Halifax    A%sT    1974
   {
-    &kAtcAllZonePolicyHalifax /*zone_policy*/,
+    &kAtcZonedballZonePolicyHalifax /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -6965,7 +6965,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Glace_Bay[]  = {
   },
   //             -4:00    Canada    A%sT
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -6981,10 +6981,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Glace_Bay[]  = {
 
 static const char kAtcZoneNameAmerica_Glace_Bay[]  = "America/Glace_Bay";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Glace_Bay  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Glace_Bay  = {
   kAtcZoneNameAmerica_Glace_Bay /*name*/,
   0x9681f8dd /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Glace_Bay /*eras*/,
   NULL /*target_info*/,
@@ -7024,7 +7024,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Goose_Bay[]  = {
   },
   //             -3:30:52 Canada N%sT    1919
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "N%T" /*format*/,
     -844 /*offset_code (-12652/15)*/,
     8 /*offset_remainder (-12652%15)*/,
@@ -7063,7 +7063,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Goose_Bay[]  = {
   },
   //             -3:30    StJohns    N%sT    1942 May 11
   {
-    &kAtcAllZonePolicyStJohns /*zone_policy*/,
+    &kAtcZonedballZonePolicyStJohns /*zone_policy*/,
     "N%T" /*format*/,
     -840 /*offset_code (-12600/15)*/,
     0 /*offset_remainder (-12600%15)*/,
@@ -7076,7 +7076,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Goose_Bay[]  = {
   },
   //             -3:30    Canada    N%sT    1946
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "N%T" /*format*/,
     -840 /*offset_code (-12600/15)*/,
     0 /*offset_remainder (-12600%15)*/,
@@ -7089,7 +7089,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Goose_Bay[]  = {
   },
   //             -3:30    StJohns    N%sT    1966 Mar 15  2:00
   {
-    &kAtcAllZonePolicyStJohns /*zone_policy*/,
+    &kAtcZonedballZonePolicyStJohns /*zone_policy*/,
     "N%T" /*format*/,
     -840 /*offset_code (-12600/15)*/,
     0 /*offset_remainder (-12600%15)*/,
@@ -7102,7 +7102,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Goose_Bay[]  = {
   },
   //             -4:00    StJohns    A%sT    2011 Nov
   {
-    &kAtcAllZonePolicyStJohns /*zone_policy*/,
+    &kAtcZonedballZonePolicyStJohns /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -7115,7 +7115,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Goose_Bay[]  = {
   },
   //             -4:00    Canada    A%sT
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -7131,10 +7131,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Goose_Bay[]  = {
 
 static const char kAtcZoneNameAmerica_Goose_Bay[]  = "America/Goose_Bay";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Goose_Bay  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Goose_Bay  = {
   kAtcZoneNameAmerica_Goose_Bay /*name*/,
   0xb649541e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraAmerica_Goose_Bay /*eras*/,
   NULL /*target_info*/,
@@ -7187,7 +7187,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Grand_Turk[]  = {
   },
   //             -5:00    US    E%sT    2015 Mar  8  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -7213,7 +7213,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Grand_Turk[]  = {
   },
   //             -5:00    US    E%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -7229,10 +7229,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Grand_Turk[]  = {
 
 static const char kAtcZoneNameAmerica_Grand_Turk[]  = "America/Grand_Turk";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Grand_Turk  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Grand_Turk  = {
   kAtcZoneNameAmerica_Grand_Turk /*name*/,
   0x6e216197 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Grand_Turk /*eras*/,
   NULL /*target_info*/,
@@ -7259,7 +7259,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Guatemala[]  = {
   },
   //             -6:00    Guat    C%sT
   {
-    &kAtcAllZonePolicyGuat /*zone_policy*/,
+    &kAtcZonedballZonePolicyGuat /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -7275,10 +7275,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Guatemala[]  = {
 
 static const char kAtcZoneNameAmerica_Guatemala[]  = "America/Guatemala";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Guatemala  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Guatemala  = {
   kAtcZoneNameAmerica_Guatemala /*name*/,
   0x0c8259f7 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Guatemala /*eras*/,
   NULL /*target_info*/,
@@ -7318,7 +7318,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Guayaquil[]  = {
   },
   //             -5:00    Ecuador    %z
   {
-    &kAtcAllZonePolicyEcuador /*zone_policy*/,
+    &kAtcZonedballZonePolicyEcuador /*zone_policy*/,
     "" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -7334,10 +7334,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Guayaquil[]  = {
 
 static const char kAtcZoneNameAmerica_Guayaquil[]  = "America/Guayaquil";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Guayaquil  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Guayaquil  = {
   kAtcZoneNameAmerica_Guayaquil /*name*/,
   0x17e64958 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Guayaquil /*eras*/,
   NULL /*target_info*/,
@@ -7419,10 +7419,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Guyana[]  = {
 
 static const char kAtcZoneNameAmerica_Guyana[]  = "America/Guyana";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Guyana  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Guyana  = {
   kAtcZoneNameAmerica_Guyana /*name*/,
   0x9ff7bd0b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Guyana /*eras*/,
   NULL /*target_info*/,
@@ -7449,7 +7449,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Halifax[]  = {
   },
   //             -4:00    Halifax    A%sT    1918
   {
-    &kAtcAllZonePolicyHalifax /*zone_policy*/,
+    &kAtcZonedballZonePolicyHalifax /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -7462,7 +7462,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Halifax[]  = {
   },
   //             -4:00    Canada    A%sT    1919
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -7475,7 +7475,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Halifax[]  = {
   },
   //             -4:00    Halifax    A%sT    1942 Feb  9  2:00s
   {
-    &kAtcAllZonePolicyHalifax /*zone_policy*/,
+    &kAtcZonedballZonePolicyHalifax /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -7488,7 +7488,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Halifax[]  = {
   },
   //             -4:00    Canada    A%sT    1946
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -7501,7 +7501,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Halifax[]  = {
   },
   //             -4:00    Halifax    A%sT    1974
   {
-    &kAtcAllZonePolicyHalifax /*zone_policy*/,
+    &kAtcZonedballZonePolicyHalifax /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -7514,7 +7514,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Halifax[]  = {
   },
   //             -4:00    Canada    A%sT
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -7530,10 +7530,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Halifax[]  = {
 
 static const char kAtcZoneNameAmerica_Halifax[]  = "America/Halifax";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Halifax  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Halifax  = {
   kAtcZoneNameAmerica_Halifax /*name*/,
   0xbc5b7183 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Halifax /*eras*/,
   NULL /*target_info*/,
@@ -7573,7 +7573,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Havana[]  = {
   },
   //             -5:00    Cuba    C%sT
   {
-    &kAtcAllZonePolicyCuba /*zone_policy*/,
+    &kAtcZonedballZonePolicyCuba /*zone_policy*/,
     "C%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -7589,10 +7589,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Havana[]  = {
 
 static const char kAtcZoneNameAmerica_Havana[]  = "America/Havana";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Havana  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Havana  = {
   kAtcZoneNameAmerica_Havana /*name*/,
   0xa0e15675 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Havana /*eras*/,
   NULL /*target_info*/,
@@ -7645,7 +7645,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Hermosillo[]  = {
   },
   //             -7:00    Mexico    M%sT    1932 Apr  1
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -7684,7 +7684,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Hermosillo[]  = {
   },
   //             -7:00    Mexico    M%sT    1999
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -7713,10 +7713,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Hermosillo[]  = {
 
 static const char kAtcZoneNameAmerica_Hermosillo[]  = "America/Hermosillo";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Hermosillo  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Hermosillo  = {
   kAtcZoneNameAmerica_Hermosillo /*name*/,
   0x065d21c4 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAmerica_Hermosillo /*eras*/,
   NULL /*target_info*/,
@@ -7743,7 +7743,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Indianapolis[]  = {
   },
   //             -6:00    US    C%sT    1920
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -7756,7 +7756,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Indianapolis[]  = {
   },
   //             -6:00 Indianapolis C%sT    1942
   {
-    &kAtcAllZonePolicyIndianapolis /*zone_policy*/,
+    &kAtcZonedballZonePolicyIndianapolis /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -7769,7 +7769,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Indianapolis[]  = {
   },
   //             -6:00    US    C%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -7782,7 +7782,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Indianapolis[]  = {
   },
   //             -6:00 Indianapolis C%sT    1955 Apr 24  2:00
   {
-    &kAtcAllZonePolicyIndianapolis /*zone_policy*/,
+    &kAtcZonedballZonePolicyIndianapolis /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -7834,7 +7834,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Indianapolis[]  = {
   },
   //             -5:00    US    E%sT    1971
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -7860,7 +7860,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Indianapolis[]  = {
   },
   //             -5:00    US    E%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -7876,10 +7876,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Indianapolis[]  = {
 
 static const char kAtcZoneNameAmerica_Indiana_Indianapolis[]  = "America/Indiana/Indianapolis";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Indiana_Indianapolis  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Indiana_Indianapolis  = {
   kAtcZoneNameAmerica_Indiana_Indianapolis /*name*/,
   0x28a669a4 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   11 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Indianapolis /*eras*/,
   NULL /*target_info*/,
@@ -7906,7 +7906,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Knox[]  = {
   },
   //             -6:00    US    C%sT    1947
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -7919,7 +7919,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Knox[]  = {
   },
   //             -6:00    Starke    C%sT    1962 Apr 29  2:00
   {
-    &kAtcAllZonePolicyStarke /*zone_policy*/,
+    &kAtcZonedballZonePolicyStarke /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -7945,7 +7945,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Knox[]  = {
   },
   //             -6:00    US    C%sT    1991 Oct 27  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -7971,7 +7971,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Knox[]  = {
   },
   //             -6:00    US    C%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -7987,10 +7987,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Knox[]  = {
 
 static const char kAtcZoneNameAmerica_Indiana_Knox[]  = "America/Indiana/Knox";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Indiana_Knox  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Indiana_Knox  = {
   kAtcZoneNameAmerica_Indiana_Knox /*name*/,
   0x6554adc9 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Knox /*eras*/,
   NULL /*target_info*/,
@@ -8017,7 +8017,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Marengo[]  = {
   },
   //             -6:00    US    C%sT    1951
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8030,7 +8030,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Marengo[]  = {
   },
   //             -6:00    Marengo    C%sT    1961 Apr 30  2:00
   {
-    &kAtcAllZonePolicyMarengo /*zone_policy*/,
+    &kAtcZonedballZonePolicyMarengo /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8056,7 +8056,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Marengo[]  = {
   },
   //             -5:00    US    E%sT    1974 Jan  6  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -8082,7 +8082,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Marengo[]  = {
   },
   //             -5:00    US    E%sT    1976
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -8108,7 +8108,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Marengo[]  = {
   },
   //             -5:00    US    E%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -8124,10 +8124,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Marengo[]  = {
 
 static const char kAtcZoneNameAmerica_Indiana_Marengo[]  = "America/Indiana/Marengo";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Indiana_Marengo  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Indiana_Marengo  = {
   kAtcZoneNameAmerica_Indiana_Marengo /*name*/,
   0x2feeee72 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Marengo /*eras*/,
   NULL /*target_info*/,
@@ -8154,7 +8154,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Petersburg[]  = {
   },
   //             -6:00    US    C%sT    1955
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8167,7 +8167,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Petersburg[]  = {
   },
   //             -6:00    Pike    C%sT    1965 Apr 25  2:00
   {
-    &kAtcAllZonePolicyPike /*zone_policy*/,
+    &kAtcZonedballZonePolicyPike /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8193,7 +8193,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Petersburg[]  = {
   },
   //             -6:00    US    C%sT    1977 Oct 30  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8219,7 +8219,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Petersburg[]  = {
   },
   //             -6:00    US    C%sT    2007 Nov  4  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8232,7 +8232,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Petersburg[]  = {
   },
   //             -5:00    US    E%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -8248,10 +8248,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Petersburg[]  = {
 
 static const char kAtcZoneNameAmerica_Indiana_Petersburg[]  = "America/Indiana/Petersburg";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Indiana_Petersburg  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Indiana_Petersburg  = {
   kAtcZoneNameAmerica_Indiana_Petersburg /*name*/,
   0x94ac7acc /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Petersburg /*eras*/,
   NULL /*target_info*/,
@@ -8278,7 +8278,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Tell_City[]  = {
   },
   //             -6:00    US    C%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8291,7 +8291,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Tell_City[]  = {
   },
   //             -6:00 Perry    C%sT    1964 Apr 26  2:00
   {
-    &kAtcAllZonePolicyPerry /*zone_policy*/,
+    &kAtcZonedballZonePolicyPerry /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8317,7 +8317,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Tell_City[]  = {
   },
   //             -6:00    US    C%sT    1969 Apr 27  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8330,7 +8330,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Tell_City[]  = {
   },
   //             -5:00    US    E%sT    1971
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -8356,7 +8356,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Tell_City[]  = {
   },
   //             -6:00    US    C%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8372,10 +8372,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Tell_City[]  = {
 
 static const char kAtcZoneNameAmerica_Indiana_Tell_City[]  = "America/Indiana/Tell_City";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Indiana_Tell_City  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Indiana_Tell_City  = {
   kAtcZoneNameAmerica_Indiana_Tell_City /*name*/,
   0x09263612 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Tell_City /*eras*/,
   NULL /*target_info*/,
@@ -8402,7 +8402,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vevay[]  = {
   },
   //             -6:00    US    C%sT    1954 Apr 25  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8428,7 +8428,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vevay[]  = {
   },
   //             -5:00    US    E%sT    1973
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -8454,7 +8454,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vevay[]  = {
   },
   //             -5:00    US    E%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -8470,10 +8470,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vevay[]  = {
 
 static const char kAtcZoneNameAmerica_Indiana_Vevay[]  = "America/Indiana/Vevay";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Indiana_Vevay  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Indiana_Vevay  = {
   kAtcZoneNameAmerica_Indiana_Vevay /*name*/,
   0x10aca054 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Vevay /*eras*/,
   NULL /*target_info*/,
@@ -8500,7 +8500,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vincennes[]  = {
   },
   //             -6:00    US    C%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8513,7 +8513,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vincennes[]  = {
   },
   //             -6:00 Vincennes    C%sT    1964 Apr 26  2:00
   {
-    &kAtcAllZonePolicyVincennes /*zone_policy*/,
+    &kAtcZonedballZonePolicyVincennes /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8539,7 +8539,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vincennes[]  = {
   },
   //             -5:00    US    E%sT    1971
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -8565,7 +8565,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vincennes[]  = {
   },
   //             -6:00    US    C%sT    2007 Nov  4  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8578,7 +8578,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vincennes[]  = {
   },
   //             -5:00    US    E%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -8594,10 +8594,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Vincennes[]  = {
 
 static const char kAtcZoneNameAmerica_Indiana_Vincennes[]  = "America/Indiana/Vincennes";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Indiana_Vincennes  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Indiana_Vincennes  = {
   kAtcZoneNameAmerica_Indiana_Vincennes /*name*/,
   0x28a0b212 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Vincennes /*eras*/,
   NULL /*target_info*/,
@@ -8624,7 +8624,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Winamac[]  = {
   },
   //             -6:00    US    C%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8637,7 +8637,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Winamac[]  = {
   },
   //             -6:00    Pulaski    C%sT    1961 Apr 30  2:00
   {
-    &kAtcAllZonePolicyPulaski /*zone_policy*/,
+    &kAtcZonedballZonePolicyPulaski /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8663,7 +8663,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Winamac[]  = {
   },
   //             -5:00    US    E%sT    1971
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -8689,7 +8689,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Winamac[]  = {
   },
   //             -6:00    US    C%sT    2007 Mar 11  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8702,7 +8702,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Winamac[]  = {
   },
   //             -5:00    US    E%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -8718,10 +8718,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Indiana_Winamac[]  = {
 
 static const char kAtcZoneNameAmerica_Indiana_Winamac[]  = "America/Indiana/Winamac";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Indiana_Winamac  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Indiana_Winamac  = {
   kAtcZoneNameAmerica_Indiana_Winamac /*name*/,
   0x4413fa69 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Winamac /*eras*/,
   NULL /*target_info*/,
@@ -8748,7 +8748,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Inuvik[]  = {
   },
   //             -8:00    NT_YK    P%sT    1979 Apr lastSun  2:00
   {
-    &kAtcAllZonePolicyNT_YK /*zone_policy*/,
+    &kAtcZonedballZonePolicyNT_YK /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -8761,7 +8761,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Inuvik[]  = {
   },
   //             -7:00    NT_YK    M%sT    1980
   {
-    &kAtcAllZonePolicyNT_YK /*zone_policy*/,
+    &kAtcZonedballZonePolicyNT_YK /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -8774,7 +8774,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Inuvik[]  = {
   },
   //             -7:00    Canada    M%sT
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -8790,10 +8790,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Inuvik[]  = {
 
 static const char kAtcZoneNameAmerica_Inuvik[]  = "America/Inuvik";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Inuvik  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Inuvik  = {
   kAtcZoneNameAmerica_Inuvik /*name*/,
   0xa42189fc /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Inuvik /*eras*/,
   NULL /*target_info*/,
@@ -8820,7 +8820,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Iqaluit[]  = {
   },
   //             -5:00    NT_YK    E%sT    1999 Oct 31  2:00
   {
-    &kAtcAllZonePolicyNT_YK /*zone_policy*/,
+    &kAtcZonedballZonePolicyNT_YK /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -8833,7 +8833,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Iqaluit[]  = {
   },
   //             -6:00    Canada    C%sT    2000 Oct 29  2:00
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -8846,7 +8846,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Iqaluit[]  = {
   },
   //             -5:00    Canada    E%sT
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -8862,10 +8862,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Iqaluit[]  = {
 
 static const char kAtcZoneNameAmerica_Iqaluit[]  = "America/Iqaluit";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Iqaluit  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Iqaluit  = {
   kAtcZoneNameAmerica_Iqaluit /*name*/,
   0x2de310bf /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Iqaluit /*eras*/,
   NULL /*target_info*/,
@@ -8918,7 +8918,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Jamaica[]  = {
   },
   //             -5:00    US    E%sT    1984
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -8947,10 +8947,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Jamaica[]  = {
 
 static const char kAtcZoneNameAmerica_Jamaica[]  = "America/Jamaica";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Jamaica  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Jamaica  = {
   kAtcZoneNameAmerica_Jamaica /*name*/,
   0x565dad6c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Jamaica /*eras*/,
   NULL /*target_info*/,
@@ -9003,7 +9003,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Juneau[]  = {
   },
   //              -8:00    US    P%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -9029,7 +9029,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Juneau[]  = {
   },
   //              -8:00    US    P%sT    1980 Apr 27  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -9042,7 +9042,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Juneau[]  = {
   },
   //              -9:00    US    Y%sT    1980 Oct 26  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "Y%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -9055,7 +9055,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Juneau[]  = {
   },
   //              -8:00    US    P%sT    1983 Oct 30  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -9068,7 +9068,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Juneau[]  = {
   },
   //              -9:00    US    Y%sT    1983 Nov 30
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "Y%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -9081,7 +9081,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Juneau[]  = {
   },
   //              -9:00    US    AK%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "AK%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -9097,10 +9097,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Juneau[]  = {
 
 static const char kAtcZoneNameAmerica_Juneau[]  = "America/Juneau";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Juneau  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Juneau  = {
   kAtcZoneNameAmerica_Juneau /*name*/,
   0xa6f13e2e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraAmerica_Juneau /*eras*/,
   NULL /*target_info*/,
@@ -9127,7 +9127,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Louisville[]  = {
   },
   //             -6:00    US    C%sT    1921
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -9140,7 +9140,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Louisville[]  = {
   },
   //             -6:00 Louisville C%sT    1942
   {
-    &kAtcAllZonePolicyLouisville /*zone_policy*/,
+    &kAtcZonedballZonePolicyLouisville /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -9153,7 +9153,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Louisville[]  = {
   },
   //             -6:00    US    C%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -9166,7 +9166,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Louisville[]  = {
   },
   //             -6:00 Louisville C%sT    1961 Jul 23  2:00
   {
-    &kAtcAllZonePolicyLouisville /*zone_policy*/,
+    &kAtcZonedballZonePolicyLouisville /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -9192,7 +9192,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Louisville[]  = {
   },
   //             -5:00    US    E%sT    1974 Jan  6  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -9218,7 +9218,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Louisville[]  = {
   },
   //             -5:00    US    E%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -9234,10 +9234,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Louisville[]  = {
 
 static const char kAtcZoneNameAmerica_Kentucky_Louisville[]  = "America/Kentucky/Louisville";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Kentucky_Louisville  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Kentucky_Louisville  = {
   kAtcZoneNameAmerica_Kentucky_Louisville /*name*/,
   0x1a21024b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAmerica_Kentucky_Louisville /*eras*/,
   NULL /*target_info*/,
@@ -9264,7 +9264,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Monticello[]  = {
   },
   //             -6:00    US    C%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -9290,7 +9290,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Monticello[]  = {
   },
   //             -6:00    US    C%sT    2000 Oct 29  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -9303,7 +9303,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Monticello[]  = {
   },
   //             -5:00    US    E%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -9319,10 +9319,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Kentucky_Monticello[]  = {
 
 static const char kAtcZoneNameAmerica_Kentucky_Monticello[]  = "America/Kentucky/Monticello";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Kentucky_Monticello  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Kentucky_Monticello  = {
   kAtcZoneNameAmerica_Kentucky_Monticello /*name*/,
   0xde71c439 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Kentucky_Monticello /*eras*/,
   NULL /*target_info*/,
@@ -9391,10 +9391,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_La_Paz[]  = {
 
 static const char kAtcZoneNameAmerica_La_Paz[]  = "America/La_Paz";
 
-const AtcZoneInfo kAtcAllZoneAmerica_La_Paz  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_La_Paz  = {
   kAtcZoneNameAmerica_La_Paz /*name*/,
   0xaa29125d /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_La_Paz /*eras*/,
   NULL /*target_info*/,
@@ -9434,7 +9434,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Lima[]  = {
   },
   //             -5:00    Peru    %z
   {
-    &kAtcAllZonePolicyPeru /*zone_policy*/,
+    &kAtcZonedballZonePolicyPeru /*zone_policy*/,
     "" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -9450,10 +9450,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Lima[]  = {
 
 static const char kAtcZoneNameAmerica_Lima[]  = "America/Lima";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Lima  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Lima  = {
   kAtcZoneNameAmerica_Lima /*name*/,
   0x980468c9 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Lima /*eras*/,
   NULL /*target_info*/,
@@ -9480,7 +9480,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Los_Angeles[]  = {
   },
   //             -8:00    US    P%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -9493,7 +9493,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Los_Angeles[]  = {
   },
   //             -8:00    CA    P%sT    1967
   {
-    &kAtcAllZonePolicyCA /*zone_policy*/,
+    &kAtcZonedballZonePolicyCA /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -9506,7 +9506,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Los_Angeles[]  = {
   },
   //             -8:00    US    P%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -9522,10 +9522,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Los_Angeles[]  = {
 
 static const char kAtcZoneNameAmerica_Los_Angeles[]  = "America/Los_Angeles";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Los_Angeles  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Los_Angeles  = {
   kAtcZoneNameAmerica_Los_Angeles /*name*/,
   0xb7f7e8f2 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Los_Angeles /*eras*/,
   NULL /*target_info*/,
@@ -9552,7 +9552,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Maceio[]  = {
   },
   //             -3:00    Brazil    %z    1990 Sep 17
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -9578,7 +9578,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Maceio[]  = {
   },
   //             -3:00    Brazil    %z    1996 Sep  4
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -9604,7 +9604,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Maceio[]  = {
   },
   //             -3:00    Brazil    %z    2000 Oct 22
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -9630,7 +9630,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Maceio[]  = {
   },
   //             -3:00    Brazil    %z    2002 Oct  1
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -9659,10 +9659,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Maceio[]  = {
 
 static const char kAtcZoneNameAmerica_Maceio[]  = "America/Maceio";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Maceio  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Maceio  = {
   kAtcZoneNameAmerica_Maceio /*name*/,
   0xac80c6d4 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAmerica_Maceio /*eras*/,
   NULL /*target_info*/,
@@ -9728,7 +9728,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Managua[]  = {
   },
   //             -6:00    Nic    C%sT    1992 Jan  1  4:00
   {
-    &kAtcAllZonePolicyNic /*zone_policy*/,
+    &kAtcZonedballZonePolicyNic /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -9780,7 +9780,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Managua[]  = {
   },
   //             -6:00    Nic    C%sT
   {
-    &kAtcAllZonePolicyNic /*zone_policy*/,
+    &kAtcZonedballZonePolicyNic /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -9796,10 +9796,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Managua[]  = {
 
 static const char kAtcZoneNameAmerica_Managua[]  = "America/Managua";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Managua  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Managua  = {
   kAtcZoneNameAmerica_Managua /*name*/,
   0x3d5e7600 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAmerica_Managua /*eras*/,
   NULL /*target_info*/,
@@ -9826,7 +9826,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Manaus[]  = {
   },
   //             -4:00    Brazil    %z    1988 Sep 12
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -9852,7 +9852,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Manaus[]  = {
   },
   //             -4:00    Brazil    %z    1994 Sep 22
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -9881,10 +9881,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Manaus[]  = {
 
 static const char kAtcZoneNameAmerica_Manaus[]  = "America/Manaus";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Manaus  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Manaus  = {
   kAtcZoneNameAmerica_Manaus /*name*/,
   0xac86bf8b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Manaus /*eras*/,
   NULL /*target_info*/,
@@ -9966,10 +9966,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Martinique[]  = {
 
 static const char kAtcZoneNameAmerica_Martinique[]  = "America/Martinique";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Martinique  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Martinique  = {
   kAtcZoneNameAmerica_Martinique /*name*/,
   0x551e84c5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Martinique /*eras*/,
   NULL /*target_info*/,
@@ -10009,7 +10009,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Matamoros[]  = {
   },
   //             -6:00    US    C%sT    1989
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -10022,7 +10022,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Matamoros[]  = {
   },
   //             -6:00    Mexico    C%sT    2010
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -10035,7 +10035,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Matamoros[]  = {
   },
   //             -6:00    US    C%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -10051,10 +10051,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Matamoros[]  = {
 
 static const char kAtcZoneNameAmerica_Matamoros[]  = "America/Matamoros";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Matamoros  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Matamoros  = {
   kAtcZoneNameAmerica_Matamoros /*name*/,
   0xdd1b0259 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Matamoros /*eras*/,
   NULL /*target_info*/,
@@ -10107,7 +10107,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Mazatlan[]  = {
   },
   //             -7:00    Mexico    M%sT    1932 Apr  1
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -10146,7 +10146,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Mazatlan[]  = {
   },
   //             -7:00    Mexico    M%sT
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -10162,10 +10162,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Mazatlan[]  = {
 
 static const char kAtcZoneNameAmerica_Mazatlan[]  = "America/Mazatlan";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Mazatlan  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Mazatlan  = {
   kAtcZoneNameAmerica_Mazatlan /*name*/,
   0x0532189e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Mazatlan /*eras*/,
   NULL /*target_info*/,
@@ -10192,7 +10192,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Menominee[]  = {
   },
   //             -6:00    US    C%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -10205,7 +10205,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Menominee[]  = {
   },
   //             -6:00 Menominee    C%sT    1969 Apr 27  2:00
   {
-    &kAtcAllZonePolicyMenominee /*zone_policy*/,
+    &kAtcZonedballZonePolicyMenominee /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -10231,7 +10231,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Menominee[]  = {
   },
   //             -6:00    US    C%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -10247,10 +10247,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Menominee[]  = {
 
 static const char kAtcZoneNameAmerica_Menominee[]  = "America/Menominee";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Menominee  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Menominee  = {
   kAtcZoneNameAmerica_Menominee /*name*/,
   0xe0e9c583 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Menominee /*eras*/,
   NULL /*target_info*/,
@@ -10303,7 +10303,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Merida[]  = {
   },
   //             -6:00    Mexico    C%sT
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -10319,10 +10319,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Merida[]  = {
 
 static const char kAtcZoneNameAmerica_Merida[]  = "America/Merida";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Merida  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Merida  = {
   kAtcZoneNameAmerica_Merida /*name*/,
   0xacd172d8 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Merida /*eras*/,
   NULL /*target_info*/,
@@ -10375,7 +10375,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Metlakatla[]  = {
   },
   //              -8:00    US    P%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -10401,7 +10401,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Metlakatla[]  = {
   },
   //              -8:00    US    P%sT    1983 Oct 30  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -10427,7 +10427,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Metlakatla[]  = {
   },
   //              -9:00    US    AK%sT    2018 Nov  4  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "AK%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -10453,7 +10453,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Metlakatla[]  = {
   },
   //              -9:00    US    AK%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "AK%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -10469,10 +10469,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Metlakatla[]  = {
 
 static const char kAtcZoneNameAmerica_Metlakatla[]  = "America/Metlakatla";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Metlakatla  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Metlakatla  = {
   kAtcZoneNameAmerica_Metlakatla /*name*/,
   0x84de2686 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraAmerica_Metlakatla /*eras*/,
   NULL /*target_info*/,
@@ -10525,7 +10525,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Mexico_City[]  = {
   },
   //             -7:00    Mexico    M%sT    1932 Apr  1
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -10538,7 +10538,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Mexico_City[]  = {
   },
   //             -6:00    Mexico    C%sT    2001 Sep 30  2:00
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -10564,7 +10564,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Mexico_City[]  = {
   },
   //             -6:00    Mexico    C%sT
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -10580,10 +10580,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Mexico_City[]  = {
 
 static const char kAtcZoneNameAmerica_Mexico_City[]  = "America/Mexico_City";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Mexico_City  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Mexico_City  = {
   kAtcZoneNameAmerica_Mexico_City /*name*/,
   0xd0d93f43 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Mexico_City /*eras*/,
   NULL /*target_info*/,
@@ -10636,7 +10636,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Miquelon[]  = {
   },
   //             -3:00    Canada    %z
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -10652,10 +10652,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Miquelon[]  = {
 
 static const char kAtcZoneNameAmerica_Miquelon[]  = "America/Miquelon";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Miquelon  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Miquelon  = {
   kAtcZoneNameAmerica_Miquelon /*name*/,
   0x59674330 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Miquelon /*eras*/,
   NULL /*target_info*/,
@@ -10695,7 +10695,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Moncton[]  = {
   },
   //             -4:00    Canada    A%sT    1933
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -10708,7 +10708,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Moncton[]  = {
   },
   //             -4:00    Moncton    A%sT    1942
   {
-    &kAtcAllZonePolicyMoncton /*zone_policy*/,
+    &kAtcZonedballZonePolicyMoncton /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -10721,7 +10721,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Moncton[]  = {
   },
   //             -4:00    Canada    A%sT    1946
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -10734,7 +10734,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Moncton[]  = {
   },
   //             -4:00    Moncton    A%sT    1973
   {
-    &kAtcAllZonePolicyMoncton /*zone_policy*/,
+    &kAtcZonedballZonePolicyMoncton /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -10747,7 +10747,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Moncton[]  = {
   },
   //             -4:00    Canada    A%sT    1993
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -10760,7 +10760,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Moncton[]  = {
   },
   //             -4:00    Moncton    A%sT    2007
   {
-    &kAtcAllZonePolicyMoncton /*zone_policy*/,
+    &kAtcZonedballZonePolicyMoncton /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -10773,7 +10773,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Moncton[]  = {
   },
   //             -4:00    Canada    A%sT
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -10789,10 +10789,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Moncton[]  = {
 
 static const char kAtcZoneNameAmerica_Moncton[]  = "America/Moncton";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Moncton  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Moncton  = {
   kAtcZoneNameAmerica_Moncton /*name*/,
   0x5e07fe24 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAmerica_Moncton /*eras*/,
   NULL /*target_info*/,
@@ -10845,7 +10845,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Monterrey[]  = {
   },
   //             -7:00    Mexico    M%sT    1932 Apr  1
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -10871,7 +10871,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Monterrey[]  = {
   },
   //             -6:00    US    C%sT    1989
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -10884,7 +10884,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Monterrey[]  = {
   },
   //             -6:00    Mexico    C%sT
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -10900,10 +10900,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Monterrey[]  = {
 
 static const char kAtcZoneNameAmerica_Monterrey[]  = "America/Monterrey";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Monterrey  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Monterrey  = {
   kAtcZoneNameAmerica_Monterrey /*name*/,
   0x269a1deb /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Monterrey /*eras*/,
   NULL /*target_info*/,
@@ -10956,7 +10956,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Montevideo[]  = {
   },
   //             -3:30    Uruguay    %z    1942 Dec 14
   {
-    &kAtcAllZonePolicyUruguay /*zone_policy*/,
+    &kAtcZonedballZonePolicyUruguay /*zone_policy*/,
     "" /*format*/,
     -840 /*offset_code (-12600/15)*/,
     0 /*offset_remainder (-12600%15)*/,
@@ -10969,7 +10969,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Montevideo[]  = {
   },
   //             -3:00    Uruguay    %z    1960
   {
-    &kAtcAllZonePolicyUruguay /*zone_policy*/,
+    &kAtcZonedballZonePolicyUruguay /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -10982,7 +10982,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Montevideo[]  = {
   },
   //             -3:00    Uruguay    %z    1968
   {
-    &kAtcAllZonePolicyUruguay /*zone_policy*/,
+    &kAtcZonedballZonePolicyUruguay /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -10995,7 +10995,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Montevideo[]  = {
   },
   //             -3:00    Uruguay    %z    1970
   {
-    &kAtcAllZonePolicyUruguay /*zone_policy*/,
+    &kAtcZonedballZonePolicyUruguay /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -11008,7 +11008,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Montevideo[]  = {
   },
   //             -3:00    Uruguay    %z    1974
   {
-    &kAtcAllZonePolicyUruguay /*zone_policy*/,
+    &kAtcZonedballZonePolicyUruguay /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -11021,7 +11021,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Montevideo[]  = {
   },
   //             -3:00    Uruguay    %z    1974 Mar 10
   {
-    &kAtcAllZonePolicyUruguay /*zone_policy*/,
+    &kAtcZonedballZonePolicyUruguay /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -11034,7 +11034,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Montevideo[]  = {
   },
   //             -3:00    Uruguay    %z    1974 Dec 22
   {
-    &kAtcAllZonePolicyUruguay /*zone_policy*/,
+    &kAtcZonedballZonePolicyUruguay /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -11047,7 +11047,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Montevideo[]  = {
   },
   //             -3:00    Uruguay    %z
   {
-    &kAtcAllZonePolicyUruguay /*zone_policy*/,
+    &kAtcZonedballZonePolicyUruguay /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -11063,10 +11063,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Montevideo[]  = {
 
 static const char kAtcZoneNameAmerica_Montevideo[]  = "America/Montevideo";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Montevideo  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Montevideo  = {
   kAtcZoneNameAmerica_Montevideo /*name*/,
   0xfa214780 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   11 /*num_eras*/,
   kAtcZoneEraAmerica_Montevideo /*eras*/,
   NULL /*target_info*/,
@@ -11093,7 +11093,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_New_York[]  = {
   },
   //             -5:00    US    E%sT    1920
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -11106,7 +11106,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_New_York[]  = {
   },
   //             -5:00    NYC    E%sT    1942
   {
-    &kAtcAllZonePolicyNYC /*zone_policy*/,
+    &kAtcZonedballZonePolicyNYC /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -11119,7 +11119,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_New_York[]  = {
   },
   //             -5:00    US    E%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -11132,7 +11132,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_New_York[]  = {
   },
   //             -5:00    NYC    E%sT    1967
   {
-    &kAtcAllZonePolicyNYC /*zone_policy*/,
+    &kAtcZonedballZonePolicyNYC /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -11145,7 +11145,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_New_York[]  = {
   },
   //             -5:00    US    E%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -11161,10 +11161,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_New_York[]  = {
 
 static const char kAtcZoneNameAmerica_New_York[]  = "America/New_York";
 
-const AtcZoneInfo kAtcAllZoneAmerica_New_York  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_New_York  = {
   kAtcZoneNameAmerica_New_York /*name*/,
   0x1e2a7654 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_New_York /*eras*/,
   NULL /*target_info*/,
@@ -11217,7 +11217,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Nome[]  = {
   },
   //             -11:00    US    N%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "N%T" /*format*/,
     -2640 /*offset_code (-39600/15)*/,
     0 /*offset_remainder (-39600%15)*/,
@@ -11256,7 +11256,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Nome[]  = {
   },
   //             -11:00    US    B%sT    1983 Oct 30  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "B%T" /*format*/,
     -2640 /*offset_code (-39600/15)*/,
     0 /*offset_remainder (-39600%15)*/,
@@ -11269,7 +11269,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Nome[]  = {
   },
   //              -9:00    US    Y%sT    1983 Nov 30
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "Y%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -11282,7 +11282,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Nome[]  = {
   },
   //              -9:00    US    AK%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "AK%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -11298,10 +11298,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Nome[]  = {
 
 static const char kAtcZoneNameAmerica_Nome[]  = "America/Nome";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Nome  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Nome  = {
   kAtcZoneNameAmerica_Nome /*name*/,
   0x98059b15 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAmerica_Nome /*eras*/,
   NULL /*target_info*/,
@@ -11328,7 +11328,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Noronha[]  = {
   },
   //             -2:00    Brazil    %z    1990 Sep 17
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -480 /*offset_code (-7200/15)*/,
     0 /*offset_remainder (-7200%15)*/,
@@ -11354,7 +11354,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Noronha[]  = {
   },
   //             -2:00    Brazil    %z    2000 Oct 15
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -480 /*offset_code (-7200/15)*/,
     0 /*offset_remainder (-7200%15)*/,
@@ -11380,7 +11380,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Noronha[]  = {
   },
   //             -2:00    Brazil    %z    2002 Oct  1
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -480 /*offset_code (-7200/15)*/,
     0 /*offset_remainder (-7200%15)*/,
@@ -11409,10 +11409,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Noronha[]  = {
 
 static const char kAtcZoneNameAmerica_Noronha[]  = "America/Noronha";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Noronha  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Noronha  = {
   kAtcZoneNameAmerica_Noronha /*name*/,
   0xab5116fb /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Noronha /*eras*/,
   NULL /*target_info*/,
@@ -11439,7 +11439,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Beulah[]  = {
   },
   //             -7:00    US    M%sT    2010 Nov  7  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -11452,7 +11452,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Beulah[]  = {
   },
   //             -6:00    US    C%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -11468,10 +11468,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Beulah[]  = {
 
 static const char kAtcZoneNameAmerica_North_Dakota_Beulah[]  = "America/North_Dakota/Beulah";
 
-const AtcZoneInfo kAtcAllZoneAmerica_North_Dakota_Beulah  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_North_Dakota_Beulah  = {
   kAtcZoneNameAmerica_North_Dakota_Beulah /*name*/,
   0x9b52b384 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_North_Dakota_Beulah /*eras*/,
   NULL /*target_info*/,
@@ -11498,7 +11498,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Center[]  = {
   },
   //             -7:00    US    M%sT    1992 Oct 25  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -11511,7 +11511,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Center[]  = {
   },
   //             -6:00    US    C%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -11527,10 +11527,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_Center[]  = {
 
 static const char kAtcZoneNameAmerica_North_Dakota_Center[]  = "America/North_Dakota/Center";
 
-const AtcZoneInfo kAtcAllZoneAmerica_North_Dakota_Center  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_North_Dakota_Center  = {
   kAtcZoneNameAmerica_North_Dakota_Center /*name*/,
   0x9da42814 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_North_Dakota_Center /*eras*/,
   NULL /*target_info*/,
@@ -11557,7 +11557,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_New_Salem[]  = {
   },
   //             -7:00    US    M%sT    2003 Oct 26  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -11570,7 +11570,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_New_Salem[]  = {
   },
   //             -6:00    US    C%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -11586,10 +11586,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_North_Dakota_New_Salem[]  = {
 
 static const char kAtcZoneNameAmerica_North_Dakota_New_Salem[]  = "America/North_Dakota/New_Salem";
 
-const AtcZoneInfo kAtcAllZoneAmerica_North_Dakota_New_Salem  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_North_Dakota_New_Salem  = {
   kAtcZoneNameAmerica_North_Dakota_New_Salem /*name*/,
   0x04f9958e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_North_Dakota_New_Salem /*eras*/,
   NULL /*target_info*/,
@@ -11629,7 +11629,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Nuuk[]  = {
   },
   //             -3:00    EU    %z    2023 Mar 26  1:00u
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -11655,7 +11655,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Nuuk[]  = {
   },
   //             -2:00    EU    %z
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "" /*format*/,
     -480 /*offset_code (-7200/15)*/,
     0 /*offset_remainder (-7200%15)*/,
@@ -11671,10 +11671,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Nuuk[]  = {
 
 static const char kAtcZoneNameAmerica_Nuuk[]  = "America/Nuuk";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Nuuk  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Nuuk  = {
   kAtcZoneNameAmerica_Nuuk /*name*/,
   0x9805b5a9 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Nuuk /*eras*/,
   NULL /*target_info*/,
@@ -11727,7 +11727,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Ojinaga[]  = {
   },
   //             -7:00    Mexico    M%sT    1932 Apr  1
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -11753,7 +11753,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Ojinaga[]  = {
   },
   //             -6:00    Mexico    C%sT    1998
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -11779,7 +11779,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Ojinaga[]  = {
   },
   //             -7:00    Mexico    M%sT    2010
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -11792,7 +11792,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Ojinaga[]  = {
   },
   //             -7:00    US    M%sT    2022 Oct 30  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -11818,7 +11818,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Ojinaga[]  = {
   },
   //             -6:00    US    C%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -11834,10 +11834,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Ojinaga[]  = {
 
 static const char kAtcZoneNameAmerica_Ojinaga[]  = "America/Ojinaga";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Ojinaga  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Ojinaga  = {
   kAtcZoneNameAmerica_Ojinaga /*name*/,
   0xebfde83f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   11 /*num_eras*/,
   kAtcZoneEraAmerica_Ojinaga /*eras*/,
   NULL /*target_info*/,
@@ -11893,10 +11893,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Panama[]  = {
 
 static const char kAtcZoneNameAmerica_Panama[]  = "America/Panama";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Panama  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Panama  = {
   kAtcZoneNameAmerica_Panama /*name*/,
   0xb3863854 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Panama /*eras*/,
   NULL /*target_info*/,
@@ -11978,10 +11978,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Paramaribo[]  = {
 
 static const char kAtcZoneNameAmerica_Paramaribo[]  = "America/Paramaribo";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Paramaribo  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Paramaribo  = {
   kAtcZoneNameAmerica_Paramaribo /*name*/,
   0xb319e4c4 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Paramaribo /*eras*/,
   NULL /*target_info*/,
@@ -12008,7 +12008,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Phoenix[]  = {
   },
   //             -7:00    US    M%sT    1944 Jan  1  0:01
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -12034,7 +12034,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Phoenix[]  = {
   },
   //             -7:00    US    M%sT    1944 Oct  1  0:01
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -12060,7 +12060,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Phoenix[]  = {
   },
   //             -7:00    US    M%sT    1968 Mar 21
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -12089,10 +12089,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Phoenix[]  = {
 
 static const char kAtcZoneNameAmerica_Phoenix[]  = "America/Phoenix";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Phoenix  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Phoenix  = {
   kAtcZoneNameAmerica_Phoenix /*name*/,
   0x34b5af01 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Phoenix /*eras*/,
   NULL /*target_info*/,
@@ -12132,7 +12132,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Port_au_Prince[]  = {
   },
   //             -5:00    Haiti    E%sT
   {
-    &kAtcAllZonePolicyHaiti /*zone_policy*/,
+    &kAtcZonedballZonePolicyHaiti /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -12148,10 +12148,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Port_au_Prince[]  = {
 
 static const char kAtcZoneNameAmerica_Port_au_Prince[]  = "America/Port-au-Prince";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Port_au_Prince  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Port_au_Prince  = {
   kAtcZoneNameAmerica_Port_au_Prince /*name*/,
   0x8e4a7bdc /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Port_au_Prince /*eras*/,
   NULL /*target_info*/,
@@ -12178,7 +12178,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Porto_Velho[]  = {
   },
   //             -4:00    Brazil    %z    1988 Sep 12
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -12207,10 +12207,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Porto_Velho[]  = {
 
 static const char kAtcZoneNameAmerica_Porto_Velho[]  = "America/Porto_Velho";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Porto_Velho  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Porto_Velho  = {
   kAtcZoneNameAmerica_Porto_Velho /*name*/,
   0x6b1aac77 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Porto_Velho /*eras*/,
   NULL /*target_info*/,
@@ -12250,7 +12250,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Puerto_Rico[]  = {
   },
   //             -4:00    US    A%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -12279,10 +12279,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Puerto_Rico[]  = {
 
 static const char kAtcZoneNameAmerica_Puerto_Rico[]  = "America/Puerto_Rico";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Puerto_Rico  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Puerto_Rico  = {
   kAtcZoneNameAmerica_Puerto_Rico /*name*/,
   0x6752ca31 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
   NULL /*target_info*/,
@@ -12374,7 +12374,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Punta_Arenas[]  = {
   },
   //             -5:00    Chile    %z    1932 Sep  1
   {
-    &kAtcAllZonePolicyChile /*zone_policy*/,
+    &kAtcZonedballZonePolicyChile /*zone_policy*/,
     "" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -12452,7 +12452,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Punta_Arenas[]  = {
   },
   //             -4:00    Chile    %z    2016 Dec  4
   {
-    &kAtcAllZonePolicyChile /*zone_policy*/,
+    &kAtcZonedballZonePolicyChile /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -12481,10 +12481,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Punta_Arenas[]  = {
 
 static const char kAtcZoneNameAmerica_Punta_Arenas[]  = "America/Punta_Arenas";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Punta_Arenas  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Punta_Arenas  = {
   kAtcZoneNameAmerica_Punta_Arenas /*name*/,
   0xc2c3bce7 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   14 /*num_eras*/,
   kAtcZoneEraAmerica_Punta_Arenas /*eras*/,
   NULL /*target_info*/,
@@ -12511,7 +12511,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Rankin_Inlet[]  = {
   },
   //             -6:00    NT_YK    C%sT    2000 Oct 29  2:00
   {
-    &kAtcAllZonePolicyNT_YK /*zone_policy*/,
+    &kAtcZonedballZonePolicyNT_YK /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -12537,7 +12537,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Rankin_Inlet[]  = {
   },
   //             -6:00    Canada    C%sT
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -12553,10 +12553,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Rankin_Inlet[]  = {
 
 static const char kAtcZoneNameAmerica_Rankin_Inlet[]  = "America/Rankin_Inlet";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Rankin_Inlet  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Rankin_Inlet  = {
   kAtcZoneNameAmerica_Rankin_Inlet /*name*/,
   0xc8de4984 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Rankin_Inlet /*eras*/,
   NULL /*target_info*/,
@@ -12583,7 +12583,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Recife[]  = {
   },
   //             -3:00    Brazil    %z    1990 Sep 17
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -12609,7 +12609,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Recife[]  = {
   },
   //             -3:00    Brazil    %z    2000 Oct 15
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -12635,7 +12635,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Recife[]  = {
   },
   //             -3:00    Brazil    %z    2002 Oct  1
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -12664,10 +12664,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Recife[]  = {
 
 static const char kAtcZoneNameAmerica_Recife[]  = "America/Recife";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Recife  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Recife  = {
   kAtcZoneNameAmerica_Recife /*name*/,
   0xb8730494 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Recife /*eras*/,
   NULL /*target_info*/,
@@ -12694,7 +12694,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Regina[]  = {
   },
   //             -7:00    Regina    M%sT    1960 Apr lastSun  2:00
   {
-    &kAtcAllZonePolicyRegina /*zone_policy*/,
+    &kAtcZonedballZonePolicyRegina /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -12723,10 +12723,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Regina[]  = {
 
 static const char kAtcZoneNameAmerica_Regina[]  = "America/Regina";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Regina  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Regina  = {
   kAtcZoneNameAmerica_Regina /*name*/,
   0xb875371c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Regina /*eras*/,
   NULL /*target_info*/,
@@ -12753,7 +12753,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Resolute[]  = {
   },
   //             -6:00    NT_YK    C%sT    2000 Oct 29  2:00
   {
-    &kAtcAllZonePolicyNT_YK /*zone_policy*/,
+    &kAtcZonedballZonePolicyNT_YK /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -12779,7 +12779,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Resolute[]  = {
   },
   //             -6:00    Canada    C%sT    2006 Oct 29  2:00
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -12805,7 +12805,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Resolute[]  = {
   },
   //             -6:00    Canada    C%sT
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -12821,10 +12821,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Resolute[]  = {
 
 static const char kAtcZoneNameAmerica_Resolute[]  = "America/Resolute";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Resolute  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Resolute  = {
   kAtcZoneNameAmerica_Resolute /*name*/,
   0xc7093459 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Resolute /*eras*/,
   NULL /*target_info*/,
@@ -12851,7 +12851,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Rio_Branco[]  = {
   },
   //             -5:00    Brazil    %z    1988 Sep 12
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -12906,10 +12906,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Rio_Branco[]  = {
 
 static const char kAtcZoneNameAmerica_Rio_Branco[]  = "America/Rio_Branco";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Rio_Branco  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Rio_Branco  = {
   kAtcZoneNameAmerica_Rio_Branco /*name*/,
   0x9d352764 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Rio_Branco /*eras*/,
   NULL /*target_info*/,
@@ -12936,7 +12936,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Santarem[]  = {
   },
   //             -4:00    Brazil    %z    1988 Sep 12
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -12978,10 +12978,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Santarem[]  = {
 
 static const char kAtcZoneNameAmerica_Santarem[]  = "America/Santarem";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Santarem  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Santarem  = {
   kAtcZoneNameAmerica_Santarem /*name*/,
   0x740caec1 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Santarem /*eras*/,
   NULL /*target_info*/,
@@ -13073,7 +13073,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Santiago[]  = {
   },
   //             -5:00    Chile    %z    1932 Sep  1
   {
-    &kAtcAllZonePolicyChile /*zone_policy*/,
+    &kAtcZonedballZonePolicyChile /*zone_policy*/,
     "" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -13164,7 +13164,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Santiago[]  = {
   },
   //             -4:00    Chile    %z
   {
-    &kAtcAllZonePolicyChile /*zone_policy*/,
+    &kAtcZonedballZonePolicyChile /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -13180,10 +13180,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Santiago[]  = {
 
 static const char kAtcZoneNameAmerica_Santiago[]  = "America/Santiago";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Santiago  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Santiago  = {
   kAtcZoneNameAmerica_Santiago /*name*/,
   0x7410c9bc /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   14 /*num_eras*/,
   kAtcZoneEraAmerica_Santiago /*eras*/,
   NULL /*target_info*/,
@@ -13223,7 +13223,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Santo_Domingo[]  = {
   },
   //             -5:00    DR    %s    1974 Oct 27
   {
-    &kAtcAllZonePolicyDR /*zone_policy*/,
+    &kAtcZonedballZonePolicyDR /*zone_policy*/,
     "%" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -13249,7 +13249,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Santo_Domingo[]  = {
   },
   //             -5:00    US    E%sT    2000 Dec  3  1:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -13278,10 +13278,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Santo_Domingo[]  = {
 
 static const char kAtcZoneNameAmerica_Santo_Domingo[]  = "America/Santo_Domingo";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Santo_Domingo  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Santo_Domingo  = {
   kAtcZoneNameAmerica_Santo_Domingo /*name*/,
   0x75a0d177 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Santo_Domingo /*eras*/,
   NULL /*target_info*/,
@@ -13308,7 +13308,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Sao_Paulo[]  = {
   },
   //             -3:00    Brazil    %z    1963 Oct 23  0:00
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -13334,7 +13334,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Sao_Paulo[]  = {
   },
   //             -3:00    Brazil    %z
   {
-    &kAtcAllZonePolicyBrazil /*zone_policy*/,
+    &kAtcZonedballZonePolicyBrazil /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -13350,10 +13350,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Sao_Paulo[]  = {
 
 static const char kAtcZoneNameAmerica_Sao_Paulo[]  = "America/Sao_Paulo";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Sao_Paulo  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Sao_Paulo  = {
   kAtcZoneNameAmerica_Sao_Paulo /*name*/,
   0x1063bfc9 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Sao_Paulo /*eras*/,
   NULL /*target_info*/,
@@ -13393,7 +13393,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Scoresbysund[]  = {
   },
   //             -2:00    C-Eur    %z    1981 Mar 29
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "" /*format*/,
     -480 /*offset_code (-7200/15)*/,
     0 /*offset_remainder (-7200%15)*/,
@@ -13406,7 +13406,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Scoresbysund[]  = {
   },
   //             -1:00    EU    %z    2024 Mar 31
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "" /*format*/,
     -240 /*offset_code (-3600/15)*/,
     0 /*offset_remainder (-3600%15)*/,
@@ -13419,7 +13419,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Scoresbysund[]  = {
   },
   //             -2:00    EU    %z
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "" /*format*/,
     -480 /*offset_code (-7200/15)*/,
     0 /*offset_remainder (-7200%15)*/,
@@ -13435,10 +13435,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Scoresbysund[]  = {
 
 static const char kAtcZoneNameAmerica_Scoresbysund[]  = "America/Scoresbysund";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Scoresbysund  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Scoresbysund  = {
   kAtcZoneNameAmerica_Scoresbysund /*name*/,
   0x123f8d2a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Scoresbysund /*eras*/,
   NULL /*target_info*/,
@@ -13491,7 +13491,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Sitka[]  = {
   },
   //              -8:00    US    P%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -13517,7 +13517,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Sitka[]  = {
   },
   //              -8:00    US    P%sT    1983 Oct 30  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -13530,7 +13530,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Sitka[]  = {
   },
   //              -9:00    US    Y%sT    1983 Nov 30
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "Y%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -13543,7 +13543,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Sitka[]  = {
   },
   //              -9:00    US    AK%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "AK%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -13559,10 +13559,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Sitka[]  = {
 
 static const char kAtcZoneNameAmerica_Sitka[]  = "America/Sitka";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Sitka  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Sitka  = {
   kAtcZoneNameAmerica_Sitka /*name*/,
   0x99104ce2 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAmerica_Sitka /*eras*/,
   NULL /*target_info*/,
@@ -13589,7 +13589,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_St_Johns[]  = {
   },
   //             -3:30:52 StJohns N%sT    1918
   {
-    &kAtcAllZonePolicyStJohns /*zone_policy*/,
+    &kAtcZonedballZonePolicyStJohns /*zone_policy*/,
     "N%T" /*format*/,
     -844 /*offset_code (-12652/15)*/,
     8 /*offset_remainder (-12652%15)*/,
@@ -13602,7 +13602,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_St_Johns[]  = {
   },
   //             -3:30:52 Canada    N%sT    1919
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "N%T" /*format*/,
     -844 /*offset_code (-12652/15)*/,
     8 /*offset_remainder (-12652%15)*/,
@@ -13615,7 +13615,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_St_Johns[]  = {
   },
   //             -3:30:52 StJohns N%sT    1935 Mar 30
   {
-    &kAtcAllZonePolicyStJohns /*zone_policy*/,
+    &kAtcZonedballZonePolicyStJohns /*zone_policy*/,
     "N%T" /*format*/,
     -844 /*offset_code (-12652/15)*/,
     8 /*offset_remainder (-12652%15)*/,
@@ -13628,7 +13628,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_St_Johns[]  = {
   },
   //             -3:30    StJohns    N%sT    1942 May 11
   {
-    &kAtcAllZonePolicyStJohns /*zone_policy*/,
+    &kAtcZonedballZonePolicyStJohns /*zone_policy*/,
     "N%T" /*format*/,
     -840 /*offset_code (-12600/15)*/,
     0 /*offset_remainder (-12600%15)*/,
@@ -13641,7 +13641,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_St_Johns[]  = {
   },
   //             -3:30    Canada    N%sT    1946
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "N%T" /*format*/,
     -840 /*offset_code (-12600/15)*/,
     0 /*offset_remainder (-12600%15)*/,
@@ -13654,7 +13654,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_St_Johns[]  = {
   },
   //             -3:30    StJohns    N%sT    2011 Nov
   {
-    &kAtcAllZonePolicyStJohns /*zone_policy*/,
+    &kAtcZonedballZonePolicyStJohns /*zone_policy*/,
     "N%T" /*format*/,
     -840 /*offset_code (-12600/15)*/,
     0 /*offset_remainder (-12600%15)*/,
@@ -13667,7 +13667,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_St_Johns[]  = {
   },
   //             -3:30    Canada    N%sT
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "N%T" /*format*/,
     -840 /*offset_code (-12600/15)*/,
     0 /*offset_remainder (-12600%15)*/,
@@ -13683,10 +13683,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_St_Johns[]  = {
 
 static const char kAtcZoneNameAmerica_St_Johns[]  = "America/St_Johns";
 
-const AtcZoneInfo kAtcAllZoneAmerica_St_Johns  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_St_Johns  = {
   kAtcZoneNameAmerica_St_Johns /*name*/,
   0x04b14e6e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAmerica_St_Johns /*eras*/,
   NULL /*target_info*/,
@@ -13713,7 +13713,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Swift_Current[]  = {
   },
   //             -7:00    Canada    M%sT    1946 Apr lastSun  2:00
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -13726,7 +13726,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Swift_Current[]  = {
   },
   //             -7:00    Regina    M%sT    1950
   {
-    &kAtcAllZonePolicyRegina /*zone_policy*/,
+    &kAtcZonedballZonePolicyRegina /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -13739,7 +13739,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Swift_Current[]  = {
   },
   //             -7:00    Swift    M%sT    1972 Apr lastSun  2:00
   {
-    &kAtcAllZonePolicySwift /*zone_policy*/,
+    &kAtcZonedballZonePolicySwift /*zone_policy*/,
     "M%T" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -13768,10 +13768,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Swift_Current[]  = {
 
 static const char kAtcZoneNameAmerica_Swift_Current[]  = "America/Swift_Current";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Swift_Current  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Swift_Current  = {
   kAtcZoneNameAmerica_Swift_Current /*name*/,
   0xdef98e55 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Swift_Current /*eras*/,
   NULL /*target_info*/,
@@ -13798,7 +13798,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Tegucigalpa[]  = {
   },
   //             -6:00    Hond    C%sT
   {
-    &kAtcAllZonePolicyHond /*zone_policy*/,
+    &kAtcZonedballZonePolicyHond /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -13814,10 +13814,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Tegucigalpa[]  = {
 
 static const char kAtcZoneNameAmerica_Tegucigalpa[]  = "America/Tegucigalpa";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Tegucigalpa  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Tegucigalpa  = {
   kAtcZoneNameAmerica_Tegucigalpa /*name*/,
   0xbfd6fd4c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Tegucigalpa /*eras*/,
   NULL /*target_info*/,
@@ -13844,7 +13844,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Thule[]  = {
   },
   //             -4:00    Thule    A%sT
   {
-    &kAtcAllZonePolicyThule /*zone_policy*/,
+    &kAtcZonedballZonePolicyThule /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -13860,10 +13860,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Thule[]  = {
 
 static const char kAtcZoneNameAmerica_Thule[]  = "America/Thule";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Thule  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Thule  = {
   kAtcZoneNameAmerica_Thule /*name*/,
   0x9921dd68 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAmerica_Thule /*eras*/,
   NULL /*target_info*/,
@@ -14111,7 +14111,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Tijuana[]  = {
   },
   //             -8:00    CA    P%sT    1961
   {
-    &kAtcAllZonePolicyCA /*zone_policy*/,
+    &kAtcZonedballZonePolicyCA /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -14137,7 +14137,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Tijuana[]  = {
   },
   //             -8:00    US    P%sT    1996
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -14150,7 +14150,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Tijuana[]  = {
   },
   //             -8:00    Mexico    P%sT    2001
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -14163,7 +14163,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Tijuana[]  = {
   },
   //             -8:00    US    P%sT    2002 Feb 20
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -14176,7 +14176,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Tijuana[]  = {
   },
   //             -8:00    Mexico    P%sT    2010
   {
-    &kAtcAllZonePolicyMexico /*zone_policy*/,
+    &kAtcZonedballZonePolicyMexico /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -14189,7 +14189,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Tijuana[]  = {
   },
   //             -8:00    US    P%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -14205,10 +14205,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Tijuana[]  = {
 
 static const char kAtcZoneNameAmerica_Tijuana[]  = "America/Tijuana";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Tijuana  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Tijuana  = {
   kAtcZoneNameAmerica_Tijuana /*name*/,
   0x6aa1df72 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   25 /*num_eras*/,
   kAtcZoneEraAmerica_Tijuana /*eras*/,
   NULL /*target_info*/,
@@ -14235,7 +14235,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Toronto[]  = {
   },
   //             -5:00    Canada    E%sT    1919
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -14248,7 +14248,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Toronto[]  = {
   },
   //             -5:00    Toronto    E%sT    1942 Feb  9  2:00s
   {
-    &kAtcAllZonePolicyToronto /*zone_policy*/,
+    &kAtcZonedballZonePolicyToronto /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -14261,7 +14261,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Toronto[]  = {
   },
   //             -5:00    Canada    E%sT    1946
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -14274,7 +14274,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Toronto[]  = {
   },
   //             -5:00    Toronto    E%sT    1974
   {
-    &kAtcAllZonePolicyToronto /*zone_policy*/,
+    &kAtcZonedballZonePolicyToronto /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -14287,7 +14287,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Toronto[]  = {
   },
   //             -5:00    Canada    E%sT
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "E%T" /*format*/,
     -1200 /*offset_code (-18000/15)*/,
     0 /*offset_remainder (-18000%15)*/,
@@ -14303,10 +14303,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Toronto[]  = {
 
 static const char kAtcZoneNameAmerica_Toronto[]  = "America/Toronto";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Toronto  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Toronto  = {
   kAtcZoneNameAmerica_Toronto /*name*/,
   0x792e851b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
   NULL /*target_info*/,
@@ -14333,7 +14333,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Vancouver[]  = {
   },
   //             -8:00    Vanc    P%sT    1987
   {
-    &kAtcAllZonePolicyVanc /*zone_policy*/,
+    &kAtcZonedballZonePolicyVanc /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -14346,7 +14346,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Vancouver[]  = {
   },
   //             -8:00    Canada    P%sT
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -14362,10 +14362,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Vancouver[]  = {
 
 static const char kAtcZoneNameAmerica_Vancouver[]  = "America/Vancouver";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Vancouver  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Vancouver  = {
   kAtcZoneNameAmerica_Vancouver /*name*/,
   0x2c6f6b1f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Vancouver /*eras*/,
   NULL /*target_info*/,
@@ -14392,7 +14392,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Whitehorse[]  = {
   },
   //             -9:00    NT_YK    Y%sT    1965
   {
-    &kAtcAllZonePolicyNT_YK /*zone_policy*/,
+    &kAtcZonedballZonePolicyNT_YK /*zone_policy*/,
     "Y%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -14405,7 +14405,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Whitehorse[]  = {
   },
   //             -9:00    Yukon    Y%sT    1966 Feb 27  0:00
   {
-    &kAtcAllZonePolicyYukon /*zone_policy*/,
+    &kAtcZonedballZonePolicyYukon /*zone_policy*/,
     "Y%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -14431,7 +14431,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Whitehorse[]  = {
   },
   //             -8:00    Canada    P%sT    2020 Nov  1
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "P%T" /*format*/,
     -1920 /*offset_code (-28800/15)*/,
     0 /*offset_remainder (-28800%15)*/,
@@ -14460,10 +14460,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Whitehorse[]  = {
 
 static const char kAtcZoneNameAmerica_Whitehorse[]  = "America/Whitehorse";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Whitehorse  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Whitehorse  = {
   kAtcZoneNameAmerica_Whitehorse /*name*/,
   0x54e0e3e8 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Whitehorse /*eras*/,
   NULL /*target_info*/,
@@ -14490,7 +14490,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Winnipeg[]  = {
   },
   //             -6:00    Winn    C%sT    2006
   {
-    &kAtcAllZonePolicyWinn /*zone_policy*/,
+    &kAtcZonedballZonePolicyWinn /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -14503,7 +14503,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Winnipeg[]  = {
   },
   //             -6:00    Canada    C%sT
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "C%T" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -14519,10 +14519,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Winnipeg[]  = {
 
 static const char kAtcZoneNameAmerica_Winnipeg[]  = "America/Winnipeg";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Winnipeg  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Winnipeg  = {
   kAtcZoneNameAmerica_Winnipeg /*name*/,
   0x8c7dafc7 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Winnipeg /*eras*/,
   NULL /*target_info*/,
@@ -14575,7 +14575,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Yakutat[]  = {
   },
   //              -9:00    US    Y%sT    1946
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "Y%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -14601,7 +14601,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Yakutat[]  = {
   },
   //              -9:00    US    Y%sT    1983 Nov 30
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "Y%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -14614,7 +14614,7 @@ static const AtcZoneEra kAtcZoneEraAmerica_Yakutat[]  = {
   },
   //              -9:00    US    AK%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "AK%T" /*format*/,
     -2160 /*offset_code (-32400/15)*/,
     0 /*offset_remainder (-32400%15)*/,
@@ -14630,10 +14630,10 @@ static const AtcZoneEra kAtcZoneEraAmerica_Yakutat[]  = {
 
 static const char kAtcZoneNameAmerica_Yakutat[]  = "America/Yakutat";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Yakutat  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Yakutat  = {
   kAtcZoneNameAmerica_Yakutat /*name*/,
   0xd8ee31e9 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Yakutat /*eras*/,
   NULL /*target_info*/,
@@ -14884,10 +14884,10 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Casey[]  = {
 
 static const char kAtcZoneNameAntarctica_Casey[]  = "Antarctica/Casey";
 
-const AtcZoneInfo kAtcAllZoneAntarctica_Casey  = {
+const AtcZoneInfo kAtcZonedballZoneAntarctica_Casey  = {
   kAtcZoneNameAntarctica_Casey /*name*/,
   0xe2022583 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   18 /*num_eras*/,
   kAtcZoneEraAntarctica_Casey /*eras*/,
   NULL /*target_info*/,
@@ -15008,10 +15008,10 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Davis[]  = {
 
 static const char kAtcZoneNameAntarctica_Davis[]  = "Antarctica/Davis";
 
-const AtcZoneInfo kAtcAllZoneAntarctica_Davis  = {
+const AtcZoneInfo kAtcZonedballZoneAntarctica_Davis  = {
   kAtcZoneNameAntarctica_Davis /*name*/,
   0xe2144b45 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAntarctica_Davis /*eras*/,
   NULL /*target_info*/,
@@ -15064,7 +15064,7 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Macquarie[]  = {
   },
   //             10:00    Aus    AE%sT    1919 Apr  1  0:00s
   {
-    &kAtcAllZonePolicyAus /*zone_policy*/,
+    &kAtcZonedballZonePolicyAus /*zone_policy*/,
     "AE%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -15090,7 +15090,7 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Macquarie[]  = {
   },
   //             10:00    Aus    AE%sT    1967
   {
-    &kAtcAllZonePolicyAus /*zone_policy*/,
+    &kAtcZonedballZonePolicyAus /*zone_policy*/,
     "AE%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -15103,7 +15103,7 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Macquarie[]  = {
   },
   //             10:00    AT    AE%sT    2010
   {
-    &kAtcAllZonePolicyAT /*zone_policy*/,
+    &kAtcZonedballZonePolicyAT /*zone_policy*/,
     "AE%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -15129,7 +15129,7 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Macquarie[]  = {
   },
   //             10:00    AT    AE%sT
   {
-    &kAtcAllZonePolicyAT /*zone_policy*/,
+    &kAtcZonedballZonePolicyAT /*zone_policy*/,
     "AE%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -15145,10 +15145,10 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Macquarie[]  = {
 
 static const char kAtcZoneNameAntarctica_Macquarie[]  = "Antarctica/Macquarie";
 
-const AtcZoneInfo kAtcAllZoneAntarctica_Macquarie  = {
+const AtcZoneInfo kAtcZonedballZoneAntarctica_Macquarie  = {
   kAtcZoneNameAntarctica_Macquarie /*name*/,
   0x92f47626 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAntarctica_Macquarie /*eras*/,
   NULL /*target_info*/,
@@ -15204,10 +15204,10 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Mawson[]  = {
 
 static const char kAtcZoneNameAntarctica_Mawson[]  = "Antarctica/Mawson";
 
-const AtcZoneInfo kAtcAllZoneAntarctica_Mawson  = {
+const AtcZoneInfo kAtcZonedballZoneAntarctica_Mawson  = {
   kAtcZoneNameAntarctica_Mawson /*name*/,
   0x399cd863 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAntarctica_Mawson /*eras*/,
   NULL /*target_info*/,
@@ -15234,7 +15234,7 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Palmer[]  = {
   },
   //             -4:00    Arg    %z    1969 Oct  5
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -15247,7 +15247,7 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Palmer[]  = {
   },
   //             -3:00    Arg    %z    1982 May
   {
-    &kAtcAllZonePolicyArg /*zone_policy*/,
+    &kAtcZonedballZonePolicyArg /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -15260,7 +15260,7 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Palmer[]  = {
   },
   //             -4:00    Chile    %z    2016 Dec  4
   {
-    &kAtcAllZonePolicyChile /*zone_policy*/,
+    &kAtcZonedballZonePolicyChile /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -15289,10 +15289,10 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Palmer[]  = {
 
 static const char kAtcZoneNameAntarctica_Palmer[]  = "Antarctica/Palmer";
 
-const AtcZoneInfo kAtcAllZoneAntarctica_Palmer  = {
+const AtcZoneInfo kAtcZonedballZoneAntarctica_Palmer  = {
   kAtcZoneNameAntarctica_Palmer /*name*/,
   0x40962f4f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAntarctica_Palmer /*eras*/,
   NULL /*target_info*/,
@@ -15335,10 +15335,10 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Rothera[]  = {
 
 static const char kAtcZoneNameAntarctica_Rothera[]  = "Antarctica/Rothera";
 
-const AtcZoneInfo kAtcAllZoneAntarctica_Rothera  = {
+const AtcZoneInfo kAtcZonedballZoneAntarctica_Rothera  = {
   kAtcZoneNameAntarctica_Rothera /*name*/,
   0x0e86d203 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAntarctica_Rothera /*eras*/,
   NULL /*target_info*/,
@@ -15365,7 +15365,7 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Troll[]  = {
   },
   //             0:00    Troll    %s
   {
-    &kAtcAllZonePolicyTroll /*zone_policy*/,
+    &kAtcZonedballZonePolicyTroll /*zone_policy*/,
     "%" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -15381,10 +15381,10 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Troll[]  = {
 
 static const char kAtcZoneNameAntarctica_Troll[]  = "Antarctica/Troll";
 
-const AtcZoneInfo kAtcAllZoneAntarctica_Troll  = {
+const AtcZoneInfo kAtcZonedballZoneAntarctica_Troll  = {
   kAtcZoneNameAntarctica_Troll /*name*/,
   0xe33f085b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAntarctica_Troll /*eras*/,
   NULL /*target_info*/,
@@ -15466,10 +15466,10 @@ static const AtcZoneEra kAtcZoneEraAntarctica_Vostok[]  = {
 
 static const char kAtcZoneNameAntarctica_Vostok[]  = "Antarctica/Vostok";
 
-const AtcZoneInfo kAtcAllZoneAntarctica_Vostok  = {
+const AtcZoneInfo kAtcZonedballZoneAntarctica_Vostok  = {
   kAtcZoneNameAntarctica_Vostok /*name*/,
   0x4f966fd4 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAntarctica_Vostok /*eras*/,
   NULL /*target_info*/,
@@ -15509,7 +15509,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Almaty[]  = {
   },
   //             6:00 RussiaAsia %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -15522,7 +15522,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Almaty[]  = {
   },
   //             5:00 RussiaAsia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -15535,7 +15535,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Almaty[]  = {
   },
   //             6:00 RussiaAsia    %z    2004 Oct 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -15577,10 +15577,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Almaty[]  = {
 
 static const char kAtcZoneNameAsia_Almaty[]  = "Asia/Almaty";
 
-const AtcZoneInfo kAtcAllZoneAsia_Almaty  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Almaty  = {
   kAtcZoneNameAsia_Almaty /*name*/,
   0xa61f41fa /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAsia_Almaty /*eras*/,
   NULL /*target_info*/,
@@ -15607,7 +15607,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Amman[]  = {
   },
   //             2:00    Jordan    EE%sT    2022 Oct 28 0:00s
   {
-    &kAtcAllZonePolicyJordan /*zone_policy*/,
+    &kAtcZonedballZonePolicyJordan /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -15636,10 +15636,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Amman[]  = {
 
 static const char kAtcZoneNameAsia_Amman[]  = "Asia/Amman";
 
-const AtcZoneInfo kAtcAllZoneAsia_Amman  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Amman  = {
   kAtcZoneNameAsia_Amman /*name*/,
   0x148d21bc /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Amman /*eras*/,
   NULL /*target_info*/,
@@ -15679,7 +15679,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Anadyr[]  = {
   },
   //             13:00    Russia    %z    1982 Apr  1  0:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     3120 /*offset_code (46800/15)*/,
     0 /*offset_remainder (46800%15)*/,
@@ -15692,7 +15692,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Anadyr[]  = {
   },
   //             12:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2880 /*offset_code (43200/15)*/,
     0 /*offset_remainder (43200%15)*/,
@@ -15705,7 +15705,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Anadyr[]  = {
   },
   //             11:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2640 /*offset_code (39600/15)*/,
     0 /*offset_remainder (39600%15)*/,
@@ -15718,7 +15718,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Anadyr[]  = {
   },
   //             12:00    Russia    %z    2010 Mar 28  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2880 /*offset_code (43200/15)*/,
     0 /*offset_remainder (43200%15)*/,
@@ -15731,7 +15731,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Anadyr[]  = {
   },
   //             11:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2640 /*offset_code (39600/15)*/,
     0 /*offset_remainder (39600%15)*/,
@@ -15760,10 +15760,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Anadyr[]  = {
 
 static const char kAtcZoneNameAsia_Anadyr[]  = "Asia/Anadyr";
 
-const AtcZoneInfo kAtcAllZoneAsia_Anadyr  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Anadyr  = {
   kAtcZoneNameAsia_Anadyr /*name*/,
   0xa63cebd1 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAsia_Anadyr /*eras*/,
   NULL /*target_info*/,
@@ -15829,7 +15829,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Aqtau[]  = {
   },
   //             5:00 RussiaAsia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -15842,7 +15842,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Aqtau[]  = {
   },
   //             4:00 RussiaAsia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -15855,7 +15855,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Aqtau[]  = {
   },
   //             5:00 RussiaAsia    %z    1994 Sep 25  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -15868,7 +15868,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Aqtau[]  = {
   },
   //             4:00 RussiaAsia    %z    2004 Oct 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -15897,10 +15897,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Aqtau[]  = {
 
 static const char kAtcZoneNameAsia_Aqtau[]  = "Asia/Aqtau";
 
-const AtcZoneInfo kAtcAllZoneAsia_Aqtau  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Aqtau  = {
   kAtcZoneNameAsia_Aqtau /*name*/,
   0x148f710e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAsia_Aqtau /*eras*/,
   NULL /*target_info*/,
@@ -15979,7 +15979,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Aqtobe[]  = {
   },
   //             5:00 RussiaAsia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -15992,7 +15992,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Aqtobe[]  = {
   },
   //             4:00 RussiaAsia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -16005,7 +16005,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Aqtobe[]  = {
   },
   //             5:00 RussiaAsia    %z    2004 Oct 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -16034,10 +16034,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Aqtobe[]  = {
 
 static const char kAtcZoneNameAsia_Aqtobe[]  = "Asia/Aqtobe";
 
-const AtcZoneInfo kAtcAllZoneAsia_Aqtobe  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Aqtobe  = {
   kAtcZoneNameAsia_Aqtobe /*name*/,
   0xa67dcc4e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAsia_Aqtobe /*eras*/,
   NULL /*target_info*/,
@@ -16077,7 +16077,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Ashgabat[]  = {
   },
   //             5:00 RussiaAsia    %z    1991 Mar 31  2:00
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -16090,7 +16090,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Ashgabat[]  = {
   },
   //             4:00 RussiaAsia    %z    1992 Jan 19  2:00
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -16119,10 +16119,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Ashgabat[]  = {
 
 static const char kAtcZoneNameAsia_Ashgabat[]  = "Asia/Ashgabat";
 
-const AtcZoneInfo kAtcAllZoneAsia_Ashgabat  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Ashgabat  = {
   kAtcZoneNameAsia_Ashgabat /*name*/,
   0xba87598d /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Ashgabat /*eras*/,
   NULL /*target_info*/,
@@ -16188,7 +16188,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Atyrau[]  = {
   },
   //             5:00 RussiaAsia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -16201,7 +16201,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Atyrau[]  = {
   },
   //             4:00 RussiaAsia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -16214,7 +16214,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Atyrau[]  = {
   },
   //             5:00 RussiaAsia    %z    1999 Mar 28  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -16227,7 +16227,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Atyrau[]  = {
   },
   //             4:00 RussiaAsia    %z    2004 Oct 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -16256,10 +16256,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Atyrau[]  = {
 
 static const char kAtcZoneNameAsia_Atyrau[]  = "Asia/Atyrau";
 
-const AtcZoneInfo kAtcAllZoneAsia_Atyrau  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Atyrau  = {
   kAtcZoneNameAsia_Atyrau /*name*/,
   0xa6b6e068 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAsia_Atyrau /*eras*/,
   NULL /*target_info*/,
@@ -16312,7 +16312,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Baghdad[]  = {
   },
   //             3:00    Iraq    %z
   {
-    &kAtcAllZonePolicyIraq /*zone_policy*/,
+    &kAtcZonedballZonePolicyIraq /*zone_policy*/,
     "" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -16328,10 +16328,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Baghdad[]  = {
 
 static const char kAtcZoneNameAsia_Baghdad[]  = "Asia/Baghdad";
 
-const AtcZoneInfo kAtcAllZoneAsia_Baghdad  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Baghdad  = {
   kAtcZoneNameAsia_Baghdad /*name*/,
   0x9ceffbed /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Baghdad /*eras*/,
   NULL /*target_info*/,
@@ -16371,7 +16371,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Baku[]  = {
   },
   //             4:00 RussiaAsia %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -16384,7 +16384,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Baku[]  = {
   },
   //             3:00 RussiaAsia    %z    1992 Sep lastSun  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -16410,7 +16410,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Baku[]  = {
   },
   //             4:00    EUAsia    %z    1997
   {
-    &kAtcAllZonePolicyEUAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyEUAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -16423,7 +16423,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Baku[]  = {
   },
   //             4:00    Azer    %z
   {
-    &kAtcAllZonePolicyAzer /*zone_policy*/,
+    &kAtcZonedballZonePolicyAzer /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -16439,10 +16439,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Baku[]  = {
 
 static const char kAtcZoneNameAsia_Baku[]  = "Asia/Baku";
 
-const AtcZoneInfo kAtcAllZoneAsia_Baku  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Baku  = {
   kAtcZoneNameAsia_Baku /*name*/,
   0x1fa788b5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAsia_Baku /*eras*/,
   NULL /*target_info*/,
@@ -16498,10 +16498,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Bangkok[]  = {
 
 static const char kAtcZoneNameAsia_Bangkok[]  = "Asia/Bangkok";
 
-const AtcZoneInfo kAtcAllZoneAsia_Bangkok  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Bangkok  = {
   kAtcZoneNameAsia_Bangkok /*name*/,
   0x9d6e3aaf /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Bangkok /*eras*/,
   NULL /*target_info*/,
@@ -16541,7 +16541,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Barnaul[]  = {
   },
   //              7:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1680 /*offset_code (25200/15)*/,
     0 /*offset_remainder (25200%15)*/,
@@ -16554,7 +16554,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Barnaul[]  = {
   },
   //              6:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -16567,7 +16567,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Barnaul[]  = {
   },
   //              7:00    Russia    %z    1995 May 28
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1680 /*offset_code (25200/15)*/,
     0 /*offset_remainder (25200%15)*/,
@@ -16580,7 +16580,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Barnaul[]  = {
   },
   //              6:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -16635,10 +16635,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Barnaul[]  = {
 
 static const char kAtcZoneNameAsia_Barnaul[]  = "Asia/Barnaul";
 
-const AtcZoneInfo kAtcAllZoneAsia_Barnaul  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Barnaul  = {
   kAtcZoneNameAsia_Barnaul /*name*/,
   0x9dba4997 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAsia_Barnaul /*eras*/,
   NULL /*target_info*/,
@@ -16665,7 +16665,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Beirut[]  = {
   },
   //             2:00    Lebanon    EE%sT
   {
-    &kAtcAllZonePolicyLebanon /*zone_policy*/,
+    &kAtcZonedballZonePolicyLebanon /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -16681,10 +16681,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Beirut[]  = {
 
 static const char kAtcZoneNameAsia_Beirut[]  = "Asia/Beirut";
 
-const AtcZoneInfo kAtcAllZoneAsia_Beirut  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Beirut  = {
   kAtcZoneNameAsia_Beirut /*name*/,
   0xa7f3d5fd /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Beirut /*eras*/,
   NULL /*target_info*/,
@@ -16724,7 +16724,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Bishkek[]  = {
   },
   //             6:00 RussiaAsia %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -16737,7 +16737,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Bishkek[]  = {
   },
   //             5:00 RussiaAsia    %z    1991 Aug 31  2:00
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -16750,7 +16750,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Bishkek[]  = {
   },
   //             5:00    Kyrgyz    %z    2005 Aug 12
   {
-    &kAtcAllZonePolicyKyrgyz /*zone_policy*/,
+    &kAtcZonedballZonePolicyKyrgyz /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -16779,10 +16779,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Bishkek[]  = {
 
 static const char kAtcZoneNameAsia_Bishkek[]  = "Asia/Bishkek";
 
-const AtcZoneInfo kAtcAllZoneAsia_Bishkek  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Bishkek  = {
   kAtcZoneNameAsia_Bishkek /*name*/,
   0xb0728553 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAsia_Bishkek /*eras*/,
   NULL /*target_info*/,
@@ -16822,7 +16822,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Chita[]  = {
   },
   //              9:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2160 /*offset_code (32400/15)*/,
     0 /*offset_remainder (32400%15)*/,
@@ -16835,7 +16835,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Chita[]  = {
   },
   //              8:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1920 /*offset_code (28800/15)*/,
     0 /*offset_remainder (28800%15)*/,
@@ -16848,7 +16848,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Chita[]  = {
   },
   //              9:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2160 /*offset_code (32400/15)*/,
     0 /*offset_remainder (32400%15)*/,
@@ -16903,10 +16903,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Chita[]  = {
 
 static const char kAtcZoneNameAsia_Chita[]  = "Asia/Chita";
 
-const AtcZoneInfo kAtcAllZoneAsia_Chita  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Chita  = {
   kAtcZoneNameAsia_Chita /*name*/,
   0x14ae863b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAsia_Chita /*eras*/,
   NULL /*target_info*/,
@@ -17040,10 +17040,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Colombo[]  = {
 
 static const char kAtcZoneNameAsia_Colombo[]  = "Asia/Colombo";
 
-const AtcZoneInfo kAtcAllZoneAsia_Colombo  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Colombo  = {
   kAtcZoneNameAsia_Colombo /*name*/,
   0x0af0e91d /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAsia_Colombo /*eras*/,
   NULL /*target_info*/,
@@ -17070,7 +17070,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Damascus[]  = {
   },
   //             2:00    Syria    EE%sT    2022 Oct 28 0:00
   {
-    &kAtcAllZonePolicySyria /*zone_policy*/,
+    &kAtcZonedballZonePolicySyria /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17099,10 +17099,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Damascus[]  = {
 
 static const char kAtcZoneNameAsia_Damascus[]  = "Asia/Damascus";
 
-const AtcZoneInfo kAtcAllZoneAsia_Damascus  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Damascus  = {
   kAtcZoneNameAsia_Damascus /*name*/,
   0x20fbb063 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Damascus /*eras*/,
   NULL /*target_info*/,
@@ -17194,7 +17194,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Dhaka[]  = {
   },
   //             6:00    Dhaka    %z
   {
-    &kAtcAllZonePolicyDhaka /*zone_policy*/,
+    &kAtcZonedballZonePolicyDhaka /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -17210,10 +17210,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Dhaka[]  = {
 
 static const char kAtcZoneNameAsia_Dhaka[]  = "Asia/Dhaka";
 
-const AtcZoneInfo kAtcAllZoneAsia_Dhaka  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Dhaka  = {
   kAtcZoneNameAsia_Dhaka /*name*/,
   0x14c07b8b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAsia_Dhaka /*eras*/,
   NULL /*target_info*/,
@@ -17295,10 +17295,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Dili[]  = {
 
 static const char kAtcZoneNameAsia_Dili[]  = "Asia/Dili";
 
-const AtcZoneInfo kAtcAllZoneAsia_Dili  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Dili  = {
   kAtcZoneNameAsia_Dili /*name*/,
   0x1fa8c394 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Dili /*eras*/,
   NULL /*target_info*/,
@@ -17341,10 +17341,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Dubai[]  = {
 
 static const char kAtcZoneNameAsia_Dubai[]  = "Asia/Dubai";
 
-const AtcZoneInfo kAtcAllZoneAsia_Dubai  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Dubai  = {
   kAtcZoneNameAsia_Dubai /*name*/,
   0x14c79f77 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Dubai /*eras*/,
   NULL /*target_info*/,
@@ -17384,7 +17384,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Dushanbe[]  = {
   },
   //             6:00 RussiaAsia %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -17426,10 +17426,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Dushanbe[]  = {
 
 static const char kAtcZoneNameAsia_Dushanbe[]  = "Asia/Dushanbe";
 
-const AtcZoneInfo kAtcAllZoneAsia_Dushanbe  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Dushanbe  = {
   kAtcZoneNameAsia_Dushanbe /*name*/,
   0x32fc5c3c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Dushanbe /*eras*/,
   NULL /*target_info*/,
@@ -17456,7 +17456,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Famagusta[]  = {
   },
   //             2:00    Cyprus    EE%sT    1998 Sep
   {
-    &kAtcAllZonePolicyCyprus /*zone_policy*/,
+    &kAtcZonedballZonePolicyCyprus /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17469,7 +17469,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Famagusta[]  = {
   },
   //             2:00    EUAsia    EE%sT    2016 Sep  8
   {
-    &kAtcAllZonePolicyEUAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyEUAsia /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17495,7 +17495,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Famagusta[]  = {
   },
   //             2:00    EUAsia    EE%sT
   {
-    &kAtcAllZonePolicyEUAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyEUAsia /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17511,10 +17511,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Famagusta[]  = {
 
 static const char kAtcZoneNameAsia_Famagusta[]  = "Asia/Famagusta";
 
-const AtcZoneInfo kAtcAllZoneAsia_Famagusta  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Famagusta  = {
   kAtcZoneNameAsia_Famagusta /*name*/,
   0x289b4f8b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Famagusta /*eras*/,
   NULL /*target_info*/,
@@ -17541,7 +17541,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Gaza[]  = {
   },
   //             2:00    Zion    EET/EEST 1948 May 15
   {
-    &kAtcAllZonePolicyZion /*zone_policy*/,
+    &kAtcZonedballZonePolicyZion /*zone_policy*/,
     "EET/EEST" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17554,7 +17554,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Gaza[]  = {
   },
   //             2:00 EgyptAsia    EE%sT    1967 Jun  5
   {
-    &kAtcAllZonePolicyEgyptAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyEgyptAsia /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17567,7 +17567,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Gaza[]  = {
   },
   //             2:00    Zion    I%sT    1996
   {
-    &kAtcAllZonePolicyZion /*zone_policy*/,
+    &kAtcZonedballZonePolicyZion /*zone_policy*/,
     "I%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17580,7 +17580,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Gaza[]  = {
   },
   //             2:00    Jordan    EE%sT    1999
   {
-    &kAtcAllZonePolicyJordan /*zone_policy*/,
+    &kAtcZonedballZonePolicyJordan /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17593,7 +17593,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Gaza[]  = {
   },
   //             2:00 Palestine    EE%sT    2008 Aug 29  0:00
   {
-    &kAtcAllZonePolicyPalestine /*zone_policy*/,
+    &kAtcZonedballZonePolicyPalestine /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17619,7 +17619,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Gaza[]  = {
   },
   //             2:00 Palestine    EE%sT    2010
   {
-    &kAtcAllZonePolicyPalestine /*zone_policy*/,
+    &kAtcZonedballZonePolicyPalestine /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17645,7 +17645,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Gaza[]  = {
   },
   //             2:00 Palestine    EE%sT    2011 Aug  1
   {
-    &kAtcAllZonePolicyPalestine /*zone_policy*/,
+    &kAtcZonedballZonePolicyPalestine /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17671,7 +17671,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Gaza[]  = {
   },
   //             2:00 Palestine    EE%sT
   {
-    &kAtcAllZonePolicyPalestine /*zone_policy*/,
+    &kAtcZonedballZonePolicyPalestine /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17687,10 +17687,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Gaza[]  = {
 
 static const char kAtcZoneNameAsia_Gaza[]  = "Asia/Gaza";
 
-const AtcZoneInfo kAtcAllZoneAsia_Gaza  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Gaza  = {
   kAtcZoneNameAsia_Gaza /*name*/,
   0x1faa4875 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   12 /*num_eras*/,
   kAtcZoneEraAsia_Gaza /*eras*/,
   NULL /*target_info*/,
@@ -17717,7 +17717,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Hebron[]  = {
   },
   //             2:00    Zion    EET/EEST 1948 May 15
   {
-    &kAtcAllZonePolicyZion /*zone_policy*/,
+    &kAtcZonedballZonePolicyZion /*zone_policy*/,
     "EET/EEST" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17730,7 +17730,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Hebron[]  = {
   },
   //             2:00 EgyptAsia    EE%sT    1967 Jun  5
   {
-    &kAtcAllZonePolicyEgyptAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyEgyptAsia /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17743,7 +17743,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Hebron[]  = {
   },
   //             2:00    Zion    I%sT    1996
   {
-    &kAtcAllZonePolicyZion /*zone_policy*/,
+    &kAtcZonedballZonePolicyZion /*zone_policy*/,
     "I%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17756,7 +17756,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Hebron[]  = {
   },
   //             2:00    Jordan    EE%sT    1999
   {
-    &kAtcAllZonePolicyJordan /*zone_policy*/,
+    &kAtcZonedballZonePolicyJordan /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17769,7 +17769,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Hebron[]  = {
   },
   //             2:00 Palestine    EE%sT
   {
-    &kAtcAllZonePolicyPalestine /*zone_policy*/,
+    &kAtcZonedballZonePolicyPalestine /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -17785,10 +17785,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Hebron[]  = {
 
 static const char kAtcZoneNameAsia_Hebron[]  = "Asia/Hebron";
 
-const AtcZoneInfo kAtcAllZoneAsia_Hebron  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Hebron  = {
   kAtcZoneNameAsia_Hebron /*name*/,
   0xb5eef250 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAsia_Hebron /*eras*/,
   NULL /*target_info*/,
@@ -17935,10 +17935,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Ho_Chi_Minh[]  = {
 
 static const char kAtcZoneNameAsia_Ho_Chi_Minh[]  = "Asia/Ho_Chi_Minh";
 
-const AtcZoneInfo kAtcAllZoneAsia_Ho_Chi_Minh  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Ho_Chi_Minh  = {
   kAtcZoneNameAsia_Ho_Chi_Minh /*name*/,
   0x20f2d127 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraAsia_Ho_Chi_Minh /*eras*/,
   NULL /*target_info*/,
@@ -18017,7 +18017,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Hong_Kong[]  = {
   },
   //             8:00    HK    HK%sT
   {
-    &kAtcAllZonePolicyHK /*zone_policy*/,
+    &kAtcZonedballZonePolicyHK /*zone_policy*/,
     "HK%T" /*format*/,
     1920 /*offset_code (28800/15)*/,
     0 /*offset_remainder (28800%15)*/,
@@ -18033,10 +18033,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Hong_Kong[]  = {
 
 static const char kAtcZoneNameAsia_Hong_Kong[]  = "Asia/Hong_Kong";
 
-const AtcZoneInfo kAtcAllZoneAsia_Hong_Kong  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Hong_Kong  = {
   kAtcZoneNameAsia_Hong_Kong /*name*/,
   0x577f28ac /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAsia_Hong_Kong /*eras*/,
   NULL /*target_info*/,
@@ -18076,7 +18076,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Hovd[]  = {
   },
   //             7:00    Mongol    %z
   {
-    &kAtcAllZonePolicyMongol /*zone_policy*/,
+    &kAtcZonedballZonePolicyMongol /*zone_policy*/,
     "" /*format*/,
     1680 /*offset_code (25200/15)*/,
     0 /*offset_remainder (25200%15)*/,
@@ -18092,10 +18092,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Hovd[]  = {
 
 static const char kAtcZoneNameAsia_Hovd[]  = "Asia/Hovd";
 
-const AtcZoneInfo kAtcAllZoneAsia_Hovd  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Hovd  = {
   kAtcZoneNameAsia_Hovd /*name*/,
   0x1fab0fe3 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Hovd /*eras*/,
   NULL /*target_info*/,
@@ -18148,7 +18148,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Irkutsk[]  = {
   },
   //              8:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1920 /*offset_code (28800/15)*/,
     0 /*offset_remainder (28800%15)*/,
@@ -18161,7 +18161,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Irkutsk[]  = {
   },
   //              7:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1680 /*offset_code (25200/15)*/,
     0 /*offset_remainder (25200%15)*/,
@@ -18174,7 +18174,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Irkutsk[]  = {
   },
   //              8:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1920 /*offset_code (28800/15)*/,
     0 /*offset_remainder (28800%15)*/,
@@ -18216,10 +18216,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Irkutsk[]  = {
 
 static const char kAtcZoneNameAsia_Irkutsk[]  = "Asia/Irkutsk";
 
-const AtcZoneInfo kAtcAllZoneAsia_Irkutsk  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Irkutsk  = {
   kAtcZoneNameAsia_Irkutsk /*name*/,
   0xdfbf213f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAsia_Irkutsk /*eras*/,
   NULL /*target_info*/,
@@ -18353,10 +18353,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Jakarta[]  = {
 
 static const char kAtcZoneNameAsia_Jakarta[]  = "Asia/Jakarta";
 
-const AtcZoneInfo kAtcAllZoneAsia_Jakarta  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Jakarta  = {
   kAtcZoneNameAsia_Jakarta /*name*/,
   0x0506ab50 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAsia_Jakarta /*eras*/,
   NULL /*target_info*/,
@@ -18425,10 +18425,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Jayapura[]  = {
 
 static const char kAtcZoneNameAsia_Jayapura[]  = "Asia/Jayapura";
 
-const AtcZoneInfo kAtcAllZoneAsia_Jayapura  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Jayapura  = {
   kAtcZoneNameAsia_Jayapura /*name*/,
   0xc6833c2f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Jayapura /*eras*/,
   NULL /*target_info*/,
@@ -18468,7 +18468,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Jerusalem[]  = {
   },
   //             2:00    Zion    I%sT
   {
-    &kAtcAllZonePolicyZion /*zone_policy*/,
+    &kAtcZonedballZonePolicyZion /*zone_policy*/,
     "I%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -18484,10 +18484,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Jerusalem[]  = {
 
 static const char kAtcZoneNameAsia_Jerusalem[]  = "Asia/Jerusalem";
 
-const AtcZoneInfo kAtcAllZoneAsia_Jerusalem  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Jerusalem  = {
   kAtcZoneNameAsia_Jerusalem /*name*/,
   0x5becd23a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Jerusalem /*eras*/,
   NULL /*target_info*/,
@@ -18543,10 +18543,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Kabul[]  = {
 
 static const char kAtcZoneNameAsia_Kabul[]  = "Asia/Kabul";
 
-const AtcZoneInfo kAtcAllZoneAsia_Kabul  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Kabul  = {
   kAtcZoneNameAsia_Kabul /*name*/,
   0x153b5601 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Kabul /*eras*/,
   NULL /*target_info*/,
@@ -18586,7 +18586,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Kamchatka[]  = {
   },
   //             12:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2880 /*offset_code (43200/15)*/,
     0 /*offset_remainder (43200%15)*/,
@@ -18599,7 +18599,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Kamchatka[]  = {
   },
   //             11:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2640 /*offset_code (39600/15)*/,
     0 /*offset_remainder (39600%15)*/,
@@ -18612,7 +18612,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Kamchatka[]  = {
   },
   //             12:00    Russia    %z    2010 Mar 28  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2880 /*offset_code (43200/15)*/,
     0 /*offset_remainder (43200%15)*/,
@@ -18625,7 +18625,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Kamchatka[]  = {
   },
   //             11:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2640 /*offset_code (39600/15)*/,
     0 /*offset_remainder (39600%15)*/,
@@ -18654,10 +18654,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Kamchatka[]  = {
 
 static const char kAtcZoneNameAsia_Kamchatka[]  = "Asia/Kamchatka";
 
-const AtcZoneInfo kAtcAllZoneAsia_Kamchatka  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Kamchatka  = {
   kAtcZoneNameAsia_Kamchatka /*name*/,
   0x73baf9d7 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAsia_Kamchatka /*eras*/,
   NULL /*target_info*/,
@@ -18736,7 +18736,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Karachi[]  = {
   },
   //             5:00 Pakistan    PK%sT
   {
-    &kAtcAllZonePolicyPakistan /*zone_policy*/,
+    &kAtcZonedballZonePolicyPakistan /*zone_policy*/,
     "PK%T" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -18752,10 +18752,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Karachi[]  = {
 
 static const char kAtcZoneNameAsia_Karachi[]  = "Asia/Karachi";
 
-const AtcZoneInfo kAtcAllZoneAsia_Karachi  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Karachi  = {
   kAtcZoneNameAsia_Karachi /*name*/,
   0x527f5245 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAsia_Karachi /*eras*/,
   NULL /*target_info*/,
@@ -18811,10 +18811,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Kathmandu[]  = {
 
 static const char kAtcZoneNameAsia_Kathmandu[]  = "Asia/Kathmandu";
 
-const AtcZoneInfo kAtcAllZoneAsia_Kathmandu  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Kathmandu  = {
   kAtcZoneNameAsia_Kathmandu /*name*/,
   0x9a96ce6f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Kathmandu /*eras*/,
   NULL /*target_info*/,
@@ -18854,7 +18854,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Khandyga[]  = {
   },
   //              9:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2160 /*offset_code (32400/15)*/,
     0 /*offset_remainder (32400%15)*/,
@@ -18867,7 +18867,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Khandyga[]  = {
   },
   //              8:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1920 /*offset_code (28800/15)*/,
     0 /*offset_remainder (28800%15)*/,
@@ -18880,7 +18880,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Khandyga[]  = {
   },
   //              9:00    Russia    %z    2004
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2160 /*offset_code (32400/15)*/,
     0 /*offset_remainder (32400%15)*/,
@@ -18893,7 +18893,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Khandyga[]  = {
   },
   //             10:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -18948,10 +18948,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Khandyga[]  = {
 
 static const char kAtcZoneNameAsia_Khandyga[]  = "Asia/Khandyga";
 
-const AtcZoneInfo kAtcAllZoneAsia_Khandyga  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Khandyga  = {
   kAtcZoneNameAsia_Khandyga /*name*/,
   0x9685a4d9 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAsia_Khandyga /*eras*/,
   NULL /*target_info*/,
@@ -19072,10 +19072,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Kolkata[]  = {
 
 static const char kAtcZoneNameAsia_Kolkata[]  = "Asia/Kolkata";
 
-const AtcZoneInfo kAtcAllZoneAsia_Kolkata  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Kolkata  = {
   kAtcZoneNameAsia_Kolkata /*name*/,
   0x72c06cd9 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAsia_Kolkata /*eras*/,
   NULL /*target_info*/,
@@ -19115,7 +19115,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Krasnoyarsk[]  = {
   },
   //              7:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1680 /*offset_code (25200/15)*/,
     0 /*offset_remainder (25200%15)*/,
@@ -19128,7 +19128,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Krasnoyarsk[]  = {
   },
   //              6:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -19141,7 +19141,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Krasnoyarsk[]  = {
   },
   //              7:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1680 /*offset_code (25200/15)*/,
     0 /*offset_remainder (25200%15)*/,
@@ -19183,10 +19183,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Krasnoyarsk[]  = {
 
 static const char kAtcZoneNameAsia_Krasnoyarsk[]  = "Asia/Krasnoyarsk";
 
-const AtcZoneInfo kAtcAllZoneAsia_Krasnoyarsk  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Krasnoyarsk  = {
   kAtcZoneNameAsia_Krasnoyarsk /*name*/,
   0xd0376c6a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAsia_Krasnoyarsk /*eras*/,
   NULL /*target_info*/,
@@ -19226,7 +19226,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Kuching[]  = {
   },
   //             8:00 NBorneo    %z    1942 Feb 16
   {
-    &kAtcAllZonePolicyNBorneo /*zone_policy*/,
+    &kAtcZonedballZonePolicyNBorneo /*zone_policy*/,
     "" /*format*/,
     1920 /*offset_code (28800/15)*/,
     0 /*offset_remainder (28800%15)*/,
@@ -19268,10 +19268,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Kuching[]  = {
 
 static const char kAtcZoneNameAsia_Kuching[]  = "Asia/Kuching";
 
-const AtcZoneInfo kAtcAllZoneAsia_Kuching  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Kuching  = {
   kAtcZoneNameAsia_Kuching /*name*/,
   0x801b003b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Kuching /*eras*/,
   NULL /*target_info*/,
@@ -19311,7 +19311,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Macau[]  = {
   },
   //             9:00    Macau    %z    1945 Sep 30 24:00
   {
-    &kAtcAllZonePolicyMacau /*zone_policy*/,
+    &kAtcZonedballZonePolicyMacau /*zone_policy*/,
     "" /*format*/,
     2160 /*offset_code (32400/15)*/,
     0 /*offset_remainder (32400%15)*/,
@@ -19324,7 +19324,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Macau[]  = {
   },
   //             8:00    Macau    C%sT
   {
-    &kAtcAllZonePolicyMacau /*zone_policy*/,
+    &kAtcZonedballZonePolicyMacau /*zone_policy*/,
     "C%T" /*format*/,
     1920 /*offset_code (28800/15)*/,
     0 /*offset_remainder (28800%15)*/,
@@ -19340,10 +19340,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Macau[]  = {
 
 static const char kAtcZoneNameAsia_Macau[]  = "Asia/Macau";
 
-const AtcZoneInfo kAtcAllZoneAsia_Macau  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Macau  = {
   kAtcZoneNameAsia_Macau /*name*/,
   0x155f88b9 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Macau /*eras*/,
   NULL /*target_info*/,
@@ -19383,7 +19383,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Magadan[]  = {
   },
   //             11:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2640 /*offset_code (39600/15)*/,
     0 /*offset_remainder (39600%15)*/,
@@ -19396,7 +19396,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Magadan[]  = {
   },
   //             10:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -19409,7 +19409,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Magadan[]  = {
   },
   //             11:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2640 /*offset_code (39600/15)*/,
     0 /*offset_remainder (39600%15)*/,
@@ -19464,10 +19464,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Magadan[]  = {
 
 static const char kAtcZoneNameAsia_Magadan[]  = "Asia/Magadan";
 
-const AtcZoneInfo kAtcAllZoneAsia_Magadan  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Magadan  = {
   kAtcZoneNameAsia_Magadan /*name*/,
   0xebacc19b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAsia_Magadan /*eras*/,
   NULL /*target_info*/,
@@ -19549,10 +19549,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Makassar[]  = {
 
 static const char kAtcZoneNameAsia_Makassar[]  = "Asia/Makassar";
 
-const AtcZoneInfo kAtcAllZoneAsia_Makassar  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Makassar  = {
   kAtcZoneNameAsia_Makassar /*name*/,
   0x6aa21c85 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Makassar /*eras*/,
   NULL /*target_info*/,
@@ -19592,7 +19592,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Manila[]  = {
   },
   //             8:00    Phil    P%sT    1942 Feb 11 24:00
   {
-    &kAtcAllZonePolicyPhil /*zone_policy*/,
+    &kAtcZonedballZonePolicyPhil /*zone_policy*/,
     "P%T" /*format*/,
     1920 /*offset_code (28800/15)*/,
     0 /*offset_remainder (28800%15)*/,
@@ -19618,7 +19618,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Manila[]  = {
   },
   //             8:00    Phil    P%sT
   {
-    &kAtcAllZonePolicyPhil /*zone_policy*/,
+    &kAtcZonedballZonePolicyPhil /*zone_policy*/,
     "P%T" /*format*/,
     1920 /*offset_code (28800/15)*/,
     0 /*offset_remainder (28800%15)*/,
@@ -19634,10 +19634,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Manila[]  = {
 
 static const char kAtcZoneNameAsia_Manila[]  = "Asia/Manila";
 
-const AtcZoneInfo kAtcAllZoneAsia_Manila  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Manila  = {
   kAtcZoneNameAsia_Manila /*name*/,
   0xc156c944 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Manila /*eras*/,
   NULL /*target_info*/,
@@ -19664,7 +19664,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Nicosia[]  = {
   },
   //             2:00    Cyprus    EE%sT    1998 Sep
   {
-    &kAtcAllZonePolicyCyprus /*zone_policy*/,
+    &kAtcZonedballZonePolicyCyprus /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -19677,7 +19677,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Nicosia[]  = {
   },
   //             2:00    EUAsia    EE%sT
   {
-    &kAtcAllZonePolicyEUAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyEUAsia /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -19693,10 +19693,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Nicosia[]  = {
 
 static const char kAtcZoneNameAsia_Nicosia[]  = "Asia/Nicosia";
 
-const AtcZoneInfo kAtcAllZoneAsia_Nicosia  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Nicosia  = {
   kAtcZoneNameAsia_Nicosia /*name*/,
   0x4b0fcf78 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Nicosia /*eras*/,
   NULL /*target_info*/,
@@ -19736,7 +19736,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Novokuznetsk[]  = {
   },
   //              7:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1680 /*offset_code (25200/15)*/,
     0 /*offset_remainder (25200%15)*/,
@@ -19749,7 +19749,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Novokuznetsk[]  = {
   },
   //              6:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -19762,7 +19762,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Novokuznetsk[]  = {
   },
   //              7:00    Russia    %z    2010 Mar 28  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1680 /*offset_code (25200/15)*/,
     0 /*offset_remainder (25200%15)*/,
@@ -19775,7 +19775,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Novokuznetsk[]  = {
   },
   //              6:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -19804,10 +19804,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Novokuznetsk[]  = {
 
 static const char kAtcZoneNameAsia_Novokuznetsk[]  = "Asia/Novokuznetsk";
 
-const AtcZoneInfo kAtcAllZoneAsia_Novokuznetsk  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Novokuznetsk  = {
   kAtcZoneNameAsia_Novokuznetsk /*name*/,
   0x69264f93 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAsia_Novokuznetsk /*eras*/,
   NULL /*target_info*/,
@@ -19847,7 +19847,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Novosibirsk[]  = {
   },
   //              7:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1680 /*offset_code (25200/15)*/,
     0 /*offset_remainder (25200%15)*/,
@@ -19860,7 +19860,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Novosibirsk[]  = {
   },
   //              6:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -19873,7 +19873,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Novosibirsk[]  = {
   },
   //              7:00    Russia    %z    1993 May 23
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1680 /*offset_code (25200/15)*/,
     0 /*offset_remainder (25200%15)*/,
@@ -19886,7 +19886,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Novosibirsk[]  = {
   },
   //              6:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -19941,10 +19941,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Novosibirsk[]  = {
 
 static const char kAtcZoneNameAsia_Novosibirsk[]  = "Asia/Novosibirsk";
 
-const AtcZoneInfo kAtcAllZoneAsia_Novosibirsk  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Novosibirsk  = {
   kAtcZoneNameAsia_Novosibirsk /*name*/,
   0xa2a435cb /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAsia_Novosibirsk /*eras*/,
   NULL /*target_info*/,
@@ -19984,7 +19984,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Omsk[]  = {
   },
   //              6:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -19997,7 +19997,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Omsk[]  = {
   },
   //              5:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -20010,7 +20010,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Omsk[]  = {
   },
   //              6:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -20052,10 +20052,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Omsk[]  = {
 
 static const char kAtcZoneNameAsia_Omsk[]  = "Asia/Omsk";
 
-const AtcZoneInfo kAtcAllZoneAsia_Omsk  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Omsk  = {
   kAtcZoneNameAsia_Omsk /*name*/,
   0x1faeddac /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAsia_Omsk /*eras*/,
   NULL /*target_info*/,
@@ -20134,7 +20134,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Oral[]  = {
   },
   //             5:00 RussiaAsia    %z    1989 Mar 26  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -20147,7 +20147,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Oral[]  = {
   },
   //             4:00 RussiaAsia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -20160,7 +20160,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Oral[]  = {
   },
   //             5:00 RussiaAsia    %z    1992 Mar 29  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -20173,7 +20173,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Oral[]  = {
   },
   //             4:00 RussiaAsia    %z    2004 Oct 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -20202,10 +20202,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Oral[]  = {
 
 static const char kAtcZoneNameAsia_Oral[]  = "Asia/Oral";
 
-const AtcZoneInfo kAtcAllZoneAsia_Oral  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Oral  = {
   kAtcZoneNameAsia_Oral /*name*/,
   0x1faef0a0 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraAsia_Oral /*eras*/,
   NULL /*target_info*/,
@@ -20339,10 +20339,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Pontianak[]  = {
 
 static const char kAtcZoneNameAsia_Pontianak[]  = "Asia/Pontianak";
 
-const AtcZoneInfo kAtcAllZoneAsia_Pontianak  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Pontianak  = {
   kAtcZoneNameAsia_Pontianak /*name*/,
   0x1a76c057 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAsia_Pontianak /*eras*/,
   NULL /*target_info*/,
@@ -20437,10 +20437,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Pyongyang[]  = {
 
 static const char kAtcZoneNameAsia_Pyongyang[]  = "Asia/Pyongyang";
 
-const AtcZoneInfo kAtcAllZoneAsia_Pyongyang  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Pyongyang  = {
   kAtcZoneNameAsia_Pyongyang /*name*/,
   0x93ed1c8e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAsia_Pyongyang /*eras*/,
   NULL /*target_info*/,
@@ -20496,10 +20496,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Qatar[]  = {
 
 static const char kAtcZoneNameAsia_Qatar[]  = "Asia/Qatar";
 
-const AtcZoneInfo kAtcAllZoneAsia_Qatar  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Qatar  = {
   kAtcZoneNameAsia_Qatar /*name*/,
   0x15a8330b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Qatar /*eras*/,
   NULL /*target_info*/,
@@ -20578,7 +20578,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Qostanay[]  = {
   },
   //             5:00 RussiaAsia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -20591,7 +20591,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Qostanay[]  = {
   },
   //             4:00 RussiaAsia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -20604,7 +20604,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Qostanay[]  = {
   },
   //             5:00 RussiaAsia    %z    2004 Oct 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -20646,10 +20646,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Qostanay[]  = {
 
 static const char kAtcZoneNameAsia_Qostanay[]  = "Asia/Qostanay";
 
-const AtcZoneInfo kAtcAllZoneAsia_Qostanay  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Qostanay  = {
   kAtcZoneNameAsia_Qostanay /*name*/,
   0x654fe522 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraAsia_Qostanay /*eras*/,
   NULL /*target_info*/,
@@ -20728,7 +20728,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Qyzylorda[]  = {
   },
   //             5:00 RussiaAsia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -20741,7 +20741,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Qyzylorda[]  = {
   },
   //             4:00 RussiaAsia    %z    1991 Sep 29  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -20754,7 +20754,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Qyzylorda[]  = {
   },
   //             5:00 RussiaAsia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -20767,7 +20767,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Qyzylorda[]  = {
   },
   //             6:00 RussiaAsia    %z    1992 Mar 29  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -20780,7 +20780,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Qyzylorda[]  = {
   },
   //             5:00 RussiaAsia    %z    2004 Oct 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -20822,10 +20822,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Qyzylorda[]  = {
 
 static const char kAtcZoneNameAsia_Qyzylorda[]  = "Asia/Qyzylorda";
 
-const AtcZoneInfo kAtcAllZoneAsia_Qyzylorda  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Qyzylorda  = {
   kAtcZoneNameAsia_Qyzylorda /*name*/,
   0x71282e81 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   12 /*num_eras*/,
   kAtcZoneEraAsia_Qyzylorda /*eras*/,
   NULL /*target_info*/,
@@ -20868,10 +20868,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Riyadh[]  = {
 
 static const char kAtcZoneNameAsia_Riyadh[]  = "Asia/Riyadh";
 
-const AtcZoneInfo kAtcAllZoneAsia_Riyadh  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Riyadh  = {
   kAtcZoneNameAsia_Riyadh /*name*/,
   0xcd973d93 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Riyadh /*eras*/,
   NULL /*target_info*/,
@@ -20911,7 +20911,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Sakhalin[]  = {
   },
   //             11:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2640 /*offset_code (39600/15)*/,
     0 /*offset_remainder (39600%15)*/,
@@ -20924,7 +20924,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Sakhalin[]  = {
   },
   //             10:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -20937,7 +20937,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Sakhalin[]  = {
   },
   //             11:00    Russia    %z    1997 Mar lastSun  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2640 /*offset_code (39600/15)*/,
     0 /*offset_remainder (39600%15)*/,
@@ -20950,7 +20950,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Sakhalin[]  = {
   },
   //             10:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -21005,10 +21005,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Sakhalin[]  = {
 
 static const char kAtcZoneNameAsia_Sakhalin[]  = "Asia/Sakhalin";
 
-const AtcZoneInfo kAtcAllZoneAsia_Sakhalin  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Sakhalin  = {
   kAtcZoneNameAsia_Sakhalin /*name*/,
   0xf4a1c9bd /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAsia_Sakhalin /*eras*/,
   NULL /*target_info*/,
@@ -21087,7 +21087,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Samarkand[]  = {
   },
   //             5:00 RussiaAsia    %z    1992
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -21116,10 +21116,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Samarkand[]  = {
 
 static const char kAtcZoneNameAsia_Samarkand[]  = "Asia/Samarkand";
 
-const AtcZoneInfo kAtcAllZoneAsia_Samarkand  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Samarkand  = {
   kAtcZoneNameAsia_Samarkand /*name*/,
   0x13ae5104 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAsia_Samarkand /*eras*/,
   NULL /*target_info*/,
@@ -21172,7 +21172,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Seoul[]  = {
   },
   //             9:00    ROK    K%sT    1954 Mar 21
   {
-    &kAtcAllZonePolicyROK /*zone_policy*/,
+    &kAtcZonedballZonePolicyROK /*zone_policy*/,
     "K%T" /*format*/,
     2160 /*offset_code (32400/15)*/,
     0 /*offset_remainder (32400%15)*/,
@@ -21185,7 +21185,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Seoul[]  = {
   },
   //             8:30    ROK    K%sT    1961 Aug 10
   {
-    &kAtcAllZonePolicyROK /*zone_policy*/,
+    &kAtcZonedballZonePolicyROK /*zone_policy*/,
     "K%T" /*format*/,
     2040 /*offset_code (30600/15)*/,
     0 /*offset_remainder (30600%15)*/,
@@ -21198,7 +21198,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Seoul[]  = {
   },
   //             9:00    ROK    K%sT
   {
-    &kAtcAllZonePolicyROK /*zone_policy*/,
+    &kAtcZonedballZonePolicyROK /*zone_policy*/,
     "K%T" /*format*/,
     2160 /*offset_code (32400/15)*/,
     0 /*offset_remainder (32400%15)*/,
@@ -21214,10 +21214,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Seoul[]  = {
 
 static const char kAtcZoneNameAsia_Seoul[]  = "Asia/Seoul";
 
-const AtcZoneInfo kAtcAllZoneAsia_Seoul  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Seoul  = {
   kAtcZoneNameAsia_Seoul /*name*/,
   0x15ce82da /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAsia_Seoul /*eras*/,
   NULL /*target_info*/,
@@ -21244,7 +21244,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Shanghai[]  = {
   },
   //             8:00    Shang    C%sT    1949 May 28
   {
-    &kAtcAllZonePolicyShang /*zone_policy*/,
+    &kAtcZonedballZonePolicyShang /*zone_policy*/,
     "C%T" /*format*/,
     1920 /*offset_code (28800/15)*/,
     0 /*offset_remainder (28800%15)*/,
@@ -21257,7 +21257,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Shanghai[]  = {
   },
   //             8:00    PRC    C%sT
   {
-    &kAtcAllZonePolicyPRC /*zone_policy*/,
+    &kAtcZonedballZonePolicyPRC /*zone_policy*/,
     "C%T" /*format*/,
     1920 /*offset_code (28800/15)*/,
     0 /*offset_remainder (28800%15)*/,
@@ -21273,10 +21273,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Shanghai[]  = {
 
 static const char kAtcZoneNameAsia_Shanghai[]  = "Asia/Shanghai";
 
-const AtcZoneInfo kAtcAllZoneAsia_Shanghai  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Shanghai  = {
   kAtcZoneNameAsia_Shanghai /*name*/,
   0xf895a7f5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Shanghai /*eras*/,
   NULL /*target_info*/,
@@ -21410,10 +21410,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Singapore[]  = {
 
 static const char kAtcZoneNameAsia_Singapore[]  = "Asia/Singapore";
 
-const AtcZoneInfo kAtcAllZoneAsia_Singapore  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Singapore  = {
   kAtcZoneNameAsia_Singapore /*name*/,
   0xcf8581fa /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAsia_Singapore /*eras*/,
   NULL /*target_info*/,
@@ -21453,7 +21453,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Srednekolymsk[]  = {
   },
   //             11:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2640 /*offset_code (39600/15)*/,
     0 /*offset_remainder (39600%15)*/,
@@ -21466,7 +21466,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Srednekolymsk[]  = {
   },
   //             10:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -21479,7 +21479,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Srednekolymsk[]  = {
   },
   //             11:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2640 /*offset_code (39600/15)*/,
     0 /*offset_remainder (39600%15)*/,
@@ -21521,10 +21521,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Srednekolymsk[]  = {
 
 static const char kAtcZoneNameAsia_Srednekolymsk[]  = "Asia/Srednekolymsk";
 
-const AtcZoneInfo kAtcAllZoneAsia_Srednekolymsk  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Srednekolymsk  = {
   kAtcZoneNameAsia_Srednekolymsk /*name*/,
   0xbf8e337d /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAsia_Srednekolymsk /*eras*/,
   NULL /*target_info*/,
@@ -21577,7 +21577,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Taipei[]  = {
   },
   //             8:00    Taiwan    C%sT
   {
-    &kAtcAllZonePolicyTaiwan /*zone_policy*/,
+    &kAtcZonedballZonePolicyTaiwan /*zone_policy*/,
     "C%T" /*format*/,
     1920 /*offset_code (28800/15)*/,
     0 /*offset_remainder (28800%15)*/,
@@ -21593,10 +21593,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Taipei[]  = {
 
 static const char kAtcZoneNameAsia_Taipei[]  = "Asia/Taipei";
 
-const AtcZoneInfo kAtcAllZoneAsia_Taipei  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Taipei  = {
   kAtcZoneNameAsia_Taipei /*name*/,
   0xd1a844ae /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Taipei /*eras*/,
   NULL /*target_info*/,
@@ -21636,7 +21636,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Tashkent[]  = {
   },
   //             6:00 RussiaAsia    %z    1991 Mar 31  2:00
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -21649,7 +21649,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Tashkent[]  = {
   },
   //             5:00 RussiaAsia    %z    1992
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -21678,10 +21678,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Tashkent[]  = {
 
 static const char kAtcZoneNameAsia_Tashkent[]  = "Asia/Tashkent";
 
-const AtcZoneInfo kAtcAllZoneAsia_Tashkent  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Tashkent  = {
   kAtcZoneNameAsia_Tashkent /*name*/,
   0xf3924254 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Tashkent /*eras*/,
   NULL /*target_info*/,
@@ -21734,7 +21734,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Tbilisi[]  = {
   },
   //             4:00 RussiaAsia %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -21747,7 +21747,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Tbilisi[]  = {
   },
   //             3:00 RussiaAsia %z    1992
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -21760,7 +21760,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Tbilisi[]  = {
   },
   //             3:00 E-EurAsia    %z    1994 Sep lastSun
   {
-    &kAtcAllZonePolicyE_EurAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyE_EurAsia /*zone_policy*/,
     "" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -21773,7 +21773,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Tbilisi[]  = {
   },
   //             4:00 E-EurAsia    %z    1996 Oct lastSun
   {
-    &kAtcAllZonePolicyE_EurAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyE_EurAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -21799,7 +21799,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Tbilisi[]  = {
   },
   //             4:00 E-EurAsia    %z    2004 Jun 27
   {
-    &kAtcAllZonePolicyE_EurAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyE_EurAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -21812,7 +21812,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Tbilisi[]  = {
   },
   //             3:00 RussiaAsia    %z    2005 Mar lastSun  2:00
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -21841,10 +21841,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Tbilisi[]  = {
 
 static const char kAtcZoneNameAsia_Tbilisi[]  = "Asia/Tbilisi";
 
-const AtcZoneInfo kAtcAllZoneAsia_Tbilisi  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Tbilisi  = {
   kAtcZoneNameAsia_Tbilisi /*name*/,
   0x0903e442 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   11 /*num_eras*/,
   kAtcZoneEraAsia_Tbilisi /*eras*/,
   NULL /*target_info*/,
@@ -21884,7 +21884,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Tehran[]  = {
   },
   //             3:30    Iran    %z    1977 Oct 20 24:00
   {
-    &kAtcAllZonePolicyIran /*zone_policy*/,
+    &kAtcZonedballZonePolicyIran /*zone_policy*/,
     "" /*format*/,
     840 /*offset_code (12600/15)*/,
     0 /*offset_remainder (12600%15)*/,
@@ -21897,7 +21897,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Tehran[]  = {
   },
   //             4:00    Iran    %z    1978 Nov 10 24:00
   {
-    &kAtcAllZonePolicyIran /*zone_policy*/,
+    &kAtcZonedballZonePolicyIran /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -21910,7 +21910,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Tehran[]  = {
   },
   //             3:30    Iran    %z
   {
-    &kAtcAllZonePolicyIran /*zone_policy*/,
+    &kAtcZonedballZonePolicyIran /*zone_policy*/,
     "" /*format*/,
     840 /*offset_code (12600/15)*/,
     0 /*offset_remainder (12600%15)*/,
@@ -21926,10 +21926,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Tehran[]  = {
 
 static const char kAtcZoneNameAsia_Tehran[]  = "Asia/Tehran";
 
-const AtcZoneInfo kAtcAllZoneAsia_Tehran  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Tehran  = {
   kAtcZoneNameAsia_Tehran /*name*/,
   0xd1f02254 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Tehran /*eras*/,
   NULL /*target_info*/,
@@ -21985,10 +21985,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Thimphu[]  = {
 
 static const char kAtcZoneNameAsia_Thimphu[]  = "Asia/Thimphu";
 
-const AtcZoneInfo kAtcAllZoneAsia_Thimphu  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Thimphu  = {
   kAtcZoneNameAsia_Thimphu /*name*/,
   0x170380d1 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Thimphu /*eras*/,
   NULL /*target_info*/,
@@ -22015,7 +22015,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Tokyo[]  = {
   },
   //             9:00    Japan    J%sT
   {
-    &kAtcAllZonePolicyJapan /*zone_policy*/,
+    &kAtcZonedballZonePolicyJapan /*zone_policy*/,
     "J%T" /*format*/,
     2160 /*offset_code (32400/15)*/,
     0 /*offset_remainder (32400%15)*/,
@@ -22031,10 +22031,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Tokyo[]  = {
 
 static const char kAtcZoneNameAsia_Tokyo[]  = "Asia/Tokyo";
 
-const AtcZoneInfo kAtcAllZoneAsia_Tokyo  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Tokyo  = {
   kAtcZoneNameAsia_Tokyo /*name*/,
   0x15e606a8 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Tokyo /*eras*/,
   NULL /*target_info*/,
@@ -22074,7 +22074,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Tomsk[]  = {
   },
   //              7:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1680 /*offset_code (25200/15)*/,
     0 /*offset_remainder (25200%15)*/,
@@ -22087,7 +22087,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Tomsk[]  = {
   },
   //              6:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -22100,7 +22100,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Tomsk[]  = {
   },
   //              7:00    Russia    %z    2002 May  1  3:00
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1680 /*offset_code (25200/15)*/,
     0 /*offset_remainder (25200%15)*/,
@@ -22113,7 +22113,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Tomsk[]  = {
   },
   //              6:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1440 /*offset_code (21600/15)*/,
     0 /*offset_remainder (21600%15)*/,
@@ -22168,10 +22168,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Tomsk[]  = {
 
 static const char kAtcZoneNameAsia_Tomsk[]  = "Asia/Tomsk";
 
-const AtcZoneInfo kAtcAllZoneAsia_Tomsk  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Tomsk  = {
   kAtcZoneNameAsia_Tomsk /*name*/,
   0x15e60e60 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAsia_Tomsk /*eras*/,
   NULL /*target_info*/,
@@ -22211,7 +22211,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Ulaanbaatar[]  = {
   },
   //             8:00    Mongol    %z
   {
-    &kAtcAllZonePolicyMongol /*zone_policy*/,
+    &kAtcZonedballZonePolicyMongol /*zone_policy*/,
     "" /*format*/,
     1920 /*offset_code (28800/15)*/,
     0 /*offset_remainder (28800%15)*/,
@@ -22227,10 +22227,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Ulaanbaatar[]  = {
 
 static const char kAtcZoneNameAsia_Ulaanbaatar[]  = "Asia/Ulaanbaatar";
 
-const AtcZoneInfo kAtcAllZoneAsia_Ulaanbaatar  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Ulaanbaatar  = {
   kAtcZoneNameAsia_Ulaanbaatar /*name*/,
   0x30f0cc4e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Ulaanbaatar /*eras*/,
   NULL /*target_info*/,
@@ -22273,10 +22273,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Urumqi[]  = {
 
 static const char kAtcZoneNameAsia_Urumqi[]  = "Asia/Urumqi";
 
-const AtcZoneInfo kAtcAllZoneAsia_Urumqi  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Urumqi  = {
   kAtcZoneNameAsia_Urumqi /*name*/,
   0xd5379735 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Urumqi /*eras*/,
   NULL /*target_info*/,
@@ -22316,7 +22316,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Ust_Nera[]  = {
   },
   //              9:00    Russia    %z    1981 Apr  1
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2160 /*offset_code (32400/15)*/,
     0 /*offset_remainder (32400%15)*/,
@@ -22329,7 +22329,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Ust_Nera[]  = {
   },
   //             11:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2640 /*offset_code (39600/15)*/,
     0 /*offset_remainder (39600%15)*/,
@@ -22342,7 +22342,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Ust_Nera[]  = {
   },
   //             10:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -22355,7 +22355,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Ust_Nera[]  = {
   },
   //             11:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2640 /*offset_code (39600/15)*/,
     0 /*offset_remainder (39600%15)*/,
@@ -22410,10 +22410,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Ust_Nera[]  = {
 
 static const char kAtcZoneNameAsia_Ust_Nera[]  = "Asia/Ust-Nera";
 
-const AtcZoneInfo kAtcAllZoneAsia_Ust_Nera  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Ust_Nera  = {
   kAtcZoneNameAsia_Ust_Nera /*name*/,
   0x4785f921 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAsia_Ust_Nera /*eras*/,
   NULL /*target_info*/,
@@ -22453,7 +22453,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Vladivostok[]  = {
   },
   //             10:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -22466,7 +22466,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Vladivostok[]  = {
   },
   //              9:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2160 /*offset_code (32400/15)*/,
     0 /*offset_remainder (32400%15)*/,
@@ -22479,7 +22479,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Vladivostok[]  = {
   },
   //             10:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -22521,10 +22521,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Vladivostok[]  = {
 
 static const char kAtcZoneNameAsia_Vladivostok[]  = "Asia/Vladivostok";
 
-const AtcZoneInfo kAtcAllZoneAsia_Vladivostok  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Vladivostok  = {
   kAtcZoneNameAsia_Vladivostok /*name*/,
   0x29de34a8 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAsia_Vladivostok /*eras*/,
   NULL /*target_info*/,
@@ -22564,7 +22564,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Yakutsk[]  = {
   },
   //              9:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2160 /*offset_code (32400/15)*/,
     0 /*offset_remainder (32400%15)*/,
@@ -22577,7 +22577,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Yakutsk[]  = {
   },
   //              8:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1920 /*offset_code (28800/15)*/,
     0 /*offset_remainder (28800%15)*/,
@@ -22590,7 +22590,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Yakutsk[]  = {
   },
   //              9:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     2160 /*offset_code (32400/15)*/,
     0 /*offset_remainder (32400%15)*/,
@@ -22632,10 +22632,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Yakutsk[]  = {
 
 static const char kAtcZoneNameAsia_Yakutsk[]  = "Asia/Yakutsk";
 
-const AtcZoneInfo kAtcAllZoneAsia_Yakutsk  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Yakutsk  = {
   kAtcZoneNameAsia_Yakutsk /*name*/,
   0x87bb3a9e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAsia_Yakutsk /*eras*/,
   NULL /*target_info*/,
@@ -22717,10 +22717,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Yangon[]  = {
 
 static const char kAtcZoneNameAsia_Yangon[]  = "Asia/Yangon";
 
-const AtcZoneInfo kAtcAllZoneAsia_Yangon  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Yangon  = {
   kAtcZoneNameAsia_Yangon /*name*/,
   0xdd54a8be /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Yangon /*eras*/,
   NULL /*target_info*/,
@@ -22773,7 +22773,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Yekaterinburg[]  = {
   },
   //              5:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -22786,7 +22786,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Yekaterinburg[]  = {
   },
   //              4:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -22799,7 +22799,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Yekaterinburg[]  = {
   },
   //              5:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     1200 /*offset_code (18000/15)*/,
     0 /*offset_remainder (18000%15)*/,
@@ -22841,10 +22841,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Yekaterinburg[]  = {
 
 static const char kAtcZoneNameAsia_Yekaterinburg[]  = "Asia/Yekaterinburg";
 
-const AtcZoneInfo kAtcAllZoneAsia_Yekaterinburg  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Yekaterinburg  = {
   kAtcZoneNameAsia_Yekaterinburg /*name*/,
   0xfb544c6e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAsia_Yekaterinburg /*eras*/,
   NULL /*target_info*/,
@@ -22884,7 +22884,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Yerevan[]  = {
   },
   //             4:00 RussiaAsia %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -22897,7 +22897,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Yerevan[]  = {
   },
   //             3:00 RussiaAsia    %z    1995 Sep 24  2:00s
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -22923,7 +22923,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Yerevan[]  = {
   },
   //             4:00 RussiaAsia    %z    2011
   {
-    &kAtcAllZonePolicyRussiaAsia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussiaAsia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -22936,7 +22936,7 @@ static const AtcZoneEra kAtcZoneEraAsia_Yerevan[]  = {
   },
   //             4:00    Armenia    %z
   {
-    &kAtcAllZonePolicyArmenia /*zone_policy*/,
+    &kAtcZonedballZonePolicyArmenia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -22952,10 +22952,10 @@ static const AtcZoneEra kAtcZoneEraAsia_Yerevan[]  = {
 
 static const char kAtcZoneNameAsia_Yerevan[]  = "Asia/Yerevan";
 
-const AtcZoneInfo kAtcAllZoneAsia_Yerevan  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Yerevan  = {
   kAtcZoneNameAsia_Yerevan /*name*/,
   0x9185c8cc /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAsia_Yerevan /*eras*/,
   NULL /*target_info*/,
@@ -22995,7 +22995,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Azores[]  = {
   },
   //             -2:00    Port    %z    1966 Oct  2  2:00s
   {
-    &kAtcAllZonePolicyPort /*zone_policy*/,
+    &kAtcZonedballZonePolicyPort /*zone_policy*/,
     "" /*format*/,
     -480 /*offset_code (-7200/15)*/,
     0 /*offset_remainder (-7200%15)*/,
@@ -23021,7 +23021,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Azores[]  = {
   },
   //             -1:00    Port    %z    1986
   {
-    &kAtcAllZonePolicyPort /*zone_policy*/,
+    &kAtcZonedballZonePolicyPort /*zone_policy*/,
     "" /*format*/,
     -240 /*offset_code (-3600/15)*/,
     0 /*offset_remainder (-3600%15)*/,
@@ -23034,7 +23034,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Azores[]  = {
   },
   //             -1:00    EU    %z    1992 Dec 27  1:00s
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "" /*format*/,
     -240 /*offset_code (-3600/15)*/,
     0 /*offset_remainder (-3600%15)*/,
@@ -23047,7 +23047,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Azores[]  = {
   },
   //              0:00    EU    WE%sT    1993 Jun 17  1:00u
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -23060,7 +23060,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Azores[]  = {
   },
   //             -1:00    EU    %z
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "" /*format*/,
     -240 /*offset_code (-3600/15)*/,
     0 /*offset_remainder (-3600%15)*/,
@@ -23076,10 +23076,10 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Azores[]  = {
 
 static const char kAtcZoneNameAtlantic_Azores[]  = "Atlantic/Azores";
 
-const AtcZoneInfo kAtcAllZoneAtlantic_Azores  = {
+const AtcZoneInfo kAtcZonedballZoneAtlantic_Azores  = {
   kAtcZoneNameAtlantic_Azores /*name*/,
   0xf93ed918 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAtlantic_Azores /*eras*/,
   NULL /*target_info*/,
@@ -23106,7 +23106,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Bermuda[]  = {
   },
   //             -4:19:18 Bermuda BMT/BST 1930 Jan 1  2:00
   {
-    &kAtcAllZonePolicyBermuda /*zone_policy*/,
+    &kAtcZonedballZonePolicyBermuda /*zone_policy*/,
     "BMT/BST" /*format*/,
     -1038 /*offset_code (-15558/15)*/,
     12 /*offset_remainder (-15558%15)*/,
@@ -23119,7 +23119,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Bermuda[]  = {
   },
   //             -4:00    Bermuda    A%sT    1974 Apr 28  2:00
   {
-    &kAtcAllZonePolicyBermuda /*zone_policy*/,
+    &kAtcZonedballZonePolicyBermuda /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -23132,7 +23132,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Bermuda[]  = {
   },
   //             -4:00    Canada    A%sT    1976
   {
-    &kAtcAllZonePolicyCanada /*zone_policy*/,
+    &kAtcZonedballZonePolicyCanada /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -23145,7 +23145,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Bermuda[]  = {
   },
   //             -4:00    US    A%sT
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "A%T" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -23161,10 +23161,10 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Bermuda[]  = {
 
 static const char kAtcZoneNameAtlantic_Bermuda[]  = "Atlantic/Bermuda";
 
-const AtcZoneInfo kAtcAllZoneAtlantic_Bermuda  = {
+const AtcZoneInfo kAtcZonedballZoneAtlantic_Bermuda  = {
   kAtcZoneNameAtlantic_Bermuda /*name*/,
   0x3d4bb1c4 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAtlantic_Bermuda /*eras*/,
   NULL /*target_info*/,
@@ -23230,7 +23230,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Canary[]  = {
   },
   //              0:00    EU    WE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -23246,10 +23246,10 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Canary[]  = {
 
 static const char kAtcZoneNameAtlantic_Canary[]  = "Atlantic/Canary";
 
-const AtcZoneInfo kAtcAllZoneAtlantic_Canary  = {
+const AtcZoneInfo kAtcZonedballZoneAtlantic_Canary  = {
   kAtcZoneNameAtlantic_Canary /*name*/,
   0xfc23f2c2 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAtlantic_Canary /*eras*/,
   NULL /*target_info*/,
@@ -23331,10 +23331,10 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Cape_Verde[]  = {
 
 static const char kAtcZoneNameAtlantic_Cape_Verde[]  = "Atlantic/Cape_Verde";
 
-const AtcZoneInfo kAtcAllZoneAtlantic_Cape_Verde  = {
+const AtcZoneInfo kAtcZonedballZoneAtlantic_Cape_Verde  = {
   kAtcZoneNameAtlantic_Cape_Verde /*name*/,
   0x5c5e1772 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAtlantic_Cape_Verde /*eras*/,
   NULL /*target_info*/,
@@ -23374,7 +23374,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Faroe[]  = {
   },
   //              0:00    EU    WE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -23390,10 +23390,10 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Faroe[]  = {
 
 static const char kAtcZoneNameAtlantic_Faroe[]  = "Atlantic/Faroe";
 
-const AtcZoneInfo kAtcAllZoneAtlantic_Faroe  = {
+const AtcZoneInfo kAtcZonedballZoneAtlantic_Faroe  = {
   kAtcZoneNameAtlantic_Faroe /*name*/,
   0xe110a971 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAtlantic_Faroe /*eras*/,
   NULL /*target_info*/,
@@ -23433,7 +23433,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Madeira[]  = {
   },
   //             -1:00    Port    %z    1966 Oct  2  2:00s
   {
-    &kAtcAllZonePolicyPort /*zone_policy*/,
+    &kAtcZonedballZonePolicyPort /*zone_policy*/,
     "" /*format*/,
     -240 /*offset_code (-3600/15)*/,
     0 /*offset_remainder (-3600%15)*/,
@@ -23459,7 +23459,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Madeira[]  = {
   },
   //              0:00    Port    WE%sT    1986 Jul 31
   {
-    &kAtcAllZonePolicyPort /*zone_policy*/,
+    &kAtcZonedballZonePolicyPort /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -23472,7 +23472,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Madeira[]  = {
   },
   //              0:00    EU    WE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -23488,10 +23488,10 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Madeira[]  = {
 
 static const char kAtcZoneNameAtlantic_Madeira[]  = "Atlantic/Madeira";
 
-const AtcZoneInfo kAtcAllZoneAtlantic_Madeira  = {
+const AtcZoneInfo kAtcZonedballZoneAtlantic_Madeira  = {
   kAtcZoneNameAtlantic_Madeira /*name*/,
   0x81b5c037 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAtlantic_Madeira /*eras*/,
   NULL /*target_info*/,
@@ -23534,10 +23534,10 @@ static const AtcZoneEra kAtcZoneEraAtlantic_South_Georgia[]  = {
 
 static const char kAtcZoneNameAtlantic_South_Georgia[]  = "Atlantic/South_Georgia";
 
-const AtcZoneInfo kAtcAllZoneAtlantic_South_Georgia  = {
+const AtcZoneInfo kAtcZonedballZoneAtlantic_South_Georgia  = {
   kAtcZoneNameAtlantic_South_Georgia /*name*/,
   0x33013174 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAtlantic_South_Georgia /*eras*/,
   NULL /*target_info*/,
@@ -23577,7 +23577,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Stanley[]  = {
   },
   //             -4:00    Falk    %z    1983 May
   {
-    &kAtcAllZonePolicyFalk /*zone_policy*/,
+    &kAtcZonedballZonePolicyFalk /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -23590,7 +23590,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Stanley[]  = {
   },
   //             -3:00    Falk    %z    1985 Sep 15
   {
-    &kAtcAllZonePolicyFalk /*zone_policy*/,
+    &kAtcZonedballZonePolicyFalk /*zone_policy*/,
     "" /*format*/,
     -720 /*offset_code (-10800/15)*/,
     0 /*offset_remainder (-10800%15)*/,
@@ -23603,7 +23603,7 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Stanley[]  = {
   },
   //             -4:00    Falk    %z    2010 Sep  5  2:00
   {
-    &kAtcAllZonePolicyFalk /*zone_policy*/,
+    &kAtcZonedballZonePolicyFalk /*zone_policy*/,
     "" /*format*/,
     -960 /*offset_code (-14400/15)*/,
     0 /*offset_remainder (-14400%15)*/,
@@ -23632,10 +23632,10 @@ static const AtcZoneEra kAtcZoneEraAtlantic_Stanley[]  = {
 
 static const char kAtcZoneNameAtlantic_Stanley[]  = "Atlantic/Stanley";
 
-const AtcZoneInfo kAtcAllZoneAtlantic_Stanley  = {
+const AtcZoneInfo kAtcZonedballZoneAtlantic_Stanley  = {
   kAtcZoneNameAtlantic_Stanley /*name*/,
   0x7bb3e1c4 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAtlantic_Stanley /*eras*/,
   NULL /*target_info*/,
@@ -23675,7 +23675,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Adelaide[]  = {
   },
   //             9:30    Aus    AC%sT    1971
   {
-    &kAtcAllZonePolicyAus /*zone_policy*/,
+    &kAtcZonedballZonePolicyAus /*zone_policy*/,
     "AC%T" /*format*/,
     2280 /*offset_code (34200/15)*/,
     0 /*offset_remainder (34200%15)*/,
@@ -23688,7 +23688,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Adelaide[]  = {
   },
   //             9:30    AS    AC%sT
   {
-    &kAtcAllZonePolicyAS /*zone_policy*/,
+    &kAtcZonedballZonePolicyAS /*zone_policy*/,
     "AC%T" /*format*/,
     2280 /*offset_code (34200/15)*/,
     0 /*offset_remainder (34200%15)*/,
@@ -23704,10 +23704,10 @@ static const AtcZoneEra kAtcZoneEraAustralia_Adelaide[]  = {
 
 static const char kAtcZoneNameAustralia_Adelaide[]  = "Australia/Adelaide";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Adelaide  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Adelaide  = {
   kAtcZoneNameAustralia_Adelaide /*name*/,
   0x2428e8a3 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAustralia_Adelaide /*eras*/,
   NULL /*target_info*/,
@@ -23734,7 +23734,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Brisbane[]  = {
   },
   //             10:00    Aus    AE%sT    1971
   {
-    &kAtcAllZonePolicyAus /*zone_policy*/,
+    &kAtcZonedballZonePolicyAus /*zone_policy*/,
     "AE%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -23747,7 +23747,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Brisbane[]  = {
   },
   //             10:00    AQ    AE%sT
   {
-    &kAtcAllZonePolicyAQ /*zone_policy*/,
+    &kAtcZonedballZonePolicyAQ /*zone_policy*/,
     "AE%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -23763,10 +23763,10 @@ static const AtcZoneEra kAtcZoneEraAustralia_Brisbane[]  = {
 
 static const char kAtcZoneNameAustralia_Brisbane[]  = "Australia/Brisbane";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Brisbane  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Brisbane  = {
   kAtcZoneNameAustralia_Brisbane /*name*/,
   0x4fedc9c0 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAustralia_Brisbane /*eras*/,
   NULL /*target_info*/,
@@ -23819,7 +23819,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Broken_Hill[]  = {
   },
   //             9:30    Aus    AC%sT    1971
   {
-    &kAtcAllZonePolicyAus /*zone_policy*/,
+    &kAtcZonedballZonePolicyAus /*zone_policy*/,
     "AC%T" /*format*/,
     2280 /*offset_code (34200/15)*/,
     0 /*offset_remainder (34200%15)*/,
@@ -23832,7 +23832,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Broken_Hill[]  = {
   },
   //             9:30    AN    AC%sT    2000
   {
-    &kAtcAllZonePolicyAN /*zone_policy*/,
+    &kAtcZonedballZonePolicyAN /*zone_policy*/,
     "AC%T" /*format*/,
     2280 /*offset_code (34200/15)*/,
     0 /*offset_remainder (34200%15)*/,
@@ -23845,7 +23845,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Broken_Hill[]  = {
   },
   //             9:30    AS    AC%sT
   {
-    &kAtcAllZonePolicyAS /*zone_policy*/,
+    &kAtcZonedballZonePolicyAS /*zone_policy*/,
     "AC%T" /*format*/,
     2280 /*offset_code (34200/15)*/,
     0 /*offset_remainder (34200%15)*/,
@@ -23861,10 +23861,10 @@ static const AtcZoneEra kAtcZoneEraAustralia_Broken_Hill[]  = {
 
 static const char kAtcZoneNameAustralia_Broken_Hill[]  = "Australia/Broken_Hill";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Broken_Hill  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Broken_Hill  = {
   kAtcZoneNameAustralia_Broken_Hill /*name*/,
   0xb06eada3 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAustralia_Broken_Hill /*eras*/,
   NULL /*target_info*/,
@@ -23904,7 +23904,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Darwin[]  = {
   },
   //              9:30    Aus    AC%sT
   {
-    &kAtcAllZonePolicyAus /*zone_policy*/,
+    &kAtcZonedballZonePolicyAus /*zone_policy*/,
     "AC%T" /*format*/,
     2280 /*offset_code (34200/15)*/,
     0 /*offset_remainder (34200%15)*/,
@@ -23920,10 +23920,10 @@ static const AtcZoneEra kAtcZoneEraAustralia_Darwin[]  = {
 
 static const char kAtcZoneNameAustralia_Darwin[]  = "Australia/Darwin";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Darwin  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Darwin  = {
   kAtcZoneNameAustralia_Darwin /*name*/,
   0x2876bdff /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAustralia_Darwin /*eras*/,
   NULL /*target_info*/,
@@ -23950,7 +23950,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Eucla[]  = {
   },
   //              8:45    Aus    %z    1943 Jul
   {
-    &kAtcAllZonePolicyAus /*zone_policy*/,
+    &kAtcZonedballZonePolicyAus /*zone_policy*/,
     "" /*format*/,
     2100 /*offset_code (31500/15)*/,
     0 /*offset_remainder (31500%15)*/,
@@ -23963,7 +23963,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Eucla[]  = {
   },
   //              8:45    AW    %z
   {
-    &kAtcAllZonePolicyAW /*zone_policy*/,
+    &kAtcZonedballZonePolicyAW /*zone_policy*/,
     "" /*format*/,
     2100 /*offset_code (31500/15)*/,
     0 /*offset_remainder (31500%15)*/,
@@ -23979,10 +23979,10 @@ static const AtcZoneEra kAtcZoneEraAustralia_Eucla[]  = {
 
 static const char kAtcZoneNameAustralia_Eucla[]  = "Australia/Eucla";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Eucla  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Eucla  = {
   kAtcZoneNameAustralia_Eucla /*name*/,
   0x8cf99e44 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAustralia_Eucla /*eras*/,
   NULL /*target_info*/,
@@ -24009,7 +24009,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Hobart[]  = {
   },
   //             10:00    AT    AE%sT    1919 Oct 24
   {
-    &kAtcAllZonePolicyAT /*zone_policy*/,
+    &kAtcZonedballZonePolicyAT /*zone_policy*/,
     "AE%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -24022,7 +24022,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Hobart[]  = {
   },
   //             10:00    Aus    AE%sT    1967
   {
-    &kAtcAllZonePolicyAus /*zone_policy*/,
+    &kAtcZonedballZonePolicyAus /*zone_policy*/,
     "AE%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -24035,7 +24035,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Hobart[]  = {
   },
   //             10:00    AT    AE%sT
   {
-    &kAtcAllZonePolicyAT /*zone_policy*/,
+    &kAtcZonedballZonePolicyAT /*zone_policy*/,
     "AE%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -24051,10 +24051,10 @@ static const AtcZoneEra kAtcZoneEraAustralia_Hobart[]  = {
 
 static const char kAtcZoneNameAustralia_Hobart[]  = "Australia/Hobart";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Hobart  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Hobart  = {
   kAtcZoneNameAustralia_Hobart /*name*/,
   0x32bf951a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAustralia_Hobart /*eras*/,
   NULL /*target_info*/,
@@ -24081,7 +24081,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Lindeman[]  = {
   },
   //             10:00    Aus    AE%sT    1971
   {
-    &kAtcAllZonePolicyAus /*zone_policy*/,
+    &kAtcZonedballZonePolicyAus /*zone_policy*/,
     "AE%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -24094,7 +24094,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Lindeman[]  = {
   },
   //             10:00    AQ    AE%sT    1992 Jul
   {
-    &kAtcAllZonePolicyAQ /*zone_policy*/,
+    &kAtcZonedballZonePolicyAQ /*zone_policy*/,
     "AE%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -24107,7 +24107,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Lindeman[]  = {
   },
   //             10:00    Holiday    AE%sT
   {
-    &kAtcAllZonePolicyHoliday /*zone_policy*/,
+    &kAtcZonedballZonePolicyHoliday /*zone_policy*/,
     "AE%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -24123,10 +24123,10 @@ static const AtcZoneEra kAtcZoneEraAustralia_Lindeman[]  = {
 
 static const char kAtcZoneNameAustralia_Lindeman[]  = "Australia/Lindeman";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Lindeman  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Lindeman  = {
   kAtcZoneNameAustralia_Lindeman /*name*/,
   0xe05029e2 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAustralia_Lindeman /*eras*/,
   NULL /*target_info*/,
@@ -24166,7 +24166,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Lord_Howe[]  = {
   },
   //             10:30    LH    %z    1985 Jul
   {
-    &kAtcAllZonePolicyLH /*zone_policy*/,
+    &kAtcZonedballZonePolicyLH /*zone_policy*/,
     "" /*format*/,
     2520 /*offset_code (37800/15)*/,
     0 /*offset_remainder (37800%15)*/,
@@ -24179,7 +24179,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Lord_Howe[]  = {
   },
   //             10:30    LH    %z
   {
-    &kAtcAllZonePolicyLH /*zone_policy*/,
+    &kAtcZonedballZonePolicyLH /*zone_policy*/,
     "" /*format*/,
     2520 /*offset_code (37800/15)*/,
     0 /*offset_remainder (37800%15)*/,
@@ -24195,10 +24195,10 @@ static const AtcZoneEra kAtcZoneEraAustralia_Lord_Howe[]  = {
 
 static const char kAtcZoneNameAustralia_Lord_Howe[]  = "Australia/Lord_Howe";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Lord_Howe  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Lord_Howe  = {
   kAtcZoneNameAustralia_Lord_Howe /*name*/,
   0xa748b67d /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAustralia_Lord_Howe /*eras*/,
   NULL /*target_info*/,
@@ -24225,7 +24225,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Melbourne[]  = {
   },
   //             10:00    Aus    AE%sT    1971
   {
-    &kAtcAllZonePolicyAus /*zone_policy*/,
+    &kAtcZonedballZonePolicyAus /*zone_policy*/,
     "AE%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -24238,7 +24238,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Melbourne[]  = {
   },
   //             10:00    AV    AE%sT
   {
-    &kAtcAllZonePolicyAV /*zone_policy*/,
+    &kAtcZonedballZonePolicyAV /*zone_policy*/,
     "AE%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -24254,10 +24254,10 @@ static const AtcZoneEra kAtcZoneEraAustralia_Melbourne[]  = {
 
 static const char kAtcZoneNameAustralia_Melbourne[]  = "Australia/Melbourne";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Melbourne  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Melbourne  = {
   kAtcZoneNameAustralia_Melbourne /*name*/,
   0x0fe559a3 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAustralia_Melbourne /*eras*/,
   NULL /*target_info*/,
@@ -24284,7 +24284,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Perth[]  = {
   },
   //              8:00    Aus    AW%sT    1943 Jul
   {
-    &kAtcAllZonePolicyAus /*zone_policy*/,
+    &kAtcZonedballZonePolicyAus /*zone_policy*/,
     "AW%T" /*format*/,
     1920 /*offset_code (28800/15)*/,
     0 /*offset_remainder (28800%15)*/,
@@ -24297,7 +24297,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Perth[]  = {
   },
   //              8:00    AW    AW%sT
   {
-    &kAtcAllZonePolicyAW /*zone_policy*/,
+    &kAtcZonedballZonePolicyAW /*zone_policy*/,
     "AW%T" /*format*/,
     1920 /*offset_code (28800/15)*/,
     0 /*offset_remainder (28800%15)*/,
@@ -24313,10 +24313,10 @@ static const AtcZoneEra kAtcZoneEraAustralia_Perth[]  = {
 
 static const char kAtcZoneNameAustralia_Perth[]  = "Australia/Perth";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Perth  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Perth  = {
   kAtcZoneNameAustralia_Perth /*name*/,
   0x8db8269d /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAustralia_Perth /*eras*/,
   NULL /*target_info*/,
@@ -24343,7 +24343,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Sydney[]  = {
   },
   //             10:00    Aus    AE%sT    1971
   {
-    &kAtcAllZonePolicyAus /*zone_policy*/,
+    &kAtcZonedballZonePolicyAus /*zone_policy*/,
     "AE%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -24356,7 +24356,7 @@ static const AtcZoneEra kAtcZoneEraAustralia_Sydney[]  = {
   },
   //             10:00    AN    AE%sT
   {
-    &kAtcAllZonePolicyAN /*zone_policy*/,
+    &kAtcZonedballZonePolicyAN /*zone_policy*/,
     "AE%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -24372,10 +24372,10 @@ static const AtcZoneEra kAtcZoneEraAustralia_Sydney[]  = {
 
 static const char kAtcZoneNameAustralia_Sydney[]  = "Australia/Sydney";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Sydney  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Sydney  = {
   kAtcZoneNameAustralia_Sydney /*name*/,
   0x4d1e9776 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAustralia_Sydney /*eras*/,
   NULL /*target_info*/,
@@ -24405,10 +24405,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT[]  = {
 
 static const char kAtcZoneNameEtc_GMT[]  = "Etc/GMT";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT  = {
   kAtcZoneNameEtc_GMT /*name*/,
   0xd8e2de58 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
   NULL /*target_info*/,
@@ -24438,10 +24438,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_1[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_1[]  = "Etc/GMT+1";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_PLUS_1  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_PLUS_1  = {
   kAtcZoneNameEtc_GMT_PLUS_1 /*name*/,
   0x9d13da14 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_1 /*eras*/,
   NULL /*target_info*/,
@@ -24471,10 +24471,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_10[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_10[]  = "Etc/GMT+10";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_PLUS_10  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_PLUS_10  = {
   kAtcZoneNameEtc_GMT_PLUS_10 /*name*/,
   0x3f8f1cc4 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_10 /*eras*/,
   NULL /*target_info*/,
@@ -24504,10 +24504,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_11[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_11[]  = "Etc/GMT+11";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_PLUS_11  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_PLUS_11  = {
   kAtcZoneNameEtc_GMT_PLUS_11 /*name*/,
   0x3f8f1cc5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_11 /*eras*/,
   NULL /*target_info*/,
@@ -24537,10 +24537,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_12[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_12[]  = "Etc/GMT+12";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_PLUS_12  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_PLUS_12  = {
   kAtcZoneNameEtc_GMT_PLUS_12 /*name*/,
   0x3f8f1cc6 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_12 /*eras*/,
   NULL /*target_info*/,
@@ -24570,10 +24570,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_2[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_2[]  = "Etc/GMT+2";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_PLUS_2  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_PLUS_2  = {
   kAtcZoneNameEtc_GMT_PLUS_2 /*name*/,
   0x9d13da15 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_2 /*eras*/,
   NULL /*target_info*/,
@@ -24603,10 +24603,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_3[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_3[]  = "Etc/GMT+3";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_PLUS_3  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_PLUS_3  = {
   kAtcZoneNameEtc_GMT_PLUS_3 /*name*/,
   0x9d13da16 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_3 /*eras*/,
   NULL /*target_info*/,
@@ -24636,10 +24636,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_4[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_4[]  = "Etc/GMT+4";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_PLUS_4  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_PLUS_4  = {
   kAtcZoneNameEtc_GMT_PLUS_4 /*name*/,
   0x9d13da17 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_4 /*eras*/,
   NULL /*target_info*/,
@@ -24669,10 +24669,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_5[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_5[]  = "Etc/GMT+5";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_PLUS_5  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_PLUS_5  = {
   kAtcZoneNameEtc_GMT_PLUS_5 /*name*/,
   0x9d13da18 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_5 /*eras*/,
   NULL /*target_info*/,
@@ -24702,10 +24702,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_6[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_6[]  = "Etc/GMT+6";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_PLUS_6  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_PLUS_6  = {
   kAtcZoneNameEtc_GMT_PLUS_6 /*name*/,
   0x9d13da19 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_6 /*eras*/,
   NULL /*target_info*/,
@@ -24735,10 +24735,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_7[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_7[]  = "Etc/GMT+7";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_PLUS_7  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_PLUS_7  = {
   kAtcZoneNameEtc_GMT_PLUS_7 /*name*/,
   0x9d13da1a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_7 /*eras*/,
   NULL /*target_info*/,
@@ -24768,10 +24768,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_8[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_8[]  = "Etc/GMT+8";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_PLUS_8  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_PLUS_8  = {
   kAtcZoneNameEtc_GMT_PLUS_8 /*name*/,
   0x9d13da1b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_8 /*eras*/,
   NULL /*target_info*/,
@@ -24801,10 +24801,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_PLUS_9[]  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_9[]  = "Etc/GMT+9";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_PLUS_9  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_PLUS_9  = {
   kAtcZoneNameEtc_GMT_PLUS_9 /*name*/,
   0x9d13da1c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_PLUS_9 /*eras*/,
   NULL /*target_info*/,
@@ -24834,10 +24834,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_1[]  = {
 
 static const char kAtcZoneNameEtc_GMT_1[]  = "Etc/GMT-1";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_1  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_1  = {
   kAtcZoneNameEtc_GMT_1 /*name*/,
   0x9d13da56 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_1 /*eras*/,
   NULL /*target_info*/,
@@ -24867,10 +24867,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_10[]  = {
 
 static const char kAtcZoneNameEtc_GMT_10[]  = "Etc/GMT-10";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_10  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_10  = {
   kAtcZoneNameEtc_GMT_10 /*name*/,
   0x3f8f2546 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_10 /*eras*/,
   NULL /*target_info*/,
@@ -24900,10 +24900,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_11[]  = {
 
 static const char kAtcZoneNameEtc_GMT_11[]  = "Etc/GMT-11";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_11  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_11  = {
   kAtcZoneNameEtc_GMT_11 /*name*/,
   0x3f8f2547 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_11 /*eras*/,
   NULL /*target_info*/,
@@ -24933,10 +24933,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_12[]  = {
 
 static const char kAtcZoneNameEtc_GMT_12[]  = "Etc/GMT-12";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_12  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_12  = {
   kAtcZoneNameEtc_GMT_12 /*name*/,
   0x3f8f2548 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_12 /*eras*/,
   NULL /*target_info*/,
@@ -24966,10 +24966,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_13[]  = {
 
 static const char kAtcZoneNameEtc_GMT_13[]  = "Etc/GMT-13";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_13  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_13  = {
   kAtcZoneNameEtc_GMT_13 /*name*/,
   0x3f8f2549 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_13 /*eras*/,
   NULL /*target_info*/,
@@ -24999,10 +24999,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_14[]  = {
 
 static const char kAtcZoneNameEtc_GMT_14[]  = "Etc/GMT-14";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_14  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_14  = {
   kAtcZoneNameEtc_GMT_14 /*name*/,
   0x3f8f254a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_14 /*eras*/,
   NULL /*target_info*/,
@@ -25032,10 +25032,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_2[]  = {
 
 static const char kAtcZoneNameEtc_GMT_2[]  = "Etc/GMT-2";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_2  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_2  = {
   kAtcZoneNameEtc_GMT_2 /*name*/,
   0x9d13da57 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_2 /*eras*/,
   NULL /*target_info*/,
@@ -25065,10 +25065,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_3[]  = {
 
 static const char kAtcZoneNameEtc_GMT_3[]  = "Etc/GMT-3";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_3  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_3  = {
   kAtcZoneNameEtc_GMT_3 /*name*/,
   0x9d13da58 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_3 /*eras*/,
   NULL /*target_info*/,
@@ -25098,10 +25098,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_4[]  = {
 
 static const char kAtcZoneNameEtc_GMT_4[]  = "Etc/GMT-4";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_4  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_4  = {
   kAtcZoneNameEtc_GMT_4 /*name*/,
   0x9d13da59 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_4 /*eras*/,
   NULL /*target_info*/,
@@ -25131,10 +25131,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_5[]  = {
 
 static const char kAtcZoneNameEtc_GMT_5[]  = "Etc/GMT-5";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_5  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_5  = {
   kAtcZoneNameEtc_GMT_5 /*name*/,
   0x9d13da5a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_5 /*eras*/,
   NULL /*target_info*/,
@@ -25164,10 +25164,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_6[]  = {
 
 static const char kAtcZoneNameEtc_GMT_6[]  = "Etc/GMT-6";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_6  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_6  = {
   kAtcZoneNameEtc_GMT_6 /*name*/,
   0x9d13da5b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_6 /*eras*/,
   NULL /*target_info*/,
@@ -25197,10 +25197,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_7[]  = {
 
 static const char kAtcZoneNameEtc_GMT_7[]  = "Etc/GMT-7";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_7  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_7  = {
   kAtcZoneNameEtc_GMT_7 /*name*/,
   0x9d13da5c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_7 /*eras*/,
   NULL /*target_info*/,
@@ -25230,10 +25230,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_8[]  = {
 
 static const char kAtcZoneNameEtc_GMT_8[]  = "Etc/GMT-8";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_8  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_8  = {
   kAtcZoneNameEtc_GMT_8 /*name*/,
   0x9d13da5d /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_8 /*eras*/,
   NULL /*target_info*/,
@@ -25263,10 +25263,10 @@ static const AtcZoneEra kAtcZoneEraEtc_GMT_9[]  = {
 
 static const char kAtcZoneNameEtc_GMT_9[]  = "Etc/GMT-9";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_9  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_9  = {
   kAtcZoneNameEtc_GMT_9 /*name*/,
   0x9d13da5e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT_9 /*eras*/,
   NULL /*target_info*/,
@@ -25296,10 +25296,10 @@ static const AtcZoneEra kAtcZoneEraEtc_UTC[]  = {
 
 static const char kAtcZoneNameEtc_UTC[]  = "Etc/UTC";
 
-const AtcZoneInfo kAtcAllZoneEtc_UTC  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_UTC  = {
   kAtcZoneNameEtc_UTC /*name*/,
   0xd8e31abc /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
   NULL /*target_info*/,
@@ -25352,7 +25352,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Andorra[]  = {
   },
   //             1:00    EU    CE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -25368,10 +25368,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Andorra[]  = {
 
 static const char kAtcZoneNameEurope_Andorra[]  = "Europe/Andorra";
 
-const AtcZoneInfo kAtcAllZoneEurope_Andorra  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Andorra  = {
   kAtcZoneNameEurope_Andorra /*name*/,
   0x97f6764b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraEurope_Andorra /*eras*/,
   NULL /*target_info*/,
@@ -25411,7 +25411,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Astrakhan[]  = {
   },
   //              4:00    Russia    %z    1989 Mar 26  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -25424,7 +25424,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Astrakhan[]  = {
   },
   //              3:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -25450,7 +25450,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Astrakhan[]  = {
   },
   //              3:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -25505,10 +25505,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Astrakhan[]  = {
 
 static const char kAtcZoneNameEurope_Astrakhan[]  = "Europe/Astrakhan";
 
-const AtcZoneInfo kAtcAllZoneEurope_Astrakhan  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Astrakhan  = {
   kAtcZoneNameEurope_Astrakhan /*name*/,
   0xe22256e1 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Astrakhan /*eras*/,
   NULL /*target_info*/,
@@ -25548,7 +25548,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Athens[]  = {
   },
   //             2:00    Greece    EE%sT    1941 Apr 30
   {
-    &kAtcAllZonePolicyGreece /*zone_policy*/,
+    &kAtcZonedballZonePolicyGreece /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -25561,7 +25561,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Athens[]  = {
   },
   //             1:00    Greece    CE%sT    1944 Apr  4
   {
-    &kAtcAllZonePolicyGreece /*zone_policy*/,
+    &kAtcZonedballZonePolicyGreece /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -25574,7 +25574,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Athens[]  = {
   },
   //             2:00    Greece    EE%sT    1981
   {
-    &kAtcAllZonePolicyGreece /*zone_policy*/,
+    &kAtcZonedballZonePolicyGreece /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -25587,7 +25587,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Athens[]  = {
   },
   //             2:00    EU    EE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -25603,10 +25603,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Athens[]  = {
 
 static const char kAtcZoneNameEurope_Athens[]  = "Europe/Athens";
 
-const AtcZoneInfo kAtcAllZoneEurope_Athens  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Athens  = {
   kAtcZoneNameEurope_Athens /*name*/,
   0x4318fa27 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraEurope_Athens /*eras*/,
   NULL /*target_info*/,
@@ -25646,7 +25646,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Belgrade[]  = {
   },
   //             1:00    C-Eur    CE%sT    1945
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -25698,7 +25698,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Belgrade[]  = {
   },
   //             1:00    EU    CE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -25714,10 +25714,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Belgrade[]  = {
 
 static const char kAtcZoneNameEurope_Belgrade[]  = "Europe/Belgrade";
 
-const AtcZoneInfo kAtcAllZoneEurope_Belgrade  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Belgrade  = {
   kAtcZoneNameEurope_Belgrade /*name*/,
   0xe0532b3a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
   NULL /*target_info*/,
@@ -25744,7 +25744,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Berlin[]  = {
   },
   //             1:00    C-Eur    CE%sT    1945 May 24  2:00
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -25757,7 +25757,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Berlin[]  = {
   },
   //             1:00 SovietZone    CE%sT    1946
   {
-    &kAtcAllZonePolicySovietZone /*zone_policy*/,
+    &kAtcZonedballZonePolicySovietZone /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -25770,7 +25770,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Berlin[]  = {
   },
   //             1:00    Germany    CE%sT    1980
   {
-    &kAtcAllZonePolicyGermany /*zone_policy*/,
+    &kAtcZonedballZonePolicyGermany /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -25783,7 +25783,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Berlin[]  = {
   },
   //             1:00    EU    CE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -25799,10 +25799,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Berlin[]  = {
 
 static const char kAtcZoneNameEurope_Berlin[]  = "Europe/Berlin";
 
-const AtcZoneInfo kAtcAllZoneEurope_Berlin  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Berlin  = {
   kAtcZoneNameEurope_Berlin /*name*/,
   0x44644c20 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
   NULL /*target_info*/,
@@ -25868,7 +25868,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Brussels[]  = {
   },
   //             1:00    C-Eur    CE%sT    1918 Nov 11 11:00u
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -25881,7 +25881,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Brussels[]  = {
   },
   //             0:00    Belgium    WE%sT    1940 May 20  2:00s
   {
-    &kAtcAllZonePolicyBelgium /*zone_policy*/,
+    &kAtcZonedballZonePolicyBelgium /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -25894,7 +25894,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Brussels[]  = {
   },
   //             1:00    C-Eur    CE%sT    1944 Sep  3
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -25907,7 +25907,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Brussels[]  = {
   },
   //             1:00    Belgium    CE%sT    1977
   {
-    &kAtcAllZonePolicyBelgium /*zone_policy*/,
+    &kAtcZonedballZonePolicyBelgium /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -25920,7 +25920,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Brussels[]  = {
   },
   //             1:00    EU    CE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -25936,10 +25936,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Brussels[]  = {
 
 static const char kAtcZoneNameEurope_Brussels[]  = "Europe/Brussels";
 
-const AtcZoneInfo kAtcAllZoneEurope_Brussels  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Brussels  = {
   kAtcZoneNameEurope_Brussels /*name*/,
   0xdee07337 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Brussels /*eras*/,
   NULL /*target_info*/,
@@ -25979,7 +25979,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Bucharest[]  = {
   },
   //             2:00    Romania    EE%sT    1981 Mar 29  2:00s
   {
-    &kAtcAllZonePolicyRomania /*zone_policy*/,
+    &kAtcZonedballZonePolicyRomania /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -25992,7 +25992,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Bucharest[]  = {
   },
   //             2:00    C-Eur    EE%sT    1991
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26005,7 +26005,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Bucharest[]  = {
   },
   //             2:00    Romania    EE%sT    1994
   {
-    &kAtcAllZonePolicyRomania /*zone_policy*/,
+    &kAtcZonedballZonePolicyRomania /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26018,7 +26018,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Bucharest[]  = {
   },
   //             2:00    E-Eur    EE%sT    1997
   {
-    &kAtcAllZonePolicyE_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyE_Eur /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26031,7 +26031,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Bucharest[]  = {
   },
   //             2:00    EU    EE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26047,10 +26047,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Bucharest[]  = {
 
 static const char kAtcZoneNameEurope_Bucharest[]  = "Europe/Bucharest";
 
-const AtcZoneInfo kAtcAllZoneEurope_Bucharest  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Bucharest  = {
   kAtcZoneNameEurope_Bucharest /*name*/,
   0xfb349ec5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraEurope_Bucharest /*eras*/,
   NULL /*target_info*/,
@@ -26077,7 +26077,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Budapest[]  = {
   },
   //             1:00    C-Eur    CE%sT    1918
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -26090,7 +26090,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Budapest[]  = {
   },
   //             1:00    Hungary    CE%sT    1941 Apr  7 23:00
   {
-    &kAtcAllZonePolicyHungary /*zone_policy*/,
+    &kAtcZonedballZonePolicyHungary /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -26103,7 +26103,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Budapest[]  = {
   },
   //             1:00    C-Eur    CE%sT    1945
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -26116,7 +26116,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Budapest[]  = {
   },
   //             1:00    Hungary    CE%sT    1984
   {
-    &kAtcAllZonePolicyHungary /*zone_policy*/,
+    &kAtcZonedballZonePolicyHungary /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -26129,7 +26129,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Budapest[]  = {
   },
   //             1:00    EU    CE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -26145,10 +26145,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Budapest[]  = {
 
 static const char kAtcZoneNameEurope_Budapest[]  = "Europe/Budapest";
 
-const AtcZoneInfo kAtcAllZoneEurope_Budapest  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Budapest  = {
   kAtcZoneNameEurope_Budapest /*name*/,
   0x9ce0197c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraEurope_Budapest /*eras*/,
   NULL /*target_info*/,
@@ -26201,7 +26201,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Chisinau[]  = {
   },
   //             2:00    Romania    EE%sT    1940 Aug 15
   {
-    &kAtcAllZonePolicyRomania /*zone_policy*/,
+    &kAtcZonedballZonePolicyRomania /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26227,7 +26227,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Chisinau[]  = {
   },
   //             1:00    C-Eur    CE%sT    1944 Aug 24
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -26240,7 +26240,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Chisinau[]  = {
   },
   //             3:00    Russia    MSK/MSD    1990 May  6  2:00
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -26253,7 +26253,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Chisinau[]  = {
   },
   //             2:00    Russia    EE%sT    1992
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26266,7 +26266,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Chisinau[]  = {
   },
   //             2:00    E-Eur    EE%sT    1997
   {
-    &kAtcAllZonePolicyE_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyE_Eur /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26279,7 +26279,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Chisinau[]  = {
   },
   //             2:00    Moldova    EE%sT
   {
-    &kAtcAllZonePolicyMoldova /*zone_policy*/,
+    &kAtcZonedballZonePolicyMoldova /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26295,10 +26295,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Chisinau[]  = {
 
 static const char kAtcZoneNameEurope_Chisinau[]  = "Europe/Chisinau";
 
-const AtcZoneInfo kAtcAllZoneEurope_Chisinau  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Chisinau  = {
   kAtcZoneNameEurope_Chisinau /*name*/,
   0xad58aa18 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraEurope_Chisinau /*eras*/,
   NULL /*target_info*/,
@@ -26351,7 +26351,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Dublin[]  = {
   },
   //              0:00    GB-Eire    %s    1921 Dec  6
   {
-    &kAtcAllZonePolicyGB_Eire /*zone_policy*/,
+    &kAtcZonedballZonePolicyGB_Eire /*zone_policy*/,
     "%" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -26364,7 +26364,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Dublin[]  = {
   },
   //              0:00    GB-Eire    GMT/IST    1940 Feb 25  2:00s
   {
-    &kAtcAllZonePolicyGB_Eire /*zone_policy*/,
+    &kAtcZonedballZonePolicyGB_Eire /*zone_policy*/,
     "GMT/IST" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -26429,7 +26429,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Dublin[]  = {
   },
   //              0:00    GB-Eire    GMT/IST    1968 Oct 27
   {
-    &kAtcAllZonePolicyGB_Eire /*zone_policy*/,
+    &kAtcZonedballZonePolicyGB_Eire /*zone_policy*/,
     "GMT/IST" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -26442,7 +26442,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Dublin[]  = {
   },
   //              1:00    Eire    IST/GMT
   {
-    &kAtcAllZonePolicyEire /*zone_policy*/,
+    &kAtcZonedballZonePolicyEire /*zone_policy*/,
     "IST/GMT" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -26458,10 +26458,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Dublin[]  = {
 
 static const char kAtcZoneNameEurope_Dublin[]  = "Europe/Dublin";
 
-const AtcZoneInfo kAtcAllZoneEurope_Dublin  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Dublin  = {
   kAtcZoneNameEurope_Dublin /*name*/,
   0x4a275f62 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   11 /*num_eras*/,
   kAtcZoneEraEurope_Dublin /*eras*/,
   NULL /*target_info*/,
@@ -26488,7 +26488,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Gibraltar[]  = {
   },
   //             0:00    GB-Eire    %s    1957 Apr 14  2:00
   {
-    &kAtcAllZonePolicyGB_Eire /*zone_policy*/,
+    &kAtcZonedballZonePolicyGB_Eire /*zone_policy*/,
     "%" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -26514,7 +26514,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Gibraltar[]  = {
   },
   //             1:00    EU    CE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -26530,10 +26530,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Gibraltar[]  = {
 
 static const char kAtcZoneNameEurope_Gibraltar[]  = "Europe/Gibraltar";
 
-const AtcZoneInfo kAtcAllZoneEurope_Gibraltar  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Gibraltar  = {
   kAtcZoneNameEurope_Gibraltar /*name*/,
   0xf8e325fc /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraEurope_Gibraltar /*eras*/,
   NULL /*target_info*/,
@@ -26573,7 +26573,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Helsinki[]  = {
   },
   //             2:00    Finland    EE%sT    1983
   {
-    &kAtcAllZonePolicyFinland /*zone_policy*/,
+    &kAtcZonedballZonePolicyFinland /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26586,7 +26586,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Helsinki[]  = {
   },
   //             2:00    EU    EE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26602,10 +26602,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Helsinki[]  = {
 
 static const char kAtcZoneNameEurope_Helsinki[]  = "Europe/Helsinki";
 
-const AtcZoneInfo kAtcAllZoneEurope_Helsinki  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Helsinki  = {
   kAtcZoneNameEurope_Helsinki /*name*/,
   0x6ab2975b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraEurope_Helsinki /*eras*/,
   NULL /*target_info*/,
@@ -26645,7 +26645,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Istanbul[]  = {
   },
   //             2:00    Turkey    EE%sT    1978 Jun 29
   {
-    &kAtcAllZonePolicyTurkey /*zone_policy*/,
+    &kAtcZonedballZonePolicyTurkey /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26658,7 +26658,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Istanbul[]  = {
   },
   //             3:00    Turkey    %z    1984 Nov  1  2:00
   {
-    &kAtcAllZonePolicyTurkey /*zone_policy*/,
+    &kAtcZonedballZonePolicyTurkey /*zone_policy*/,
     "" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -26671,7 +26671,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Istanbul[]  = {
   },
   //             2:00    Turkey    EE%sT    2007
   {
-    &kAtcAllZonePolicyTurkey /*zone_policy*/,
+    &kAtcZonedballZonePolicyTurkey /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26684,7 +26684,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Istanbul[]  = {
   },
   //             2:00    EU    EE%sT    2011 Mar 27  1:00u
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26710,7 +26710,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Istanbul[]  = {
   },
   //             2:00    EU    EE%sT    2014 Mar 30  1:00u
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26736,7 +26736,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Istanbul[]  = {
   },
   //             2:00    EU    EE%sT    2015 Oct 25  1:00u
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26762,7 +26762,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Istanbul[]  = {
   },
   //             2:00    EU    EE%sT    2016 Sep  7
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26791,10 +26791,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Istanbul[]  = {
 
 static const char kAtcZoneNameEurope_Istanbul[]  = "Europe/Istanbul";
 
-const AtcZoneInfo kAtcAllZoneEurope_Istanbul  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Istanbul  = {
   kAtcZoneNameEurope_Istanbul /*name*/,
   0x9e09d6e6 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   13 /*num_eras*/,
   kAtcZoneEraEurope_Istanbul /*eras*/,
   NULL /*target_info*/,
@@ -26821,7 +26821,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Kaliningrad[]  = {
   },
   //              1:00    C-Eur    CE%sT    1945 Apr 10
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -26834,7 +26834,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Kaliningrad[]  = {
   },
   //              2:00    Poland    EE%sT    1946 Apr  7
   {
-    &kAtcAllZonePolicyPoland /*zone_policy*/,
+    &kAtcZonedballZonePolicyPoland /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26847,7 +26847,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Kaliningrad[]  = {
   },
   //              3:00    Russia    MSK/MSD    1989 Mar 26  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -26860,7 +26860,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Kaliningrad[]  = {
   },
   //              2:00    Russia    EE%sT    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -26902,10 +26902,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Kaliningrad[]  = {
 
 static const char kAtcZoneNameEurope_Kaliningrad[]  = "Europe/Kaliningrad";
 
-const AtcZoneInfo kAtcAllZoneEurope_Kaliningrad  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Kaliningrad  = {
   kAtcZoneNameEurope_Kaliningrad /*name*/,
   0xd33b2f28 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraEurope_Kaliningrad /*eras*/,
   NULL /*target_info*/,
@@ -26945,7 +26945,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Kirov[]  = {
   },
   //              4:00    Russia    %z    1989 Mar 26  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -26958,7 +26958,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Kirov[]  = {
   },
   //              3:00    Russia    MSK/MSD    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -26984,7 +26984,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Kirov[]  = {
   },
   //              3:00    Russia    MSK/MSD    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -27026,10 +27026,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Kirov[]  = {
 
 static const char kAtcZoneNameEurope_Kirov[]  = "Europe/Kirov";
 
-const AtcZoneInfo kAtcAllZoneEurope_Kirov  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Kirov  = {
   kAtcZoneNameEurope_Kirov /*name*/,
   0xfaf5abef /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraEurope_Kirov /*eras*/,
   NULL /*target_info*/,
@@ -27095,7 +27095,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Kyiv[]  = {
   },
   //             1:00    C-Eur    CE%sT    1943 Nov  6
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -27108,7 +27108,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Kyiv[]  = {
   },
   //             3:00    Russia    MSK/MSD    1990 Jul  1  2:00
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -27134,7 +27134,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Kyiv[]  = {
   },
   //             2:00    C-Eur    EE%sT    1996 May 13
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -27147,7 +27147,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Kyiv[]  = {
   },
   //             2:00    EU    EE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -27163,10 +27163,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Kyiv[]  = {
 
 static const char kAtcZoneNameEurope_Kyiv[]  = "Europe/Kyiv";
 
-const AtcZoneInfo kAtcAllZoneEurope_Kyiv  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Kyiv  = {
   kAtcZoneNameEurope_Kyiv /*name*/,
   0xa2c1e347 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Kyiv /*eras*/,
   NULL /*target_info*/,
@@ -27206,7 +27206,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Lisbon[]  = {
   },
   //              0:00    Port    WE%sT    1966 Oct  2  2:00s
   {
-    &kAtcAllZonePolicyPort /*zone_policy*/,
+    &kAtcZonedballZonePolicyPort /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -27232,7 +27232,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Lisbon[]  = {
   },
   //              0:00    Port    WE%sT    1986
   {
-    &kAtcAllZonePolicyPort /*zone_policy*/,
+    &kAtcZonedballZonePolicyPort /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -27245,7 +27245,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Lisbon[]  = {
   },
   //              0:00    EU    WE%sT    1992 Sep 27  1:00u
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -27258,7 +27258,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Lisbon[]  = {
   },
   //              1:00    EU    CE%sT    1996 Mar 31  1:00u
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -27271,7 +27271,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Lisbon[]  = {
   },
   //              0:00    EU    WE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -27287,10 +27287,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Lisbon[]  = {
 
 static const char kAtcZoneNameEurope_Lisbon[]  = "Europe/Lisbon";
 
-const AtcZoneInfo kAtcAllZoneEurope_Lisbon  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Lisbon  = {
   kAtcZoneNameEurope_Lisbon /*name*/,
   0x5c00a70b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraEurope_Lisbon /*eras*/,
   NULL /*target_info*/,
@@ -27317,7 +27317,7 @@ static const AtcZoneEra kAtcZoneEraEurope_London[]  = {
   },
   //              0:00    GB-Eire    %s    1968 Oct 27
   {
-    &kAtcAllZonePolicyGB_Eire /*zone_policy*/,
+    &kAtcZonedballZonePolicyGB_Eire /*zone_policy*/,
     "%" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -27343,7 +27343,7 @@ static const AtcZoneEra kAtcZoneEraEurope_London[]  = {
   },
   //              0:00    GB-Eire    %s    1996
   {
-    &kAtcAllZonePolicyGB_Eire /*zone_policy*/,
+    &kAtcZonedballZonePolicyGB_Eire /*zone_policy*/,
     "%" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -27356,7 +27356,7 @@ static const AtcZoneEra kAtcZoneEraEurope_London[]  = {
   },
   //              0:00    EU    GMT/BST
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "GMT/BST" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -27372,10 +27372,10 @@ static const AtcZoneEra kAtcZoneEraEurope_London[]  = {
 
 static const char kAtcZoneNameEurope_London[]  = "Europe/London";
 
-const AtcZoneInfo kAtcAllZoneEurope_London  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_London  = {
   kAtcZoneNameEurope_London /*name*/,
   0x5c6a84ae /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
   NULL /*target_info*/,
@@ -27402,7 +27402,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Madrid[]  = {
   },
   //              0:00    Spain    WE%sT    1940 Mar 16 23:00
   {
-    &kAtcAllZonePolicySpain /*zone_policy*/,
+    &kAtcZonedballZonePolicySpain /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -27415,7 +27415,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Madrid[]  = {
   },
   //              1:00    Spain    CE%sT    1979
   {
-    &kAtcAllZonePolicySpain /*zone_policy*/,
+    &kAtcZonedballZonePolicySpain /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -27428,7 +27428,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Madrid[]  = {
   },
   //              1:00    EU    CE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -27444,10 +27444,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Madrid[]  = {
 
 static const char kAtcZoneNameEurope_Madrid[]  = "Europe/Madrid";
 
-const AtcZoneInfo kAtcAllZoneEurope_Madrid  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Madrid  = {
   kAtcZoneNameEurope_Madrid /*name*/,
   0x5dbd1535 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraEurope_Madrid /*eras*/,
   NULL /*target_info*/,
@@ -27474,7 +27474,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Malta[]  = {
   },
   //             1:00    Italy    CE%sT    1973 Mar 31
   {
-    &kAtcAllZonePolicyItaly /*zone_policy*/,
+    &kAtcZonedballZonePolicyItaly /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -27487,7 +27487,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Malta[]  = {
   },
   //             1:00    Malta    CE%sT    1981
   {
-    &kAtcAllZonePolicyMalta /*zone_policy*/,
+    &kAtcZonedballZonePolicyMalta /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -27500,7 +27500,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Malta[]  = {
   },
   //             1:00    EU    CE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -27516,10 +27516,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Malta[]  = {
 
 static const char kAtcZoneNameEurope_Malta[]  = "Europe/Malta";
 
-const AtcZoneInfo kAtcAllZoneEurope_Malta  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Malta  = {
   kAtcZoneNameEurope_Malta /*name*/,
   0xfb1560f3 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraEurope_Malta /*eras*/,
   NULL /*target_info*/,
@@ -27585,7 +27585,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Minsk[]  = {
   },
   //             1:00    C-Eur    CE%sT    1944 Jul  3
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -27598,7 +27598,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Minsk[]  = {
   },
   //             3:00    Russia    MSK/MSD    1990
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -27624,7 +27624,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Minsk[]  = {
   },
   //             2:00    Russia    EE%sT    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -27653,10 +27653,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Minsk[]  = {
 
 static const char kAtcZoneNameEurope_Minsk[]  = "Europe/Minsk";
 
-const AtcZoneInfo kAtcAllZoneEurope_Minsk  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Minsk  = {
   kAtcZoneNameEurope_Minsk /*name*/,
   0xfb19cc66 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Minsk /*eras*/,
   NULL /*target_info*/,
@@ -27696,7 +27696,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Moscow[]  = {
   },
   //              2:31:19 Russia    %s    1919 Jul  1  0:00u
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "%" /*format*/,
     605 /*offset_code (9079/15)*/,
     4 /*offset_remainder (9079%15)*/,
@@ -27709,7 +27709,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Moscow[]  = {
   },
   //              3:00    Russia    %s    1921 Oct
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "%" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -27722,7 +27722,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Moscow[]  = {
   },
   //              3:00    Russia    MSK/MSD    1922 Oct
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -27748,7 +27748,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Moscow[]  = {
   },
   //              3:00    Russia    MSK/MSD    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -27761,7 +27761,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Moscow[]  = {
   },
   //              2:00    Russia    EE%sT    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -27774,7 +27774,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Moscow[]  = {
   },
   //              3:00    Russia    MSK/MSD    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -27816,10 +27816,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Moscow[]  = {
 
 static const char kAtcZoneNameEurope_Moscow[]  = "Europe/Moscow";
 
-const AtcZoneInfo kAtcAllZoneEurope_Moscow  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Moscow  = {
   kAtcZoneNameEurope_Moscow /*name*/,
   0x5ec266fc /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   11 /*num_eras*/,
   kAtcZoneEraEurope_Moscow /*eras*/,
   NULL /*target_info*/,
@@ -27859,7 +27859,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Paris[]  = {
   },
   //             0:00    France    WE%sT    1940 Jun 14 23:00
   {
-    &kAtcAllZonePolicyFrance /*zone_policy*/,
+    &kAtcZonedballZonePolicyFrance /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -27872,7 +27872,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Paris[]  = {
   },
   //             1:00    C-Eur    CE%sT    1944 Aug 25
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -27885,7 +27885,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Paris[]  = {
   },
   //             0:00    France    WE%sT    1945 Sep 16  3:00
   {
-    &kAtcAllZonePolicyFrance /*zone_policy*/,
+    &kAtcZonedballZonePolicyFrance /*zone_policy*/,
     "WE%T" /*format*/,
     0 /*offset_code (0/15)*/,
     0 /*offset_remainder (0%15)*/,
@@ -27898,7 +27898,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Paris[]  = {
   },
   //             1:00    France    CE%sT    1977
   {
-    &kAtcAllZonePolicyFrance /*zone_policy*/,
+    &kAtcZonedballZonePolicyFrance /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -27911,7 +27911,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Paris[]  = {
   },
   //             1:00    EU    CE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -27927,10 +27927,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Paris[]  = {
 
 static const char kAtcZoneNameEurope_Paris[]  = "Europe/Paris";
 
-const AtcZoneInfo kAtcAllZoneEurope_Paris  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Paris  = {
   kAtcZoneNameEurope_Paris /*name*/,
   0xfb4bc2a3 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraEurope_Paris /*eras*/,
   NULL /*target_info*/,
@@ -27970,7 +27970,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Prague[]  = {
   },
   //             1:00    C-Eur    CE%sT    1945 May  9
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -27983,7 +27983,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Prague[]  = {
   },
   //             1:00    Czech    CE%sT    1946 Dec  1  3:00
   {
-    &kAtcAllZonePolicyCzech /*zone_policy*/,
+    &kAtcZonedballZonePolicyCzech /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -28009,7 +28009,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Prague[]  = {
   },
   //             1:00    Czech    CE%sT    1979
   {
-    &kAtcAllZonePolicyCzech /*zone_policy*/,
+    &kAtcZonedballZonePolicyCzech /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -28022,7 +28022,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Prague[]  = {
   },
   //             1:00    EU    CE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -28038,10 +28038,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Prague[]  = {
 
 static const char kAtcZoneNameEurope_Prague[]  = "Europe/Prague";
 
-const AtcZoneInfo kAtcAllZoneEurope_Prague  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Prague  = {
   kAtcZoneNameEurope_Prague /*name*/,
   0x65ee5d48 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraEurope_Prague /*eras*/,
   NULL /*target_info*/,
@@ -28159,7 +28159,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Riga[]  = {
   },
   //             1:00    C-Eur    CE%sT    1944 Oct 13
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -28172,7 +28172,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Riga[]  = {
   },
   //             3:00    Russia    MSK/MSD    1989 Mar lastSun  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -28198,7 +28198,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Riga[]  = {
   },
   //             2:00    Latvia    EE%sT    1997 Jan 21
   {
-    &kAtcAllZonePolicyLatvia /*zone_policy*/,
+    &kAtcZonedballZonePolicyLatvia /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -28211,7 +28211,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Riga[]  = {
   },
   //             2:00    EU    EE%sT    2000 Feb 29
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -28237,7 +28237,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Riga[]  = {
   },
   //             2:00    EU    EE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -28253,10 +28253,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Riga[]  = {
 
 static const char kAtcZoneNameEurope_Riga[]  = "Europe/Riga";
 
-const AtcZoneInfo kAtcAllZoneEurope_Riga  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Riga  = {
   kAtcZoneNameEurope_Riga /*name*/,
   0xa2c57587 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   15 /*num_eras*/,
   kAtcZoneEraEurope_Riga /*eras*/,
   NULL /*target_info*/,
@@ -28296,7 +28296,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Rome[]  = {
   },
   //             1:00    Italy    CE%sT    1943 Sep 10
   {
-    &kAtcAllZonePolicyItaly /*zone_policy*/,
+    &kAtcZonedballZonePolicyItaly /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -28309,7 +28309,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Rome[]  = {
   },
   //             1:00    C-Eur    CE%sT    1944 Jun  4
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -28322,7 +28322,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Rome[]  = {
   },
   //             1:00    Italy    CE%sT    1980
   {
-    &kAtcAllZonePolicyItaly /*zone_policy*/,
+    &kAtcZonedballZonePolicyItaly /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -28335,7 +28335,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Rome[]  = {
   },
   //             1:00    EU    CE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -28351,10 +28351,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Rome[]  = {
 
 static const char kAtcZoneNameEurope_Rome[]  = "Europe/Rome";
 
-const AtcZoneInfo kAtcAllZoneEurope_Rome  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Rome  = {
   kAtcZoneNameEurope_Rome /*name*/,
   0xa2c58fd7 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraEurope_Rome /*eras*/,
   NULL /*target_info*/,
@@ -28407,7 +28407,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Samara[]  = {
   },
   //              4:00    Russia    %z    1989 Mar 26  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -28420,7 +28420,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Samara[]  = {
   },
   //              3:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -28433,7 +28433,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Samara[]  = {
   },
   //              2:00    Russia    %z    1991 Sep 29  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -28459,7 +28459,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Samara[]  = {
   },
   //              4:00    Russia    %z    2010 Mar 28  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -28472,7 +28472,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Samara[]  = {
   },
   //              3:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -28501,10 +28501,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Samara[]  = {
 
 static const char kAtcZoneNameEurope_Samara[]  = "Europe/Samara";
 
-const AtcZoneInfo kAtcAllZoneEurope_Samara  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Samara  = {
   kAtcZoneNameEurope_Samara /*name*/,
   0x6bc0b139 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraEurope_Samara /*eras*/,
   NULL /*target_info*/,
@@ -28544,7 +28544,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Saratov[]  = {
   },
   //              4:00    Russia    %z    1988 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -28557,7 +28557,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Saratov[]  = {
   },
   //              3:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -28583,7 +28583,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Saratov[]  = {
   },
   //              3:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -28638,10 +28638,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Saratov[]  = {
 
 static const char kAtcZoneNameEurope_Saratov[]  = "Europe/Saratov";
 
-const AtcZoneInfo kAtcAllZoneEurope_Saratov  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Saratov  = {
   kAtcZoneNameEurope_Saratov /*name*/,
   0xe4315da4 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Saratov /*eras*/,
   NULL /*target_info*/,
@@ -28707,7 +28707,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Simferopol[]  = {
   },
   //              1:00    C-Eur    CE%sT    1944 Apr 13
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -28720,7 +28720,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Simferopol[]  = {
   },
   //              3:00    Russia    MSK/MSD    1990
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -28759,7 +28759,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Simferopol[]  = {
   },
   //              2:00    C-Eur    EE%sT    1994 May
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -28772,7 +28772,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Simferopol[]  = {
   },
   //              3:00    C-Eur    MSK/MSD    1996 Mar 31  0:00s
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -28811,7 +28811,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Simferopol[]  = {
   },
   //              2:00    EU    EE%sT    2014 Mar 30  2:00
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -28853,10 +28853,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Simferopol[]  = {
 
 static const char kAtcZoneNameEurope_Simferopol[]  = "Europe/Simferopol";
 
-const AtcZoneInfo kAtcAllZoneEurope_Simferopol  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Simferopol  = {
   kAtcZoneNameEurope_Simferopol /*name*/,
   0xda9eb724 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   15 /*num_eras*/,
   kAtcZoneEraEurope_Simferopol /*eras*/,
   NULL /*target_info*/,
@@ -28909,7 +28909,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Sofia[]  = {
   },
   //             1:00    C-Eur    CE%sT    1945
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -28948,7 +28948,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Sofia[]  = {
   },
   //             2:00    Bulg    EE%sT    1982 Sep 26  3:00
   {
-    &kAtcAllZonePolicyBulg /*zone_policy*/,
+    &kAtcZonedballZonePolicyBulg /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -28961,7 +28961,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Sofia[]  = {
   },
   //             2:00    C-Eur    EE%sT    1991
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -28974,7 +28974,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Sofia[]  = {
   },
   //             2:00    E-Eur    EE%sT    1997
   {
-    &kAtcAllZonePolicyE_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyE_Eur /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -28987,7 +28987,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Sofia[]  = {
   },
   //             2:00    EU    EE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -29003,10 +29003,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Sofia[]  = {
 
 static const char kAtcZoneNameEurope_Sofia[]  = "Europe/Sofia";
 
-const AtcZoneInfo kAtcAllZoneEurope_Sofia  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Sofia  = {
   kAtcZoneNameEurope_Sofia /*name*/,
   0xfb898656 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraEurope_Sofia /*eras*/,
   NULL /*target_info*/,
@@ -29046,7 +29046,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Tallinn[]  = {
   },
   //             1:00    C-Eur    CE%sT    1919 Jul
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -29098,7 +29098,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Tallinn[]  = {
   },
   //             1:00    C-Eur    CE%sT    1944 Sep 22
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -29111,7 +29111,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Tallinn[]  = {
   },
   //             3:00    Russia    MSK/MSD    1989 Mar 26  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -29137,7 +29137,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Tallinn[]  = {
   },
   //             2:00    C-Eur    EE%sT    1998 Sep 22
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -29150,7 +29150,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Tallinn[]  = {
   },
   //             2:00    EU    EE%sT    1999 Oct 31  4:00
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -29176,7 +29176,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Tallinn[]  = {
   },
   //             2:00    EU    EE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -29192,10 +29192,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Tallinn[]  = {
 
 static const char kAtcZoneNameEurope_Tallinn[]  = "Europe/Tallinn";
 
-const AtcZoneInfo kAtcAllZoneEurope_Tallinn  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Tallinn  = {
   kAtcZoneNameEurope_Tallinn /*name*/,
   0x30c4e096 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   13 /*num_eras*/,
   kAtcZoneEraEurope_Tallinn /*eras*/,
   NULL /*target_info*/,
@@ -29235,7 +29235,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Tirane[]  = {
   },
   //             1:00    Albania    CE%sT    1984 Jul
   {
-    &kAtcAllZonePolicyAlbania /*zone_policy*/,
+    &kAtcZonedballZonePolicyAlbania /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -29248,7 +29248,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Tirane[]  = {
   },
   //             1:00    EU    CE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -29264,10 +29264,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Tirane[]  = {
 
 static const char kAtcZoneNameEurope_Tirane[]  = "Europe/Tirane";
 
-const AtcZoneInfo kAtcAllZoneEurope_Tirane  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Tirane  = {
   kAtcZoneNameEurope_Tirane /*name*/,
   0x6ea95b47 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraEurope_Tirane /*eras*/,
   NULL /*target_info*/,
@@ -29307,7 +29307,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Ulyanovsk[]  = {
   },
   //              4:00    Russia    %z    1989 Mar 26  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -29320,7 +29320,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Ulyanovsk[]  = {
   },
   //              3:00    Russia    %z    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -29333,7 +29333,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Ulyanovsk[]  = {
   },
   //              2:00    Russia    %z    1992 Jan 19  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -29346,7 +29346,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Ulyanovsk[]  = {
   },
   //              3:00    Russia    %z    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -29401,10 +29401,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Ulyanovsk[]  = {
 
 static const char kAtcZoneNameEurope_Ulyanovsk[]  = "Europe/Ulyanovsk";
 
-const AtcZoneInfo kAtcAllZoneEurope_Ulyanovsk  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Ulyanovsk  = {
   kAtcZoneNameEurope_Ulyanovsk /*name*/,
   0xe03783d0 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Ulyanovsk /*eras*/,
   NULL /*target_info*/,
@@ -29431,7 +29431,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Vienna[]  = {
   },
   //             1:00    C-Eur    CE%sT    1920
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -29444,7 +29444,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Vienna[]  = {
   },
   //             1:00    Austria    CE%sT    1940 Apr  1  2:00s
   {
-    &kAtcAllZonePolicyAustria /*zone_policy*/,
+    &kAtcZonedballZonePolicyAustria /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -29457,7 +29457,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Vienna[]  = {
   },
   //             1:00    C-Eur    CE%sT    1945 Apr  2  2:00s
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -29496,7 +29496,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Vienna[]  = {
   },
   //             1:00    Austria    CE%sT    1981
   {
-    &kAtcAllZonePolicyAustria /*zone_policy*/,
+    &kAtcZonedballZonePolicyAustria /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -29509,7 +29509,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Vienna[]  = {
   },
   //             1:00    EU    CE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -29525,10 +29525,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Vienna[]  = {
 
 static const char kAtcZoneNameEurope_Vienna[]  = "Europe/Vienna";
 
-const AtcZoneInfo kAtcAllZoneEurope_Vienna  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Vienna  = {
   kAtcZoneNameEurope_Vienna /*name*/,
   0x734cc2e5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraEurope_Vienna /*eras*/,
   NULL /*target_info*/,
@@ -29633,7 +29633,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Vilnius[]  = {
   },
   //             1:00    C-Eur    CE%sT    1944 Aug
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -29646,7 +29646,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Vilnius[]  = {
   },
   //             3:00    Russia    MSK/MSD    1989 Mar 26  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -29659,7 +29659,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Vilnius[]  = {
   },
   //             2:00    Russia    EE%sT    1991 Sep 29  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -29672,7 +29672,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Vilnius[]  = {
   },
   //             2:00    C-Eur    EE%sT    1998
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -29698,7 +29698,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Vilnius[]  = {
   },
   //             1:00    EU    CE%sT    1999 Oct 31  1:00u
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -29724,7 +29724,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Vilnius[]  = {
   },
   //             2:00    EU    EE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -29740,10 +29740,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Vilnius[]  = {
 
 static const char kAtcZoneNameEurope_Vilnius[]  = "Europe/Vilnius";
 
-const AtcZoneInfo kAtcAllZoneEurope_Vilnius  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Vilnius  = {
   kAtcZoneNameEurope_Vilnius /*name*/,
   0xdd63b8ce /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   15 /*num_eras*/,
   kAtcZoneEraEurope_Vilnius /*eras*/,
   NULL /*target_info*/,
@@ -29796,7 +29796,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Volgograd[]  = {
   },
   //              4:00    Russia    %z    1988 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -29809,7 +29809,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Volgograd[]  = {
   },
   //              3:00    Russia    MSK/MSD    1991 Mar 31  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -29835,7 +29835,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Volgograd[]  = {
   },
   //              3:00    Russia    MSK/MSD    2011 Mar 27  2:00s
   {
-    &kAtcAllZonePolicyRussia /*zone_policy*/,
+    &kAtcZonedballZonePolicyRussia /*zone_policy*/,
     "MSK/MSD" /*format*/,
     720 /*offset_code (10800/15)*/,
     0 /*offset_remainder (10800%15)*/,
@@ -29903,10 +29903,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Volgograd[]  = {
 
 static const char kAtcZoneNameEurope_Volgograd[]  = "Europe/Volgograd";
 
-const AtcZoneInfo kAtcAllZoneEurope_Volgograd  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Volgograd  = {
   kAtcZoneNameEurope_Volgograd /*name*/,
   0x3ed0f389 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   11 /*num_eras*/,
   kAtcZoneEraEurope_Volgograd /*eras*/,
   NULL /*target_info*/,
@@ -29946,7 +29946,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Warsaw[]  = {
   },
   //             1:00    C-Eur    CE%sT    1918 Sep 16  3:00
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -29959,7 +29959,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Warsaw[]  = {
   },
   //             2:00    Poland    EE%sT    1922 Jun
   {
-    &kAtcAllZonePolicyPoland /*zone_policy*/,
+    &kAtcZonedballZonePolicyPoland /*zone_policy*/,
     "EE%T" /*format*/,
     480 /*offset_code (7200/15)*/,
     0 /*offset_remainder (7200%15)*/,
@@ -29972,7 +29972,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Warsaw[]  = {
   },
   //             1:00    Poland    CE%sT    1940 Jun 23  2:00
   {
-    &kAtcAllZonePolicyPoland /*zone_policy*/,
+    &kAtcZonedballZonePolicyPoland /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -29985,7 +29985,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Warsaw[]  = {
   },
   //             1:00    C-Eur    CE%sT    1944 Oct
   {
-    &kAtcAllZonePolicyC_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyC_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -29998,7 +29998,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Warsaw[]  = {
   },
   //             1:00    Poland    CE%sT    1977
   {
-    &kAtcAllZonePolicyPoland /*zone_policy*/,
+    &kAtcZonedballZonePolicyPoland /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -30011,7 +30011,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Warsaw[]  = {
   },
   //             1:00    W-Eur    CE%sT    1988
   {
-    &kAtcAllZonePolicyW_Eur /*zone_policy*/,
+    &kAtcZonedballZonePolicyW_Eur /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -30024,7 +30024,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Warsaw[]  = {
   },
   //             1:00    EU    CE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -30040,10 +30040,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Warsaw[]  = {
 
 static const char kAtcZoneNameEurope_Warsaw[]  = "Europe/Warsaw";
 
-const AtcZoneInfo kAtcAllZoneEurope_Warsaw  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Warsaw  = {
   kAtcZoneNameEurope_Warsaw /*name*/,
   0x75185c19 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Warsaw /*eras*/,
   NULL /*target_info*/,
@@ -30083,7 +30083,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Zurich[]  = {
   },
   //             1:00    Swiss    CE%sT    1981
   {
-    &kAtcAllZonePolicySwiss /*zone_policy*/,
+    &kAtcZonedballZonePolicySwiss /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -30096,7 +30096,7 @@ static const AtcZoneEra kAtcZoneEraEurope_Zurich[]  = {
   },
   //             1:00    EU    CE%sT
   {
-    &kAtcAllZonePolicyEU /*zone_policy*/,
+    &kAtcZonedballZonePolicyEU /*zone_policy*/,
     "CE%T" /*format*/,
     240 /*offset_code (3600/15)*/,
     0 /*offset_remainder (3600%15)*/,
@@ -30112,10 +30112,10 @@ static const AtcZoneEra kAtcZoneEraEurope_Zurich[]  = {
 
 static const char kAtcZoneNameEurope_Zurich[]  = "Europe/Zurich";
 
-const AtcZoneInfo kAtcAllZoneEurope_Zurich  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Zurich  = {
   kAtcZoneNameEurope_Zurich /*name*/,
   0x7d8195b9 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraEurope_Zurich /*eras*/,
   NULL /*target_info*/,
@@ -30171,10 +30171,10 @@ static const AtcZoneEra kAtcZoneEraIndian_Chagos[]  = {
 
 static const char kAtcZoneNameIndian_Chagos[]  = "Indian/Chagos";
 
-const AtcZoneInfo kAtcAllZoneIndian_Chagos  = {
+const AtcZoneInfo kAtcZonedballZoneIndian_Chagos  = {
   kAtcZoneNameIndian_Chagos /*name*/,
   0x456f7c3c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraIndian_Chagos /*eras*/,
   NULL /*target_info*/,
@@ -30230,10 +30230,10 @@ static const AtcZoneEra kAtcZoneEraIndian_Maldives[]  = {
 
 static const char kAtcZoneNameIndian_Maldives[]  = "Indian/Maldives";
 
-const AtcZoneInfo kAtcAllZoneIndian_Maldives  = {
+const AtcZoneInfo kAtcZonedballZoneIndian_Maldives  = {
   kAtcZoneNameIndian_Maldives /*name*/,
   0x9869681c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraIndian_Maldives /*eras*/,
   NULL /*target_info*/,
@@ -30260,7 +30260,7 @@ static const AtcZoneEra kAtcZoneEraIndian_Mauritius[]  = {
   },
   //             4:00 Mauritius    %z
   {
-    &kAtcAllZonePolicyMauritius /*zone_policy*/,
+    &kAtcZonedballZonePolicyMauritius /*zone_policy*/,
     "" /*format*/,
     960 /*offset_code (14400/15)*/,
     0 /*offset_remainder (14400%15)*/,
@@ -30276,10 +30276,10 @@ static const AtcZoneEra kAtcZoneEraIndian_Mauritius[]  = {
 
 static const char kAtcZoneNameIndian_Mauritius[]  = "Indian/Mauritius";
 
-const AtcZoneInfo kAtcAllZoneIndian_Mauritius  = {
+const AtcZoneInfo kAtcZonedballZoneIndian_Mauritius  = {
   kAtcZoneNameIndian_Mauritius /*name*/,
   0x7b09c02a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraIndian_Mauritius /*eras*/,
   NULL /*target_info*/,
@@ -30332,7 +30332,7 @@ static const AtcZoneEra kAtcZoneEraPacific_Apia[]  = {
   },
   //             -11:00    WS    %z    2011 Dec 29 24:00
   {
-    &kAtcAllZonePolicyWS /*zone_policy*/,
+    &kAtcZonedballZonePolicyWS /*zone_policy*/,
     "" /*format*/,
     -2640 /*offset_code (-39600/15)*/,
     0 /*offset_remainder (-39600%15)*/,
@@ -30345,7 +30345,7 @@ static const AtcZoneEra kAtcZoneEraPacific_Apia[]  = {
   },
   //              13:00    WS    %z
   {
-    &kAtcAllZonePolicyWS /*zone_policy*/,
+    &kAtcZonedballZonePolicyWS /*zone_policy*/,
     "" /*format*/,
     3120 /*offset_code (46800/15)*/,
     0 /*offset_remainder (46800%15)*/,
@@ -30361,10 +30361,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Apia[]  = {
 
 static const char kAtcZoneNamePacific_Apia[]  = "Pacific/Apia";
 
-const AtcZoneInfo kAtcAllZonePacific_Apia  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Apia  = {
   kAtcZoneNamePacific_Apia /*name*/,
   0x23359b5e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraPacific_Apia /*eras*/,
   NULL /*target_info*/,
@@ -30391,7 +30391,7 @@ static const AtcZoneEra kAtcZoneEraPacific_Auckland[]  = {
   },
   //             11:30    NZ    NZ%sT    1946 Jan  1
   {
-    &kAtcAllZonePolicyNZ /*zone_policy*/,
+    &kAtcZonedballZonePolicyNZ /*zone_policy*/,
     "NZ%T" /*format*/,
     2760 /*offset_code (41400/15)*/,
     0 /*offset_remainder (41400%15)*/,
@@ -30404,7 +30404,7 @@ static const AtcZoneEra kAtcZoneEraPacific_Auckland[]  = {
   },
   //             12:00    NZ    NZ%sT
   {
-    &kAtcAllZonePolicyNZ /*zone_policy*/,
+    &kAtcZonedballZonePolicyNZ /*zone_policy*/,
     "NZ%T" /*format*/,
     2880 /*offset_code (43200/15)*/,
     0 /*offset_remainder (43200%15)*/,
@@ -30420,10 +30420,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Auckland[]  = {
 
 static const char kAtcZoneNamePacific_Auckland[]  = "Pacific/Auckland";
 
-const AtcZoneInfo kAtcAllZonePacific_Auckland  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Auckland  = {
   kAtcZoneNamePacific_Auckland /*name*/,
   0x25062f86 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Auckland /*eras*/,
   NULL /*target_info*/,
@@ -30518,10 +30518,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Bougainville[]  = {
 
 static const char kAtcZoneNamePacific_Bougainville[]  = "Pacific/Bougainville";
 
-const AtcZoneInfo kAtcAllZonePacific_Bougainville  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Bougainville  = {
   kAtcZoneNamePacific_Bougainville /*name*/,
   0x5e10f7a4 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraPacific_Bougainville /*eras*/,
   NULL /*target_info*/,
@@ -30561,7 +30561,7 @@ static const AtcZoneEra kAtcZoneEraPacific_Chatham[]  = {
   },
   //             12:45    Chatham    %z
   {
-    &kAtcAllZonePolicyChatham /*zone_policy*/,
+    &kAtcZonedballZonePolicyChatham /*zone_policy*/,
     "" /*format*/,
     3060 /*offset_code (45900/15)*/,
     0 /*offset_remainder (45900%15)*/,
@@ -30577,10 +30577,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Chatham[]  = {
 
 static const char kAtcZoneNamePacific_Chatham[]  = "Pacific/Chatham";
 
-const AtcZoneInfo kAtcAllZonePacific_Chatham  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Chatham  = {
   kAtcZoneNamePacific_Chatham /*name*/,
   0x2f0de999 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Chatham /*eras*/,
   NULL /*target_info*/,
@@ -30620,7 +30620,7 @@ static const AtcZoneEra kAtcZoneEraPacific_Easter[]  = {
   },
   //             -7:00    Chile    %z    1982 Mar 14 3:00u
   {
-    &kAtcAllZonePolicyChile /*zone_policy*/,
+    &kAtcZonedballZonePolicyChile /*zone_policy*/,
     "" /*format*/,
     -1680 /*offset_code (-25200/15)*/,
     0 /*offset_remainder (-25200%15)*/,
@@ -30633,7 +30633,7 @@ static const AtcZoneEra kAtcZoneEraPacific_Easter[]  = {
   },
   //             -6:00    Chile    %z
   {
-    &kAtcAllZonePolicyChile /*zone_policy*/,
+    &kAtcZonedballZonePolicyChile /*zone_policy*/,
     "" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -30649,10 +30649,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Easter[]  = {
 
 static const char kAtcZoneNamePacific_Easter[]  = "Pacific/Easter";
 
-const AtcZoneInfo kAtcAllZonePacific_Easter  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Easter  = {
   kAtcZoneNamePacific_Easter /*name*/,
   0xcf54f7e7 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraPacific_Easter /*eras*/,
   NULL /*target_info*/,
@@ -30679,7 +30679,7 @@ static const AtcZoneEra kAtcZoneEraPacific_Efate[]  = {
   },
   //             11:00    Vanuatu    %z
   {
-    &kAtcAllZonePolicyVanuatu /*zone_policy*/,
+    &kAtcZonedballZonePolicyVanuatu /*zone_policy*/,
     "" /*format*/,
     2640 /*offset_code (39600/15)*/,
     0 /*offset_remainder (39600%15)*/,
@@ -30695,10 +30695,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Efate[]  = {
 
 static const char kAtcZoneNamePacific_Efate[]  = "Pacific/Efate";
 
-const AtcZoneInfo kAtcAllZonePacific_Efate  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Efate  = {
   kAtcZoneNamePacific_Efate /*name*/,
   0x8a2bce28 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Efate /*eras*/,
   NULL /*target_info*/,
@@ -30754,10 +30754,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Fakaofo[]  = {
 
 static const char kAtcZoneNamePacific_Fakaofo[]  = "Pacific/Fakaofo";
 
-const AtcZoneInfo kAtcAllZonePacific_Fakaofo  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Fakaofo  = {
   kAtcZoneNamePacific_Fakaofo /*name*/,
   0x06532bba /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Fakaofo /*eras*/,
   NULL /*target_info*/,
@@ -30784,7 +30784,7 @@ static const AtcZoneEra kAtcZoneEraPacific_Fiji[]  = {
   },
   //             12:00    Fiji    %z
   {
-    &kAtcAllZonePolicyFiji /*zone_policy*/,
+    &kAtcZonedballZonePolicyFiji /*zone_policy*/,
     "" /*format*/,
     2880 /*offset_code (43200/15)*/,
     0 /*offset_remainder (43200%15)*/,
@@ -30800,10 +30800,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Fiji[]  = {
 
 static const char kAtcZoneNamePacific_Fiji[]  = "Pacific/Fiji";
 
-const AtcZoneInfo kAtcAllZonePacific_Fiji  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Fiji  = {
   kAtcZoneNamePacific_Fiji /*name*/,
   0x23383ba5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Fiji /*eras*/,
   NULL /*target_info*/,
@@ -30843,7 +30843,7 @@ static const AtcZoneEra kAtcZoneEraPacific_Galapagos[]  = {
   },
   //             -6:00    Ecuador    %z
   {
-    &kAtcAllZonePolicyEcuador /*zone_policy*/,
+    &kAtcZonedballZonePolicyEcuador /*zone_policy*/,
     "" /*format*/,
     -1440 /*offset_code (-21600/15)*/,
     0 /*offset_remainder (-21600%15)*/,
@@ -30859,10 +30859,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Galapagos[]  = {
 
 static const char kAtcZoneNamePacific_Galapagos[]  = "Pacific/Galapagos";
 
-const AtcZoneInfo kAtcAllZonePacific_Galapagos  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Galapagos  = {
   kAtcZoneNamePacific_Galapagos /*name*/,
   0xa952f752 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Galapagos /*eras*/,
   NULL /*target_info*/,
@@ -30905,10 +30905,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Gambier[]  = {
 
 static const char kAtcZoneNamePacific_Gambier[]  = "Pacific/Gambier";
 
-const AtcZoneInfo kAtcAllZonePacific_Gambier  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Gambier  = {
   kAtcZoneNamePacific_Gambier /*name*/,
   0x53720c3a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Gambier /*eras*/,
   NULL /*target_info*/,
@@ -30951,10 +30951,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Guadalcanal[]  = {
 
 static const char kAtcZoneNamePacific_Guadalcanal[]  = "Pacific/Guadalcanal";
 
-const AtcZoneInfo kAtcAllZonePacific_Guadalcanal  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Guadalcanal  = {
   kAtcZoneNamePacific_Guadalcanal /*name*/,
   0xf4dd25f0 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Guadalcanal /*eras*/,
   NULL /*target_info*/,
@@ -31020,7 +31020,7 @@ static const AtcZoneEra kAtcZoneEraPacific_Guam[]  = {
   },
   //             10:00    Guam    G%sT    2000 Dec 23
   {
-    &kAtcAllZonePolicyGuam /*zone_policy*/,
+    &kAtcZonedballZonePolicyGuam /*zone_policy*/,
     "G%T" /*format*/,
     2400 /*offset_code (36000/15)*/,
     0 /*offset_remainder (36000%15)*/,
@@ -31049,10 +31049,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Guam[]  = {
 
 static const char kAtcZoneNamePacific_Guam[]  = "Pacific/Guam";
 
-const AtcZoneInfo kAtcAllZonePacific_Guam  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Guam  = {
   kAtcZoneNamePacific_Guam /*name*/,
   0x2338f9ed /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraPacific_Guam /*eras*/,
   NULL /*target_info*/,
@@ -31105,7 +31105,7 @@ static const AtcZoneEra kAtcZoneEraPacific_Honolulu[]  = {
   },
   //             -10:30    US    H%sT    1947 Jun  8  2:00
   {
-    &kAtcAllZonePolicyUS /*zone_policy*/,
+    &kAtcZonedballZonePolicyUS /*zone_policy*/,
     "H%T" /*format*/,
     -2520 /*offset_code (-37800/15)*/,
     0 /*offset_remainder (-37800%15)*/,
@@ -31134,10 +31134,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Honolulu[]  = {
 
 static const char kAtcZoneNamePacific_Honolulu[]  = "Pacific/Honolulu";
 
-const AtcZoneInfo kAtcAllZonePacific_Honolulu  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Honolulu  = {
   kAtcZoneNamePacific_Honolulu /*name*/,
   0xe6e70af9 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraPacific_Honolulu /*eras*/,
   NULL /*target_info*/,
@@ -31206,10 +31206,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Kanton[]  = {
 
 static const char kAtcZoneNamePacific_Kanton[]  = "Pacific/Kanton";
 
-const AtcZoneInfo kAtcAllZonePacific_Kanton  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Kanton  = {
   kAtcZoneNamePacific_Kanton /*name*/,
   0xdd512f0e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraPacific_Kanton /*eras*/,
   NULL /*target_info*/,
@@ -31278,10 +31278,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Kiritimati[]  = {
 
 static const char kAtcZoneNamePacific_Kiritimati[]  = "Pacific/Kiritimati";
 
-const AtcZoneInfo kAtcAllZonePacific_Kiritimati  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Kiritimati  = {
   kAtcZoneNamePacific_Kiritimati /*name*/,
   0x8305073a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraPacific_Kiritimati /*eras*/,
   NULL /*target_info*/,
@@ -31428,10 +31428,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Kosrae[]  = {
 
 static const char kAtcZoneNamePacific_Kosrae[]  = "Pacific/Kosrae";
 
-const AtcZoneInfo kAtcAllZonePacific_Kosrae  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Kosrae  = {
   kAtcZoneNamePacific_Kosrae /*name*/,
   0xde5139a8 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraPacific_Kosrae /*eras*/,
   NULL /*target_info*/,
@@ -31539,10 +31539,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Kwajalein[]  = {
 
 static const char kAtcZoneNamePacific_Kwajalein[]  = "Pacific/Kwajalein";
 
-const AtcZoneInfo kAtcAllZonePacific_Kwajalein  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Kwajalein  = {
   kAtcZoneNamePacific_Kwajalein /*name*/,
   0x8e216759 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraPacific_Kwajalein /*eras*/,
   NULL /*target_info*/,
@@ -31585,10 +31585,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Marquesas[]  = {
 
 static const char kAtcZoneNamePacific_Marquesas[]  = "Pacific/Marquesas";
 
-const AtcZoneInfo kAtcAllZonePacific_Marquesas  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Marquesas  = {
   kAtcZoneNamePacific_Marquesas /*name*/,
   0x57ca7135 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Marquesas /*eras*/,
   NULL /*target_info*/,
@@ -31670,10 +31670,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Nauru[]  = {
 
 static const char kAtcZoneNamePacific_Nauru[]  = "Pacific/Nauru";
 
-const AtcZoneInfo kAtcAllZonePacific_Nauru  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Nauru  = {
   kAtcZoneNamePacific_Nauru /*name*/,
   0x8acc41ae /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraPacific_Nauru /*eras*/,
   NULL /*target_info*/,
@@ -31729,10 +31729,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Niue[]  = {
 
 static const char kAtcZoneNamePacific_Niue[]  = "Pacific/Niue";
 
-const AtcZoneInfo kAtcAllZonePacific_Niue  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Niue  = {
   kAtcZoneNamePacific_Niue /*name*/,
   0x233ca014 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Niue /*eras*/,
   NULL /*target_info*/,
@@ -31824,7 +31824,7 @@ static const AtcZoneEra kAtcZoneEraPacific_Norfolk[]  = {
   },
   //             11:00    AN    %z
   {
-    &kAtcAllZonePolicyAN /*zone_policy*/,
+    &kAtcZonedballZonePolicyAN /*zone_policy*/,
     "" /*format*/,
     2640 /*offset_code (39600/15)*/,
     0 /*offset_remainder (39600%15)*/,
@@ -31840,10 +31840,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Norfolk[]  = {
 
 static const char kAtcZoneNamePacific_Norfolk[]  = "Pacific/Norfolk";
 
-const AtcZoneInfo kAtcAllZonePacific_Norfolk  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Norfolk  = {
   kAtcZoneNamePacific_Norfolk /*name*/,
   0x8f4eb4be /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraPacific_Norfolk /*eras*/,
   NULL /*target_info*/,
@@ -31870,7 +31870,7 @@ static const AtcZoneEra kAtcZoneEraPacific_Noumea[]  = {
   },
   //             11:00    NC    %z
   {
-    &kAtcAllZonePolicyNC /*zone_policy*/,
+    &kAtcZonedballZonePolicyNC /*zone_policy*/,
     "" /*format*/,
     2640 /*offset_code (39600/15)*/,
     0 /*offset_remainder (39600%15)*/,
@@ -31886,10 +31886,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Noumea[]  = {
 
 static const char kAtcZoneNamePacific_Noumea[]  = "Pacific/Noumea";
 
-const AtcZoneInfo kAtcAllZonePacific_Noumea  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Noumea  = {
   kAtcZoneNamePacific_Noumea /*name*/,
   0xe551b788 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Noumea /*eras*/,
   NULL /*target_info*/,
@@ -31945,10 +31945,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Pago_Pago[]  = {
 
 static const char kAtcZoneNamePacific_Pago_Pago[]  = "Pacific/Pago_Pago";
 
-const AtcZoneInfo kAtcAllZonePacific_Pago_Pago  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Pago_Pago  = {
   kAtcZoneNamePacific_Pago_Pago /*name*/,
   0x603aebd0 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Pago_Pago /*eras*/,
   NULL /*target_info*/,
@@ -32004,10 +32004,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Palau[]  = {
 
 static const char kAtcZoneNamePacific_Palau[]  = "Pacific/Palau";
 
-const AtcZoneInfo kAtcAllZonePacific_Palau  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Palau  = {
   kAtcZoneNamePacific_Palau /*name*/,
   0x8af04a36 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Palau /*eras*/,
   NULL /*target_info*/,
@@ -32063,10 +32063,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Pitcairn[]  = {
 
 static const char kAtcZoneNamePacific_Pitcairn[]  = "Pacific/Pitcairn";
 
-const AtcZoneInfo kAtcAllZonePacific_Pitcairn  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Pitcairn  = {
   kAtcZoneNamePacific_Pitcairn /*name*/,
   0x8837d8bd /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Pitcairn /*eras*/,
   NULL /*target_info*/,
@@ -32122,10 +32122,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Port_Moresby[]  = {
 
 static const char kAtcZoneNamePacific_Port_Moresby[]  = "Pacific/Port_Moresby";
 
-const AtcZoneInfo kAtcAllZonePacific_Port_Moresby  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Port_Moresby  = {
   kAtcZoneNamePacific_Port_Moresby /*name*/,
   0xa7ba7f68 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Port_Moresby /*eras*/,
   NULL /*target_info*/,
@@ -32178,7 +32178,7 @@ static const AtcZoneEra kAtcZoneEraPacific_Rarotonga[]  = {
   },
   //             -10:00    Cook    %z
   {
-    &kAtcAllZonePolicyCook /*zone_policy*/,
+    &kAtcZonedballZonePolicyCook /*zone_policy*/,
     "" /*format*/,
     -2400 /*offset_code (-36000/15)*/,
     0 /*offset_remainder (-36000%15)*/,
@@ -32194,10 +32194,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Rarotonga[]  = {
 
 static const char kAtcZoneNamePacific_Rarotonga[]  = "Pacific/Rarotonga";
 
-const AtcZoneInfo kAtcAllZonePacific_Rarotonga  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Rarotonga  = {
   kAtcZoneNamePacific_Rarotonga /*name*/,
   0x9981a3b0 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraPacific_Rarotonga /*eras*/,
   NULL /*target_info*/,
@@ -32240,10 +32240,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Tahiti[]  = {
 
 static const char kAtcZoneNamePacific_Tahiti[]  = "Pacific/Tahiti";
 
-const AtcZoneInfo kAtcAllZonePacific_Tahiti  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Tahiti  = {
   kAtcZoneNamePacific_Tahiti /*name*/,
   0xf24c2446 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Tahiti /*eras*/,
   NULL /*target_info*/,
@@ -32286,10 +32286,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Tarawa[]  = {
 
 static const char kAtcZoneNamePacific_Tarawa[]  = "Pacific/Tarawa";
 
-const AtcZoneInfo kAtcAllZonePacific_Tarawa  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Tarawa  = {
   kAtcZoneNamePacific_Tarawa /*name*/,
   0xf2517e63 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Tarawa /*eras*/,
   NULL /*target_info*/,
@@ -32342,7 +32342,7 @@ static const AtcZoneEra kAtcZoneEraPacific_Tongatapu[]  = {
   },
   //             13:00    Tonga    %z
   {
-    &kAtcAllZonePolicyTonga /*zone_policy*/,
+    &kAtcZonedballZonePolicyTonga /*zone_policy*/,
     "" /*format*/,
     3120 /*offset_code (46800/15)*/,
     0 /*offset_remainder (46800%15)*/,
@@ -32358,10 +32358,10 @@ static const AtcZoneEra kAtcZoneEraPacific_Tongatapu[]  = {
 
 static const char kAtcZoneNamePacific_Tongatapu[]  = "Pacific/Tongatapu";
 
-const AtcZoneInfo kAtcAllZonePacific_Tongatapu  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Tongatapu  = {
   kAtcZoneNamePacific_Tongatapu /*name*/,
   0x262ca836 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraPacific_Tongatapu /*eras*/,
   NULL /*target_info*/,
@@ -32379,13 +32379,13 @@ const AtcZoneInfo kAtcAllZonePacific_Tongatapu  = {
 
 static const char kAtcZoneNameAfrica_Accra[]  = "Africa/Accra";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Accra  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Accra  = {
   kAtcZoneNameAfrica_Accra /*name*/,
   0x77d5b054 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcAllZoneAfrica_Abidjan /*target_info*/,
+  &kAtcZonedballZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32394,13 +32394,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Accra  = {
 
 static const char kAtcZoneNameAfrica_Addis_Ababa[]  = "Africa/Addis_Ababa";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Addis_Ababa  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Addis_Ababa  = {
   kAtcZoneNameAfrica_Addis_Ababa /*name*/,
   0x05ae1e65 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcAllZoneAfrica_Nairobi /*target_info*/,
+  &kAtcZonedballZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32409,13 +32409,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Addis_Ababa  = {
 
 static const char kAtcZoneNameAfrica_Asmara[]  = "Africa/Asmara";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Asmara  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Asmara  = {
   kAtcZoneNameAfrica_Asmara /*name*/,
   0x73b278ef /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcAllZoneAfrica_Nairobi /*target_info*/,
+  &kAtcZonedballZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32424,13 +32424,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Asmara  = {
 
 static const char kAtcZoneNameAfrica_Asmera[]  = "Africa/Asmera";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Asmera  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Asmera  = {
   kAtcZoneNameAfrica_Asmera /*name*/,
   0x73b289f3 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcAllZoneAfrica_Nairobi /*target_info*/,
+  &kAtcZonedballZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32439,13 +32439,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Asmera  = {
 
 static const char kAtcZoneNameAfrica_Bamako[]  = "Africa/Bamako";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Bamako  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Bamako  = {
   kAtcZoneNameAfrica_Bamako /*name*/,
   0x74c1e7a5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcAllZoneAfrica_Abidjan /*target_info*/,
+  &kAtcZonedballZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32454,13 +32454,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Bamako  = {
 
 static const char kAtcZoneNameAfrica_Bangui[]  = "Africa/Bangui";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Bangui  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Bangui  = {
   kAtcZoneNameAfrica_Bangui /*name*/,
   0x74c28ed0 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcAllZoneAfrica_Lagos /*target_info*/,
+  &kAtcZonedballZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32469,13 +32469,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Bangui  = {
 
 static const char kAtcZoneNameAfrica_Banjul[]  = "Africa/Banjul";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Banjul  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Banjul  = {
   kAtcZoneNameAfrica_Banjul /*name*/,
   0x74c29b96 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcAllZoneAfrica_Abidjan /*target_info*/,
+  &kAtcZonedballZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32484,13 +32484,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Banjul  = {
 
 static const char kAtcZoneNameAfrica_Blantyre[]  = "Africa/Blantyre";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Blantyre  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Blantyre  = {
   kAtcZoneNameAfrica_Blantyre /*name*/,
   0xe08d813b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
-  &kAtcAllZoneAfrica_Maputo /*target_info*/,
+  &kAtcZonedballZoneAfrica_Maputo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32499,13 +32499,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Blantyre  = {
 
 static const char kAtcZoneNameAfrica_Brazzaville[]  = "Africa/Brazzaville";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Brazzaville  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Brazzaville  = {
   kAtcZoneNameAfrica_Brazzaville /*name*/,
   0x39cda760 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcAllZoneAfrica_Lagos /*target_info*/,
+  &kAtcZonedballZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32514,13 +32514,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Brazzaville  = {
 
 static const char kAtcZoneNameAfrica_Bujumbura[]  = "Africa/Bujumbura";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Bujumbura  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Bujumbura  = {
   kAtcZoneNameAfrica_Bujumbura /*name*/,
   0x05232a47 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
-  &kAtcAllZoneAfrica_Maputo /*target_info*/,
+  &kAtcZonedballZoneAfrica_Maputo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32529,13 +32529,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Bujumbura  = {
 
 static const char kAtcZoneNameAfrica_Conakry[]  = "Africa/Conakry";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Conakry  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Conakry  = {
   kAtcZoneNameAfrica_Conakry /*name*/,
   0x7ab36b31 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcAllZoneAfrica_Abidjan /*target_info*/,
+  &kAtcZonedballZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32544,13 +32544,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Conakry  = {
 
 static const char kAtcZoneNameAfrica_Dakar[]  = "Africa/Dakar";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Dakar  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Dakar  = {
   kAtcZoneNameAfrica_Dakar /*name*/,
   0x780b00fd /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcAllZoneAfrica_Abidjan /*target_info*/,
+  &kAtcZonedballZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32559,13 +32559,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Dakar  = {
 
 static const char kAtcZoneNameAfrica_Dar_es_Salaam[]  = "Africa/Dar_es_Salaam";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Dar_es_Salaam  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Dar_es_Salaam  = {
   kAtcZoneNameAfrica_Dar_es_Salaam /*name*/,
   0xa04c47b6 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcAllZoneAfrica_Nairobi /*target_info*/,
+  &kAtcZonedballZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32574,13 +32574,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Dar_es_Salaam  = {
 
 static const char kAtcZoneNameAfrica_Djibouti[]  = "Africa/Djibouti";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Djibouti  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Djibouti  = {
   kAtcZoneNameAfrica_Djibouti /*name*/,
   0x30ea01d4 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcAllZoneAfrica_Nairobi /*target_info*/,
+  &kAtcZonedballZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32589,13 +32589,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Djibouti  = {
 
 static const char kAtcZoneNameAfrica_Douala[]  = "Africa/Douala";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Douala  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Douala  = {
   kAtcZoneNameAfrica_Douala /*name*/,
   0x7a6df310 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcAllZoneAfrica_Lagos /*target_info*/,
+  &kAtcZonedballZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32604,13 +32604,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Douala  = {
 
 static const char kAtcZoneNameAfrica_Freetown[]  = "Africa/Freetown";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Freetown  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Freetown  = {
   kAtcZoneNameAfrica_Freetown /*name*/,
   0x6823dd64 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcAllZoneAfrica_Abidjan /*target_info*/,
+  &kAtcZonedballZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32619,13 +32619,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Freetown  = {
 
 static const char kAtcZoneNameAfrica_Gaborone[]  = "Africa/Gaborone";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Gaborone  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Gaborone  = {
   kAtcZoneNameAfrica_Gaborone /*name*/,
   0x317c0aa7 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
-  &kAtcAllZoneAfrica_Maputo /*target_info*/,
+  &kAtcZonedballZoneAfrica_Maputo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32634,13 +32634,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Gaborone  = {
 
 static const char kAtcZoneNameAfrica_Harare[]  = "Africa/Harare";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Harare  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Harare  = {
   kAtcZoneNameAfrica_Harare /*name*/,
   0x82c39a2d /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
-  &kAtcAllZoneAfrica_Maputo /*target_info*/,
+  &kAtcZonedballZoneAfrica_Maputo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32649,13 +32649,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Harare  = {
 
 static const char kAtcZoneNameAfrica_Kampala[]  = "Africa/Kampala";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Kampala  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Kampala  = {
   kAtcZoneNameAfrica_Kampala /*name*/,
   0xc1d30e31 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcAllZoneAfrica_Nairobi /*target_info*/,
+  &kAtcZonedballZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32664,13 +32664,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Kampala  = {
 
 static const char kAtcZoneNameAfrica_Kigali[]  = "Africa/Kigali";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Kigali  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Kigali  = {
   kAtcZoneNameAfrica_Kigali /*name*/,
   0x8a4dcf2b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
-  &kAtcAllZoneAfrica_Maputo /*target_info*/,
+  &kAtcZonedballZoneAfrica_Maputo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32679,13 +32679,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Kigali  = {
 
 static const char kAtcZoneNameAfrica_Kinshasa[]  = "Africa/Kinshasa";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Kinshasa  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Kinshasa  = {
   kAtcZoneNameAfrica_Kinshasa /*name*/,
   0x6695d70c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcAllZoneAfrica_Lagos /*target_info*/,
+  &kAtcZonedballZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32694,13 +32694,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Kinshasa  = {
 
 static const char kAtcZoneNameAfrica_Libreville[]  = "Africa/Libreville";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Libreville  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Libreville  = {
   kAtcZoneNameAfrica_Libreville /*name*/,
   0x01d96de4 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcAllZoneAfrica_Lagos /*target_info*/,
+  &kAtcZonedballZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32709,13 +32709,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Libreville  = {
 
 static const char kAtcZoneNameAfrica_Lome[]  = "Africa/Lome";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Lome  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Lome  = {
   kAtcZoneNameAfrica_Lome /*name*/,
   0xd51c3a07 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcAllZoneAfrica_Abidjan /*target_info*/,
+  &kAtcZonedballZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32724,13 +32724,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Lome  = {
 
 static const char kAtcZoneNameAfrica_Luanda[]  = "Africa/Luanda";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Luanda  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Luanda  = {
   kAtcZoneNameAfrica_Luanda /*name*/,
   0x8d7909cf /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcAllZoneAfrica_Lagos /*target_info*/,
+  &kAtcZonedballZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32739,13 +32739,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Luanda  = {
 
 static const char kAtcZoneNameAfrica_Lubumbashi[]  = "Africa/Lubumbashi";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Lubumbashi  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Lubumbashi  = {
   kAtcZoneNameAfrica_Lubumbashi /*name*/,
   0x6fd88566 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
-  &kAtcAllZoneAfrica_Maputo /*target_info*/,
+  &kAtcZonedballZoneAfrica_Maputo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32754,13 +32754,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Lubumbashi  = {
 
 static const char kAtcZoneNameAfrica_Lusaka[]  = "Africa/Lusaka";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Lusaka  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Lusaka  = {
   kAtcZoneNameAfrica_Lusaka /*name*/,
   0x8d82b23b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Maputo /*eras*/,
-  &kAtcAllZoneAfrica_Maputo /*target_info*/,
+  &kAtcZonedballZoneAfrica_Maputo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32769,13 +32769,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Lusaka  = {
 
 static const char kAtcZoneNameAfrica_Malabo[]  = "Africa/Malabo";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Malabo  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Malabo  = {
   kAtcZoneNameAfrica_Malabo /*name*/,
   0x8e6a1906 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcAllZoneAfrica_Lagos /*target_info*/,
+  &kAtcZonedballZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32784,13 +32784,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Malabo  = {
 
 static const char kAtcZoneNameAfrica_Maseru[]  = "Africa/Maseru";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Maseru  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Maseru  = {
   kAtcZoneNameAfrica_Maseru /*name*/,
   0x8e6e02c7 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAfrica_Johannesburg /*eras*/,
-  &kAtcAllZoneAfrica_Johannesburg /*target_info*/,
+  &kAtcZonedballZoneAfrica_Johannesburg /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32799,13 +32799,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Maseru  = {
 
 static const char kAtcZoneNameAfrica_Mbabane[]  = "Africa/Mbabane";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Mbabane  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Mbabane  = {
   kAtcZoneNameAfrica_Mbabane /*name*/,
   0x5d3bdd40 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAfrica_Johannesburg /*eras*/,
-  &kAtcAllZoneAfrica_Johannesburg /*target_info*/,
+  &kAtcZonedballZoneAfrica_Johannesburg /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32814,13 +32814,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Mbabane  = {
 
 static const char kAtcZoneNameAfrica_Mogadishu[]  = "Africa/Mogadishu";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Mogadishu  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Mogadishu  = {
   kAtcZoneNameAfrica_Mogadishu /*name*/,
   0x66bc159b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcAllZoneAfrica_Nairobi /*target_info*/,
+  &kAtcZonedballZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32829,13 +32829,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Mogadishu  = {
 
 static const char kAtcZoneNameAfrica_Niamey[]  = "Africa/Niamey";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Niamey  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Niamey  = {
   kAtcZoneNameAfrica_Niamey /*name*/,
   0x914a30fd /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcAllZoneAfrica_Lagos /*target_info*/,
+  &kAtcZonedballZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32844,13 +32844,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Niamey  = {
 
 static const char kAtcZoneNameAfrica_Nouakchott[]  = "Africa/Nouakchott";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Nouakchott  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Nouakchott  = {
   kAtcZoneNameAfrica_Nouakchott /*name*/,
   0x3dc49dba /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcAllZoneAfrica_Abidjan /*target_info*/,
+  &kAtcZonedballZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32859,13 +32859,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Nouakchott  = {
 
 static const char kAtcZoneNameAfrica_Ouagadougou[]  = "Africa/Ouagadougou";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Ouagadougou  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Ouagadougou  = {
   kAtcZoneNameAfrica_Ouagadougou /*name*/,
   0x04d7219a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcAllZoneAfrica_Abidjan /*target_info*/,
+  &kAtcZonedballZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32874,13 +32874,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Ouagadougou  = {
 
 static const char kAtcZoneNameAfrica_Porto_Novo[]  = "Africa/Porto-Novo";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Porto_Novo  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Porto_Novo  = {
   kAtcZoneNameAfrica_Porto_Novo /*name*/,
   0x3d1bf95d /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAfrica_Lagos /*eras*/,
-  &kAtcAllZoneAfrica_Lagos /*target_info*/,
+  &kAtcZonedballZoneAfrica_Lagos /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32889,13 +32889,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Porto_Novo  = {
 
 static const char kAtcZoneNameAfrica_Timbuktu[]  = "Africa/Timbuktu";
 
-const AtcZoneInfo kAtcAllZoneAfrica_Timbuktu  = {
+const AtcZoneInfo kAtcZonedballZoneAfrica_Timbuktu  = {
   kAtcZoneNameAfrica_Timbuktu /*name*/,
   0xb164d56f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcAllZoneAfrica_Abidjan /*target_info*/,
+  &kAtcZonedballZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32904,13 +32904,13 @@ const AtcZoneInfo kAtcAllZoneAfrica_Timbuktu  = {
 
 static const char kAtcZoneNameAmerica_Anguilla[]  = "America/Anguilla";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Anguilla  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Anguilla  = {
   kAtcZoneNameAmerica_Anguilla /*name*/,
   0xafe31333 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32919,13 +32919,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Anguilla  = {
 
 static const char kAtcZoneNameAmerica_Antigua[]  = "America/Antigua";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Antigua  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Antigua  = {
   kAtcZoneNameAmerica_Antigua /*name*/,
   0xc067a32f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32934,13 +32934,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Antigua  = {
 
 static const char kAtcZoneNameAmerica_Argentina_ComodRivadavia[]  = "America/Argentina/ComodRivadavia";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Argentina_ComodRivadavia  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Argentina_ComodRivadavia  = {
   kAtcZoneNameAmerica_Argentina_ComodRivadavia /*name*/,
   0x22758877 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   12 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Catamarca /*eras*/,
-  &kAtcAllZoneAmerica_Argentina_Catamarca /*target_info*/,
+  &kAtcZonedballZoneAmerica_Argentina_Catamarca /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32949,13 +32949,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Argentina_ComodRivadavia  = {
 
 static const char kAtcZoneNameAmerica_Aruba[]  = "America/Aruba";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Aruba  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Aruba  = {
   kAtcZoneNameAmerica_Aruba /*name*/,
   0x97cf8651 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32964,13 +32964,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Aruba  = {
 
 static const char kAtcZoneNameAmerica_Atikokan[]  = "America/Atikokan";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Atikokan  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Atikokan  = {
   kAtcZoneNameAmerica_Atikokan /*name*/,
   0x81b92098 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Panama /*eras*/,
-  &kAtcAllZoneAmerica_Panama /*target_info*/,
+  &kAtcZonedballZoneAmerica_Panama /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32979,13 +32979,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Atikokan  = {
 
 static const char kAtcZoneNameAmerica_Atka[]  = "America/Atka";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Atka  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Atka  = {
   kAtcZoneNameAmerica_Atka /*name*/,
   0x97fe8f27 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAmerica_Adak /*eras*/,
-  &kAtcAllZoneAmerica_Adak /*target_info*/,
+  &kAtcZonedballZoneAmerica_Adak /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -32994,13 +32994,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Atka  = {
 
 static const char kAtcZoneNameAmerica_Blanc_Sablon[]  = "America/Blanc-Sablon";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Blanc_Sablon  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Blanc_Sablon  = {
   kAtcZoneNameAmerica_Blanc_Sablon /*name*/,
   0x6e299892 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33009,13 +33009,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Blanc_Sablon  = {
 
 static const char kAtcZoneNameAmerica_Buenos_Aires[]  = "America/Buenos_Aires";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Buenos_Aires  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Buenos_Aires  = {
   kAtcZoneNameAmerica_Buenos_Aires /*name*/,
   0x67d79a05 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Buenos_Aires /*eras*/,
-  &kAtcAllZoneAmerica_Argentina_Buenos_Aires /*target_info*/,
+  &kAtcZonedballZoneAmerica_Argentina_Buenos_Aires /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33024,13 +33024,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Buenos_Aires  = {
 
 static const char kAtcZoneNameAmerica_Catamarca[]  = "America/Catamarca";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Catamarca  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Catamarca  = {
   kAtcZoneNameAmerica_Catamarca /*name*/,
   0x5036e963 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   12 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Catamarca /*eras*/,
-  &kAtcAllZoneAmerica_Argentina_Catamarca /*target_info*/,
+  &kAtcZonedballZoneAmerica_Argentina_Catamarca /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33039,13 +33039,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Catamarca  = {
 
 static const char kAtcZoneNameAmerica_Cayman[]  = "America/Cayman";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Cayman  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Cayman  = {
   kAtcZoneNameAmerica_Cayman /*name*/,
   0x953961df /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Panama /*eras*/,
-  &kAtcAllZoneAmerica_Panama /*target_info*/,
+  &kAtcZonedballZoneAmerica_Panama /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33054,13 +33054,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Cayman  = {
 
 static const char kAtcZoneNameAmerica_Coral_Harbour[]  = "America/Coral_Harbour";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Coral_Harbour  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Coral_Harbour  = {
   kAtcZoneNameAmerica_Coral_Harbour /*name*/,
   0xabcb7569 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Panama /*eras*/,
-  &kAtcAllZoneAmerica_Panama /*target_info*/,
+  &kAtcZonedballZoneAmerica_Panama /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33069,13 +33069,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Coral_Harbour  = {
 
 static const char kAtcZoneNameAmerica_Cordoba[]  = "America/Cordoba";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Cordoba  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Cordoba  = {
   kAtcZoneNameAmerica_Cordoba /*name*/,
   0x5c8a7600 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Cordoba /*eras*/,
-  &kAtcAllZoneAmerica_Argentina_Cordoba /*target_info*/,
+  &kAtcZonedballZoneAmerica_Argentina_Cordoba /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33084,13 +33084,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Cordoba  = {
 
 static const char kAtcZoneNameAmerica_Creston[]  = "America/Creston";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Creston  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Creston  = {
   kAtcZoneNameAmerica_Creston /*name*/,
   0x62a70204 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Phoenix /*eras*/,
-  &kAtcAllZoneAmerica_Phoenix /*target_info*/,
+  &kAtcZonedballZoneAmerica_Phoenix /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33099,13 +33099,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Creston  = {
 
 static const char kAtcZoneNameAmerica_Curacao[]  = "America/Curacao";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Curacao  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Curacao  = {
   kAtcZoneNameAmerica_Curacao /*name*/,
   0x6a879184 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33114,13 +33114,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Curacao  = {
 
 static const char kAtcZoneNameAmerica_Dominica[]  = "America/Dominica";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Dominica  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Dominica  = {
   kAtcZoneNameAmerica_Dominica /*name*/,
   0xcecb4c4a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33129,13 +33129,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Dominica  = {
 
 static const char kAtcZoneNameAmerica_Ensenada[]  = "America/Ensenada";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Ensenada  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Ensenada  = {
   kAtcZoneNameAmerica_Ensenada /*name*/,
   0x7bc95445 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   25 /*num_eras*/,
   kAtcZoneEraAmerica_Tijuana /*eras*/,
-  &kAtcAllZoneAmerica_Tijuana /*target_info*/,
+  &kAtcZonedballZoneAmerica_Tijuana /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33144,13 +33144,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Ensenada  = {
 
 static const char kAtcZoneNameAmerica_Fort_Wayne[]  = "America/Fort_Wayne";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Fort_Wayne  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Fort_Wayne  = {
   kAtcZoneNameAmerica_Fort_Wayne /*name*/,
   0x7eaaaf24 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   11 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Indianapolis /*eras*/,
-  &kAtcAllZoneAmerica_Indiana_Indianapolis /*target_info*/,
+  &kAtcZonedballZoneAmerica_Indiana_Indianapolis /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33159,13 +33159,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Fort_Wayne  = {
 
 static const char kAtcZoneNameAmerica_Godthab[]  = "America/Godthab";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Godthab  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Godthab  = {
   kAtcZoneNameAmerica_Godthab /*name*/,
   0x8f7eba1f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Nuuk /*eras*/,
-  &kAtcAllZoneAmerica_Nuuk /*target_info*/,
+  &kAtcZonedballZoneAmerica_Nuuk /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33174,13 +33174,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Godthab  = {
 
 static const char kAtcZoneNameAmerica_Grenada[]  = "America/Grenada";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Grenada  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Grenada  = {
   kAtcZoneNameAmerica_Grenada /*name*/,
   0x968ce4d8 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33189,13 +33189,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Grenada  = {
 
 static const char kAtcZoneNameAmerica_Guadeloupe[]  = "America/Guadeloupe";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Guadeloupe  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Guadeloupe  = {
   kAtcZoneNameAmerica_Guadeloupe /*name*/,
   0xcd1f8a31 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33204,13 +33204,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Guadeloupe  = {
 
 static const char kAtcZoneNameAmerica_Indianapolis[]  = "America/Indianapolis";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Indianapolis  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Indianapolis  = {
   kAtcZoneNameAmerica_Indianapolis /*name*/,
   0x6a009ae1 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   11 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Indianapolis /*eras*/,
-  &kAtcAllZoneAmerica_Indiana_Indianapolis /*target_info*/,
+  &kAtcZonedballZoneAmerica_Indiana_Indianapolis /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33219,13 +33219,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Indianapolis  = {
 
 static const char kAtcZoneNameAmerica_Jujuy[]  = "America/Jujuy";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Jujuy  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Jujuy  = {
   kAtcZoneNameAmerica_Jujuy /*name*/,
   0x9873dbbd /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   13 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Jujuy /*eras*/,
-  &kAtcAllZoneAmerica_Argentina_Jujuy /*target_info*/,
+  &kAtcZonedballZoneAmerica_Argentina_Jujuy /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33234,13 +33234,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Jujuy  = {
 
 static const char kAtcZoneNameAmerica_Knox_IN[]  = "America/Knox_IN";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Knox_IN  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Knox_IN  = {
   kAtcZoneNameAmerica_Knox_IN /*name*/,
   0xc1db9a1c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Knox /*eras*/,
-  &kAtcAllZoneAmerica_Indiana_Knox /*target_info*/,
+  &kAtcZonedballZoneAmerica_Indiana_Knox /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33249,13 +33249,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Knox_IN  = {
 
 static const char kAtcZoneNameAmerica_Kralendijk[]  = "America/Kralendijk";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Kralendijk  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Kralendijk  = {
   kAtcZoneNameAmerica_Kralendijk /*name*/,
   0xe7c456c5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33264,13 +33264,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Kralendijk  = {
 
 static const char kAtcZoneNameAmerica_Louisville[]  = "America/Louisville";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Louisville  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Louisville  = {
   kAtcZoneNameAmerica_Louisville /*name*/,
   0x3dcb47ee /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAmerica_Kentucky_Louisville /*eras*/,
-  &kAtcAllZoneAmerica_Kentucky_Louisville /*target_info*/,
+  &kAtcZonedballZoneAmerica_Kentucky_Louisville /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33279,13 +33279,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Louisville  = {
 
 static const char kAtcZoneNameAmerica_Lower_Princes[]  = "America/Lower_Princes";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Lower_Princes  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Lower_Princes  = {
   kAtcZoneNameAmerica_Lower_Princes /*name*/,
   0x6ae45b62 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33294,13 +33294,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Lower_Princes  = {
 
 static const char kAtcZoneNameAmerica_Marigot[]  = "America/Marigot";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Marigot  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Marigot  = {
   kAtcZoneNameAmerica_Marigot /*name*/,
   0x3dab3a59 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33309,13 +33309,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Marigot  = {
 
 static const char kAtcZoneNameAmerica_Mendoza[]  = "America/Mendoza";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Mendoza  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Mendoza  = {
   kAtcZoneNameAmerica_Mendoza /*name*/,
   0x46b4e054 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   16 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Mendoza /*eras*/,
-  &kAtcAllZoneAmerica_Argentina_Mendoza /*target_info*/,
+  &kAtcZonedballZoneAmerica_Argentina_Mendoza /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33324,13 +33324,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Mendoza  = {
 
 static const char kAtcZoneNameAmerica_Montreal[]  = "America/Montreal";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Montreal  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Montreal  = {
   kAtcZoneNameAmerica_Montreal /*name*/,
   0x203a1ea8 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
-  &kAtcAllZoneAmerica_Toronto /*target_info*/,
+  &kAtcZonedballZoneAmerica_Toronto /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33339,13 +33339,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Montreal  = {
 
 static const char kAtcZoneNameAmerica_Montserrat[]  = "America/Montserrat";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Montserrat  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Montserrat  = {
   kAtcZoneNameAmerica_Montserrat /*name*/,
   0x199b0a35 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33354,13 +33354,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Montserrat  = {
 
 static const char kAtcZoneNameAmerica_Nassau[]  = "America/Nassau";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Nassau  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Nassau  = {
   kAtcZoneNameAmerica_Nassau /*name*/,
   0xaedef011 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
-  &kAtcAllZoneAmerica_Toronto /*target_info*/,
+  &kAtcZonedballZoneAmerica_Toronto /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33369,13 +33369,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Nassau  = {
 
 static const char kAtcZoneNameAmerica_Nipigon[]  = "America/Nipigon";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Nipigon  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Nipigon  = {
   kAtcZoneNameAmerica_Nipigon /*name*/,
   0x9d2a8b1a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
-  &kAtcAllZoneAmerica_Toronto /*target_info*/,
+  &kAtcZonedballZoneAmerica_Toronto /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33384,13 +33384,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Nipigon  = {
 
 static const char kAtcZoneNameAmerica_Pangnirtung[]  = "America/Pangnirtung";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Pangnirtung  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Pangnirtung  = {
   kAtcZoneNameAmerica_Pangnirtung /*name*/,
   0x2d999193 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Iqaluit /*eras*/,
-  &kAtcAllZoneAmerica_Iqaluit /*target_info*/,
+  &kAtcZonedballZoneAmerica_Iqaluit /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33399,13 +33399,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Pangnirtung  = {
 
 static const char kAtcZoneNameAmerica_Port_of_Spain[]  = "America/Port_of_Spain";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Port_of_Spain  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Port_of_Spain  = {
   kAtcZoneNameAmerica_Port_of_Spain /*name*/,
   0xd8b28d59 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33414,13 +33414,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Port_of_Spain  = {
 
 static const char kAtcZoneNameAmerica_Porto_Acre[]  = "America/Porto_Acre";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Porto_Acre  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Porto_Acre  = {
   kAtcZoneNameAmerica_Porto_Acre /*name*/,
   0xcce5bf54 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Rio_Branco /*eras*/,
-  &kAtcAllZoneAmerica_Rio_Branco /*target_info*/,
+  &kAtcZonedballZoneAmerica_Rio_Branco /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33429,13 +33429,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Porto_Acre  = {
 
 static const char kAtcZoneNameAmerica_Rainy_River[]  = "America/Rainy_River";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Rainy_River  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Rainy_River  = {
   kAtcZoneNameAmerica_Rainy_River /*name*/,
   0x9cd58a10 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Winnipeg /*eras*/,
-  &kAtcAllZoneAmerica_Winnipeg /*target_info*/,
+  &kAtcZonedballZoneAmerica_Winnipeg /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33444,13 +33444,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Rainy_River  = {
 
 static const char kAtcZoneNameAmerica_Rosario[]  = "America/Rosario";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Rosario  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Rosario  = {
   kAtcZoneNameAmerica_Rosario /*name*/,
   0xdf448665 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAmerica_Argentina_Cordoba /*eras*/,
-  &kAtcAllZoneAmerica_Argentina_Cordoba /*target_info*/,
+  &kAtcZonedballZoneAmerica_Argentina_Cordoba /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33459,13 +33459,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Rosario  = {
 
 static const char kAtcZoneNameAmerica_Santa_Isabel[]  = "America/Santa_Isabel";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Santa_Isabel  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Santa_Isabel  = {
   kAtcZoneNameAmerica_Santa_Isabel /*name*/,
   0xfd18a56c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   25 /*num_eras*/,
   kAtcZoneEraAmerica_Tijuana /*eras*/,
-  &kAtcAllZoneAmerica_Tijuana /*target_info*/,
+  &kAtcZonedballZoneAmerica_Tijuana /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33474,13 +33474,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Santa_Isabel  = {
 
 static const char kAtcZoneNameAmerica_Shiprock[]  = "America/Shiprock";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Shiprock  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Shiprock  = {
   kAtcZoneNameAmerica_Shiprock /*name*/,
   0x82fb7049 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Denver /*eras*/,
-  &kAtcAllZoneAmerica_Denver /*target_info*/,
+  &kAtcZonedballZoneAmerica_Denver /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33489,13 +33489,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Shiprock  = {
 
 static const char kAtcZoneNameAmerica_St_Barthelemy[]  = "America/St_Barthelemy";
 
-const AtcZoneInfo kAtcAllZoneAmerica_St_Barthelemy  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_St_Barthelemy  = {
   kAtcZoneNameAmerica_St_Barthelemy /*name*/,
   0x054e6a79 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33504,13 +33504,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_St_Barthelemy  = {
 
 static const char kAtcZoneNameAmerica_St_Kitts[]  = "America/St_Kitts";
 
-const AtcZoneInfo kAtcAllZoneAmerica_St_Kitts  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_St_Kitts  = {
   kAtcZoneNameAmerica_St_Kitts /*name*/,
   0x04c0507b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33519,13 +33519,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_St_Kitts  = {
 
 static const char kAtcZoneNameAmerica_St_Lucia[]  = "America/St_Lucia";
 
-const AtcZoneInfo kAtcAllZoneAmerica_St_Lucia  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_St_Lucia  = {
   kAtcZoneNameAmerica_St_Lucia /*name*/,
   0x04d8b3ba /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33534,13 +33534,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_St_Lucia  = {
 
 static const char kAtcZoneNameAmerica_St_Thomas[]  = "America/St_Thomas";
 
-const AtcZoneInfo kAtcAllZoneAmerica_St_Thomas  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_St_Thomas  = {
   kAtcZoneNameAmerica_St_Thomas /*name*/,
   0xb1b3d778 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33549,13 +33549,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_St_Thomas  = {
 
 static const char kAtcZoneNameAmerica_St_Vincent[]  = "America/St_Vincent";
 
-const AtcZoneInfo kAtcAllZoneAmerica_St_Vincent  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_St_Vincent  = {
   kAtcZoneNameAmerica_St_Vincent /*name*/,
   0x8460e523 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33564,13 +33564,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_St_Vincent  = {
 
 static const char kAtcZoneNameAmerica_Thunder_Bay[]  = "America/Thunder_Bay";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Thunder_Bay  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Thunder_Bay  = {
   kAtcZoneNameAmerica_Thunder_Bay /*name*/,
   0xf962e71b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
-  &kAtcAllZoneAmerica_Toronto /*target_info*/,
+  &kAtcZonedballZoneAmerica_Toronto /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33579,13 +33579,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Thunder_Bay  = {
 
 static const char kAtcZoneNameAmerica_Tortola[]  = "America/Tortola";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Tortola  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Tortola  = {
   kAtcZoneNameAmerica_Tortola /*name*/,
   0x7931462b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33594,13 +33594,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Tortola  = {
 
 static const char kAtcZoneNameAmerica_Virgin[]  = "America/Virgin";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Virgin  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Virgin  = {
   kAtcZoneNameAmerica_Virgin /*name*/,
   0xc2183ab5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Puerto_Rico /*eras*/,
-  &kAtcAllZoneAmerica_Puerto_Rico /*target_info*/,
+  &kAtcZonedballZoneAmerica_Puerto_Rico /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33609,13 +33609,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Virgin  = {
 
 static const char kAtcZoneNameAmerica_Yellowknife[]  = "America/Yellowknife";
 
-const AtcZoneInfo kAtcAllZoneAmerica_Yellowknife  = {
+const AtcZoneInfo kAtcZonedballZoneAmerica_Yellowknife  = {
   kAtcZoneNameAmerica_Yellowknife /*name*/,
   0x0f76c76f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Edmonton /*eras*/,
-  &kAtcAllZoneAmerica_Edmonton /*target_info*/,
+  &kAtcZonedballZoneAmerica_Edmonton /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33624,13 +33624,13 @@ const AtcZoneInfo kAtcAllZoneAmerica_Yellowknife  = {
 
 static const char kAtcZoneNameAntarctica_DumontDUrville[]  = "Antarctica/DumontDUrville";
 
-const AtcZoneInfo kAtcAllZoneAntarctica_DumontDUrville  = {
+const AtcZoneInfo kAtcZonedballZoneAntarctica_DumontDUrville  = {
   kAtcZoneNameAntarctica_DumontDUrville /*name*/,
   0x5a3c656c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Port_Moresby /*eras*/,
-  &kAtcAllZonePacific_Port_Moresby /*target_info*/,
+  &kAtcZonedballZonePacific_Port_Moresby /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33639,13 +33639,13 @@ const AtcZoneInfo kAtcAllZoneAntarctica_DumontDUrville  = {
 
 static const char kAtcZoneNameAntarctica_McMurdo[]  = "Antarctica/McMurdo";
 
-const AtcZoneInfo kAtcAllZoneAntarctica_McMurdo  = {
+const AtcZoneInfo kAtcZonedballZoneAntarctica_McMurdo  = {
   kAtcZoneNameAntarctica_McMurdo /*name*/,
   0x6eeb5585 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Auckland /*eras*/,
-  &kAtcAllZonePacific_Auckland /*target_info*/,
+  &kAtcZonedballZonePacific_Auckland /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33654,13 +33654,13 @@ const AtcZoneInfo kAtcAllZoneAntarctica_McMurdo  = {
 
 static const char kAtcZoneNameAntarctica_South_Pole[]  = "Antarctica/South_Pole";
 
-const AtcZoneInfo kAtcAllZoneAntarctica_South_Pole  = {
+const AtcZoneInfo kAtcZonedballZoneAntarctica_South_Pole  = {
   kAtcZoneNameAntarctica_South_Pole /*name*/,
   0xcd96b290 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Auckland /*eras*/,
-  &kAtcAllZonePacific_Auckland /*target_info*/,
+  &kAtcZonedballZonePacific_Auckland /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33669,13 +33669,13 @@ const AtcZoneInfo kAtcAllZoneAntarctica_South_Pole  = {
 
 static const char kAtcZoneNameAntarctica_Syowa[]  = "Antarctica/Syowa";
 
-const AtcZoneInfo kAtcAllZoneAntarctica_Syowa  = {
+const AtcZoneInfo kAtcZonedballZoneAntarctica_Syowa  = {
   kAtcZoneNameAntarctica_Syowa /*name*/,
   0xe330c7e1 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Riyadh /*eras*/,
-  &kAtcAllZoneAsia_Riyadh /*target_info*/,
+  &kAtcZonedballZoneAsia_Riyadh /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33684,13 +33684,13 @@ const AtcZoneInfo kAtcAllZoneAntarctica_Syowa  = {
 
 static const char kAtcZoneNameArctic_Longyearbyen[]  = "Arctic/Longyearbyen";
 
-const AtcZoneInfo kAtcAllZoneArctic_Longyearbyen  = {
+const AtcZoneInfo kAtcZonedballZoneArctic_Longyearbyen  = {
   kAtcZoneNameArctic_Longyearbyen /*name*/,
   0xd23e7859 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
-  &kAtcAllZoneEurope_Berlin /*target_info*/,
+  &kAtcZonedballZoneEurope_Berlin /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33699,13 +33699,13 @@ const AtcZoneInfo kAtcAllZoneArctic_Longyearbyen  = {
 
 static const char kAtcZoneNameAsia_Aden[]  = "Asia/Aden";
 
-const AtcZoneInfo kAtcAllZoneAsia_Aden  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Aden  = {
   kAtcZoneNameAsia_Aden /*name*/,
   0x1fa7084a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Riyadh /*eras*/,
-  &kAtcAllZoneAsia_Riyadh /*target_info*/,
+  &kAtcZonedballZoneAsia_Riyadh /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33714,13 +33714,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Aden  = {
 
 static const char kAtcZoneNameAsia_Ashkhabad[]  = "Asia/Ashkhabad";
 
-const AtcZoneInfo kAtcAllZoneAsia_Ashkhabad  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Ashkhabad  = {
   kAtcZoneNameAsia_Ashkhabad /*name*/,
   0x15454f09 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Ashgabat /*eras*/,
-  &kAtcAllZoneAsia_Ashgabat /*target_info*/,
+  &kAtcZonedballZoneAsia_Ashgabat /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33729,13 +33729,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Ashkhabad  = {
 
 static const char kAtcZoneNameAsia_Bahrain[]  = "Asia/Bahrain";
 
-const AtcZoneInfo kAtcAllZoneAsia_Bahrain  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Bahrain  = {
   kAtcZoneNameAsia_Bahrain /*name*/,
   0x9d078487 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Qatar /*eras*/,
-  &kAtcAllZoneAsia_Qatar /*target_info*/,
+  &kAtcZonedballZoneAsia_Qatar /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33744,13 +33744,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Bahrain  = {
 
 static const char kAtcZoneNameAsia_Brunei[]  = "Asia/Brunei";
 
-const AtcZoneInfo kAtcAllZoneAsia_Brunei  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Brunei  = {
   kAtcZoneNameAsia_Brunei /*name*/,
   0xa8e595f7 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Kuching /*eras*/,
-  &kAtcAllZoneAsia_Kuching /*target_info*/,
+  &kAtcZonedballZoneAsia_Kuching /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33759,13 +33759,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Brunei  = {
 
 static const char kAtcZoneNameAsia_Calcutta[]  = "Asia/Calcutta";
 
-const AtcZoneInfo kAtcAllZoneAsia_Calcutta  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Calcutta  = {
   kAtcZoneNameAsia_Calcutta /*name*/,
   0x328a44c3 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAsia_Kolkata /*eras*/,
-  &kAtcAllZoneAsia_Kolkata /*target_info*/,
+  &kAtcZonedballZoneAsia_Kolkata /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33774,13 +33774,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Calcutta  = {
 
 static const char kAtcZoneNameAsia_Choibalsan[]  = "Asia/Choibalsan";
 
-const AtcZoneInfo kAtcAllZoneAsia_Choibalsan  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Choibalsan  = {
   kAtcZoneNameAsia_Choibalsan /*name*/,
   0x928aa4a6 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Ulaanbaatar /*eras*/,
-  &kAtcAllZoneAsia_Ulaanbaatar /*target_info*/,
+  &kAtcZonedballZoneAsia_Ulaanbaatar /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33789,13 +33789,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Choibalsan  = {
 
 static const char kAtcZoneNameAsia_Chongqing[]  = "Asia/Chongqing";
 
-const AtcZoneInfo kAtcAllZoneAsia_Chongqing  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Chongqing  = {
   kAtcZoneNameAsia_Chongqing /*name*/,
   0xf937fb90 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Shanghai /*eras*/,
-  &kAtcAllZoneAsia_Shanghai /*target_info*/,
+  &kAtcZonedballZoneAsia_Shanghai /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33804,13 +33804,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Chongqing  = {
 
 static const char kAtcZoneNameAsia_Chungking[]  = "Asia/Chungking";
 
-const AtcZoneInfo kAtcAllZoneAsia_Chungking  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Chungking  = {
   kAtcZoneNameAsia_Chungking /*name*/,
   0xc7121dd0 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Shanghai /*eras*/,
-  &kAtcAllZoneAsia_Shanghai /*target_info*/,
+  &kAtcZonedballZoneAsia_Shanghai /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33819,13 +33819,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Chungking  = {
 
 static const char kAtcZoneNameAsia_Dacca[]  = "Asia/Dacca";
 
-const AtcZoneInfo kAtcAllZoneAsia_Dacca  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Dacca  = {
   kAtcZoneNameAsia_Dacca /*name*/,
   0x14bcac5e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAsia_Dhaka /*eras*/,
-  &kAtcAllZoneAsia_Dhaka /*target_info*/,
+  &kAtcZonedballZoneAsia_Dhaka /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33834,13 +33834,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Dacca  = {
 
 static const char kAtcZoneNameAsia_Harbin[]  = "Asia/Harbin";
 
-const AtcZoneInfo kAtcAllZoneAsia_Harbin  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Harbin  = {
   kAtcZoneNameAsia_Harbin /*name*/,
   0xb5af1186 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Shanghai /*eras*/,
-  &kAtcAllZoneAsia_Shanghai /*target_info*/,
+  &kAtcZonedballZoneAsia_Shanghai /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33849,13 +33849,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Harbin  = {
 
 static const char kAtcZoneNameAsia_Istanbul[]  = "Asia/Istanbul";
 
-const AtcZoneInfo kAtcAllZoneAsia_Istanbul  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Istanbul  = {
   kAtcZoneNameAsia_Istanbul /*name*/,
   0x382e7894 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   13 /*num_eras*/,
   kAtcZoneEraEurope_Istanbul /*eras*/,
-  &kAtcAllZoneEurope_Istanbul /*target_info*/,
+  &kAtcZonedballZoneEurope_Istanbul /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33864,13 +33864,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Istanbul  = {
 
 static const char kAtcZoneNameAsia_Kashgar[]  = "Asia/Kashgar";
 
-const AtcZoneInfo kAtcAllZoneAsia_Kashgar  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Kashgar  = {
   kAtcZoneNameAsia_Kashgar /*name*/,
   0x52955193 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Urumqi /*eras*/,
-  &kAtcAllZoneAsia_Urumqi /*target_info*/,
+  &kAtcZonedballZoneAsia_Urumqi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33879,13 +33879,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Kashgar  = {
 
 static const char kAtcZoneNameAsia_Katmandu[]  = "Asia/Katmandu";
 
-const AtcZoneInfo kAtcAllZoneAsia_Katmandu  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Katmandu  = {
   kAtcZoneNameAsia_Katmandu /*name*/,
   0xa7ec12c7 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Kathmandu /*eras*/,
-  &kAtcAllZoneAsia_Kathmandu /*target_info*/,
+  &kAtcZonedballZoneAsia_Kathmandu /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33894,13 +33894,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Katmandu  = {
 
 static const char kAtcZoneNameAsia_Kuala_Lumpur[]  = "Asia/Kuala_Lumpur";
 
-const AtcZoneInfo kAtcAllZoneAsia_Kuala_Lumpur  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Kuala_Lumpur  = {
   kAtcZoneNameAsia_Kuala_Lumpur /*name*/,
   0x014763c4 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAsia_Singapore /*eras*/,
-  &kAtcAllZoneAsia_Singapore /*target_info*/,
+  &kAtcZonedballZoneAsia_Singapore /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33909,13 +33909,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Kuala_Lumpur  = {
 
 static const char kAtcZoneNameAsia_Kuwait[]  = "Asia/Kuwait";
 
-const AtcZoneInfo kAtcAllZoneAsia_Kuwait  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Kuwait  = {
   kAtcZoneNameAsia_Kuwait /*name*/,
   0xbe1b2f27 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Riyadh /*eras*/,
-  &kAtcAllZoneAsia_Riyadh /*target_info*/,
+  &kAtcZonedballZoneAsia_Riyadh /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33924,13 +33924,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Kuwait  = {
 
 static const char kAtcZoneNameAsia_Macao[]  = "Asia/Macao";
 
-const AtcZoneInfo kAtcAllZoneAsia_Macao  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Macao  = {
   kAtcZoneNameAsia_Macao /*name*/,
   0x155f88b3 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Macau /*eras*/,
-  &kAtcAllZoneAsia_Macau /*target_info*/,
+  &kAtcZonedballZoneAsia_Macau /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33939,13 +33939,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Macao  = {
 
 static const char kAtcZoneNameAsia_Muscat[]  = "Asia/Muscat";
 
-const AtcZoneInfo kAtcAllZoneAsia_Muscat  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Muscat  = {
   kAtcZoneNameAsia_Muscat /*name*/,
   0xc2c3565f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Dubai /*eras*/,
-  &kAtcAllZoneAsia_Dubai /*target_info*/,
+  &kAtcZonedballZoneAsia_Dubai /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33954,13 +33954,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Muscat  = {
 
 static const char kAtcZoneNameAsia_Phnom_Penh[]  = "Asia/Phnom_Penh";
 
-const AtcZoneInfo kAtcAllZoneAsia_Phnom_Penh  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Phnom_Penh  = {
   kAtcZoneNameAsia_Phnom_Penh /*name*/,
   0xc224945e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Bangkok /*eras*/,
-  &kAtcAllZoneAsia_Bangkok /*target_info*/,
+  &kAtcZonedballZoneAsia_Bangkok /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33969,13 +33969,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Phnom_Penh  = {
 
 static const char kAtcZoneNameAsia_Rangoon[]  = "Asia/Rangoon";
 
-const AtcZoneInfo kAtcAllZoneAsia_Rangoon  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Rangoon  = {
   kAtcZoneNameAsia_Rangoon /*name*/,
   0x6d1217c6 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Yangon /*eras*/,
-  &kAtcAllZoneAsia_Yangon /*target_info*/,
+  &kAtcZonedballZoneAsia_Yangon /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33984,13 +33984,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Rangoon  = {
 
 static const char kAtcZoneNameAsia_Saigon[]  = "Asia/Saigon";
 
-const AtcZoneInfo kAtcAllZoneAsia_Saigon  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Saigon  = {
   kAtcZoneNameAsia_Saigon /*name*/,
   0xcf52f713 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraAsia_Ho_Chi_Minh /*eras*/,
-  &kAtcAllZoneAsia_Ho_Chi_Minh /*target_info*/,
+  &kAtcZonedballZoneAsia_Ho_Chi_Minh /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -33999,13 +33999,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Saigon  = {
 
 static const char kAtcZoneNameAsia_Tel_Aviv[]  = "Asia/Tel_Aviv";
 
-const AtcZoneInfo kAtcAllZoneAsia_Tel_Aviv  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Tel_Aviv  = {
   kAtcZoneNameAsia_Tel_Aviv /*name*/,
   0x166d7c2c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Jerusalem /*eras*/,
-  &kAtcAllZoneAsia_Jerusalem /*target_info*/,
+  &kAtcZonedballZoneAsia_Jerusalem /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34014,13 +34014,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Tel_Aviv  = {
 
 static const char kAtcZoneNameAsia_Thimbu[]  = "Asia/Thimbu";
 
-const AtcZoneInfo kAtcAllZoneAsia_Thimbu  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Thimbu  = {
   kAtcZoneNameAsia_Thimbu /*name*/,
   0xd226e31b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Thimphu /*eras*/,
-  &kAtcAllZoneAsia_Thimphu /*target_info*/,
+  &kAtcZonedballZoneAsia_Thimphu /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34029,13 +34029,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Thimbu  = {
 
 static const char kAtcZoneNameAsia_Ujung_Pandang[]  = "Asia/Ujung_Pandang";
 
-const AtcZoneInfo kAtcAllZoneAsia_Ujung_Pandang  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Ujung_Pandang  = {
   kAtcZoneNameAsia_Ujung_Pandang /*name*/,
   0x5d001eb3 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Makassar /*eras*/,
-  &kAtcAllZoneAsia_Makassar /*target_info*/,
+  &kAtcZonedballZoneAsia_Makassar /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34044,13 +34044,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Ujung_Pandang  = {
 
 static const char kAtcZoneNameAsia_Ulan_Bator[]  = "Asia/Ulan_Bator";
 
-const AtcZoneInfo kAtcAllZoneAsia_Ulan_Bator  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Ulan_Bator  = {
   kAtcZoneNameAsia_Ulan_Bator /*name*/,
   0x394db4d9 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Ulaanbaatar /*eras*/,
-  &kAtcAllZoneAsia_Ulaanbaatar /*target_info*/,
+  &kAtcZonedballZoneAsia_Ulaanbaatar /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34059,13 +34059,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Ulan_Bator  = {
 
 static const char kAtcZoneNameAsia_Vientiane[]  = "Asia/Vientiane";
 
-const AtcZoneInfo kAtcAllZoneAsia_Vientiane  = {
+const AtcZoneInfo kAtcZonedballZoneAsia_Vientiane  = {
   kAtcZoneNameAsia_Vientiane /*name*/,
   0x89d68d75 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Bangkok /*eras*/,
-  &kAtcAllZoneAsia_Bangkok /*target_info*/,
+  &kAtcZonedballZoneAsia_Bangkok /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34074,13 +34074,13 @@ const AtcZoneInfo kAtcAllZoneAsia_Vientiane  = {
 
 static const char kAtcZoneNameAtlantic_Faeroe[]  = "Atlantic/Faeroe";
 
-const AtcZoneInfo kAtcAllZoneAtlantic_Faeroe  = {
+const AtcZoneInfo kAtcZonedballZoneAtlantic_Faeroe  = {
   kAtcZoneNameAtlantic_Faeroe /*name*/,
   0x031ec516 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAtlantic_Faroe /*eras*/,
-  &kAtcAllZoneAtlantic_Faroe /*target_info*/,
+  &kAtcZonedballZoneAtlantic_Faroe /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34089,13 +34089,13 @@ const AtcZoneInfo kAtcAllZoneAtlantic_Faeroe  = {
 
 static const char kAtcZoneNameAtlantic_Jan_Mayen[]  = "Atlantic/Jan_Mayen";
 
-const AtcZoneInfo kAtcAllZoneAtlantic_Jan_Mayen  = {
+const AtcZoneInfo kAtcZonedballZoneAtlantic_Jan_Mayen  = {
   kAtcZoneNameAtlantic_Jan_Mayen /*name*/,
   0x5a7535b6 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
-  &kAtcAllZoneEurope_Berlin /*target_info*/,
+  &kAtcZonedballZoneEurope_Berlin /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34104,13 +34104,13 @@ const AtcZoneInfo kAtcAllZoneAtlantic_Jan_Mayen  = {
 
 static const char kAtcZoneNameAtlantic_Reykjavik[]  = "Atlantic/Reykjavik";
 
-const AtcZoneInfo kAtcAllZoneAtlantic_Reykjavik  = {
+const AtcZoneInfo kAtcZonedballZoneAtlantic_Reykjavik  = {
   kAtcZoneNameAtlantic_Reykjavik /*name*/,
   0x1c2b4f74 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcAllZoneAfrica_Abidjan /*target_info*/,
+  &kAtcZonedballZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34119,13 +34119,13 @@ const AtcZoneInfo kAtcAllZoneAtlantic_Reykjavik  = {
 
 static const char kAtcZoneNameAtlantic_St_Helena[]  = "Atlantic/St_Helena";
 
-const AtcZoneInfo kAtcAllZoneAtlantic_St_Helena  = {
+const AtcZoneInfo kAtcZonedballZoneAtlantic_St_Helena  = {
   kAtcZoneNameAtlantic_St_Helena /*name*/,
   0x451fc5f7 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcAllZoneAfrica_Abidjan /*target_info*/,
+  &kAtcZonedballZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34134,13 +34134,13 @@ const AtcZoneInfo kAtcAllZoneAtlantic_St_Helena  = {
 
 static const char kAtcZoneNameAustralia_ACT[]  = "Australia/ACT";
 
-const AtcZoneInfo kAtcAllZoneAustralia_ACT  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_ACT  = {
   kAtcZoneNameAustralia_ACT /*name*/,
   0x8a970eb2 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAustralia_Sydney /*eras*/,
-  &kAtcAllZoneAustralia_Sydney /*target_info*/,
+  &kAtcZonedballZoneAustralia_Sydney /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34149,13 +34149,13 @@ const AtcZoneInfo kAtcAllZoneAustralia_ACT  = {
 
 static const char kAtcZoneNameAustralia_Canberra[]  = "Australia/Canberra";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Canberra  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Canberra  = {
   kAtcZoneNameAustralia_Canberra /*name*/,
   0x2a09ae58 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAustralia_Sydney /*eras*/,
-  &kAtcAllZoneAustralia_Sydney /*target_info*/,
+  &kAtcZonedballZoneAustralia_Sydney /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34164,13 +34164,13 @@ const AtcZoneInfo kAtcAllZoneAustralia_Canberra  = {
 
 static const char kAtcZoneNameAustralia_Currie[]  = "Australia/Currie";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Currie  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Currie  = {
   kAtcZoneNameAustralia_Currie /*name*/,
   0x278b6a24 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAustralia_Hobart /*eras*/,
-  &kAtcAllZoneAustralia_Hobart /*target_info*/,
+  &kAtcZonedballZoneAustralia_Hobart /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34179,13 +34179,13 @@ const AtcZoneInfo kAtcAllZoneAustralia_Currie  = {
 
 static const char kAtcZoneNameAustralia_LHI[]  = "Australia/LHI";
 
-const AtcZoneInfo kAtcAllZoneAustralia_LHI  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_LHI  = {
   kAtcZoneNameAustralia_LHI /*name*/,
   0x8a973e17 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAustralia_Lord_Howe /*eras*/,
-  &kAtcAllZoneAustralia_Lord_Howe /*target_info*/,
+  &kAtcZonedballZoneAustralia_Lord_Howe /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34194,13 +34194,13 @@ const AtcZoneInfo kAtcAllZoneAustralia_LHI  = {
 
 static const char kAtcZoneNameAustralia_NSW[]  = "Australia/NSW";
 
-const AtcZoneInfo kAtcAllZoneAustralia_NSW  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_NSW  = {
   kAtcZoneNameAustralia_NSW /*name*/,
   0x8a974812 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAustralia_Sydney /*eras*/,
-  &kAtcAllZoneAustralia_Sydney /*target_info*/,
+  &kAtcZonedballZoneAustralia_Sydney /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34209,13 +34209,13 @@ const AtcZoneInfo kAtcAllZoneAustralia_NSW  = {
 
 static const char kAtcZoneNameAustralia_North[]  = "Australia/North";
 
-const AtcZoneInfo kAtcAllZoneAustralia_North  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_North  = {
   kAtcZoneNameAustralia_North /*name*/,
   0x8d997165 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAustralia_Darwin /*eras*/,
-  &kAtcAllZoneAustralia_Darwin /*target_info*/,
+  &kAtcZonedballZoneAustralia_Darwin /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34224,13 +34224,13 @@ const AtcZoneInfo kAtcAllZoneAustralia_North  = {
 
 static const char kAtcZoneNameAustralia_Queensland[]  = "Australia/Queensland";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Queensland  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Queensland  = {
   kAtcZoneNameAustralia_Queensland /*name*/,
   0xd326ed0a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAustralia_Brisbane /*eras*/,
-  &kAtcAllZoneAustralia_Brisbane /*target_info*/,
+  &kAtcZonedballZoneAustralia_Brisbane /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34239,13 +34239,13 @@ const AtcZoneInfo kAtcAllZoneAustralia_Queensland  = {
 
 static const char kAtcZoneNameAustralia_South[]  = "Australia/South";
 
-const AtcZoneInfo kAtcAllZoneAustralia_South  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_South  = {
   kAtcZoneNameAustralia_South /*name*/,
   0x8df3f8ad /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAustralia_Adelaide /*eras*/,
-  &kAtcAllZoneAustralia_Adelaide /*target_info*/,
+  &kAtcZonedballZoneAustralia_Adelaide /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34254,13 +34254,13 @@ const AtcZoneInfo kAtcAllZoneAustralia_South  = {
 
 static const char kAtcZoneNameAustralia_Tasmania[]  = "Australia/Tasmania";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Tasmania  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Tasmania  = {
   kAtcZoneNameAustralia_Tasmania /*name*/,
   0xe6d76648 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAustralia_Hobart /*eras*/,
-  &kAtcAllZoneAustralia_Hobart /*target_info*/,
+  &kAtcZonedballZoneAustralia_Hobart /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34269,13 +34269,13 @@ const AtcZoneInfo kAtcAllZoneAustralia_Tasmania  = {
 
 static const char kAtcZoneNameAustralia_Victoria[]  = "Australia/Victoria";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Victoria  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Victoria  = {
   kAtcZoneNameAustralia_Victoria /*name*/,
   0x0260d5db /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAustralia_Melbourne /*eras*/,
-  &kAtcAllZoneAustralia_Melbourne /*target_info*/,
+  &kAtcZonedballZoneAustralia_Melbourne /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34284,13 +34284,13 @@ const AtcZoneInfo kAtcAllZoneAustralia_Victoria  = {
 
 static const char kAtcZoneNameAustralia_West[]  = "Australia/West";
 
-const AtcZoneInfo kAtcAllZoneAustralia_West  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_West  = {
   kAtcZoneNameAustralia_West /*name*/,
   0xdd858a5d /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAustralia_Perth /*eras*/,
-  &kAtcAllZoneAustralia_Perth /*target_info*/,
+  &kAtcZonedballZoneAustralia_Perth /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34299,13 +34299,13 @@ const AtcZoneInfo kAtcAllZoneAustralia_West  = {
 
 static const char kAtcZoneNameAustralia_Yancowinna[]  = "Australia/Yancowinna";
 
-const AtcZoneInfo kAtcAllZoneAustralia_Yancowinna  = {
+const AtcZoneInfo kAtcZonedballZoneAustralia_Yancowinna  = {
   kAtcZoneNameAustralia_Yancowinna /*name*/,
   0x90bac131 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAustralia_Broken_Hill /*eras*/,
-  &kAtcAllZoneAustralia_Broken_Hill /*target_info*/,
+  &kAtcZonedballZoneAustralia_Broken_Hill /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34314,13 +34314,13 @@ const AtcZoneInfo kAtcAllZoneAustralia_Yancowinna  = {
 
 static const char kAtcZoneNameBrazil_Acre[]  = "Brazil/Acre";
 
-const AtcZoneInfo kAtcAllZoneBrazil_Acre  = {
+const AtcZoneInfo kAtcZonedballZoneBrazil_Acre  = {
   kAtcZoneNameBrazil_Acre /*name*/,
   0x66934f93 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Rio_Branco /*eras*/,
-  &kAtcAllZoneAmerica_Rio_Branco /*target_info*/,
+  &kAtcZonedballZoneAmerica_Rio_Branco /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34329,13 +34329,13 @@ const AtcZoneInfo kAtcAllZoneBrazil_Acre  = {
 
 static const char kAtcZoneNameBrazil_DeNoronha[]  = "Brazil/DeNoronha";
 
-const AtcZoneInfo kAtcAllZoneBrazil_DeNoronha  = {
+const AtcZoneInfo kAtcZonedballZoneBrazil_DeNoronha  = {
   kAtcZoneNameBrazil_DeNoronha /*name*/,
   0x9b4cb496 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Noronha /*eras*/,
-  &kAtcAllZoneAmerica_Noronha /*target_info*/,
+  &kAtcZonedballZoneAmerica_Noronha /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34344,13 +34344,13 @@ const AtcZoneInfo kAtcAllZoneBrazil_DeNoronha  = {
 
 static const char kAtcZoneNameBrazil_East[]  = "Brazil/East";
 
-const AtcZoneInfo kAtcAllZoneBrazil_East  = {
+const AtcZoneInfo kAtcZonedballZoneBrazil_East  = {
   kAtcZoneNameBrazil_East /*name*/,
   0x669578c5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Sao_Paulo /*eras*/,
-  &kAtcAllZoneAmerica_Sao_Paulo /*target_info*/,
+  &kAtcZonedballZoneAmerica_Sao_Paulo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34359,13 +34359,13 @@ const AtcZoneInfo kAtcAllZoneBrazil_East  = {
 
 static const char kAtcZoneNameBrazil_West[]  = "Brazil/West";
 
-const AtcZoneInfo kAtcAllZoneBrazil_West  = {
+const AtcZoneInfo kAtcZonedballZoneBrazil_West  = {
   kAtcZoneNameBrazil_West /*name*/,
   0x669f689b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Manaus /*eras*/,
-  &kAtcAllZoneAmerica_Manaus /*target_info*/,
+  &kAtcZonedballZoneAmerica_Manaus /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34374,13 +34374,13 @@ const AtcZoneInfo kAtcAllZoneBrazil_West  = {
 
 static const char kAtcZoneNameCET[]  = "CET";
 
-const AtcZoneInfo kAtcAllZoneCET  = {
+const AtcZoneInfo kAtcZonedballZoneCET  = {
   kAtcZoneNameCET /*name*/,
   0x0b87d921 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Brussels /*eras*/,
-  &kAtcAllZoneEurope_Brussels /*target_info*/,
+  &kAtcZonedballZoneEurope_Brussels /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34389,13 +34389,13 @@ const AtcZoneInfo kAtcAllZoneCET  = {
 
 static const char kAtcZoneNameCST6CDT[]  = "CST6CDT";
 
-const AtcZoneInfo kAtcAllZoneCST6CDT  = {
+const AtcZoneInfo kAtcZonedballZoneCST6CDT  = {
   kAtcZoneNameCST6CDT /*name*/,
   0xf0e87d00 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAmerica_Chicago /*eras*/,
-  &kAtcAllZoneAmerica_Chicago /*target_info*/,
+  &kAtcZonedballZoneAmerica_Chicago /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34404,13 +34404,13 @@ const AtcZoneInfo kAtcAllZoneCST6CDT  = {
 
 static const char kAtcZoneNameCanada_Atlantic[]  = "Canada/Atlantic";
 
-const AtcZoneInfo kAtcAllZoneCanada_Atlantic  = {
+const AtcZoneInfo kAtcZonedballZoneCanada_Atlantic  = {
   kAtcZoneNameCanada_Atlantic /*name*/,
   0x536b119c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Halifax /*eras*/,
-  &kAtcAllZoneAmerica_Halifax /*target_info*/,
+  &kAtcZonedballZoneAmerica_Halifax /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34419,13 +34419,13 @@ const AtcZoneInfo kAtcAllZoneCanada_Atlantic  = {
 
 static const char kAtcZoneNameCanada_Central[]  = "Canada/Central";
 
-const AtcZoneInfo kAtcAllZoneCanada_Central  = {
+const AtcZoneInfo kAtcZonedballZoneCanada_Central  = {
   kAtcZoneNameCanada_Central /*name*/,
   0x626710f5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Winnipeg /*eras*/,
-  &kAtcAllZoneAmerica_Winnipeg /*target_info*/,
+  &kAtcZonedballZoneAmerica_Winnipeg /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34434,13 +34434,13 @@ const AtcZoneInfo kAtcAllZoneCanada_Central  = {
 
 static const char kAtcZoneNameCanada_Eastern[]  = "Canada/Eastern";
 
-const AtcZoneInfo kAtcAllZoneCanada_Eastern  = {
+const AtcZoneInfo kAtcZonedballZoneCanada_Eastern  = {
   kAtcZoneNameCanada_Eastern /*name*/,
   0xf3612d5e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Toronto /*eras*/,
-  &kAtcAllZoneAmerica_Toronto /*target_info*/,
+  &kAtcZonedballZoneAmerica_Toronto /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34449,13 +34449,13 @@ const AtcZoneInfo kAtcAllZoneCanada_Eastern  = {
 
 static const char kAtcZoneNameCanada_Mountain[]  = "Canada/Mountain";
 
-const AtcZoneInfo kAtcAllZoneCanada_Mountain  = {
+const AtcZoneInfo kAtcZonedballZoneCanada_Mountain  = {
   kAtcZoneNameCanada_Mountain /*name*/,
   0xfb8a8217 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Edmonton /*eras*/,
-  &kAtcAllZoneAmerica_Edmonton /*target_info*/,
+  &kAtcZonedballZoneAmerica_Edmonton /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34464,13 +34464,13 @@ const AtcZoneInfo kAtcAllZoneCanada_Mountain  = {
 
 static const char kAtcZoneNameCanada_Newfoundland[]  = "Canada/Newfoundland";
 
-const AtcZoneInfo kAtcAllZoneCanada_Newfoundland  = {
+const AtcZoneInfo kAtcZonedballZoneCanada_Newfoundland  = {
   kAtcZoneNameCanada_Newfoundland /*name*/,
   0xb396e991 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAmerica_St_Johns /*eras*/,
-  &kAtcAllZoneAmerica_St_Johns /*target_info*/,
+  &kAtcZonedballZoneAmerica_St_Johns /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34479,13 +34479,13 @@ const AtcZoneInfo kAtcAllZoneCanada_Newfoundland  = {
 
 static const char kAtcZoneNameCanada_Pacific[]  = "Canada/Pacific";
 
-const AtcZoneInfo kAtcAllZoneCanada_Pacific  = {
+const AtcZoneInfo kAtcZonedballZoneCanada_Pacific  = {
   kAtcZoneNameCanada_Pacific /*name*/,
   0x40fa3c7b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Vancouver /*eras*/,
-  &kAtcAllZoneAmerica_Vancouver /*target_info*/,
+  &kAtcZonedballZoneAmerica_Vancouver /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34494,13 +34494,13 @@ const AtcZoneInfo kAtcAllZoneCanada_Pacific  = {
 
 static const char kAtcZoneNameCanada_Saskatchewan[]  = "Canada/Saskatchewan";
 
-const AtcZoneInfo kAtcAllZoneCanada_Saskatchewan  = {
+const AtcZoneInfo kAtcZonedballZoneCanada_Saskatchewan  = {
   kAtcZoneNameCanada_Saskatchewan /*name*/,
   0x77311f49 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Regina /*eras*/,
-  &kAtcAllZoneAmerica_Regina /*target_info*/,
+  &kAtcZonedballZoneAmerica_Regina /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34509,13 +34509,13 @@ const AtcZoneInfo kAtcAllZoneCanada_Saskatchewan  = {
 
 static const char kAtcZoneNameCanada_Yukon[]  = "Canada/Yukon";
 
-const AtcZoneInfo kAtcAllZoneCanada_Yukon  = {
+const AtcZoneInfo kAtcZonedballZoneCanada_Yukon  = {
   kAtcZoneNameCanada_Yukon /*name*/,
   0x78dd35c2 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Whitehorse /*eras*/,
-  &kAtcAllZoneAmerica_Whitehorse /*target_info*/,
+  &kAtcZonedballZoneAmerica_Whitehorse /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34524,13 +34524,13 @@ const AtcZoneInfo kAtcAllZoneCanada_Yukon  = {
 
 static const char kAtcZoneNameChile_Continental[]  = "Chile/Continental";
 
-const AtcZoneInfo kAtcAllZoneChile_Continental  = {
+const AtcZoneInfo kAtcZonedballZoneChile_Continental  = {
   kAtcZoneNameChile_Continental /*name*/,
   0x7e2bdb18 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   14 /*num_eras*/,
   kAtcZoneEraAmerica_Santiago /*eras*/,
-  &kAtcAllZoneAmerica_Santiago /*target_info*/,
+  &kAtcZonedballZoneAmerica_Santiago /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34539,13 +34539,13 @@ const AtcZoneInfo kAtcAllZoneChile_Continental  = {
 
 static const char kAtcZoneNameChile_EasterIsland[]  = "Chile/EasterIsland";
 
-const AtcZoneInfo kAtcAllZoneChile_EasterIsland  = {
+const AtcZoneInfo kAtcZonedballZoneChile_EasterIsland  = {
   kAtcZoneNameChile_EasterIsland /*name*/,
   0xb0982af8 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraPacific_Easter /*eras*/,
-  &kAtcAllZonePacific_Easter /*target_info*/,
+  &kAtcZonedballZonePacific_Easter /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34554,13 +34554,13 @@ const AtcZoneInfo kAtcAllZoneChile_EasterIsland  = {
 
 static const char kAtcZoneNameCuba[]  = "Cuba";
 
-const AtcZoneInfo kAtcAllZoneCuba  = {
+const AtcZoneInfo kAtcZonedballZoneCuba  = {
   kAtcZoneNameCuba /*name*/,
   0x7c83cba0 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Havana /*eras*/,
-  &kAtcAllZoneAmerica_Havana /*target_info*/,
+  &kAtcZonedballZoneAmerica_Havana /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34569,13 +34569,13 @@ const AtcZoneInfo kAtcAllZoneCuba  = {
 
 static const char kAtcZoneNameEET[]  = "EET";
 
-const AtcZoneInfo kAtcAllZoneEET  = {
+const AtcZoneInfo kAtcZonedballZoneEET  = {
   kAtcZoneNameEET /*name*/,
   0x0b87e1a3 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraEurope_Athens /*eras*/,
-  &kAtcAllZoneEurope_Athens /*target_info*/,
+  &kAtcZonedballZoneEurope_Athens /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34584,13 +34584,13 @@ const AtcZoneInfo kAtcAllZoneEET  = {
 
 static const char kAtcZoneNameEST[]  = "EST";
 
-const AtcZoneInfo kAtcAllZoneEST  = {
+const AtcZoneInfo kAtcZonedballZoneEST  = {
   kAtcZoneNameEST /*name*/,
   0x0b87e371 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAmerica_Panama /*eras*/,
-  &kAtcAllZoneAmerica_Panama /*target_info*/,
+  &kAtcZonedballZoneAmerica_Panama /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34599,13 +34599,13 @@ const AtcZoneInfo kAtcAllZoneEST  = {
 
 static const char kAtcZoneNameEST5EDT[]  = "EST5EDT";
 
-const AtcZoneInfo kAtcAllZoneEST5EDT  = {
+const AtcZoneInfo kAtcZonedballZoneEST5EDT  = {
   kAtcZoneNameEST5EDT /*name*/,
   0x8adc72a3 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_New_York /*eras*/,
-  &kAtcAllZoneAmerica_New_York /*target_info*/,
+  &kAtcZonedballZoneAmerica_New_York /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34614,13 +34614,13 @@ const AtcZoneInfo kAtcAllZoneEST5EDT  = {
 
 static const char kAtcZoneNameEgypt[]  = "Egypt";
 
-const AtcZoneInfo kAtcAllZoneEgypt  = {
+const AtcZoneInfo kAtcZonedballZoneEgypt  = {
   kAtcZoneNameEgypt /*name*/,
   0x0d1a278e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Cairo /*eras*/,
-  &kAtcAllZoneAfrica_Cairo /*target_info*/,
+  &kAtcZonedballZoneAfrica_Cairo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34629,13 +34629,13 @@ const AtcZoneInfo kAtcAllZoneEgypt  = {
 
 static const char kAtcZoneNameEire[]  = "Eire";
 
-const AtcZoneInfo kAtcAllZoneEire  = {
+const AtcZoneInfo kAtcZonedballZoneEire  = {
   kAtcZoneNameEire /*name*/,
   0x7c84b36a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   11 /*num_eras*/,
   kAtcZoneEraEurope_Dublin /*eras*/,
-  &kAtcAllZoneEurope_Dublin /*target_info*/,
+  &kAtcZonedballZoneEurope_Dublin /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34644,13 +34644,13 @@ const AtcZoneInfo kAtcAllZoneEire  = {
 
 static const char kAtcZoneNameEtc_GMT_PLUS_0[]  = "Etc/GMT+0";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_PLUS_0  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_PLUS_0  = {
   kAtcZoneNameEtc_GMT_PLUS_0 /*name*/,
   0x9d13da13 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcAllZoneEtc_GMT /*target_info*/,
+  &kAtcZonedballZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34659,13 +34659,13 @@ const AtcZoneInfo kAtcAllZoneEtc_GMT_PLUS_0  = {
 
 static const char kAtcZoneNameEtc_GMT_0[]  = "Etc/GMT-0";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT_0  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT_0  = {
   kAtcZoneNameEtc_GMT_0 /*name*/,
   0x9d13da55 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcAllZoneEtc_GMT /*target_info*/,
+  &kAtcZonedballZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34674,13 +34674,13 @@ const AtcZoneInfo kAtcAllZoneEtc_GMT_0  = {
 
 static const char kAtcZoneNameEtc_GMT0[]  = "Etc/GMT0";
 
-const AtcZoneInfo kAtcAllZoneEtc_GMT0  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_GMT0  = {
   kAtcZoneNameEtc_GMT0 /*name*/,
   0xf53ea988 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcAllZoneEtc_GMT /*target_info*/,
+  &kAtcZonedballZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34689,13 +34689,13 @@ const AtcZoneInfo kAtcAllZoneEtc_GMT0  = {
 
 static const char kAtcZoneNameEtc_Greenwich[]  = "Etc/Greenwich";
 
-const AtcZoneInfo kAtcAllZoneEtc_Greenwich  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_Greenwich  = {
   kAtcZoneNameEtc_Greenwich /*name*/,
   0x26daa98c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcAllZoneEtc_GMT /*target_info*/,
+  &kAtcZonedballZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34704,13 +34704,13 @@ const AtcZoneInfo kAtcAllZoneEtc_Greenwich  = {
 
 static const char kAtcZoneNameEtc_UCT[]  = "Etc/UCT";
 
-const AtcZoneInfo kAtcAllZoneEtc_UCT  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_UCT  = {
   kAtcZoneNameEtc_UCT /*name*/,
   0xd8e3189c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
-  &kAtcAllZoneEtc_UTC /*target_info*/,
+  &kAtcZonedballZoneEtc_UTC /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34719,13 +34719,13 @@ const AtcZoneInfo kAtcAllZoneEtc_UCT  = {
 
 static const char kAtcZoneNameEtc_Universal[]  = "Etc/Universal";
 
-const AtcZoneInfo kAtcAllZoneEtc_Universal  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_Universal  = {
   kAtcZoneNameEtc_Universal /*name*/,
   0x2f8cb9a9 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
-  &kAtcAllZoneEtc_UTC /*target_info*/,
+  &kAtcZonedballZoneEtc_UTC /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34734,13 +34734,13 @@ const AtcZoneInfo kAtcAllZoneEtc_Universal  = {
 
 static const char kAtcZoneNameEtc_Zulu[]  = "Etc/Zulu";
 
-const AtcZoneInfo kAtcAllZoneEtc_Zulu  = {
+const AtcZoneInfo kAtcZonedballZoneEtc_Zulu  = {
   kAtcZoneNameEtc_Zulu /*name*/,
   0xf549c240 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
-  &kAtcAllZoneEtc_UTC /*target_info*/,
+  &kAtcZonedballZoneEtc_UTC /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34749,13 +34749,13 @@ const AtcZoneInfo kAtcAllZoneEtc_Zulu  = {
 
 static const char kAtcZoneNameEurope_Amsterdam[]  = "Europe/Amsterdam";
 
-const AtcZoneInfo kAtcAllZoneEurope_Amsterdam  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Amsterdam  = {
   kAtcZoneNameEurope_Amsterdam /*name*/,
   0x109395c2 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Brussels /*eras*/,
-  &kAtcAllZoneEurope_Brussels /*target_info*/,
+  &kAtcZonedballZoneEurope_Brussels /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34764,13 +34764,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Amsterdam  = {
 
 static const char kAtcZoneNameEurope_Belfast[]  = "Europe/Belfast";
 
-const AtcZoneInfo kAtcAllZoneEurope_Belfast  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Belfast  = {
   kAtcZoneNameEurope_Belfast /*name*/,
   0xd07dd1e5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
-  &kAtcAllZoneEurope_London /*target_info*/,
+  &kAtcZonedballZoneEurope_London /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34779,13 +34779,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Belfast  = {
 
 static const char kAtcZoneNameEurope_Bratislava[]  = "Europe/Bratislava";
 
-const AtcZoneInfo kAtcAllZoneEurope_Bratislava  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Bratislava  = {
   kAtcZoneNameEurope_Bratislava /*name*/,
   0xda493bed /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraEurope_Prague /*eras*/,
-  &kAtcAllZoneEurope_Prague /*target_info*/,
+  &kAtcZonedballZoneEurope_Prague /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34794,13 +34794,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Bratislava  = {
 
 static const char kAtcZoneNameEurope_Busingen[]  = "Europe/Busingen";
 
-const AtcZoneInfo kAtcAllZoneEurope_Busingen  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Busingen  = {
   kAtcZoneNameEurope_Busingen /*name*/,
   0xc06d2cdf /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraEurope_Zurich /*eras*/,
-  &kAtcAllZoneEurope_Zurich /*target_info*/,
+  &kAtcZonedballZoneEurope_Zurich /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34809,13 +34809,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Busingen  = {
 
 static const char kAtcZoneNameEurope_Copenhagen[]  = "Europe/Copenhagen";
 
-const AtcZoneInfo kAtcAllZoneEurope_Copenhagen  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Copenhagen  = {
   kAtcZoneNameEurope_Copenhagen /*name*/,
   0xe0ed30bc /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
-  &kAtcAllZoneEurope_Berlin /*target_info*/,
+  &kAtcZonedballZoneEurope_Berlin /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34824,13 +34824,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Copenhagen  = {
 
 static const char kAtcZoneNameEurope_Guernsey[]  = "Europe/Guernsey";
 
-const AtcZoneInfo kAtcAllZoneEurope_Guernsey  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Guernsey  = {
   kAtcZoneNameEurope_Guernsey /*name*/,
   0x3db12c16 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
-  &kAtcAllZoneEurope_London /*target_info*/,
+  &kAtcZonedballZoneEurope_London /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34839,13 +34839,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Guernsey  = {
 
 static const char kAtcZoneNameEurope_Isle_of_Man[]  = "Europe/Isle_of_Man";
 
-const AtcZoneInfo kAtcAllZoneEurope_Isle_of_Man  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Isle_of_Man  = {
   kAtcZoneNameEurope_Isle_of_Man /*name*/,
   0xeaf84580 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
-  &kAtcAllZoneEurope_London /*target_info*/,
+  &kAtcZonedballZoneEurope_London /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34854,13 +34854,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Isle_of_Man  = {
 
 static const char kAtcZoneNameEurope_Jersey[]  = "Europe/Jersey";
 
-const AtcZoneInfo kAtcAllZoneEurope_Jersey  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Jersey  = {
   kAtcZoneNameEurope_Jersey /*name*/,
   0x570dae76 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
-  &kAtcAllZoneEurope_London /*target_info*/,
+  &kAtcZonedballZoneEurope_London /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34869,13 +34869,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Jersey  = {
 
 static const char kAtcZoneNameEurope_Kiev[]  = "Europe/Kiev";
 
-const AtcZoneInfo kAtcAllZoneEurope_Kiev  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Kiev  = {
   kAtcZoneNameEurope_Kiev /*name*/,
   0xa2c19eb3 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Kyiv /*eras*/,
-  &kAtcAllZoneEurope_Kyiv /*target_info*/,
+  &kAtcZonedballZoneEurope_Kyiv /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34884,13 +34884,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Kiev  = {
 
 static const char kAtcZoneNameEurope_Ljubljana[]  = "Europe/Ljubljana";
 
-const AtcZoneInfo kAtcAllZoneEurope_Ljubljana  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Ljubljana  = {
   kAtcZoneNameEurope_Ljubljana /*name*/,
   0xbd98cdb7 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
-  &kAtcAllZoneEurope_Belgrade /*target_info*/,
+  &kAtcZonedballZoneEurope_Belgrade /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34899,13 +34899,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Ljubljana  = {
 
 static const char kAtcZoneNameEurope_Luxembourg[]  = "Europe/Luxembourg";
 
-const AtcZoneInfo kAtcAllZoneEurope_Luxembourg  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Luxembourg  = {
   kAtcZoneNameEurope_Luxembourg /*name*/,
   0x1f8bc6ce /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Brussels /*eras*/,
-  &kAtcAllZoneEurope_Brussels /*target_info*/,
+  &kAtcZonedballZoneEurope_Brussels /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34914,13 +34914,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Luxembourg  = {
 
 static const char kAtcZoneNameEurope_Mariehamn[]  = "Europe/Mariehamn";
 
-const AtcZoneInfo kAtcAllZoneEurope_Mariehamn  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Mariehamn  = {
   kAtcZoneNameEurope_Mariehamn /*name*/,
   0x0caa6496 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraEurope_Helsinki /*eras*/,
-  &kAtcAllZoneEurope_Helsinki /*target_info*/,
+  &kAtcZonedballZoneEurope_Helsinki /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34929,13 +34929,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Mariehamn  = {
 
 static const char kAtcZoneNameEurope_Monaco[]  = "Europe/Monaco";
 
-const AtcZoneInfo kAtcAllZoneEurope_Monaco  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Monaco  = {
   kAtcZoneNameEurope_Monaco /*name*/,
   0x5ebf9f01 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraEurope_Paris /*eras*/,
-  &kAtcAllZoneEurope_Paris /*target_info*/,
+  &kAtcZonedballZoneEurope_Paris /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34944,13 +34944,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Monaco  = {
 
 static const char kAtcZoneNameEurope_Nicosia[]  = "Europe/Nicosia";
 
-const AtcZoneInfo kAtcAllZoneEurope_Nicosia  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Nicosia  = {
   kAtcZoneNameEurope_Nicosia /*name*/,
   0x74efab8a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Nicosia /*eras*/,
-  &kAtcAllZoneAsia_Nicosia /*target_info*/,
+  &kAtcZonedballZoneAsia_Nicosia /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34959,13 +34959,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Nicosia  = {
 
 static const char kAtcZoneNameEurope_Oslo[]  = "Europe/Oslo";
 
-const AtcZoneInfo kAtcAllZoneEurope_Oslo  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Oslo  = {
   kAtcZoneNameEurope_Oslo /*name*/,
   0xa2c3fba1 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
-  &kAtcAllZoneEurope_Berlin /*target_info*/,
+  &kAtcZonedballZoneEurope_Berlin /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34974,13 +34974,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Oslo  = {
 
 static const char kAtcZoneNameEurope_Podgorica[]  = "Europe/Podgorica";
 
-const AtcZoneInfo kAtcAllZoneEurope_Podgorica  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Podgorica  = {
   kAtcZoneNameEurope_Podgorica /*name*/,
   0x1c1a499c /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
-  &kAtcAllZoneEurope_Belgrade /*target_info*/,
+  &kAtcZonedballZoneEurope_Belgrade /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -34989,13 +34989,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Podgorica  = {
 
 static const char kAtcZoneNameEurope_San_Marino[]  = "Europe/San_Marino";
 
-const AtcZoneInfo kAtcAllZoneEurope_San_Marino  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_San_Marino  = {
   kAtcZoneNameEurope_San_Marino /*name*/,
   0xcef7724b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraEurope_Rome /*eras*/,
-  &kAtcAllZoneEurope_Rome /*target_info*/,
+  &kAtcZonedballZoneEurope_Rome /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35004,13 +35004,13 @@ const AtcZoneInfo kAtcAllZoneEurope_San_Marino  = {
 
 static const char kAtcZoneNameEurope_Sarajevo[]  = "Europe/Sarajevo";
 
-const AtcZoneInfo kAtcAllZoneEurope_Sarajevo  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Sarajevo  = {
   kAtcZoneNameEurope_Sarajevo /*name*/,
   0x6a576c3f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
-  &kAtcAllZoneEurope_Belgrade /*target_info*/,
+  &kAtcZonedballZoneEurope_Belgrade /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35019,13 +35019,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Sarajevo  = {
 
 static const char kAtcZoneNameEurope_Skopje[]  = "Europe/Skopje";
 
-const AtcZoneInfo kAtcAllZoneEurope_Skopje  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Skopje  = {
   kAtcZoneNameEurope_Skopje /*name*/,
   0x6c76fdd0 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
-  &kAtcAllZoneEurope_Belgrade /*target_info*/,
+  &kAtcZonedballZoneEurope_Belgrade /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35034,13 +35034,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Skopje  = {
 
 static const char kAtcZoneNameEurope_Stockholm[]  = "Europe/Stockholm";
 
-const AtcZoneInfo kAtcAllZoneEurope_Stockholm  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Stockholm  = {
   kAtcZoneNameEurope_Stockholm /*name*/,
   0x5bf6fbb8 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraEurope_Berlin /*eras*/,
-  &kAtcAllZoneEurope_Berlin /*target_info*/,
+  &kAtcZonedballZoneEurope_Berlin /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35049,13 +35049,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Stockholm  = {
 
 static const char kAtcZoneNameEurope_Tiraspol[]  = "Europe/Tiraspol";
 
-const AtcZoneInfo kAtcAllZoneEurope_Tiraspol  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Tiraspol  = {
   kAtcZoneNameEurope_Tiraspol /*name*/,
   0xbe704472 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraEurope_Chisinau /*eras*/,
-  &kAtcAllZoneEurope_Chisinau /*target_info*/,
+  &kAtcZonedballZoneEurope_Chisinau /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35064,13 +35064,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Tiraspol  = {
 
 static const char kAtcZoneNameEurope_Uzhgorod[]  = "Europe/Uzhgorod";
 
-const AtcZoneInfo kAtcAllZoneEurope_Uzhgorod  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Uzhgorod  = {
   kAtcZoneNameEurope_Uzhgorod /*name*/,
   0xb066f5d6 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Kyiv /*eras*/,
-  &kAtcAllZoneEurope_Kyiv /*target_info*/,
+  &kAtcZonedballZoneEurope_Kyiv /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35079,13 +35079,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Uzhgorod  = {
 
 static const char kAtcZoneNameEurope_Vaduz[]  = "Europe/Vaduz";
 
-const AtcZoneInfo kAtcAllZoneEurope_Vaduz  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Vaduz  = {
   kAtcZoneNameEurope_Vaduz /*name*/,
   0xfbb81bae /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraEurope_Zurich /*eras*/,
-  &kAtcAllZoneEurope_Zurich /*target_info*/,
+  &kAtcZonedballZoneEurope_Zurich /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35094,13 +35094,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Vaduz  = {
 
 static const char kAtcZoneNameEurope_Vatican[]  = "Europe/Vatican";
 
-const AtcZoneInfo kAtcAllZoneEurope_Vatican  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Vatican  = {
   kAtcZoneNameEurope_Vatican /*name*/,
   0xcb485dca /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraEurope_Rome /*eras*/,
-  &kAtcAllZoneEurope_Rome /*target_info*/,
+  &kAtcZonedballZoneEurope_Rome /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35109,13 +35109,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Vatican  = {
 
 static const char kAtcZoneNameEurope_Zagreb[]  = "Europe/Zagreb";
 
-const AtcZoneInfo kAtcAllZoneEurope_Zagreb  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Zagreb  = {
   kAtcZoneNameEurope_Zagreb /*name*/,
   0x7c11c9ff /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraEurope_Belgrade /*eras*/,
-  &kAtcAllZoneEurope_Belgrade /*target_info*/,
+  &kAtcZonedballZoneEurope_Belgrade /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35124,13 +35124,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Zagreb  = {
 
 static const char kAtcZoneNameEurope_Zaporozhye[]  = "Europe/Zaporozhye";
 
-const AtcZoneInfo kAtcAllZoneEurope_Zaporozhye  = {
+const AtcZoneInfo kAtcZonedballZoneEurope_Zaporozhye  = {
   kAtcZoneNameEurope_Zaporozhye /*name*/,
   0xeab9767f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Kyiv /*eras*/,
-  &kAtcAllZoneEurope_Kyiv /*target_info*/,
+  &kAtcZonedballZoneEurope_Kyiv /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35139,13 +35139,13 @@ const AtcZoneInfo kAtcAllZoneEurope_Zaporozhye  = {
 
 static const char kAtcZoneNameGB[]  = "GB";
 
-const AtcZoneInfo kAtcAllZoneGB  = {
+const AtcZoneInfo kAtcZonedballZoneGB  = {
   kAtcZoneNameGB /*name*/,
   0x005973ae /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
-  &kAtcAllZoneEurope_London /*target_info*/,
+  &kAtcZonedballZoneEurope_London /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35154,13 +35154,13 @@ const AtcZoneInfo kAtcAllZoneGB  = {
 
 static const char kAtcZoneNameGB_Eire[]  = "GB-Eire";
 
-const AtcZoneInfo kAtcAllZoneGB_Eire  = {
+const AtcZoneInfo kAtcZonedballZoneGB_Eire  = {
   kAtcZoneNameGB_Eire /*name*/,
   0xfa70e300 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraEurope_London /*eras*/,
-  &kAtcAllZoneEurope_London /*target_info*/,
+  &kAtcZonedballZoneEurope_London /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35169,13 +35169,13 @@ const AtcZoneInfo kAtcAllZoneGB_Eire  = {
 
 static const char kAtcZoneNameGMT[]  = "GMT";
 
-const AtcZoneInfo kAtcAllZoneGMT  = {
+const AtcZoneInfo kAtcZonedballZoneGMT  = {
   kAtcZoneNameGMT /*name*/,
   0x0b87eb2d /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcAllZoneEtc_GMT /*target_info*/,
+  &kAtcZonedballZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35184,13 +35184,13 @@ const AtcZoneInfo kAtcAllZoneGMT  = {
 
 static const char kAtcZoneNameGMT_PLUS_0[]  = "GMT+0";
 
-const AtcZoneInfo kAtcAllZoneGMT_PLUS_0  = {
+const AtcZoneInfo kAtcZonedballZoneGMT_PLUS_0  = {
   kAtcZoneNameGMT_PLUS_0 /*name*/,
   0x0d2f7028 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcAllZoneEtc_GMT /*target_info*/,
+  &kAtcZonedballZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35199,13 +35199,13 @@ const AtcZoneInfo kAtcAllZoneGMT_PLUS_0  = {
 
 static const char kAtcZoneNameGMT_0[]  = "GMT-0";
 
-const AtcZoneInfo kAtcAllZoneGMT_0  = {
+const AtcZoneInfo kAtcZonedballZoneGMT_0  = {
   kAtcZoneNameGMT_0 /*name*/,
   0x0d2f706a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcAllZoneEtc_GMT /*target_info*/,
+  &kAtcZonedballZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35214,13 +35214,13 @@ const AtcZoneInfo kAtcAllZoneGMT_0  = {
 
 static const char kAtcZoneNameGMT0[]  = "GMT0";
 
-const AtcZoneInfo kAtcAllZoneGMT0  = {
+const AtcZoneInfo kAtcZonedballZoneGMT0  = {
   kAtcZoneNameGMT0 /*name*/,
   0x7c8550fd /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcAllZoneEtc_GMT /*target_info*/,
+  &kAtcZonedballZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35229,13 +35229,13 @@ const AtcZoneInfo kAtcAllZoneGMT0  = {
 
 static const char kAtcZoneNameGreenwich[]  = "Greenwich";
 
-const AtcZoneInfo kAtcAllZoneGreenwich  = {
+const AtcZoneInfo kAtcZonedballZoneGreenwich  = {
   kAtcZoneNameGreenwich /*name*/,
   0xc84d4221 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_GMT /*eras*/,
-  &kAtcAllZoneEtc_GMT /*target_info*/,
+  &kAtcZonedballZoneEtc_GMT /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35244,13 +35244,13 @@ const AtcZoneInfo kAtcAllZoneGreenwich  = {
 
 static const char kAtcZoneNameHST[]  = "HST";
 
-const AtcZoneInfo kAtcAllZoneHST  = {
+const AtcZoneInfo kAtcZonedballZoneHST  = {
   kAtcZoneNameHST /*name*/,
   0x0b87f034 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraPacific_Honolulu /*eras*/,
-  &kAtcAllZonePacific_Honolulu /*target_info*/,
+  &kAtcZonedballZonePacific_Honolulu /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35259,13 +35259,13 @@ const AtcZoneInfo kAtcAllZoneHST  = {
 
 static const char kAtcZoneNameHongkong[]  = "Hongkong";
 
-const AtcZoneInfo kAtcAllZoneHongkong  = {
+const AtcZoneInfo kAtcZonedballZoneHongkong  = {
   kAtcZoneNameHongkong /*name*/,
   0x56d36560 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAsia_Hong_Kong /*eras*/,
-  &kAtcAllZoneAsia_Hong_Kong /*target_info*/,
+  &kAtcZonedballZoneAsia_Hong_Kong /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35274,13 +35274,13 @@ const AtcZoneInfo kAtcAllZoneHongkong  = {
 
 static const char kAtcZoneNameIceland[]  = "Iceland";
 
-const AtcZoneInfo kAtcAllZoneIceland  = {
+const AtcZoneInfo kAtcZonedballZoneIceland  = {
   kAtcZoneNameIceland /*name*/,
   0xe56a35b5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAfrica_Abidjan /*eras*/,
-  &kAtcAllZoneAfrica_Abidjan /*target_info*/,
+  &kAtcZonedballZoneAfrica_Abidjan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35289,13 +35289,13 @@ const AtcZoneInfo kAtcAllZoneIceland  = {
 
 static const char kAtcZoneNameIndian_Antananarivo[]  = "Indian/Antananarivo";
 
-const AtcZoneInfo kAtcAllZoneIndian_Antananarivo  = {
+const AtcZoneInfo kAtcZonedballZoneIndian_Antananarivo  = {
   kAtcZoneNameIndian_Antananarivo /*name*/,
   0x9ebf5289 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcAllZoneAfrica_Nairobi /*target_info*/,
+  &kAtcZonedballZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35304,13 +35304,13 @@ const AtcZoneInfo kAtcAllZoneIndian_Antananarivo  = {
 
 static const char kAtcZoneNameIndian_Christmas[]  = "Indian/Christmas";
 
-const AtcZoneInfo kAtcAllZoneIndian_Christmas  = {
+const AtcZoneInfo kAtcZonedballZoneIndian_Christmas  = {
   kAtcZoneNameIndian_Christmas /*name*/,
   0x68c207d5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Bangkok /*eras*/,
-  &kAtcAllZoneAsia_Bangkok /*target_info*/,
+  &kAtcZonedballZoneAsia_Bangkok /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35319,13 +35319,13 @@ const AtcZoneInfo kAtcAllZoneIndian_Christmas  = {
 
 static const char kAtcZoneNameIndian_Cocos[]  = "Indian/Cocos";
 
-const AtcZoneInfo kAtcAllZoneIndian_Cocos  = {
+const AtcZoneInfo kAtcZonedballZoneIndian_Cocos  = {
   kAtcZoneNameIndian_Cocos /*name*/,
   0x021e86de /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Yangon /*eras*/,
-  &kAtcAllZoneAsia_Yangon /*target_info*/,
+  &kAtcZonedballZoneAsia_Yangon /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35334,13 +35334,13 @@ const AtcZoneInfo kAtcAllZoneIndian_Cocos  = {
 
 static const char kAtcZoneNameIndian_Comoro[]  = "Indian/Comoro";
 
-const AtcZoneInfo kAtcAllZoneIndian_Comoro  = {
+const AtcZoneInfo kAtcZonedballZoneIndian_Comoro  = {
   kAtcZoneNameIndian_Comoro /*name*/,
   0x45f4deb6 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcAllZoneAfrica_Nairobi /*target_info*/,
+  &kAtcZonedballZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35349,13 +35349,13 @@ const AtcZoneInfo kAtcAllZoneIndian_Comoro  = {
 
 static const char kAtcZoneNameIndian_Kerguelen[]  = "Indian/Kerguelen";
 
-const AtcZoneInfo kAtcAllZoneIndian_Kerguelen  = {
+const AtcZoneInfo kAtcZonedballZoneIndian_Kerguelen  = {
   kAtcZoneNameIndian_Kerguelen /*name*/,
   0x4351b389 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraIndian_Maldives /*eras*/,
-  &kAtcAllZoneIndian_Maldives /*target_info*/,
+  &kAtcZonedballZoneIndian_Maldives /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35364,13 +35364,13 @@ const AtcZoneInfo kAtcAllZoneIndian_Kerguelen  = {
 
 static const char kAtcZoneNameIndian_Mahe[]  = "Indian/Mahe";
 
-const AtcZoneInfo kAtcAllZoneIndian_Mahe  = {
+const AtcZoneInfo kAtcZonedballZoneIndian_Mahe  = {
   kAtcZoneNameIndian_Mahe /*name*/,
   0x45e725e2 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Dubai /*eras*/,
-  &kAtcAllZoneAsia_Dubai /*target_info*/,
+  &kAtcZonedballZoneAsia_Dubai /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35379,13 +35379,13 @@ const AtcZoneInfo kAtcAllZoneIndian_Mahe  = {
 
 static const char kAtcZoneNameIndian_Mayotte[]  = "Indian/Mayotte";
 
-const AtcZoneInfo kAtcAllZoneIndian_Mayotte  = {
+const AtcZoneInfo kAtcZonedballZoneIndian_Mayotte  = {
   kAtcZoneNameIndian_Mayotte /*name*/,
   0xe6880bca /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAfrica_Nairobi /*eras*/,
-  &kAtcAllZoneAfrica_Nairobi /*target_info*/,
+  &kAtcZonedballZoneAfrica_Nairobi /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35394,13 +35394,13 @@ const AtcZoneInfo kAtcAllZoneIndian_Mayotte  = {
 
 static const char kAtcZoneNameIndian_Reunion[]  = "Indian/Reunion";
 
-const AtcZoneInfo kAtcAllZoneIndian_Reunion  = {
+const AtcZoneInfo kAtcZonedballZoneIndian_Reunion  = {
   kAtcZoneNameIndian_Reunion /*name*/,
   0x7076c047 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Dubai /*eras*/,
-  &kAtcAllZoneAsia_Dubai /*target_info*/,
+  &kAtcZonedballZoneAsia_Dubai /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35409,13 +35409,13 @@ const AtcZoneInfo kAtcAllZoneIndian_Reunion  = {
 
 static const char kAtcZoneNameIran[]  = "Iran";
 
-const AtcZoneInfo kAtcAllZoneIran  = {
+const AtcZoneInfo kAtcZonedballZoneIran  = {
   kAtcZoneNameIran /*name*/,
   0x7c87090f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAsia_Tehran /*eras*/,
-  &kAtcAllZoneAsia_Tehran /*target_info*/,
+  &kAtcZonedballZoneAsia_Tehran /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35424,13 +35424,13 @@ const AtcZoneInfo kAtcAllZoneIran  = {
 
 static const char kAtcZoneNameIsrael[]  = "Israel";
 
-const AtcZoneInfo kAtcAllZoneIsrael  = {
+const AtcZoneInfo kAtcZonedballZoneIsrael  = {
   kAtcZoneNameIsrael /*name*/,
   0xba88c9e5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Jerusalem /*eras*/,
-  &kAtcAllZoneAsia_Jerusalem /*target_info*/,
+  &kAtcZonedballZoneAsia_Jerusalem /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35439,13 +35439,13 @@ const AtcZoneInfo kAtcAllZoneIsrael  = {
 
 static const char kAtcZoneNameJamaica[]  = "Jamaica";
 
-const AtcZoneInfo kAtcAllZoneJamaica  = {
+const AtcZoneInfo kAtcZonedballZoneJamaica  = {
   kAtcZoneNameJamaica /*name*/,
   0x2e44fdab /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraAmerica_Jamaica /*eras*/,
-  &kAtcAllZoneAmerica_Jamaica /*target_info*/,
+  &kAtcZonedballZoneAmerica_Jamaica /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35454,13 +35454,13 @@ const AtcZoneInfo kAtcAllZoneJamaica  = {
 
 static const char kAtcZoneNameJapan[]  = "Japan";
 
-const AtcZoneInfo kAtcAllZoneJapan  = {
+const AtcZoneInfo kAtcZonedballZoneJapan  = {
   kAtcZoneNameJapan /*name*/,
   0x0d712f8f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraAsia_Tokyo /*eras*/,
-  &kAtcAllZoneAsia_Tokyo /*target_info*/,
+  &kAtcZonedballZoneAsia_Tokyo /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35469,13 +35469,13 @@ const AtcZoneInfo kAtcAllZoneJapan  = {
 
 static const char kAtcZoneNameKwajalein[]  = "Kwajalein";
 
-const AtcZoneInfo kAtcAllZoneKwajalein  = {
+const AtcZoneInfo kAtcZonedballZoneKwajalein  = {
   kAtcZoneNameKwajalein /*name*/,
   0x0e57afbb /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraPacific_Kwajalein /*eras*/,
-  &kAtcAllZonePacific_Kwajalein /*target_info*/,
+  &kAtcZonedballZonePacific_Kwajalein /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35484,13 +35484,13 @@ const AtcZoneInfo kAtcAllZoneKwajalein  = {
 
 static const char kAtcZoneNameLibya[]  = "Libya";
 
-const AtcZoneInfo kAtcAllZoneLibya  = {
+const AtcZoneInfo kAtcZonedballZoneLibya  = {
   kAtcZoneNameLibya /*name*/,
   0x0d998b16 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAfrica_Tripoli /*eras*/,
-  &kAtcAllZoneAfrica_Tripoli /*target_info*/,
+  &kAtcZonedballZoneAfrica_Tripoli /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35499,13 +35499,13 @@ const AtcZoneInfo kAtcAllZoneLibya  = {
 
 static const char kAtcZoneNameMET[]  = "MET";
 
-const AtcZoneInfo kAtcAllZoneMET  = {
+const AtcZoneInfo kAtcZonedballZoneMET  = {
   kAtcZoneNameMET /*name*/,
   0x0b8803ab /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Brussels /*eras*/,
-  &kAtcAllZoneEurope_Brussels /*target_info*/,
+  &kAtcZonedballZoneEurope_Brussels /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35514,13 +35514,13 @@ const AtcZoneInfo kAtcAllZoneMET  = {
 
 static const char kAtcZoneNameMST[]  = "MST";
 
-const AtcZoneInfo kAtcAllZoneMST  = {
+const AtcZoneInfo kAtcZonedballZoneMST  = {
   kAtcZoneNameMST /*name*/,
   0x0b880579 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Phoenix /*eras*/,
-  &kAtcAllZoneAmerica_Phoenix /*target_info*/,
+  &kAtcZonedballZoneAmerica_Phoenix /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35529,13 +35529,13 @@ const AtcZoneInfo kAtcAllZoneMST  = {
 
 static const char kAtcZoneNameMST7MDT[]  = "MST7MDT";
 
-const AtcZoneInfo kAtcAllZoneMST7MDT  = {
+const AtcZoneInfo kAtcZonedballZoneMST7MDT  = {
   kAtcZoneNameMST7MDT /*name*/,
   0xf2af9375 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Denver /*eras*/,
-  &kAtcAllZoneAmerica_Denver /*target_info*/,
+  &kAtcZonedballZoneAmerica_Denver /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35544,13 +35544,13 @@ const AtcZoneInfo kAtcAllZoneMST7MDT  = {
 
 static const char kAtcZoneNameMexico_BajaNorte[]  = "Mexico/BajaNorte";
 
-const AtcZoneInfo kAtcAllZoneMexico_BajaNorte  = {
+const AtcZoneInfo kAtcZonedballZoneMexico_BajaNorte  = {
   kAtcZoneNameMexico_BajaNorte /*name*/,
   0xfcf7150f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   25 /*num_eras*/,
   kAtcZoneEraAmerica_Tijuana /*eras*/,
-  &kAtcAllZoneAmerica_Tijuana /*target_info*/,
+  &kAtcZonedballZoneAmerica_Tijuana /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35559,13 +35559,13 @@ const AtcZoneInfo kAtcAllZoneMexico_BajaNorte  = {
 
 static const char kAtcZoneNameMexico_BajaSur[]  = "Mexico/BajaSur";
 
-const AtcZoneInfo kAtcAllZoneMexico_BajaSur  = {
+const AtcZoneInfo kAtcZonedballZoneMexico_BajaSur  = {
   kAtcZoneNameMexico_BajaSur /*name*/,
   0x08ee3641 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Mazatlan /*eras*/,
-  &kAtcAllZoneAmerica_Mazatlan /*target_info*/,
+  &kAtcZonedballZoneAmerica_Mazatlan /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35574,13 +35574,13 @@ const AtcZoneInfo kAtcAllZoneMexico_BajaSur  = {
 
 static const char kAtcZoneNameMexico_General[]  = "Mexico/General";
 
-const AtcZoneInfo kAtcAllZoneMexico_General  = {
+const AtcZoneInfo kAtcZonedballZoneMexico_General  = {
   kAtcZoneNameMexico_General /*name*/,
   0x93711d57 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Mexico_City /*eras*/,
-  &kAtcAllZoneAmerica_Mexico_City /*target_info*/,
+  &kAtcZonedballZoneAmerica_Mexico_City /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35589,13 +35589,13 @@ const AtcZoneInfo kAtcAllZoneMexico_General  = {
 
 static const char kAtcZoneNameNZ[]  = "NZ";
 
-const AtcZoneInfo kAtcAllZoneNZ  = {
+const AtcZoneInfo kAtcZonedballZoneNZ  = {
   kAtcZoneNameNZ /*name*/,
   0x005974ad /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Auckland /*eras*/,
-  &kAtcAllZonePacific_Auckland /*target_info*/,
+  &kAtcZonedballZonePacific_Auckland /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35604,13 +35604,13 @@ const AtcZoneInfo kAtcAllZoneNZ  = {
 
 static const char kAtcZoneNameNZ_CHAT[]  = "NZ-CHAT";
 
-const AtcZoneInfo kAtcAllZoneNZ_CHAT  = {
+const AtcZoneInfo kAtcZonedballZoneNZ_CHAT  = {
   kAtcZoneNameNZ_CHAT /*name*/,
   0x4d42afda /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Chatham /*eras*/,
-  &kAtcAllZonePacific_Chatham /*target_info*/,
+  &kAtcZonedballZonePacific_Chatham /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35619,13 +35619,13 @@ const AtcZoneInfo kAtcAllZoneNZ_CHAT  = {
 
 static const char kAtcZoneNameNavajo[]  = "Navajo";
 
-const AtcZoneInfo kAtcAllZoneNavajo  = {
+const AtcZoneInfo kAtcZonedballZoneNavajo  = {
   kAtcZoneNameNavajo /*name*/,
   0xc4ef0e24 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Denver /*eras*/,
-  &kAtcAllZoneAmerica_Denver /*target_info*/,
+  &kAtcZonedballZoneAmerica_Denver /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35634,13 +35634,13 @@ const AtcZoneInfo kAtcAllZoneNavajo  = {
 
 static const char kAtcZoneNamePRC[]  = "PRC";
 
-const AtcZoneInfo kAtcAllZonePRC  = {
+const AtcZoneInfo kAtcZonedballZonePRC  = {
   kAtcZoneNamePRC /*name*/,
   0x0b88120a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraAsia_Shanghai /*eras*/,
-  &kAtcAllZoneAsia_Shanghai /*target_info*/,
+  &kAtcZonedballZoneAsia_Shanghai /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35649,13 +35649,13 @@ const AtcZoneInfo kAtcAllZonePRC  = {
 
 static const char kAtcZoneNamePST8PDT[]  = "PST8PDT";
 
-const AtcZoneInfo kAtcAllZonePST8PDT  = {
+const AtcZoneInfo kAtcZonedballZonePST8PDT  = {
   kAtcZoneNamePST8PDT /*name*/,
   0xd99ee2dc /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Los_Angeles /*eras*/,
-  &kAtcAllZoneAmerica_Los_Angeles /*target_info*/,
+  &kAtcZonedballZoneAmerica_Los_Angeles /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35664,13 +35664,13 @@ const AtcZoneInfo kAtcAllZonePST8PDT  = {
 
 static const char kAtcZoneNamePacific_Chuuk[]  = "Pacific/Chuuk";
 
-const AtcZoneInfo kAtcAllZonePacific_Chuuk  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Chuuk  = {
   kAtcZoneNamePacific_Chuuk /*name*/,
   0x8a090b23 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Port_Moresby /*eras*/,
-  &kAtcAllZonePacific_Port_Moresby /*target_info*/,
+  &kAtcZonedballZonePacific_Port_Moresby /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35679,13 +35679,13 @@ const AtcZoneInfo kAtcAllZonePacific_Chuuk  = {
 
 static const char kAtcZoneNamePacific_Enderbury[]  = "Pacific/Enderbury";
 
-const AtcZoneInfo kAtcAllZonePacific_Enderbury  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Enderbury  = {
   kAtcZoneNamePacific_Enderbury /*name*/,
   0x61599a93 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraPacific_Kanton /*eras*/,
-  &kAtcAllZonePacific_Kanton /*target_info*/,
+  &kAtcZonedballZonePacific_Kanton /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35694,13 +35694,13 @@ const AtcZoneInfo kAtcAllZonePacific_Enderbury  = {
 
 static const char kAtcZoneNamePacific_Funafuti[]  = "Pacific/Funafuti";
 
-const AtcZoneInfo kAtcAllZonePacific_Funafuti  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Funafuti  = {
   kAtcZoneNamePacific_Funafuti /*name*/,
   0xdb402d65 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Tarawa /*eras*/,
-  &kAtcAllZonePacific_Tarawa /*target_info*/,
+  &kAtcZonedballZonePacific_Tarawa /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35709,13 +35709,13 @@ const AtcZoneInfo kAtcAllZonePacific_Funafuti  = {
 
 static const char kAtcZoneNamePacific_Johnston[]  = "Pacific/Johnston";
 
-const AtcZoneInfo kAtcAllZonePacific_Johnston  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Johnston  = {
   kAtcZoneNamePacific_Johnston /*name*/,
   0xb15d7b36 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraPacific_Honolulu /*eras*/,
-  &kAtcAllZonePacific_Honolulu /*target_info*/,
+  &kAtcZonedballZonePacific_Honolulu /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35724,13 +35724,13 @@ const AtcZoneInfo kAtcAllZonePacific_Johnston  = {
 
 static const char kAtcZoneNamePacific_Majuro[]  = "Pacific/Majuro";
 
-const AtcZoneInfo kAtcAllZonePacific_Majuro  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Majuro  = {
   kAtcZoneNamePacific_Majuro /*name*/,
   0xe1f95371 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Tarawa /*eras*/,
-  &kAtcAllZonePacific_Tarawa /*target_info*/,
+  &kAtcZonedballZonePacific_Tarawa /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35739,13 +35739,13 @@ const AtcZoneInfo kAtcAllZonePacific_Majuro  = {
 
 static const char kAtcZoneNamePacific_Midway[]  = "Pacific/Midway";
 
-const AtcZoneInfo kAtcAllZonePacific_Midway  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Midway  = {
   kAtcZoneNamePacific_Midway /*name*/,
   0xe286d38e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Pago_Pago /*eras*/,
-  &kAtcAllZonePacific_Pago_Pago /*target_info*/,
+  &kAtcZonedballZonePacific_Pago_Pago /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35754,13 +35754,13 @@ const AtcZoneInfo kAtcAllZonePacific_Midway  = {
 
 static const char kAtcZoneNamePacific_Pohnpei[]  = "Pacific/Pohnpei";
 
-const AtcZoneInfo kAtcAllZonePacific_Pohnpei  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Pohnpei  = {
   kAtcZoneNamePacific_Pohnpei /*name*/,
   0x28929f96 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Guadalcanal /*eras*/,
-  &kAtcAllZonePacific_Guadalcanal /*target_info*/,
+  &kAtcZonedballZonePacific_Guadalcanal /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35769,13 +35769,13 @@ const AtcZoneInfo kAtcAllZonePacific_Pohnpei  = {
 
 static const char kAtcZoneNamePacific_Ponape[]  = "Pacific/Ponape";
 
-const AtcZoneInfo kAtcAllZonePacific_Ponape  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Ponape  = {
   kAtcZoneNamePacific_Ponape /*name*/,
   0xe9f80086 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Guadalcanal /*eras*/,
-  &kAtcAllZonePacific_Guadalcanal /*target_info*/,
+  &kAtcZonedballZonePacific_Guadalcanal /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35784,13 +35784,13 @@ const AtcZoneInfo kAtcAllZonePacific_Ponape  = {
 
 static const char kAtcZoneNamePacific_Saipan[]  = "Pacific/Saipan";
 
-const AtcZoneInfo kAtcAllZonePacific_Saipan  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Saipan  = {
   kAtcZoneNamePacific_Saipan /*name*/,
   0xeff7a35f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraPacific_Guam /*eras*/,
-  &kAtcAllZonePacific_Guam /*target_info*/,
+  &kAtcZonedballZonePacific_Guam /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35799,13 +35799,13 @@ const AtcZoneInfo kAtcAllZonePacific_Saipan  = {
 
 static const char kAtcZoneNamePacific_Samoa[]  = "Pacific/Samoa";
 
-const AtcZoneInfo kAtcAllZonePacific_Samoa  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Samoa  = {
   kAtcZoneNamePacific_Samoa /*name*/,
   0x8b2699b4 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Pago_Pago /*eras*/,
-  &kAtcAllZonePacific_Pago_Pago /*target_info*/,
+  &kAtcZonedballZonePacific_Pago_Pago /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35814,13 +35814,13 @@ const AtcZoneInfo kAtcAllZonePacific_Samoa  = {
 
 static const char kAtcZoneNamePacific_Truk[]  = "Pacific/Truk";
 
-const AtcZoneInfo kAtcAllZonePacific_Truk  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Truk  = {
   kAtcZoneNamePacific_Truk /*name*/,
   0x234010a9 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Port_Moresby /*eras*/,
-  &kAtcAllZonePacific_Port_Moresby /*target_info*/,
+  &kAtcZonedballZonePacific_Port_Moresby /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35829,13 +35829,13 @@ const AtcZoneInfo kAtcAllZonePacific_Truk  = {
 
 static const char kAtcZoneNamePacific_Wake[]  = "Pacific/Wake";
 
-const AtcZoneInfo kAtcAllZonePacific_Wake  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Wake  = {
   kAtcZoneNamePacific_Wake /*name*/,
   0x23416c2b /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Tarawa /*eras*/,
-  &kAtcAllZonePacific_Tarawa /*target_info*/,
+  &kAtcZonedballZonePacific_Tarawa /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35844,13 +35844,13 @@ const AtcZoneInfo kAtcAllZonePacific_Wake  = {
 
 static const char kAtcZoneNamePacific_Wallis[]  = "Pacific/Wallis";
 
-const AtcZoneInfo kAtcAllZonePacific_Wallis  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Wallis  = {
   kAtcZoneNamePacific_Wallis /*name*/,
   0xf94ddb0f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   2 /*num_eras*/,
   kAtcZoneEraPacific_Tarawa /*eras*/,
-  &kAtcAllZonePacific_Tarawa /*target_info*/,
+  &kAtcZonedballZonePacific_Tarawa /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35859,13 +35859,13 @@ const AtcZoneInfo kAtcAllZonePacific_Wallis  = {
 
 static const char kAtcZoneNamePacific_Yap[]  = "Pacific/Yap";
 
-const AtcZoneInfo kAtcAllZonePacific_Yap  = {
+const AtcZoneInfo kAtcZonedballZonePacific_Yap  = {
   kAtcZoneNamePacific_Yap /*name*/,
   0xbb40138d /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Port_Moresby /*eras*/,
-  &kAtcAllZonePacific_Port_Moresby /*target_info*/,
+  &kAtcZonedballZonePacific_Port_Moresby /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35874,13 +35874,13 @@ const AtcZoneInfo kAtcAllZonePacific_Yap  = {
 
 static const char kAtcZoneNamePoland[]  = "Poland";
 
-const AtcZoneInfo kAtcAllZonePoland  = {
+const AtcZoneInfo kAtcZonedballZonePoland  = {
   kAtcZoneNamePoland /*name*/,
   0xca913b23 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraEurope_Warsaw /*eras*/,
-  &kAtcAllZoneEurope_Warsaw /*target_info*/,
+  &kAtcZonedballZoneEurope_Warsaw /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35889,13 +35889,13 @@ const AtcZoneInfo kAtcAllZonePoland  = {
 
 static const char kAtcZoneNamePortugal[]  = "Portugal";
 
-const AtcZoneInfo kAtcAllZonePortugal  = {
+const AtcZoneInfo kAtcZonedballZonePortugal  = {
   kAtcZoneNamePortugal /*name*/,
   0xc3274593 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraEurope_Lisbon /*eras*/,
-  &kAtcAllZoneEurope_Lisbon /*target_info*/,
+  &kAtcZonedballZoneEurope_Lisbon /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35904,13 +35904,13 @@ const AtcZoneInfo kAtcAllZonePortugal  = {
 
 static const char kAtcZoneNameROC[]  = "ROC";
 
-const AtcZoneInfo kAtcAllZoneROC  = {
+const AtcZoneInfo kAtcZonedballZoneROC  = {
   kAtcZoneNameROC /*name*/,
   0x0b881a29 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAsia_Taipei /*eras*/,
-  &kAtcAllZoneAsia_Taipei /*target_info*/,
+  &kAtcZonedballZoneAsia_Taipei /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35919,13 +35919,13 @@ const AtcZoneInfo kAtcAllZoneROC  = {
 
 static const char kAtcZoneNameROK[]  = "ROK";
 
-const AtcZoneInfo kAtcAllZoneROK  = {
+const AtcZoneInfo kAtcZonedballZoneROK  = {
   kAtcZoneNameROK /*name*/,
   0x0b881a31 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAsia_Seoul /*eras*/,
-  &kAtcAllZoneAsia_Seoul /*target_info*/,
+  &kAtcZonedballZoneAsia_Seoul /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35934,13 +35934,13 @@ const AtcZoneInfo kAtcAllZoneROK  = {
 
 static const char kAtcZoneNameSingapore[]  = "Singapore";
 
-const AtcZoneInfo kAtcAllZoneSingapore  = {
+const AtcZoneInfo kAtcZonedballZoneSingapore  = {
   kAtcZoneNameSingapore /*name*/,
   0xa8598c8d /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAsia_Singapore /*eras*/,
-  &kAtcAllZoneAsia_Singapore /*target_info*/,
+  &kAtcZonedballZoneAsia_Singapore /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35949,13 +35949,13 @@ const AtcZoneInfo kAtcAllZoneSingapore  = {
 
 static const char kAtcZoneNameTurkey[]  = "Turkey";
 
-const AtcZoneInfo kAtcAllZoneTurkey  = {
+const AtcZoneInfo kAtcZonedballZoneTurkey  = {
   kAtcZoneNameTurkey /*name*/,
   0xd455e469 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   13 /*num_eras*/,
   kAtcZoneEraEurope_Istanbul /*eras*/,
-  &kAtcAllZoneEurope_Istanbul /*target_info*/,
+  &kAtcZonedballZoneEurope_Istanbul /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35964,13 +35964,13 @@ const AtcZoneInfo kAtcAllZoneTurkey  = {
 
 static const char kAtcZoneNameUCT[]  = "UCT";
 
-const AtcZoneInfo kAtcAllZoneUCT  = {
+const AtcZoneInfo kAtcZonedballZoneUCT  = {
   kAtcZoneNameUCT /*name*/,
   0x0b882571 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
-  &kAtcAllZoneEtc_UTC /*target_info*/,
+  &kAtcZonedballZoneEtc_UTC /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35979,13 +35979,13 @@ const AtcZoneInfo kAtcAllZoneUCT  = {
 
 static const char kAtcZoneNameUS_Alaska[]  = "US/Alaska";
 
-const AtcZoneInfo kAtcAllZoneUS_Alaska  = {
+const AtcZoneInfo kAtcZonedballZoneUS_Alaska  = {
   kAtcZoneNameUS_Alaska /*name*/,
   0xfa300bc9 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAmerica_Anchorage /*eras*/,
-  &kAtcAllZoneAmerica_Anchorage /*target_info*/,
+  &kAtcZonedballZoneAmerica_Anchorage /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -35994,13 +35994,13 @@ const AtcZoneInfo kAtcAllZoneUS_Alaska  = {
 
 static const char kAtcZoneNameUS_Aleutian[]  = "US/Aleutian";
 
-const AtcZoneInfo kAtcAllZoneUS_Aleutian  = {
+const AtcZoneInfo kAtcZonedballZoneUS_Aleutian  = {
   kAtcZoneNameUS_Aleutian /*name*/,
   0x4fe013ef /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   9 /*num_eras*/,
   kAtcZoneEraAmerica_Adak /*eras*/,
-  &kAtcAllZoneAmerica_Adak /*target_info*/,
+  &kAtcZonedballZoneAmerica_Adak /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -36009,13 +36009,13 @@ const AtcZoneInfo kAtcAllZoneUS_Aleutian  = {
 
 static const char kAtcZoneNameUS_Arizona[]  = "US/Arizona";
 
-const AtcZoneInfo kAtcAllZoneUS_Arizona  = {
+const AtcZoneInfo kAtcZonedballZoneUS_Arizona  = {
   kAtcZoneNameUS_Arizona /*name*/,
   0x4ec52670 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Phoenix /*eras*/,
-  &kAtcAllZoneAmerica_Phoenix /*target_info*/,
+  &kAtcZonedballZoneAmerica_Phoenix /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -36024,13 +36024,13 @@ const AtcZoneInfo kAtcAllZoneUS_Arizona  = {
 
 static const char kAtcZoneNameUS_Central[]  = "US/Central";
 
-const AtcZoneInfo kAtcAllZoneUS_Central  = {
+const AtcZoneInfo kAtcZonedballZoneUS_Central  = {
   kAtcZoneNameUS_Central /*name*/,
   0xcabdcb25 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraAmerica_Chicago /*eras*/,
-  &kAtcAllZoneAmerica_Chicago /*target_info*/,
+  &kAtcZonedballZoneAmerica_Chicago /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -36039,13 +36039,13 @@ const AtcZoneInfo kAtcAllZoneUS_Central  = {
 
 static const char kAtcZoneNameUS_East_Indiana[]  = "US/East-Indiana";
 
-const AtcZoneInfo kAtcAllZoneUS_East_Indiana  = {
+const AtcZoneInfo kAtcZonedballZoneUS_East_Indiana  = {
   kAtcZoneNameUS_East_Indiana /*name*/,
   0x6dcf558a /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   11 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Indianapolis /*eras*/,
-  &kAtcAllZoneAmerica_Indiana_Indianapolis /*target_info*/,
+  &kAtcZonedballZoneAmerica_Indiana_Indianapolis /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -36054,13 +36054,13 @@ const AtcZoneInfo kAtcAllZoneUS_East_Indiana  = {
 
 static const char kAtcZoneNameUS_Eastern[]  = "US/Eastern";
 
-const AtcZoneInfo kAtcAllZoneUS_Eastern  = {
+const AtcZoneInfo kAtcZonedballZoneUS_Eastern  = {
   kAtcZoneNameUS_Eastern /*name*/,
   0x5bb7e78e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_New_York /*eras*/,
-  &kAtcAllZoneAmerica_New_York /*target_info*/,
+  &kAtcZonedballZoneAmerica_New_York /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -36069,13 +36069,13 @@ const AtcZoneInfo kAtcAllZoneUS_Eastern  = {
 
 static const char kAtcZoneNameUS_Hawaii[]  = "US/Hawaii";
 
-const AtcZoneInfo kAtcAllZoneUS_Hawaii  = {
+const AtcZoneInfo kAtcZonedballZoneUS_Hawaii  = {
   kAtcZoneNameUS_Hawaii /*name*/,
   0x09c8de2f /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   5 /*num_eras*/,
   kAtcZoneEraPacific_Honolulu /*eras*/,
-  &kAtcAllZonePacific_Honolulu /*target_info*/,
+  &kAtcZonedballZonePacific_Honolulu /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -36084,13 +36084,13 @@ const AtcZoneInfo kAtcAllZoneUS_Hawaii  = {
 
 static const char kAtcZoneNameUS_Indiana_Starke[]  = "US/Indiana-Starke";
 
-const AtcZoneInfo kAtcAllZoneUS_Indiana_Starke  = {
+const AtcZoneInfo kAtcZonedballZoneUS_Indiana_Starke  = {
   kAtcZoneNameUS_Indiana_Starke /*name*/,
   0x67977be7 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   7 /*num_eras*/,
   kAtcZoneEraAmerica_Indiana_Knox /*eras*/,
-  &kAtcAllZoneAmerica_Indiana_Knox /*target_info*/,
+  &kAtcZonedballZoneAmerica_Indiana_Knox /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -36099,13 +36099,13 @@ const AtcZoneInfo kAtcAllZoneUS_Indiana_Starke  = {
 
 static const char kAtcZoneNameUS_Michigan[]  = "US/Michigan";
 
-const AtcZoneInfo kAtcAllZoneUS_Michigan  = {
+const AtcZoneInfo kAtcZonedballZoneUS_Michigan  = {
   kAtcZoneNameUS_Michigan /*name*/,
   0x766bb7bc /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   10 /*num_eras*/,
   kAtcZoneEraAmerica_Detroit /*eras*/,
-  &kAtcAllZoneAmerica_Detroit /*target_info*/,
+  &kAtcZonedballZoneAmerica_Detroit /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -36114,13 +36114,13 @@ const AtcZoneInfo kAtcAllZoneUS_Michigan  = {
 
 static const char kAtcZoneNameUS_Mountain[]  = "US/Mountain";
 
-const AtcZoneInfo kAtcAllZoneUS_Mountain  = {
+const AtcZoneInfo kAtcZonedballZoneUS_Mountain  = {
   kAtcZoneNameUS_Mountain /*name*/,
   0x6eb88247 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   6 /*num_eras*/,
   kAtcZoneEraAmerica_Denver /*eras*/,
-  &kAtcAllZoneAmerica_Denver /*target_info*/,
+  &kAtcZonedballZoneAmerica_Denver /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -36129,13 +36129,13 @@ const AtcZoneInfo kAtcAllZoneUS_Mountain  = {
 
 static const char kAtcZoneNameUS_Pacific[]  = "US/Pacific";
 
-const AtcZoneInfo kAtcAllZoneUS_Pacific  = {
+const AtcZoneInfo kAtcZonedballZoneUS_Pacific  = {
   kAtcZoneNameUS_Pacific /*name*/,
   0xa950f6ab /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   4 /*num_eras*/,
   kAtcZoneEraAmerica_Los_Angeles /*eras*/,
-  &kAtcAllZoneAmerica_Los_Angeles /*target_info*/,
+  &kAtcZonedballZoneAmerica_Los_Angeles /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -36144,13 +36144,13 @@ const AtcZoneInfo kAtcAllZoneUS_Pacific  = {
 
 static const char kAtcZoneNameUS_Samoa[]  = "US/Samoa";
 
-const AtcZoneInfo kAtcAllZoneUS_Samoa  = {
+const AtcZoneInfo kAtcZonedballZoneUS_Samoa  = {
   kAtcZoneNameUS_Samoa /*name*/,
   0x566821cd /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   3 /*num_eras*/,
   kAtcZoneEraPacific_Pago_Pago /*eras*/,
-  &kAtcAllZonePacific_Pago_Pago /*target_info*/,
+  &kAtcZonedballZonePacific_Pago_Pago /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -36159,13 +36159,13 @@ const AtcZoneInfo kAtcAllZoneUS_Samoa  = {
 
 static const char kAtcZoneNameUTC[]  = "UTC";
 
-const AtcZoneInfo kAtcAllZoneUTC  = {
+const AtcZoneInfo kAtcZonedballZoneUTC  = {
   kAtcZoneNameUTC /*name*/,
   0x0b882791 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
-  &kAtcAllZoneEtc_UTC /*target_info*/,
+  &kAtcZonedballZoneEtc_UTC /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -36174,13 +36174,13 @@ const AtcZoneInfo kAtcAllZoneUTC  = {
 
 static const char kAtcZoneNameUniversal[]  = "Universal";
 
-const AtcZoneInfo kAtcAllZoneUniversal  = {
+const AtcZoneInfo kAtcZonedballZoneUniversal  = {
   kAtcZoneNameUniversal /*name*/,
   0xd0ff523e /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
-  &kAtcAllZoneEtc_UTC /*target_info*/,
+  &kAtcZonedballZoneEtc_UTC /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -36189,13 +36189,13 @@ const AtcZoneInfo kAtcAllZoneUniversal  = {
 
 static const char kAtcZoneNameW_SU[]  = "W-SU";
 
-const AtcZoneInfo kAtcAllZoneW_SU  = {
+const AtcZoneInfo kAtcZonedballZoneW_SU  = {
   kAtcZoneNameW_SU /*name*/,
   0x7c8d8ef1 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   11 /*num_eras*/,
   kAtcZoneEraEurope_Moscow /*eras*/,
-  &kAtcAllZoneEurope_Moscow /*target_info*/,
+  &kAtcZonedballZoneEurope_Moscow /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -36204,13 +36204,13 @@ const AtcZoneInfo kAtcAllZoneW_SU  = {
 
 static const char kAtcZoneNameWET[]  = "WET";
 
-const AtcZoneInfo kAtcAllZoneWET  = {
+const AtcZoneInfo kAtcZonedballZoneWET  = {
   kAtcZoneNameWET /*name*/,
   0x0b882e35 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   8 /*num_eras*/,
   kAtcZoneEraEurope_Lisbon /*eras*/,
-  &kAtcAllZoneEurope_Lisbon /*target_info*/,
+  &kAtcZonedballZoneEurope_Lisbon /*target_info*/,
 };
 
 //---------------------------------------------------------------------------
@@ -36219,13 +36219,13 @@ const AtcZoneInfo kAtcAllZoneWET  = {
 
 static const char kAtcZoneNameZulu[]  = "Zulu";
 
-const AtcZoneInfo kAtcAllZoneZulu  = {
+const AtcZoneInfo kAtcZonedballZoneZulu  = {
   kAtcZoneNameZulu /*name*/,
   0x7c9069b5 /*zone_id*/,
-  &kAtcAllZoneContext /*zone_context*/,
+  &kAtcZonedballZoneContext /*zone_context*/,
   1 /*num_eras*/,
   kAtcZoneEraEtc_UTC /*eras*/,
-  &kAtcAllZoneEtc_UTC /*target_info*/,
+  &kAtcZonedballZoneEtc_UTC /*target_info*/,
 };
 
 

@@ -8,7 +8,7 @@
 
 //---------------------------------------------------------------------------
 
-ACU_TEST(test_zoned_date_time_to_and_from_epoch_seconds)
+ACU_TEST(test_zoned_date_time_to_and_from_epoch_seconds_epoch2000)
 {
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2000);
@@ -66,6 +66,8 @@ ACU_TEST(test_zoned_date_time_to_and_from_epoch_seconds_epoch2050)
   atc_set_current_epoch_year(saved_epoch_year);
 }
 
+//---------------------------------------------------------------------------
+
 ACU_TEST(test_zoned_date_time_from_epoch_seconds_unix_max)
 {
   int16_t saved_epoch_year = atc_get_current_epoch_year();
@@ -95,6 +97,8 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_unix_max)
   atc_set_current_epoch_year(saved_epoch_year);
 }
 
+//---------------------------------------------------------------------------
+
 ACU_TEST(test_zoned_date_time_from_epoch_seconds_invalid)
 {
   AtcZoneProcessor processor;
@@ -103,13 +107,61 @@ ACU_TEST(test_zoned_date_time_from_epoch_seconds_invalid)
 
   AtcZonedDateTime zdt;
   atc_time_t epoch_seconds = kAtcInvalidEpochSeconds;
-
   atc_zoned_date_time_from_epoch_seconds(&zdt, epoch_seconds, &tz);
   ACU_ASSERT(atc_zoned_date_time_is_error(&zdt));
+}
 
+ACU_TEST(test_zoned_date_time_to_epoch_seconds_invalid)
+{
+  AtcZoneProcessor processor;
+  atc_processor_init(&processor);
+  AtcTimeZone tz = {&kAtcTestingZoneEtc_UTC, &processor};
+  AtcZonedDateTime zdt;
+
+  AtcPlainDateTime pdt = {0, 1, 1, 0, 0, 0};
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
+  ACU_ASSERT(atc_zoned_date_time_is_error(&zdt));
+  ACU_ASSERT(atc_zoned_date_time_to_epoch_seconds(&zdt)
+      == kAtcInvalidEpochSeconds);
+
+  pdt = (AtcPlainDateTime) {2000, 0, 1, 0, 0, 0};
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
+  ACU_ASSERT(atc_zoned_date_time_is_error(&zdt));
+  ACU_ASSERT(atc_zoned_date_time_to_epoch_seconds(&zdt)
+      == kAtcInvalidEpochSeconds);
+
+  pdt = (AtcPlainDateTime) {2000, 1, 32, 0, 0, 0};
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
+  ACU_ASSERT(atc_zoned_date_time_is_error(&zdt));
+  ACU_ASSERT(atc_zoned_date_time_to_epoch_seconds(&zdt)
+      == kAtcInvalidEpochSeconds);
+
+  pdt = (AtcPlainDateTime) {2000, 1, 1, 24, 0, 0};
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
+  ACU_ASSERT(atc_zoned_date_time_is_error(&zdt));
+  ACU_ASSERT(atc_zoned_date_time_to_epoch_seconds(&zdt)
+      == kAtcInvalidEpochSeconds);
+
+  pdt = (AtcPlainDateTime) {2000, 1, 1, 0, 60, 0};
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
+  ACU_ASSERT(atc_zoned_date_time_is_error(&zdt));
+  ACU_ASSERT(atc_zoned_date_time_to_epoch_seconds(&zdt)
+      == kAtcInvalidEpochSeconds);
+
+  pdt = (AtcPlainDateTime) {2000, 1, 1, 0, 0, 60};
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
+  ACU_ASSERT(atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(atc_zoned_date_time_to_epoch_seconds(&zdt)
       == kAtcInvalidEpochSeconds);
 }
+
+//---------------------------------------------------------------------------
 
 ACU_TEST(test_zoned_date_time_from_epoch_seconds_fall_back)
 {
@@ -288,7 +340,7 @@ ACU_TEST(test_zoned_date_time_to_and_from_unix_seconds_invalid)
 
 //---------------------------------------------------------------------------
 
-ACU_TEST(test_zoned_date_time_from_local_date_time)
+ACU_TEST(test_zoned_date_time_from_plain_date_time_epoch2000)
 {
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2000);
@@ -297,10 +349,10 @@ ACU_TEST(test_zoned_date_time_from_local_date_time)
   atc_processor_init(&processor);
   AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
-  AtcLocalDateTime ldt = {2000, 1, 1, 0, 0, 0};
+  AtcPlainDateTime pdt = {2000, 1, 1, 0, 0, 0};
   AtcZonedDateTime zdt;
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateCompatible);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2000);
   ACU_ASSERT(zdt.month == 1);
@@ -314,10 +366,10 @@ ACU_TEST(test_zoned_date_time_from_local_date_time)
   ACU_ASSERT(8 * 60 * 60 == atc_zoned_date_time_to_epoch_seconds(&zdt));
 
   // check that input kAtcDisambiguateReversed gives identical results, only a
-  // single LocalDateTime matches
-  ldt = (AtcLocalDateTime) {2000, 1, 1, 0, 0, 0};
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateReversed);
+  // single PlainDateTime matches
+  pdt = (AtcPlainDateTime) {2000, 1, 1, 0, 0, 0};
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateReversed);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2000);
   ACU_ASSERT(zdt.month == 1);
@@ -333,7 +385,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time)
   atc_set_current_epoch_year(saved_epoch_year);
 }
 
-ACU_TEST(test_zoned_date_time_from_local_date_time_epoch2050)
+ACU_TEST(test_zoned_date_time_from_plain_date_time_epoch2050)
 {
   int16_t saved_epoch_year = atc_get_current_epoch_year();
   atc_set_current_epoch_year(2050);
@@ -342,10 +394,10 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_epoch2050)
   atc_processor_init(&processor);
   AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
-  AtcLocalDateTime ldt = {2050, 1, 1, 0, 0, 0};
+  AtcPlainDateTime pdt = {2050, 1, 1, 0, 0, 0};
   AtcZonedDateTime zdt;
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateCompatible);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2050);
   ACU_ASSERT(zdt.month == 1);
@@ -359,9 +411,9 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_epoch2050)
   ACU_ASSERT(8 * 60 * 60 == atc_zoned_date_time_to_epoch_seconds(&zdt));
 
   // check that kAtcDisambiguateReversed gives identical results
-  ldt = (AtcLocalDateTime) {2050, 1, 1, 0, 0, 0};
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateReversed);
+  pdt = (AtcPlainDateTime) {2050, 1, 1, 0, 0, 0};
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateReversed);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2050);
   ACU_ASSERT(zdt.month == 1);
@@ -377,17 +429,19 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_epoch2050)
   atc_set_current_epoch_year(saved_epoch_year);
 }
 
-ACU_TEST(test_zoned_date_time_from_local_date_time_before_gap)
+//---------------------------------------------------------------------------
+
+ACU_TEST(test_zoned_date_time_from_plain_date_time_before_gap)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
   AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // 01:59 should resolve to 01:59-08:00
-  AtcLocalDateTime ldt = {2018, 3, 11, 1, 59, 0};
+  AtcPlainDateTime pdt = {2018, 3, 11, 1, 59, 0};
   AtcZonedDateTime zdt;
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateCompatible);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 3);
@@ -400,9 +454,9 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_gap)
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
   // check that kAtcDisambiguateReversed gives identical results
-  ldt = (AtcLocalDateTime) {2018, 3, 11, 1, 59, 0};
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateReversed);
+  pdt = (AtcPlainDateTime) {2018, 3, 11, 1, 59, 0};
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateReversed);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 3);
@@ -415,19 +469,19 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_gap)
   ACU_ASSERT(zdt.tz.zone_info == &kAtcTestingZoneAmerica_Los_Angeles);
 }
 
-ACU_TEST(test_zoned_date_time_from_local_date_time_in_gap)
+ACU_TEST(test_zoned_date_time_from_plain_date_time_in_gap)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
   AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // 02:01 doesn't exist.
-  AtcLocalDateTime ldt = {2018, 3, 11, 2, 1, 0};
+  AtcPlainDateTime pdt = {2018, 3, 11, 2, 1, 0};
   AtcZonedDateTime zdt;
 
   // Setting kAtcDisambiguateCompatible selects the later time, 03:01-07:00.
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateCompatible);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 3);
@@ -440,8 +494,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_gap)
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
   // Setting kAtcDisambiguateLater also selects the later time.
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateCompatible);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 3);
@@ -454,8 +508,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_gap)
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
   // Setting kAtcDisambiguateEarlier selects the earlier time, 01:01-08:00.
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateEarlier);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateEarlier);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 3);
@@ -468,8 +522,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_gap)
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
   // Setting kAtcDisambiguateReversed also selects the earlier time.
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateReversed);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateReversed);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 3);
@@ -482,17 +536,17 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_gap)
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 }
 
-ACU_TEST(test_zoned_date_time_from_local_date_time_after_gap)
+ACU_TEST(test_zoned_date_time_from_plain_date_time_after_gap)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
   AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // 03:01 should resolve to 03:01-07:00.
-  AtcLocalDateTime ldt = {2018, 3, 11, 3, 1, 0};
+  AtcPlainDateTime pdt = {2018, 3, 11, 3, 1, 0};
   AtcZonedDateTime zdt;
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateCompatible);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 3);
@@ -505,9 +559,9 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_after_gap)
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
   // check that input kAtcDisambiguateReversed gives identical results
-  ldt = (AtcLocalDateTime) {2018, 3, 11, 3, 1, 0};
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateReversed);
+  pdt = (AtcPlainDateTime) {2018, 3, 11, 3, 1, 0};
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateReversed);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 3);
@@ -520,7 +574,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_after_gap)
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 }
 
-ACU_TEST(test_zoned_date_time_from_local_date_time_before_overlap)
+ACU_TEST(test_zoned_date_time_from_plain_date_time_before_overlap)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
@@ -528,9 +582,9 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_overlap)
 
   // 00:59 is an hour before overlap, so should return 00:59-07:00.
   AtcZonedDateTime zdt;
-  AtcLocalDateTime ldt = {2018, 11, 4, 0, 59, 0};
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateCompatible);
+  AtcPlainDateTime pdt = {2018, 11, 4, 0, 59, 0};
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 11);
@@ -543,9 +597,9 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_overlap)
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
   // check that kAtcDisambiguateReversed gives identical results
-  ldt = (AtcLocalDateTime) {2018, 11, 4, 0, 59, 0};
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateReversed);
+  pdt = (AtcPlainDateTime) {2018, 11, 4, 0, 59, 0};
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateReversed);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 11);
@@ -558,19 +612,19 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_before_overlap)
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 }
 
-ACU_TEST(test_zoned_date_time_from_local_date_time_in_overlap)
+ACU_TEST(test_zoned_date_time_from_plain_date_time_in_overlap)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
   AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   // There were two instances of 01:01
-  AtcLocalDateTime ldt = {2018, 11, 4, 1, 1, 0};
+  AtcPlainDateTime pdt = {2018, 11, 4, 1, 1, 0};
   AtcZonedDateTime zdt;
 
   // kAtcDisambiguateCompatible selects the earlier time, 01:01-07:00.
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateCompatible);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 11);
@@ -583,8 +637,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_overlap)
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
   // kAtcDisambiguateEarlier selects the earlier time, 01:01-07:00.
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateEarlier);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateEarlier);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 11);
@@ -597,8 +651,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_overlap)
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
   // kAtcDisambiguateLater selects the later time, 01:01-08:00.
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateLater);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateLater);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 11);
@@ -611,8 +665,8 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_overlap)
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
   // kAtcDisambiguateReversed selects the later time, 01:01-08:00.
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateReversed);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateReversed);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 11);
@@ -625,7 +679,7 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_in_overlap)
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 }
 
-ACU_TEST(test_zoned_date_time_from_local_date_time_after_overlap)
+ACU_TEST(test_zoned_date_time_from_plain_date_time_after_overlap)
 {
   AtcZoneProcessor processor;
   atc_processor_init(&processor);
@@ -633,9 +687,9 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_after_overlap)
 
   // 02:01 should resolve to 02:01-08:00
   AtcZonedDateTime zdt;
-  AtcLocalDateTime ldt = {2018, 11, 4, 2, 1, 0};
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateCompatible);
+  AtcPlainDateTime pdt = {2018, 11, 4, 2, 1, 0};
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 11);
@@ -648,9 +702,9 @@ ACU_TEST(test_zoned_date_time_from_local_date_time_after_overlap)
   ACU_ASSERT(zdt.tz.zone_info == tz.zone_info);
 
   // check that kAtcDisambiguateReversed gives identical results
-  ldt = (AtcLocalDateTime) {2018, 11, 4, 2, 1, 0};
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateReversed);
+  pdt = (AtcPlainDateTime) {2018, 11, 4, 2, 1, 0};
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateReversed);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
   ACU_ASSERT(zdt.year == 2018);
   ACU_ASSERT(zdt.month == 11);
@@ -675,10 +729,10 @@ ACU_TEST(test_zoned_date_time_convert)
   AtcTimeZone tzny = {&kAtcTestingZoneAmerica_New_York, &new_york};
 
   // 2022-08-30 20:00-07:00 in LA
-  AtcLocalDateTime ldt = {2022, 8, 30, 20, 0, 0};
+  AtcPlainDateTime pdt = {2022, 8, 30, 20, 0, 0};
   AtcZonedDateTime zdtla;
-  atc_zoned_date_time_from_local_date_time(
-      &zdtla, &ldt, &tzla, kAtcDisambiguateCompatible);
+  atc_zoned_date_time_from_plain_date_time(
+      &zdtla, &pdt, &tzla, kAtcDisambiguateCompatible);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdtla));
 
   AtcZonedDateTime zdtny;
@@ -726,9 +780,9 @@ ACU_TEST(test_zoned_date_time_print)
   AtcTimeZone tz = {&kAtcTestingZoneAmerica_Los_Angeles, &processor};
 
   AtcZonedDateTime zdt;
-  AtcLocalDateTime ldt = {2018, 3, 11, 2, 30, 0};
-  atc_zoned_date_time_from_local_date_time(
-      &zdt, &ldt, &tz, kAtcDisambiguateCompatible);
+  AtcPlainDateTime pdt = {2018, 3, 11, 2, 30, 0};
+  atc_zoned_date_time_from_plain_date_time(
+      &zdt, &pdt, &tz, kAtcDisambiguateCompatible);
   ACU_ASSERT(!atc_zoned_date_time_is_error(&zdt));
 
   char buf[64];
@@ -747,24 +801,32 @@ ACU_CONTEXT();
 
 int main()
 {
-  ACU_RUN_TEST(test_zoned_date_time_to_and_from_epoch_seconds);
+  ACU_RUN_TEST(test_zoned_date_time_to_and_from_epoch_seconds_epoch2000);
   ACU_RUN_TEST(test_zoned_date_time_to_and_from_epoch_seconds_epoch2050);
+
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_unix_max);
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_invalid);
+  ACU_RUN_TEST(test_zoned_date_time_to_epoch_seconds_invalid);
+
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_fall_back);
   ACU_RUN_TEST(test_zoned_date_time_from_epoch_seconds_spring_forward);
+
   ACU_RUN_TEST(test_zoned_date_time_to_and_from_unix_seconds);
   ACU_RUN_TEST(test_zoned_date_time_to_and_from_unix_seconds_invalid);
-  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time);
-  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_epoch2050);
-  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_before_gap);
-  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_in_gap);
-  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_after_gap);
-  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_before_overlap);
-  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_in_overlap);
-  ACU_RUN_TEST(test_zoned_date_time_from_local_date_time_after_overlap);
+
+  ACU_RUN_TEST(test_zoned_date_time_from_plain_date_time_epoch2000);
+  ACU_RUN_TEST(test_zoned_date_time_from_plain_date_time_epoch2050);
+
+  ACU_RUN_TEST(test_zoned_date_time_from_plain_date_time_before_gap);
+  ACU_RUN_TEST(test_zoned_date_time_from_plain_date_time_in_gap);
+  ACU_RUN_TEST(test_zoned_date_time_from_plain_date_time_after_gap);
+  ACU_RUN_TEST(test_zoned_date_time_from_plain_date_time_before_overlap);
+  ACU_RUN_TEST(test_zoned_date_time_from_plain_date_time_in_overlap);
+  ACU_RUN_TEST(test_zoned_date_time_from_plain_date_time_after_overlap);
+
   ACU_RUN_TEST(test_zoned_date_time_convert);
   ACU_RUN_TEST(test_zoned_date_time_normalize);
   ACU_RUN_TEST(test_zoned_date_time_print);
+
   ACU_SUMMARY();
 }

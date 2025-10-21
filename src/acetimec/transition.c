@@ -7,7 +7,7 @@
 #include "../zoneinfo/zone_info.h"
 #include "../zoneinfo/zone_info_utils.h"
 #include "common.h" // atc_time_t
-#include "local_date.h" // atc_local_date_to_epoch_days()
+#include "plain_date.h" // atc_plain_date_to_epoch_days()
 #include "transition.h"
 
 //---------------------------------------------------------------------------
@@ -353,14 +353,14 @@ AtcTransitionForSeconds atc_transition_storage_find_for_seconds(
 
 AtcTransitionForDateTime atc_transition_storage_find_for_date_time(
     const AtcTransitionStorage *ts,
-    const AtcLocalDateTime *ldt)
+    const AtcPlainDateTime *pdt)
 {
-  // Convert LocalDateTime to DateTuple.
-  AtcDateTuple local_dt = {
-      ldt->year,
-      ldt->month,
-      ldt->day,
-      (ldt->hour * (int32_t) 60 + ldt->minute) * 60 + ldt->second,
+  // Convert PlainDateTime to DateTuple.
+  AtcDateTuple plain_dt = {
+      pdt->year,
+      pdt->month,
+      pdt->day,
+      (pdt->hour * (int32_t) 60 + pdt->minute) * 60 + pdt->second,
       kAtcSuffixW
   };
 
@@ -374,8 +374,8 @@ AtcTransitionForDateTime atc_transition_storage_find_for_date_time(
 
     const AtcDateTuple *start_dt = &curr->start_dt;
     const AtcDateTuple *until_dt = &curr->until_dt;
-    bool is_exact_match = atc_date_tuple_compare(start_dt, &local_dt) <= 0
-        && atc_date_tuple_compare(&local_dt, until_dt) < 0;
+    bool is_exact_match = atc_date_tuple_compare(start_dt, &plain_dt) <= 0
+        && atc_date_tuple_compare(&plain_dt, until_dt) < 0;
 
     if (is_exact_match) {
       // Check for a previous exact match to detect an overlap.
@@ -386,7 +386,7 @@ AtcTransitionForDateTime atc_transition_storage_find_for_date_time(
 
       // Loop again to detect an overlap.
       num = 1;
-    } else if (atc_date_tuple_compare(start_dt, &local_dt) > 0) {
+    } else if (atc_date_tuple_compare(start_dt, &plain_dt) > 0) {
       // Exit loop since no more curr transition.
       break;
     }

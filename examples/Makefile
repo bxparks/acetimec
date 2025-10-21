@@ -6,7 +6,11 @@ SHELL:=bash
 # between them.
 all:
 	set -e; \
-	for i in {hello_acetimec,multizone,validate_against_libc}/Makefile; do \
+	for i in \
+		hello_*/Makefile \
+		libc_multizone/Makefile \
+		validate_against_libc/Makefile; \
+	do \
 		echo '==== Making:' $$(dirname $$i); \
 		$(MAKE) -C $$(dirname $$i); \
 	done

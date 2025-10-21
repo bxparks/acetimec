@@ -57,38 +57,39 @@ ASCII table.
 ## Results
 
 **0.7.0**
-* Initial version
+- Initial version
 
 **0.8.0**
-* Regenerate using `ATC_HIRES_ZONEDB` using years `[2000,10000)`.
-    * one-second resolution for AT, UNTIL, STDOFF
-    * one-minute resolution for DSTOFF (Zone.RULES, Rule.SAVE)
-    * 8-bit
-        * flash increases by ~650 bytes, independent of number of zones
-        * RAM increases ~100 bytes per zone
-    * 32-bit
-        * NO flash increase
-        * RAM increases by ~150 bytes per zone
-* Regenerate using `ATC_HIRES_ZONEDB` using years `[1800,10000)`, covering
-  all TZDB transitions.
-    * Increases flash of ZoneRegistry by almost 100%.
-        * 8-bit: 33kB to 66kB
-        * 32-bit: 40kB to 80kB
-    * ZoneAndLinkRegistry is another 10kB.
-        * Microprocessors without `PROGMEM` support no longer compiles because
+- Regenerate using `ACE_TIME_C_ZONEDB_RES=ACE_TIME_C_ZONEDB_RES_HIGH` using
+  years `[2000,10000)`.
+    - one-second resolution for AT, UNTIL, STDOFF
+    - one-minute resolution for DSTOFF (Zone.RULES, Rule.SAVE)
+    - 8-bit
+        - flash increases by ~650 bytes, independent of number of zones
+        - RAM increases ~100 bytes per zone
+    - 32-bit
+        - NO flash increase
+        - RAM increases by ~150 bytes per zone
+- Regenerate using `ACE_TIME_C_ZONEDB_RES=ACE_TIME_C_ZONEDB_RES_HIGH` using
+  years `[1800,10000)`, covering all TZDB transitions.
+    - Increases flash of ZoneRegistry by almost 100%.
+        - 8-bit: 33kB to 66kB
+        - 32-bit: 40kB to 80kB
+    - ZoneAndLinkRegistry is another 10kB.
+        - Microprocessors without `PROGMEM` support no longer compiles because
           it tries to instantiate the zonedb into RAM.
-* Upgrade to 2023c
-* Add memory numbers for `zonedball` database.
+- Upgrade to 2023c
+- Add memory numbers for `zonedball` database.
 
 **0.9.0**
-* Remove Teensy3.2, moved into Tier 2.
-* Add SAMD21 (Seeeduino XIAO) and SAMD51 (Adafruit ItsyBitsy M4).
+- Remove Teensy3.2, moved into Tier 2.
+- Add SAMD21 (Seeeduino XIAO) and SAMD51 (Adafruit ItsyBitsy M4).
 
 ### Arduino Nano
 
-* 16MHz ATmega328P
-* Arduino IDE 1.8.19, Arduino CLI 0.31.0
-* Arduino AVR Boards 1.8.6
+- 16MHz ATmega328P
+- Arduino IDE 1.8.19, Arduino CLI 0.31.0
+- Arduino AVR Boards 1.8.6
 
 ```
 {nano_results}
@@ -99,9 +100,9 @@ stored in RAM not in flash.
 
 ### Sparkfun Pro Micro
 
-* 16 MHz ATmega32U4
-* Arduino IDE 1.8.19, Arduino CLI 0.31.0
-* SparkFun AVR Boards 1.1.13
+- 16 MHz ATmega32U4
+- Arduino IDE 1.8.19, Arduino CLI 0.31.0
+- SparkFun AVR Boards 1.1.13
 
 ```
 {micro_results}
@@ -112,9 +113,9 @@ stored in RAM not in flash.
 
 ### SAMD21 (Seeeduino XIAO)
 
-* SAMD21, 48 MHz ARM Cortex-M0+
-* Arduino IDE 1.8.19, Arduino CLI 0.31.0
-* Seeeduino SAMD 1.8.3
+- SAMD21, 48 MHz ARM Cortex-M0+
+- Arduino IDE 1.8.19, Arduino CLI 0.31.0
+- Seeeduino SAMD 1.8.3
 
 ```
 {samd21_results}
@@ -125,9 +126,9 @@ microcontroller and the compiler did not generate the desired information.
 
 ### STM32 Blue Pill
 
-* STM32F103C8, 72 MHz ARM Cortex-M3
-* Arduino IDE 1.8.19, Arduino CLI 0.31.0
-* STM32duino 2.4.0
+- STM32F103C8, 72 MHz ARM Cortex-M3
+- Arduino IDE 1.8.19, Arduino CLI 0.31.0
+- STM32duino 2.4.0
 
 ```
 {stm32_results}
@@ -138,9 +139,9 @@ microcontroller and the compiler did not generate the desired information.
 
 ### SAMD51 (Adafruit ItsyBitsy M4)
 
-* SAMD51, 120 MHz ARM Cortex-M4
-* Arduino IDE 1.8.19, Arduino CLI 0.31.0
-* Adafruit SAMD 1.7.11
+- SAMD51, 120 MHz ARM Cortex-M4
+- Arduino IDE 1.8.19, Arduino CLI 0.31.0
+- Adafruit SAMD 1.7.11
 
 ```
 {samd51_results}
@@ -151,9 +152,9 @@ microcontroller and the compiler did not generate the desired information.
 
 ### ESP8266
 
-* NodeMCU 1.0, 80MHz ESP8266
-* Arduino IDE 1.8.19, Arduino CLI 0.31.0
-* ESP8266 Boards 3.0.2
+- NodeMCU 1.0, 80MHz ESP8266
+- Arduino IDE 1.8.19, Arduino CLI 0.31.0
+- ESP8266 Boards 3.0.2
 
 ```
 {esp8266_results}
@@ -164,9 +165,9 @@ stored in RAM not in flash.
 
 ### ESP32
 
-* ESP32-01 Dev Board, 240 MHz Tensilica LX6
-* Arduino IDE 1.8.19, Arduino CLI 0.31.0
-* ESP32 Boards 2.0.7
+- ESP32-01 Dev Board, 240 MHz Tensilica LX6
+- Arduino IDE 1.8.19, Arduino CLI 0.31.0
+- ESP32 Boards 2.0.7
 
 ```
 {esp32_results}
