@@ -781,13 +781,13 @@ be handled. The resulting `zdt.resolved` field is available to indicate how the
 ambiguity (if any) was resolved:
 
 - `kAtcResolvedUnique`: AtcPlainDateTime was unique
-- `kAtcResolvedOverlapEarlier: AtcPlainDateTime matched an overlap and was
+- `kAtcResolvedOverlapEarlier`: AtcPlainDateTime matched an overlap and was
     resolved to the earlier datetime
-- `kAtcResolvedOverlapLater: AtcPlainDateTime matched an overlap and was
+- `kAtcResolvedOverlapLater`: AtcPlainDateTime matched an overlap and was
     resolved to the later datetime
-- `kAtcResolvedGapEarlier: AtcPlainDateTime matched a gap and was resolved to
+- `kAtcResolvedGapEarlier`: AtcPlainDateTime matched a gap and was resolved to
     the earlier datetime
-- `kAtcResolvedGapLater: AtcPlainDateTime matched a gap and was resolved to the
+- `kAtcResolvedGapLater`: AtcPlainDateTime matched a gap and was resolved to the
     later datetime
 
 The `disambiguate` parameter is *not* required for the
