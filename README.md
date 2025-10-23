@@ -70,7 +70,8 @@ functionality provided by the `BasicZoneProcessor` of the AceTime library.
     - [AtcZonedExtra](#atczonedextra)
     - [AtcZoneRegistrar](#atczoneregistrar)
     - [Custom Registry](#custom-registry)
-- [Bugs and Limitations](#bugs-and-limitations)
+- [Validation](#validation)
+- [Bugs And Limitations](#bugs-and-limitations)
 - [License](#license)
 - [Feedback and Support](#feedback-and-support)
 - [Authors](#authors)
@@ -1248,6 +1249,53 @@ void setup()
 
 See [examples/hello_custom_registry](examples/hello_custom_registry) for
 an example of a custom registry.
+
+## Validation
+
+Validation of the `acetimec` library involves validating the algorithms in the
+[src/acetimec](src/acetimec) directory and the various zoneinfo
+databases over their respective year range of validity:
+
+- [zonedb2000](src/zonedb2000/): from year 2000 until 2200
+- [zonedb2025](src/zonedb2025/): from year 2025 until 2200
+- [zonedball](src/zonedball/)): from year 1800 until 2200 (the earliest date in
+  TZDB is 1844)
+
+For each `zonedb*` database, the DST transitions, epochseconds, and timezone
+abbreviations were calculated using `acetimec` over the year range of validity,
+and compared against the same information generated from the following
+first-party and third-party libraries:
+
+- [C++11/14/17 Hinnant date](https://github.com/HowardHinnant/date) library
+- [GNU libc time](https://www.gnu.org/software/libc/libc.html) library
+- [C# Noda Time](https://nodatime.org) library
+- [Python whenever](https://pypi.org/project/whenever/)
+- [AceTime](https://github.com/bxparks/AceTime): Arduino C++ version of AceTime
+- [acetimego](https://github.com/bxparks/acetimego): Go or TinyGo version of
+  AceTime
+- [acetimepy](https://github.com/bxparks/acetimepy): Python version of AceTime
+
+The results from `acetimec` library were identical to the above libraries, which
+gives a solid indication that the code and zone databases of `acetimec` are
+correct.
+
+The following 3rd party libraries were found to be non-conformant with
+`acetimec` for various reasons:
+
+- [Python pytz](https://pypi.org/project/pytz/): pytz cannot handle years after
+  2038
+- [Python dateutil](https://pypi.org/project/python-dateutil/): dateutil cannot
+  handle years after 2038
+- [Python 3.9 zoneinfo](https://docs.python.org/3/library/zoneinfo.html): 31
+  zones produce incorrect DST offsets
+- Java JDK 11
+  [java.time](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/package-summary.html)
+  library from year 1800 until 2200
+    * 3 IANA timezones are missing from `java.time`
+    * ~100 zones seem to produce incorrect DST offsets
+    * ~7 zones seem to produce incorrect epochSeconds
+- [Go lang `time` package](https://pkg.go.dev/time): 23 zones produce incorrect
+  results
 
 ## Bugs And Limitations
 
