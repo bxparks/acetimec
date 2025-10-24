@@ -30,6 +30,18 @@ Unix epoch of 1970, but is set to 2050 by default. This allows the upper limit
 of this library to be the year 2118. In addition, the epoch year is configurable
 at *run-time* to any year from about 0001 to 9999.
 
+The library does *not* support [leap
+seconds](https://en.wikipedia.org/wiki/Leap_second) and ignores them. Instead it
+uses [UNIX time](https://en.wikipedia.org/wiki/Unix_time) (aka POSIX time) where
+the *POSIX second* is variable in duration compared to the [SI
+second](https://en.wikipedia.org/wiki/Second). During a leap second, a POSIX
+second is conceptually equal to 2 SI seconds, and the POSIX clock changes from
+`23:59:58` to `23:59:59`, then is held for 2 seconds before rolling over to
+`00:00:00`. Most real-time clock (RTC) chips do not support leap seconds either,
+so the final `23:59:59` second will be held for only one second instead of two,
+so a clock using acetimec with such an RTC chip will be off by one second after
+a leap second compared to the atomic UTC clock.
+
 The acetimec library does not perform any dynamic allocation of memory
 internally. Everything it needs is allocated statically or provided by the
 calling program. Applications can choose to allocate the necessary resources
@@ -41,7 +53,7 @@ mostly because the C language does not provide the same level of abstraction and
 encapsulation as the C++ language. If the equivalent functionality of AceTime
 was attempted in this library, the public API would become too large and
 complex, with diminishing returns from the increased complexity. Specifically,
-this library implements the only algorithms provided by the
+this library implements only the algorithms provided by the
 `ExtendedZoneProcessor` class of the AceTime library. It does not implement the
 functionality provided by the `BasicZoneProcessor` of the AceTime library.
 
@@ -1054,9 +1066,9 @@ parameter extends the invalid time backwards or forwards away from the gap. We
 need 2 different sets of offset seconds:
 
 - `req_std_offset_seconds` and `req_dst_offset_seconds` fields correspond
-  to the `AtcPlainDateTime` *before- normalization, and
+  to the `AtcPlainDateTime` *before* normalization, and
 - `std_offset_seconds` and `dst_offset_seconds` fields correspond to the
-  `AtcPlainDateTime` *after- normalization.
+  `AtcPlainDateTime` *after* normalization.
 
 There following functions operate on this data structure (analogous to the
 functions that work with the `AtcZonedDateTime` data structure):
@@ -1336,6 +1348,7 @@ The following 3rd party libraries were found to be non-conformant with
       mutable.
     - If the library is used in a multi-threaded environment, thread-safety must
       be provided externally.
+- No support for [leap seconds](https://en.wikipedia.org/wiki/Leap_second).
 
 ## License
 
