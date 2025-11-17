@@ -58,7 +58,7 @@ this library implements only the algorithms provided by the
 functionality provided by the `BasicZoneProcessor` of the AceTime library.
 
 **Status**: Beta-level, API mostly stable \
-**Version**: 0.14.0 (2025-10-21, TZDB 2025b) \
+**Version**: 0.15.0 (2025-11-17, TZDB 2025b) \
 **Changelog**: [CHANGELOG.md](CHANGELOG.md)
 
 ## Table of Contents
@@ -337,13 +337,6 @@ A number of public constants are provided by this library:
 - `kAtcResolvedOverlapLater = 2`: in overlap and resolved to later time.
 - `kAtcResolvedGapEarlier = 3`: in gap and resolved to earlier time
 - `kAtcResolvedGapLater = 4`: in gap and resolved to later time
-
-**AtcZonedExtra fold_type**
-
-- `kAtcFoldTypeNotFound = 0`: AtcZonedExtra was not found (should never happen)
-- `kAtcFoldTypeExact = 1`: the PlainDateTime or epoch seconds was unique
-- `kAtcFoldTypeOverlap = 2`: the PlainDateTime was in an overlap
-- `kAtcFoldTypeGap = 3`: the PlainDateTime was in a gap
 
 ### `atc_time_t`
 
@@ -1040,15 +1033,8 @@ overlap. But most users will probably be satisfied by the information provided
 by the `AtcZonedDateTime.resolved` field.
 
 ```C
-enum {
-  kAtcFoldTypeNotFound = 0,
-  kAtcFoldTypeExact = 1,
-  kAtcFoldTypeGap = 2,
-  kAtcFoldTypeOverlap = 3,
-};
-
 typedef struct AtcZonedExtra {
-  int8_t fold_type;
+  uint8_t resolved;
   char abbrev[kAtcAbbrevSize];
   int32_t std_offset_seconds; // STD offset
   int32_t dst_offset_seconds; // DST offset
@@ -1057,13 +1043,15 @@ typedef struct AtcZonedExtra {
 } AtcZonedExtra;
 ```
 
-For `type` of `kAtcFoldTypeExact` and `kAtcFoldTypeOverlap`, the `req_std_offset_seconds` and `req_dst_offset_seconds` will be identical
-to the corresponding `std_offset_seconds` and `dst_offset_seconds` parameters.
+For `type` of `kAtcResolvedUnique`, `kAtcResolvedOverlapEarlier`, and
+`kAtcResolvedOverlapLater`, the `req_std_offset_seconds` and
+`req_dst_offset_seconds` will be identical to the corresponding
+`std_offset_seconds` and `dst_offset_seconds` parameters.
 
-For `type` `kAtcFoldTypeGap`, which can be returned only by the
-`atc_zoned_extra_from_plain_date_time()` function below, the `disambiguate`
-parameter extends the invalid time backwards or forwards away from the gap. We
-need 2 different sets of offset seconds:
+For `type` `kAtcResolvedGapEarlier` and `kAtcResolvedGapLater`, which can be
+returned only by the `atc_zoned_extra_from_plain_date_time()` function below,
+the `disambiguate` parameter extends the invalid time backwards or forwards away
+from the gap. We need 2 different sets of offset seconds:
 
 - `req_std_offset_seconds` and `req_dst_offset_seconds` fields correspond
   to the `AtcPlainDateTime` *before* normalization, and
@@ -1095,7 +1083,7 @@ void atc_zoned_extra_from_plain_date_time(
     uint8_t disambiguate);
 ```
 
-On error, the `extra.fold_type` field is set to `kAtcFoldTypeNotFound` and
+On error, the `extra.resolved` field is set to `kAtcResolvedError` and
 `atc_zoned_extra_is_error()` returns `true`.
 
 See [examples/hello_zonedextra](examples/hello_zonedextra) for an example of

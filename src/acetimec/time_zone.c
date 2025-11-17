@@ -127,11 +127,12 @@ void atc_time_zone_zoned_extra_from_epoch_seconds(
     AtcFindResult result;
     atc_processor_find_by_epoch_seconds(
         tz->zone_processor, epoch_seconds, &result);
-    extra->fold_type = result.type;
     if (result.type == kAtcFindResultNotFound) {
+      atc_zoned_extra_set_error(extra);
       return;
     }
 
+    extra->resolved = kAtcResolvedUnique;
     extra->std_offset_seconds = result.std_offset_seconds;
     extra->dst_offset_seconds = result.dst_offset_seconds;
     extra->req_std_offset_seconds = result.req_std_offset_seconds;
@@ -139,7 +140,7 @@ void atc_time_zone_zoned_extra_from_epoch_seconds(
     memcpy(extra->abbrev, result.abbrev, kAtcAbbrevSize);
     extra->abbrev[kAtcAbbrevSize - 1] = '\0';
   } else {
-    extra->fold_type = kAtcFindResultExact;
+    extra->resolved = kAtcResolvedUnique;
     extra->std_offset_seconds = 0;
     extra->dst_offset_seconds = 0;
     extra->req_std_offset_seconds = 0;
@@ -167,11 +168,13 @@ void atc_time_zone_zoned_extra_from_plain_date_time(
     AtcFindResult result;
     atc_processor_find_by_plain_date_time(
       tz->zone_processor, pdt, disambiguate, &result);
-    extra->fold_type = result.type;
     if (result.type == kAtcFindResultNotFound) {
+      atc_zoned_extra_set_error(extra);
       return;
     }
 
+    extra->resolved = resolve_for_result_type_and_fold(
+        result.type, result.fold);
     extra->std_offset_seconds = result.std_offset_seconds;
     extra->dst_offset_seconds = result.dst_offset_seconds;
     extra->req_std_offset_seconds = result.req_std_offset_seconds;
@@ -179,7 +182,7 @@ void atc_time_zone_zoned_extra_from_plain_date_time(
     memcpy(extra->abbrev, result.abbrev, kAtcAbbrevSize);
     extra->abbrev[kAtcAbbrevSize - 1] = '\0';
   } else {
-    extra->fold_type = kAtcFindResultExact;
+    extra->resolved = kAtcResolvedUnique;
     extra->std_offset_seconds = 0;
     extra->dst_offset_seconds = 0;
     extra->req_std_offset_seconds = 0;

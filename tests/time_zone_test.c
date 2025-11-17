@@ -58,7 +58,7 @@ ACU_TEST(test_atc_time_zone_zoned_extra_from_epoch_seconds_utc)
   atc_time_zone_zoned_extra_from_epoch_seconds(tz, epoch_seconds, &extra);
 
   ACU_ASSERT(! atc_zoned_extra_is_error(&extra));
-  ACU_ASSERT(extra.fold_type == kAtcFoldTypeExact);
+  ACU_ASSERT(extra.resolved == kAtcResolvedUnique);
   ACU_ASSERT(extra.std_offset_seconds == 0);
   printf("%d\n", extra.dst_offset_seconds);
   ACU_ASSERT(extra.dst_offset_seconds == 0);
@@ -76,7 +76,7 @@ ACU_TEST(test_atc_time_zone_zoned_extra_from_plain_date_time_utc)
       tz, &pdt, kAtcDisambiguateCompatible, &extra);
 
   ACU_ASSERT(! atc_zoned_extra_is_error(&extra));
-  ACU_ASSERT(extra.fold_type == kAtcFoldTypeExact);
+  ACU_ASSERT(extra.resolved == kAtcResolvedUnique);
   ACU_ASSERT(extra.std_offset_seconds == 0);
   ACU_ASSERT(extra.dst_offset_seconds == 0);
   ACU_ASSERT(extra.req_std_offset_seconds == 0);
@@ -155,7 +155,7 @@ ACU_TEST(test_atc_time_zone_zoned_extra_from_epoch_seconds_los_angeles)
   atc_time_zone_zoned_extra_from_epoch_seconds(&tz, epoch_seconds, &extra);
 
   ACU_ASSERT(! atc_zoned_extra_is_error(&extra));
-  ACU_ASSERT(extra.fold_type == kAtcFoldTypeExact);
+  ACU_ASSERT(extra.resolved == kAtcResolvedUnique);
   ACU_ASSERT(extra.std_offset_seconds == -8*3600);
   ACU_ASSERT(extra.dst_offset_seconds == 0);
   ACU_ASSERT(extra.req_std_offset_seconds == -8*3600);
@@ -175,7 +175,7 @@ ACU_TEST(test_atc_time_zone_zoned_extra_from_plain_date_time_los_angeles)
       &tz, &pdt, kAtcDisambiguateCompatible, &extra);
 
   ACU_ASSERT(! atc_zoned_extra_is_error(&extra));
-  ACU_ASSERT(extra.fold_type == kAtcFoldTypeExact);
+  ACU_ASSERT(extra.resolved == kAtcResolvedUnique);
   ACU_ASSERT(extra.std_offset_seconds == -8*3600);
   ACU_ASSERT(extra.dst_offset_seconds == 0);
   ACU_ASSERT(extra.req_std_offset_seconds == -8*3600);

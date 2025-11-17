@@ -132,10 +132,7 @@ typedef struct AtcZoneProcessor {
   AtcTransitionStorage transition_storage;
 } AtcZoneProcessor;
 
-/**
- * Values of the the AtcFindResult.type field. Must be identical to the
- * corresponding kAtcFoldTypeXxx in zoned_extra.h.
- */
+/** Values of the the AtcFindResult.type field. */
 enum {
   kAtcFindResultNotFound = 0,
   kAtcFindResultExact = 1,

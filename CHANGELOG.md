@@ -1,6 +1,10 @@
 # Changelog
 
 - unreleased
+- 0.15.0 (2025-11-17, TZDB 2025b)
+    - **Breaking** Replace `AtcZonedExtra.fold_type` with
+      `AtcZonedExtra.resolved` which is identical to
+      `AtcZonedDateTime.resolved`.
 - 0.14.0 (2025-10-21, TZDB 2025b)
     - Graduate to Beta-level, API should be mostly stable
     - **Breaking** Rename LocalXxx to PlainXxx, following the conventions

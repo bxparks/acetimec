@@ -7,29 +7,29 @@ $ make
 $ ./hello_zonedextra.out
 ==== Before gap at 2022-03-13 00:30:00
 ZonedDateTime: 2022-03-13T00:30:00-08:00[America/Los_Angeles]
-ZonedDateTime.resolved: 0
+ZonedDateTime.resolved: 1
 ZonedExtra.abbrev: PST
-ZonedExtra.fold_type: 1
+ZonedExtra.resolved: 1
 ==== Inside gap at 2022-03-13 02:30:00
 ZonedDateTime: 2022-03-13T03:30:00-07:00[America/Los_Angeles]
-ZonedDateTime.resolved: 4
+ZonedDateTime.resolved: 5
 ZonedExtra.abbrev: PDT
-ZonedExtra.fold_type: 3
+ZonedExtra.resolved: 5
 ==== In Daylight time at 2022-03-13 03:30:00
 ZonedDateTime: 2022-03-13T03:30:00-07:00[America/Los_Angeles]
-ZonedDateTime.resolved: 0
-ZonedExtra.abbrev: PDT
-ZonedExtra.fold_type: 1
-==== In overlap at 2022-11-06 01:30:00
-ZonedDateTime: 2022-11-06T01:30:00-07:00[America/Los_Angeles]
 ZonedDateTime.resolved: 1
 ZonedExtra.abbrev: PDT
-ZonedExtra.fold_type: 2
+ZonedExtra.resolved: 1
+==== In overlap at 2022-11-06 01:30:00
+ZonedDateTime: 2022-11-06T01:30:00-07:00[America/Los_Angeles]
+ZonedDateTime.resolved: 2
+ZonedExtra.abbrev: PDT
+ZonedExtra.resolved: 2
 ==== In Standard time at 2022-11-06 02:30:00
 ZonedDateTime: 2022-11-06T02:30:00-08:00[America/Los_Angeles]
-ZonedDateTime.resolved: 0
+ZonedDateTime.resolved: 1
 ZonedExtra.abbrev: PST
-ZonedExtra.fold_type: 1
+ZonedExtra.resolved: 1
 */
 
 #include <stdlib.h> // exit()
@@ -77,7 +77,7 @@ void print_info(const char *label, AtcPlainDateTime *pdt, AtcTimeZone *tz)
 
   // Print the abbreviation and fold type (exact, overlap, gap).
   printf("ZonedExtra.abbrev: %s\n", extra.abbrev);
-  printf("ZonedExtra.fold_type: %d\n", extra.fold_type);
+  printf("ZonedExtra.resolved: %d\n", extra.resolved);
 }
 
 void print_dates()
