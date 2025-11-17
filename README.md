@@ -30,6 +30,18 @@ Unix epoch of 1970, but is set to 2050 by default. This allows the upper limit
 of this library to be the year 2118. In addition, the epoch year is configurable
 at *run-time* to any year from about 0001 to 9999.
 
+The library does *not* support [leap
+seconds](https://en.wikipedia.org/wiki/Leap_second) and ignores them. Instead it
+uses [UNIX time](https://en.wikipedia.org/wiki/Unix_time) (aka POSIX time) where
+the *POSIX second* is variable in duration compared to the [SI
+second](https://en.wikipedia.org/wiki/Second). During a leap second, a POSIX
+second is conceptually equal to 2 SI seconds, and the POSIX clock changes from
+`23:59:58` to `23:59:59`, then is held for 2 seconds before rolling over to
+`00:00:00`. Most real-time clock (RTC) chips do not support leap seconds either,
+so the final `23:59:59` second will be held for only one second instead of two,
+so a clock using acetimec with such an RTC chip will be off by one second after
+a leap second compared to the atomic UTC clock.
+
 The acetimec library does not perform any dynamic allocation of memory
 internally. Everything it needs is allocated statically or provided by the
 calling program. Applications can choose to allocate the necessary resources
@@ -41,12 +53,12 @@ mostly because the C language does not provide the same level of abstraction and
 encapsulation as the C++ language. If the equivalent functionality of AceTime
 was attempted in this library, the public API would become too large and
 complex, with diminishing returns from the increased complexity. Specifically,
-this library implements the only algorithms provided by the
+this library implements only the algorithms provided by the
 `ExtendedZoneProcessor` class of the AceTime library. It does not implement the
 functionality provided by the `BasicZoneProcessor` of the AceTime library.
 
 **Status**: Beta-level, API mostly stable \
-**Version**: 0.14.0 (2025-10-21, TZDB 2025b) \
+**Version**: 0.15.0 (2025-11-17, TZDB 2025b) \
 **Changelog**: [CHANGELOG.md](CHANGELOG.md)
 
 ## Table of Contents
@@ -70,7 +82,8 @@ functionality provided by the `BasicZoneProcessor` of the AceTime library.
     - [AtcZonedExtra](#atczonedextra)
     - [AtcZoneRegistrar](#atczoneregistrar)
     - [Custom Registry](#custom-registry)
-- [Bugs and Limitations](#bugs-and-limitations)
+- [Validation](#validation)
+- [Bugs And Limitations](#bugs-and-limitations)
 - [License](#license)
 - [Feedback and Support](#feedback-and-support)
 - [Authors](#authors)
@@ -324,13 +337,6 @@ A number of public constants are provided by this library:
 - `kAtcResolvedOverlapLater = 2`: in overlap and resolved to later time.
 - `kAtcResolvedGapEarlier = 3`: in gap and resolved to earlier time
 - `kAtcResolvedGapLater = 4`: in gap and resolved to later time
-
-**AtcZonedExtra fold_type**
-
-- `kAtcFoldTypeNotFound = 0`: AtcZonedExtra was not found (should never happen)
-- `kAtcFoldTypeExact = 1`: the PlainDateTime or epoch seconds was unique
-- `kAtcFoldTypeOverlap = 2`: the PlainDateTime was in an overlap
-- `kAtcFoldTypeGap = 3`: the PlainDateTime was in a gap
 
 ### `atc_time_t`
 
@@ -781,13 +787,13 @@ be handled. The resulting `zdt.resolved` field is available to indicate how the
 ambiguity (if any) was resolved:
 
 - `kAtcResolvedUnique`: AtcPlainDateTime was unique
-- `kAtcResolvedOverlapEarlier: AtcPlainDateTime matched an overlap and was
+- `kAtcResolvedOverlapEarlier`: AtcPlainDateTime matched an overlap and was
     resolved to the earlier datetime
-- `kAtcResolvedOverlapLater: AtcPlainDateTime matched an overlap and was
+- `kAtcResolvedOverlapLater`: AtcPlainDateTime matched an overlap and was
     resolved to the later datetime
-- `kAtcResolvedGapEarlier: AtcPlainDateTime matched a gap and was resolved to
+- `kAtcResolvedGapEarlier`: AtcPlainDateTime matched a gap and was resolved to
     the earlier datetime
-- `kAtcResolvedGapLater: AtcPlainDateTime matched a gap and was resolved to the
+- `kAtcResolvedGapLater`: AtcPlainDateTime matched a gap and was resolved to the
     later datetime
 
 The `disambiguate` parameter is *not* required for the
@@ -1027,15 +1033,8 @@ overlap. But most users will probably be satisfied by the information provided
 by the `AtcZonedDateTime.resolved` field.
 
 ```C
-enum {
-  kAtcFoldTypeNotFound = 0,
-  kAtcFoldTypeExact = 1,
-  kAtcFoldTypeGap = 2,
-  kAtcFoldTypeOverlap = 3,
-};
-
 typedef struct AtcZonedExtra {
-  int8_t fold_type;
+  uint8_t resolved;
   char abbrev[kAtcAbbrevSize];
   int32_t std_offset_seconds; // STD offset
   int32_t dst_offset_seconds; // DST offset
@@ -1044,18 +1043,20 @@ typedef struct AtcZonedExtra {
 } AtcZonedExtra;
 ```
 
-For `type` of `kAtcFoldTypeExact` and `kAtcFoldTypeOverlap`, the `req_std_offset_seconds` and `req_dst_offset_seconds` will be identical
-to the corresponding `std_offset_seconds` and `dst_offset_seconds` parameters.
+For `type` of `kAtcResolvedUnique`, `kAtcResolvedOverlapEarlier`, and
+`kAtcResolvedOverlapLater`, the `req_std_offset_seconds` and
+`req_dst_offset_seconds` will be identical to the corresponding
+`std_offset_seconds` and `dst_offset_seconds` parameters.
 
-For `type` `kAtcFoldTypeGap`, which can be returned only by the
-`atc_zoned_extra_from_plain_date_time()` function below, the `disambiguate`
-parameter extends the invalid time backwards or forwards away from the gap. We
-need 2 different sets of offset seconds:
+For `type` `kAtcResolvedGapEarlier` and `kAtcResolvedGapLater`, which can be
+returned only by the `atc_zoned_extra_from_plain_date_time()` function below,
+the `disambiguate` parameter extends the invalid time backwards or forwards away
+from the gap. We need 2 different sets of offset seconds:
 
 - `req_std_offset_seconds` and `req_dst_offset_seconds` fields correspond
-  to the `AtcPlainDateTime` *before- normalization, and
+  to the `AtcPlainDateTime` *before* normalization, and
 - `std_offset_seconds` and `dst_offset_seconds` fields correspond to the
-  `AtcPlainDateTime` *after- normalization.
+  `AtcPlainDateTime` *after* normalization.
 
 There following functions operate on this data structure (analogous to the
 functions that work with the `AtcZonedDateTime` data structure):
@@ -1082,7 +1083,7 @@ void atc_zoned_extra_from_plain_date_time(
     uint8_t disambiguate);
 ```
 
-On error, the `extra.fold_type` field is set to `kAtcFoldTypeNotFound` and
+On error, the `extra.resolved` field is set to `kAtcResolvedError` and
 `atc_zoned_extra_is_error()` returns `true`.
 
 See [examples/hello_zonedextra](examples/hello_zonedextra) for an example of
@@ -1249,6 +1250,53 @@ void setup()
 See [examples/hello_custom_registry](examples/hello_custom_registry) for
 an example of a custom registry.
 
+## Validation
+
+Validation of the `acetimec` library involves validating the algorithms in the
+[src/acetimec](src/acetimec) directory and the various zoneinfo
+databases over their respective year range of validity:
+
+- [zonedb2000](src/zonedb2000/): from year 2000 until 2200
+- [zonedb2025](src/zonedb2025/): from year 2025 until 2200
+- [zonedball](src/zonedball/)): from year 1800 until 2200 (the earliest date in
+  TZDB is 1844)
+
+For each `zonedb*` database, the DST transitions, epochseconds, and timezone
+abbreviations were calculated using `acetimec` over the year range of validity,
+and compared against the same information generated from the following
+first-party and third-party libraries:
+
+- [C++11/14/17 Hinnant date](https://github.com/HowardHinnant/date) library
+- [GNU libc time](https://www.gnu.org/software/libc/libc.html) library
+- [C# Noda Time](https://nodatime.org) library
+- [Python whenever](https://pypi.org/project/whenever/)
+- [AceTime](https://github.com/bxparks/AceTime): Arduino C++ version of AceTime
+- [acetimego](https://github.com/bxparks/acetimego): Go or TinyGo version of
+  AceTime
+- [acetimepy](https://github.com/bxparks/acetimepy): Python version of AceTime
+
+The results from `acetimec` library were identical to the above libraries, which
+gives a solid indication that the code and zone databases of `acetimec` are
+correct.
+
+The following 3rd party libraries were found to be non-conformant with
+`acetimec` for various reasons:
+
+- [Python pytz](https://pypi.org/project/pytz/): pytz cannot handle years after
+  2038
+- [Python dateutil](https://pypi.org/project/python-dateutil/): dateutil cannot
+  handle years after 2038
+- [Python 3.9 zoneinfo](https://docs.python.org/3/library/zoneinfo.html): 31
+  zones produce incorrect DST offsets
+- Java JDK 11
+  [java.time](https://docs.oracle.com/en/java/javase/11/docs/api/java.base/java/time/package-summary.html)
+  library from year 1800 until 2200
+    * 3 IANA timezones are missing from `java.time`
+    * ~100 zones seem to produce incorrect DST offsets
+    * ~7 zones seem to produce incorrect epochSeconds
+- [Go lang `time` package](https://pkg.go.dev/time): 23 zones produce incorrect
+  results
+
 ## Bugs And Limitations
 
 - No support to store constants in flash memory on some microcontrollers.
@@ -1288,6 +1336,7 @@ an example of a custom registry.
       mutable.
     - If the library is used in a multi-threaded environment, thread-safety must
       be provided externally.
+- No support for [leap seconds](https://en.wikipedia.org/wiki/Leap_second).
 
 ## License
 

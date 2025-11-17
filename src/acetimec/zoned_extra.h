@@ -27,25 +27,16 @@ typedef struct AtcTimeZone AtcTimeZone;
 typedef struct AtcPlainDateTime AtcPlainDateTime;
 
 /**
- * Values of the the AtcZonedExtra.fold_type field. Must be identical to the
- * corresponding AtcFindResultXxx enums in zone_processor.h.
- */
-enum {
-  kAtcFoldTypeNotFound = 0, // rename this to kAtcFoldTypeError?
-  kAtcFoldTypeExact = 1,
-  kAtcFoldTypeOverlap = 2,
-  kAtcFoldTypeGap = 3,
-};
-
-/**
  * Extra information about a given time zone at a specified epoch seconds.
  */
 typedef struct AtcZonedExtra {
   /**
-   * Result of search for the PlainDateTime or epoch_seconds, which is
-   * determines by the type of fold.
+   * Describes how the lookup from PlainDateTime or epoch_seconds was resolved,
+   * as determined by the type of fold and the disambiguate parameter. This
+   * parameter is identical to the AtcZonedDatetime.resolved field. The values
+   * are defined by the kAtcResolvedXxx constants.
    */
-  int8_t fold_type;
+  uint8_t resolved;
 
   /** abbreviation (e.g. PST, PDT) */
   char abbrev[kAtcAbbrevSize];
@@ -64,19 +55,20 @@ typedef struct AtcZonedExtra {
 } AtcZonedExtra;
 
 /**
- * Set the given AtcZonedDateTime to its error state, i.e. kFoldTypeNotFound.
+ * Set the given AtcZonedExtra to its error state, AtcZonedExtra.resolved ==
+ * kAtcResolvedError.
  */
 void atc_zoned_extra_set_error(AtcZonedExtra *extra);
 
 /**
- * Return true if AtcZonedExtra is an error defined by fold_type ==
- * kFoldTypeNotFound.
+ * Return true if AtcZonedExtra is an error indicated by (resolved ==
+ * kResolvedError).
  */
 bool atc_zoned_extra_is_error(const AtcZonedExtra *extra);
 
 /**
  * Extract the extra zone information at given epoch seconds.
- * Returns error status in `extra->fold_type`.
+ * Returns error status in `extra->resolved`.
  */
 void atc_zoned_extra_from_epoch_seconds(
     AtcZonedExtra *extra,
@@ -89,7 +81,7 @@ void atc_zoned_extra_from_epoch_seconds(
  * seconds is determined by the range of the epoch seconds in the context of the
  * current epoch year.
  *
- * Returns `extra->fold_type == kAtcFoldTypeNotFound` if not found.
+ * Returns `extra->resolved == kAtcResolvedError` if not found.
  */
 void atc_zoned_extra_from_unix_seconds(
     AtcZonedExtra *extra,
@@ -98,7 +90,7 @@ void atc_zoned_extra_from_unix_seconds(
 
 /**
  * Extract the extra zone information at given PlainDateTime.
- * Returns `extra->fold_type == kAtcFoldTypeNotFound` if not found.
+ * Returns `extra->resolved == kAtcResolvedError` if not found.
  */
 void atc_zoned_extra_from_plain_date_time(
     AtcZonedExtra *extra,

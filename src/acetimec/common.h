@@ -98,20 +98,23 @@ enum {
 };
 
 enum {
-  /** Resolved to unique ZonedDateTime. */
-  kAtcResolvedUnique = 0,
+  /** Resolved to an error, for example, was not found. */
+  kAtcResolvedError = 0,
+
+  /** Resolved to unique ZonedDateTime or ZonedExtra. */
+  kAtcResolvedUnique = 1,
 
   /** In overlap and resolved to earlier time. */
-  kAtcResolvedOverlapEarlier = 1,
+  kAtcResolvedOverlapEarlier = 2,
 
   /** In overlap and resolved to later time. */
-  kAtcResolvedOverlapLater = 2,
+  kAtcResolvedOverlapLater = 3,
 
   /** In gap and resolved to earlier time. */
-  kAtcResolvedGapEarlier = 3,
+  kAtcResolvedGapEarlier = 4,
 
   /** In gap and resolved to later time. */
-  kAtcResolvedGapLater = 4,
+  kAtcResolvedGapLater = 5,
 };
 
 enum {
